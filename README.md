@@ -1,2 +1,3 @@
-# riic-engine
- Standalone desktop app for simulating performance of RIIC setups
+# RIIC Engine
+
+Standalone desktop app for simulating performance of RIIC setups
