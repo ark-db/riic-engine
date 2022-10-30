@@ -1,11 +1,16 @@
 <script lang="ts">
     import { invoke } from "@tauri-apps/api/tauri";
-    import type { FixedArray } from "@types";
+
+    type FileData = {
+        name: string,
+        modified: number,
+        created: number
+    }
 
     let saves = fetchSaves();
 
     async function fetchSaves() {
-        return await invoke("fetch_saves") as FixedArray<string, 3>[];
+        return await invoke("fetch_saves") as FileData[];
     }
 </script>
 
