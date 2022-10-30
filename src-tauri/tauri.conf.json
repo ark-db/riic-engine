@@ -12,16 +12,15 @@
   },
   "tauri": {
     "allowlist": {
-      "all": true
+      "all": false
     },
     "bundle": {
       "active": true,
-      "category": "DeveloperTool",
-      "copyright": "",
-      "deb": {
-        "depends": []
-      },
-      "externalBin": [],
+      "identifier": "com.ark-db.riic-engine",
+      "shortDescription": "Standalone desktop app for simulating performance of RIIC setups",
+      "longDescription": "Standalone desktop app for simulating performance of RIIC setups",
+      "category": "Utility",
+      "copyright": "© 2022 astral4",
       "icon": [
         "icons/32x32.png",
         "icons/128x128.png",
@@ -29,8 +28,12 @@
         "icons/icon.icns",
         "icons/icon.ico"
       ],
-      "identifier": "com.tauri.dev",
-      "longDescription": "",
+      "resources": [],
+      "externalBin": [],
+      "targets": "all",
+      "deb": {
+        "depends": []
+      },
       "macOS": {
         "entitlements": null,
         "exceptionDomain": "",
@@ -38,9 +41,6 @@
         "providerShortName": null,
         "signingIdentity": null
       },
-      "resources": [],
-      "shortDescription": "",
-      "targets": "all",
       "windows": {
         "certificateThumbprint": null,
         "digestAlgorithm": "sha256",
@@ -48,18 +48,27 @@
       }
     },
     "security": {
-      "csp": null
+      "csp": {
+        "default-src": ["none"],
+        "img-src": ["self"],
+        "script-src": ["self"],
+        "style-src": ["self"]
+      },
+      "freezePrototype": true
     },
     "updater": {
       "active": false
     },
     "windows": [
       {
-        "fullscreen": false,
-        "height": 600,
-        "resizable": true,
         "title": "RIIC Engine",
-        "width": 800
+        "center": true,
+        "height": 750,
+        "minHeight": 750,
+        "width": 1000,
+        "minWidth": 1000,
+        "fileDropEnabled": false,
+        "theme": "Dark"
       }
     ]
   }
