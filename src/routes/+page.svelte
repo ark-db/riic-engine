@@ -1,2 +1,14 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<h1>RIIC Engine</h1>
+<p>v0.1.0</p>
+
+
+
+<style>
+    h1, p {
+        text-align: center;
+        color: var(--light);
+    }
+    h1 {
+        font-size: 4em;
+    }
+</style>
