@@ -1,16 +1,23 @@
 #![warn(clippy::all, clippy::pedantic)]
 
 use std::{fs, path::PathBuf};
-use serde::ser::SerializeStruct;
+use serde::Serialize;
 
 
 
 #[derive(Debug, thiserror::Error)]
 pub enum Error {
-  #[error(transparent)]
-  Io(#[from] std::io::Error),
-  #[error(transparent)]
-  Time(#[from] std::time::SystemTimeError),
+    #[error(transparent)]
+    Io(#[from] std::io::Error),
+
+    #[error(transparent)]
+    Time(#[from] std::time::SystemTimeError),
+
+    #[error(transparent)]
+    FileWrite(#[from] serde_json::Error),
+
+    #[error("No name specified")]
+    NameEmpty,
 }
 
 impl serde::Serialize for Error {
@@ -21,6 +28,7 @@ impl serde::Serialize for Error {
     }
 }
 
+#[derive(Serialize)]
 pub struct FileData {
     name: String,
     modified: u64,
@@ -38,22 +46,15 @@ impl FileData {
     }
 }
 
-impl serde::Serialize for FileData {
-    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
-        where
-            S: serde::Serializer {
-        let mut data = serializer.serialize_struct("FileData", 3)?;
-        data.serialize_field("name", &self.name)?;
-        data.serialize_field("modified", &self.modified)?;
-        data.serialize_field("created", &self.created)?;
-        data.end()
-    }
+#[derive(Serialize)]
+pub struct Save {
+    name: String,
+    data: Option<i32>
 }
 
 
 
-#[tauri::command]
-pub async fn fetch_saves(app: tauri::AppHandle) -> Result<Vec<FileData>, Error> {
+fn get_saves_dir(app: tauri::AppHandle) -> Result<PathBuf, Error> {
     let app_dir = app.path_resolver().app_dir().expect("App directory should be retrievable");
     let saves_dir = app_dir.join("saves");
 
@@ -61,9 +62,22 @@ pub async fn fetch_saves(app: tauri::AppHandle) -> Result<Vec<FileData>, Error> 
         fs::create_dir_all(&saves_dir)?;
     }
 
+    Ok(saves_dir)
+}
+
+fn get_save_fp(app: tauri::AppHandle, name: &str) -> Result<PathBuf, Error> {
+    if name.is_empty() {
+        return Err(Error::NameEmpty);
+    }
+    let target_path = get_saves_dir(app)?.join(format!("{}.json", name));
+    Ok(target_path)
+}
+
+#[tauri::command]
+pub async fn fetch_saves(app: tauri::AppHandle) -> Result<Vec<FileData>, Error> {
     let mut saves: Vec<FileData> = Vec::new();
 
-    for entry in fs::read_dir(saves_dir)? {
+    for entry in fs::read_dir(get_saves_dir(app)?)? {
         let path = entry?.path();
         let metadata = fs::metadata(&path)?;
 
@@ -73,4 +87,18 @@ pub async fn fetch_saves(app: tauri::AppHandle) -> Result<Vec<FileData>, Error> 
     }
 
     Ok(saves)
+}
+
+#[tauri::command]
+pub async fn create_save(app: tauri::AppHandle, name: &str) -> Result<(), Error> {
+    let target_path = get_save_fp(app, name)?;
+    serde_json::to_writer(fs::File::create(target_path)?, &Save{name: name.to_string(), data: None})?;
+    Ok(())
+}
+
+#[tauri::command]
+pub async fn delete_save(app: tauri::AppHandle, name: &str) -> Result<(), Error> {
+    let target_path = get_save_fp(app, name)?;
+    fs::remove_file(target_path)?;
+    Ok(())
 }

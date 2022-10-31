@@ -10,7 +10,7 @@ const config = {
 	kit: {
 		adapter: adapter(),
 		alias: {
-			"@types": "src/types.ts"
+			'@types': 'src/types.ts'
 		}
 	}
 };

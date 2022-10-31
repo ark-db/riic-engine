@@ -1,79 +1,75 @@
 {
-  "$schema": "../node_modules/@tauri-apps/cli/schema.json",
-  "build": {
-    "beforeBuildCommand": "npm run build",
-    "beforeDevCommand": "npm run dev",
-    "devPath": "http://localhost:5173",
-    "distDir": "../build"
-  },
-  "package": {
-    "productName": "RIIC Engine",
-    "version": "0.1.0"
-  },
-  "tauri": {
-    "allowlist": {
-      "all": false,
-      "fs": {
-        "scope": ["$APP"],
-        "all": true
-      }
-    },
-    "bundle": {
-      "active": true,
-      "identifier": "com.ark-db.riic-engine",
-      "shortDescription": "Standalone desktop app for simulating performance of RIIC setups",
-      "longDescription": "Standalone desktop app for simulating performance of RIIC setups",
-      "category": "Utility",
-      "copyright": "© 2022 astral4",
-      "icon": [
-        "icons/32x32.png",
-        "icons/128x128.png",
-        "icons/128x128@2x.png",
-        "icons/icon.icns",
-        "icons/icon.ico"
-      ],
-      "resources": [],
-      "externalBin": [],
-      "targets": "all",
-      "deb": {
-        "depends": []
-      },
-      "macOS": {
-        "entitlements": null,
-        "exceptionDomain": "",
-        "frameworks": [],
-        "providerShortName": null,
-        "signingIdentity": null
-      },
-      "windows": {
-        "certificateThumbprint": null,
-        "digestAlgorithm": "sha256",
-        "timestampUrl": ""
-      }
-    },
-    "security": {
-      "csp": {
-        "default-src": ["none"],
-        "img-src": ["self"],
-        "script-src": ["self"],
-        "style-src": ["self"]
-      },
-      "freezePrototype": true
-    },
-    "updater": {
-      "active": false
-    },
-    "windows": [
-      {
-        "title": "RIIC Engine",
-        "center": true,
-        "height": 750,
-        "minHeight": 750,
-        "width": 1000,
-        "minWidth": 1000,
-        "fileDropEnabled": false,
-        "theme": "Dark"
-      }
-    ]
-  }
+	"$schema": "../node_modules/@tauri-apps/cli/schema.json",
+	"build": {
+		"beforeBuildCommand": "npm run build",
+		"beforeDevCommand": "npm run dev",
+		"devPath": "http://localhost:5173",
+		"distDir": "../build"
+	},
+	"package": {
+		"productName": "RIIC Engine",
+		"version": "0.1.0"
+	},
+	"tauri": {
+		"allowlist": {
+			"all": false
+		},
+		"bundle": {
+			"active": true,
+			"identifier": "com.ark-db.riic-engine",
+			"shortDescription": "Standalone desktop app for simulating performance of RIIC setups",
+			"longDescription": "Standalone desktop app for simulating performance of RIIC setups",
+			"category": "Utility",
+			"copyright": "© 2022 astral4",
+			"icon": [
+				"icons/32x32.png",
+				"icons/128x128.png",
+				"icons/128x128@2x.png",
+				"icons/icon.icns",
+				"icons/icon.ico"
+			],
+			"resources": [],
+			"externalBin": [],
+			"targets": "all",
+			"deb": {
+				"depends": []
+			},
+			"macOS": {
+				"entitlements": null,
+				"exceptionDomain": "",
+				"frameworks": [],
+				"providerShortName": null,
+				"signingIdentity": null
+			},
+			"windows": {
+				"certificateThumbprint": null,
+				"digestAlgorithm": "sha256",
+				"timestampUrl": ""
+			}
+		},
+		"security": {
+			"csp": {
+				"default-src": ["none"],
+				"img-src": ["self"],
+				"script-src": ["self"],
+				"style-src": ["self"]
+			},
+			"freezePrototype": true
+		},
+		"updater": {
+			"active": false
+		},
+		"windows": [
+			{
+				"title": "RIIC Engine",
+				"center": true,
+				"height": 750,
+				"minHeight": 750,
+				"width": 1000,
+				"minWidth": 1000,
+				"fileDropEnabled": false,
+				"theme": "Dark"
+			}
+		]
+	}
 }
