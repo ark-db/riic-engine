@@ -1,1 +1,1 @@
-export let foo = true;
+export type MaybePromise<T> = Promise<T> | undefined;

@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { invoke } from '@tauri-apps/api/tauri';
+	import type { MaybePromise } from '@types';
 
 	type FileData = {
 		name: string;
@@ -8,16 +9,16 @@
 	};
 
 	let saves = fetchSaves();
-	let saveCreationStatus: Promise<null>;
+	let saveCreationStatus: MaybePromise<null>;
 
 	let newSaveName = '';
 
-	async function fetchSaves() {
-		return (await invoke('fetch_saves')) as FileData[];
+	async function fetchSaves(): Promise<FileData[]> {
+		return await invoke('fetch_saves');
 	}
 
-	async function createSave(name: string) {
-		return (await invoke('create_save', { name })) as null;
+	async function createSave(name: string): Promise<null> {
+		return await invoke('create_save', { name });
 	}
 </script>
 
