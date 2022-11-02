@@ -12,6 +12,15 @@ const config = {
 		alias: {
 			'@types': 'src/types.ts',
 			'@stores': 'src/stores.ts'
+		},
+		csp: {
+			mode: 'hash',
+			directives: {
+				'default-src': ['none'],
+				'img-src': ['self'],
+				'script-src': ['self'],
+				'style-src': ['self']
+			}
 		}
 	}
 };

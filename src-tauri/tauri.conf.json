@@ -48,12 +48,6 @@
 			}
 		},
 		"security": {
-			"csp": {
-				"default-src": ["none"],
-				"img-src": ["self"],
-				"script-src": ["self"],
-				"style-src": ["self"]
-			},
 			"freezePrototype": true
 		},
 		"updater": {
