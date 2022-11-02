@@ -1,65 +1,54 @@
 <script lang="ts">
 	import { invoke } from '@tauri-apps/api/tauri';
-	import type { MaybePromise } from '@types';
-
-	type FileData = {
-		name: string;
-		modified: number;
-		created: number;
-	};
+	import type { SaveData } from '@types';
+	import { saveSortMode } from '@stores';
+	import Header from '$lib/components/Header.svelte';
+	import SaveEntry from '$lib/components/SaveEntry.svelte';
+	import Error from '$lib/components/Error.svelte';
 
 	let saves = fetchSaves();
-	let saveCreationStatus: MaybePromise<null>;
 
-	let newSaveName = '';
-
-	async function fetchSaves(): Promise<FileData[]> {
+	async function fetchSaves(): Promise<SaveData[]> {
 		return await invoke('fetch_saves');
-	}
-
-	async function createSave(name: string): Promise<null> {
-		return await invoke('create_save', { name });
 	}
 </script>
 
-<h1>RIIC Engine</h1>
-<p>v0.1.0</p>
+<Header />
 
 {#await saves}
-	<p>Loading...</p>
+	<p class="progress-text">Loading saves...</p>
 {:then saveList}
 	{#if saveList.length > 0}
-		{#each saveList.sort((prev, curr) => prev.created - curr.created) as save}
-			<p>File name: {save.name}</p>
-		{/each}
+		<div class="saves">
+			{#each saveList.sort((prev, curr) => prev[$saveSortMode] - curr[$saveSortMode]) as save}
+				<SaveEntry {save} />
+			{/each}
+		</div>
 	{:else}
-		<p>No saves found!</p>
+		<p class="placeholder">No saves found!</p>
 	{/if}
-	<input type="text" bind:value={newSaveName} />
-	{#if newSaveName}
-		<button
-			on:click={() =>
-				(saveCreationStatus = createSave(newSaveName).finally(() => (saves = fetchSaves())))}
-		>
-			Add new save
-		</button>
-	{/if}
-	{#await saveCreationStatus then _}
-		<p>Success!</p>
-	{:catch err}
-		<p>{err}</p>
-	{/await}
 {:catch err}
-	<p>{err}</p>
+	<Error msg={err} />
 {/await}
 
 <style>
-	h1,
-	p {
+	.progress-text {
+		border-radius: 1em;
+		padding: 1em;
+		background-color: var(--dark-strong);
 		text-align: center;
-		color: var(--light);
+		color: var(--light-strong);
 	}
-	h1 {
-		font-size: 4em;
+	.saves {
+		display: flex;
+		flex-direction: column;
+		row-gap: 0.5em;
+	}
+	.placeholder {
+		border-radius: 1em;
+		padding: 1em;
+		background-color: var(--dark-strong);
+		text-align: center;
+		color: var(--light-strong);
 	}
 </style>
