@@ -41,10 +41,15 @@
 
 <input
 	type="text"
+	placeholder="Setup name..."
+	required={true}
+	pattern="[\w-]+$"
+	minlength="1"
+	maxlength="25"
+	autocapitalize="off"
 	autocomplete="off"
 	spellcheck="false"
-	autocorrect="off"
-	required={true}
+	enterkeyhint="done"
 	bind:this={input}
 	bind:value={text}
 	on:keydown={handleKeydown}
@@ -56,16 +61,23 @@
 <style>
 	input {
 		margin: 0;
-		padding: 0.3em 0.25em 0.4em 0.5em;
-		max-width: 30vw;
+		padding: 0.3em 0.5em 0.4em;
 		font-size: 1.25em;
 		font-weight: 600;
 		color: var(--light);
 		background-color: var(--dark-strong);
 	}
 	input:focus {
-		background-color: var(--dark);
+		outline: none;
 		border: 2px solid var(--light);
 		border-radius: 0.25em;
+		background-color: var(--dark);
+	}
+	input:invalid:not(:placeholder-shown) {
+		border: 2px solid var(--salmon-strong);
+		border-radius: 0.25em;
+	}
+	::placeholder {
+		color: var(--gray);
 	}
 </style>
