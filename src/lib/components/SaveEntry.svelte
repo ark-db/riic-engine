@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { SaveData } from '@types';
 	import { saveSortMode } from '@stores';
-
+	import SaveNameInput from './SaveNameInput.svelte';
 	export let save: SaveData;
 
 	function formatStr(num: number, unit: string): string {
@@ -22,26 +22,22 @@
 </script>
 
 <div>
-	<p class="title">{save.name}</p>
+	<SaveNameInput text={save.name} />
 	<p class="time">{formatTime(save[$saveSortMode])}</p>
 </div>
 
 <style>
 	div {
 		border-radius: 0.75em;
-		padding: 1.5em 1em;
+		padding: 1em;
 		background: var(--dark-strong);
 		display: flex;
+		align-items: center;
 		justify-content: space-between;
 	}
 	p {
 		margin: 0;
 		padding: 0 0.5em;
-	}
-	.title {
-		color: var(--light);
-		font-size: large;
-		font-weight: 600;
 	}
 	.time {
 		color: var(--gray);

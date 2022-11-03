@@ -8,7 +8,7 @@
 
 fn main() {
   tauri::Builder::default()
-    .invoke_handler(tauri::generate_handler![saves::fetch_saves, saves::create_save, saves::delete_save])
+    .invoke_handler(tauri::generate_handler![saves::fetch_saves, saves::create_save, saves::rename_save, saves::delete_save])
     .run(tauri::generate_context!())
     .expect("An error occurred while running the application.");
 }

@@ -28,7 +28,7 @@
 		<p class="placeholder">No saves found!</p>
 	{/if}
 {:catch err}
-	<Error msg={err} />
+	<Error msg={err} visible={true} />
 {/await}
 
 <style>

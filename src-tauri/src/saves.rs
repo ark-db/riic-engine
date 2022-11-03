@@ -19,6 +19,9 @@ pub enum Error {
 
     #[error("No name specified")]
     NameEmpty,
+
+    #[error("Another file with the same name already exists")]
+    DuplicateName
 }
 
 impl serde::Serialize for Error {
@@ -94,6 +97,18 @@ pub fn fetch_saves(app: tauri::AppHandle) -> Result<Vec<FileData>, Error> {
 pub fn create_save(app: tauri::AppHandle, name: &str) -> Result<(), Error> {
     let target_path = get_save_fp(&app, name)?;
     serde_json::to_writer(fs::File::create(target_path)?, &Save{name: name.to_string(), data: None})?;
+    Ok(())
+}
+
+#[tauri::command]
+pub fn rename_save(app: tauri::AppHandle, old: &str, new: &str) -> Result<(), Error> {
+    let new_path = get_save_fp(&app, new)?;
+    if new_path.is_file() {
+        return Err(Error::DuplicateName);
+    }
+
+    let old_path = get_save_fp(&app, old)?;
+    fs::rename(old_path, new_path)?;
     Ok(())
 }
 

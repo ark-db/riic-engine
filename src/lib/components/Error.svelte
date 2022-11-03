@@ -1,35 +1,29 @@
 <script lang="ts">
 	import xmark from '$lib/images/red-xmark.svg';
 	export let msg: string;
-
-	let visible = true;
+	export let visible = false;
 </script>
 
 {#if visible}
-	<div class="bottom">
-		<div class="container">
-			<p>{msg}</p>
-			<input
-				type="image"
-				src={xmark}
-				alt="Delete button"
-				height="20"
-				width="20"
-				on:click={() => (visible = false)}
-			/>
-		</div>
+	<div class="container">
+		<p>{msg}</p>
+		<input
+			type="image"
+			src={xmark}
+			alt="Delete button"
+			height="20"
+			width="20"
+			on:click={() => (visible = false)}
+		/>
 	</div>
 {/if}
 
 <style>
-	.bottom {
-		display: flex;
-		justify-content: center;
-	}
 	.container {
-		flex-grow: 1;
 		position: fixed;
 		bottom: 5%;
+		left: 50%;
+		transform: translate(-50%, -50%);
 		border: 2px solid var(--salmon-strong);
 		border-radius: 1em;
 		padding: 0 1em;

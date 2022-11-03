@@ -27,7 +27,7 @@
 		font-size: 3em;
 	}
 	span {
-        margin: 0 0.2em;
+		margin: 0 0.2em;
 		font-weight: 100;
 	}
 	a {
