@@ -3,6 +3,7 @@
 	import type { SaveData } from '@types';
 	import { saveSortMode } from '@stores';
 	import Header from '$lib/components/Header.svelte';
+	import SaveDisplayControls from '$lib/components/SaveDisplayControls.svelte';
 	import SaveEntry from '$lib/components/SaveEntry.svelte';
 	import Error from '$lib/components/Error.svelte';
 
@@ -14,6 +15,8 @@
 </script>
 
 <Header />
+
+<SaveDisplayControls />
 
 {#await saves}
 	<p class="progress-text">Loading saves...</p>

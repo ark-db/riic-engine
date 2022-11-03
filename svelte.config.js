@@ -11,7 +11,8 @@ const config = {
 		adapter: adapter(),
 		alias: {
 			'@types': 'src/types.ts',
-			'@stores': 'src/stores.ts'
+			'@stores': 'src/stores.ts',
+			'@tooltip': 'src/tooltip.ts'
 		},
 		csp: {
 			mode: 'hash',

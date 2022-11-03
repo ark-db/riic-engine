@@ -12,7 +12,6 @@
 
 <style>
 	header {
-		margin-bottom: 2em;
 		border-radius: 0.75em;
 		padding: 1em;
 		background-color: var(--dark-strong);
