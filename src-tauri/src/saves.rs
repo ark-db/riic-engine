@@ -64,7 +64,6 @@ impl FileData {
 
 #[derive(Serialize)]
 pub struct Save {
-    name: String,
     data: Option<i32>,
 }
 
@@ -110,19 +109,18 @@ pub fn fetch_saves(app: tauri::AppHandle) -> Result<Vec<FileData>, Error> {
 }
 
 #[tauri::command]
-pub fn create_save(app: tauri::AppHandle, name: &str) -> Result<(), Error> {
-    let target_path = get_save_fp(&app, name)?;
-    if target_path.is_file() {
-        return Err(Error::DuplicateName);
+pub fn create_save(app: tauri::AppHandle) -> Result<(), Error> {
+    let save_dir = get_saves_dir(&app)?;
+    let mut target_path = save_dir.join("Untitled.json");
+
+    for i in 1.. {
+        if !target_path.is_file() {
+            break;
+        }
+        target_path = save_dir.join(format!("Untitled-{}.json", i));
     }
 
-    serde_json::to_writer(
-        fs::File::create(target_path)?,
-        &Save {
-            name: name.to_string(),
-            data: None,
-        },
-    )?;
+    serde_json::to_writer(fs::File::create(target_path)?, &Save { data: None })?;
     Ok(())
 }
 

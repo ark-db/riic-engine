@@ -8,15 +8,22 @@
 	import Error from '$lib/components/Error.svelte';
 
 	let saves = fetchSaves();
+	let creationState: Promise<null>;
 
 	async function fetchSaves(): Promise<SaveData[]> {
 		return await invoke('fetch_saves');
+	}
+
+	async function createSave(): Promise<null> {
+		const res = (await invoke('create_save')) as null;
+		saves = fetchSaves();
+		return res;
 	}
 </script>
 
 <Header />
 
-<SaveDisplayControls />
+<SaveDisplayControls on:click={() => (creationState = createSave())} />
 
 {#await saves}
 	<p class="progress-text">Loading saves...</p>
@@ -31,6 +38,11 @@
 		<p class="placeholder">No saves found!</p>
 	{/if}
 {:catch err}
+	<Error msg={err} visible={true} />
+{/await}
+
+<!-- prettier-ignore -->
+{#await creationState catch err}
 	<Error msg={err} visible={true} />
 {/await}
 

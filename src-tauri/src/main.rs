@@ -5,6 +5,8 @@
 #![feature(option_result_contains)]
 #![feature(path_file_prefix)]
 
+pub mod saves;
+
 fn main() {
     tauri::Builder::default()
         .invoke_handler(tauri::generate_handler![
@@ -16,5 +18,3 @@ fn main() {
         .run(tauri::generate_context!())
         .expect("An error occurred while running the application.");
 }
-
-pub mod saves;

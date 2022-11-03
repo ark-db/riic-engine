@@ -12,6 +12,7 @@
 		height="30"
 		title="Create new setup"
 		use:tooltip
+		on:click
 	/>
 </div>
 
