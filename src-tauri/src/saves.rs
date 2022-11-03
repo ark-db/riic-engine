@@ -1,10 +1,15 @@
 #![warn(clippy::all, clippy::pedantic)]
-#![allow(clippy::missing_errors_doc, clippy::module_name_repetitions, clippy::needless_pass_by_value)]
+#![allow(
+    clippy::missing_errors_doc,
+    clippy::module_name_repetitions,
+    clippy::needless_pass_by_value
+)]
 
-use std::{fs, path::{Path, PathBuf}};
 use serde::Serialize;
-
-
+use std::{
+    fs,
+    path::{Path, PathBuf},
+};
 
 #[derive(Debug, thiserror::Error)]
 pub enum Error {
@@ -21,13 +26,14 @@ pub enum Error {
     NameEmpty,
 
     #[error("Another file with the same name already exists")]
-    DuplicateName
+    DuplicateName,
 }
 
 impl serde::Serialize for Error {
     fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
-        where
-            S: serde::ser::Serializer {
+    where
+        S: serde::ser::Serializer,
+    {
         serializer.serialize_str(self.to_string().as_ref())
     }
 }
@@ -36,15 +42,18 @@ impl serde::Serialize for Error {
 pub struct FileData {
     name: String,
     modified: u64,
-    created: u64
+    created: u64,
 }
 
 impl FileData {
     fn new(path: &Path, metadata: &fs::Metadata) -> Result<Self, Error> {
         let data = Self {
-            name: path.file_prefix().map_or("Untitled", |f| f.to_str().unwrap()).to_owned(),
+            name: path
+                .file_prefix()
+                .map_or("Untitled", |f| f.to_str().unwrap())
+                .to_owned(),
             modified: metadata.modified()?.elapsed()?.as_secs(),
-            created: metadata.created()?.elapsed()?.as_secs()
+            created: metadata.created()?.elapsed()?.as_secs(),
         };
         Ok(data)
     }
@@ -53,13 +62,14 @@ impl FileData {
 #[derive(Serialize)]
 pub struct Save {
     name: String,
-    data: Option<i32>
+    data: Option<i32>,
 }
 
-
-
 fn get_saves_dir(app: &tauri::AppHandle) -> Result<PathBuf, Error> {
-    let app_dir = app.path_resolver().app_dir().expect("App directory should be retrievable");
+    let app_dir = app
+        .path_resolver()
+        .app_dir()
+        .expect("App directory should be retrievable");
     let saves_dir = app_dir.join("saves");
 
     if !&saves_dir.is_dir() {
@@ -96,7 +106,13 @@ pub fn fetch_saves(app: tauri::AppHandle) -> Result<Vec<FileData>, Error> {
 #[tauri::command]
 pub fn create_save(app: tauri::AppHandle, name: &str) -> Result<(), Error> {
     let target_path = get_save_fp(&app, name)?;
-    serde_json::to_writer(fs::File::create(target_path)?, &Save{name: name.to_string(), data: None})?;
+    serde_json::to_writer(
+        fs::File::create(target_path)?,
+        &Save {
+            name: name.to_string(),
+            data: None,
+        },
+    )?;
     Ok(())
 }
 
