@@ -27,6 +27,9 @@ pub enum Error {
 
     #[error("Another file with the same name already exists")]
     DuplicateName,
+
+    #[error("Relative filepaths are forbidden")]
+    RelativePath,
 }
 
 impl serde::Serialize for Error {
@@ -84,6 +87,9 @@ fn get_save_fp(app: &tauri::AppHandle, name: &str) -> Result<PathBuf, Error> {
         return Err(Error::NameEmpty);
     }
     let target_path = get_saves_dir(app)?.join(format!("{}.json", name));
+    if target_path.is_relative() {
+        return Err(Error::RelativePath);
+    }
     Ok(target_path)
 }
 
@@ -106,6 +112,10 @@ pub fn fetch_saves(app: tauri::AppHandle) -> Result<Vec<FileData>, Error> {
 #[tauri::command]
 pub fn create_save(app: tauri::AppHandle, name: &str) -> Result<(), Error> {
     let target_path = get_save_fp(&app, name)?;
+    if target_path.is_file() {
+        return Err(Error::DuplicateName);
+    }
+
     serde_json::to_writer(
         fs::File::create(target_path)?,
         &Save {
