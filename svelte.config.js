@@ -12,7 +12,8 @@ const config = {
 		alias: {
 			'@types': 'src/types.ts',
 			'@stores': 'src/stores.ts',
-			'@tooltip': 'src/tooltip.ts'
+			'@tooltip': 'src/tooltip.ts',
+			'@main': 'src/lib/components/main',
 		},
 		csp: {
 			mode: 'hash',

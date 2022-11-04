@@ -2,9 +2,9 @@
 	import { invoke } from '@tauri-apps/api/tauri';
 	import type { SaveData } from '@types';
 	import { saveSortMode } from '@stores';
-	import Header from '$lib/components/Header.svelte';
-	import SaveDisplayControls from '$lib/components/SaveDisplayControls.svelte';
-	import SaveEntry from '$lib/components/SaveEntry.svelte';
+	import Header from '@main/Header.svelte';
+	import CreateButton from '@main/CreateButton.svelte';
+	import Entry from '@main/Entry.svelte';
 	import Error from '$lib/components/Error.svelte';
 
 	let saves = fetchSaves();
@@ -23,7 +23,9 @@
 
 <Header />
 
-<SaveDisplayControls on:click={() => (creationState = createSave())} />
+<div class="controls">
+	<CreateButton on:click={() => (creationState = createSave())} />
+</div>
 
 {#await saves}
 	<p class="progress-text">Loading saves...</p>
@@ -31,7 +33,7 @@
 	{#if saveList.length > 0}
 		<div class="saves">
 			{#each saveList.sort((prev, curr) => prev[$saveSortMode] - curr[$saveSortMode]) as save}
-				<SaveEntry {save} />
+				<Entry {save} />
 			{/each}
 		</div>
 	{:else}
@@ -47,6 +49,12 @@
 {/await}
 
 <style>
+	.controls {
+		margin: 1em 0;
+		padding: 0 1em;
+		display: flex;
+		align-items: center;
+	}
 	.progress-text {
 		border-radius: 1em;
 		padding: 1em;

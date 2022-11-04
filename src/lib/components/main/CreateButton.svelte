@@ -3,27 +3,20 @@
 	import addFile from '$lib/images/file-add.svg';
 </script>
 
-<div>
-	<input
-		type="image"
-		src={addFile}
-		alt="Create new setup"
-		width="30"
-		height="30"
-		title="Create new setup"
-		use:tooltip
-		on:click
-	/>
-</div>
+<input
+	type="image"
+	src={addFile}
+	alt="Create new setup"
+	width="25"
+	height="25"
+	title="Create new setup"
+	use:tooltip
+	on:click
+/>
 
 <style>
-	div {
-		margin: 1em 0;
-		display: flex;
-		align-items: center;
-	}
 	input {
-		border-radius: 7.5px;
+		border-radius: 5px;
 		padding: 7.5px;
 		transition: background-color 0.2s;
 	}

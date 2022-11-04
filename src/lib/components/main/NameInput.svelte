@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { invoke } from '@tauri-apps/api/tauri';
-	import Error from './Error.svelte';
+	import Error from '../Error.svelte';
 	export let text: string;
 
 	let origText = `${text}`;

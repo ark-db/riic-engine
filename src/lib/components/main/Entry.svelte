@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { SaveData } from '@types';
 	import { saveSortMode } from '@stores';
-	import SaveNameInput from './SaveNameInput.svelte';
+	import SaveNameInput from './NameInput.svelte';
 	export let save: SaveData;
 
 	function formatStr(num: number, unit: string): string {
