@@ -2,10 +2,12 @@
 	import { invoke } from '@tauri-apps/api/tauri';
 	import type { SaveData } from '@types';
 	import { saveSortMode } from '@stores';
+	import { tooltip } from '@tooltip';
 	import Header from '@main/Header.svelte';
-	import CreateButton from '@main/CreateButton.svelte';
 	import Entry from '@main/Entry.svelte';
 	import Error from '$lib/components/Error.svelte';
+	import addFileIcon from '$lib/images/file-add.svg';
+	import refreshIcon from '$lib/images/refresh.svg';
 
 	let saves = fetchSaves();
 	let creationState: Promise<null>;
@@ -24,7 +26,26 @@
 <Header />
 
 <div class="controls">
-	<CreateButton on:click={() => (creationState = createSave())} />
+	<input
+		type="image"
+		src={addFileIcon}
+		alt="Create new setup"
+		width="25"
+		height="25"
+		title="Create new setup"
+		use:tooltip
+		on:click={() => (creationState = createSave())}
+	/>
+	<input
+		type="image"
+		src={refreshIcon}
+		alt="Refresh setup list"
+		width="25"
+		height="25"
+		title="Refresh setup list"
+		use:tooltip
+		on:click={() => (saves = fetchSaves())}
+	/>
 </div>
 
 {#await saves}
@@ -54,6 +75,16 @@
 		padding: 0 1em;
 		display: flex;
 		align-items: center;
+		column-gap: 5px;
+	}
+	input {
+		border-radius: 5px;
+		padding: 7.5px;
+		transition: background-color 0.2s;
+	}
+	input:hover {
+		background-color: var(--dark-mild);
+		transition: background-color 0.1s;
 	}
 	.progress-text {
 		border-radius: 1em;

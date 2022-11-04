@@ -13,7 +13,7 @@ const config = {
 			'@types': 'src/types.ts',
 			'@stores': 'src/stores.ts',
 			'@tooltip': 'src/tooltip.ts',
-			'@main': 'src/lib/components/main',
+			'@main': 'src/lib/components/main'
 		},
 		csp: {
 			mode: 'hash',
