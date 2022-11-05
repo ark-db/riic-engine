@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { createEventDispatcher } from 'svelte';
 
-	const dispatch = createEventDispatcher<{ close: {} }>();
+	const dispatch = createEventDispatcher<{ close: Record<string, never> }>();
 
 	function handleKeydown(event: KeyboardEvent) {
 		if (event.key === 'Escape') handleClose();
