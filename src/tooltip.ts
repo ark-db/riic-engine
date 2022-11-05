@@ -32,7 +32,7 @@ export function tooltip(element: HTMLElement) {
 		div = document.createElement('div');
 		div.textContent = title;
 
-		let [left, top] = calcPosition(event);
+		const [left, top] = calcPosition(event);
 		div.setAttribute(
 			'style',
 			`
@@ -45,7 +45,7 @@ export function tooltip(element: HTMLElement) {
 		document.body.appendChild(div);
 	}
 	function mouseMove(event: MouseEvent) {
-		let [left, top] = calcPosition(event);
+		const [left, top] = calcPosition(event);
 		div.style.left = `${left}px`;
 		div.style.top = `${top}px`;
 	}
