@@ -62,15 +62,12 @@
 			<input
 				type="image"
 				src={$saveSortOrder === 'increasing' ? listIncreasingIcon : listDecreasingIcon}
-				alt="Sort from {$saveSortOrder === 'increasing' ? 'latest to earliest' : 'earliest to latest'}"
+				alt="Sort from {saveSortOrder.nextDesc($saveSortOrder)}"
 				width="25"
 				height="25"
-				title="Sort from {$saveSortOrder === 'increasing' ? 'latest to earliest' : 'earliest to latest'}"
+				title="Sort from {saveSortOrder.nextDesc($saveSortOrder)}"
 				use:tooltip
-				on:click={() =>
-					$saveSortOrder === 'increasing'
-						? ($saveSortOrder = 'decreasing')
-						: ($saveSortOrder = 'increasing')}
+				on:click={saveSortOrder.toggle}
 			/>
 		{/key}
 	</div>
@@ -103,7 +100,9 @@
 {/await}
 
 <style>
-	.controls, .left, .right {
+	.controls,
+	.left,
+	.right {
 		display: flex;
 		align-items: center;
 		column-gap: 5px;
