@@ -1,5 +1,7 @@
 import { writable } from 'svelte/store';
 
 type SaveSortMode = 'modified' | 'created';
+export const saveSortMode = writable<SaveSortMode>('modified');
 
-export const saveSortMode = writable('modified' as SaveSortMode);
+type SaveSortOrder = 'increasing' | 'decreasing';
+export const saveSortOrder = writable<SaveSortOrder>('increasing');
