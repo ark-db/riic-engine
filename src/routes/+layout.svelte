@@ -20,7 +20,7 @@
 		background-color: var(--dark);
 		scrollbar-width: none;
 	}
-	:root::-webkit-scrollbar { 
-    	display: none;
+	:root::-webkit-scrollbar {
+		display: none;
 	}
 </style>

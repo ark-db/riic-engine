@@ -11,15 +11,22 @@
 
 	let saves = fetchSaves();
 	let creationState: Promise<null>;
+	let deletionState: Promise<null>;
 
 	async function fetchSaves(): Promise<SaveData[]> {
 		return await invoke('fetch_saves');
 	}
 
-	async function createSave(): Promise<null> {
-		const res = (await invoke('create_save')) as null;
+	async function createSave() {
+		creationState = invoke('create_save');
 		saves = fetchSaves();
-		return res;
+	}
+
+	async function deleteSave(event: CustomEvent<{ name: string }>) {
+		deletionState = invoke('delete_save', {
+			name: event.detail.name
+		});
+		saves = fetchSaves();
 	}
 </script>
 
@@ -34,7 +41,7 @@
 		height="25"
 		title="Create new setup"
 		use:tooltip
-		on:click={() => (creationState = createSave())}
+		on:click={createSave}
 	/>
 	<input
 		type="image"
@@ -54,7 +61,7 @@
 	{#if saveList.length > 0}
 		<div class="saves">
 			{#each saveList.sort((prev, curr) => prev[$saveSortMode] - curr[$saveSortMode]) as save}
-				<Entry {save} />
+				<Entry {save} on:delete={deleteSave} />
 			{/each}
 		</div>
 	{:else}
@@ -66,6 +73,11 @@
 
 <!-- prettier-ignore -->
 {#await creationState catch err}
+	<Error msg={err} visible={true} />
+{/await}
+
+<!-- prettier-ignore -->
+{#await deletionState catch err}
 	<Error msg={err} visible={true} />
 {/await}
 
