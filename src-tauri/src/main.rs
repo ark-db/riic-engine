@@ -5,6 +5,7 @@
 #![feature(option_result_contains)]
 #![feature(path_file_prefix)]
 
+pub mod base;
 pub mod saves;
 
 fn main() {

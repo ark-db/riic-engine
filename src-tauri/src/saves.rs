@@ -5,6 +5,7 @@
     clippy::needless_pass_by_value
 )]
 
+use crate::base::Save;
 use serde::Serialize;
 use std::{
     fs,
@@ -62,11 +63,6 @@ impl FileData {
     }
 }
 
-#[derive(Serialize)]
-pub struct Save {
-    data: Option<i32>,
-}
-
 fn get_saves_dir(app: &tauri::AppHandle) -> Result<PathBuf, Error> {
     let app_dir = app
         .path_resolver()
@@ -120,7 +116,7 @@ pub fn create_save(app: tauri::AppHandle) -> Result<(), Error> {
         target_path = save_dir.join(format!("Untitled-{}.json", i));
     }
 
-    serde_json::to_writer(fs::File::create(target_path)?, &Save { data: None })?;
+    serde_json::to_writer(fs::File::create(target_path)?, &Save::new())?;
     Ok(())
 }
 
