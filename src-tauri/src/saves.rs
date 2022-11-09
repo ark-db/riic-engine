@@ -66,7 +66,7 @@ impl FileData {
 fn get_saves_dir(app: &tauri::AppHandle) -> Result<PathBuf, Error> {
     let app_dir = app
         .path_resolver()
-        .app_dir()
+        .app_data_dir()
         .expect("App directory should be retrievable");
     let saves_dir = app_dir.join("saves");
 
