@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { invoke } from '@tauri-apps/api/tauri';
-	import type { SaveData } from '@types';
+	import type { FileData } from '@types';
 	import { saveSortMode, saveSortOrder } from '@stores';
 	import { tooltip } from '@tooltip';
 	import Header from '@main/Header.svelte';
@@ -15,7 +15,7 @@
 	let creationState: Promise<null>;
 	let deletionState: Promise<null>;
 
-	async function fetchSaves(): Promise<SaveData[]> {
+	async function fetchSaves(): Promise<FileData[]> {
 		return await invoke('fetch_saves');
 	}
 

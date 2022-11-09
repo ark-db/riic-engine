@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { createEventDispatcher } from 'svelte';
-	import type { SaveData } from '@types';
+	import type { FileData } from '@types';
 	import { saveSortMode } from '@stores';
 	import SaveNameInput from './NameInput.svelte';
 	import Modal from '../Modal.svelte';
-	export let save: SaveData;
+	export let save: FileData;
 
 	let hovering = false;
 	let pendingDelete = false;
