@@ -19,27 +19,29 @@ struct SaveVersion {
 
 #[derive(Serialize, Deserialize)]
 struct Layout {
-    cc: ControlCenter,
-    tp: Vec<Facility>,
-    fac: Vec<Facility>,
-    pp: Vec<Facility>,
-    dorm: Vec<Facility>,
+    cc: Facility5,
+    tp: Vec<Facility3>,
+    fac: Vec<Facility3>,
+    pp: Vec<Facility3>,
+    rr: Facility3,
+    office: Facility3,
+    dorm: Vec<Facility5>,
 }
 
 #[derive(Serialize, Deserialize)]
-struct ControlCenter {
+struct Facility5 {
     shifts: Vec<Shift>,
-    level: ControlCenterLevel,
+    level: Level5,
 }
 
 #[derive(Serialize, Deserialize)]
-struct Facility {
+struct Facility3 {
     shifts: Vec<Shift>,
-    level: FacilityLevel,
+    level: Level3,
 }
 
 #[derive(Serialize, Deserialize)]
-enum ControlCenterLevel {
+enum Level5 {
     One = 1,
     Two = 2,
     Three = 3,
@@ -48,7 +50,7 @@ enum ControlCenterLevel {
 }
 
 #[derive(Serialize, Deserialize)]
-enum FacilityLevel {
+enum Level3 {
     One = 1,
     Two = 2,
     Three = 3,
@@ -102,13 +104,21 @@ impl Default for Save {
 impl Layout {
     fn new() -> Self {
         Self {
-            cc: ControlCenter {
+            cc: Facility5 {
                 shifts: Vec::new(),
-                level: ControlCenterLevel::One,
+                level: Level5::One,
             },
             tp: Vec::with_capacity(3),
             fac: Vec::with_capacity(5),
             pp: Vec::with_capacity(3),
+            rr: Facility3 {
+                shifts: Vec::new(),
+                level: Level3::One
+            },
+            office: Facility3 {
+                shifts: Vec::new(),
+                level: Level3::One,
+            },
             dorm: Vec::with_capacity(5),
         }
     }

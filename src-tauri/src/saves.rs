@@ -9,6 +9,7 @@ use crate::base::Save;
 use serde::Serialize;
 use std::{
     fs,
+    io::BufReader,
     path::{Path, PathBuf},
 };
 
@@ -90,7 +91,7 @@ fn get_save_fp(app: &tauri::AppHandle, name: &str) -> Result<PathBuf, Error> {
 
 #[tauri::command]
 pub fn fetch_saves(app: tauri::AppHandle) -> Result<Vec<FileData>, Error> {
-    let mut saves: Vec<FileData> = Vec::new();
+    let mut saves = Vec::new();
 
     for entry in fs::read_dir(get_saves_dir(&app)?)? {
         let path = entry?.path();
@@ -137,4 +138,12 @@ pub fn delete_save(app: tauri::AppHandle, name: &str) -> Result<(), Error> {
     let target_path = get_save_fp(&app, name)?;
     fs::remove_file(target_path)?;
     Ok(())
+}
+
+#[tauri::command]
+pub fn load_save(app: tauri::AppHandle, name: &str) -> Result<Save, Error> {
+    let target_path = get_save_fp(&app, name)?;
+    let file = fs::File::open(target_path)?;
+    let data: Save = serde_json::from_reader(BufReader::new(file))?;
+    Ok(data)
 }

@@ -14,7 +14,8 @@ fn main() {
             saves::fetch_saves,
             saves::create_save,
             saves::rename_save,
-            saves::delete_save
+            saves::delete_save,
+            saves::load_save,
         ])
         .run(tauri::generate_context!())
         .expect("An error occurred while running the application.");
