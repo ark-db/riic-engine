@@ -23,7 +23,7 @@
 		if (!name) {
 			text = origText;
 		} else if (origText !== name) {
-			invoke('rename_save', {
+			invoke<undefined>('rename_save', {
 				old: origText,
 				new: name
 			})

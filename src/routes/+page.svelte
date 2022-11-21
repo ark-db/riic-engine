@@ -12,20 +12,20 @@
 	import listDecreasingIcon from '$lib/images/list-decreasing.svg';
 
 	let saves = fetchSaves();
-	let creationState: Promise<null>;
-	let deletionState: Promise<null>;
+	let creationState: Promise<undefined>;
+	let deletionState: Promise<undefined>;
 
 	async function fetchSaves(): Promise<FileData[]> {
 		return await invoke('fetch_saves');
 	}
 
 	async function createSave() {
-		creationState = invoke('create_save');
+		creationState = invoke<undefined>('create_save');
 		saves = fetchSaves();
 	}
 
 	async function deleteSave(event: CustomEvent<{ name: string }>) {
-		deletionState = invoke('delete_save', {
+		deletionState = invoke<undefined>('delete_save', {
 			name: event.detail.name
 		});
 		saves = fetchSaves();
