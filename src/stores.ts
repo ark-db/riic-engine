@@ -1,4 +1,5 @@
 import { writable } from 'svelte/store';
+import { invoke } from '@tauri-apps/api/tauri';
 import type { SaveData } from '@types';
 
 type SaveSortMode = 'modified' | 'created';
@@ -19,4 +20,26 @@ function createSaveSortOrder() {
 
 export const saveSortOrder = createSaveSortOrder();
 
-export const saveData = writable<SaveData>();
+type Save = {
+	title: string;
+	data: SaveData;
+};
+
+function createActiveSave() {
+	const { subscribe, set } = writable<Save>();
+
+	async function load(name: string) {
+		const data = await invoke<SaveData>('load_save', { name });
+		set({
+			title: name,
+			data
+		});
+	}
+
+	return {
+		subscribe,
+		load
+	};
+}
+
+export const activeSave = createActiveSave();
