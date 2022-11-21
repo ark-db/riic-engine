@@ -12,12 +12,7 @@ type Shift = {
 	end: number;
 };
 
-type Facility3 = {
-	shifts: Shift[];
-	level: 1 | 2 | 3;
-};
-
-type Facility5 = {
+type Facility = {
 	shifts: Shift[];
 	level: 1 | 2 | 3 | 4 | 5;
 };
@@ -26,7 +21,7 @@ type AtMostFive<T> = [T?, T?, T?, T?, T?];
 
 type CharData = {
 	char: Operator;
-	elite: 0 | 1 | 2;
+	tier: number;
 };
 
 export type SaveData = {
@@ -35,13 +30,13 @@ export type SaveData = {
 		minor: number;
 	};
 	layout: {
-		cc: Facility5;
-		tp: AtMostFive<Facility3>;
-		fac: AtMostFive<Facility3>;
-		pp: AtMostFive<Facility3>;
-		rr: Facility3;
-		office: Facility3;
-		dorm: AtMostFive<Facility5>;
+		cc: Facility;
+		tp: AtMostFive<Facility>;
+		fac: AtMostFive<Facility>;
+		pp: AtMostFive<Facility>;
+		rr: Facility;
+		office: Facility;
+		dorm: AtMostFive<Facility>;
 	};
 	chars: CharData[];
 };

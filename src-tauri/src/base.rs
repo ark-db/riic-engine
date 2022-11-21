@@ -19,41 +19,19 @@ struct SaveVersion {
 
 #[derive(Serialize, Deserialize)]
 struct Layout {
-    cc: Facility5,
-    tp: Vec<Facility3>,
-    fac: Vec<Facility3>,
-    pp: Vec<Facility3>,
-    rr: Facility3,
-    office: Facility3,
-    dorm: Vec<Facility5>,
+    cc: Facility,
+    tp: Vec<Facility>,
+    fac: Vec<Facility>,
+    pp: Vec<Facility>,
+    rr: Facility,
+    office: Facility,
+    dorm: Vec<Facility>,
 }
 
 #[derive(Serialize, Deserialize)]
-struct Facility5 {
+struct Facility {
     shifts: Vec<Shift>,
-    level: Level5,
-}
-
-#[derive(Serialize, Deserialize)]
-struct Facility3 {
-    shifts: Vec<Shift>,
-    level: Level3,
-}
-
-#[derive(Serialize, Deserialize)]
-enum Level5 {
-    One = 1,
-    Two = 2,
-    Three = 3,
-    Four = 4,
-    Five = 5,
-}
-
-#[derive(Serialize, Deserialize)]
-enum Level3 {
-    One = 1,
-    Two = 2,
-    Three = 3,
+    level: u8,
 }
 
 #[derive(Serialize, Deserialize)]
@@ -66,14 +44,7 @@ struct Shift {
 #[derive(Serialize, Deserialize)]
 struct CharData {
     char: Operator,
-    elite: Elite,
-}
-
-#[derive(Serialize, Deserialize)]
-enum Elite {
-    Zero = 0,
-    One = 1,
-    Two = 2,
+    tier: u8
 }
 
 #[derive(Serialize, Deserialize)]
@@ -104,20 +75,20 @@ impl Default for Save {
 impl Layout {
     fn new() -> Self {
         Self {
-            cc: Facility5 {
+            cc: Facility {
                 shifts: Vec::new(),
-                level: Level5::One,
+                level: 1,
             },
             tp: Vec::with_capacity(3),
             fac: Vec::with_capacity(5),
             pp: Vec::with_capacity(3),
-            rr: Facility3 {
+            rr: Facility {
                 shifts: Vec::new(),
-                level: Level3::One,
+                level: 1,
             },
-            office: Facility3 {
+            office: Facility {
                 shifts: Vec::new(),
-                level: Level3::One,
+                level: 1,
             },
             dorm: Vec::with_capacity(5),
         }
