@@ -1,20 +1,36 @@
-import { writable } from 'svelte/store';
+import { writable, get } from 'svelte/store';
 import { invoke } from '@tauri-apps/api/tauri';
 import type { SaveData } from '@types';
 
 type SaveSortMode = 'modified' | 'created';
-export const saveSortMode = writable<SaveSortMode>('modified');
+
+function createSaveSortMode() {
+	const store = writable<SaveSortMode>('modified');
+	const { subscribe, update } = store;
+
+	const opposite = (mode: SaveSortMode): SaveSortMode =>
+		mode === 'created' ? 'modified' : 'created';
+
+	return {
+		subscribe,
+		toggle: () => update((mode) => opposite(mode)),
+		nextDesc: () => `Sort by time ${opposite(get(store))}`
+	};
+}
+
+export const saveSortMode = createSaveSortMode();
 
 type SaveSortOrder = 'increasing' | 'decreasing';
 
 function createSaveSortOrder() {
-	const { subscribe, update } = writable<SaveSortOrder>('increasing');
+	const store = writable<SaveSortOrder>('increasing');
+	const { subscribe, update } = store;
 
 	return {
 		subscribe,
 		toggle: () => update((order) => (order === 'increasing' ? 'decreasing' : 'increasing')),
-		nextDesc: (value: SaveSortOrder) =>
-			value === 'increasing' ? 'latest to earliest' : 'earliest to latest'
+		nextDesc: () =>
+			`Sort from ${get(store) === 'increasing' ? 'latest to earliest' : 'earliest to latest'}`
 	};
 }
 

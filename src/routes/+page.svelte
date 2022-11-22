@@ -8,6 +8,8 @@
 	import Error from '$lib/components/Error.svelte';
 	import addFileIcon from '$lib/images/file-add.svg';
 	import refreshIcon from '$lib/images/refresh.svg';
+	import pencilClockIcon from '$lib/images/pencil-clock.svg';
+	import plusClockIcon from '$lib/images/plus-clock.svg';
 	import listIncreasingIcon from '$lib/images/list-increasing.svg';
 	import listDecreasingIcon from '$lib/images/list-decreasing.svg';
 
@@ -58,16 +60,34 @@
 		/>
 	</div>
 	<div class="right">
+		{#key $saveSortMode}
+			<input
+				type="image"
+				src={$saveSortMode === 'created' ? plusClockIcon : pencilClockIcon}
+				alt={saveSortMode.nextDesc()}
+				width="25"
+				height="25"
+				title={saveSortMode.nextDesc()}
+				use:tooltip
+				on:click={() => {
+					saveSortMode.toggle();
+					saves = fetchSaves();
+				}}
+			/>
+		{/key}
 		{#key $saveSortOrder}
 			<input
 				type="image"
 				src={$saveSortOrder === 'increasing' ? listIncreasingIcon : listDecreasingIcon}
-				alt="Sort from {saveSortOrder.nextDesc($saveSortOrder)}"
+				alt={saveSortOrder.nextDesc()}
 				width="25"
 				height="25"
-				title="Sort from {saveSortOrder.nextDesc($saveSortOrder)}"
+				title={saveSortOrder.nextDesc()}
 				use:tooltip
-				on:click={saveSortOrder.toggle}
+				on:click={() => {
+					saveSortOrder.toggle();
+					saves = fetchSaves();
+				}}
 			/>
 		{/key}
 	</div>
