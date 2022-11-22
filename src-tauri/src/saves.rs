@@ -65,13 +65,13 @@ impl FileData {
 }
 
 fn get_saves_dir(app: &tauri::AppHandle) -> Result<PathBuf, Error> {
-    let app_dir = app
+    let saves_dir = app
         .path_resolver()
         .app_data_dir()
-        .expect("App directory should be retrievable");
-    let saves_dir = app_dir.join("saves");
+        .expect("App directory should be retrievable")
+        .join("saves");
 
-    if !&saves_dir.is_dir() {
+    if !saves_dir.is_dir() {
         fs::create_dir_all(&saves_dir)?;
     }
 
@@ -87,6 +87,19 @@ fn get_save_fp(app: &tauri::AppHandle, name: &str) -> Result<PathBuf, Error> {
         return Err(Error::RelativePath);
     }
     Ok(target_path)
+}
+
+fn get_available_fp(dir: PathBuf, name: &str) -> PathBuf {
+    let mut path = dir;
+    path.push(name);
+    path.set_extension("json");
+    for i in 1.. {
+        if !path.is_file() {
+            return path;
+        }
+        path.set_file_name(format!("{}-{}.json", name, i));
+    }
+    unreachable!()
 }
 
 #[tauri::command]
@@ -108,15 +121,7 @@ pub fn fetch_saves(app: tauri::AppHandle) -> Result<Vec<FileData>, Error> {
 #[tauri::command]
 pub fn create_save(app: tauri::AppHandle) -> Result<(), Error> {
     let save_dir = get_saves_dir(&app)?;
-    let mut target_path = save_dir.join("Untitled.json");
-
-    for i in 1.. {
-        if !target_path.is_file() {
-            break;
-        }
-        target_path = save_dir.join(format!("Untitled-{}.json", i));
-    }
-
+    let target_path = get_available_fp(save_dir, "Untitled");
     serde_json::to_writer(fs::File::create(target_path)?, &Save::new())?;
     Ok(())
 }
@@ -151,10 +156,10 @@ pub fn load_save(app: tauri::AppHandle, name: &str) -> Result<Save, Error> {
 #[tauri::command]
 pub fn export_save(app: tauri::AppHandle, name: &str) -> Result<(), Error> {
     let save_path = get_save_fp(&app, name)?;
-    let target_path = tauri::api::path::download_dir()
-        .expect("Download directory should be retrievable")
-        .join(name)
-        .with_extension("json");
+    let target_path = get_available_fp(
+        tauri::api::path::download_dir().expect("Download directory should be retrievable"),
+        name,
+    );
     fs::copy(save_path, target_path)?;
     Ok(())
 }
