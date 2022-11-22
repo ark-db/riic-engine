@@ -8,10 +8,6 @@
 	import Error from '$lib/components/Error.svelte';
 	import addFileIcon from '$lib/images/file-add.svg';
 	import refreshIcon from '$lib/images/refresh.svg';
-	import pencilClockIcon from '$lib/images/pencil-clock.svg';
-	import plusClockIcon from '$lib/images/plus-clock.svg';
-	import listIncreasingIcon from '$lib/images/list-increasing.svg';
-	import listDecreasingIcon from '$lib/images/list-decreasing.svg';
 
 	let saves = fetchSaves();
 	let creationState: Promise<void>;
@@ -63,7 +59,7 @@
 		{#key $saveSortMode}
 			<input
 				type="image"
-				src={$saveSortMode === 'created' ? plusClockIcon : pencilClockIcon}
+				src={saveSortMode.src()}
 				alt={saveSortMode.nextDesc()}
 				width="25"
 				height="25"
@@ -78,7 +74,7 @@
 		{#key $saveSortOrder}
 			<input
 				type="image"
-				src={$saveSortOrder === 'increasing' ? listIncreasingIcon : listDecreasingIcon}
+				src={saveSortOrder.src()}
 				alt={saveSortOrder.nextDesc()}
 				width="25"
 				height="25"

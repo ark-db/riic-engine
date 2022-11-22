@@ -1,8 +1,17 @@
 import { writable, get } from 'svelte/store';
 import { invoke } from '@tauri-apps/api/tauri';
 import type { SaveData } from '@types';
+import pencilClockIcon from '$lib/images/pencil-clock.svg';
+import plusClockIcon from '$lib/images/plus-clock.svg';
+import listIncreasingIcon from '$lib/images/list-increasing.svg';
+import listDecreasingIcon from '$lib/images/list-decreasing.svg';
 
 type SaveSortMode = 'modified' | 'created';
+type SaveSortOrder = 'increasing' | 'decreasing';
+type Save = {
+	title: string;
+	data: SaveData;
+};
 
 function createSaveSortMode() {
 	const store = writable<SaveSortMode>('modified');
@@ -13,14 +22,11 @@ function createSaveSortMode() {
 
 	return {
 		subscribe,
+		src: () => (get(store) === 'created' ? plusClockIcon : pencilClockIcon),
 		toggle: () => update((mode) => opposite(mode)),
 		nextDesc: () => `Sort by time ${opposite(get(store))}`
 	};
 }
-
-export const saveSortMode = createSaveSortMode();
-
-type SaveSortOrder = 'increasing' | 'decreasing';
 
 function createSaveSortOrder() {
 	const store = writable<SaveSortOrder>('increasing');
@@ -28,18 +34,12 @@ function createSaveSortOrder() {
 
 	return {
 		subscribe,
+		src: () => (get(store) === 'increasing' ? listIncreasingIcon : listDecreasingIcon),
 		toggle: () => update((order) => (order === 'increasing' ? 'decreasing' : 'increasing')),
 		nextDesc: () =>
 			`Sort from ${get(store) === 'increasing' ? 'latest to earliest' : 'earliest to latest'}`
 	};
 }
-
-export const saveSortOrder = createSaveSortOrder();
-
-type Save = {
-	title: string;
-	data: SaveData;
-};
 
 function createActiveSave() {
 	const { subscribe, set } = writable<Save>();
@@ -58,4 +58,6 @@ function createActiveSave() {
 	};
 }
 
+export const saveSortMode = createSaveSortMode();
+export const saveSortOrder = createSaveSortOrder();
 export const activeSave = createActiveSave();
