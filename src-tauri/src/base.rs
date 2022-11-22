@@ -44,7 +44,7 @@ struct Shift {
 #[derive(Serialize, Deserialize)]
 struct CharData {
     char: Operator,
-    tier: u8
+    tier: u8,
 }
 
 #[derive(Serialize, Deserialize)]
