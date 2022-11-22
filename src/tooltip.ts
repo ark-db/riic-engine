@@ -6,18 +6,26 @@ const tooltipStyle = `
     color: var(--light);
 `;
 
+function getTextWidth(text: string): number {
+	const canvas = document.createElement('canvas');
+	const context = canvas.getContext('2d') ?? new CanvasRenderingContext2D();
+	const metrics = context.measureText(text);
+	return metrics.width;
+}
+
 export function tooltip(element: HTMLElement) {
 	let div: HTMLDivElement;
-	let title: string | null;
+	const title = element.title;
+	const divWidth = getTextWidth(title) + 16;
 
 	function calcPosition(event: MouseEvent): [number, number] {
 		let left = event.pageX + 5;
 		let top = event.pageY + 5;
 		// check for page overflow
-		if (left + div.clientWidth > document.documentElement.clientWidth) {
+		if (left + divWidth + 4 > document.documentElement.clientWidth) {
 			left = event.pageX - div.clientWidth + 5;
 		}
-		if (top + div.clientHeight > document.documentElement.clientHeight) {
+		if (top + 32 > document.documentElement.clientHeight) {
 			top = event.pageY - div.clientHeight + 5;
 		}
 
@@ -25,10 +33,6 @@ export function tooltip(element: HTMLElement) {
 	}
 
 	function mouseOver(event: MouseEvent) {
-		// remove the `title` attribute to prevent showing the default browser tooltip
-		title = element.getAttribute('title');
-		element.removeAttribute('title');
-
 		div = document.createElement('div');
 		div.textContent = title;
 
@@ -51,8 +55,6 @@ export function tooltip(element: HTMLElement) {
 	}
 	function hide() {
 		document.body.removeChild(div);
-		// restore the `title` attribute
-		element.setAttribute('title', title ?? '');
 	}
 
 	element.addEventListener('mouseover', mouseOver);
