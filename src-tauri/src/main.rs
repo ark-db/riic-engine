@@ -2,7 +2,7 @@
     all(not(debug_assertions), target_os = "windows"),
     windows_subsystem = "windows"
 )]
-#![feature(option_result_contains)]
+#![feature(is_some_and)]
 #![feature(path_file_prefix)]
 
 pub mod base;
@@ -16,6 +16,7 @@ fn main() {
             saves::rename_save,
             saves::delete_save,
             saves::load_save,
+            saves::export_save
         ])
         .run(tauri::generate_context!())
         .expect("An error occurred while running the application.");

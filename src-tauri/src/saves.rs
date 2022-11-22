@@ -82,7 +82,7 @@ fn get_save_fp(app: &tauri::AppHandle, name: &str) -> Result<PathBuf, Error> {
     if name.is_empty() {
         return Err(Error::NameEmpty);
     }
-    let target_path = get_saves_dir(app)?.join(format!("{}.json", name));
+    let target_path = get_saves_dir(app)?.join(name).with_extension("json");
     if target_path.is_relative() {
         return Err(Error::RelativePath);
     }
@@ -97,7 +97,7 @@ pub fn fetch_saves(app: tauri::AppHandle) -> Result<Vec<FileData>, Error> {
         let path = entry?.path();
         let metadata = fs::metadata(&path)?;
 
-        if metadata.is_file() && path.extension().contains(&"json") {
+        if metadata.is_file() && path.extension().is_some_and(|ext| ext == "json") {
             saves.push(FileData::new(&path, &metadata)?);
         }
     }
@@ -146,4 +146,15 @@ pub fn load_save(app: tauri::AppHandle, name: &str) -> Result<Save, Error> {
     let file = fs::File::open(target_path)?;
     let data: Save = serde_json::from_reader(BufReader::new(file))?;
     Ok(data)
+}
+
+#[tauri::command]
+pub fn export_save(app: tauri::AppHandle, name: &str) -> Result<(), Error> {
+    let save_path = get_save_fp(&app, name)?;
+    let target_path = tauri::api::path::download_dir()
+        .expect("Download directory should be retrievable")
+        .join(name)
+        .with_extension("json");
+    fs::copy(save_path, target_path)?;
+    Ok(())
 }

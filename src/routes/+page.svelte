@@ -10,20 +10,26 @@
 	import refreshIcon from '$lib/images/refresh.svg';
 
 	let saves = fetchSaves();
-	let creationState: Promise<void>;
-	let deletionState: Promise<void>;
+	let processState: Promise<void>;
 
 	async function fetchSaves(): Promise<FileData[]> {
 		return await invoke<FileData[]>('fetch_saves');
 	}
 
 	async function createSave() {
-		creationState = invoke<void>('create_save');
+		processState = invoke<void>('create_save');
+		saves = fetchSaves();
+	}
+
+	async function exportSave(event: CustomEvent<{ name: string }>) {
+		processState = invoke<void>('export_save', {
+			name: event.detail.name
+		});
 		saves = fetchSaves();
 	}
 
 	async function deleteSave(event: CustomEvent<{ name: string }>) {
-		deletionState = invoke<void>('delete_save', {
+		processState = invoke<void>('delete_save', {
 			name: event.detail.name
 		});
 		saves = fetchSaves();
@@ -95,7 +101,7 @@
 	{#if saveList.length > 0}
 		<div class="saves">
 			{#each saveList.sort((prev, curr) => (prev[$saveSortMode] - curr[$saveSortMode]) * ($saveSortOrder === 'increasing' ? 1 : -1)) as save}
-				<Entry {save} on:delete={deleteSave} />
+				<Entry {save} on:export={exportSave} on:delete={deleteSave} />
 			{/each}
 		</div>
 	{:else}
@@ -106,12 +112,7 @@
 {/await}
 
 <!-- prettier-ignore -->
-{#await creationState catch err}
-	<Error msg={err} visible={true} />
-{/await}
-
-<!-- prettier-ignore -->
-{#await deletionState catch err}
+{#await processState catch err}
 	<Error msg={err} visible={true} />
 {/await}
 
