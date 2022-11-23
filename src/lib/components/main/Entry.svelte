@@ -31,6 +31,10 @@
 		}
 	}
 
+	function updateSaveName(event: CustomEvent<{ newName: string }>) {
+		save.name = event.detail.newName;
+	}
+
 	function handleExport(event: MouseEvent | KeyboardEvent) {
 		if (event instanceof MouseEvent || event.key === 'Space' || event.key === 'Enter') {
 			dispatch('export', {
@@ -56,7 +60,7 @@
 	on:mouseenter={() => (hovering = true)}
 	on:mouseleave={() => (hovering = false)}
 >
-	<SaveNameInput text={save.name} />
+	<SaveNameInput text={save.name} on:rename={updateSaveName} />
 	<div class="right">
 		{#if hovering}
 			<div class="settings">

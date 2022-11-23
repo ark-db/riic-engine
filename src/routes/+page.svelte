@@ -9,30 +9,30 @@
 	import addFileIcon from '$lib/images/file-add.svg';
 	import refreshIcon from '$lib/images/refresh.svg';
 
-	let saves = fetchSaves();
+	let saves: Promise<FileData[]>;
 	let processState: Promise<void>;
 
-	function fetchSaves() {
-		return invoke<FileData[]>('fetch_saves');
-	}
+	const refresh = () => (saves = invoke<FileData[]>('fetch_saves'));
+
+	refresh();
 
 	function createSave() {
 		processState = invoke<void>('create_save');
-		saves = fetchSaves();
+		refresh();
 	}
 
 	function exportSave(event: CustomEvent<{ name: string }>) {
 		processState = invoke<void>('export_save', {
 			name: event.detail.name
 		});
-		saves = fetchSaves();
+		refresh();
 	}
 
 	function deleteSave(event: CustomEvent<{ name: string }>) {
 		processState = invoke<void>('delete_save', {
 			name: event.detail.name
 		});
-		saves = fetchSaves();
+		refresh();
 	}
 </script>
 
@@ -58,7 +58,7 @@
 			height="25"
 			title="Refresh setup list"
 			use:tooltip
-			on:click={() => (saves = fetchSaves())}
+			on:click={refresh}
 		/>
 	</div>
 	<div class="right">
@@ -73,7 +73,7 @@
 				use:tooltip
 				on:click={() => {
 					saveSortMode.toggle();
-					saves = fetchSaves();
+					refresh();
 				}}
 			/>
 		{/key}
@@ -88,7 +88,7 @@
 				use:tooltip
 				on:click={() => {
 					saveSortOrder.toggle();
-					saves = fetchSaves();
+					refresh();
 				}}
 			/>
 		{/key}

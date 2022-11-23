@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { createEventDispatcher } from 'svelte';
 	import { invoke } from '@tauri-apps/api/tauri';
 	import Error from '../Error.svelte';
 	export let text: string;
@@ -7,6 +8,8 @@
 	let input: HTMLInputElement;
 	let invalid = false;
 	let errMessage = '';
+
+	const dispatch = createEventDispatcher<{ rename: { newName: string } }>();
 
 	$: text = parseText(text);
 
@@ -29,6 +32,9 @@
 			})
 				.then(() => {
 					origText = text;
+					dispatch('rename', {
+						newName: text
+					});
 				})
 				.catch((reason) => {
 					invalid = true;
