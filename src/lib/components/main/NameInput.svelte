@@ -1,13 +1,18 @@
 <script lang="ts">
-	import { createEventDispatcher } from 'svelte';
+	import { onMount, createEventDispatcher } from 'svelte';
 	import { invoke } from '@tauri-apps/api/tauri';
 	import Error from '../Error.svelte';
 	export let text: string;
+	export let active: boolean;
 
-	let origText = `${text}`;
 	let input: HTMLInputElement;
+	let origText = `${text}`;
 	let invalid = false;
 	let errMessage = '';
+
+	onMount(() => {
+		if (input) input.focus();
+	});
 
 	const dispatch = createEventDispatcher<{ rename: { newName: string } }>();
 
@@ -20,6 +25,7 @@
 	const parseText = (text: string) => text.replace(/[^\w-]+$/, '');
 
 	function updateText() {
+		active = false;
 		invalid = false;
 		errMessage = '';
 		let name = parseText(text);

@@ -7,6 +7,7 @@
 	export let save: FileData;
 
 	let hovering = false;
+	let pendingRename = false;
 	let pendingDelete = false;
 
 	type DispatchEvents = {
@@ -31,7 +32,14 @@
 		}
 	}
 
+	function handleRename(event: MouseEvent | KeyboardEvent) {
+		if (event instanceof MouseEvent || event.key === 'Space' || event.key === 'Enter') {
+			pendingRename = true;
+		}
+	}
+
 	function updateSaveName(event: CustomEvent<{ newName: string }>) {
+		pendingRename = false;
 		save.name = event.detail.newName;
 	}
 
@@ -60,10 +68,33 @@
 	on:mouseenter={() => (hovering = true)}
 	on:mouseleave={() => (hovering = false)}
 >
-	<SaveNameInput text={save.name} on:rename={updateSaveName} />
+	{#if pendingRename}
+		<SaveNameInput text={save.name} on:rename={updateSaveName} bind:active={pendingRename} />
+	{:else}
+		<p class="entry-title">{save.name}</p>
+	{/if}
 	<div class="right">
 		{#if hovering}
 			<div class="settings">
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					viewBox="0 0 512 512"
+					height="24"
+					width="24"
+					on:click={handleRename}
+					on:keydown={handleRename}
+				>
+					<path
+						class="edit-title"
+						d="M43 16C28.0656 16 16 28.0656 16 43C16 57.9344 28.0656 70 43 70L151 70L151 367C151 381.934 163.066 394 178 394C192.934 394 205 381.934 205 367L205 70L313 70C327.934 70 340 57.9344 340 43C340 28.0656 327.934 16 313 16L178 16L43 16Z"
+						fill="#9a9696"
+					/>
+					<path
+						class="edit-title"
+						d="M421.544 249.384L397.318 273.609L462.388 338.675L486.615 314.45C499.128 301.938 499.128 281.667 486.615 269.154L466.893 249.384C454.38 236.872 434.108 236.872 421.594 249.384L421.544 249.384ZM386.005 284.92L269.328 401.638C264.123 406.843 260.319 413.3 258.216 420.357L240.497 480.568C239.246 484.822 240.397 489.377 243.5 492.48C246.604 495.583 251.159 496.734 255.363 495.533L315.579 477.815C322.636 475.713 329.093 471.909 334.299 466.704L451.076 349.986C451.076 349.986 386.005 284.92 386.005 284.92Z"
+						fill="#9a9696"
+					/>
+				</svg>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					viewBox="0 0 640 512"
@@ -113,6 +144,7 @@
 
 <style>
 	.container {
+		height: 2.5em;
 		border-radius: 0.75em;
 		padding: 1em;
 		background: var(--dark-strong);
@@ -120,27 +152,34 @@
 		align-items: center;
 		justify-content: space-between;
 	}
+	.entry-title {
+		margin-left: 0.6em;
+		color: var(--light);
+		font-size: 1.25em;
+		font-weight: 600;
+	}
 	.right {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
 	}
 	.settings {
-		margin-right: 10px;
+		margin-right: 5px;
 		display: flex;
 		align-items: center;
-		column-gap: 10px;
+		column-gap: 15px;
 	}
 	path {
 		transition: fill 0.3s;
 	}
-	path:hover {
+	svg:hover path {
 		transition: fill 0.15s;
 	}
-	.export:hover {
+	svg:hover .export,
+	svg:hover .edit-title {
 		fill: var(--light);
 	}
-	.trash:hover {
+	svg:hover .trash {
 		fill: var(--salmon-strong);
 	}
 	.time {
