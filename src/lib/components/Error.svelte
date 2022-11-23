@@ -1,7 +1,7 @@
 <script lang="ts">
 	import xmark from '$lib/images/red-xmark.svg';
 	export let msg: string;
-	export let visible = false;
+	let visible = true;
 </script>
 
 {#if visible}

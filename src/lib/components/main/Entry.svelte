@@ -4,17 +4,18 @@
 	import { saveSortMode } from '@stores';
 	import SaveNameInput from './NameInput.svelte';
 	import Modal from '../Modal.svelte';
+	import Error from '../Error.svelte';
 	export let save: FileData;
 
 	let hovering = false;
 	let pendingRename = false;
 	let pendingDelete = false;
+	let errMessage = '';
 
-	type DispatchEvents = {
+	const dispatch = createEventDispatcher<{
 		delete: { name: string };
 		export: { name: string };
-	};
-	const dispatch = createEventDispatcher<DispatchEvents>();
+	}>();
 
 	function formatStr(num: number, unit: string): string {
 		return `${num} ${unit}${num === 1 ? '' : 's'} ago`;
@@ -64,7 +65,12 @@
 	on:mouseleave={() => (hovering = false)}
 >
 	{#if pendingRename}
-		<SaveNameInput bind:text={save.name} bind:active={pendingRename} />
+		<SaveNameInput
+			bind:text={save.name}
+			bind:active={pendingRename}
+			on:success={() => (errMessage = '')}
+			on:error={(event) => (errMessage = event.detail.message)}
+		/>
 	{:else}
 		<p class="entry-title">{save.name}</p>
 	{/if}
@@ -135,6 +141,10 @@
 			<button class="delete" on:click={handleDelete}>Delete</button>
 		</div>
 	</Modal>
+{/if}
+
+{#if errMessage}
+	<Error msg={errMessage} />
 {/if}
 
 <style>

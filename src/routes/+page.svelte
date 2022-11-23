@@ -108,11 +108,11 @@
 		<p class="placeholder">No saves found!</p>
 	{/if}
 {:catch err}
-	<Error msg={err} visible={true} />
+	<Error msg={err} />
 {/await}
 
 {#await processState catch err}
-	<Error msg={err} visible={true} />
+	<Error msg={err} />
 {/await}
 
 <style>
