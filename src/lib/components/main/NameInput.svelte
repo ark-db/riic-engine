@@ -16,7 +16,7 @@
 
 	const parseText = (text: string) => text.replace(/[^\w-]+$/, '');
 
-	async function updateText() {
+	function updateText() {
 		invalid = false;
 		errMessage = '';
 		let name = parseText(text);

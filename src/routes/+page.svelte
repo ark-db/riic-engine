@@ -12,23 +12,23 @@
 	let saves = fetchSaves();
 	let processState: Promise<void>;
 
-	async function fetchSaves(): Promise<FileData[]> {
-		return await invoke<FileData[]>('fetch_saves');
+	function fetchSaves() {
+		return invoke<FileData[]>('fetch_saves');
 	}
 
-	async function createSave() {
+	function createSave() {
 		processState = invoke<void>('create_save');
 		saves = fetchSaves();
 	}
 
-	async function exportSave(event: CustomEvent<{ name: string }>) {
+	function exportSave(event: CustomEvent<{ name: string }>) {
 		processState = invoke<void>('export_save', {
 			name: event.detail.name
 		});
 		saves = fetchSaves();
 	}
 
-	async function deleteSave(event: CustomEvent<{ name: string }>) {
+	function deleteSave(event: CustomEvent<{ name: string }>) {
 		processState = invoke<void>('delete_save', {
 			name: event.detail.name
 		});
@@ -111,7 +111,6 @@
 	<Error msg={err} visible={true} />
 {/await}
 
-<!-- prettier-ignore -->
 {#await processState catch err}
 	<Error msg={err} visible={true} />
 {/await}

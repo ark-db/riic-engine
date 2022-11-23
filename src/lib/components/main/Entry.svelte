@@ -31,14 +31,12 @@
 		}
 	}
 
-	function handleExport() {
-		dispatch('export', {
-			name: save.name
-		});
-	}
-
-	function handleExportKeydown(event: KeyboardEvent) {
-		if (event.key === 'Space' || event.key === 'Enter') handleExport();
+	function handleExport(event: MouseEvent | KeyboardEvent) {
+		if (event instanceof MouseEvent || event.key === 'Space' || event.key === 'Enter') {
+			dispatch('export', {
+				name: save.name
+			});
+		}
 	}
 
 	function handleDelete() {
@@ -68,7 +66,7 @@
 					height="26"
 					width="26"
 					on:click={handleExport}
-					on:keydown={handleExportKeydown}
+					on:keydown={handleExport}
 				>
 					<path
 						class="export"
@@ -124,9 +122,10 @@
 		justify-content: space-between;
 	}
 	.settings {
+		margin-right: 10px;
 		display: flex;
 		align-items: center;
-		column-gap: 5px;
+		column-gap: 10px;
 	}
 	path {
 		transition: fill 0.3s;

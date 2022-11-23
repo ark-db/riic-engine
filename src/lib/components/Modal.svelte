@@ -3,16 +3,14 @@
 
 	const dispatch = createEventDispatcher<{ close: Record<string, never> }>();
 
-	function handleKeydown(event: KeyboardEvent) {
-		if (event.key === 'Escape') handleClose();
-	}
-
-	function handleClose() {
-		dispatch('close');
+	function handleClose(event: MouseEvent | KeyboardEvent) {
+		if (event instanceof MouseEvent || event.key === 'Escape') {
+			dispatch('close');
+		}
 	}
 </script>
 
-<div class="bg" on:click={handleClose} on:keydown={handleKeydown} />
+<div class="bg" on:click={handleClose} on:keydown={handleClose} />
 <section>
 	<slot />
 </section>

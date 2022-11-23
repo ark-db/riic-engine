@@ -1,6 +1,5 @@
 <script>
 	import { activeSave } from '@stores';
-	import Error from '$lib/components/Error.svelte';
 </script>
 
 <p>Title: {$activeSave.title}</p>
