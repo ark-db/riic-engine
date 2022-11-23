@@ -38,11 +38,6 @@
 		}
 	}
 
-	function updateSaveName(event: CustomEvent<{ newName: string }>) {
-		pendingRename = false;
-		save.name = event.detail.newName;
-	}
-
 	function handleExport(event: MouseEvent | KeyboardEvent) {
 		if (event instanceof MouseEvent || event.key === 'Space' || event.key === 'Enter') {
 			dispatch('export', {
@@ -69,7 +64,7 @@
 	on:mouseleave={() => (hovering = false)}
 >
 	{#if pendingRename}
-		<SaveNameInput text={save.name} on:rename={updateSaveName} bind:active={pendingRename} />
+		<SaveNameInput bind:text={save.name} bind:active={pendingRename} />
 	{:else}
 		<p class="entry-title">{save.name}</p>
 	{/if}

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { onMount, createEventDispatcher } from 'svelte';
+	import { onMount } from 'svelte';
 	import { invoke } from '@tauri-apps/api/tauri';
 	import Error from '../Error.svelte';
 	export let text: string;
@@ -10,19 +10,17 @@
 	let invalid = false;
 	let errMessage = '';
 
+	const parseText = (text: string) => text.replace(/[^\w-]+$/, '');
+
+	$: text = parseText(text);
+
 	onMount(() => {
 		if (input) input.focus();
 	});
 
-	const dispatch = createEventDispatcher<{ rename: { newName: string } }>();
-
-	$: text = parseText(text);
-
 	function handleKeydown(event: KeyboardEvent) {
 		if (event.key === 'Enter' || event.key === 'Escape') input.blur();
 	}
-
-	const parseText = (text: string) => text.replace(/[^\w-]+$/, '');
 
 	function updateText() {
 		active = false;
@@ -38,11 +36,9 @@
 			})
 				.then(() => {
 					origText = text;
-					dispatch('rename', {
-						newName: text
-					});
 				})
 				.catch((reason) => {
+					console.log('Hey!');
 					invalid = true;
 					errMessage = String(reason);
 					text = origText;
@@ -67,6 +63,10 @@
 	on:keydown={handleKeydown}
 	on:blur={updateText}
 />
+
+<!--
+	TODO: dispatch a custom error event so this error can actually display after attempted validation
+-->
 
 <Error msg={errMessage} visible={invalid} />
 
