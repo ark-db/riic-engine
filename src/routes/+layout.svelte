@@ -1,5 +1,5 @@
 <script>
-	import { error } from '@stores';
+	import { error } from '$lib/stores';
 	import Error from '$lib/components/Error.svelte';
 </script>
 

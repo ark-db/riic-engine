@@ -1,7 +1,7 @@
 import { prefetch, goto } from '$app/navigation';
 import { writable, get } from 'svelte/store';
 import { invoke } from '@tauri-apps/api/tauri';
-import type { SaveData, FileData } from '@types';
+import type { SaveData, FileData } from '$lib/types';
 import pencilClockIcon from '$lib/images/pencil-clock.svg';
 import plusClockIcon from '$lib/images/plus-clock.svg';
 import listIncreasingIcon from '$lib/images/list-increasing.svg';

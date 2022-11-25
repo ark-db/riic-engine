@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { error } from '@stores';
+	import { error } from '$lib/stores';
 	import xmark from '$lib/images/red-xmark.svg';
 	export let msg: string;
 </script>

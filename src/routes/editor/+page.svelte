@@ -1,5 +1,5 @@
 <script>
-	import { activeSave } from '@stores';
+	import { activeSave } from '$lib/stores';
 </script>
 
 <p>Title: {$activeSave.title}</p>

@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { invoke } from '@tauri-apps/api/tauri';
-	import { error } from '@stores';
-	import { interaction } from '@utils';
+	import { error } from '$lib/stores';
+	import { interaction } from '$lib/utils';
 	export let text: string;
 	export let active: boolean;
 

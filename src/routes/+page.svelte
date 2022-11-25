@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { saveList, saveSortMode, saveSortOrder } from '@stores';
-	import { tooltip } from '@tooltip';
-	import Header from '@main/Header.svelte';
-	import Entry from '@main/Entry.svelte';
+	import { saveList, saveSortMode, saveSortOrder } from '$lib/stores';
+	import { tooltip } from '$lib/tooltip';
+	import Header from './Header.svelte';
+	import Entry from './Entry.svelte';
 	import addFileIcon from '$lib/images/file-add.svg';
 	import refreshIcon from '$lib/images/refresh.svg';
 

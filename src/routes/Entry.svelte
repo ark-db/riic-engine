@@ -1,9 +1,9 @@
 <script lang="ts">
-	import type { FileData } from '@types';
-	import { saveList, saveSortMode, activeSave } from '@stores';
-	import { interaction } from '@utils';
-	import SaveNameInput from './NameInput.svelte';
-	import Modal from '../Modal.svelte';
+	import type { FileData } from '$lib/types';
+	import { saveList, saveSortMode, activeSave } from '$lib/stores';
+	import { interaction } from '$lib/utils';
+	import NameInput from './NameInput.svelte';
+	import Modal from '$lib/components/Modal.svelte';
 	export let save: FileData;
 
 	let hovering = false;
@@ -46,7 +46,7 @@
 	on:mouseleave={() => (hovering = false)}
 >
 	{#if pendingRename}
-		<SaveNameInput bind:text={save.name} bind:active={pendingRename} />
+		<NameInput bind:text={save.name} bind:active={pendingRename} />
 	{:else}
 		<button class="entry-title" on:click={handleSelect} on:keydown={handleSelect}>
 			{save.name}
