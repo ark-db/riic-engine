@@ -1,7 +1,7 @@
 export type FileData = {
 	name: string;
-	modified: number;
-	created: number;
+	readonly modified: number;
+	readonly created: number;
 };
 
 type Operator = string;

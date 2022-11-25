@@ -5,13 +5,11 @@
 	import { interaction } from '@utils';
 	import SaveNameInput from './NameInput.svelte';
 	import Modal from '../Modal.svelte';
-	import Error from '../Error.svelte';
 	export let save: FileData;
 
 	let hovering = false;
 	let pendingRename = false;
 	let pendingDelete = false;
-	let errMessage = '';
 
 	const dispatch = createEventDispatcher<{
 		export: { name: string };
@@ -34,9 +32,7 @@
 		}
 	}
 
-	const handleSelect = interaction(() =>
-		activeSave.load(save.name).catch((reason: string) => (errMessage = reason))
-	);
+	const handleSelect = interaction(() => activeSave.load(save.name));
 
 	const handleRename = interaction(() => (pendingRename = true));
 
@@ -58,12 +54,7 @@
 	on:mouseleave={() => (hovering = false)}
 >
 	{#if pendingRename}
-		<SaveNameInput
-			bind:text={save.name}
-			bind:active={pendingRename}
-			on:success={() => (errMessage = '')}
-			on:error={(event) => (errMessage = event.detail.message)}
-		/>
+		<SaveNameInput bind:text={save.name} bind:active={pendingRename} />
 	{:else}
 		<button class="entry-title" on:click={handleSelect} on:keydown={handleSelect}>
 			{save.name}
@@ -136,10 +127,6 @@
 			<button class="delete" on:click={handleDelete}>Delete</button>
 		</div>
 	</Modal>
-{/if}
-
-{#if errMessage}
-	<Error msg={errMessage} />
 {/if}
 
 <style>

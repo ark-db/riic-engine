@@ -1,22 +1,20 @@
 <script lang="ts">
+	import { error } from '@stores';
 	import xmark from '$lib/images/red-xmark.svg';
 	export let msg: string;
-	let visible = true;
 </script>
 
-{#if visible}
-	<div class="container">
-		<p>{msg}</p>
-		<input
-			type="image"
-			src={xmark}
-			alt="Delete button"
-			height="20"
-			width="20"
-			on:click={() => (visible = false)}
-		/>
-	</div>
-{/if}
+<div class="container">
+	<p>{msg}</p>
+	<input
+		type="image"
+		src={xmark}
+		alt="Delete button"
+		height="20"
+		width="20"
+		on:click={error.clear}
+	/>
+</div>
 
 <style>
 	.container {

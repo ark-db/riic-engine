@@ -14,6 +14,24 @@ type Save = {
 	data: SaveData;
 };
 
+function createError() {
+	const { subscribe, set } = writable<string>('');
+
+	function handle(err: unknown) {
+		if (err instanceof Error || err instanceof ErrorEvent) {
+			set(err.message);
+		} else if (typeof err === 'string') {
+			set(err);
+		}
+	}
+
+	return {
+		subscribe,
+		clear: () => set(''),
+		handle
+	};
+}
+
 function createSaveSortMode() {
 	const store = writable<SaveSortMode>('modified');
 	const { subscribe, update } = store;
@@ -45,7 +63,7 @@ function createSaveSortOrder() {
 function createActiveSave() {
 	const { subscribe, set } = writable<Save>();
 
-	async function load(name: string): Promise<void> {
+	async function loadSave(name: string) {
 		prefetch('/editor');
 		const data = await invoke<SaveData>('load_save', { name });
 		set({
@@ -57,10 +75,11 @@ function createActiveSave() {
 
 	return {
 		subscribe,
-		load
+		load: (name: string) => loadSave(name).catch(error.handle)
 	};
 }
 
+export const error = createError();
 export const saveSortMode = createSaveSortMode();
 export const saveSortOrder = createSaveSortOrder();
 export const activeSave = createActiveSave();

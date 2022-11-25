@@ -1,6 +1,15 @@
+<script>
+	import { error } from '@stores';
+	import Error from '$lib/components/Error.svelte';
+</script>
+
 <main>
 	<slot />
 </main>
+
+{#if $error}
+	<Error msg={$error} />
+{/if}
 
 <style>
 	:root {

@@ -1,6 +1,7 @@
 <script lang="ts">
-	import { onMount, createEventDispatcher } from 'svelte';
+	import { onMount } from 'svelte';
 	import { invoke } from '@tauri-apps/api/tauri';
+	import { error } from '@stores';
 	import { interaction } from '@utils';
 	export let text: string;
 	export let active: boolean;
@@ -16,11 +17,6 @@
 		if (input) input.focus();
 	});
 
-	const dispatch = createEventDispatcher<{
-		success: Record<string, never>;
-		error: { message: string };
-	}>();
-
 	const handleKeydown = interaction(() => input.blur());
 
 	function updateText() {
@@ -35,13 +31,11 @@
 			})
 				.then(() => {
 					origText = text;
-					dispatch('success');
+					error.clear();
 				})
-				.catch((reason) => {
+				.catch((err) => {
 					text = origText;
-					dispatch('error', {
-						message: reason
-					});
+					error.handle(err);
 				});
 		}
 	}
