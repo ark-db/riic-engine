@@ -2,19 +2,10 @@
 
 use serde::{Deserialize, Serialize};
 
-const CURRENT_VERSION: SaveVersion = SaveVersion { major: 1, minor: 0 };
-
 #[derive(Serialize, Deserialize)]
 pub struct Save {
-    version: SaveVersion,
     layout: Layout,
     chars: Vec<CharData>,
-}
-
-#[derive(Serialize, Deserialize)]
-struct SaveVersion {
-    major: usize,
-    minor: usize,
 }
 
 #[derive(Serialize, Deserialize)]
@@ -54,15 +45,9 @@ impl Save {
     #[must_use]
     pub fn new() -> Self {
         Self {
-            version: CURRENT_VERSION,
             layout: Layout::new(),
             chars: Vec::new(),
         }
-    }
-
-    #[must_use]
-    pub fn is_compatible(self) -> bool {
-        self.version.major == CURRENT_VERSION.major
     }
 }
 

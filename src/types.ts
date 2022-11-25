@@ -25,10 +25,6 @@ type CharData = {
 };
 
 export type SaveData = {
-	version: {
-		major: number;
-		minor: number;
-	};
 	layout: {
 		cc: Facility;
 		tp: AtMostFive<Facility>;
