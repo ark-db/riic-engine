@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { createEventDispatcher } from 'svelte';
 	import type { FileData } from '@types';
-	import { saveSortMode } from '@stores';
+	import { saveSortMode, activeSave } from '@stores';
 	import SaveNameInput from './NameInput.svelte';
 	import Modal from '../Modal.svelte';
 	import Error from '../Error.svelte';
@@ -13,8 +13,8 @@
 	let errMessage = '';
 
 	const dispatch = createEventDispatcher<{
-		delete: { name: string };
 		export: { name: string };
+		delete: { name: string };
 	}>();
 
 	function formatStr(num: number, unit: string): string {
@@ -30,6 +30,12 @@
 			return formatStr(Math.floor(secsElapsed / (60 * 60)), 'hour');
 		} else {
 			return formatStr(Math.floor(secsElapsed / (60 * 60 * 24)), 'day');
+		}
+	}
+
+	function handleSelect(event: MouseEvent | KeyboardEvent) {
+		if (event instanceof MouseEvent || event.key === 'Space' || event.key === 'Enter') {
+			errMessage = activeSave.load(save.name);
 		}
 	}
 
@@ -72,7 +78,9 @@
 			on:error={(event) => (errMessage = event.detail.message)}
 		/>
 	{:else}
-		<p class="entry-title">{save.name}</p>
+		<button class="entry-title" on:click={handleSelect} on:keydown={handleSelect}>
+			{save.name}
+		</button>
 	{/if}
 	<div class="right">
 		{#if hovering}
@@ -158,10 +166,16 @@
 		justify-content: space-between;
 	}
 	.entry-title {
-		margin-left: 0.6em;
+		margin-left: 0.1em;
+		border: none;
+		padding: 0.5em;
+		background-color: var(--dark-strong);
 		color: var(--light);
 		font-size: 1.25em;
 		font-weight: 600;
+	}
+	.entry-title:hover {
+		cursor: pointer;
 	}
 	.right {
 		display: flex;

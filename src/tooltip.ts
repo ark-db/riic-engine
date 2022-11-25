@@ -66,7 +66,8 @@ export function tooltip(element: HTMLElement) {
 			element.removeEventListener('mouseover', mouseOver);
 			element.removeEventListener('mouseleave', hide);
 			element.removeEventListener('mousemove', mouseMove);
-			hide();
+			// TODO: find an alternative tooltip impl because this messes up navigation
+			// hide();
 		}
 	};
 }

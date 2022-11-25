@@ -1,3 +1,4 @@
+import { prefetch, goto } from '$app/navigation';
 import { writable, get } from 'svelte/store';
 import { invoke } from '@tauri-apps/api/tauri';
 import type { SaveData } from '@types';
@@ -44,12 +45,20 @@ function createSaveSortOrder() {
 function createActiveSave() {
 	const { subscribe, set } = writable<Save>();
 
-	async function load(name: string) {
-		const data = await invoke<SaveData>('load_save', { name });
-		set({
-			title: name,
-			data
-		});
+	function load(name: string): string {
+		let errMessage = '';
+		prefetch("/editor");
+		invoke<SaveData>('load_save', { name })
+			.then((data) => {
+				set({
+					title: name,
+					data
+				});
+				goto("/editor");
+			}).catch((reason) => {
+				errMessage = reason;
+			})
+		return errMessage;
 	}
 
 	return {
