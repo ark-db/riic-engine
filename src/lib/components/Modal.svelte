@@ -1,16 +1,10 @@
 <script lang="ts">
 	import { createEventDispatcher } from 'svelte';
+	import { interaction } from '$lib/utils';
 
 	const dispatch = createEventDispatcher<{ close: Record<string, never> }>();
 
-	function handleClose(event: MouseEvent | KeyboardEvent) {
-		if (
-			(event instanceof MouseEvent && event.button === 0) ||
-			(event instanceof KeyboardEvent && event.key === 'Escape')
-		) {
-			dispatch('close');
-		}
-	}
+	const handleClose = interaction(() => dispatch('close'), ['Escape']);
 </script>
 
 <div class="bg" on:click={handleClose} on:keydown={handleClose} />
