@@ -54,7 +54,9 @@ export function tooltip(element: HTMLElement) {
 		div.style.top = `${top}px`;
 	}
 	function hide() {
-		document.body.removeChild(div);
+		if (document.body.contains(div)) {
+			document.body.removeChild(div);
+		}
 	}
 
 	element.addEventListener('mouseover', mouseOver);
@@ -62,12 +64,11 @@ export function tooltip(element: HTMLElement) {
 	element.addEventListener('mousemove', mouseMove);
 
 	return {
-		destroy() {
+		destroy: () => {
 			element.removeEventListener('mouseover', mouseOver);
 			element.removeEventListener('mouseleave', hide);
 			element.removeEventListener('mousemove', mouseMove);
-			// TODO: find an alternative tooltip impl because this messes up navigation
-			// hide();
+			hide();
 		}
 	};
 }
