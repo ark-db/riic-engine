@@ -4,7 +4,10 @@
 	const dispatch = createEventDispatcher<{ close: Record<string, never> }>();
 
 	function handleClose(event: MouseEvent | KeyboardEvent) {
-		if (event instanceof MouseEvent || event.key === 'Escape') {
+		if (
+			(event instanceof MouseEvent && event.button === 0) ||
+			(event instanceof KeyboardEvent && event.key === 'Escape')
+		) {
 			dispatch('close');
 		}
 	}

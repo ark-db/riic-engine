@@ -12,6 +12,7 @@ const config = {
 		alias: {
 			'@types': 'src/types.ts',
 			'@stores': 'src/stores.ts',
+			'@utils': 'src/utils.ts',
 			'@tooltip': 'src/tooltip.ts',
 			'@main': 'src/lib/components/main'
 		},

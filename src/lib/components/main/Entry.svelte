@@ -2,6 +2,7 @@
 	import { createEventDispatcher } from 'svelte';
 	import type { FileData } from '@types';
 	import { saveSortMode, activeSave } from '@stores';
+	import { interaction } from '@utils';
 	import SaveNameInput from './NameInput.svelte';
 	import Modal from '../Modal.svelte';
 	import Error from '../Error.svelte';
@@ -33,35 +34,21 @@
 		}
 	}
 
-	function handleSelect(event: MouseEvent | KeyboardEvent) {
-		if (event instanceof MouseEvent || event.key === 'Space' || event.key === 'Enter') {
-			errMessage = activeSave.load(save.name);
-		}
-	}
+	const handleSelect = interaction(() =>
+		activeSave.load(save.name).catch((reason: string) => (errMessage = reason))
+	);
 
-	function handleRename(event: MouseEvent | KeyboardEvent) {
-		if (event instanceof MouseEvent || event.key === 'Space' || event.key === 'Enter') {
-			pendingRename = true;
-		}
-	}
+	const handleRename = interaction(() => (pendingRename = true));
 
-	function handleExport(event: MouseEvent | KeyboardEvent) {
-		if (event instanceof MouseEvent || event.key === 'Space' || event.key === 'Enter') {
-			dispatch('export', {
-				name: save.name
-			});
-		}
-	}
+	const handleExport = interaction(() => dispatch('export', { name: save.name }));
+
+	const handleDeleteAction = interaction(() => (pendingDelete = true));
 
 	function handleDelete() {
 		pendingDelete = false;
 		dispatch('delete', {
 			name: save.name
 		});
-	}
-
-	function handleDeleteKeydown(event: KeyboardEvent) {
-		if (event.key === 'Space' || event.key === 'Enter') pendingDelete = true;
 	}
 </script>
 
@@ -123,8 +110,8 @@
 					viewBox="0 0 448 512"
 					height="20"
 					width="20"
-					on:click={() => (pendingDelete = true)}
-					on:keydown={handleDeleteKeydown}
+					on:click={handleDeleteAction}
+					on:keydown={handleDeleteAction}
 				>
 					<path
 						class="trash"

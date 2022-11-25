@@ -45,20 +45,14 @@ function createSaveSortOrder() {
 function createActiveSave() {
 	const { subscribe, set } = writable<Save>();
 
-	function load(name: string): string {
-		let errMessage = '';
-		prefetch("/editor");
-		invoke<SaveData>('load_save', { name })
-			.then((data) => {
-				set({
-					title: name,
-					data
-				});
-				goto("/editor");
-			}).catch((reason) => {
-				errMessage = reason;
-			})
-		return errMessage;
+	async function load(name: string): Promise<void> {
+		prefetch('/editor');
+		const data = await invoke<SaveData>('load_save', { name });
+		set({
+			title: name,
+			data
+		});
+		goto('/editor');
 	}
 
 	return {

@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { onMount, createEventDispatcher } from 'svelte';
 	import { invoke } from '@tauri-apps/api/tauri';
+	import { interaction } from '@utils';
 	export let text: string;
 	export let active: boolean;
 
@@ -20,9 +21,7 @@
 		error: { message: string };
 	}>();
 
-	function handleKeydown(event: KeyboardEvent) {
-		if (event.key === 'Enter' || event.key === 'Escape') input.blur();
-	}
+	const handleKeydown = interaction(() => input.blur());
 
 	function updateText() {
 		active = false;
