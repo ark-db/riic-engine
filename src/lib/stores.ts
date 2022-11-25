@@ -85,7 +85,7 @@ function createSaveSortOrder() {
 			saveList.load();
 		},
 		nextDesc: () =>
-			`Sort from ${get(store) === 'increasing' ? 'latest to earliest' : 'earliest to latest'}`
+			`Sort from ${get(store) === 'increasing' ? 'earliest to latest' : 'latest to earliest'}`
 	};
 }
 

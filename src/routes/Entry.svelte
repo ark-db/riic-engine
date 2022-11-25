@@ -2,6 +2,7 @@
 	import type { FileData } from '$lib/types';
 	import { saveList, saveSortMode, activeSave } from '$lib/stores';
 	import { interaction } from '$lib/utils';
+	import { tooltip } from '$lib/tooltip';
 	import NameInput from './NameInput.svelte';
 	import Modal from '$lib/components/Modal.svelte';
 	export let save: FileData;
@@ -60,6 +61,8 @@
 					viewBox="0 0 512 512"
 					height="24"
 					width="24"
+					data-title="Rename save"
+					use:tooltip
 					on:click={handleRename}
 					on:keydown={handleRename}
 				>
@@ -79,6 +82,8 @@
 					viewBox="0 0 640 512"
 					height="26"
 					width="26"
+					data-title="Export save"
+					use:tooltip
 					on:click={handleExport}
 					on:keydown={handleExport}
 				>
@@ -93,6 +98,8 @@
 					viewBox="0 0 448 512"
 					height="20"
 					width="20"
+					data-title="Delete save"
+					use:tooltip
 					on:click={handleDeleteAction}
 					on:keydown={handleDeleteAction}
 				>

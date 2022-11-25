@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
 	import { saveList, saveSortMode, saveSortOrder } from '$lib/stores';
 	import { tooltip } from '$lib/tooltip';
 	import Header from './Header.svelte';
@@ -19,7 +19,7 @@
 			alt="Create new setup"
 			width="25"
 			height="25"
-			title="Create new setup"
+			data-title="Create new setup"
 			use:tooltip
 			on:click={saveList.create}
 		/>
@@ -29,7 +29,7 @@
 			alt="Refresh setup list"
 			width="25"
 			height="25"
-			title="Refresh setup list"
+			data-title="Refresh setup list"
 			use:tooltip
 			on:click={saveList.load}
 		/>
@@ -42,7 +42,7 @@
 				alt={saveSortMode.nextDesc()}
 				width="25"
 				height="25"
-				title={saveSortMode.nextDesc()}
+				data-title={saveSortMode.nextDesc()}
 				use:tooltip
 				on:click={saveSortMode.toggle}
 			/>
@@ -54,7 +54,7 @@
 				alt={saveSortOrder.nextDesc()}
 				width="25"
 				height="25"
-				title={saveSortOrder.nextDesc()}
+				data-title={saveSortOrder.nextDesc()}
 				use:tooltip
 				on:click={saveSortOrder.toggle}
 			/>
