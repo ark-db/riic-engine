@@ -1,7 +1,7 @@
 import { prefetch, goto } from '$app/navigation';
 import { writable, get } from 'svelte/store';
 import { invoke } from '@tauri-apps/api/tauri';
-import type { SaveData } from '@types';
+import type { SaveData, FileData } from '@types';
 import pencilClockIcon from '$lib/images/pencil-clock.svg';
 import plusClockIcon from '$lib/images/plus-clock.svg';
 import listIncreasingIcon from '$lib/images/list-increasing.svg';
@@ -13,6 +13,29 @@ type Save = {
 	title: string;
 	data: SaveData;
 };
+
+function createSaveList() {
+	const { subscribe, set } = writable<FileData[]>();
+
+	const load = () => invoke<FileData[]>('fetch_saves').then(set).catch(error.handle);
+
+	return {
+		subscribe,
+		load,
+		create: () => {
+			invoke<void>('create_save').catch(error.handle);
+			load();
+		},
+		export: (name: string) => {
+			invoke<void>('export_save', { name }).catch(error.handle);
+			load();
+		},
+		delete: (name: string) => {
+			invoke<void>('delete_save', { name }).catch(error.handle);
+			load();
+		}
+	};
+}
 
 function createError() {
 	const { subscribe, set } = writable<string>('');
@@ -42,7 +65,10 @@ function createSaveSortMode() {
 	return {
 		subscribe,
 		src: () => (get(store) === 'created' ? plusClockIcon : pencilClockIcon),
-		toggle: () => update((mode) => opposite(mode)),
+		toggle: () => {
+			update((mode) => opposite(mode));
+			saveList.load();
+		},
 		nextDesc: () => `Sort by time ${opposite(get(store))}`
 	};
 }
@@ -54,7 +80,10 @@ function createSaveSortOrder() {
 	return {
 		subscribe,
 		src: () => (get(store) === 'increasing' ? listIncreasingIcon : listDecreasingIcon),
-		toggle: () => update((order) => (order === 'increasing' ? 'decreasing' : 'increasing')),
+		toggle: () => {
+			update((order) => (order === 'increasing' ? 'decreasing' : 'increasing'));
+			saveList.load();
+		},
 		nextDesc: () =>
 			`Sort from ${get(store) === 'increasing' ? 'latest to earliest' : 'earliest to latest'}`
 	};
@@ -79,6 +108,7 @@ function createActiveSave() {
 	};
 }
 
+export const saveList = createSaveList();
 export const error = createError();
 export const saveSortMode = createSaveSortMode();
 export const saveSortOrder = createSaveSortOrder();

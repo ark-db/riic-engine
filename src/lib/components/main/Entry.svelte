@@ -1,7 +1,6 @@
 <script lang="ts">
-	import { createEventDispatcher } from 'svelte';
 	import type { FileData } from '@types';
-	import { saveSortMode, activeSave } from '@stores';
+	import { saveList, saveSortMode, activeSave } from '@stores';
 	import { interaction } from '@utils';
 	import SaveNameInput from './NameInput.svelte';
 	import Modal from '../Modal.svelte';
@@ -10,11 +9,6 @@
 	let hovering = false;
 	let pendingRename = false;
 	let pendingDelete = false;
-
-	const dispatch = createEventDispatcher<{
-		export: { name: string };
-		delete: { name: string };
-	}>();
 
 	function formatStr(num: number, unit: string): string {
 		return `${num} ${unit}${num === 1 ? '' : 's'} ago`;
@@ -36,15 +30,13 @@
 
 	const handleRename = interaction(() => (pendingRename = true));
 
-	const handleExport = interaction(() => dispatch('export', { name: save.name }));
+	const handleExport = interaction(() => saveList.export(save.name));
 
 	const handleDeleteAction = interaction(() => (pendingDelete = true));
 
 	function handleDelete() {
 		pendingDelete = false;
-		dispatch('delete', {
-			name: save.name
-		});
+		saveList.delete(save.name);
 	}
 </script>
 

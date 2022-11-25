@@ -1,39 +1,12 @@
 <script lang="ts">
-	import { invoke } from '@tauri-apps/api/tauri';
-	import type { FileData } from '@types';
-	import { saveSortMode, saveSortOrder } from '@stores';
+	import { saveList, saveSortMode, saveSortOrder } from '@stores';
 	import { tooltip } from '@tooltip';
 	import Header from '@main/Header.svelte';
 	import Entry from '@main/Entry.svelte';
-	import Error from '$lib/components/Error.svelte';
 	import addFileIcon from '$lib/images/file-add.svg';
 	import refreshIcon from '$lib/images/refresh.svg';
 
-	let saves: Promise<FileData[]>;
-	let processState: Promise<void>;
-
-	const refresh = () => (saves = invoke<FileData[]>('fetch_saves'));
-
-	refresh();
-
-	function createSave() {
-		processState = invoke<void>('create_save');
-		refresh();
-	}
-
-	function exportSave(event: CustomEvent<{ name: string }>) {
-		processState = invoke<void>('export_save', {
-			name: event.detail.name
-		});
-		refresh();
-	}
-
-	function deleteSave(event: CustomEvent<{ name: string }>) {
-		processState = invoke<void>('delete_save', {
-			name: event.detail.name
-		});
-		refresh();
-	}
+	saveList.load();
 </script>
 
 <Header />
@@ -48,7 +21,7 @@
 			height="25"
 			title="Create new setup"
 			use:tooltip
-			on:click={createSave}
+			on:click={saveList.create}
 		/>
 		<input
 			type="image"
@@ -58,7 +31,7 @@
 			height="25"
 			title="Refresh setup list"
 			use:tooltip
-			on:click={refresh}
+			on:click={saveList.load}
 		/>
 	</div>
 	<div class="right">
@@ -71,10 +44,7 @@
 				height="25"
 				title={saveSortMode.nextDesc()}
 				use:tooltip
-				on:click={() => {
-					saveSortMode.toggle();
-					refresh();
-				}}
+				on:click={saveSortMode.toggle}
 			/>
 		{/key}
 		{#key $saveSortOrder}
@@ -86,34 +56,21 @@
 				height="25"
 				title={saveSortOrder.nextDesc()}
 				use:tooltip
-				on:click={() => {
-					saveSortOrder.toggle();
-					refresh();
-				}}
+				on:click={saveSortOrder.toggle}
 			/>
 		{/key}
 	</div>
 </div>
 
-{#await saves}
-	<p class="progress-text">Loading saves...</p>
-{:then saveList}
-	{#if saveList.length > 0}
-		<div class="saves">
-			{#each saveList.sort((prev, curr) => (prev[$saveSortMode] - curr[$saveSortMode]) * ($saveSortOrder === 'increasing' ? 1 : -1)) as save}
-				<Entry {save} on:export={exportSave} on:delete={deleteSave} />
-			{/each}
-		</div>
-	{:else}
-		<p class="placeholder">No saves found!</p>
-	{/if}
-{:catch err}
-	<Error msg={err} />
-{/await}
-
-{#await processState catch err}
-	<Error msg={err} />
-{/await}
+{#if $saveList && $saveList.length > 0}
+	<div class="saves">
+		{#each $saveList.sort((prev, curr) => (prev[$saveSortMode] - curr[$saveSortMode]) * ($saveSortOrder === 'increasing' ? 1 : -1)) as save}
+			<Entry {save} />
+		{/each}
+	</div>
+{:else}
+	<p class="placeholder">No saves found!</p>
+{/if}
 
 <style>
 	.controls,
@@ -136,13 +93,6 @@
 	input:hover {
 		background-color: var(--dark-mild);
 		transition: background-color 0.1s;
-	}
-	.progress-text {
-		border-radius: 1em;
-		padding: 1em;
-		background-color: var(--dark-strong);
-		text-align: center;
-		color: var(--light-strong);
 	}
 	.saves {
 		display: flex;
