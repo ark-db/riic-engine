@@ -1,4 +1,4 @@
-import { prefetch, goto } from '$app/navigation';
+import { goto } from '$app/navigation';
 import { writable, get } from 'svelte/store';
 import { invoke } from '@tauri-apps/api/tauri';
 import type { SaveData, FileData } from '$lib/types';
@@ -93,7 +93,6 @@ function createActiveSave() {
 	const { subscribe, set } = writable<Save>();
 
 	async function loadSave(name: string) {
-		prefetch('/editor');
 		const data = await invoke<SaveData>('load_save', { name });
 		set({
 			title: name,
