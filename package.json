@@ -7,12 +7,12 @@
 		"lint": "svelte-kit sync && prettier --plugin-search-dir . --check . && svelte-check --tsconfig ./tsconfig.json && eslint . && cd src-tauri && cargo clippy",
 		"format": "prettier --plugin-search-dir . --write . && cd src-tauri && cargo fmt",
 		"check": "npm run format && npm run lint",
-		"update": "npx npm-check-updates -u && npm update && npm install && cd src-tauri && cargo update",
+		"update": "npx npm-check-updates -u && npm update && npm install && poetry update && cd src-tauri && cargo upgrade && cargo update",
 		"tauri": "tauri"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-static": "^1.0.0-next.48",
-		"@sveltejs/kit": "^1.0.0-next.561",
+		"@sveltejs/kit": "^1.0.0-next.562",
 		"@tauri-apps/api": "^1.2.0",
 		"@tauri-apps/cli": "^1.2.1",
 		"@typescript-eslint/eslint-plugin": "^5.44.0",

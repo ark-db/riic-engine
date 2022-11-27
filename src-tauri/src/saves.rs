@@ -64,6 +64,11 @@ impl FileData {
     }
 }
 
+pub struct ImportedSave {
+    title: String,
+    data: Save,
+}
+
 fn get_saves_dir(app: &tauri::AppHandle) -> Result<PathBuf, Error> {
     let saves_dir = app
         .path_resolver()
@@ -161,5 +166,16 @@ pub fn export_save(app: tauri::AppHandle, name: &str) -> Result<(), Error> {
         name,
     );
     fs::copy(save_path, target_path)?;
+    Ok(())
+}
+
+#[tauri::command]
+pub fn import_saves(app: tauri::AppHandle, saves: Vec<ImportedSave>) -> Result<(), Error> {
+    let mut path = get_saves_dir(&app)?;
+    for save in saves {
+        path.set_file_name(save.title);
+        path.set_extension("json");
+        serde_json::to_writer(fs::File::create(&path)?, &save.data)?;
+    }
     Ok(())
 }
