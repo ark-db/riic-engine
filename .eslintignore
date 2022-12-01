@@ -14,3 +14,4 @@ yarn.lock
 
 src-tauri/target
 src/lib/data
+static
