@@ -4,8 +4,8 @@
 		"name": "Lancet-2",
 		"rarity": 1,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Backup Energy", "iconId": "bskill_pow_spd1" },
-			{ "elite": 0, "level": 30, "name": "Medical Service", "iconId": "bskill_dorm_single2" }
+			{ "elite": 0, "level": 1, "skillId": "power_rec_spd[000]" },
+			{ "elite": 0, "level": 30, "skillId": "dorm_rec_single[000]" }
 		]
 	},
 	{
@@ -13,8 +13,8 @@
 		"name": "Castle-3",
 		"rarity": 1,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Backup Energy", "iconId": "bskill_pow_spd1" },
-			{ "elite": 0, "level": 30, "name": "Combat Guidance Video", "iconId": "bskill_man_exp2" }
+			{ "elite": 0, "level": 1, "skillId": "power_rec_spd[000]" },
+			{ "elite": 0, "level": 30, "skillId": "manu_formula_spd[010]" }
 		]
 	},
 	{
@@ -22,8 +22,8 @@
 		"name": "Thermal-EX",
 		"rarity": 1,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Backup Energy", "iconId": "bskill_pow_spd1" },
-			{ "elite": 0, "level": 30, "name": "Enthusiasm", "iconId": "bskill_pow_spd&cost" }
+			{ "elite": 0, "level": 1, "skillId": "power_rec_spd[000]" },
+			{ "elite": 0, "level": 30, "skillId": "power_rec_spd&cost[000]" }
 		]
 	},
 	{
@@ -31,8 +31,8 @@
 		"name": "\"Justice Knight\"",
 		"rarity": 1,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Backup Energy", "iconId": "bskill_pow_spd1" },
-			{ "elite": 0, "level": 30, "name": "'Beep beep, activate!'", "iconId": "bskill_pow_jnight" }
+			{ "elite": 0, "level": 1, "skillId": "power_rec_spd[000]" },
+			{ "elite": 0, "level": 30, "skillId": "power_prod_spd_P[000]" }
 		]
 	},
 	{
@@ -40,8 +40,8 @@
 		"name": "Yato",
 		"rarity": 2,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Order Distribution β", "iconId": "bskill_tra_spd2" },
-			{ "elite": 0, "level": 30, "name": "Standardization α", "iconId": "bskill_man_spd1" }
+			{ "elite": 0, "level": 1, "skillId": "trade_ord_spd[001]" },
+			{ "elite": 0, "level": 30, "skillId": "manu_prod_spd[000]" }
 		]
 	},
 	{
@@ -49,13 +49,8 @@
 		"name": "Noir Corne",
 		"rarity": 2,
 		"skills": [
-			{
-				"elite": 0,
-				"level": 1,
-				"name": "Warehouse Organization β",
-				"iconId": "bskill_man_spd&limit3"
-			},
-			{ "elite": 0, "level": 30, "name": "Order Management α", "iconId": "bskill_tra_spd&limit1" }
+			{ "elite": 0, "level": 1, "skillId": "manu_prod_spd&limit[001]" },
+			{ "elite": 0, "level": 30, "skillId": "trade_ord_spd&limit[000]" }
 		]
 	},
 	{
@@ -63,8 +58,8 @@
 		"name": "Rangers",
 		"rarity": 2,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Personnel Management α", "iconId": "bskill_hire_spd1" },
-			{ "elite": 0, "level": 30, "name": "Strong Despite Years", "iconId": "bskill_ws_p3" }
+			{ "elite": 0, "level": 1, "skillId": "hire_spd[000]" },
+			{ "elite": 0, "level": 30, "skillId": "workshop_proc_probability[021]" }
 		]
 	},
 	{
@@ -72,8 +67,8 @@
 		"name": "Durin",
 		"rarity": 2,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Laziness", "iconId": "bskill_dorm_all&one1" },
-			{ "elite": 0, "level": 30, "name": "Sleepiness", "iconId": "bskill_dorm_all&one2" }
+			{ "elite": 0, "level": 1, "skillId": "dorm_rec_all&oneself[000]" },
+			{ "elite": 0, "level": 30, "skillId": "dorm_rec_all&oneself[001]" }
 		]
 	},
 	{
@@ -81,8 +76,8 @@
 		"name": "12F",
 		"rarity": 2,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Clue Search β", "iconId": "bskill_meet_spd2" },
-			{ "elite": 0, "level": 30, "name": "Training Record", "iconId": "bskill_ws_asc1" }
+			{ "elite": 0, "level": 1, "skillId": "meet_spd[020]" },
+			{ "elite": 0, "level": 30, "skillId": "workshop_formula_probability[300]" }
 		]
 	},
 	{
@@ -90,8 +85,8 @@
 		"name": "Fang",
 		"rarity": 3,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Hothead", "iconId": "bskill_man_spd_add1" },
-			{ "elite": 1, "level": 1, "name": "Order Distribution β", "iconId": "bskill_tra_spd2" }
+			{ "elite": 0, "level": 1, "skillId": "manu_prod_spd_addition[030]" },
+			{ "elite": 1, "level": 1, "skillId": "trade_ord_spd[001]" }
 		]
 	},
 	{
@@ -99,8 +94,8 @@
 		"name": "Vanilla",
 		"rarity": 3,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Standardization β", "iconId": "bskill_man_spd2" },
-			{ "elite": 1, "level": 1, "name": "Order Distribution α", "iconId": "bskill_tra_spd1" }
+			{ "elite": 0, "level": 1, "skillId": "manu_prod_spd[010]" },
+			{ "elite": 1, "level": 1, "skillId": "trade_ord_spd[000]" }
 		]
 	},
 	{
@@ -108,8 +103,8 @@
 		"name": "Plume",
 		"rarity": 3,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Vanguard Expert α", "iconId": "bskill_train_vanguard1" },
-			{ "elite": 1, "level": 1, "name": "Order Management α", "iconId": "bskill_tra_spd&limit1" }
+			{ "elite": 0, "level": 1, "skillId": "train_spd&profession[010]" },
+			{ "elite": 1, "level": 1, "skillId": "trade_ord_spd&limit[000]" }
 		]
 	},
 	{
@@ -117,8 +112,8 @@
 		"name": "Melantha",
 		"rarity": 3,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Supply Management", "iconId": "bskill_tra_spd&limit6" },
-			{ "elite": 1, "level": 1, "name": "Focus α", "iconId": "bskill_ws_p1" }
+			{ "elite": 0, "level": 1, "skillId": "trade_ord_spd&limit[010]" },
+			{ "elite": 1, "level": 1, "skillId": "workshop_proc_probability[000]" }
 		]
 	},
 	{
@@ -126,8 +121,8 @@
 		"name": "Popukar",
 		"rarity": 3,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Trouble Maker", "iconId": "bskill_man_spd&limit&cost3" },
-			{ "elite": 1, "level": 1, "name": "Harmony", "iconId": "bskill_dorm_single&one21" }
+			{ "elite": 0, "level": 1, "skillId": "manu_prod_spd&limit&cost[010]" },
+			{ "elite": 1, "level": 1, "skillId": "dorm_rec_single&oneself[020]" }
 		]
 	},
 	{
@@ -135,13 +130,8 @@
 		"name": "Cardigan",
 		"rarity": 3,
 		"skills": [
-			{
-				"elite": 0,
-				"level": 1,
-				"name": "Warehouse Organization α",
-				"iconId": "bskill_man_spd&limit1"
-			},
-			{ "elite": 1, "level": 1, "name": "Liveliness", "iconId": "bskill_dorm_single&one01" }
+			{ "elite": 0, "level": 1, "skillId": "manu_prod_spd&limit[000]" },
+			{ "elite": 1, "level": 1, "skillId": "dorm_rec_single&oneself[000]" }
 		]
 	},
 	{
@@ -149,13 +139,8 @@
 		"name": "Beagle",
 		"rarity": 3,
 		"skills": [
-			{
-				"elite": 0,
-				"level": 1,
-				"name": "Warehouse Organization α",
-				"iconId": "bskill_man_spd&limit1"
-			},
-			{ "elite": 1, "level": 1, "name": "Liveliness", "iconId": "bskill_dorm_single&one01" }
+			{ "elite": 0, "level": 1, "skillId": "manu_prod_spd&limit[000]" },
+			{ "elite": 1, "level": 1, "skillId": "dorm_rec_single&oneself[000]" }
 		]
 	},
 	{
@@ -163,8 +148,8 @@
 		"name": "Spot",
 		"rarity": 3,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Skillful Craftsman", "iconId": "bskill_ws_p2" },
-			{ "elite": 1, "level": 1, "name": "Metalwork α", "iconId": "bskill_man_gold1" }
+			{ "elite": 0, "level": 1, "skillId": "workshop_proc_probability[010]" },
+			{ "elite": 1, "level": 1, "skillId": "manu_formula_spd[100]" }
 		]
 	},
 	{
@@ -172,8 +157,8 @@
 		"name": "Kroos",
 		"rarity": 3,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Slowcoach", "iconId": "bskill_man_spd_add2" },
-			{ "elite": 1, "level": 1, "name": "Solitude", "iconId": "bskill_dorm_one2" }
+			{ "elite": 0, "level": 1, "skillId": "manu_prod_spd_addition[040]" },
+			{ "elite": 1, "level": 1, "skillId": "dorm_rec_oneself[000]" }
 		]
 	},
 	{
@@ -181,8 +166,8 @@
 		"name": "Adnachiel",
 		"rarity": 3,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Order Distribution α", "iconId": "bskill_tra_spd1" },
-			{ "elite": 1, "level": 1, "name": "Skillful Craftsman", "iconId": "bskill_ws_p2" }
+			{ "elite": 0, "level": 1, "skillId": "trade_ord_spd[000]" },
+			{ "elite": 1, "level": 1, "skillId": "workshop_proc_probability[010]" }
 		]
 	},
 	{
@@ -190,8 +175,8 @@
 		"name": "Lava",
 		"rarity": 3,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Heat Charge α", "iconId": "bskill_pow_spd1" },
-			{ "elite": 1, "level": 1, "name": "Originium Work β", "iconId": "bskill_man_originium2" }
+			{ "elite": 0, "level": 1, "skillId": "power_rec_spd[001]" },
+			{ "elite": 1, "level": 1, "skillId": "manu_formula_spd[210]" }
 		]
 	},
 	{
@@ -199,8 +184,8 @@
 		"name": "Hibiscus",
 		"rarity": 3,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Thoughtfulness", "iconId": "bskill_dorm_single1" },
-			{ "elite": 1, "level": 1, "name": "Nutriology", "iconId": "bskill_ws_evolve1" }
+			{ "elite": 0, "level": 1, "skillId": "dorm_rec_single[010]" },
+			{ "elite": 1, "level": 1, "skillId": "workshop_formula_probability[100]" }
 		]
 	},
 	{
@@ -208,8 +193,8 @@
 		"name": "Ansel",
 		"rarity": 3,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Thoughtfulness", "iconId": "bskill_dorm_single1" },
-			{ "elite": 1, "level": 1, "name": "Pharmacology·α", "iconId": "bskill_ws_evolve2" }
+			{ "elite": 0, "level": 1, "skillId": "dorm_rec_single[010]" },
+			{ "elite": 1, "level": 1, "skillId": "workshop_formula_probability[110]" }
 		]
 	},
 	{
@@ -217,8 +202,8 @@
 		"name": "Steward",
 		"rarity": 3,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Negotiation", "iconId": "bskill_tra_limit&cost" },
-			{ "elite": 1, "level": 1, "name": "Standardization β", "iconId": "bskill_man_spd2" }
+			{ "elite": 0, "level": 1, "skillId": "trade_ord_limit&cost[000]" },
+			{ "elite": 1, "level": 1, "skillId": "manu_prod_spd[010]" }
 		]
 	},
 	{
@@ -226,8 +211,8 @@
 		"name": "Orchid",
 		"rarity": 3,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Psychology", "iconId": "bskill_hire_spd4" },
-			{ "elite": 1, "level": 1, "name": "Supply Management", "iconId": "bskill_tra_spd&limit6" }
+			{ "elite": 0, "level": 1, "skillId": "hire_spd[020]" },
+			{ "elite": 1, "level": 1, "skillId": "trade_ord_spd&limit[010]" }
 		]
 	},
 	{
@@ -235,8 +220,8 @@
 		"name": "Haze",
 		"rarity": 4,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Metalwork α", "iconId": "bskill_man_gold1" },
-			{ "elite": 1, "level": 1, "name": "Order Distribution β", "iconId": "bskill_tra_spd2" }
+			{ "elite": 0, "level": 1, "skillId": "manu_formula_spd[100]" },
+			{ "elite": 1, "level": 1, "skillId": "trade_ord_spd[001]" }
 		]
 	},
 	{
@@ -244,8 +229,8 @@
 		"name": "Gitano",
 		"rarity": 4,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Supply Management", "iconId": "bskill_tra_spd&limit6" },
-			{ "elite": 1, "level": 1, "name": "Divination", "iconId": "bskill_meet_spd3" }
+			{ "elite": 0, "level": 1, "skillId": "trade_ord_spd&limit[010]" },
+			{ "elite": 1, "level": 1, "skillId": "meet_spd[030]" }
 		]
 	},
 	{
@@ -253,8 +238,8 @@
 		"name": "Greyy",
 		"rarity": 4,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Electrostatic Field", "iconId": "bskill_pow_spd3" },
-			{ "elite": 1, "level": 1, "name": "Skillful Craftsman", "iconId": "bskill_ws_p2" }
+			{ "elite": 0, "level": 1, "skillId": "power_rec_spd[020]" },
+			{ "elite": 1, "level": 1, "skillId": "workshop_proc_probability[010]" }
 		]
 	},
 	{
@@ -262,8 +247,8 @@
 		"name": "Click",
 		"rarity": 4,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Vlog", "iconId": "bskill_man_exp&cost" },
-			{ "elite": 1, "level": 1, "name": "Editing β", "iconId": "bskill_man_exp&limit2" }
+			{ "elite": 0, "level": 1, "skillId": "manu_formula_cost[000]" },
+			{ "elite": 1, "level": 1, "skillId": "manu_formula_limit[010]" }
 		]
 	},
 	{
@@ -271,19 +256,9 @@
 		"name": "Indigo",
 		"rarity": 4,
 		"skills": [
-			{
-				"elite": 0,
-				"level": 1,
-				"name": "Poisoner's Friend",
-				"iconId": "bskill_dorm_single_indigo"
-			},
-			{ "elite": 0, "level": 1, "name": "Light Charge α", "iconId": "bskill_pow_spd1" },
-			{
-				"elite": 1,
-				"level": 1,
-				"name": "Lighthouse Power Supply Module",
-				"iconId": "bskill_pow_spd2"
-			}
+			{ "elite": 0, "level": 1, "skillId": "dorm_rec_single_P[002]" },
+			{ "elite": 0, "level": 1, "skillId": "power_rec_spd[002]" },
+			{ "elite": 1, "level": 1, "skillId": "power_rec_spd[017]" }
 		]
 	},
 	{
@@ -291,8 +266,8 @@
 		"name": "Pudding",
 		"rarity": 4,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Equipment Maintenance", "iconId": "bskill_pow_spd2" },
-			{ "elite": 1, "level": 1, "name": "Overclock", "iconId": "bskill_ctrl_token_p_spd" }
+			{ "elite": 0, "level": 1, "skillId": "power_rec_spd[010]" },
+			{ "elite": 1, "level": 1, "skillId": "control_token_prod_spd[000]" }
 		]
 	},
 	{
@@ -300,8 +275,8 @@
 		"name": "Jessica",
 		"rarity": 4,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Standardization β", "iconId": "bskill_man_spd2" },
-			{ "elite": 1, "level": 1, "name": "Liaison", "iconId": "bskill_meet_blacksteel2" }
+			{ "elite": 0, "level": 1, "skillId": "manu_prod_spd[010]" },
+			{ "elite": 1, "level": 1, "skillId": "meet_spd&team[030]" }
 		]
 	},
 	{
@@ -309,8 +284,8 @@
 		"name": "Meteor",
 		"rarity": 4,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Standardization α", "iconId": "bskill_man_spd1" },
-			{ "elite": 1, "level": 1, "name": "Thoughtfulness", "iconId": "bskill_dorm_single1" }
+			{ "elite": 0, "level": 1, "skillId": "manu_prod_spd[000]" },
+			{ "elite": 1, "level": 1, "skillId": "dorm_rec_single[010]" }
 		]
 	},
 	{
@@ -318,8 +293,8 @@
 		"name": "Vermeil",
 		"rarity": 4,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Junkman", "iconId": "bskill_man_limit&cost1" },
-			{ "elite": 1, "level": 1, "name": "Recycling", "iconId": "bskill_man_spd_variable11" }
+			{ "elite": 0, "level": 1, "skillId": "manu_prod_limit&cost[0000]" },
+			{ "elite": 1, "level": 1, "skillId": "manu_prod_spd_variable[000]" }
 		]
 	},
 	{
@@ -327,13 +302,8 @@
 		"name": "May",
 		"rarity": 4,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Clue Search β", "iconId": "bskill_meet_spd2" },
-			{
-				"elite": 1,
-				"level": 1,
-				"name": "Royal Detective (Self Proclaimed)",
-				"iconId": "bskill_meet_penguin1"
-			}
+			{ "elite": 0, "level": 1, "skillId": "meet_spd[0020]" },
+			{ "elite": 1, "level": 1, "skillId": "meet_team[020]" }
 		]
 	},
 	{
@@ -341,8 +311,8 @@
 		"name": "Shirayuki",
 		"rarity": 4,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Clue Search β", "iconId": "bskill_meet_spd2" },
-			{ "elite": 1, "level": 1, "name": "Combat Guidance Video", "iconId": "bskill_man_exp2" }
+			{ "elite": 0, "level": 1, "skillId": "meet_spd[020]" },
+			{ "elite": 1, "level": 1, "skillId": "manu_formula_spd[010]" }
 		]
 	},
 	{
@@ -350,8 +320,8 @@
 		"name": "Pinecone",
 		"rarity": 4,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Engineering", "iconId": "bskill_ws_build1" },
-			{ "elite": 1, "level": 1, "name": "Portable Battery", "iconId": "bskill_ws_build_cost" }
+			{ "elite": 0, "level": 1, "skillId": "workshop_formula_probability[200]" },
+			{ "elite": 1, "level": 1, "skillId": "workshop_formula_cost3[200]" }
 		]
 	},
 	{
@@ -359,8 +329,8 @@
 		"name": "Ambriel",
 		"rarity": 4,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Laziness", "iconId": "bskill_dorm_all&one1" },
-			{ "elite": 1, "level": 1, "name": "Order Distribution β", "iconId": "bskill_tra_spd2" }
+			{ "elite": 0, "level": 1, "skillId": "dorm_rec_all&oneself[000]" },
+			{ "elite": 1, "level": 1, "skillId": "trade_ord_spd[001]" }
 		]
 	},
 	{
@@ -368,8 +338,8 @@
 		"name": "Aciddrop",
 		"rarity": 4,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "B-girl", "iconId": "bskill_hire_spd4" },
-			{ "elite": 1, "level": 1, "name": "Give me five", "iconId": "bskill_dorm_single&one12" }
+			{ "elite": 0, "level": 1, "skillId": "hire_spd[031]" },
+			{ "elite": 1, "level": 1, "skillId": "dorm_rec_single&oneself[012]" }
 		]
 	},
 	{
@@ -377,8 +347,8 @@
 		"name": "Totter",
 		"rarity": 4,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "模糊视线", "iconId": "bskill_man_spd_reduce" },
-			{ "elite": 1, "level": 1, "name": "窗外雪啸", "iconId": "bskill_man_spd_add&cost" }
+			{ "elite": 0, "level": 1, "skillId": "manu_prod_spd_reduce[000]" },
+			{ "elite": 1, "level": 1, "skillId": "manu_prod_spd_addition&cost[000]" }
 		]
 	},
 	{
@@ -386,8 +356,8 @@
 		"name": "Courier",
 		"rarity": 4,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Karlan Commercial α", "iconId": "bskill_tra_spd&limit3" },
-			{ "elite": 1, "level": 1, "name": "Courier", "iconId": "bskill_meet_kjerag2" }
+			{ "elite": 0, "level": 1, "skillId": "trade_ord_spd&limit[020]" },
+			{ "elite": 1, "level": 1, "skillId": "meet_spd&team[040]" }
 		]
 	},
 	{
@@ -395,8 +365,8 @@
 		"name": "Scavenger",
 		"rarity": 4,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "S.W.E.E.P.", "iconId": "bskill_ctrl_cost" },
-			{ "elite": 1, "level": 1, "name": "Junkman", "iconId": "bskill_man_limit&cost1" }
+			{ "elite": 0, "level": 1, "skillId": "control_mp_cost[001]" },
+			{ "elite": 1, "level": 1, "skillId": "manu_prod_limit&cost[000]" }
 		]
 	},
 	{
@@ -404,8 +374,8 @@
 		"name": "Vigna",
 		"rarity": 4,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Combat Guidance Video", "iconId": "bskill_man_exp2" },
-			{ "elite": 1, "level": 1, "name": "Vanguard Expert β", "iconId": "bskill_train_vanguard2" }
+			{ "elite": 0, "level": 1, "skillId": "manu_formula_spd[010]" },
+			{ "elite": 1, "level": 1, "skillId": "train_spd&profession[011]" }
 		]
 	},
 	{
@@ -413,8 +383,8 @@
 		"name": "Myrtle",
 		"rarity": 4,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Negotiation", "iconId": "bskill_tra_limit&cost" },
-			{ "elite": 1, "level": 1, "name": "Leader", "iconId": "bskill_dorm_all2" }
+			{ "elite": 0, "level": 1, "skillId": "trade_ord_limit&cost[000]" },
+			{ "elite": 1, "level": 1, "skillId": "dorm_rec_all[013]" }
 		]
 	},
 	{
@@ -422,8 +392,8 @@
 		"name": "Beanstalk",
 		"rarity": 4,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Metal Crab - Peacake", "iconId": "bskill_man_spd1" },
-			{ "elite": 1, "level": 1, "name": "Metal Crab - Trey", "iconId": "bskill_man_limit&cost1" }
+			{ "elite": 0, "level": 1, "skillId": "manu_prod_spd[003]" },
+			{ "elite": 1, "level": 1, "skillId": "manu_prod_limit&cost[001]" }
 		]
 	},
 	{
@@ -431,8 +401,8 @@
 		"name": "Dobermann",
 		"rarity": 4,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Capable Assistance", "iconId": "bskill_ctrl_cost" },
-			{ "elite": 1, "level": 1, "name": "Drillmaster", "iconId": "bskill_train_all" }
+			{ "elite": 0, "level": 1, "skillId": "control_mp_cost[000]" },
+			{ "elite": 1, "level": 1, "skillId": "train_spd[000]" }
 		]
 	},
 	{
@@ -440,8 +410,8 @@
 		"name": "Matoimaru",
 		"rarity": 4,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Tech Theory", "iconId": "bskill_ws_skill1" },
-			{ "elite": 1, "level": 1, "name": "Order Distribution β", "iconId": "bskill_tra_spd2" }
+			{ "elite": 0, "level": 1, "skillId": "workshop_formula_probability[000]" },
+			{ "elite": 1, "level": 1, "skillId": "trade_ord_spd[001]" }
 		]
 	},
 	{
@@ -449,8 +419,8 @@
 		"name": "Conviction",
 		"rarity": 4,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Apocalypse", "iconId": "bskill_dorm_single3" },
-			{ "elite": 1, "level": 1, "name": "Boxing Guidance Video", "iconId": "bskill_man_exp3" }
+			{ "elite": 0, "level": 1, "skillId": "dorm_rec_single[030]" },
+			{ "elite": 1, "level": 1, "skillId": "manu_formula_spd[020]" }
 		]
 	},
 	{
@@ -458,8 +428,8 @@
 		"name": "Frostleaf",
 		"rarity": 4,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Solitude", "iconId": "bskill_dorm_one2" },
-			{ "elite": 1, "level": 1, "name": "Combat Guidance Video", "iconId": "bskill_man_exp2" }
+			{ "elite": 0, "level": 1, "skillId": "dorm_rec_oneself[000]" },
+			{ "elite": 1, "level": 1, "skillId": "manu_formula_spd[010]" }
 		]
 	},
 	{
@@ -467,8 +437,8 @@
 		"name": "Estelle",
 		"rarity": 4,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Focus β", "iconId": "bskill_ws_p3" },
-			{ "elite": 1, "level": 1, "name": "Solitude", "iconId": "bskill_dorm_one2" }
+			{ "elite": 0, "level": 1, "skillId": "workshop_proc_probability[020]" },
+			{ "elite": 1, "level": 1, "skillId": "dorm_rec_oneself[000]" }
 		]
 	},
 	{
@@ -476,8 +446,8 @@
 		"name": "Mousse",
 		"rarity": 4,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Order Distribution β", "iconId": "bskill_tra_spd2" },
-			{ "elite": 1, "level": 1, "name": "Baking", "iconId": "bskill_dorm_single&one11" }
+			{ "elite": 0, "level": 1, "skillId": "trade_ord_spd[001]" },
+			{ "elite": 1, "level": 1, "skillId": "dorm_rec_single&oneself[010]" }
 		]
 	},
 	{
@@ -485,8 +455,8 @@
 		"name": "Cutter",
 		"rarity": 4,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Training Record", "iconId": "bskill_ws_asc1" },
-			{ "elite": 1, "level": 1, "name": "Asceticism", "iconId": "bskill_ws_asc_cost1" }
+			{ "elite": 0, "level": 1, "skillId": "workshop_formula_probability[300]" },
+			{ "elite": 1, "level": 1, "skillId": "workshop_formula_cost3[300]" }
 		]
 	},
 	{
@@ -494,8 +464,8 @@
 		"name": "Utage",
 		"rarity": 4,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Psychology", "iconId": "bskill_hire_spd4" },
-			{ "elite": 1, "level": 1, "name": "Clue Search β", "iconId": "bskill_meet_spd2" }
+			{ "elite": 0, "level": 1, "skillId": "hire_spd[020]" },
+			{ "elite": 1, "level": 1, "skillId": "meet_spd[020]" }
 		]
 	},
 	{
@@ -503,14 +473,9 @@
 		"name": "Arene",
 		"rarity": 4,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Waste Not, Want Not", "iconId": "bskill_ws_evolve_dorm1" },
-			{
-				"elite": 1,
-				"level": 1,
-				"name": "Everyone Does Their Part",
-				"iconId": "bskill_ws_evolve_dorm2"
-			},
-			{ "elite": 1, "level": 1, "name": "Searching for Solitude", "iconId": "bskill_dorm_one" }
+			{ "elite": 0, "level": 1, "skillId": "workshop_formula_dorm[000]" },
+			{ "elite": 1, "level": 1, "skillId": "workshop_formula_dorm[001]" },
+			{ "elite": 1, "level": 1, "skillId": "dorm_rec_oneself2[000]" }
 		]
 	},
 	{
@@ -518,8 +483,8 @@
 		"name": "Luo Xiaohei",
 		"rarity": 4,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "御灵之力·金", "iconId": "bskill_ws_lolxh" },
-			{ "elite": 1, "level": 1, "name": "化猫", "iconId": "bskill_ws_cost_lolxh" }
+			{ "elite": 0, "level": 1, "skillId": "workshop_proc_cost[000]" },
+			{ "elite": 1, "level": 1, "skillId": "workshop_formula_lolxh[000]" }
 		]
 	},
 	{
@@ -527,8 +492,8 @@
 		"name": "Quartz",
 		"rarity": 4,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Standardization α", "iconId": "bskill_man_spd1" },
-			{ "elite": 1, "level": 1, "name": "精准排期", "iconId": "bskill_tra_spd&formula1" }
+			{ "elite": 0, "level": 1, "skillId": "manu_prod_spd[000]" },
+			{ "elite": 1, "level": 1, "skillId": "trade_ord_spd&formula[000]" }
 		]
 	},
 	{
@@ -536,8 +501,8 @@
 		"name": "Gravel",
 		"rarity": 4,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Focus α", "iconId": "bskill_ws_p1" },
-			{ "elite": 1, "level": 1, "name": "Metalwork β", "iconId": "bskill_man_gold2" }
+			{ "elite": 0, "level": 1, "skillId": "workshop_proc_probability[000]" },
+			{ "elite": 1, "level": 1, "skillId": "manu_formula_spd[110]" }
 		]
 	},
 	{
@@ -545,8 +510,8 @@
 		"name": "Jaye",
 		"rarity": 4,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Street Economics", "iconId": "bskill_tra_limit_diff" },
-			{ "elite": 1, "level": 1, "name": "Basic Needs", "iconId": "bskill_tra_limit_count" }
+			{ "elite": 0, "level": 1, "skillId": "trade_ord_limit_diff[000]" },
+			{ "elite": 1, "level": 1, "skillId": "trade_ord_limit_count[000]" }
 		]
 	},
 	{
@@ -554,8 +519,8 @@
 		"name": "Rope",
 		"rarity": 4,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Clue Search β", "iconId": "bskill_meet_spd2" },
-			{ "elite": 1, "level": 1, "name": "Negotiation", "iconId": "bskill_tra_limit&cost" }
+			{ "elite": 0, "level": 1, "skillId": "meet_spd[020]" },
+			{ "elite": 1, "level": 1, "skillId": "trade_ord_limit&cost[000]" }
 		]
 	},
 	{
@@ -563,8 +528,8 @@
 		"name": "Myrrh",
 		"rarity": 4,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Pharmacology·α", "iconId": "bskill_ws_evolve2" },
-			{ "elite": 1, "level": 1, "name": "Thoughtfulness", "iconId": "bskill_dorm_single1" }
+			{ "elite": 0, "level": 1, "skillId": "workshop_formula_probability[110]" },
+			{ "elite": 1, "level": 1, "skillId": "dorm_rec_single[010]" }
 		]
 	},
 	{
@@ -572,8 +537,8 @@
 		"name": "Gavial",
 		"rarity": 4,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Pharmacology·α", "iconId": "bskill_ws_evolve2" },
-			{ "elite": 1, "level": 1, "name": "Medic Expert α", "iconId": "bskill_train_medic1" }
+			{ "elite": 0, "level": 1, "skillId": "workshop_formula_probability[110]" },
+			{ "elite": 1, "level": 1, "skillId": "train_spd&profession[070]" }
 		]
 	},
 	{
@@ -581,8 +546,8 @@
 		"name": "Sussurro",
 		"rarity": 4,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Medic Expert α", "iconId": "bskill_train_medic1" },
-			{ "elite": 1, "level": 1, "name": "Pharmacology β", "iconId": "bskill_ws_evolve3" }
+			{ "elite": 0, "level": 1, "skillId": "train_spd&profession[070]" },
+			{ "elite": 1, "level": 1, "skillId": "workshop_formula_probability[120]" }
 		]
 	},
 	{
@@ -590,8 +555,8 @@
 		"name": "Perfumer",
 		"rarity": 4,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Pharmacology·α", "iconId": "bskill_ws_evolve2" },
-			{ "elite": 1, "level": 1, "name": "Standardization β", "iconId": "bskill_man_spd2" }
+			{ "elite": 0, "level": 1, "skillId": "workshop_formula_probability[110]" },
+			{ "elite": 1, "level": 1, "skillId": "manu_prod_spd[010]" }
 		]
 	},
 	{
@@ -599,8 +564,8 @@
 		"name": "Purestream",
 		"rarity": 4,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Clean Energy", "iconId": "bskill_pow_spd2" },
-			{ "elite": 1, "level": 1, "name": "Renewable Energy", "iconId": "bskill_man_spd&trade" }
+			{ "elite": 0, "level": 1, "skillId": "power_rec_spd[011]" },
+			{ "elite": 1, "level": 1, "skillId": "manu_prod_spd&trade[000]" }
 		]
 	},
 	{
@@ -608,8 +573,8 @@
 		"name": "Chestnut",
 		"rarity": 4,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Standardization α", "iconId": "bskill_man_spd1" },
-			{ "elite": 1, "level": 1, "name": "Geology α", "iconId": "bskill_man_originium1" }
+			{ "elite": 0, "level": 1, "skillId": "manu_prod_spd[000]" },
+			{ "elite": 1, "level": 1, "skillId": "manu_formula_spd[201]" }
 		]
 	},
 	{
@@ -617,8 +582,8 @@
 		"name": "Matterhorn",
 		"rarity": 4,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Karlan Commercial α", "iconId": "bskill_tra_spd&limit3" },
-			{ "elite": 1, "level": 1, "name": "Defender Expert β", "iconId": "bskill_train_defender2" }
+			{ "elite": 0, "level": 1, "skillId": "trade_ord_spd&limit[020]" },
+			{ "elite": 1, "level": 1, "skillId": "train_spd&profession[031]" }
 		]
 	},
 	{
@@ -626,13 +591,8 @@
 		"name": "Cuora",
 		"rarity": 4,
 		"skills": [
-			{
-				"elite": 0,
-				"level": 1,
-				"name": "Warehouse Organization β",
-				"iconId": "bskill_man_spd&limit3"
-			},
-			{ "elite": 1, "level": 1, "name": "Order Distribution α", "iconId": "bskill_tra_spd1" }
+			{ "elite": 0, "level": 1, "skillId": "manu_prod_spd&limit[001]" },
+			{ "elite": 1, "level": 1, "skillId": "trade_ord_spd[000]" }
 		]
 	},
 	{
@@ -640,8 +600,8 @@
 		"name": "Bubble",
 		"rarity": 4,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Hoarder", "iconId": "bskill_man_limit&cost2" },
-			{ "elite": 1, "level": 1, "name": "Bigger is Better!", "iconId": "bskill_man_spd_variable31" }
+			{ "elite": 0, "level": 1, "skillId": "manu_prod_limit&cost[010]" },
+			{ "elite": 1, "level": 1, "skillId": "manu_prod_spd_variable3[000]" }
 		]
 	},
 	{
@@ -649,8 +609,8 @@
 		"name": "Gummy",
 		"rarity": 4,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Communication", "iconId": "bskill_tra_spd&cost" },
-			{ "elite": 1, "level": 1, "name": "Cooking", "iconId": "bskill_dorm_single&one12" }
+			{ "elite": 0, "level": 1, "skillId": "trade_ord_spd&cost[000]" },
+			{ "elite": 1, "level": 1, "skillId": "dorm_rec_single&oneself[011]" }
 		]
 	},
 	{
@@ -658,8 +618,8 @@
 		"name": "Dur-nar",
 		"rarity": 4,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Defender Expert α", "iconId": "bskill_train_defender1" },
-			{ "elite": 1, "level": 1, "name": "Snack Network", "iconId": "bskill_ctrl_cost" }
+			{ "elite": 0, "level": 1, "skillId": "train_spd&profession[030]" },
+			{ "elite": 1, "level": 1, "skillId": "control_mp_cost[002]" }
 		]
 	},
 	{
@@ -667,8 +627,8 @@
 		"name": "Deepcolor",
 		"rarity": 4,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Order Distribution α", "iconId": "bskill_tra_spd1" },
-			{ "elite": 1, "level": 1, "name": "Focus β", "iconId": "bskill_ws_p3" }
+			{ "elite": 0, "level": 1, "skillId": "trade_ord_spd[000]" },
+			{ "elite": 1, "level": 1, "skillId": "workshop_proc_probability[020]" }
 		]
 	},
 	{
@@ -676,9 +636,9 @@
 		"name": "Earthspirit",
 		"rarity": 4,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Catastrophe Messenger α", "iconId": "bskill_hire_spd2" },
-			{ "elite": 1, "level": 1, "name": "Clocking Out On Time", "iconId": "bskill_hire_skgoat" },
-			{ "elite": 1, "level": 1, "name": "Geology β", "iconId": "bskill_man_originium2" }
+			{ "elite": 0, "level": 1, "skillId": "hire_spd_cost[010]" },
+			{ "elite": 1, "level": 1, "skillId": "hire_spd_cost[200]" },
+			{ "elite": 1, "level": 1, "skillId": "manu_formula_spd[211]" }
 		]
 	},
 	{
@@ -686,9 +646,9 @@
 		"name": "Podenco",
 		"rarity": 4,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Thoughtfulness", "iconId": "bskill_dorm_single1" },
-			{ "elite": 1, "level": 1, "name": "Convalescence", "iconId": "bskill_dorm_single2" },
-			{ "elite": 1, "level": 1, "name": "Nourish the Soul", "iconId": "bskill_dorm_all2" }
+			{ "elite": 0, "level": 1, "skillId": "dorm_rec_single[010]" },
+			{ "elite": 1, "level": 1, "skillId": "dorm_rec_single[001]" },
+			{ "elite": 1, "level": 1, "skillId": "dorm_rec_all[012]" }
 		]
 	},
 	{
@@ -696,8 +656,8 @@
 		"name": "Roberta",
 		"rarity": 4,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Engineering", "iconId": "bskill_ws_build1" },
-			{ "elite": 1, "level": 1, "name": "Standardization β", "iconId": "bskill_man_spd2" }
+			{ "elite": 0, "level": 1, "skillId": "workshop_formula_probability[200]" },
+			{ "elite": 1, "level": 1, "skillId": "manu_prod_spd[010]" }
 		]
 	},
 	{
@@ -705,8 +665,8 @@
 		"name": "Ethan",
 		"rarity": 4,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "WRITER", "iconId": "bskill_hire_spd4" },
-			{ "elite": 1, "level": 1, "name": "Concealed Gourmet", "iconId": "bskill_dorm_one3" }
+			{ "elite": 0, "level": 1, "skillId": "hire_spd[030]" },
+			{ "elite": 1, "level": 1, "skillId": "dorm_rec_oneself[030]" }
 		]
 	},
 	{
@@ -714,8 +674,8 @@
 		"name": "Shaw",
 		"rarity": 4,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Engineering", "iconId": "bskill_ws_build1" },
-			{ "elite": 1, "level": 1, "name": "Equipment Maintenance", "iconId": "bskill_pow_spd2" }
+			{ "elite": 0, "level": 1, "skillId": "workshop_formula_probability[200]" },
+			{ "elite": 1, "level": 1, "skillId": "power_rec_spd[010]" }
 		]
 	},
 	{
@@ -723,8 +683,8 @@
 		"name": "Ptilopsis",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Rhine Tech α", "iconId": "bskill_man_spd1" },
-			{ "elite": 2, "level": 1, "name": "Rhine Tech β", "iconId": "bskill_man_spd2" }
+			{ "elite": 0, "level": 1, "skillId": "manu_prod_spd[001]" },
+			{ "elite": 2, "level": 1, "skillId": "manu_prod_spd[011]" }
 		]
 	},
 	{
@@ -732,8 +692,8 @@
 		"name": "Breeze",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Clue Search α", "iconId": "bskill_meet_spd1" },
-			{ "elite": 2, "level": 1, "name": "Fallen Noble", "iconId": "bskill_meet_glasgow2" }
+			{ "elite": 0, "level": 1, "skillId": "meet_spd&team[000]" },
+			{ "elite": 2, "level": 1, "skillId": "meet_spd&team[071]" }
 		]
 	},
 	{
@@ -741,8 +701,8 @@
 		"name": "Zima",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Leader", "iconId": "bskill_dorm_all2" },
-			{ "elite": 2, "level": 1, "name": "General Z", "iconId": "bskill_dorm_all3" }
+			{ "elite": 0, "level": 1, "skillId": "dorm_rec_all[013]" },
+			{ "elite": 2, "level": 1, "skillId": "dorm_rec_all[020]" }
 		]
 	},
 	{
@@ -750,8 +710,8 @@
 		"name": "Texas",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Feud", "iconId": "bskill_tra_texas1" },
-			{ "elite": 2, "level": 1, "name": "Tacit Understanding", "iconId": "bskill_tra_texas2" }
+			{ "elite": 0, "level": 1, "skillId": "trade_ord_spd&cost_P[000]" },
+			{ "elite": 2, "level": 1, "skillId": "trade_ord_limit&cost_P[010]" }
 		]
 	},
 	{
@@ -759,8 +719,8 @@
 		"name": "Chiave",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Inspiration", "iconId": "bskill_ws_evolve_cost1" },
-			{ "elite": 2, "level": 1, "name": "DIY Installation", "iconId": "bskill_ws_device" }
+			{ "elite": 0, "level": 1, "skillId": "workshop_formula_cost3[110]" },
+			{ "elite": 2, "level": 1, "skillId": "workshop_formula_device[000]" }
 		]
 	},
 	{
@@ -768,8 +728,8 @@
 		"name": "Reed",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Solitude", "iconId": "bskill_dorm_one2" },
-			{ "elite": 2, "level": 1, "name": "Substitute", "iconId": "bskill_ctrl_cost" }
+			{ "elite": 0, "level": 1, "skillId": "dorm_rec_oneself[000]" },
+			{ "elite": 2, "level": 1, "skillId": "control_mp_cost[004]" }
 		]
 	},
 	{
@@ -777,8 +737,8 @@
 		"name": "Wild Mane",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Pinus Sylvestris α", "iconId": "bskill_man_spd1" },
-			{ "elite": 2, "level": 1, "name": "Pinus Sylvestris β", "iconId": "bskill_man_spd2" }
+			{ "elite": 0, "level": 1, "skillId": "manu_prod_spd[002]" },
+			{ "elite": 2, "level": 1, "skillId": "manu_prod_spd[012]" }
 		]
 	},
 	{
@@ -786,8 +746,8 @@
 		"name": "Elysium",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Correspondent", "iconId": "bskill_meet_rhodes1" },
-			{ "elite": 2, "level": 1, "name": "Pioneer", "iconId": "bskill_meet_flag_rhodes" }
+			{ "elite": 0, "level": 1, "skillId": "meet_team[060]" },
+			{ "elite": 2, "level": 1, "skillId": "meet_flag[060]" }
 		]
 	},
 	{
@@ -795,8 +755,8 @@
 		"name": "Blacknight",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Vanguard Expert α", "iconId": "bskill_train_vanguard1" },
-			{ "elite": 2, "level": 1, "name": "Tactics Studies", "iconId": "bskill_train1_vanguard1" }
+			{ "elite": 0, "level": 1, "skillId": "train_spd&profession2[010]" },
+			{ "elite": 2, "level": 1, "skillId": "train_spd&profession2[110]" }
 		]
 	},
 	{
@@ -804,8 +764,8 @@
 		"name": "Cantabile",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "不容遗漏·α", "iconId": "bskill_meet_spdNotOwned1" },
-			{ "elite": 2, "level": 1, "name": "不容遗漏·β", "iconId": "bskill_meet_spdNotOwned2" }
+			{ "elite": 0, "level": 1, "skillId": "meet_spd_notOwned[000]" },
+			{ "elite": 2, "level": 1, "skillId": "meet_spd_notOwned[010]" }
 		]
 	},
 	{
@@ -813,8 +773,8 @@
 		"name": "Swire",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Princess", "iconId": "bskill_ctrl_t_spd" },
-			{ "elite": 2, "level": 1, "name": "Drillmaster", "iconId": "bskill_train_all" }
+			{ "elite": 0, "level": 1, "skillId": "control_tra_spd[010]" },
+			{ "elite": 2, "level": 1, "skillId": "train_spd[000]" }
 		]
 	},
 	{
@@ -822,8 +782,8 @@
 		"name": "Whislash",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Guard Expert α", "iconId": "bskill_train_guard1" },
-			{ "elite": 2, "level": 1, "name": "Drillmaster", "iconId": "bskill_train_all" }
+			{ "elite": 0, "level": 1, "skillId": "train_spd&profession[020]" },
+			{ "elite": 2, "level": 1, "skillId": "train_spd[0000]" }
 		]
 	},
 	{
@@ -831,10 +791,10 @@
 		"name": "Franka",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Guard Expert α", "iconId": "bskill_train_guard1" },
-			{ "elite": 2, "level": 1, "name": "Guard Expert β", "iconId": "bskill_train_guard2" },
-			{ "elite": 0, "level": 1, "name": "Clue Search α", "iconId": "bskill_meet_spd1" },
-			{ "elite": 2, "level": 1, "name": "B.P.R.S", "iconId": "bskill_meet_blacksteel2" }
+			{ "elite": 0, "level": 1, "skillId": "train_spd&profession[020]" },
+			{ "elite": 2, "level": 1, "skillId": "train_spd&profession[021]" },
+			{ "elite": 0, "level": 1, "skillId": "meet_spd&team[000]" },
+			{ "elite": 2, "level": 1, "skillId": "meet_spd&team[031]" }
 		]
 	},
 	{
@@ -842,8 +802,8 @@
 		"name": "Flamebringer",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Tech Theory", "iconId": "bskill_ws_skill1" },
-			{ "elite": 2, "level": 1, "name": "Arise", "iconId": "bskill_ws_skill3" }
+			{ "elite": 0, "level": 1, "skillId": "workshop_formula_probability[000]" },
+			{ "elite": 2, "level": 1, "skillId": "workshop_formula_probability[020]" }
 		]
 	},
 	{
@@ -851,8 +811,8 @@
 		"name": "Indra",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Clue Search α", "iconId": "bskill_meet_spd1" },
-			{ "elite": 2, "level": 1, "name": "Arraigner", "iconId": "bskill_meet_glasgow2" }
+			{ "elite": 0, "level": 1, "skillId": "meet_spd&team[000]" },
+			{ "elite": 2, "level": 1, "skillId": "meet_spd&team[070]" }
 		]
 	},
 	{
@@ -860,8 +820,8 @@
 		"name": "Flint",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Guard Expert α", "iconId": "bskill_train_guard1" },
-			{ "elite": 2, "level": 1, "name": "Austerity", "iconId": "bskill_train2_guard1" }
+			{ "elite": 0, "level": 1, "skillId": "train_spd&profession2[020]" },
+			{ "elite": 2, "level": 1, "skillId": "train_spd&profession2[220]" }
 		]
 	},
 	{
@@ -869,8 +829,8 @@
 		"name": "Dagda",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "近卫专精·α", "iconId": "bskill_train_guard1" },
-			{ "elite": 2, "level": 1, "name": "实战技巧：斗士", "iconId": "bskill_train_fighter" }
+			{ "elite": 0, "level": 1, "skillId": "train_spd&profession3[150]" },
+			{ "elite": 2, "level": 1, "skillId": "train_spd&profession3[151]" }
 		]
 	},
 	{
@@ -878,8 +838,8 @@
 		"name": "Lappland",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Hidden Purpose α", "iconId": "bskill_tra_Lappland1" },
-			{ "elite": 2, "level": 1, "name": "Hidden Purpose β", "iconId": "bskill_tra_Lappland2" }
+			{ "elite": 0, "level": 1, "skillId": "trade_ord_limit&cost_P[000]" },
+			{ "elite": 2, "level": 1, "skillId": "trade_ord_limit&cost_P[001]" }
 		]
 	},
 	{
@@ -887,8 +847,8 @@
 		"name": "Ayerscarpe",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Clue Search α", "iconId": "bskill_meet_spd1" },
-			{ "elite": 2, "level": 1, "name": "Clue Search β", "iconId": "bskill_meet_spd2" }
+			{ "elite": 0, "level": 1, "skillId": "meet_spd[000]" },
+			{ "elite": 2, "level": 1, "skillId": "meet_spd[020]" }
 		]
 	},
 	{
@@ -896,8 +856,8 @@
 		"name": "Bibeak",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Tailoring α", "iconId": "bskill_tra_wt&cost1" },
-			{ "elite": 2, "level": 1, "name": "Tailoring β", "iconId": "bskill_tra_wt&cost2" }
+			{ "elite": 0, "level": 1, "skillId": "trade_ord_wt&cost[000]" },
+			{ "elite": 2, "level": 1, "skillId": "trade_ord_wt&cost[010]" }
 		]
 	},
 	{
@@ -905,13 +865,8 @@
 		"name": "Tachanka",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Team Rainbow", "iconId": "bskill_ctrl_r6" },
-			{
-				"elite": 2,
-				"level": 1,
-				"name": "Ursus Specialty Beverage",
-				"iconId": "bskill_ctrl_tachanka"
-			}
+			{ "elite": 0, "level": 1, "skillId": "control_mp_cost&faction[990]" },
+			{ "elite": 2, "level": 1, "skillId": "control_mp_bd[010]" }
 		]
 	},
 	{
@@ -919,8 +874,8 @@
 		"name": "Specter",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Solitude", "iconId": "bskill_dorm_one2" },
-			{ "elite": 2, "level": 1, "name": "Craze", "iconId": "bskill_dorm_one4" }
+			{ "elite": 0, "level": 1, "skillId": "dorm_rec_oneself[000]" },
+			{ "elite": 2, "level": 1, "skillId": "dorm_rec_oneself[010]" }
 		]
 	},
 	{
@@ -928,8 +883,8 @@
 		"name": "Broca",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Guard Expert α", "iconId": "bskill_train_guard1" },
-			{ "elite": 2, "level": 1, "name": "Guard Expert β", "iconId": "bskill_train_guard2" }
+			{ "elite": 0, "level": 1, "skillId": "train_spd&profession[020]" },
+			{ "elite": 2, "level": 1, "skillId": "train_spd&profession[021]" }
 		]
 	},
 	{
@@ -937,8 +892,8 @@
 		"name": "Astesia",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Clue Search α", "iconId": "bskill_meet_spd1" },
-			{ "elite": 2, "level": 1, "name": "Astrology", "iconId": "bskill_meet_spd3" }
+			{ "elite": 0, "level": 1, "skillId": "meet_spd&team[000]" },
+			{ "elite": 2, "level": 1, "skillId": "meet_spd&team[110]" }
 		]
 	},
 	{
@@ -946,8 +901,8 @@
 		"name": "Sideroca",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Guard Expert α", "iconId": "bskill_train_guard1" },
-			{ "elite": 2, "level": 1, "name": "Whole-Heartedness", "iconId": "bskill_train3_guard1" }
+			{ "elite": 0, "level": 1, "skillId": "train_spd&profession2[020]" },
+			{ "elite": 2, "level": 1, "skillId": "train_spd&profession2[320]" }
 		]
 	},
 	{
@@ -955,8 +910,8 @@
 		"name": "Akafuyu",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Guard Expert α", "iconId": "bskill_train_guard1" },
-			{ "elite": 2, "level": 1, "name": "Nobukage-ryu", "iconId": "bskill_train1_guard1" }
+			{ "elite": 0, "level": 1, "skillId": "train_spd&profession2[020]" },
+			{ "elite": 2, "level": 1, "skillId": "train_spd&profession2[120]" }
 		]
 	},
 	{
@@ -964,8 +919,8 @@
 		"name": "La Pluma",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Spaced Out", "iconId": "bskill_ws_skill_cost1" },
-			{ "elite": 2, "level": 1, "name": "Adaptability", "iconId": "bskill_ws_skill2" }
+			{ "elite": 0, "level": 1, "skillId": "workshop_formula_cost3[000]" },
+			{ "elite": 2, "level": 1, "skillId": "workshop_formula_probability[030]" }
 		]
 	},
 	{
@@ -973,8 +928,8 @@
 		"name": "Highmore",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "意识兼容", "iconId": "bskill_man_skill_change" },
-			{ "elite": 2, "level": 1, "name": "Standardization β", "iconId": "bskill_man_spd2" }
+			{ "elite": 0, "level": 1, "skillId": "manu_skill_change[000]" },
+			{ "elite": 2, "level": 1, "skillId": "manu_prod_spd[010]" }
 		]
 	},
 	{
@@ -982,8 +937,8 @@
 		"name": "Tequila",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Investment α", "iconId": "bskill_tra_long1" },
-			{ "elite": 2, "level": 1, "name": "Investment β", "iconId": "bskill_tra_long2" }
+			{ "elite": 0, "level": 1, "skillId": "trade_ord_long[000]" },
+			{ "elite": 2, "level": 1, "skillId": "trade_ord_long[010]" }
 		]
 	},
 	{
@@ -991,8 +946,8 @@
 		"name": "Blue Poison",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Toxicology α", "iconId": "bskill_ws_evolve2" },
-			{ "elite": 2, "level": 1, "name": "Toxicology β", "iconId": "bskill_ws_evolve3" }
+			{ "elite": 0, "level": 1, "skillId": "workshop_formula_probability[111]" },
+			{ "elite": 2, "level": 1, "skillId": "workshop_formula_probability[121]" }
 		]
 	},
 	{
@@ -1000,8 +955,8 @@
 		"name": "Platinum",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Sniper Expert α", "iconId": "bskill_train_sniper1" },
-			{ "elite": 2, "level": 1, "name": "Sniper Expert β", "iconId": "bskill_train_sniper2" }
+			{ "elite": 0, "level": 1, "skillId": "train_spd&profession[040]" },
+			{ "elite": 2, "level": 1, "skillId": "train_spd&profession[041]" }
 		]
 	},
 	{
@@ -1009,8 +964,8 @@
 		"name": "GreyThroat",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Necessary Responsibility", "iconId": "bskill_ctrl_cost" },
-			{ "elite": 2, "level": 1, "name": "Solitude", "iconId": "bskill_dorm_one2" }
+			{ "elite": 0, "level": 1, "skillId": "control_mp_cost[005]" },
+			{ "elite": 2, "level": 1, "skillId": "dorm_rec_oneself[000]" }
 		]
 	},
 	{
@@ -1018,9 +973,9 @@
 		"name": "April",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Order Management α", "iconId": "bskill_tra_spd&limit1" },
-			{ "elite": 2, "level": 1, "name": "Order Management β", "iconId": "bskill_tra_spd&limit2" },
-			{ "elite": 0, "level": 1, "name": "Inspiration", "iconId": "bskill_dorm_all1" }
+			{ "elite": 0, "level": 1, "skillId": "trade_ord_spd&limit[000]" },
+			{ "elite": 2, "level": 1, "skillId": "trade_ord_spd&limit[001]" },
+			{ "elite": 0, "level": 1, "skillId": "dorm_rec_all[000]" }
 		]
 	},
 	{
@@ -1028,13 +983,8 @@
 		"name": "Kroos the Keen Glint",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Alternate Operator", "iconId": "bskill_ctrl_sp" },
-			{
-				"elite": 2,
-				"level": 1,
-				"name": "Combat Techniques: Marksman",
-				"iconId": "bskill_train_fastshot"
-			}
+			{ "elite": 0, "level": 1, "skillId": "control_mp_cost&faction[900]" },
+			{ "elite": 2, "level": 1, "skillId": "train_spd&profession3[140]" }
 		]
 	},
 	{
@@ -1042,8 +992,8 @@
 		"name": "Meteorite",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Blasting Materiology α", "iconId": "bskill_ws_evolve2" },
-			{ "elite": 2, "level": 1, "name": "Blasting Materiology β", "iconId": "bskill_ws_evolve3" }
+			{ "elite": 0, "level": 1, "skillId": "workshop_formula_probability[112]" },
+			{ "elite": 2, "level": 1, "skillId": "workshop_formula_probability[122]" }
 		]
 	},
 	{
@@ -1051,13 +1001,8 @@
 		"name": "Sesa",
 		"rarity": 5,
 		"skills": [
-			{
-				"elite": 0,
-				"level": 1,
-				"name": "Pragmatic Minimalism",
-				"iconId": "bskill_ws_evolve_cost2"
-			},
-			{ "elite": 2, "level": 1, "name": "Industrial Design", "iconId": "bskill_ws_evolve2" }
+			{ "elite": 0, "level": 1, "skillId": "workshop_formula_cost3[120]" },
+			{ "elite": 2, "level": 1, "skillId": "workshop_formula_probability[119]" }
 		]
 	},
 	{
@@ -1065,8 +1010,8 @@
 		"name": "Executor",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Sniper Expert α", "iconId": "bskill_train_sniper1" },
-			{ "elite": 2, "level": 1, "name": "Cleaning Agreement", "iconId": "bskill_ctrl_cost" }
+			{ "elite": 0, "level": 1, "skillId": "train_spd&profession[040]" },
+			{ "elite": 2, "level": 1, "skillId": "control_mp_cost[003]" }
 		]
 	},
 	{
@@ -1074,8 +1019,8 @@
 		"name": "Aosta",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Inspiration", "iconId": "bskill_ws_evolve_cost1" },
-			{ "elite": 2, "level": 1, "name": "DIY Polyester", "iconId": "bskill_ws_polyester" }
+			{ "elite": 0, "level": 1, "skillId": "workshop_formula_cost3[110]" },
+			{ "elite": 2, "level": 1, "skillId": "workshop_formula_device[030]" }
 		]
 	},
 	{
@@ -1083,8 +1028,8 @@
 		"name": "Amiya",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Agreement", "iconId": "bskill_ctrl_t_spd" },
-			{ "elite": 2, "level": 1, "name": "Violin Solo", "iconId": "bskill_dorm_all2" }
+			{ "elite": 0, "level": 1, "skillId": "control_tra_spd[000]" },
+			{ "elite": 2, "level": 1, "skillId": "dorm_rec_all[010]" }
 		]
 	},
 	{
@@ -1092,8 +1037,8 @@
 		"name": "Absinthe",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Secret Inquiry", "iconId": "bskill_meet_ursus1" },
-			{ "elite": 2, "level": 1, "name": "Screening", "iconId": "bskill_meet_flag_ursus" }
+			{ "elite": 0, "level": 1, "skillId": "meet_team[050]" },
+			{ "elite": 2, "level": 1, "skillId": "meet_flag[050]" }
 		]
 	},
 	{
@@ -1101,8 +1046,8 @@
 		"name": "Tomimi",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Barbecue Master", "iconId": "bskill_dorm_single_tomimi" },
-			{ "elite": 2, "level": 1, "name": "Sciolism", "iconId": "bskill_train1_caster1" }
+			{ "elite": 0, "level": 1, "skillId": "dorm_rec_single_P[001]" },
+			{ "elite": 2, "level": 1, "skillId": "train_spd&profession2[150]" }
 		]
 	},
 	{
@@ -1110,8 +1055,8 @@
 		"name": "Qanipalaat",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "救援队·外界联络", "iconId": "bskill_hire_spd2" },
-			{ "elite": 2, "level": 1, "name": "救援队·保证体力", "iconId": "bskill_hire_spd&cost3" }
+			{ "elite": 0, "level": 1, "skillId": "hire_spd_cost&clue[001]" },
+			{ "elite": 2, "level": 1, "skillId": "hire_spd_cost&clue[000]" }
 		]
 	},
 	{
@@ -1119,8 +1064,8 @@
 		"name": "Skyfire",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Caster Expert α", "iconId": "bskill_train_caster1" },
-			{ "elite": 2, "level": 1, "name": "Caster Expert β", "iconId": "bskill_train_caster2" }
+			{ "elite": 0, "level": 1, "skillId": "train_spd&profession[050]" },
+			{ "elite": 2, "level": 1, "skillId": "train_spd&profession[051]" }
 		]
 	},
 	{
@@ -1128,8 +1073,8 @@
 		"name": "Leizi",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Picky", "iconId": "bskill_ctrl_c_wt1" },
-			{ "elite": 2, "level": 1, "name": "Discernment", "iconId": "bskill_ctrl_c_wt2" }
+			{ "elite": 0, "level": 1, "skillId": "control_clue_cost[010]" },
+			{ "elite": 2, "level": 1, "skillId": "control_clue_cost[011]" }
 		]
 	},
 	{
@@ -1137,8 +1082,8 @@
 		"name": "Astgenne",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Rhine Tech α", "iconId": "bskill_man_spd1" },
-			{ "elite": 2, "level": 1, "name": "Rhine Tech β", "iconId": "bskill_man_spd2" }
+			{ "elite": 0, "level": 1, "skillId": "manu_prod_spd[001]" },
+			{ "elite": 2, "level": 1, "skillId": "manu_prod_spd[011]" }
 		]
 	},
 	{
@@ -1146,8 +1091,8 @@
 		"name": "Beeswax",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Caster Expert α", "iconId": "bskill_train_caster1" },
-			{ "elite": 2, "level": 1, "name": "Caster Expert β", "iconId": "bskill_train_caster2" }
+			{ "elite": 0, "level": 1, "skillId": "train_spd&profession[050]" },
+			{ "elite": 2, "level": 1, "skillId": "train_spd&profession[051]" }
 		]
 	},
 	{
@@ -1155,8 +1100,8 @@
 		"name": "Leonhardt",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Structural Mechanics", "iconId": "bskill_ws_build2" },
-			{ "elite": 2, "level": 1, "name": "Mineral Beneficiation", "iconId": "bskill_ws_build_cost2" }
+			{ "elite": 0, "level": 1, "skillId": "workshop_formula_probability[220]" },
+			{ "elite": 2, "level": 1, "skillId": "workshop_formula_cost3[220]" }
 		]
 	},
 	{
@@ -1164,9 +1109,9 @@
 		"name": "Mint",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Caster Expert α", "iconId": "bskill_train_caster1" },
-			{ "elite": 2, "level": 1, "name": "Widely-Read", "iconId": "bskill_train2_caster1" },
-			{ "elite": 1, "level": 1, "name": "Geology α", "iconId": "bskill_man_originium1" }
+			{ "elite": 0, "level": 1, "skillId": "train_spd&profession2[050]" },
+			{ "elite": 2, "level": 1, "skillId": "train_spd&profession2[250]" },
+			{ "elite": 1, "level": 1, "skillId": "manu_formula_spd[201]" }
 		]
 	},
 	{
@@ -1174,8 +1119,8 @@
 		"name": "Iris",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Bedtime Story", "iconId": "bskill_dorm_all&bd_n1_n2" },
-			{ "elite": 2, "level": 1, "name": "Sleep Talking", "iconId": "bskill_dorm_all&bd_n1" }
+			{ "elite": 0, "level": 1, "skillId": "dorm_rec_bd_n1_n2[000]" },
+			{ "elite": 2, "level": 1, "skillId": "dorm_rec_bd_n1[000]" }
 		]
 	},
 	{
@@ -1183,8 +1128,8 @@
 		"name": "Lava the Purgatory",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Alternate Operator", "iconId": "bskill_ctrl_sp" },
-			{ "elite": 2, "level": 1, "name": "Heat Charge γ", "iconId": "bskill_pow_spd3" }
+			{ "elite": 0, "level": 1, "skillId": "control_mp_cost&faction[900]" },
+			{ "elite": 2, "level": 1, "skillId": "power_rec_spd[022]" }
 		]
 	},
 	{
@@ -1192,14 +1137,9 @@
 		"name": "Corroserum",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Corrosion Studies α", "iconId": "bskill_ws_evolve2" },
-			{ "elite": 2, "level": 1, "name": "Corrosion Studies β", "iconId": "bskill_ws_evolve3" },
-			{
-				"elite": 2,
-				"level": 1,
-				"name": "Corrosion Inhibition Tech",
-				"iconId": "bskill_ws_drop_oriron"
-			}
+			{ "elite": 0, "level": 1, "skillId": "workshop_formula_probability[113]" },
+			{ "elite": 2, "level": 1, "skillId": "workshop_formula_probability[123]" },
+			{ "elite": 2, "level": 1, "skillId": "workshop_formula_drop[030]" }
 		]
 	},
 	{
@@ -1207,9 +1147,9 @@
 		"name": "Kjera",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Clue Search α", "iconId": "bskill_meet_spd1" },
-			{ "elite": 2, "level": 1, "name": "Snow Watcher", "iconId": "bskill_meet_kjerag2" },
-			{ "elite": 2, "level": 1, "name": "Kjeragandr", "iconId": "bskill_meet_flag_kjerag" }
+			{ "elite": 0, "level": 1, "skillId": "meet_spd&team[000]" },
+			{ "elite": 2, "level": 1, "skillId": "meet_spd&team[041]" },
+			{ "elite": 2, "level": 1, "skillId": "meet_flag[040]" }
 		]
 	},
 	{
@@ -1217,8 +1157,8 @@
 		"name": "Rockrock",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Shed Excess", "iconId": "bskill_ws_p4" },
-			{ "elite": 2, "level": 1, "name": "Useless Gift", "iconId": "bskill_ws_drop_polyester" }
+			{ "elite": 0, "level": 1, "skillId": "workshop_proc_probability[031]" },
+			{ "elite": 2, "level": 1, "skillId": "workshop_formula_drop[020]" }
 		]
 	},
 	{
@@ -1226,9 +1166,9 @@
 		"name": "Minimalist",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "绘图设计", "iconId": "bskill_man_constrLv" },
-			{ "elite": 0, "level": 1, "name": "机械辅助·α", "iconId": "bskill_man_spd_bd3" },
-			{ "elite": 2, "level": 1, "name": "机械辅助·β", "iconId": "bskill_man_spd_bd4" }
+			{ "elite": 0, "level": 1, "skillId": "manu_constrLv[000]" },
+			{ "elite": 0, "level": 1, "skillId": "manu_prod_spd_bd[100]" },
+			{ "elite": 2, "level": 1, "skillId": "manu_prod_spd_bd[110]" }
 		]
 	},
 	{
@@ -1236,8 +1176,8 @@
 		"name": "Mayer",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Meeboo: Processing", "iconId": "bskill_ws_p4" },
-			{ "elite": 2, "level": 1, "name": "Meeboo: Manufacturing", "iconId": "bskill_man_spd3" }
+			{ "elite": 0, "level": 1, "skillId": "workshop_proc_probability[030]" },
+			{ "elite": 2, "level": 1, "skillId": "manu_prod_spd[020]" }
 		]
 	},
 	{
@@ -1245,8 +1185,8 @@
 		"name": "Scene",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Time-Lapse Photography", "iconId": "bskill_man_spd_add2" },
-			{ "elite": 2, "level": 1, "name": "Editing α", "iconId": "bskill_man_exp&limit1" }
+			{ "elite": 0, "level": 1, "skillId": "manu_prod_spd_addition[041]" },
+			{ "elite": 2, "level": 1, "skillId": "manu_formula_limit[0000]" }
 		]
 	},
 	{
@@ -1254,8 +1194,8 @@
 		"name": "Silence",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Rhine Tech α", "iconId": "bskill_man_spd1" },
-			{ "elite": 2, "level": 1, "name": "Rhine Tech β", "iconId": "bskill_man_spd2" }
+			{ "elite": 0, "level": 1, "skillId": "manu_prod_spd[001]" },
+			{ "elite": 2, "level": 1, "skillId": "manu_prod_spd[011]" }
 		]
 	},
 	{
@@ -1263,8 +1203,8 @@
 		"name": "Warfarin",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Medic Expert α", "iconId": "bskill_train_medic1" },
-			{ "elite": 2, "level": 1, "name": "Medic Expert β", "iconId": "bskill_train_medic2" }
+			{ "elite": 0, "level": 1, "skillId": "train_spd&profession[070]" },
+			{ "elite": 2, "level": 1, "skillId": "train_spd&profession[071]" }
 		]
 	},
 	{
@@ -1272,8 +1212,8 @@
 		"name": "Folinic",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Toxicology α", "iconId": "bskill_ws_evolve2" },
-			{ "elite": 2, "level": 1, "name": "Meticulous", "iconId": "bskill_ws_evolve_cost" }
+			{ "elite": 0, "level": 1, "skillId": "workshop_formula_probability[111]" },
+			{ "elite": 2, "level": 1, "skillId": "workshop_formula_cost3[100]" }
 		]
 	},
 	{
@@ -1281,8 +1221,8 @@
 		"name": "Ceylon",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Scholar", "iconId": "bskill_ws_evolve3" },
-			{ "elite": 2, "level": 1, "name": "Originium Study", "iconId": "bskill_man_originium2" }
+			{ "elite": 0, "level": 1, "skillId": "workshop_formula_probability[129]" },
+			{ "elite": 2, "level": 1, "skillId": "manu_formula_spd[212]" }
 		]
 	},
 	{
@@ -1290,8 +1230,8 @@
 		"name": "Whisperain",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Itinerant", "iconId": "bskill_hire_spd_bd_n1_n1" },
-			{ "elite": 2, "level": 1, "name": "Memory Seeker", "iconId": "bskill_hire_spd_memento" }
+			{ "elite": 0, "level": 1, "skillId": "hire_spd_bd_n1_n1[100]" },
+			{ "elite": 2, "level": 1, "skillId": "hire_spd_bd_n1[000]" }
 		]
 	},
 	{
@@ -1299,8 +1239,8 @@
 		"name": "Tuye",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Logistics Planning α", "iconId": "bskill_tra_flow_gs1" },
-			{ "elite": 2, "level": 1, "name": "Logistics Planning β", "iconId": "bskill_tra_flow_gs2" }
+			{ "elite": 0, "level": 1, "skillId": "trade_ord_spd&gold[000]" },
+			{ "elite": 2, "level": 1, "skillId": "trade_ord_spd&gold[010]" }
 		]
 	},
 	{
@@ -1308,24 +1248,9 @@
 		"name": "Mulberry",
 		"rarity": 5,
 		"skills": [
-			{
-				"elite": 0,
-				"level": 1,
-				"name": "Rescue Team - Abacus Calculations",
-				"iconId": "bskill_hire_spd&cost1"
-			},
-			{
-				"elite": 1,
-				"level": 1,
-				"name": "Rescue Team - Resource Inventory",
-				"iconId": "bskill_hire_spd&cost2"
-			},
-			{
-				"elite": 2,
-				"level": 1,
-				"name": "Rescue Team - Post-Catastrophe Census",
-				"iconId": "bskill_hire_spd_bd_n2"
-			}
+			{ "elite": 0, "level": 1, "skillId": "hire_spd_cost[100]" },
+			{ "elite": 1, "level": 1, "skillId": "hire_spd_cost[110]" },
+			{ "elite": 2, "level": 1, "skillId": "hire_spd_bd_n1_n1[200]" }
 		]
 	},
 	{
@@ -1333,14 +1258,9 @@
 		"name": "Honeyberry",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Herbalism α", "iconId": "bskill_ws_evolve2" },
-			{ "elite": 2, "level": 1, "name": "Herbalism β", "iconId": "bskill_ws_evolve3" },
-			{
-				"elite": 2,
-				"level": 1,
-				"name": "Psychological Counseling",
-				"iconId": "bskill_dorm_single3"
-			}
+			{ "elite": 0, "level": 1, "skillId": "workshop_formula_probability[114]" },
+			{ "elite": 2, "level": 1, "skillId": "workshop_formula_probability[124]" },
+			{ "elite": 2, "level": 1, "skillId": "dorm_rec_single[032]" }
 		]
 	},
 	{
@@ -1348,8 +1268,8 @@
 		"name": "Hibiscus the Purifier",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Alternate Operator", "iconId": "bskill_ctrl_sp" },
-			{ "elite": 2, "level": 1, "name": "护理专精", "iconId": "bskill_train2_medic1" }
+			{ "elite": 0, "level": 1, "skillId": "control_mp_cost&faction[900]" },
+			{ "elite": 2, "level": 1, "skillId": "train_spd&profession2[270]" }
 		]
 	},
 	{
@@ -1357,9 +1277,9 @@
 		"name": "Paprika",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "朝气蓬勃", "iconId": "bskill_ctrl_t_spd" },
-			{ "elite": 0, "level": 1, "name": "Tailoring α", "iconId": "bskill_tra_wt&cost1" },
-			{ "elite": 2, "level": 1, "name": "Tailoring β", "iconId": "bskill_tra_wt&cost2" }
+			{ "elite": 0, "level": 1, "skillId": "control_tra_spd[020]" },
+			{ "elite": 0, "level": 1, "skillId": "trade_ord_wt&cost[000]" },
+			{ "elite": 2, "level": 1, "skillId": "trade_ord_wt&cost[010]" }
 		]
 	},
 	{
@@ -1367,8 +1287,8 @@
 		"name": "Nearl",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Capable Assistance", "iconId": "bskill_ctrl_cost" },
-			{ "elite": 2, "level": 1, "name": "Followers", "iconId": "bskill_dorm_single&one22" }
+			{ "elite": 0, "level": 1, "skillId": "control_mp_cost[000]" },
+			{ "elite": 2, "level": 1, "skillId": "dorm_rec_single&oneself[030]" }
 		]
 	},
 	{
@@ -1376,8 +1296,8 @@
 		"name": "Hung",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Skillful Craftsman", "iconId": "bskill_ws_p2" },
-			{ "elite": 2, "level": 1, "name": "Adamantly Easygoing", "iconId": "bskill_ctrl_lda_add" }
+			{ "elite": 0, "level": 1, "skillId": "workshop_proc_probability[010]" },
+			{ "elite": 2, "level": 1, "skillId": "control_mp_cost&faction2[000]" }
 		]
 	},
 	{
@@ -1385,8 +1305,8 @@
 		"name": "Projekt Red",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "S.W.E.E.P.", "iconId": "bskill_ctrl_cost" },
-			{ "elite": 2, "level": 1, "name": "Tracker", "iconId": "bskill_meet_spd3" }
+			{ "elite": 0, "level": 1, "skillId": "control_mp_cost[001]" },
+			{ "elite": 2, "level": 1, "skillId": "meet_spd[031]" }
 		]
 	},
 	{
@@ -1394,8 +1314,8 @@
 		"name": "Waai Fu",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Team Spirit", "iconId": "bskill_man_cost_all" },
-			{ "elite": 2, "level": 1, "name": "Cooperative Will", "iconId": "bskill_man_spd_variable21" }
+			{ "elite": 0, "level": 1, "skillId": "manu_cost_all[000]" },
+			{ "elite": 2, "level": 1, "skillId": "manu_prod_spd_variable2[000]" }
 		]
 	},
 	{
@@ -1403,8 +1323,8 @@
 		"name": "Kafka",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Handicrafts α", "iconId": "bskill_tra_wt&cost1" },
-			{ "elite": 2, "level": 1, "name": "Handicrafts β", "iconId": "bskill_tra_wt&cost2" }
+			{ "elite": 0, "level": 1, "skillId": "trade_ord_wt&cost[001]" },
+			{ "elite": 2, "level": 1, "skillId": "trade_ord_wt&cost[011]" }
 		]
 	},
 	{
@@ -1412,8 +1332,8 @@
 		"name": "Mr.Nothing",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Nosy", "iconId": "bskill_hire_spd&clue" },
-			{ "elite": 2, "level": 1, "name": "'Obvious Deception'", "iconId": "bskill_tra_bd_n2" }
+			{ "elite": 0, "level": 1, "skillId": "hire_spd&clue[101]" },
+			{ "elite": 2, "level": 1, "skillId": "trade_ord_spd_bd_n2[000]" }
 		]
 	},
 	{
@@ -1421,8 +1341,8 @@
 		"name": "Liskarm",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Pulsed Arc α", "iconId": "bskill_pow_spd2" },
-			{ "elite": 2, "level": 1, "name": "Pulsed Arc β", "iconId": "bskill_pow_spd3" }
+			{ "elite": 0, "level": 1, "skillId": "power_rec_spd[014]" },
+			{ "elite": 2, "level": 1, "skillId": "power_rec_spd[021]" }
 		]
 	},
 	{
@@ -1430,8 +1350,8 @@
 		"name": "Croissant",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Penguin Logistics α", "iconId": "bskill_tra_spd1" },
-			{ "elite": 2, "level": 1, "name": "Mission Guarantee", "iconId": "bskill_tra_spd&limit7" }
+			{ "elite": 0, "level": 1, "skillId": "trade_ord_spd&limit[030]" },
+			{ "elite": 2, "level": 1, "skillId": "trade_ord_spd&limit[031]" }
 		]
 	},
 	{
@@ -1439,8 +1359,8 @@
 		"name": "Bison",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "MountainDash Logistics", "iconId": "bskill_tra_spd1" },
-			{ "elite": 2, "level": 1, "name": "Young Master", "iconId": "bskill_tra_spd&limit7" }
+			{ "elite": 0, "level": 1, "skillId": "trade_ord_spd&limit[032]" },
+			{ "elite": 2, "level": 1, "skillId": "trade_ord_spd&limit[033]" }
 		]
 	},
 	{
@@ -1448,18 +1368,8 @@
 		"name": "Vulcan",
 		"rarity": 5,
 		"skills": [
-			{
-				"elite": 0,
-				"level": 1,
-				"name": "Craftsmanship Spirit α",
-				"iconId": "bskill_man_spd&limit&cost1"
-			},
-			{
-				"elite": 2,
-				"level": 1,
-				"name": "Craftsmanship Spirit β",
-				"iconId": "bskill_man_spd&limit&cost2"
-			}
+			{ "elite": 0, "level": 1, "skillId": "manu_prod_spd&limit&cost[000]" },
+			{ "elite": 2, "level": 1, "skillId": "manu_prod_spd&limit&cost[001]" }
 		]
 	},
 	{
@@ -1467,8 +1377,8 @@
 		"name": "Asbestos",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Maverick", "iconId": "bskill_man_spd&limit&cost3" },
-			{ "elite": 2, "level": 1, "name": "Explorer", "iconId": "bskill_man_limit&cost3" }
+			{ "elite": 0, "level": 1, "skillId": "manu_prod_spd&limit&cost[011]" },
+			{ "elite": 2, "level": 1, "skillId": "manu_prod_limit&cost[020]" }
 		]
 	},
 	{
@@ -1476,18 +1386,8 @@
 		"name": "Shalem",
 		"rarity": 5,
 		"skills": [
-			{
-				"elite": 0,
-				"level": 1,
-				"name": "Combat Techniques: Arts Protector",
-				"iconId": "bskill_train_artsprotector"
-			},
-			{
-				"elite": 2,
-				"level": 1,
-				"name": "实战技巧：驭法铁卫",
-				"iconId": "bskill_train_artsprotector"
-			}
+			{ "elite": 0, "level": 1, "skillId": "train_spd&profession3[130]" },
+			{ "elite": 2, "level": 1, "skillId": "train_spd&profession3[131]" }
 		]
 	},
 	{
@@ -1495,8 +1395,8 @@
 		"name": "Czerny",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "慢板行歌", "iconId": "bskill_dorm_all&bd_n1_n3" },
-			{ "elite": 2, "level": 1, "name": "琴键漫步", "iconId": "bskill_dorm_all&bd_n1_2" }
+			{ "elite": 0, "level": 1, "skillId": "dorm_rec_bd_n1_n3[000]" },
+			{ "elite": 2, "level": 1, "skillId": "dorm_rec_bd_n1[100]" }
 		]
 	},
 	{
@@ -1504,8 +1404,8 @@
 		"name": "Blitz",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Team Rainbow", "iconId": "bskill_ctrl_r6" },
-			{ "elite": 2, "level": 1, "name": "Linguistics", "iconId": "bskill_hire_blitz" }
+			{ "elite": 0, "level": 1, "skillId": "control_mp_cost&faction[990]" },
+			{ "elite": 2, "level": 1, "skillId": "hire_spd_blitz[000]" }
 		]
 	},
 	{
@@ -1513,9 +1413,9 @@
 		"name": "Heavyrain",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Guarding", "iconId": "bskill_ctrl_cost" },
-			{ "elite": 0, "level": 1, "name": "Defender Expert α", "iconId": "bskill_train_defender1" },
-			{ "elite": 2, "level": 1, "name": "Field Experience", "iconId": "bskill_train2_defender1" }
+			{ "elite": 0, "level": 1, "skillId": "control_mp_cost[006]" },
+			{ "elite": 0, "level": 1, "skillId": "train_spd&profession2[030]" },
+			{ "elite": 2, "level": 1, "skillId": "train_spd&profession2[230]" }
 		]
 	},
 	{
@@ -1523,8 +1423,8 @@
 		"name": "Ashlock",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Pinus Sylvestris α", "iconId": "bskill_man_spd1" },
-			{ "elite": 2, "level": 1, "name": "Pinus Sylvestris β", "iconId": "bskill_man_spd2" }
+			{ "elite": 0, "level": 1, "skillId": "manu_prod_spd[002]" },
+			{ "elite": 2, "level": 1, "skillId": "manu_prod_spd[012]" }
 		]
 	},
 	{
@@ -1532,8 +1432,8 @@
 		"name": "Aurora",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Defender Expert α", "iconId": "bskill_train_defender1" },
-			{ "elite": 2, "level": 1, "name": "Polar Survival", "iconId": "bskill_train1_defender1" }
+			{ "elite": 0, "level": 1, "skillId": "train_spd&profession2[030]" },
+			{ "elite": 2, "level": 1, "skillId": "train_spd&profession2[130]" }
 		]
 	},
 	{
@@ -1541,8 +1441,8 @@
 		"name": "Provence",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Catastrophe Messenger α", "iconId": "bskill_hire_spd2" },
-			{ "elite": 2, "level": 1, "name": "Catastrophe Messenger β", "iconId": "bskill_hire_spd5" }
+			{ "elite": 0, "level": 1, "skillId": "hire_spd[010]" },
+			{ "elite": 2, "level": 1, "skillId": "hire_spd[011]" }
 		]
 	},
 	{
@@ -1550,8 +1450,8 @@
 		"name": "Firewatch",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Clue Search α", "iconId": "bskill_meet_spd1" },
-			{ "elite": 2, "level": 1, "name": "Clue Search β", "iconId": "bskill_meet_spd2" }
+			{ "elite": 0, "level": 1, "skillId": "meet_spd[000]" },
+			{ "elite": 2, "level": 1, "skillId": "meet_spd[020]" }
 		]
 	},
 	{
@@ -1559,8 +1459,8 @@
 		"name": "Andreana",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Solitude", "iconId": "bskill_dorm_one2" },
-			{ "elite": 2, "level": 1, "name": "Hard to Avoid", "iconId": "bskill_dorm_one4" }
+			{ "elite": 0, "level": 1, "skillId": "dorm_rec_oneself[000]" },
+			{ "elite": 2, "level": 1, "skillId": "dorm_rec_oneself[011]" }
 		]
 	},
 	{
@@ -1568,8 +1468,8 @@
 		"name": "Lunacub",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "幼狼情性", "iconId": "bskill_dorm_one2" },
-			{ "elite": 2, "level": 1, "name": "荒野生存", "iconId": "bskill_ws_skill3" }
+			{ "elite": 0, "level": 1, "skillId": "dorm_rec_oneself[001]" },
+			{ "elite": 2, "level": 1, "skillId": "workshop_formula_probability[011]" }
 		]
 	},
 	{
@@ -1577,8 +1477,8 @@
 		"name": "Toddifons",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Fusion Casting", "iconId": "bskill_ws_evolve_cost1" },
-			{ "elite": 2, "level": 1, "name": "DIY Oriron", "iconId": "bskill_ws_oriron" }
+			{ "elite": 0, "level": 1, "skillId": "workshop_formula_cost3[111]" },
+			{ "elite": 2, "level": 1, "skillId": "workshop_formula_device[020]" }
 		]
 	},
 	{
@@ -1586,8 +1486,8 @@
 		"name": "Erato",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Sniper Expert α", "iconId": "bskill_train_sniper1" },
-			{ "elite": 2, "level": 1, "name": "拂弦", "iconId": "bskill_train2_sniper1" }
+			{ "elite": 0, "level": 1, "skillId": "train_spd&profession2[040]" },
+			{ "elite": 2, "level": 1, "skillId": "train_spd&profession2[240]" }
 		]
 	},
 	{
@@ -1595,8 +1495,8 @@
 		"name": "Greyy the Lightningbearer",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "巡线框架", "iconId": "bskill_pow_drone" },
-			{ "elite": 2, "level": 1, "name": "晨曦", "iconId": "bskill_pow_count" }
+			{ "elite": 0, "level": 1, "skillId": "power_rec_drone[000]" },
+			{ "elite": 2, "level": 1, "skillId": "power_count[000]" }
 		]
 	},
 	{
@@ -1604,13 +1504,8 @@
 		"name": "Cliffheart",
 		"rarity": 5,
 		"skills": [
-			{
-				"elite": 0,
-				"level": 1,
-				"name": "Explorer's Passion",
-				"iconId": "bskill_dorm_single&one02"
-			},
-			{ "elite": 2, "level": 1, "name": "Karlan Commercial β", "iconId": "bskill_tra_spd&limit4" }
+			{ "elite": 0, "level": 1, "skillId": "dorm_rec_single&oneself[001]" },
+			{ "elite": 2, "level": 1, "skillId": "trade_ord_spd&limit[021]" }
 		]
 	},
 	{
@@ -1618,13 +1513,8 @@
 		"name": "Snowsant",
 		"rarity": 5,
 		"skills": [
-			{
-				"elite": 0,
-				"level": 1,
-				"name": "Heavenly Reward α",
-				"iconId": "bskill_tra_spd_variable21"
-			},
-			{ "elite": 2, "level": 1, "name": "Heavenly Reward β", "iconId": "bskill_tra_spd_variable22" }
+			{ "elite": 0, "level": 1, "skillId": "trade_ord_spd_variable2[000]" },
+			{ "elite": 2, "level": 1, "skillId": "trade_ord_spd_variable2[001]" }
 		]
 	},
 	{
@@ -1632,8 +1522,8 @@
 		"name": "Pramanix",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Karlan Saint", "iconId": "bskill_dorm_single&one22" },
-			{ "elite": 2, "level": 1, "name": "Supporter Expert β", "iconId": "bskill_train_supporter2" }
+			{ "elite": 0, "level": 1, "skillId": "dorm_rec_single&oneself[021]" },
+			{ "elite": 2, "level": 1, "skillId": "train_spd&profession[061]" }
 		]
 	},
 	{
@@ -1641,8 +1531,8 @@
 		"name": "Shamare",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Tailoring α", "iconId": "bskill_tra_wt&cost1" },
-			{ "elite": 2, "level": 1, "name": "Whispers", "iconId": "bskill_tra_vodfox" }
+			{ "elite": 0, "level": 1, "skillId": "trade_ord_wt&cost[000]" },
+			{ "elite": 2, "level": 1, "skillId": "trade_ord_vodfox[000]" }
 		]
 	},
 	{
@@ -1650,8 +1540,8 @@
 		"name": "Istina",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Supporter Expert α", "iconId": "bskill_train_supporter1" },
-			{ "elite": 2, "level": 1, "name": "Military Advisor", "iconId": "bskill_meet_ursus2" }
+			{ "elite": 0, "level": 1, "skillId": "train_spd&profession[060]" },
+			{ "elite": 2, "level": 1, "skillId": "meet_spd&team[050]" }
 		]
 	},
 	{
@@ -1659,8 +1549,8 @@
 		"name": "Glaucus",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Electromagnetic Charge α", "iconId": "bskill_pow_spd1" },
-			{ "elite": 2, "level": 1, "name": "Electromagnetic Charge β", "iconId": "bskill_pow_spd2" }
+			{ "elite": 0, "level": 1, "skillId": "power_rec_spd[003]" },
+			{ "elite": 2, "level": 1, "skillId": "power_rec_spd[015]" }
 		]
 	},
 	{
@@ -1668,9 +1558,9 @@
 		"name": "Proviso",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "合同法", "iconId": "bskill_tra_law" },
-			{ "elite": 0, "level": 1, "name": "违约索赔·α", "iconId": "bskill_tra_against" },
-			{ "elite": 2, "level": 1, "name": "违约索赔·β", "iconId": "bskill_tra_against2" }
+			{ "elite": 0, "level": 1, "skillId": "trade_ord_law[000]" },
+			{ "elite": 0, "level": 1, "skillId": "trade_ord_against[000]" },
+			{ "elite": 2, "level": 1, "skillId": "trade_ord_against[010]" }
 		]
 	},
 	{
@@ -1678,8 +1568,8 @@
 		"name": "Windflit",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Required Course", "iconId": "bskill_ws_evolve2" },
-			{ "elite": 2, "level": 1, "name": "Automation α", "iconId": "bskill_man_spd&power1" }
+			{ "elite": 0, "level": 1, "skillId": "workshop_formula_probability[115]" },
+			{ "elite": 2, "level": 1, "skillId": "manu_prod_spd&power[000]" }
 		]
 	},
 	{
@@ -1687,8 +1577,8 @@
 		"name": "Sora",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Idol", "iconId": "bskill_dorm_all2" },
-			{ "elite": 2, "level": 1, "name": "Penguin Logistics β", "iconId": "bskill_tra_spd2" }
+			{ "elite": 0, "level": 1, "skillId": "dorm_rec_all[011]" },
+			{ "elite": 2, "level": 1, "skillId": "trade_ord_spd[011]" }
 		]
 	},
 	{
@@ -1696,14 +1586,9 @@
 		"name": "Heidi",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Order Distribution α", "iconId": "bskill_tra_spd1" },
-			{ "elite": 2, "level": 1, "name": "High Society", "iconId": "bskill_tra_spd3" },
-			{
-				"elite": 2,
-				"level": 1,
-				"name": "'One Thousand Letters'",
-				"iconId": "bskill_ctrl_c_victoria"
-			}
+			{ "elite": 0, "level": 1, "skillId": "trade_ord_spd[000]" },
+			{ "elite": 2, "level": 1, "skillId": "trade_ord_spd[021]" },
+			{ "elite": 2, "level": 1, "skillId": "control_clue_faction[070]" }
 		]
 	},
 	{
@@ -1711,8 +1596,8 @@
 		"name": "Tsukinogi",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Catastrophe Messenger α", "iconId": "bskill_hire_spd2" },
-			{ "elite": 2, "level": 1, "name": "Empath's Insight", "iconId": "bskill_hire_spd&clue" }
+			{ "elite": 0, "level": 1, "skillId": "hire_spd&clue[010]" },
+			{ "elite": 2, "level": 1, "skillId": "hire_spd&clue[100]" }
 		]
 	},
 	{
@@ -1720,8 +1605,8 @@
 		"name": "Nine-Colored Deer",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Causality", "iconId": "bskill_ws_bonus1" },
-			{ "elite": 2, "level": 1, "name": "Karma", "iconId": "bskill_ws_bonus2" }
+			{ "elite": 0, "level": 1, "skillId": "workshop_formula_bonus1[000]" },
+			{ "elite": 2, "level": 1, "skillId": "workshop_formula_bonus2[000]" }
 		]
 	},
 	{
@@ -1729,13 +1614,8 @@
 		"name": "Quercus",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Sound of the Wind", "iconId": "bskill_meet_glasgow1" },
-			{
-				"elite": 2,
-				"level": 1,
-				"name": "Information Collation",
-				"iconId": "bskill_meet_flag_glasgow"
-			}
+			{ "elite": 0, "level": 1, "skillId": "meet_team[070]" },
+			{ "elite": 2, "level": 1, "skillId": "meet_flag[070]" }
 		]
 	},
 	{
@@ -1743,18 +1623,8 @@
 		"name": "Manticore",
 		"rarity": 5,
 		"skills": [
-			{
-				"elite": 0,
-				"level": 1,
-				"name": "Specialist Expert α",
-				"iconId": "bskill_train_specialist1"
-			},
-			{
-				"elite": 2,
-				"level": 1,
-				"name": "Specialist Expert β",
-				"iconId": "bskill_train_specialist2"
-			}
+			{ "elite": 0, "level": 1, "skillId": "train_spd&profession[080]" },
+			{ "elite": 2, "level": 1, "skillId": "train_spd&profession[081]" }
 		]
 	},
 	{
@@ -1762,18 +1632,8 @@
 		"name": "Kirara",
 		"rarity": 5,
 		"skills": [
-			{
-				"elite": 0,
-				"level": 1,
-				"name": "Order Flow Visualization α",
-				"iconId": "bskill_tra_flow_gc1"
-			},
-			{
-				"elite": 2,
-				"level": 1,
-				"name": "Order Flow Visualization β",
-				"iconId": "bskill_tra_flow_gc2"
-			}
+			{ "elite": 0, "level": 1, "skillId": "trade_ord_line_gold[000]" },
+			{ "elite": 2, "level": 1, "skillId": "trade_ord_line_gold[010]" }
 		]
 	},
 	{
@@ -1781,8 +1641,8 @@
 		"name": "FEater",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Combat Guidance Video", "iconId": "bskill_man_exp2" },
-			{ "elite": 2, "level": 1, "name": "Boxing Guidance Video", "iconId": "bskill_man_exp3" }
+			{ "elite": 0, "level": 1, "skillId": "manu_formula_spd[010]" },
+			{ "elite": 2, "level": 1, "skillId": "manu_formula_spd[020]" }
 		]
 	},
 	{
@@ -1790,8 +1650,8 @@
 		"name": "Enforcer",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Clue Search α", "iconId": "bskill_meet_spd1" },
-			{ "elite": 2, "level": 1, "name": "Logical Deduction", "iconId": "bskill_meet_spd&cost" }
+			{ "elite": 0, "level": 1, "skillId": "meet_spd&cost[000]" },
+			{ "elite": 2, "level": 1, "skillId": "meet_spd&cost[100]" }
 		]
 	},
 	{
@@ -1799,13 +1659,8 @@
 		"name": "Robin",
 		"rarity": 5,
 		"skills": [
-			{
-				"elite": 0,
-				"level": 1,
-				"name": "Specialist Expert α",
-				"iconId": "bskill_train_specialist1"
-			},
-			{ "elite": 2, "level": 1, "name": "Trap Focus", "iconId": "bskill_train1_specialist1" }
+			{ "elite": 0, "level": 1, "skillId": "train_spd&profession2[080]" },
+			{ "elite": 2, "level": 1, "skillId": "train_spd&profession2[180]" }
 		]
 	},
 	{
@@ -1813,8 +1668,8 @@
 		"name": "Frost",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Team Rainbow", "iconId": "bskill_ctrl_r6" },
-			{ "elite": 2, "level": 1, "name": "Mechanical Engineering", "iconId": "bskill_ws_frost" }
+			{ "elite": 0, "level": 1, "skillId": "control_mp_cost&faction[990]" },
+			{ "elite": 2, "level": 1, "skillId": "workshop_formula_frost[000]" }
 		]
 	},
 	{
@@ -1822,13 +1677,8 @@
 		"name": "Bena",
 		"rarity": 5,
 		"skills": [
-			{
-				"elite": 0,
-				"level": 1,
-				"name": "'Reliable' Helper",
-				"iconId": "bskill_man_spd&limit&cost4"
-			},
-			{ "elite": 2, "level": 1, "name": "Tailoring α", "iconId": "bskill_tra_wt&cost1" }
+			{ "elite": 0, "level": 1, "skillId": "manu_prod_spd&limit&cost[020]" },
+			{ "elite": 2, "level": 1, "skillId": "trade_ord_wt&cost[000]" }
 		]
 	},
 	{
@@ -1836,8 +1686,8 @@
 		"name": "Kazemaru",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Avatar", "iconId": "bskill_meet_spd2" },
-			{ "elite": 2, "level": 1, "name": "Proficient Artistry", "iconId": "bskill_meet_condChar" }
+			{ "elite": 0, "level": 1, "skillId": "meet_spd[010]" },
+			{ "elite": 2, "level": 1, "skillId": "meet_spd_condChar[000]" }
 		]
 	},
 	{
@@ -1845,8 +1695,8 @@
 		"name": "Exusiai",
 		"rarity": 6,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Penguin Logistics α", "iconId": "bskill_tra_spd1" },
-			{ "elite": 2, "level": 1, "name": "Logistics Expert", "iconId": "bskill_tra_spd3" }
+			{ "elite": 0, "level": 1, "skillId": "trade_ord_spd[010]" },
+			{ "elite": 2, "level": 1, "skillId": "trade_ord_spd[020]" }
 		]
 	},
 	{
@@ -1854,8 +1704,8 @@
 		"name": "Archetto",
 		"rarity": 6,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Pious Fundraising α", "iconId": "bskill_tra_spd&dorm1" },
-			{ "elite": 2, "level": 1, "name": "Pious Fundraising β", "iconId": "bskill_tra_spd&dorm2" }
+			{ "elite": 0, "level": 1, "skillId": "trade_ord_spd&dorm&lv[000]" },
+			{ "elite": 2, "level": 1, "skillId": "trade_ord_spd&dorm&lv[010]" }
 		]
 	},
 	{
@@ -1863,8 +1713,8 @@
 		"name": "Ash",
 		"rarity": 6,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Team Rainbow", "iconId": "bskill_ctrl_r6" },
-			{ "elite": 2, "level": 1, "name": "Intelligence Reserve", "iconId": "bskill_ctrl_ash" }
+			{ "elite": 0, "level": 1, "skillId": "control_mp_cost&faction[990]" },
+			{ "elite": 2, "level": 1, "skillId": "control_mp_bd[000]" }
 		]
 	},
 	{
@@ -1872,8 +1722,8 @@
 		"name": "Schwarz",
 		"rarity": 6,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Make Tea", "iconId": "bskill_dorm_single_schwarz" },
-			{ "elite": 2, "level": 1, "name": "Black Arrow", "iconId": "bskill_train_sniper3" }
+			{ "elite": 0, "level": 1, "skillId": "dorm_rec_single_P[000]" },
+			{ "elite": 2, "level": 1, "skillId": "train_spd&profession[140]" }
 		]
 	},
 	{
@@ -1881,8 +1731,8 @@
 		"name": "Pozyomka",
 		"rarity": 6,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "销路宣发", "iconId": "bskill_tra_flow_gs" },
-			{ "elite": 2, "level": 1, "name": "际崖居民", "iconId": "bskill_tra_flow_durin" }
+			{ "elite": 0, "level": 1, "skillId": "trade_ord_spd&gold[100]" },
+			{ "elite": 2, "level": 1, "skillId": "trade_ord_line_durin[010]" }
 		]
 	},
 	{
@@ -1890,9 +1740,9 @@
 		"name": "Fartooth",
 		"rarity": 6,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "'Homecoming'", "iconId": "bskill_dorm_all&one3" },
-			{ "elite": 0, "level": 1, "name": "Pinus Sylvestris α", "iconId": "bskill_man_spd1" },
-			{ "elite": 2, "level": 1, "name": "Pinus Sylvestris β", "iconId": "bskill_man_spd2" }
+			{ "elite": 0, "level": 1, "skillId": "dorm_rec_all&oneself[042]" },
+			{ "elite": 0, "level": 1, "skillId": "manu_prod_spd[002]" },
+			{ "elite": 2, "level": 1, "skillId": "manu_prod_spd[012]" }
 		]
 	},
 	{
@@ -1900,9 +1750,9 @@
 		"name": "W",
 		"rarity": 6,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Sniper Expert α", "iconId": "bskill_train_sniper1" },
-			{ "elite": 2, "level": 1, "name": "Patience", "iconId": "bskill_train3_sniper2" },
-			{ "elite": 2, "level": 1, "name": "Insipid", "iconId": "bskill_train_w" }
+			{ "elite": 0, "level": 1, "skillId": "train_spd&profession2[040]" },
+			{ "elite": 2, "level": 1, "skillId": "train_spd&profession2[640]" },
+			{ "elite": 2, "level": 1, "skillId": "train_cost&profession[340]" }
 		]
 	},
 	{
@@ -1910,8 +1760,8 @@
 		"name": "Fiammetta",
 		"rarity": 6,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Self-Discipline", "iconId": "bskill_dorm_reborn" },
-			{ "elite": 0, "level": 1, "name": "Communal Suffering", "iconId": "bskill_dorm_exchangeAp" }
+			{ "elite": 0, "level": 1, "skillId": "dorm_recExcludeOther[000]" },
+			{ "elite": 0, "level": 1, "skillId": "dorm_exchangeAp[000]" }
 		]
 	},
 	{
@@ -1919,8 +1769,8 @@
 		"name": "Rosa",
 		"rarity": 6,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Student Council President", "iconId": "bskill_ctrl_ussg" },
-			{ "elite": 2, "level": 1, "name": "Prestige", "iconId": "bskill_hire_spd&ursus2" }
+			{ "elite": 0, "level": 1, "skillId": "control_mp_cost&faction[020]" },
+			{ "elite": 2, "level": 1, "skillId": "hire_spd&clue2[250]" }
 		]
 	},
 	{
@@ -1928,14 +1778,9 @@
 		"name": "Rosmontis",
 		"rarity": 6,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Extrasensory", "iconId": "bskill_man_spd_bd_n1" },
-			{ "elite": 0, "level": 1, "name": "Psychokinesis", "iconId": "bskill_man_spd_bd1" },
-			{
-				"elite": 2,
-				"level": 1,
-				"name": "Manifestation of Consciousness",
-				"iconId": "bskill_man_spd_bd2"
-			}
+			{ "elite": 0, "level": 1, "skillId": "manu_prod_spd_bd_n1[000]" },
+			{ "elite": 0, "level": 1, "skillId": "manu_prod_spd_bd[000]" },
+			{ "elite": 2, "level": 1, "skillId": "manu_prod_spd_bd[010]" }
 		]
 	},
 	{
@@ -1943,9 +1788,9 @@
 		"name": "Ch'en the Holungday",
 		"rarity": 6,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Sniper Expert α", "iconId": "bskill_train_sniper1" },
-			{ "elite": 2, "level": 1, "name": "Leading By Example", "iconId": "bskill_train1_sniper2" },
-			{ "elite": 2, "level": 1, "name": "Workaholic", "iconId": "bskill_train_chen" }
+			{ "elite": 0, "level": 1, "skillId": "train_spd&profession2[040]" },
+			{ "elite": 2, "level": 1, "skillId": "train_spd&profession2[440]" },
+			{ "elite": 2, "level": 1, "skillId": "train_cost&profession[140]" }
 		]
 	},
 	{
@@ -1953,8 +1798,8 @@
 		"name": "Siege",
 		"rarity": 6,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Leader", "iconId": "bskill_dorm_all2" },
-			{ "elite": 2, "level": 1, "name": "Lionheart", "iconId": "bskill_dorm_all3" }
+			{ "elite": 0, "level": 1, "skillId": "dorm_rec_all[013]" },
+			{ "elite": 2, "level": 1, "skillId": "dorm_rec_all[022]" }
 		]
 	},
 	{
@@ -1962,8 +1807,8 @@
 		"name": "Bagpipe",
 		"rarity": 6,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Madrigal", "iconId": "bskill_dorm_all&one3" },
-			{ "elite": 2, "level": 1, "name": "Well-Trained", "iconId": "bskill_ws_asc2" }
+			{ "elite": 0, "level": 1, "skillId": "dorm_rec_all&oneself[021]" },
+			{ "elite": 2, "level": 1, "skillId": "workshop_formula_probability[310]" }
 		]
 	},
 	{
@@ -1971,8 +1816,8 @@
 		"name": "Saga",
 		"rarity": 6,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Vanguard Expert α", "iconId": "bskill_train_vanguard1" },
-			{ "elite": 2, "level": 1, "name": "Secularization", "iconId": "bskill_train_vanguard3" }
+			{ "elite": 0, "level": 1, "skillId": "train_spd&profession[010]" },
+			{ "elite": 2, "level": 1, "skillId": "train_spd&profession[110]" }
 		]
 	},
 	{
@@ -1980,8 +1825,8 @@
 		"name": "Saileach",
 		"rarity": 6,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Victorian Literature", "iconId": "bskill_dorm_single3" },
-			{ "elite": 2, "level": 1, "name": "Infectivity", "iconId": "bskill_ctrl_h_spd" }
+			{ "elite": 0, "level": 1, "skillId": "dorm_rec_single[031]" },
+			{ "elite": 2, "level": 1, "skillId": "control_hire_spd[000]" }
 		]
 	},
 	{
@@ -1989,8 +1834,8 @@
 		"name": "Flametail",
 		"rarity": 6,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Tiny Leader", "iconId": "bskill_ctrl_cost" },
-			{ "elite": 2, "level": 1, "name": "Knights of Pinus Sylvestris", "iconId": "bskill_ctrl_psk" }
+			{ "elite": 0, "level": 1, "skillId": "control_mp_cost[007]" },
+			{ "elite": 2, "level": 1, "skillId": "control_mp_psk[000]" }
 		]
 	},
 	{
@@ -1998,8 +1843,8 @@
 		"name": "Vigil",
 		"rarity": 6,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "领袖外交", "iconId": "bskill_meet_spd3" },
-			{ "elite": 2, "level": 1, "name": "新城贸易", "iconId": "bskill_tra_spd&meet1" }
+			{ "elite": 0, "level": 1, "skillId": "meet_spd[032]" },
+			{ "elite": 2, "level": 1, "skillId": "trade_ord_spd&meet[000]" }
 		]
 	},
 	{
@@ -2007,8 +1852,8 @@
 		"name": "Ifrit",
 		"rarity": 6,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Heat Charge α", "iconId": "bskill_pow_spd1" },
-			{ "elite": 2, "level": 1, "name": "Superheat Charge", "iconId": "bskill_pow_spd2" }
+			{ "elite": 0, "level": 1, "skillId": "power_rec_spd[001]" },
+			{ "elite": 2, "level": 1, "skillId": "power_rec_spd[013]" }
 		]
 	},
 	{
@@ -2016,13 +1861,8 @@
 		"name": "Mostima",
 		"rarity": 6,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Clue Search α", "iconId": "bskill_meet_spd1" },
-			{
-				"elite": 2,
-				"level": 1,
-				"name": "Messenger - Penguin Logistics",
-				"iconId": "bskill_meet_penguin2"
-			}
+			{ "elite": 0, "level": 1, "skillId": "meet_spd&team[000]" },
+			{ "elite": 2, "level": 1, "skillId": "meet_spd&team[020]" }
 		]
 	},
 	{
@@ -2030,8 +1870,8 @@
 		"name": "Eyjafjalla",
 		"rarity": 6,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Volcanologist", "iconId": "bskill_man_originium2" },
-			{ "elite": 2, "level": 1, "name": "Catastrophe Messenger β", "iconId": "bskill_hire_spd5" }
+			{ "elite": 0, "level": 1, "skillId": "manu_formula_spd[213]" },
+			{ "elite": 2, "level": 1, "skillId": "hire_spd[011]" }
 		]
 	},
 	{
@@ -2039,8 +1879,8 @@
 		"name": "Ceobe",
 		"rarity": 6,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "I Want It All", "iconId": "bskill_man_limit&cost1" },
-			{ "elite": 2, "level": 1, "name": "Right Now", "iconId": "bskill_man_spd_add1" }
+			{ "elite": 0, "level": 1, "skillId": "manu_prod_limit&cost[002]" },
+			{ "elite": 2, "level": 1, "skillId": "manu_prod_spd_addition[031]" }
 		]
 	},
 	{
@@ -2048,8 +1888,8 @@
 		"name": "Dusk",
 		"rarity": 6,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "'Unstirred by Gain'", "iconId": "bskill_ctrl_cost_bd1" },
-			{ "elite": 0, "level": 1, "name": "'Unmoved by Loss'", "iconId": "bskill_ctrl_cost_bd2" }
+			{ "elite": 0, "level": 1, "skillId": "control_mp_cost&bd1[000]" },
+			{ "elite": 0, "level": 1, "skillId": "control_mp_cost&bd2[000]" }
 		]
 	},
 	{
@@ -2057,9 +1897,9 @@
 		"name": "Passenger",
 		"rarity": 6,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Electromagnetic Charge α", "iconId": "bskill_pow_spd1" },
-			{ "elite": 2, "level": 1, "name": "Energy Gathering", "iconId": "bskill_pow_spd2" },
-			{ "elite": 2, "level": 1, "name": "Automation α", "iconId": "bskill_man_spd&power1" }
+			{ "elite": 0, "level": 1, "skillId": "power_rec_spd[003]" },
+			{ "elite": 2, "level": 1, "skillId": "power_rec_spd[016]" },
+			{ "elite": 2, "level": 1, "skillId": "manu_prod_spd&power[000]" }
 		]
 	},
 	{
@@ -2067,8 +1907,8 @@
 		"name": "Carnelian",
 		"rarity": 6,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Caster Expert α", "iconId": "bskill_train_caster1" },
-			{ "elite": 2, "level": 1, "name": "Within One's Grasp", "iconId": "bskill_train_caster3" }
+			{ "elite": 0, "level": 1, "skillId": "train_spd&profession[050]" },
+			{ "elite": 2, "level": 1, "skillId": "train_spd&profession[150]" }
 		]
 	},
 	{
@@ -2076,8 +1916,8 @@
 		"name": "Goldenglow",
 		"rarity": 6,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Electromagnetic Charge α", "iconId": "bskill_pow_spd1" },
-			{ "elite": 2, "level": 1, "name": "Discharge", "iconId": "bskill_pow_spd3" }
+			{ "elite": 0, "level": 1, "skillId": "power_rec_spd[003]" },
+			{ "elite": 2, "level": 1, "skillId": "power_rec_spd[023]" }
 		]
 	},
 	{
@@ -2085,9 +1925,9 @@
 		"name": "Ebenholz",
 		"rarity": 6,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "乐感", "iconId": "bskill_tra_bd_n1" },
-			{ "elite": 0, "level": 1, "name": "徘徊旋律", "iconId": "bskill_tra_spd_bd1" },
-			{ "elite": 2, "level": 1, "name": "怅惘和声", "iconId": "bskill_tra_spd_bd2" }
+			{ "elite": 0, "level": 1, "skillId": "trade_ord_spd_bd_n1[000]" },
+			{ "elite": 0, "level": 1, "skillId": "trade_ord_spd_bd[000]" },
+			{ "elite": 2, "level": 1, "skillId": "trade_ord_spd_bd[010]" }
 		]
 	},
 	{
@@ -2095,13 +1935,8 @@
 		"name": "Gnosis",
 		"rarity": 6,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Hidden Mastermind", "iconId": "bskill_ctrl_karlan" },
-			{
-				"elite": 2,
-				"level": 1,
-				"name": "Precise Calculations",
-				"iconId": "bskill_ctrl_t_limit&spd"
-			}
+			{ "elite": 0, "level": 1, "skillId": "control_mp_cost&faction[030]" },
+			{ "elite": 2, "level": 1, "skillId": "control_tra_limit&spd[000]" }
 		]
 	},
 	{
@@ -2109,13 +1944,8 @@
 		"name": "Angelina",
 		"rarity": 6,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Clue Search α", "iconId": "bskill_meet_spd1" },
-			{
-				"elite": 2,
-				"level": 1,
-				"name": "Messenger - Rhodes Island",
-				"iconId": "bskill_meet_rhodes2"
-			}
+			{ "elite": 0, "level": 1, "skillId": "meet_spd&team[000]" },
+			{ "elite": 2, "level": 1, "skillId": "meet_spd&team[060]" }
 		]
 	},
 	{
@@ -2123,8 +1953,8 @@
 		"name": "Suzuran",
 		"rarity": 6,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Supporter Expert α", "iconId": "bskill_train_supporter1" },
-			{ "elite": 2, "level": 1, "name": "Resonance", "iconId": "bskill_train_supporter3" }
+			{ "elite": 0, "level": 1, "skillId": "train_spd&profession[060]" },
+			{ "elite": 2, "level": 1, "skillId": "train_spd&profession[160]" }
 		]
 	},
 	{
@@ -2132,13 +1962,8 @@
 		"name": "Magallan",
 		"rarity": 6,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Multifunctional Robotter", "iconId": "bskill_ws_p2" },
-			{
-				"elite": 2,
-				"level": 1,
-				"name": "Drone - Soaring Dragon",
-				"iconId": "bskill_ws_cost_magallan"
-			}
+			{ "elite": 0, "level": 1, "skillId": "workshop_proc_probability[011]" },
+			{ "elite": 2, "level": 1, "skillId": "workshop_formula_cost[000]" }
 		]
 	},
 	{
@@ -2146,9 +1971,9 @@
 		"name": "Skadi the Corrupting Heart",
 		"rarity": 6,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Supporter Expert α", "iconId": "bskill_train_supporter1" },
-			{ "elite": 2, "level": 1, "name": "Assimilation", "iconId": "bskill_train3_supporter2" },
-			{ "elite": 2, "level": 1, "name": "Mutation", "iconId": "bskill_train_skadi" }
+			{ "elite": 0, "level": 1, "skillId": "train_spd&profession2[060]" },
+			{ "elite": 2, "level": 1, "skillId": "train_spd&profession2[660]" },
+			{ "elite": 2, "level": 1, "skillId": "train_cost&profession[360]" }
 		]
 	},
 	{
@@ -2156,18 +1981,8 @@
 		"name": "Ling",
 		"rarity": 6,
 		"skills": [
-			{
-				"elite": 0,
-				"level": 1,
-				"name": "Keep the Wine Flowing",
-				"iconId": "bskill_ctrl_clear_sui"
-			},
-			{
-				"elite": 2,
-				"level": 1,
-				"name": "'Vast Mountains and Rivers'",
-				"iconId": "bskill_ctrl_cost_bd1&bd2"
-			}
+			{ "elite": 0, "level": 1, "skillId": "control_facCostReset[000]" },
+			{ "elite": 2, "level": 1, "skillId": "control_costToBD[000]" }
 		]
 	},
 	{
@@ -2175,8 +1990,8 @@
 		"name": "Stainless",
 		"rarity": 6,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "心相连", "iconId": "bskill_ws_cost&dorm" },
-			{ "elite": 2, "level": 1, "name": "意相通", "iconId": "bskill_ws_evolve_dorm2" }
+			{ "elite": 0, "level": 1, "skillId": "workshop_formula_cost&dorm[000]" },
+			{ "elite": 2, "level": 1, "skillId": "workshop_formula_dorm[002]" }
 		]
 	},
 	{
@@ -2184,13 +1999,8 @@
 		"name": "Phantom",
 		"rarity": 6,
 		"skills": [
-			{
-				"elite": 0,
-				"level": 1,
-				"name": "Specialist Expert α",
-				"iconId": "bskill_train_specialist1"
-			},
-			{ "elite": 2, "level": 1, "name": "Masked Phantom", "iconId": "bskill_train_specialist3" }
+			{ "elite": 0, "level": 1, "skillId": "train_spd&profession[080]" },
+			{ "elite": 2, "level": 1, "skillId": "train_spd&profession[180]" }
 		]
 	},
 	{
@@ -2198,8 +2008,8 @@
 		"name": "Texas the Omertosa",
 		"rarity": 6,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "沉默为剑", "iconId": "bskill_train_specialist&pioneer1" },
-			{ "elite": 2, "level": 1, "name": "破斩桎梏", "iconId": "bskill_train2_specialist&pioneer1" }
+			{ "elite": 0, "level": 1, "skillId": "train_spd_doubleProf2[001]" },
+			{ "elite": 2, "level": 1, "skillId": "train_spd_doubleProf2[000]" }
 		]
 	},
 	{
@@ -2207,8 +2017,8 @@
 		"name": "Lee",
 		"rarity": 6,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Moment of Respite", "iconId": "bskill_ctrl_lda" },
-			{ "elite": 2, "level": 1, "name": "Worldly Insight", "iconId": "bskill_ctrl_c_spd" }
+			{ "elite": 0, "level": 1, "skillId": "control_allCost_condChar[000]" },
+			{ "elite": 2, "level": 1, "skillId": "control_upMeetingSpeed[000]" }
 		]
 	},
 	{
@@ -2216,8 +2026,8 @@
 		"name": "Weedy",
 		"rarity": 6,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Automation β", "iconId": "bskill_man_spd&power2" },
-			{ "elite": 2, "level": 1, "name": "Bionic Seadragon", "iconId": "bskill_man_spd&power3" }
+			{ "elite": 0, "level": 1, "skillId": "manu_prod_spd&power[010]" },
+			{ "elite": 2, "level": 1, "skillId": "manu_prod_spd&power[020]" }
 		]
 	},
 	{
@@ -2225,8 +2035,8 @@
 		"name": "Aak",
 		"rarity": 6,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Neuroticism", "iconId": "bskill_ctrl_c_wt" },
-			{ "elite": 2, "level": 1, "name": "Surgical Precision", "iconId": "bskill_train_medic3" }
+			{ "elite": 0, "level": 1, "skillId": "control_clue_cost[000]" },
+			{ "elite": 2, "level": 1, "skillId": "train_spd&profession[170]" }
 		]
 	},
 	{
@@ -2234,9 +2044,9 @@
 		"name": "Gladiia",
 		"rarity": 6,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Tide Observation", "iconId": "bskill_ctrl_cost_aegir" },
-			{ "elite": 0, "level": 1, "name": "Group Hunting ·α", "iconId": "bskill_ctrl_aegir" },
-			{ "elite": 2, "level": 1, "name": "Group Hunting ·β", "iconId": "bskill_ctrl_aegir2" }
+			{ "elite": 0, "level": 1, "skillId": "control_mp_aegir1[000]" },
+			{ "elite": 0, "level": 1, "skillId": "control_mp_aegir2[000]" },
+			{ "elite": 2, "level": 1, "skillId": "control_mp_aegir2[010]" }
 		]
 	},
 	{
@@ -2244,8 +2054,8 @@
 		"name": "Mizuki",
 		"rarity": 6,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "意识协议", "iconId": "bskill_man_skill_spd" },
-			{ "elite": 2, "level": 1, "name": "Standardization β", "iconId": "bskill_man_spd2" }
+			{ "elite": 0, "level": 1, "skillId": "manu_skill_spd1[000]" },
+			{ "elite": 2, "level": 1, "skillId": "manu_prod_spd[010]" }
 		]
 	},
 	{
@@ -2253,14 +2063,9 @@
 		"name": "Specter the Unchained",
 		"rarity": 6,
 		"skills": [
-			{
-				"elite": 0,
-				"level": 1,
-				"name": "Specialist Expert α",
-				"iconId": "bskill_train_specialist1"
-			},
-			{ "elite": 2, "level": 1, "name": "Ægir Tactics", "iconId": "bskill_train3_specialist2" },
-			{ "elite": 2, "level": 1, "name": "War Fever", "iconId": "bskill_train_specter" }
+			{ "elite": 0, "level": 1, "skillId": "train_spd&profession2[080]" },
+			{ "elite": 2, "level": 1, "skillId": "train_spd&profession2[680]" },
+			{ "elite": 2, "level": 1, "skillId": "train_cost&profession[380]" }
 		]
 	},
 	{
@@ -2268,13 +2073,8 @@
 		"name": "Dorothy",
 		"rarity": 6,
 		"skills": [
-			{
-				"elite": 0,
-				"level": 1,
-				"name": "Consciousness Agreement",
-				"iconId": "bskill_man_skill_spd"
-			},
-			{ "elite": 2, "level": 1, "name": "Rhine Tech β", "iconId": "bskill_man_spd2" }
+			{ "elite": 0, "level": 1, "skillId": "manu_skill_spd1[010]" },
+			{ "elite": 2, "level": 1, "skillId": "manu_prod_spd[011]" }
 		]
 	},
 	{
@@ -2282,8 +2082,8 @@
 		"name": "Shining",
 		"rarity": 6,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Thoughtfulness", "iconId": "bskill_dorm_single1" },
-			{ "elite": 2, "level": 1, "name": "Mercy", "iconId": "bskill_dorm_single4" }
+			{ "elite": 0, "level": 1, "skillId": "dorm_rec_single[010]" },
+			{ "elite": 2, "level": 1, "skillId": "dorm_rec_single[020]" }
 		]
 	},
 	{
@@ -2291,8 +2091,8 @@
 		"name": "Nightingale",
 		"rarity": 6,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Inspiration", "iconId": "bskill_dorm_all1" },
-			{ "elite": 2, "level": 1, "name": "Lady of the Lamp", "iconId": "bskill_dorm_all3" }
+			{ "elite": 0, "level": 1, "skillId": "dorm_rec_all[000]" },
+			{ "elite": 2, "level": 1, "skillId": "dorm_rec_all[021]" }
 		]
 	},
 	{
@@ -2300,8 +2100,8 @@
 		"name": "Kal'tsit",
 		"rarity": 6,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Unknown Technology", "iconId": "bskill_ws_p5" },
-			{ "elite": 2, "level": 1, "name": "Highest Authority", "iconId": "bskill_ctrl_p_spd" }
+			{ "elite": 0, "level": 1, "skillId": "workshop_proc_probability[040]" },
+			{ "elite": 2, "level": 1, "skillId": "control_prod_spd[000]" }
 		]
 	},
 	{
@@ -2309,8 +2109,8 @@
 		"name": "Lumen",
 		"rarity": 6,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Glimmering Glow α", "iconId": "bskill_dorm_powToRecAll1" },
-			{ "elite": 2, "level": 1, "name": "Glimmering Glow β", "iconId": "bskill_dorm_powToRecAll2" }
+			{ "elite": 0, "level": 1, "skillId": "dorm_powToRecAll[000]" },
+			{ "elite": 2, "level": 1, "skillId": "dorm_powToRecAll[010]" }
 		]
 	},
 	{
@@ -2318,8 +2118,8 @@
 		"name": "Hoshiguma",
 		"rarity": 6,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Defender Expert α", "iconId": "bskill_train_defender1" },
-			{ "elite": 2, "level": 1, "name": "Hannya", "iconId": "bskill_train_defender3" }
+			{ "elite": 0, "level": 1, "skillId": "train_spd&profession[030]" },
+			{ "elite": 2, "level": 1, "skillId": "train_spd&profession[130]" }
 		]
 	},
 	{
@@ -2327,8 +2127,8 @@
 		"name": "Saria",
 		"rarity": 6,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Clue Search α", "iconId": "bskill_meet_spd1" },
-			{ "elite": 2, "level": 1, "name": "Watchman", "iconId": "bskill_meet_rhine2" }
+			{ "elite": 0, "level": 1, "skillId": "meet_spd&team[000]" },
+			{ "elite": 2, "level": 1, "skillId": "meet_spd&team[010]" }
 		]
 	},
 	{
@@ -2336,8 +2136,8 @@
 		"name": "Blemishine",
 		"rarity": 6,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Careful Planning", "iconId": "bskill_ws_free" },
-			{ "elite": 2, "level": 1, "name": "Passionate Tinker", "iconId": "bskill_ws_cost_blemishine" }
+			{ "elite": 0, "level": 1, "skillId": "workshop_formula_free[000]" },
+			{ "elite": 2, "level": 1, "skillId": "workshop_formula_cost2[000]" }
 		]
 	},
 	{
@@ -2345,13 +2145,8 @@
 		"name": "Nian",
 		"rarity": 6,
 		"skills": [
-			{
-				"elite": 0,
-				"level": 1,
-				"name": "Rare Metal Identification",
-				"iconId": "bskill_ws_evolve4"
-			},
-			{ "elite": 0, "level": 1, "name": "Reckless", "iconId": "bskill_ws_nian" }
+			{ "elite": 0, "level": 1, "skillId": "workshop_formula_probability[160]" },
+			{ "elite": 0, "level": 1, "skillId": "workshop_formula_cost[010]" }
 		]
 	},
 	{
@@ -2359,8 +2154,8 @@
 		"name": "Mudrock",
 		"rarity": 6,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Perseverance", "iconId": "bskill_ws_constant" },
-			{ "elite": 2, "level": 1, "name": "DIY Orirock", "iconId": "bskill_ws_orirock" }
+			{ "elite": 0, "level": 1, "skillId": "workshop_formula_cost4[000]" },
+			{ "elite": 2, "level": 1, "skillId": "workshop_formula_device[050]" }
 		]
 	},
 	{
@@ -2368,8 +2163,8 @@
 		"name": "Penance",
 		"rarity": 6,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "法为正典", "iconId": "bskill_hire_skgoat2" },
-			{ "elite": 2, "level": 1, "name": "寻同路人", "iconId": "bskill_dorm_hireToRecAll1" }
+			{ "elite": 0, "level": 1, "skillId": "hire_spd_cost[210]" },
+			{ "elite": 2, "level": 1, "skillId": "dorm_hireToRecAll[000]" }
 		]
 	},
 	{
@@ -2377,9 +2172,9 @@
 		"name": "Eunectes",
 		"rarity": 6,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Automation α", "iconId": "bskill_man_spd&power1" },
-			{ "elite": 2, "level": 1, "name": "Automation β", "iconId": "bskill_man_spd&power2" },
-			{ "elite": 2, "level": 1, "name": "I've Got This", "iconId": "bskill_ctrl_p_bot" }
+			{ "elite": 0, "level": 1, "skillId": "manu_prod_spd&power[000]" },
+			{ "elite": 2, "level": 1, "skillId": "manu_prod_spd&power[010]" },
+			{ "elite": 2, "level": 1, "skillId": "control_pow_bot[000]" }
 		]
 	},
 	{
@@ -2387,13 +2182,8 @@
 		"name": "Horn",
 		"rarity": 6,
 		"skills": [
-			{
-				"elite": 0,
-				"level": 1,
-				"name": "Military Engineering",
-				"iconId": "bskill_ws_evolve_cost1"
-			},
-			{ "elite": 2, "level": 1, "name": "DIY Incandescent Alloy", "iconId": "bskill_ws_alloyBlock" }
+			{ "elite": 0, "level": 1, "skillId": "workshop_formula_cost3[112]" },
+			{ "elite": 2, "level": 1, "skillId": "workshop_formula_device[111]" }
 		]
 	},
 	{
@@ -2401,8 +2191,8 @@
 		"name": "Mountain",
 		"rarity": 6,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Insider", "iconId": "bskill_hire_spd&blacksteel2" },
-			{ "elite": 2, "level": 1, "name": "Columbian History", "iconId": "bskill_meet_flag_rhine" }
+			{ "elite": 0, "level": 1, "skillId": "hire_spd&clue2[230]" },
+			{ "elite": 2, "level": 1, "skillId": "meet_flag[010]" }
 		]
 	},
 	{
@@ -2410,8 +2200,8 @@
 		"name": "SilverAsh",
 		"rarity": 6,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Karlan Commercial α", "iconId": "bskill_tra_spd&limit3" },
-			{ "elite": 2, "level": 1, "name": "Lord of Karlan", "iconId": "bskill_tra_spd&limit5" }
+			{ "elite": 0, "level": 1, "skillId": "trade_ord_spd&limit[020]" },
+			{ "elite": 2, "level": 1, "skillId": "trade_ord_spd&limit[022]" }
 		]
 	},
 	{
@@ -2419,8 +2209,8 @@
 		"name": "Thorns",
 		"rarity": 6,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "'Alchemy'", "iconId": "bskill_ws_p2" },
-			{ "elite": 2, "level": 1, "name": "'Explosion Arts'", "iconId": "bskill_ws_recovery" }
+			{ "elite": 0, "level": 1, "skillId": "workshop_proc_probability[012]" },
+			{ "elite": 2, "level": 1, "skillId": "workshop_formula_recovery[000]" }
 		]
 	},
 	{
@@ -2428,8 +2218,8 @@
 		"name": "Ch'en",
 		"rarity": 6,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Integrity & Capability", "iconId": "bskill_ctrl_lungmen" },
-			{ "elite": 2, "level": 1, "name": "Police Superintendent", "iconId": "bskill_meet_spd3" }
+			{ "elite": 0, "level": 1, "skillId": "control_mp_cost&faction[000]" },
+			{ "elite": 2, "level": 1, "skillId": "meet_spd&team[100]" }
 		]
 	},
 	{
@@ -2437,13 +2227,8 @@
 		"name": "Irene",
 		"rarity": 6,
 		"skills": [
-			{
-				"elite": 0,
-				"level": 1,
-				"name": "Sword and Handcannon",
-				"iconId": "bskill_train_vanguard&sniper"
-			},
-			{ "elite": 2, "level": 1, "name": "Mental Training", "iconId": "bskill_train_reduceTime" }
+			{ "elite": 0, "level": 1, "skillId": "train_spd_doubleProf[000]" },
+			{ "elite": 2, "level": 1, "skillId": "train_spd_reduceTime[000]" }
 		]
 	},
 	{
@@ -2451,8 +2236,8 @@
 		"name": "Blaze",
 		"rarity": 6,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Heat Charge α", "iconId": "bskill_pow_spd1" },
-			{ "elite": 1, "level": 1, "name": "Slice Iron, Split Steel", "iconId": "bskill_ws_build3" }
+			{ "elite": 0, "level": 1, "skillId": "power_rec_spd[001]" },
+			{ "elite": 1, "level": 1, "skillId": "workshop_formula_probability[210]" }
 		]
 	},
 	{
@@ -2460,9 +2245,9 @@
 		"name": "Gavial the Invincible",
 		"rarity": 6,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Guard Expert α", "iconId": "bskill_train_guard1" },
-			{ "elite": 2, "level": 1, "name": "实战指导", "iconId": "bskill_train3_guard2" },
-			{ "elite": 2, "level": 1, "name": "过量训练", "iconId": "bskill_train_gavial" }
+			{ "elite": 0, "level": 1, "skillId": "train_spd&profession2[020]" },
+			{ "elite": 2, "level": 1, "skillId": "train_spd&profession2[620]" },
+			{ "elite": 2, "level": 1, "skillId": "train_cost&profession[320]" }
 		]
 	},
 	{
@@ -2470,8 +2255,8 @@
 		"name": "Surtr",
 		"rarity": 6,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Guard Expert α", "iconId": "bskill_train_guard1" },
-			{ "elite": 2, "level": 1, "name": "Bladework Memory", "iconId": "bskill_train_guard3" }
+			{ "elite": 0, "level": 1, "skillId": "train_spd&profession[020]" },
+			{ "elite": 2, "level": 1, "skillId": "train_spd&profession[120]" }
 		]
 	},
 	{
@@ -2479,10 +2264,10 @@
 		"name": "Hellagur",
 		"rarity": 6,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Release", "iconId": "bskill_dorm_one1" },
-			{ "elite": 1, "level": 1, "name": "Break Loose", "iconId": "bskill_dorm_all1" },
-			{ "elite": 2, "level": 1, "name": "Absolution", "iconId": "bskill_dorm_all&one3" },
-			{ "elite": 0, "level": 1, "name": "Arts of War", "iconId": "bskill_ws_skill3" }
+			{ "elite": 0, "level": 1, "skillId": "dorm_rec_all&oneself[010]" },
+			{ "elite": 1, "level": 1, "skillId": "dorm_rec_all&oneself[011]" },
+			{ "elite": 2, "level": 1, "skillId": "dorm_rec_all&oneself[012]" },
+			{ "elite": 0, "level": 1, "skillId": "workshop_formula_probability[010]" }
 		]
 	},
 	{
@@ -2490,8 +2275,8 @@
 		"name": "Pallas",
 		"rarity": 6,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Domain of Wisdom", "iconId": "bskill_man_limit&cost1" },
-			{ "elite": 2, "level": 1, "name": "Plan to Victory", "iconId": "bskill_man_exp1" }
+			{ "elite": 0, "level": 1, "skillId": "manu_prod_limit&cost[003]" },
+			{ "elite": 2, "level": 1, "skillId": "manu_formula_spd[000]" }
 		]
 	},
 	{
@@ -2499,8 +2284,8 @@
 		"name": "Nearl the Radiant Knight",
 		"rarity": 6,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Knight Training", "iconId": "bskill_train_knight_bd1" },
-			{ "elite": 2, "level": 1, "name": "Noble Creed", "iconId": "bskill_train_knight_bd2" }
+			{ "elite": 0, "level": 1, "skillId": "train_spd_tag[000]" },
+			{ "elite": 2, "level": 1, "skillId": "train_spd_tag[010]" }
 		]
 	},
 	{
@@ -2508,8 +2293,8 @@
 		"name": "Mlynar",
 		"rarity": 6,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "独善其身", "iconId": "bskill_ctrl_cost" },
-			{ "elite": 2, "level": 1, "name": "公事公办", "iconId": "bskill_ctrl_lonely" }
+			{ "elite": 0, "level": 1, "skillId": "control_mp_cost[008]" },
+			{ "elite": 2, "level": 1, "skillId": "control_mp_lonely[000]" }
 		]
 	},
 	{
@@ -2517,8 +2302,8 @@
 		"name": "Savage",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Tech Theory", "iconId": "bskill_ws_skill1" },
-			{ "elite": 2, "level": 1, "name": "Cooking", "iconId": "bskill_dorm_single&one12" }
+			{ "elite": 0, "level": 1, "skillId": "workshop_formula_probability[000]" },
+			{ "elite": 2, "level": 1, "skillId": "dorm_rec_single&oneself[011]" }
 		]
 	},
 	{
@@ -2526,8 +2311,8 @@
 		"name": "Catapult",
 		"rarity": 3,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Communication", "iconId": "bskill_tra_spd&cost" },
-			{ "elite": 1, "level": 1, "name": "Blasting Materiology β", "iconId": "bskill_ws_evolve3" }
+			{ "elite": 0, "level": 1, "skillId": "trade_ord_spd&cost[000]" },
+			{ "elite": 1, "level": 1, "skillId": "workshop_formula_probability[122]" }
 		]
 	},
 	{
@@ -2535,8 +2320,8 @@
 		"name": "Midnight",
 		"rarity": 3,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Communication", "iconId": "bskill_tra_spd&cost" },
-			{ "elite": 1, "level": 1, "name": "Originium Work α", "iconId": "bskill_man_originium1" }
+			{ "elite": 0, "level": 1, "skillId": "trade_ord_spd&cost[000]" },
+			{ "elite": 1, "level": 1, "skillId": "manu_formula_spd[200]" }
 		]
 	},
 	{
@@ -2544,8 +2329,8 @@
 		"name": "Beehunter",
 		"rarity": 4,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Guard Expert α", "iconId": "bskill_train_guard1" },
-			{ "elite": 1, "level": 1, "name": "Training Record", "iconId": "bskill_ws_asc1" }
+			{ "elite": 0, "level": 1, "skillId": "train_spd&profession[020]" },
+			{ "elite": 1, "level": 1, "skillId": "workshop_formula_probability[300]" }
 		]
 	},
 	{
@@ -2553,8 +2338,8 @@
 		"name": "Jackie",
 		"rarity": 4,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Liveliness", "iconId": "bskill_dorm_single&one01" },
-			{ "elite": 1, "level": 1, "name": "Clue Search β", "iconId": "bskill_meet_spd2" }
+			{ "elite": 0, "level": 1, "skillId": "dorm_rec_single&oneself[000]" },
+			{ "elite": 1, "level": 1, "skillId": "meet_spd[0020]" }
 		]
 	},
 	{
@@ -2562,8 +2347,8 @@
 		"name": "Nightmare",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Caster Expert α", "iconId": "bskill_train_caster1" },
-			{ "elite": 2, "level": 1, "name": "Psychology", "iconId": "bskill_hire_spd4" }
+			{ "elite": 0, "level": 1, "skillId": "train_spd&profession[050]" },
+			{ "elite": 2, "level": 1, "skillId": "hire_spd[020]" }
 		]
 	},
 	{
@@ -2571,8 +2356,8 @@
 		"name": "Grani",
 		"rarity": 5,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Vanguard Expert α", "iconId": "bskill_train_vanguard1" },
-			{ "elite": 2, "level": 1, "name": "Vanguard Expert β", "iconId": "bskill_train_vanguard2" }
+			{ "elite": 0, "level": 1, "skillId": "train_spd&profession[010]" },
+			{ "elite": 2, "level": 1, "skillId": "train_spd&profession[011]" }
 		]
 	},
 	{
@@ -2580,8 +2365,8 @@
 		"name": "Skadi",
 		"rarity": 6,
 		"skills": [
-			{ "elite": 0, "level": 1, "name": "Solitude", "iconId": "bskill_dorm_one2" },
-			{ "elite": 2, "level": 1, "name": "Elegy", "iconId": "bskill_dorm_one5" }
+			{ "elite": 0, "level": 1, "skillId": "dorm_rec_oneself[000]" },
+			{ "elite": 2, "level": 1, "skillId": "dorm_rec_oneself[020]" }
 		]
 	}
 ]

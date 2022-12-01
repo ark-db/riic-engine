@@ -1,21 +1,21 @@
 from enum import Enum
 from requests import Session
+from operator import itemgetter
 from pathlib import Path
 from PIL import Image
 from io import BytesIO
 import warnings
-from operator import itemgetter
 import json
 
 
 class Asset(Enum):
     CHAR = {
-        "dir": "chars",
+        "folder": "chars",
         "base_url": "https://raw.githubusercontent.com/Aceship/Arknight-Images/main/avatars/",
         "quality": 25
     }
     SKILL = {
-        "dir": "skills",
+        "folder": "skills",
         "base_url": "https://raw.githubusercontent.com/Aceship/Arknight-Images/main/ui/infrastructure/skill/",
         "quality": 50
     }
@@ -41,16 +41,19 @@ def is_operator(char_info: dict) -> bool:
 
 
 def save_image(session: Session, category: Asset, name: str) -> None:
-    target_path = Path(f"./static/{category.value['dir']}/{name}.webp")
+    folder, base_url, quality = itemgetter("folder", "base_url", "quality")(
+        category.value
+    )
+    target_path = Path(f"./static/{folder}/{name}.webp")
 
     if target_path.is_file():
         # No need to attempt downloading image if it is already present
         return
-    elif (res := session.get(f"{category.value['base_url']}{name}.png")):
+    elif (res := session.get(f"{base_url}{name}.png")):
         # The Response returned from get() is truthy if the status code is 2xx or 3xx
         Image.open(BytesIO(res.content)) \
              .convert("RGBA") \
-             .save(target_path, "webp", quality=category.value["quality"])
+             .save(target_path, "webp", quality=quality)
     else:
         warnings.warn(
             f"Could not save image of {category.name.lower()} with ID \"{name}\"",
@@ -59,6 +62,8 @@ def save_image(session: Session, category: Asset, name: str) -> None:
 
 
 char_data = []
+all_skill_ids: set[str] = set()
+all_skills: dict[str, dict[str, str]] = {}
 
 with Session() as s:
     CHARS = (
@@ -67,7 +72,7 @@ with Session() as s:
         .json()
     )
 
-    CN_CHAR_SKILLS, CN_SKILL_DATA = itemgetter("chars", "buffs")(
+    CHAR_SKILLS, CN_SKILL_DATA = itemgetter("chars", "buffs")(
         s.get("https://raw.githubusercontent.com/Kengxxiao/ArknightsGameData/master/zh_CN/gamedata/excel/building_data.json")
         .json()
     )
@@ -78,25 +83,44 @@ with Session() as s:
         ["buffs"]
     )
 
+    TEXT_STYLES, CN_SPECIAL_TERMS = itemgetter("richTextStyles", "termDescriptionDict")(
+        s.get("https://raw.githubusercontent.com/Kengxxiao/ArknightsGameData/master/zh_CN/gamedata/excel/gamedata_const.json")
+        .json()
+    )
+
+    EN_SPECIAL_TERMS = (
+        s.get("https://raw.githubusercontent.com/Kengxxiao/ArknightsGameData/master/en_US/gamedata/excel/gamedata_const.json")
+        .json()
+        ["termDescriptionDict"]
+    )
+
     for char_id, data in CHARS.items():
         if is_operator(data):
             skills = []
-            for skill in CN_CHAR_SKILLS[char_id]["buffChar"]:
+            for skill in CHAR_SKILLS[char_id]["buffChar"]:
                 for tier in skill["buffData"]:
                     level_req = tier["cond"]
-                    skill_info = EN_SKILL_DATA.get(
-                        tier["buffId"],
-                        CN_SKILL_DATA[tier["buffId"]]
-                    )
-
-                    icon_id = skill_info["skillIcon"]
+                    skill_id = tier["buffId"]
                     skills.append({
                         "elite": level_req["phase"],
                         "level": level_req["level"],
-                        "name": skill_info["buffName"],
-                        "iconId": icon_id
+                        "skillId": skill_id
                     })
-                    save_image(s, Asset.SKILL, icon_id)
+
+                    if skill_id not in all_skill_ids:
+                        all_skill_ids.add(skill_id)
+                        skill_info = EN_SKILL_DATA.get(
+                            skill_id, CN_SKILL_DATA[skill_id]
+                        )
+                        icon_id = skill_info["skillIcon"]
+                        all_skills.update({
+                            skill_id: {
+                                "name": skill_info["buffName"],
+                                "desc": skill_info["description"],
+                                "iconId": icon_id
+                            }
+                        })
+                        save_image(s, Asset.SKILL, icon_id)
 
             char_data.append({
                 "charId": char_id,
@@ -108,3 +132,6 @@ with Session() as s:
 
 with open("src/lib/data/chars.json", "w") as f:
     json.dump(char_data, f, ensure_ascii=False)
+
+with open("src/lib/data/skills.json", "w") as f:
+    json.dump(all_skills, f, ensure_ascii=False)
