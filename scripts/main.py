@@ -1,5 +1,4 @@
 import requests
-import functools
 import operator
 import json
 
@@ -19,23 +18,6 @@ def is_operator(char_info):
     return char_info["profession"] != "TOKEN" \
         and char_info["profession"] != "TRAP" \
         and not char_info["isNotObtainable"]
-
-
-def flatten(arr):
-    # Source: https://stackoverflow.com/questions/952914/how-do-i-make-a-flat-list-out-of-a-list-of-lists/45323085#45323085
-    return functools.reduce(operator.iconcat, arr, [])
-
-
-def get_skill_info(skill):
-    level_req = skill["cond"]
-    skill_info = en_skill_data.get(
-        skill["buffId"], cn_skill_data[skill["buffId"]])
-    return {
-        "elite": level_req["phase"],
-        "level": level_req["level"],
-        "name": skill_info["buffName"],
-        "iconId": skill_info["skillIcon"]
-    }
 
 
 char_data = []
@@ -60,18 +42,25 @@ with requests.Session() as s:
 
     for char_id, data in chars.items():
         if is_operator(data):
+            skills = []
+            for skill in cn_char_skills[char_id]["buffChar"]:
+                for tier in skill["buffData"]:
+                    level_req = tier["cond"]
+                    skill_info = en_skill_data.get(
+                        tier["buffId"], cn_skill_data[tier["buffId"]]
+                    )
+                    skills.append({
+                        "elite": level_req["phase"],
+                        "level": level_req["level"],
+                        "name": skill_info["buffName"],
+                        "iconId": skill_info["skillIcon"]
+                    })
+
             char_data.append({
                 "charId": char_id,
                 "name": NAME_CHANGES.get(char_id, data["appellation"]),
                 "rarity": data["rarity"] + 1,
-                "skills": flatten(
-                    [
-                        get_skill_info(tier)
-                        for tier in skill["buffData"]
-                    ]
-                    for skill in cn_char_skills[char_id]["buffChar"]
-                    if skill["buffData"]
-                )
+                "skills": skills
             })
 
 with open("src/lib/data/chars.json", "w") as f:
