@@ -1,4 +1,3 @@
-#![warn(clippy::all, clippy::pedantic)]
 #![allow(
     clippy::missing_errors_doc,
     clippy::module_name_repetitions,
@@ -6,42 +5,13 @@
 )]
 
 use crate::base::Save;
+use crate::{CmdError, CmdResult};
 use serde::Serialize;
 use std::{
     fs,
     io::BufReader,
     path::{Path, PathBuf},
 };
-
-#[derive(Debug, thiserror::Error)]
-pub enum Error {
-    #[error(transparent)]
-    Io(#[from] std::io::Error),
-
-    #[error(transparent)]
-    Time(#[from] std::time::SystemTimeError),
-
-    #[error(transparent)]
-    FileWrite(#[from] serde_json::Error),
-
-    #[error("No name specified")]
-    NameEmpty,
-
-    #[error("Another file with the same name already exists")]
-    DuplicateName,
-
-    #[error("Relative filepaths are forbidden")]
-    RelativePath,
-}
-
-impl serde::Serialize for Error {
-    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
-    where
-        S: serde::ser::Serializer,
-    {
-        serializer.serialize_str(self.to_string().as_ref())
-    }
-}
 
 #[derive(Serialize)]
 pub struct FileData {
@@ -51,7 +21,7 @@ pub struct FileData {
 }
 
 impl FileData {
-    fn new(path: &Path, metadata: &fs::Metadata) -> Result<Self, Error> {
+    fn new(path: &Path, metadata: &fs::Metadata) -> CmdResult<Self> {
         let data = Self {
             name: path
                 .file_prefix()
@@ -69,7 +39,7 @@ pub struct ImportedSave {
     data: Save,
 }
 
-fn get_saves_dir(app: &tauri::AppHandle) -> Result<PathBuf, Error> {
+fn get_saves_dir(app: &tauri::AppHandle) -> CmdResult<PathBuf> {
     let saves_dir = app
         .path_resolver()
         .app_data_dir()
@@ -83,13 +53,13 @@ fn get_saves_dir(app: &tauri::AppHandle) -> Result<PathBuf, Error> {
     Ok(saves_dir)
 }
 
-fn get_save_fp(app: &tauri::AppHandle, name: &str) -> Result<PathBuf, Error> {
+fn get_save_fp(app: &tauri::AppHandle, name: &str) -> CmdResult<PathBuf> {
     if name.is_empty() {
-        return Err(Error::NameEmpty);
+        return Err(CmdError::NameEmpty);
     }
     let target_path = get_saves_dir(app)?.join(name).with_extension("json");
     if target_path.is_relative() {
-        return Err(Error::RelativePath);
+        return Err(CmdError::RelativePath);
     }
     Ok(target_path)
 }
@@ -108,7 +78,7 @@ fn get_available_fp(dir: PathBuf, name: &str) -> PathBuf {
 }
 
 #[tauri::command]
-pub fn fetch_saves(app: tauri::AppHandle) -> Result<Vec<FileData>, Error> {
+pub fn fetch_saves(app: tauri::AppHandle) -> CmdResult<Vec<FileData>> {
     let mut saves = Vec::new();
 
     for entry in fs::read_dir(get_saves_dir(&app)?)? {
@@ -124,7 +94,7 @@ pub fn fetch_saves(app: tauri::AppHandle) -> Result<Vec<FileData>, Error> {
 }
 
 #[tauri::command]
-pub fn create_save(app: tauri::AppHandle) -> Result<(), Error> {
+pub fn create_save(app: tauri::AppHandle) -> CmdResult<()> {
     let save_dir = get_saves_dir(&app)?;
     let target_path = get_available_fp(save_dir, "Untitled");
     serde_json::to_writer(fs::File::create(target_path)?, &Save::new())?;
@@ -132,10 +102,10 @@ pub fn create_save(app: tauri::AppHandle) -> Result<(), Error> {
 }
 
 #[tauri::command]
-pub fn rename_save(app: tauri::AppHandle, old: &str, new: &str) -> Result<(), Error> {
+pub fn rename_save(app: tauri::AppHandle, old: &str, new: &str) -> CmdResult<()> {
     let new_path = get_save_fp(&app, new)?;
     if new_path.is_file() {
-        return Err(Error::DuplicateName);
+        return Err(CmdError::DuplicateName);
     }
 
     let old_path = get_save_fp(&app, old)?;
@@ -144,14 +114,14 @@ pub fn rename_save(app: tauri::AppHandle, old: &str, new: &str) -> Result<(), Er
 }
 
 #[tauri::command]
-pub fn delete_save(app: tauri::AppHandle, name: &str) -> Result<(), Error> {
+pub fn delete_save(app: tauri::AppHandle, name: &str) -> CmdResult<()> {
     let target_path = get_save_fp(&app, name)?;
     fs::remove_file(target_path)?;
     Ok(())
 }
 
 #[tauri::command]
-pub fn load_save(app: tauri::AppHandle, name: &str) -> Result<Save, Error> {
+pub fn load_save(app: tauri::AppHandle, name: &str) -> CmdResult<Save> {
     let target_path = get_save_fp(&app, name)?;
     let file = fs::File::open(target_path)?;
     let data: Save = serde_json::from_reader(BufReader::new(file))?;
@@ -159,7 +129,7 @@ pub fn load_save(app: tauri::AppHandle, name: &str) -> Result<Save, Error> {
 }
 
 #[tauri::command]
-pub fn export_save(app: tauri::AppHandle, name: &str) -> Result<(), Error> {
+pub fn export_save(app: tauri::AppHandle, name: &str) -> CmdResult<()> {
     let save_path = get_save_fp(&app, name)?;
     let target_path = get_available_fp(
         tauri::api::path::download_dir().expect("Download directory should be retrievable"),
@@ -170,7 +140,7 @@ pub fn export_save(app: tauri::AppHandle, name: &str) -> Result<(), Error> {
 }
 
 #[tauri::command]
-pub fn import_saves(app: tauri::AppHandle, saves: Vec<ImportedSave>) -> Result<(), Error> {
+pub fn import_saves(app: tauri::AppHandle, saves: Vec<ImportedSave>) -> CmdResult<()> {
     let mut path = get_saves_dir(&app)?;
     for save in saves {
         path.set_file_name(save.title);
