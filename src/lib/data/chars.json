@@ -1,0 +1,2587 @@
+[
+	{
+		"charId": "char_285_medic2",
+		"name": "Lancet-2",
+		"rarity": 1,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Backup Energy", "iconId": "bskill_pow_spd1" },
+			{ "elite": 0, "level": 30, "name": "Medical Service", "iconId": "bskill_dorm_single2" }
+		]
+	},
+	{
+		"charId": "char_286_cast3",
+		"name": "Castle-3",
+		"rarity": 1,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Backup Energy", "iconId": "bskill_pow_spd1" },
+			{ "elite": 0, "level": 30, "name": "Combat Guidance Video", "iconId": "bskill_man_exp2" }
+		]
+	},
+	{
+		"charId": "char_376_therex",
+		"name": "Thermal-EX",
+		"rarity": 1,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Backup Energy", "iconId": "bskill_pow_spd1" },
+			{ "elite": 0, "level": 30, "name": "Enthusiasm", "iconId": "bskill_pow_spd&cost" }
+		]
+	},
+	{
+		"charId": "char_4000_jnight",
+		"name": "\"Justice Knight\"",
+		"rarity": 1,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Backup Energy", "iconId": "bskill_pow_spd1" },
+			{ "elite": 0, "level": 30, "name": "'Beep beep, activate!'", "iconId": "bskill_pow_jnight" }
+		]
+	},
+	{
+		"charId": "char_502_nblade",
+		"name": "Yato",
+		"rarity": 2,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Order Distribution β", "iconId": "bskill_tra_spd2" },
+			{ "elite": 0, "level": 30, "name": "Standardization α", "iconId": "bskill_man_spd1" }
+		]
+	},
+	{
+		"charId": "char_500_noirc",
+		"name": "Noir Corne",
+		"rarity": 2,
+		"skills": [
+			{
+				"elite": 0,
+				"level": 1,
+				"name": "Warehouse Organization β",
+				"iconId": "bskill_man_spd&limit3"
+			},
+			{ "elite": 0, "level": 30, "name": "Order Management α", "iconId": "bskill_tra_spd&limit1" }
+		]
+	},
+	{
+		"charId": "char_503_rang",
+		"name": "Rangers",
+		"rarity": 2,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Personnel Management α", "iconId": "bskill_hire_spd1" },
+			{ "elite": 0, "level": 30, "name": "Strong Despite Years", "iconId": "bskill_ws_p3" }
+		]
+	},
+	{
+		"charId": "char_501_durin",
+		"name": "Durin",
+		"rarity": 2,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Laziness", "iconId": "bskill_dorm_all&one1" },
+			{ "elite": 0, "level": 30, "name": "Sleepiness", "iconId": "bskill_dorm_all&one2" }
+		]
+	},
+	{
+		"charId": "char_009_12fce",
+		"name": "12F",
+		"rarity": 2,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Clue Search β", "iconId": "bskill_meet_spd2" },
+			{ "elite": 0, "level": 30, "name": "Training Record", "iconId": "bskill_ws_asc1" }
+		]
+	},
+	{
+		"charId": "char_123_fang",
+		"name": "Fang",
+		"rarity": 3,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Hothead", "iconId": "bskill_man_spd_add1" },
+			{ "elite": 1, "level": 1, "name": "Order Distribution β", "iconId": "bskill_tra_spd2" }
+		]
+	},
+	{
+		"charId": "char_240_wyvern",
+		"name": "Vanilla",
+		"rarity": 3,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Standardization β", "iconId": "bskill_man_spd2" },
+			{ "elite": 1, "level": 1, "name": "Order Distribution α", "iconId": "bskill_tra_spd1" }
+		]
+	},
+	{
+		"charId": "char_192_falco",
+		"name": "Plume",
+		"rarity": 3,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Vanguard Expert α", "iconId": "bskill_train_vanguard1" },
+			{ "elite": 1, "level": 1, "name": "Order Management α", "iconId": "bskill_tra_spd&limit1" }
+		]
+	},
+	{
+		"charId": "char_208_melan",
+		"name": "Melantha",
+		"rarity": 3,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Supply Management", "iconId": "bskill_tra_spd&limit6" },
+			{ "elite": 1, "level": 1, "name": "Focus α", "iconId": "bskill_ws_p1" }
+		]
+	},
+	{
+		"charId": "char_281_popka",
+		"name": "Popukar",
+		"rarity": 3,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Trouble Maker", "iconId": "bskill_man_spd&limit&cost3" },
+			{ "elite": 1, "level": 1, "name": "Harmony", "iconId": "bskill_dorm_single&one21" }
+		]
+	},
+	{
+		"charId": "char_209_ardign",
+		"name": "Cardigan",
+		"rarity": 3,
+		"skills": [
+			{
+				"elite": 0,
+				"level": 1,
+				"name": "Warehouse Organization α",
+				"iconId": "bskill_man_spd&limit1"
+			},
+			{ "elite": 1, "level": 1, "name": "Liveliness", "iconId": "bskill_dorm_single&one01" }
+		]
+	},
+	{
+		"charId": "char_122_beagle",
+		"name": "Beagle",
+		"rarity": 3,
+		"skills": [
+			{
+				"elite": 0,
+				"level": 1,
+				"name": "Warehouse Organization α",
+				"iconId": "bskill_man_spd&limit1"
+			},
+			{ "elite": 1, "level": 1, "name": "Liveliness", "iconId": "bskill_dorm_single&one01" }
+		]
+	},
+	{
+		"charId": "char_284_spot",
+		"name": "Spot",
+		"rarity": 3,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Skillful Craftsman", "iconId": "bskill_ws_p2" },
+			{ "elite": 1, "level": 1, "name": "Metalwork α", "iconId": "bskill_man_gold1" }
+		]
+	},
+	{
+		"charId": "char_124_kroos",
+		"name": "Kroos",
+		"rarity": 3,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Slowcoach", "iconId": "bskill_man_spd_add2" },
+			{ "elite": 1, "level": 1, "name": "Solitude", "iconId": "bskill_dorm_one2" }
+		]
+	},
+	{
+		"charId": "char_211_adnach",
+		"name": "Adnachiel",
+		"rarity": 3,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Order Distribution α", "iconId": "bskill_tra_spd1" },
+			{ "elite": 1, "level": 1, "name": "Skillful Craftsman", "iconId": "bskill_ws_p2" }
+		]
+	},
+	{
+		"charId": "char_121_lava",
+		"name": "Lava",
+		"rarity": 3,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Heat Charge α", "iconId": "bskill_pow_spd1" },
+			{ "elite": 1, "level": 1, "name": "Originium Work β", "iconId": "bskill_man_originium2" }
+		]
+	},
+	{
+		"charId": "char_120_hibisc",
+		"name": "Hibiscus",
+		"rarity": 3,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Thoughtfulness", "iconId": "bskill_dorm_single1" },
+			{ "elite": 1, "level": 1, "name": "Nutriology", "iconId": "bskill_ws_evolve1" }
+		]
+	},
+	{
+		"charId": "char_212_ansel",
+		"name": "Ansel",
+		"rarity": 3,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Thoughtfulness", "iconId": "bskill_dorm_single1" },
+			{ "elite": 1, "level": 1, "name": "Pharmacology·α", "iconId": "bskill_ws_evolve2" }
+		]
+	},
+	{
+		"charId": "char_210_stward",
+		"name": "Steward",
+		"rarity": 3,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Negotiation", "iconId": "bskill_tra_limit&cost" },
+			{ "elite": 1, "level": 1, "name": "Standardization β", "iconId": "bskill_man_spd2" }
+		]
+	},
+	{
+		"charId": "char_278_orchid",
+		"name": "Orchid",
+		"rarity": 3,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Psychology", "iconId": "bskill_hire_spd4" },
+			{ "elite": 1, "level": 1, "name": "Supply Management", "iconId": "bskill_tra_spd&limit6" }
+		]
+	},
+	{
+		"charId": "char_141_nights",
+		"name": "Haze",
+		"rarity": 4,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Metalwork α", "iconId": "bskill_man_gold1" },
+			{ "elite": 1, "level": 1, "name": "Order Distribution β", "iconId": "bskill_tra_spd2" }
+		]
+	},
+	{
+		"charId": "char_109_fmout",
+		"name": "Gitano",
+		"rarity": 4,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Supply Management", "iconId": "bskill_tra_spd&limit6" },
+			{ "elite": 1, "level": 1, "name": "Divination", "iconId": "bskill_meet_spd3" }
+		]
+	},
+	{
+		"charId": "char_253_greyy",
+		"name": "Greyy",
+		"rarity": 4,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Electrostatic Field", "iconId": "bskill_pow_spd3" },
+			{ "elite": 1, "level": 1, "name": "Skillful Craftsman", "iconId": "bskill_ws_p2" }
+		]
+	},
+	{
+		"charId": "char_328_cammou",
+		"name": "Click",
+		"rarity": 4,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Vlog", "iconId": "bskill_man_exp&cost" },
+			{ "elite": 1, "level": 1, "name": "Editing β", "iconId": "bskill_man_exp&limit2" }
+		]
+	},
+	{
+		"charId": "char_469_indigo",
+		"name": "Indigo",
+		"rarity": 4,
+		"skills": [
+			{
+				"elite": 0,
+				"level": 1,
+				"name": "Poisoner's Friend",
+				"iconId": "bskill_dorm_single_indigo"
+			},
+			{ "elite": 0, "level": 1, "name": "Light Charge α", "iconId": "bskill_pow_spd1" },
+			{
+				"elite": 1,
+				"level": 1,
+				"name": "Lighthouse Power Supply Module",
+				"iconId": "bskill_pow_spd2"
+			}
+		]
+	},
+	{
+		"charId": "char_4004_pudd",
+		"name": "Pudding",
+		"rarity": 4,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Equipment Maintenance", "iconId": "bskill_pow_spd2" },
+			{ "elite": 1, "level": 1, "name": "Overclock", "iconId": "bskill_ctrl_token_p_spd" }
+		]
+	},
+	{
+		"charId": "char_235_jesica",
+		"name": "Jessica",
+		"rarity": 4,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Standardization β", "iconId": "bskill_man_spd2" },
+			{ "elite": 1, "level": 1, "name": "Liaison", "iconId": "bskill_meet_blacksteel2" }
+		]
+	},
+	{
+		"charId": "char_126_shotst",
+		"name": "Meteor",
+		"rarity": 4,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Standardization α", "iconId": "bskill_man_spd1" },
+			{ "elite": 1, "level": 1, "name": "Thoughtfulness", "iconId": "bskill_dorm_single1" }
+		]
+	},
+	{
+		"charId": "char_190_clour",
+		"name": "Vermeil",
+		"rarity": 4,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Junkman", "iconId": "bskill_man_limit&cost1" },
+			{ "elite": 1, "level": 1, "name": "Recycling", "iconId": "bskill_man_spd_variable11" }
+		]
+	},
+	{
+		"charId": "char_133_mm",
+		"name": "May",
+		"rarity": 4,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Clue Search β", "iconId": "bskill_meet_spd2" },
+			{
+				"elite": 1,
+				"level": 1,
+				"name": "Royal Detective (Self Proclaimed)",
+				"iconId": "bskill_meet_penguin1"
+			}
+		]
+	},
+	{
+		"charId": "char_118_yuki",
+		"name": "Shirayuki",
+		"rarity": 4,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Clue Search β", "iconId": "bskill_meet_spd2" },
+			{ "elite": 1, "level": 1, "name": "Combat Guidance Video", "iconId": "bskill_man_exp2" }
+		]
+	},
+	{
+		"charId": "char_440_pinecn",
+		"name": "Pinecone",
+		"rarity": 4,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Engineering", "iconId": "bskill_ws_build1" },
+			{ "elite": 1, "level": 1, "name": "Portable Battery", "iconId": "bskill_ws_build_cost" }
+		]
+	},
+	{
+		"charId": "char_302_glaze",
+		"name": "Ambriel",
+		"rarity": 4,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Laziness", "iconId": "bskill_dorm_all&one1" },
+			{ "elite": 1, "level": 1, "name": "Order Distribution β", "iconId": "bskill_tra_spd2" }
+		]
+	},
+	{
+		"charId": "char_366_acdrop",
+		"name": "Aciddrop",
+		"rarity": 4,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "B-girl", "iconId": "bskill_hire_spd4" },
+			{ "elite": 1, "level": 1, "name": "Give me five", "iconId": "bskill_dorm_single&one12" }
+		]
+	},
+	{
+		"charId": "char_4062_totter",
+		"name": "Totter",
+		"rarity": 4,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "模糊视线", "iconId": "bskill_man_spd_reduce" },
+			{ "elite": 1, "level": 1, "name": "窗外雪啸", "iconId": "bskill_man_spd_add&cost" }
+		]
+	},
+	{
+		"charId": "char_198_blackd",
+		"name": "Courier",
+		"rarity": 4,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Karlan Commercial α", "iconId": "bskill_tra_spd&limit3" },
+			{ "elite": 1, "level": 1, "name": "Courier", "iconId": "bskill_meet_kjerag2" }
+		]
+	},
+	{
+		"charId": "char_149_scave",
+		"name": "Scavenger",
+		"rarity": 4,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "S.W.E.E.P.", "iconId": "bskill_ctrl_cost" },
+			{ "elite": 1, "level": 1, "name": "Junkman", "iconId": "bskill_man_limit&cost1" }
+		]
+	},
+	{
+		"charId": "char_290_vigna",
+		"name": "Vigna",
+		"rarity": 4,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Combat Guidance Video", "iconId": "bskill_man_exp2" },
+			{ "elite": 1, "level": 1, "name": "Vanguard Expert β", "iconId": "bskill_train_vanguard2" }
+		]
+	},
+	{
+		"charId": "char_151_myrtle",
+		"name": "Myrtle",
+		"rarity": 4,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Negotiation", "iconId": "bskill_tra_limit&cost" },
+			{ "elite": 1, "level": 1, "name": "Leader", "iconId": "bskill_dorm_all2" }
+		]
+	},
+	{
+		"charId": "char_452_bstalk",
+		"name": "Beanstalk",
+		"rarity": 4,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Metal Crab - Peacake", "iconId": "bskill_man_spd1" },
+			{ "elite": 1, "level": 1, "name": "Metal Crab - Trey", "iconId": "bskill_man_limit&cost1" }
+		]
+	},
+	{
+		"charId": "char_130_doberm",
+		"name": "Dobermann",
+		"rarity": 4,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Capable Assistance", "iconId": "bskill_ctrl_cost" },
+			{ "elite": 1, "level": 1, "name": "Drillmaster", "iconId": "bskill_train_all" }
+		]
+	},
+	{
+		"charId": "char_289_gyuki",
+		"name": "Matoimaru",
+		"rarity": 4,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Tech Theory", "iconId": "bskill_ws_skill1" },
+			{ "elite": 1, "level": 1, "name": "Order Distribution β", "iconId": "bskill_tra_spd2" }
+		]
+	},
+	{
+		"charId": "char_159_peacok",
+		"name": "Conviction",
+		"rarity": 4,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Apocalypse", "iconId": "bskill_dorm_single3" },
+			{ "elite": 1, "level": 1, "name": "Boxing Guidance Video", "iconId": "bskill_man_exp3" }
+		]
+	},
+	{
+		"charId": "char_193_frostl",
+		"name": "Frostleaf",
+		"rarity": 4,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Solitude", "iconId": "bskill_dorm_one2" },
+			{ "elite": 1, "level": 1, "name": "Combat Guidance Video", "iconId": "bskill_man_exp2" }
+		]
+	},
+	{
+		"charId": "char_127_estell",
+		"name": "Estelle",
+		"rarity": 4,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Focus β", "iconId": "bskill_ws_p3" },
+			{ "elite": 1, "level": 1, "name": "Solitude", "iconId": "bskill_dorm_one2" }
+		]
+	},
+	{
+		"charId": "char_185_frncat",
+		"name": "Mousse",
+		"rarity": 4,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Order Distribution β", "iconId": "bskill_tra_spd2" },
+			{ "elite": 1, "level": 1, "name": "Baking", "iconId": "bskill_dorm_single&one11" }
+		]
+	},
+	{
+		"charId": "char_301_cutter",
+		"name": "Cutter",
+		"rarity": 4,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Training Record", "iconId": "bskill_ws_asc1" },
+			{ "elite": 1, "level": 1, "name": "Asceticism", "iconId": "bskill_ws_asc_cost1" }
+		]
+	},
+	{
+		"charId": "char_337_utage",
+		"name": "Utage",
+		"rarity": 4,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Psychology", "iconId": "bskill_hire_spd4" },
+			{ "elite": 1, "level": 1, "name": "Clue Search β", "iconId": "bskill_meet_spd2" }
+		]
+	},
+	{
+		"charId": "char_271_spikes",
+		"name": "Arene",
+		"rarity": 4,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Waste Not, Want Not", "iconId": "bskill_ws_evolve_dorm1" },
+			{
+				"elite": 1,
+				"level": 1,
+				"name": "Everyone Does Their Part",
+				"iconId": "bskill_ws_evolve_dorm2"
+			},
+			{ "elite": 1, "level": 1, "name": "Searching for Solitude", "iconId": "bskill_dorm_one" }
+		]
+	},
+	{
+		"charId": "char_4067_lolxh",
+		"name": "Luo Xiaohei",
+		"rarity": 4,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "御灵之力·金", "iconId": "bskill_ws_lolxh" },
+			{ "elite": 1, "level": 1, "name": "化猫", "iconId": "bskill_ws_cost_lolxh" }
+		]
+	},
+	{
+		"charId": "char_4063_quartz",
+		"name": "Quartz",
+		"rarity": 4,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Standardization α", "iconId": "bskill_man_spd1" },
+			{ "elite": 1, "level": 1, "name": "精准排期", "iconId": "bskill_tra_spd&formula1" }
+		]
+	},
+	{
+		"charId": "char_237_gravel",
+		"name": "Gravel",
+		"rarity": 4,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Focus α", "iconId": "bskill_ws_p1" },
+			{ "elite": 1, "level": 1, "name": "Metalwork β", "iconId": "bskill_man_gold2" }
+		]
+	},
+	{
+		"charId": "char_272_strong",
+		"name": "Jaye",
+		"rarity": 4,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Street Economics", "iconId": "bskill_tra_limit_diff" },
+			{ "elite": 1, "level": 1, "name": "Basic Needs", "iconId": "bskill_tra_limit_count" }
+		]
+	},
+	{
+		"charId": "char_236_rope",
+		"name": "Rope",
+		"rarity": 4,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Clue Search β", "iconId": "bskill_meet_spd2" },
+			{ "elite": 1, "level": 1, "name": "Negotiation", "iconId": "bskill_tra_limit&cost" }
+		]
+	},
+	{
+		"charId": "char_117_myrrh",
+		"name": "Myrrh",
+		"rarity": 4,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Pharmacology·α", "iconId": "bskill_ws_evolve2" },
+			{ "elite": 1, "level": 1, "name": "Thoughtfulness", "iconId": "bskill_dorm_single1" }
+		]
+	},
+	{
+		"charId": "char_187_ccheal",
+		"name": "Gavial",
+		"rarity": 4,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Pharmacology·α", "iconId": "bskill_ws_evolve2" },
+			{ "elite": 1, "level": 1, "name": "Medic Expert α", "iconId": "bskill_train_medic1" }
+		]
+	},
+	{
+		"charId": "char_298_susuro",
+		"name": "Sussurro",
+		"rarity": 4,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Medic Expert α", "iconId": "bskill_train_medic1" },
+			{ "elite": 1, "level": 1, "name": "Pharmacology β", "iconId": "bskill_ws_evolve3" }
+		]
+	},
+	{
+		"charId": "char_181_flower",
+		"name": "Perfumer",
+		"rarity": 4,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Pharmacology·α", "iconId": "bskill_ws_evolve2" },
+			{ "elite": 1, "level": 1, "name": "Standardization β", "iconId": "bskill_man_spd2" }
+		]
+	},
+	{
+		"charId": "char_385_finlpp",
+		"name": "Purestream",
+		"rarity": 4,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Clean Energy", "iconId": "bskill_pow_spd2" },
+			{ "elite": 1, "level": 1, "name": "Renewable Energy", "iconId": "bskill_man_spd&trade" }
+		]
+	},
+	{
+		"charId": "char_4041_chnut",
+		"name": "Chestnut",
+		"rarity": 4,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Standardization α", "iconId": "bskill_man_spd1" },
+			{ "elite": 1, "level": 1, "name": "Geology α", "iconId": "bskill_man_originium1" }
+		]
+	},
+	{
+		"charId": "char_199_yak",
+		"name": "Matterhorn",
+		"rarity": 4,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Karlan Commercial α", "iconId": "bskill_tra_spd&limit3" },
+			{ "elite": 1, "level": 1, "name": "Defender Expert β", "iconId": "bskill_train_defender2" }
+		]
+	},
+	{
+		"charId": "char_150_snakek",
+		"name": "Cuora",
+		"rarity": 4,
+		"skills": [
+			{
+				"elite": 0,
+				"level": 1,
+				"name": "Warehouse Organization β",
+				"iconId": "bskill_man_spd&limit3"
+			},
+			{ "elite": 1, "level": 1, "name": "Order Distribution α", "iconId": "bskill_tra_spd1" }
+		]
+	},
+	{
+		"charId": "char_381_bubble",
+		"name": "Bubble",
+		"rarity": 4,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Hoarder", "iconId": "bskill_man_limit&cost2" },
+			{ "elite": 1, "level": 1, "name": "Bigger is Better!", "iconId": "bskill_man_spd_variable31" }
+		]
+	},
+	{
+		"charId": "char_196_sunbr",
+		"name": "Gummy",
+		"rarity": 4,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Communication", "iconId": "bskill_tra_spd&cost" },
+			{ "elite": 1, "level": 1, "name": "Cooking", "iconId": "bskill_dorm_single&one12" }
+		]
+	},
+	{
+		"charId": "char_260_durnar",
+		"name": "Dur-nar",
+		"rarity": 4,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Defender Expert α", "iconId": "bskill_train_defender1" },
+			{ "elite": 1, "level": 1, "name": "Snack Network", "iconId": "bskill_ctrl_cost" }
+		]
+	},
+	{
+		"charId": "char_110_deepcl",
+		"name": "Deepcolor",
+		"rarity": 4,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Order Distribution α", "iconId": "bskill_tra_spd1" },
+			{ "elite": 1, "level": 1, "name": "Focus β", "iconId": "bskill_ws_p3" }
+		]
+	},
+	{
+		"charId": "char_183_skgoat",
+		"name": "Earthspirit",
+		"rarity": 4,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Catastrophe Messenger α", "iconId": "bskill_hire_spd2" },
+			{ "elite": 1, "level": 1, "name": "Clocking Out On Time", "iconId": "bskill_hire_skgoat" },
+			{ "elite": 1, "level": 1, "name": "Geology β", "iconId": "bskill_man_originium2" }
+		]
+	},
+	{
+		"charId": "char_258_podego",
+		"name": "Podenco",
+		"rarity": 4,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Thoughtfulness", "iconId": "bskill_dorm_single1" },
+			{ "elite": 1, "level": 1, "name": "Convalescence", "iconId": "bskill_dorm_single2" },
+			{ "elite": 1, "level": 1, "name": "Nourish the Soul", "iconId": "bskill_dorm_all2" }
+		]
+	},
+	{
+		"charId": "char_484_robrta",
+		"name": "Roberta",
+		"rarity": 4,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Engineering", "iconId": "bskill_ws_build1" },
+			{ "elite": 1, "level": 1, "name": "Standardization β", "iconId": "bskill_man_spd2" }
+		]
+	},
+	{
+		"charId": "char_355_ethan",
+		"name": "Ethan",
+		"rarity": 4,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "WRITER", "iconId": "bskill_hire_spd4" },
+			{ "elite": 1, "level": 1, "name": "Concealed Gourmet", "iconId": "bskill_dorm_one3" }
+		]
+	},
+	{
+		"charId": "char_277_sqrrel",
+		"name": "Shaw",
+		"rarity": 4,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Engineering", "iconId": "bskill_ws_build1" },
+			{ "elite": 1, "level": 1, "name": "Equipment Maintenance", "iconId": "bskill_pow_spd2" }
+		]
+	},
+	{
+		"charId": "char_128_plosis",
+		"name": "Ptilopsis",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Rhine Tech α", "iconId": "bskill_man_spd1" },
+			{ "elite": 2, "level": 1, "name": "Rhine Tech β", "iconId": "bskill_man_spd2" }
+		]
+	},
+	{
+		"charId": "char_275_breeze",
+		"name": "Breeze",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Clue Search α", "iconId": "bskill_meet_spd1" },
+			{ "elite": 2, "level": 1, "name": "Fallen Noble", "iconId": "bskill_meet_glasgow2" }
+		]
+	},
+	{
+		"charId": "char_115_headbr",
+		"name": "Zima",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Leader", "iconId": "bskill_dorm_all2" },
+			{ "elite": 2, "level": 1, "name": "General Z", "iconId": "bskill_dorm_all3" }
+		]
+	},
+	{
+		"charId": "char_102_texas",
+		"name": "Texas",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Feud", "iconId": "bskill_tra_texas1" },
+			{ "elite": 2, "level": 1, "name": "Tacit Understanding", "iconId": "bskill_tra_texas2" }
+		]
+	},
+	{
+		"charId": "char_349_chiave",
+		"name": "Chiave",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Inspiration", "iconId": "bskill_ws_evolve_cost1" },
+			{ "elite": 2, "level": 1, "name": "DIY Installation", "iconId": "bskill_ws_device" }
+		]
+	},
+	{
+		"charId": "char_261_sddrag",
+		"name": "Reed",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Solitude", "iconId": "bskill_dorm_one2" },
+			{ "elite": 2, "level": 1, "name": "Substitute", "iconId": "bskill_ctrl_cost" }
+		]
+	},
+	{
+		"charId": "char_496_wildmn",
+		"name": "Wild Mane",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Pinus Sylvestris α", "iconId": "bskill_man_spd1" },
+			{ "elite": 2, "level": 1, "name": "Pinus Sylvestris β", "iconId": "bskill_man_spd2" }
+		]
+	},
+	{
+		"charId": "char_401_elysm",
+		"name": "Elysium",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Correspondent", "iconId": "bskill_meet_rhodes1" },
+			{ "elite": 2, "level": 1, "name": "Pioneer", "iconId": "bskill_meet_flag_rhodes" }
+		]
+	},
+	{
+		"charId": "char_476_blkngt",
+		"name": "Blacknight",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Vanguard Expert α", "iconId": "bskill_train_vanguard1" },
+			{ "elite": 2, "level": 1, "name": "Tactics Studies", "iconId": "bskill_train1_vanguard1" }
+		]
+	},
+	{
+		"charId": "char_497_ctable",
+		"name": "Cantabile",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "不容遗漏·α", "iconId": "bskill_meet_spdNotOwned1" },
+			{ "elite": 2, "level": 1, "name": "不容遗漏·β", "iconId": "bskill_meet_spdNotOwned2" }
+		]
+	},
+	{
+		"charId": "char_308_swire",
+		"name": "Swire",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Princess", "iconId": "bskill_ctrl_t_spd" },
+			{ "elite": 2, "level": 1, "name": "Drillmaster", "iconId": "bskill_train_all" }
+		]
+	},
+	{
+		"charId": "char_265_sophia",
+		"name": "Whislash",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Guard Expert α", "iconId": "bskill_train_guard1" },
+			{ "elite": 2, "level": 1, "name": "Drillmaster", "iconId": "bskill_train_all" }
+		]
+	},
+	{
+		"charId": "char_106_franka",
+		"name": "Franka",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Guard Expert α", "iconId": "bskill_train_guard1" },
+			{ "elite": 2, "level": 1, "name": "Guard Expert β", "iconId": "bskill_train_guard2" },
+			{ "elite": 0, "level": 1, "name": "Clue Search α", "iconId": "bskill_meet_spd1" },
+			{ "elite": 2, "level": 1, "name": "B.P.R.S", "iconId": "bskill_meet_blacksteel2" }
+		]
+	},
+	{
+		"charId": "char_131_flameb",
+		"name": "Flamebringer",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Tech Theory", "iconId": "bskill_ws_skill1" },
+			{ "elite": 2, "level": 1, "name": "Arise", "iconId": "bskill_ws_skill3" }
+		]
+	},
+	{
+		"charId": "char_155_tiger",
+		"name": "Indra",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Clue Search α", "iconId": "bskill_meet_spd1" },
+			{ "elite": 2, "level": 1, "name": "Arraigner", "iconId": "bskill_meet_glasgow2" }
+		]
+	},
+	{
+		"charId": "char_415_flint",
+		"name": "Flint",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Guard Expert α", "iconId": "bskill_train_guard1" },
+			{ "elite": 2, "level": 1, "name": "Austerity", "iconId": "bskill_train2_guard1" }
+		]
+	},
+	{
+		"charId": "char_157_dagda",
+		"name": "Dagda",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "近卫专精·α", "iconId": "bskill_train_guard1" },
+			{ "elite": 2, "level": 1, "name": "实战技巧：斗士", "iconId": "bskill_train_fighter" }
+		]
+	},
+	{
+		"charId": "char_140_whitew",
+		"name": "Lappland",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Hidden Purpose α", "iconId": "bskill_tra_Lappland1" },
+			{ "elite": 2, "level": 1, "name": "Hidden Purpose β", "iconId": "bskill_tra_Lappland2" }
+		]
+	},
+	{
+		"charId": "char_294_ayer",
+		"name": "Ayerscarpe",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Clue Search α", "iconId": "bskill_meet_spd1" },
+			{ "elite": 2, "level": 1, "name": "Clue Search β", "iconId": "bskill_meet_spd2" }
+		]
+	},
+	{
+		"charId": "char_252_bibeak",
+		"name": "Bibeak",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Tailoring α", "iconId": "bskill_tra_wt&cost1" },
+			{ "elite": 2, "level": 1, "name": "Tailoring β", "iconId": "bskill_tra_wt&cost2" }
+		]
+	},
+	{
+		"charId": "char_459_tachak",
+		"name": "Tachanka",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Team Rainbow", "iconId": "bskill_ctrl_r6" },
+			{
+				"elite": 2,
+				"level": 1,
+				"name": "Ursus Specialty Beverage",
+				"iconId": "bskill_ctrl_tachanka"
+			}
+		]
+	},
+	{
+		"charId": "char_143_ghost",
+		"name": "Specter",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Solitude", "iconId": "bskill_dorm_one2" },
+			{ "elite": 2, "level": 1, "name": "Craze", "iconId": "bskill_dorm_one4" }
+		]
+	},
+	{
+		"charId": "char_356_broca",
+		"name": "Broca",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Guard Expert α", "iconId": "bskill_train_guard1" },
+			{ "elite": 2, "level": 1, "name": "Guard Expert β", "iconId": "bskill_train_guard2" }
+		]
+	},
+	{
+		"charId": "char_274_astesi",
+		"name": "Astesia",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Clue Search α", "iconId": "bskill_meet_spd1" },
+			{ "elite": 2, "level": 1, "name": "Astrology", "iconId": "bskill_meet_spd3" }
+		]
+	},
+	{
+		"charId": "char_333_sidero",
+		"name": "Sideroca",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Guard Expert α", "iconId": "bskill_train_guard1" },
+			{ "elite": 2, "level": 1, "name": "Whole-Heartedness", "iconId": "bskill_train3_guard1" }
+		]
+	},
+	{
+		"charId": "char_475_akafyu",
+		"name": "Akafuyu",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Guard Expert α", "iconId": "bskill_train_guard1" },
+			{ "elite": 2, "level": 1, "name": "Nobukage-ryu", "iconId": "bskill_train1_guard1" }
+		]
+	},
+	{
+		"charId": "char_421_crow",
+		"name": "La Pluma",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Spaced Out", "iconId": "bskill_ws_skill_cost1" },
+			{ "elite": 2, "level": 1, "name": "Adaptability", "iconId": "bskill_ws_skill2" }
+		]
+	},
+	{
+		"charId": "char_4066_highmo",
+		"name": "Highmore",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "意识兼容", "iconId": "bskill_man_skill_change" },
+			{ "elite": 2, "level": 1, "name": "Standardization β", "iconId": "bskill_man_spd2" }
+		]
+	},
+	{
+		"charId": "char_486_takila",
+		"name": "Tequila",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Investment α", "iconId": "bskill_tra_long1" },
+			{ "elite": 2, "level": 1, "name": "Investment β", "iconId": "bskill_tra_long2" }
+		]
+	},
+	{
+		"charId": "char_129_bluep",
+		"name": "Blue Poison",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Toxicology α", "iconId": "bskill_ws_evolve2" },
+			{ "elite": 2, "level": 1, "name": "Toxicology β", "iconId": "bskill_ws_evolve3" }
+		]
+	},
+	{
+		"charId": "char_204_platnm",
+		"name": "Platinum",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Sniper Expert α", "iconId": "bskill_train_sniper1" },
+			{ "elite": 2, "level": 1, "name": "Sniper Expert β", "iconId": "bskill_train_sniper2" }
+		]
+	},
+	{
+		"charId": "char_367_swllow",
+		"name": "GreyThroat",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Necessary Responsibility", "iconId": "bskill_ctrl_cost" },
+			{ "elite": 2, "level": 1, "name": "Solitude", "iconId": "bskill_dorm_one2" }
+		]
+	},
+	{
+		"charId": "char_365_aprl",
+		"name": "April",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Order Management α", "iconId": "bskill_tra_spd&limit1" },
+			{ "elite": 2, "level": 1, "name": "Order Management β", "iconId": "bskill_tra_spd&limit2" },
+			{ "elite": 0, "level": 1, "name": "Inspiration", "iconId": "bskill_dorm_all1" }
+		]
+	},
+	{
+		"charId": "char_1021_kroos2",
+		"name": "Kroos the Keen Glint",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Alternate Operator", "iconId": "bskill_ctrl_sp" },
+			{
+				"elite": 2,
+				"level": 1,
+				"name": "Combat Techniques: Marksman",
+				"iconId": "bskill_train_fastshot"
+			}
+		]
+	},
+	{
+		"charId": "char_219_meteo",
+		"name": "Meteorite",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Blasting Materiology α", "iconId": "bskill_ws_evolve2" },
+			{ "elite": 2, "level": 1, "name": "Blasting Materiology β", "iconId": "bskill_ws_evolve3" }
+		]
+	},
+	{
+		"charId": "char_379_sesa",
+		"name": "Sesa",
+		"rarity": 5,
+		"skills": [
+			{
+				"elite": 0,
+				"level": 1,
+				"name": "Pragmatic Minimalism",
+				"iconId": "bskill_ws_evolve_cost2"
+			},
+			{ "elite": 2, "level": 1, "name": "Industrial Design", "iconId": "bskill_ws_evolve2" }
+		]
+	},
+	{
+		"charId": "char_279_excu",
+		"name": "Executor",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Sniper Expert α", "iconId": "bskill_train_sniper1" },
+			{ "elite": 2, "level": 1, "name": "Cleaning Agreement", "iconId": "bskill_ctrl_cost" }
+		]
+	},
+	{
+		"charId": "char_346_aosta",
+		"name": "Aosta",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Inspiration", "iconId": "bskill_ws_evolve_cost1" },
+			{ "elite": 2, "level": 1, "name": "DIY Polyester", "iconId": "bskill_ws_polyester" }
+		]
+	},
+	{
+		"charId": "char_002_amiya",
+		"name": "Amiya",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Agreement", "iconId": "bskill_ctrl_t_spd" },
+			{ "elite": 2, "level": 1, "name": "Violin Solo", "iconId": "bskill_dorm_all2" }
+		]
+	},
+	{
+		"charId": "char_405_absin",
+		"name": "Absinthe",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Secret Inquiry", "iconId": "bskill_meet_ursus1" },
+			{ "elite": 2, "level": 1, "name": "Screening", "iconId": "bskill_meet_flag_ursus" }
+		]
+	},
+	{
+		"charId": "char_411_tomimi",
+		"name": "Tomimi",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Barbecue Master", "iconId": "bskill_dorm_single_tomimi" },
+			{ "elite": 2, "level": 1, "name": "Sciolism", "iconId": "bskill_train1_caster1" }
+		]
+	},
+	{
+		"charId": "char_466_qanik",
+		"name": "Qanipalaat",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "救援队·外界联络", "iconId": "bskill_hire_spd2" },
+			{ "elite": 2, "level": 1, "name": "救援队·保证体力", "iconId": "bskill_hire_spd&cost3" }
+		]
+	},
+	{
+		"charId": "char_166_skfire",
+		"name": "Skyfire",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Caster Expert α", "iconId": "bskill_train_caster1" },
+			{ "elite": 2, "level": 1, "name": "Caster Expert β", "iconId": "bskill_train_caster2" }
+		]
+	},
+	{
+		"charId": "char_306_leizi",
+		"name": "Leizi",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Picky", "iconId": "bskill_ctrl_c_wt1" },
+			{ "elite": 2, "level": 1, "name": "Discernment", "iconId": "bskill_ctrl_c_wt2" }
+		]
+	},
+	{
+		"charId": "char_135_halo",
+		"name": "Astgenne",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Rhine Tech α", "iconId": "bskill_man_spd1" },
+			{ "elite": 2, "level": 1, "name": "Rhine Tech β", "iconId": "bskill_man_spd2" }
+		]
+	},
+	{
+		"charId": "char_344_beewax",
+		"name": "Beeswax",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Caster Expert α", "iconId": "bskill_train_caster1" },
+			{ "elite": 2, "level": 1, "name": "Caster Expert β", "iconId": "bskill_train_caster2" }
+		]
+	},
+	{
+		"charId": "char_373_lionhd",
+		"name": "Leonhardt",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Structural Mechanics", "iconId": "bskill_ws_build2" },
+			{ "elite": 2, "level": 1, "name": "Mineral Beneficiation", "iconId": "bskill_ws_build_cost2" }
+		]
+	},
+	{
+		"charId": "char_388_mint",
+		"name": "Mint",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Caster Expert α", "iconId": "bskill_train_caster1" },
+			{ "elite": 2, "level": 1, "name": "Widely-Read", "iconId": "bskill_train2_caster1" },
+			{ "elite": 1, "level": 1, "name": "Geology α", "iconId": "bskill_man_originium1" }
+		]
+	},
+	{
+		"charId": "char_338_iris",
+		"name": "Iris",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Bedtime Story", "iconId": "bskill_dorm_all&bd_n1_n2" },
+			{ "elite": 2, "level": 1, "name": "Sleep Talking", "iconId": "bskill_dorm_all&bd_n1" }
+		]
+	},
+	{
+		"charId": "char_1011_lava2",
+		"name": "Lava the Purgatory",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Alternate Operator", "iconId": "bskill_ctrl_sp" },
+			{ "elite": 2, "level": 1, "name": "Heat Charge γ", "iconId": "bskill_pow_spd3" }
+		]
+	},
+	{
+		"charId": "char_489_serum",
+		"name": "Corroserum",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Corrosion Studies α", "iconId": "bskill_ws_evolve2" },
+			{ "elite": 2, "level": 1, "name": "Corrosion Studies β", "iconId": "bskill_ws_evolve3" },
+			{
+				"elite": 2,
+				"level": 1,
+				"name": "Corrosion Inhibition Tech",
+				"iconId": "bskill_ws_drop_oriron"
+			}
+		]
+	},
+	{
+		"charId": "char_4013_kjera",
+		"name": "Kjera",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Clue Search α", "iconId": "bskill_meet_spd1" },
+			{ "elite": 2, "level": 1, "name": "Snow Watcher", "iconId": "bskill_meet_kjerag2" },
+			{ "elite": 2, "level": 1, "name": "Kjeragandr", "iconId": "bskill_meet_flag_kjerag" }
+		]
+	},
+	{
+		"charId": "char_4040_rockr",
+		"name": "Rockrock",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Shed Excess", "iconId": "bskill_ws_p4" },
+			{ "elite": 2, "level": 1, "name": "Useless Gift", "iconId": "bskill_ws_drop_polyester" }
+		]
+	},
+	{
+		"charId": "char_4054_malist",
+		"name": "Minimalist",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "绘图设计", "iconId": "bskill_man_constrLv" },
+			{ "elite": 0, "level": 1, "name": "机械辅助·α", "iconId": "bskill_man_spd_bd3" },
+			{ "elite": 2, "level": 1, "name": "机械辅助·β", "iconId": "bskill_man_spd_bd4" }
+		]
+	},
+	{
+		"charId": "char_242_otter",
+		"name": "Mayer",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Meeboo: Processing", "iconId": "bskill_ws_p4" },
+			{ "elite": 2, "level": 1, "name": "Meeboo: Manufacturing", "iconId": "bskill_man_spd3" }
+		]
+	},
+	{
+		"charId": "char_336_folivo",
+		"name": "Scene",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Time-Lapse Photography", "iconId": "bskill_man_spd_add2" },
+			{ "elite": 2, "level": 1, "name": "Editing α", "iconId": "bskill_man_exp&limit1" }
+		]
+	},
+	{
+		"charId": "char_108_silent",
+		"name": "Silence",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Rhine Tech α", "iconId": "bskill_man_spd1" },
+			{ "elite": 2, "level": 1, "name": "Rhine Tech β", "iconId": "bskill_man_spd2" }
+		]
+	},
+	{
+		"charId": "char_171_bldsk",
+		"name": "Warfarin",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Medic Expert α", "iconId": "bskill_train_medic1" },
+			{ "elite": 2, "level": 1, "name": "Medic Expert β", "iconId": "bskill_train_medic2" }
+		]
+	},
+	{
+		"charId": "char_345_folnic",
+		"name": "Folinic",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Toxicology α", "iconId": "bskill_ws_evolve2" },
+			{ "elite": 2, "level": 1, "name": "Meticulous", "iconId": "bskill_ws_evolve_cost" }
+		]
+	},
+	{
+		"charId": "char_348_ceylon",
+		"name": "Ceylon",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Scholar", "iconId": "bskill_ws_evolve3" },
+			{ "elite": 2, "level": 1, "name": "Originium Study", "iconId": "bskill_man_originium2" }
+		]
+	},
+	{
+		"charId": "char_436_whispr",
+		"name": "Whisperain",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Itinerant", "iconId": "bskill_hire_spd_bd_n1_n1" },
+			{ "elite": 2, "level": 1, "name": "Memory Seeker", "iconId": "bskill_hire_spd_memento" }
+		]
+	},
+	{
+		"charId": "char_402_tuye",
+		"name": "Tuye",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Logistics Planning α", "iconId": "bskill_tra_flow_gs1" },
+			{ "elite": 2, "level": 1, "name": "Logistics Planning β", "iconId": "bskill_tra_flow_gs2" }
+		]
+	},
+	{
+		"charId": "char_473_mberry",
+		"name": "Mulberry",
+		"rarity": 5,
+		"skills": [
+			{
+				"elite": 0,
+				"level": 1,
+				"name": "Rescue Team - Abacus Calculations",
+				"iconId": "bskill_hire_spd&cost1"
+			},
+			{
+				"elite": 1,
+				"level": 1,
+				"name": "Rescue Team - Resource Inventory",
+				"iconId": "bskill_hire_spd&cost2"
+			},
+			{
+				"elite": 2,
+				"level": 1,
+				"name": "Rescue Team - Post-Catastrophe Census",
+				"iconId": "bskill_hire_spd_bd_n2"
+			}
+		]
+	},
+	{
+		"charId": "char_449_glider",
+		"name": "Honeyberry",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Herbalism α", "iconId": "bskill_ws_evolve2" },
+			{ "elite": 2, "level": 1, "name": "Herbalism β", "iconId": "bskill_ws_evolve3" },
+			{
+				"elite": 2,
+				"level": 1,
+				"name": "Psychological Counseling",
+				"iconId": "bskill_dorm_single3"
+			}
+		]
+	},
+	{
+		"charId": "char_1024_hbisc2",
+		"name": "Hibiscus the Purifier",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Alternate Operator", "iconId": "bskill_ctrl_sp" },
+			{ "elite": 2, "level": 1, "name": "护理专精", "iconId": "bskill_train2_medic1" }
+		]
+	},
+	{
+		"charId": "char_4071_peper",
+		"name": "Paprika",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "朝气蓬勃", "iconId": "bskill_ctrl_t_spd" },
+			{ "elite": 0, "level": 1, "name": "Tailoring α", "iconId": "bskill_tra_wt&cost1" },
+			{ "elite": 2, "level": 1, "name": "Tailoring β", "iconId": "bskill_tra_wt&cost2" }
+		]
+	},
+	{
+		"charId": "char_148_nearl",
+		"name": "Nearl",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Capable Assistance", "iconId": "bskill_ctrl_cost" },
+			{ "elite": 2, "level": 1, "name": "Followers", "iconId": "bskill_dorm_single&one22" }
+		]
+	},
+	{
+		"charId": "char_226_hmau",
+		"name": "Hung",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Skillful Craftsman", "iconId": "bskill_ws_p2" },
+			{ "elite": 2, "level": 1, "name": "Adamantly Easygoing", "iconId": "bskill_ctrl_lda_add" }
+		]
+	},
+	{
+		"charId": "char_144_red",
+		"name": "Projekt Red",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "S.W.E.E.P.", "iconId": "bskill_ctrl_cost" },
+			{ "elite": 2, "level": 1, "name": "Tracker", "iconId": "bskill_meet_spd3" }
+		]
+	},
+	{
+		"charId": "char_243_waaifu",
+		"name": "Waai Fu",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Team Spirit", "iconId": "bskill_man_cost_all" },
+			{ "elite": 2, "level": 1, "name": "Cooperative Will", "iconId": "bskill_man_spd_variable21" }
+		]
+	},
+	{
+		"charId": "char_214_kafka",
+		"name": "Kafka",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Handicrafts α", "iconId": "bskill_tra_wt&cost1" },
+			{ "elite": 2, "level": 1, "name": "Handicrafts β", "iconId": "bskill_tra_wt&cost2" }
+		]
+	},
+	{
+		"charId": "char_455_nothin",
+		"name": "Mr.Nothing",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Nosy", "iconId": "bskill_hire_spd&clue" },
+			{ "elite": 2, "level": 1, "name": "'Obvious Deception'", "iconId": "bskill_tra_bd_n2" }
+		]
+	},
+	{
+		"charId": "char_107_liskam",
+		"name": "Liskarm",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Pulsed Arc α", "iconId": "bskill_pow_spd2" },
+			{ "elite": 2, "level": 1, "name": "Pulsed Arc β", "iconId": "bskill_pow_spd3" }
+		]
+	},
+	{
+		"charId": "char_201_moeshd",
+		"name": "Croissant",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Penguin Logistics α", "iconId": "bskill_tra_spd1" },
+			{ "elite": 2, "level": 1, "name": "Mission Guarantee", "iconId": "bskill_tra_spd&limit7" }
+		]
+	},
+	{
+		"charId": "char_325_bison",
+		"name": "Bison",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "MountainDash Logistics", "iconId": "bskill_tra_spd1" },
+			{ "elite": 2, "level": 1, "name": "Young Master", "iconId": "bskill_tra_spd&limit7" }
+		]
+	},
+	{
+		"charId": "char_163_hpsts",
+		"name": "Vulcan",
+		"rarity": 5,
+		"skills": [
+			{
+				"elite": 0,
+				"level": 1,
+				"name": "Craftsmanship Spirit α",
+				"iconId": "bskill_man_spd&limit&cost1"
+			},
+			{
+				"elite": 2,
+				"level": 1,
+				"name": "Craftsmanship Spirit β",
+				"iconId": "bskill_man_spd&limit&cost2"
+			}
+		]
+	},
+	{
+		"charId": "char_378_asbest",
+		"name": "Asbestos",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Maverick", "iconId": "bskill_man_spd&limit&cost3" },
+			{ "elite": 2, "level": 1, "name": "Explorer", "iconId": "bskill_man_limit&cost3" }
+		]
+	},
+	{
+		"charId": "char_4025_aprot2",
+		"name": "Shalem",
+		"rarity": 5,
+		"skills": [
+			{
+				"elite": 0,
+				"level": 1,
+				"name": "Combat Techniques: Arts Protector",
+				"iconId": "bskill_train_artsprotector"
+			},
+			{
+				"elite": 2,
+				"level": 1,
+				"name": "实战技巧：驭法铁卫",
+				"iconId": "bskill_train_artsprotector"
+			}
+		]
+	},
+	{
+		"charId": "char_4047_pianst",
+		"name": "Czerny",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "慢板行歌", "iconId": "bskill_dorm_all&bd_n1_n3" },
+			{ "elite": 2, "level": 1, "name": "琴键漫步", "iconId": "bskill_dorm_all&bd_n1_2" }
+		]
+	},
+	{
+		"charId": "char_457_blitz",
+		"name": "Blitz",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Team Rainbow", "iconId": "bskill_ctrl_r6" },
+			{ "elite": 2, "level": 1, "name": "Linguistics", "iconId": "bskill_hire_blitz" }
+		]
+	},
+	{
+		"charId": "char_304_zebra",
+		"name": "Heavyrain",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Guarding", "iconId": "bskill_ctrl_cost" },
+			{ "elite": 0, "level": 1, "name": "Defender Expert α", "iconId": "bskill_train_defender1" },
+			{ "elite": 2, "level": 1, "name": "Field Experience", "iconId": "bskill_train2_defender1" }
+		]
+	},
+	{
+		"charId": "char_431_ashlok",
+		"name": "Ashlock",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Pinus Sylvestris α", "iconId": "bskill_man_spd1" },
+			{ "elite": 2, "level": 1, "name": "Pinus Sylvestris β", "iconId": "bskill_man_spd2" }
+		]
+	},
+	{
+		"charId": "char_422_aurora",
+		"name": "Aurora",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Defender Expert α", "iconId": "bskill_train_defender1" },
+			{ "elite": 2, "level": 1, "name": "Polar Survival", "iconId": "bskill_train1_defender1" }
+		]
+	},
+	{
+		"charId": "char_145_prove",
+		"name": "Provence",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Catastrophe Messenger α", "iconId": "bskill_hire_spd2" },
+			{ "elite": 2, "level": 1, "name": "Catastrophe Messenger β", "iconId": "bskill_hire_spd5" }
+		]
+	},
+	{
+		"charId": "char_158_milu",
+		"name": "Firewatch",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Clue Search α", "iconId": "bskill_meet_spd1" },
+			{ "elite": 2, "level": 1, "name": "Clue Search β", "iconId": "bskill_meet_spd2" }
+		]
+	},
+	{
+		"charId": "char_218_cuttle",
+		"name": "Andreana",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Solitude", "iconId": "bskill_dorm_one2" },
+			{ "elite": 2, "level": 1, "name": "Hard to Avoid", "iconId": "bskill_dorm_one4" }
+		]
+	},
+	{
+		"charId": "char_4014_lunacu",
+		"name": "Lunacub",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "幼狼情性", "iconId": "bskill_dorm_one2" },
+			{ "elite": 2, "level": 1, "name": "荒野生存", "iconId": "bskill_ws_skill3" }
+		]
+	},
+	{
+		"charId": "char_363_toddi",
+		"name": "Toddifons",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Fusion Casting", "iconId": "bskill_ws_evolve_cost1" },
+			{ "elite": 2, "level": 1, "name": "DIY Oriron", "iconId": "bskill_ws_oriron" }
+		]
+	},
+	{
+		"charId": "char_4043_erato",
+		"name": "Erato",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Sniper Expert α", "iconId": "bskill_train_sniper1" },
+			{ "elite": 2, "level": 1, "name": "拂弦", "iconId": "bskill_train2_sniper1" }
+		]
+	},
+	{
+		"charId": "char_1027_greyy2",
+		"name": "Greyy the Lightningbearer",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "巡线框架", "iconId": "bskill_pow_drone" },
+			{ "elite": 2, "level": 1, "name": "晨曦", "iconId": "bskill_pow_count" }
+		]
+	},
+	{
+		"charId": "char_173_slchan",
+		"name": "Cliffheart",
+		"rarity": 5,
+		"skills": [
+			{
+				"elite": 0,
+				"level": 1,
+				"name": "Explorer's Passion",
+				"iconId": "bskill_dorm_single&one02"
+			},
+			{ "elite": 2, "level": 1, "name": "Karlan Commercial β", "iconId": "bskill_tra_spd&limit4" }
+		]
+	},
+	{
+		"charId": "char_383_snsant",
+		"name": "Snowsant",
+		"rarity": 5,
+		"skills": [
+			{
+				"elite": 0,
+				"level": 1,
+				"name": "Heavenly Reward α",
+				"iconId": "bskill_tra_spd_variable21"
+			},
+			{ "elite": 2, "level": 1, "name": "Heavenly Reward β", "iconId": "bskill_tra_spd_variable22" }
+		]
+	},
+	{
+		"charId": "char_174_slbell",
+		"name": "Pramanix",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Karlan Saint", "iconId": "bskill_dorm_single&one22" },
+			{ "elite": 2, "level": 1, "name": "Supporter Expert β", "iconId": "bskill_train_supporter2" }
+		]
+	},
+	{
+		"charId": "char_254_vodfox",
+		"name": "Shamare",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Tailoring α", "iconId": "bskill_tra_wt&cost1" },
+			{ "elite": 2, "level": 1, "name": "Whispers", "iconId": "bskill_tra_vodfox" }
+		]
+	},
+	{
+		"charId": "char_195_glassb",
+		"name": "Istina",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Supporter Expert α", "iconId": "bskill_train_supporter1" },
+			{ "elite": 2, "level": 1, "name": "Military Advisor", "iconId": "bskill_meet_ursus2" }
+		]
+	},
+	{
+		"charId": "char_326_glacus",
+		"name": "Glaucus",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Electromagnetic Charge α", "iconId": "bskill_pow_spd1" },
+			{ "elite": 2, "level": 1, "name": "Electromagnetic Charge β", "iconId": "bskill_pow_spd2" }
+		]
+	},
+	{
+		"charId": "char_4032_provs",
+		"name": "Proviso",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "合同法", "iconId": "bskill_tra_law" },
+			{ "elite": 0, "level": 1, "name": "违约索赔·α", "iconId": "bskill_tra_against" },
+			{ "elite": 2, "level": 1, "name": "违约索赔·β", "iconId": "bskill_tra_against2" }
+		]
+	},
+	{
+		"charId": "char_433_windft",
+		"name": "Windflit",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Required Course", "iconId": "bskill_ws_evolve2" },
+			{ "elite": 2, "level": 1, "name": "Automation α", "iconId": "bskill_man_spd&power1" }
+		]
+	},
+	{
+		"charId": "char_101_sora",
+		"name": "Sora",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Idol", "iconId": "bskill_dorm_all2" },
+			{ "elite": 2, "level": 1, "name": "Penguin Logistics β", "iconId": "bskill_tra_spd2" }
+		]
+	},
+	{
+		"charId": "char_4045_heidi",
+		"name": "Heidi",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Order Distribution α", "iconId": "bskill_tra_spd1" },
+			{ "elite": 2, "level": 1, "name": "High Society", "iconId": "bskill_tra_spd3" },
+			{
+				"elite": 2,
+				"level": 1,
+				"name": "'One Thousand Letters'",
+				"iconId": "bskill_ctrl_c_victoria"
+			}
+		]
+	},
+	{
+		"charId": "char_343_tknogi",
+		"name": "Tsukinogi",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Catastrophe Messenger α", "iconId": "bskill_hire_spd2" },
+			{ "elite": 2, "level": 1, "name": "Empath's Insight", "iconId": "bskill_hire_spd&clue" }
+		]
+	},
+	{
+		"charId": "char_4019_ncdeer",
+		"name": "Nine-Colored Deer",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Causality", "iconId": "bskill_ws_bonus1" },
+			{ "elite": 2, "level": 1, "name": "Karma", "iconId": "bskill_ws_bonus2" }
+		]
+	},
+	{
+		"charId": "char_492_quercu",
+		"name": "Quercus",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Sound of the Wind", "iconId": "bskill_meet_glasgow1" },
+			{
+				"elite": 2,
+				"level": 1,
+				"name": "Information Collation",
+				"iconId": "bskill_meet_flag_glasgow"
+			}
+		]
+	},
+	{
+		"charId": "char_215_mantic",
+		"name": "Manticore",
+		"rarity": 5,
+		"skills": [
+			{
+				"elite": 0,
+				"level": 1,
+				"name": "Specialist Expert α",
+				"iconId": "bskill_train_specialist1"
+			},
+			{
+				"elite": 2,
+				"level": 1,
+				"name": "Specialist Expert β",
+				"iconId": "bskill_train_specialist2"
+			}
+		]
+	},
+	{
+		"charId": "char_478_kirara",
+		"name": "Kirara",
+		"rarity": 5,
+		"skills": [
+			{
+				"elite": 0,
+				"level": 1,
+				"name": "Order Flow Visualization α",
+				"iconId": "bskill_tra_flow_gc1"
+			},
+			{
+				"elite": 2,
+				"level": 1,
+				"name": "Order Flow Visualization β",
+				"iconId": "bskill_tra_flow_gc2"
+			}
+		]
+	},
+	{
+		"charId": "char_241_panda",
+		"name": "FEater",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Combat Guidance Video", "iconId": "bskill_man_exp2" },
+			{ "elite": 2, "level": 1, "name": "Boxing Guidance Video", "iconId": "bskill_man_exp3" }
+		]
+	},
+	{
+		"charId": "char_4036_forcer",
+		"name": "Enforcer",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Clue Search α", "iconId": "bskill_meet_spd1" },
+			{ "elite": 2, "level": 1, "name": "Logical Deduction", "iconId": "bskill_meet_spd&cost" }
+		]
+	},
+	{
+		"charId": "char_451_robin",
+		"name": "Robin",
+		"rarity": 5,
+		"skills": [
+			{
+				"elite": 0,
+				"level": 1,
+				"name": "Specialist Expert α",
+				"iconId": "bskill_train_specialist1"
+			},
+			{ "elite": 2, "level": 1, "name": "Trap Focus", "iconId": "bskill_train1_specialist1" }
+		]
+	},
+	{
+		"charId": "char_458_rfrost",
+		"name": "Frost",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Team Rainbow", "iconId": "bskill_ctrl_r6" },
+			{ "elite": 2, "level": 1, "name": "Mechanical Engineering", "iconId": "bskill_ws_frost" }
+		]
+	},
+	{
+		"charId": "char_369_bena",
+		"name": "Bena",
+		"rarity": 5,
+		"skills": [
+			{
+				"elite": 0,
+				"level": 1,
+				"name": "'Reliable' Helper",
+				"iconId": "bskill_man_spd&limit&cost4"
+			},
+			{ "elite": 2, "level": 1, "name": "Tailoring α", "iconId": "bskill_tra_wt&cost1" }
+		]
+	},
+	{
+		"charId": "char_4016_kazema",
+		"name": "Kazemaru",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Avatar", "iconId": "bskill_meet_spd2" },
+			{ "elite": 2, "level": 1, "name": "Proficient Artistry", "iconId": "bskill_meet_condChar" }
+		]
+	},
+	{
+		"charId": "char_103_angel",
+		"name": "Exusiai",
+		"rarity": 6,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Penguin Logistics α", "iconId": "bskill_tra_spd1" },
+			{ "elite": 2, "level": 1, "name": "Logistics Expert", "iconId": "bskill_tra_spd3" }
+		]
+	},
+	{
+		"charId": "char_332_archet",
+		"name": "Archetto",
+		"rarity": 6,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Pious Fundraising α", "iconId": "bskill_tra_spd&dorm1" },
+			{ "elite": 2, "level": 1, "name": "Pious Fundraising β", "iconId": "bskill_tra_spd&dorm2" }
+		]
+	},
+	{
+		"charId": "char_456_ash",
+		"name": "Ash",
+		"rarity": 6,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Team Rainbow", "iconId": "bskill_ctrl_r6" },
+			{ "elite": 2, "level": 1, "name": "Intelligence Reserve", "iconId": "bskill_ctrl_ash" }
+		]
+	},
+	{
+		"charId": "char_340_shwaz",
+		"name": "Schwarz",
+		"rarity": 6,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Make Tea", "iconId": "bskill_dorm_single_schwarz" },
+			{ "elite": 2, "level": 1, "name": "Black Arrow", "iconId": "bskill_train_sniper3" }
+		]
+	},
+	{
+		"charId": "char_4055_bgsnow",
+		"name": "Pozyomka",
+		"rarity": 6,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "销路宣发", "iconId": "bskill_tra_flow_gs" },
+			{ "elite": 2, "level": 1, "name": "际崖居民", "iconId": "bskill_tra_flow_durin" }
+		]
+	},
+	{
+		"charId": "char_430_fartth",
+		"name": "Fartooth",
+		"rarity": 6,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "'Homecoming'", "iconId": "bskill_dorm_all&one3" },
+			{ "elite": 0, "level": 1, "name": "Pinus Sylvestris α", "iconId": "bskill_man_spd1" },
+			{ "elite": 2, "level": 1, "name": "Pinus Sylvestris β", "iconId": "bskill_man_spd2" }
+		]
+	},
+	{
+		"charId": "char_113_cqbw",
+		"name": "W",
+		"rarity": 6,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Sniper Expert α", "iconId": "bskill_train_sniper1" },
+			{ "elite": 2, "level": 1, "name": "Patience", "iconId": "bskill_train3_sniper2" },
+			{ "elite": 2, "level": 1, "name": "Insipid", "iconId": "bskill_train_w" }
+		]
+	},
+	{
+		"charId": "char_300_phenxi",
+		"name": "Fiammetta",
+		"rarity": 6,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Self-Discipline", "iconId": "bskill_dorm_reborn" },
+			{ "elite": 0, "level": 1, "name": "Communal Suffering", "iconId": "bskill_dorm_exchangeAp" }
+		]
+	},
+	{
+		"charId": "char_197_poca",
+		"name": "Rosa",
+		"rarity": 6,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Student Council President", "iconId": "bskill_ctrl_ussg" },
+			{ "elite": 2, "level": 1, "name": "Prestige", "iconId": "bskill_hire_spd&ursus2" }
+		]
+	},
+	{
+		"charId": "char_391_rosmon",
+		"name": "Rosmontis",
+		"rarity": 6,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Extrasensory", "iconId": "bskill_man_spd_bd_n1" },
+			{ "elite": 0, "level": 1, "name": "Psychokinesis", "iconId": "bskill_man_spd_bd1" },
+			{
+				"elite": 2,
+				"level": 1,
+				"name": "Manifestation of Consciousness",
+				"iconId": "bskill_man_spd_bd2"
+			}
+		]
+	},
+	{
+		"charId": "char_1013_chen2",
+		"name": "Ch'en the Holungday",
+		"rarity": 6,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Sniper Expert α", "iconId": "bskill_train_sniper1" },
+			{ "elite": 2, "level": 1, "name": "Leading By Example", "iconId": "bskill_train1_sniper2" },
+			{ "elite": 2, "level": 1, "name": "Workaholic", "iconId": "bskill_train_chen" }
+		]
+	},
+	{
+		"charId": "char_112_siege",
+		"name": "Siege",
+		"rarity": 6,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Leader", "iconId": "bskill_dorm_all2" },
+			{ "elite": 2, "level": 1, "name": "Lionheart", "iconId": "bskill_dorm_all3" }
+		]
+	},
+	{
+		"charId": "char_222_bpipe",
+		"name": "Bagpipe",
+		"rarity": 6,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Madrigal", "iconId": "bskill_dorm_all&one3" },
+			{ "elite": 2, "level": 1, "name": "Well-Trained", "iconId": "bskill_ws_asc2" }
+		]
+	},
+	{
+		"charId": "char_362_saga",
+		"name": "Saga",
+		"rarity": 6,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Vanguard Expert α", "iconId": "bskill_train_vanguard1" },
+			{ "elite": 2, "level": 1, "name": "Secularization", "iconId": "bskill_train_vanguard3" }
+		]
+	},
+	{
+		"charId": "char_479_sleach",
+		"name": "Saileach",
+		"rarity": 6,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Victorian Literature", "iconId": "bskill_dorm_single3" },
+			{ "elite": 2, "level": 1, "name": "Infectivity", "iconId": "bskill_ctrl_h_spd" }
+		]
+	},
+	{
+		"charId": "char_420_flamtl",
+		"name": "Flametail",
+		"rarity": 6,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Tiny Leader", "iconId": "bskill_ctrl_cost" },
+			{ "elite": 2, "level": 1, "name": "Knights of Pinus Sylvestris", "iconId": "bskill_ctrl_psk" }
+		]
+	},
+	{
+		"charId": "char_427_vigil",
+		"name": "Vigil",
+		"rarity": 6,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "领袖外交", "iconId": "bskill_meet_spd3" },
+			{ "elite": 2, "level": 1, "name": "新城贸易", "iconId": "bskill_tra_spd&meet1" }
+		]
+	},
+	{
+		"charId": "char_134_ifrit",
+		"name": "Ifrit",
+		"rarity": 6,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Heat Charge α", "iconId": "bskill_pow_spd1" },
+			{ "elite": 2, "level": 1, "name": "Superheat Charge", "iconId": "bskill_pow_spd2" }
+		]
+	},
+	{
+		"charId": "char_213_mostma",
+		"name": "Mostima",
+		"rarity": 6,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Clue Search α", "iconId": "bskill_meet_spd1" },
+			{
+				"elite": 2,
+				"level": 1,
+				"name": "Messenger - Penguin Logistics",
+				"iconId": "bskill_meet_penguin2"
+			}
+		]
+	},
+	{
+		"charId": "char_180_amgoat",
+		"name": "Eyjafjalla",
+		"rarity": 6,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Volcanologist", "iconId": "bskill_man_originium2" },
+			{ "elite": 2, "level": 1, "name": "Catastrophe Messenger β", "iconId": "bskill_hire_spd5" }
+		]
+	},
+	{
+		"charId": "char_2013_cerber",
+		"name": "Ceobe",
+		"rarity": 6,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "I Want It All", "iconId": "bskill_man_limit&cost1" },
+			{ "elite": 2, "level": 1, "name": "Right Now", "iconId": "bskill_man_spd_add1" }
+		]
+	},
+	{
+		"charId": "char_2015_dusk",
+		"name": "Dusk",
+		"rarity": 6,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "'Unstirred by Gain'", "iconId": "bskill_ctrl_cost_bd1" },
+			{ "elite": 0, "level": 1, "name": "'Unmoved by Loss'", "iconId": "bskill_ctrl_cost_bd2" }
+		]
+	},
+	{
+		"charId": "char_472_pasngr",
+		"name": "Passenger",
+		"rarity": 6,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Electromagnetic Charge α", "iconId": "bskill_pow_spd1" },
+			{ "elite": 2, "level": 1, "name": "Energy Gathering", "iconId": "bskill_pow_spd2" },
+			{ "elite": 2, "level": 1, "name": "Automation α", "iconId": "bskill_man_spd&power1" }
+		]
+	},
+	{
+		"charId": "char_426_billro",
+		"name": "Carnelian",
+		"rarity": 6,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Caster Expert α", "iconId": "bskill_train_caster1" },
+			{ "elite": 2, "level": 1, "name": "Within One's Grasp", "iconId": "bskill_train_caster3" }
+		]
+	},
+	{
+		"charId": "char_377_gdglow",
+		"name": "Goldenglow",
+		"rarity": 6,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Electromagnetic Charge α", "iconId": "bskill_pow_spd1" },
+			{ "elite": 2, "level": 1, "name": "Discharge", "iconId": "bskill_pow_spd3" }
+		]
+	},
+	{
+		"charId": "char_4046_ebnhlz",
+		"name": "Ebenholz",
+		"rarity": 6,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "乐感", "iconId": "bskill_tra_bd_n1" },
+			{ "elite": 0, "level": 1, "name": "徘徊旋律", "iconId": "bskill_tra_spd_bd1" },
+			{ "elite": 2, "level": 1, "name": "怅惘和声", "iconId": "bskill_tra_spd_bd2" }
+		]
+	},
+	{
+		"charId": "char_206_gnosis",
+		"name": "Gnosis",
+		"rarity": 6,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Hidden Mastermind", "iconId": "bskill_ctrl_karlan" },
+			{
+				"elite": 2,
+				"level": 1,
+				"name": "Precise Calculations",
+				"iconId": "bskill_ctrl_t_limit&spd"
+			}
+		]
+	},
+	{
+		"charId": "char_291_aglina",
+		"name": "Angelina",
+		"rarity": 6,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Clue Search α", "iconId": "bskill_meet_spd1" },
+			{
+				"elite": 2,
+				"level": 1,
+				"name": "Messenger - Rhodes Island",
+				"iconId": "bskill_meet_rhodes2"
+			}
+		]
+	},
+	{
+		"charId": "char_358_lisa",
+		"name": "Suzuran",
+		"rarity": 6,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Supporter Expert α", "iconId": "bskill_train_supporter1" },
+			{ "elite": 2, "level": 1, "name": "Resonance", "iconId": "bskill_train_supporter3" }
+		]
+	},
+	{
+		"charId": "char_248_mgllan",
+		"name": "Magallan",
+		"rarity": 6,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Multifunctional Robotter", "iconId": "bskill_ws_p2" },
+			{
+				"elite": 2,
+				"level": 1,
+				"name": "Drone - Soaring Dragon",
+				"iconId": "bskill_ws_cost_magallan"
+			}
+		]
+	},
+	{
+		"charId": "char_1012_skadi2",
+		"name": "Skadi the Corrupting Heart",
+		"rarity": 6,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Supporter Expert α", "iconId": "bskill_train_supporter1" },
+			{ "elite": 2, "level": 1, "name": "Assimilation", "iconId": "bskill_train3_supporter2" },
+			{ "elite": 2, "level": 1, "name": "Mutation", "iconId": "bskill_train_skadi" }
+		]
+	},
+	{
+		"charId": "char_2023_ling",
+		"name": "Ling",
+		"rarity": 6,
+		"skills": [
+			{
+				"elite": 0,
+				"level": 1,
+				"name": "Keep the Wine Flowing",
+				"iconId": "bskill_ctrl_clear_sui"
+			},
+			{
+				"elite": 2,
+				"level": 1,
+				"name": "'Vast Mountains and Rivers'",
+				"iconId": "bskill_ctrl_cost_bd1&bd2"
+			}
+		]
+	},
+	{
+		"charId": "char_4072_ironmn",
+		"name": "Stainless",
+		"rarity": 6,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "心相连", "iconId": "bskill_ws_cost&dorm" },
+			{ "elite": 2, "level": 1, "name": "意相通", "iconId": "bskill_ws_evolve_dorm2" }
+		]
+	},
+	{
+		"charId": "char_250_phatom",
+		"name": "Phantom",
+		"rarity": 6,
+		"skills": [
+			{
+				"elite": 0,
+				"level": 1,
+				"name": "Specialist Expert α",
+				"iconId": "bskill_train_specialist1"
+			},
+			{ "elite": 2, "level": 1, "name": "Masked Phantom", "iconId": "bskill_train_specialist3" }
+		]
+	},
+	{
+		"charId": "char_1028_texas2",
+		"name": "Texas the Omertosa",
+		"rarity": 6,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "沉默为剑", "iconId": "bskill_train_specialist&pioneer1" },
+			{ "elite": 2, "level": 1, "name": "破斩桎梏", "iconId": "bskill_train2_specialist&pioneer1" }
+		]
+	},
+	{
+		"charId": "char_322_lmlee",
+		"name": "Lee",
+		"rarity": 6,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Moment of Respite", "iconId": "bskill_ctrl_lda" },
+			{ "elite": 2, "level": 1, "name": "Worldly Insight", "iconId": "bskill_ctrl_c_spd" }
+		]
+	},
+	{
+		"charId": "char_400_weedy",
+		"name": "Weedy",
+		"rarity": 6,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Automation β", "iconId": "bskill_man_spd&power2" },
+			{ "elite": 2, "level": 1, "name": "Bionic Seadragon", "iconId": "bskill_man_spd&power3" }
+		]
+	},
+	{
+		"charId": "char_225_haak",
+		"name": "Aak",
+		"rarity": 6,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Neuroticism", "iconId": "bskill_ctrl_c_wt" },
+			{ "elite": 2, "level": 1, "name": "Surgical Precision", "iconId": "bskill_train_medic3" }
+		]
+	},
+	{
+		"charId": "char_474_glady",
+		"name": "Gladiia",
+		"rarity": 6,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Tide Observation", "iconId": "bskill_ctrl_cost_aegir" },
+			{ "elite": 0, "level": 1, "name": "Group Hunting ·α", "iconId": "bskill_ctrl_aegir" },
+			{ "elite": 2, "level": 1, "name": "Group Hunting ·β", "iconId": "bskill_ctrl_aegir2" }
+		]
+	},
+	{
+		"charId": "char_437_mizuki",
+		"name": "Mizuki",
+		"rarity": 6,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "意识协议", "iconId": "bskill_man_skill_spd" },
+			{ "elite": 2, "level": 1, "name": "Standardization β", "iconId": "bskill_man_spd2" }
+		]
+	},
+	{
+		"charId": "char_1023_ghost2",
+		"name": "Specter the Unchained",
+		"rarity": 6,
+		"skills": [
+			{
+				"elite": 0,
+				"level": 1,
+				"name": "Specialist Expert α",
+				"iconId": "bskill_train_specialist1"
+			},
+			{ "elite": 2, "level": 1, "name": "Ægir Tactics", "iconId": "bskill_train3_specialist2" },
+			{ "elite": 2, "level": 1, "name": "War Fever", "iconId": "bskill_train_specter" }
+		]
+	},
+	{
+		"charId": "char_4048_doroth",
+		"name": "Dorothy",
+		"rarity": 6,
+		"skills": [
+			{
+				"elite": 0,
+				"level": 1,
+				"name": "Consciousness Agreement",
+				"iconId": "bskill_man_skill_spd"
+			},
+			{ "elite": 2, "level": 1, "name": "Rhine Tech β", "iconId": "bskill_man_spd2" }
+		]
+	},
+	{
+		"charId": "char_147_shining",
+		"name": "Shining",
+		"rarity": 6,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Thoughtfulness", "iconId": "bskill_dorm_single1" },
+			{ "elite": 2, "level": 1, "name": "Mercy", "iconId": "bskill_dorm_single4" }
+		]
+	},
+	{
+		"charId": "char_179_cgbird",
+		"name": "Nightingale",
+		"rarity": 6,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Inspiration", "iconId": "bskill_dorm_all1" },
+			{ "elite": 2, "level": 1, "name": "Lady of the Lamp", "iconId": "bskill_dorm_all3" }
+		]
+	},
+	{
+		"charId": "char_003_kalts",
+		"name": "Kal'tsit",
+		"rarity": 6,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Unknown Technology", "iconId": "bskill_ws_p5" },
+			{ "elite": 2, "level": 1, "name": "Highest Authority", "iconId": "bskill_ctrl_p_spd" }
+		]
+	},
+	{
+		"charId": "char_4042_lumen",
+		"name": "Lumen",
+		"rarity": 6,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Glimmering Glow α", "iconId": "bskill_dorm_powToRecAll1" },
+			{ "elite": 2, "level": 1, "name": "Glimmering Glow β", "iconId": "bskill_dorm_powToRecAll2" }
+		]
+	},
+	{
+		"charId": "char_136_hsguma",
+		"name": "Hoshiguma",
+		"rarity": 6,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Defender Expert α", "iconId": "bskill_train_defender1" },
+			{ "elite": 2, "level": 1, "name": "Hannya", "iconId": "bskill_train_defender3" }
+		]
+	},
+	{
+		"charId": "char_202_demkni",
+		"name": "Saria",
+		"rarity": 6,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Clue Search α", "iconId": "bskill_meet_spd1" },
+			{ "elite": 2, "level": 1, "name": "Watchman", "iconId": "bskill_meet_rhine2" }
+		]
+	},
+	{
+		"charId": "char_423_blemsh",
+		"name": "Blemishine",
+		"rarity": 6,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Careful Planning", "iconId": "bskill_ws_free" },
+			{ "elite": 2, "level": 1, "name": "Passionate Tinker", "iconId": "bskill_ws_cost_blemishine" }
+		]
+	},
+	{
+		"charId": "char_2014_nian",
+		"name": "Nian",
+		"rarity": 6,
+		"skills": [
+			{
+				"elite": 0,
+				"level": 1,
+				"name": "Rare Metal Identification",
+				"iconId": "bskill_ws_evolve4"
+			},
+			{ "elite": 0, "level": 1, "name": "Reckless", "iconId": "bskill_ws_nian" }
+		]
+	},
+	{
+		"charId": "char_311_mudrok",
+		"name": "Mudrock",
+		"rarity": 6,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Perseverance", "iconId": "bskill_ws_constant" },
+			{ "elite": 2, "level": 1, "name": "DIY Orirock", "iconId": "bskill_ws_orirock" }
+		]
+	},
+	{
+		"charId": "char_4065_judge",
+		"name": "Penance",
+		"rarity": 6,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "法为正典", "iconId": "bskill_hire_skgoat2" },
+			{ "elite": 2, "level": 1, "name": "寻同路人", "iconId": "bskill_dorm_hireToRecAll1" }
+		]
+	},
+	{
+		"charId": "char_416_zumama",
+		"name": "Eunectes",
+		"rarity": 6,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Automation α", "iconId": "bskill_man_spd&power1" },
+			{ "elite": 2, "level": 1, "name": "Automation β", "iconId": "bskill_man_spd&power2" },
+			{ "elite": 2, "level": 1, "name": "I've Got This", "iconId": "bskill_ctrl_p_bot" }
+		]
+	},
+	{
+		"charId": "char_4039_horn",
+		"name": "Horn",
+		"rarity": 6,
+		"skills": [
+			{
+				"elite": 0,
+				"level": 1,
+				"name": "Military Engineering",
+				"iconId": "bskill_ws_evolve_cost1"
+			},
+			{ "elite": 2, "level": 1, "name": "DIY Incandescent Alloy", "iconId": "bskill_ws_alloyBlock" }
+		]
+	},
+	{
+		"charId": "char_264_f12yin",
+		"name": "Mountain",
+		"rarity": 6,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Insider", "iconId": "bskill_hire_spd&blacksteel2" },
+			{ "elite": 2, "level": 1, "name": "Columbian History", "iconId": "bskill_meet_flag_rhine" }
+		]
+	},
+	{
+		"charId": "char_172_svrash",
+		"name": "SilverAsh",
+		"rarity": 6,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Karlan Commercial α", "iconId": "bskill_tra_spd&limit3" },
+			{ "elite": 2, "level": 1, "name": "Lord of Karlan", "iconId": "bskill_tra_spd&limit5" }
+		]
+	},
+	{
+		"charId": "char_293_thorns",
+		"name": "Thorns",
+		"rarity": 6,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "'Alchemy'", "iconId": "bskill_ws_p2" },
+			{ "elite": 2, "level": 1, "name": "'Explosion Arts'", "iconId": "bskill_ws_recovery" }
+		]
+	},
+	{
+		"charId": "char_010_chen",
+		"name": "Ch'en",
+		"rarity": 6,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Integrity & Capability", "iconId": "bskill_ctrl_lungmen" },
+			{ "elite": 2, "level": 1, "name": "Police Superintendent", "iconId": "bskill_meet_spd3" }
+		]
+	},
+	{
+		"charId": "char_4009_irene",
+		"name": "Irene",
+		"rarity": 6,
+		"skills": [
+			{
+				"elite": 0,
+				"level": 1,
+				"name": "Sword and Handcannon",
+				"iconId": "bskill_train_vanguard&sniper"
+			},
+			{ "elite": 2, "level": 1, "name": "Mental Training", "iconId": "bskill_train_reduceTime" }
+		]
+	},
+	{
+		"charId": "char_017_huang",
+		"name": "Blaze",
+		"rarity": 6,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Heat Charge α", "iconId": "bskill_pow_spd1" },
+			{ "elite": 1, "level": 1, "name": "Slice Iron, Split Steel", "iconId": "bskill_ws_build3" }
+		]
+	},
+	{
+		"charId": "char_1026_gvial2",
+		"name": "Gavial the Invincible",
+		"rarity": 6,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Guard Expert α", "iconId": "bskill_train_guard1" },
+			{ "elite": 2, "level": 1, "name": "实战指导", "iconId": "bskill_train3_guard2" },
+			{ "elite": 2, "level": 1, "name": "过量训练", "iconId": "bskill_train_gavial" }
+		]
+	},
+	{
+		"charId": "char_350_surtr",
+		"name": "Surtr",
+		"rarity": 6,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Guard Expert α", "iconId": "bskill_train_guard1" },
+			{ "elite": 2, "level": 1, "name": "Bladework Memory", "iconId": "bskill_train_guard3" }
+		]
+	},
+	{
+		"charId": "char_188_helage",
+		"name": "Hellagur",
+		"rarity": 6,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Release", "iconId": "bskill_dorm_one1" },
+			{ "elite": 1, "level": 1, "name": "Break Loose", "iconId": "bskill_dorm_all1" },
+			{ "elite": 2, "level": 1, "name": "Absolution", "iconId": "bskill_dorm_all&one3" },
+			{ "elite": 0, "level": 1, "name": "Arts of War", "iconId": "bskill_ws_skill3" }
+		]
+	},
+	{
+		"charId": "char_485_pallas",
+		"name": "Pallas",
+		"rarity": 6,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Domain of Wisdom", "iconId": "bskill_man_limit&cost1" },
+			{ "elite": 2, "level": 1, "name": "Plan to Victory", "iconId": "bskill_man_exp1" }
+		]
+	},
+	{
+		"charId": "char_1014_nearl2",
+		"name": "Nearl the Radiant Knight",
+		"rarity": 6,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Knight Training", "iconId": "bskill_train_knight_bd1" },
+			{ "elite": 2, "level": 1, "name": "Noble Creed", "iconId": "bskill_train_knight_bd2" }
+		]
+	},
+	{
+		"charId": "char_4064_mlynar",
+		"name": "Mlynar",
+		"rarity": 6,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "独善其身", "iconId": "bskill_ctrl_cost" },
+			{ "elite": 2, "level": 1, "name": "公事公办", "iconId": "bskill_ctrl_lonely" }
+		]
+	},
+	{
+		"charId": "char_230_savage",
+		"name": "Savage",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Tech Theory", "iconId": "bskill_ws_skill1" },
+			{ "elite": 2, "level": 1, "name": "Cooking", "iconId": "bskill_dorm_single&one12" }
+		]
+	},
+	{
+		"charId": "char_282_catap",
+		"name": "Catapult",
+		"rarity": 3,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Communication", "iconId": "bskill_tra_spd&cost" },
+			{ "elite": 1, "level": 1, "name": "Blasting Materiology β", "iconId": "bskill_ws_evolve3" }
+		]
+	},
+	{
+		"charId": "char_283_midn",
+		"name": "Midnight",
+		"rarity": 3,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Communication", "iconId": "bskill_tra_spd&cost" },
+			{ "elite": 1, "level": 1, "name": "Originium Work α", "iconId": "bskill_man_originium1" }
+		]
+	},
+	{
+		"charId": "char_137_brownb",
+		"name": "Beehunter",
+		"rarity": 4,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Guard Expert α", "iconId": "bskill_train_guard1" },
+			{ "elite": 1, "level": 1, "name": "Training Record", "iconId": "bskill_ws_asc1" }
+		]
+	},
+	{
+		"charId": "char_347_jaksel",
+		"name": "Jackie",
+		"rarity": 4,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Liveliness", "iconId": "bskill_dorm_single&one01" },
+			{ "elite": 1, "level": 1, "name": "Clue Search β", "iconId": "bskill_meet_spd2" }
+		]
+	},
+	{
+		"charId": "char_164_nightm",
+		"name": "Nightmare",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Caster Expert α", "iconId": "bskill_train_caster1" },
+			{ "elite": 2, "level": 1, "name": "Psychology", "iconId": "bskill_hire_spd4" }
+		]
+	},
+	{
+		"charId": "char_220_grani",
+		"name": "Grani",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Vanguard Expert α", "iconId": "bskill_train_vanguard1" },
+			{ "elite": 2, "level": 1, "name": "Vanguard Expert β", "iconId": "bskill_train_vanguard2" }
+		]
+	},
+	{
+		"charId": "char_263_skadi",
+		"name": "Skadi",
+		"rarity": 6,
+		"skills": [
+			{ "elite": 0, "level": 1, "name": "Solitude", "iconId": "bskill_dorm_one2" },
+			{ "elite": 2, "level": 1, "name": "Elegy", "iconId": "bskill_dorm_one5" }
+		]
+	}
+]
