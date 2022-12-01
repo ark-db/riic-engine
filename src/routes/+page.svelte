@@ -19,8 +19,7 @@
 			alt="Create new setup"
 			width="25"
 			height="25"
-			data-title="Create new setup"
-			use:tooltip
+			use:tooltip={'Create new setup'}
 			on:click={saveList.create}
 		/>
 		<input
@@ -29,8 +28,7 @@
 			alt="Refresh setup list"
 			width="25"
 			height="25"
-			data-title="Refresh setup list"
-			use:tooltip
+			use:tooltip={'Refresh setup list'}
 			on:click={saveList.load}
 		/>
 	</div>
@@ -42,8 +40,7 @@
 				alt={saveSortMode.nextDesc()}
 				width="25"
 				height="25"
-				data-title={saveSortMode.nextDesc()}
-				use:tooltip
+				use:tooltip={saveSortMode.nextDesc()}
 				on:click={saveSortMode.toggle}
 			/>
 		{/key}
@@ -54,8 +51,7 @@
 				alt={saveSortOrder.nextDesc()}
 				width="25"
 				height="25"
-				data-title={saveSortOrder.nextDesc()}
-				use:tooltip
+				use:tooltip={saveSortOrder.nextDesc()}
 				on:click={saveSortOrder.toggle}
 			/>
 		{/key}

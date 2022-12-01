@@ -61,8 +61,7 @@
 					viewBox="0 0 512 512"
 					height="24"
 					width="24"
-					data-title="Rename save"
-					use:tooltip
+					use:tooltip={'Rename save'}
 					on:click={handleRename}
 					on:keydown={handleRename}
 				>
@@ -82,8 +81,7 @@
 					viewBox="0 0 640 512"
 					height="26"
 					width="26"
-					data-title="Export save"
-					use:tooltip
+					use:tooltip={'Export save'}
 					on:click={handleExport}
 					on:keydown={handleExport}
 				>
@@ -98,8 +96,7 @@
 					viewBox="0 0 448 512"
 					height="20"
 					width="20"
-					data-title="Delete save"
-					use:tooltip
+					use:tooltip={'Delete save'}
 					on:click={handleDeleteAction}
 					on:keydown={handleDeleteAction}
 				>

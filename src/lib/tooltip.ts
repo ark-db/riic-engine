@@ -20,9 +20,9 @@ function render(instance: Instance) {
 	return { popper };
 }
 
-export function tooltip(element: HTMLElement | SVGElement) {
+export function tooltip(element: Element, content: string) {
 	const instance = tippy(element, {
-		content: element.dataset.title,
+		content,
 		arrow: false,
 		duration: 0,
 		followCursor: true,
