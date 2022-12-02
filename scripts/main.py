@@ -1,4 +1,5 @@
 from enum import Enum
+import re
 from requests import Session
 from operator import itemgetter
 from pathlib import Path
@@ -31,6 +32,8 @@ NAME_CHANGES = {
     "char_4055_bgsnow": "Pozyomka",
     "char_4064_mlynar": "Mlynar",
 }
+
+HEX_CODE_PATTERN = re.compile(r"#[0-9A-F]{6}")
 
 
 # The type hint for char_info is lenient because declaring the entire schema is too painful
@@ -94,8 +97,8 @@ with Session() as s:
         ["termDescriptionDict"]
     )
 
-    for char_id, data in CHARS.items():
-        if is_operator(data):
+    for char_id, details in CHARS.items():
+        if is_operator(details):
             skills = []
             for skill in CHAR_SKILLS[char_id]["buffChar"]:
                 for tier in skill["buffData"]:
@@ -124,8 +127,8 @@ with Session() as s:
 
             char_data.append({
                 "charId": char_id,
-                "name": NAME_CHANGES.get(char_id, data["appellation"]),
-                "rarity": data["rarity"] + 1,
+                "name": NAME_CHANGES.get(char_id, details["appellation"]),
+                "rarity": details["rarity"] + 1,
                 "skills": skills
             })
             save_image(s, Asset.CHAR, char_id)
@@ -135,3 +138,20 @@ with open("src/lib/data/chars.json", "w") as f:
 
 with open("src/lib/data/skills.json", "w") as f:
     json.dump(all_skills, f, ensure_ascii=False)
+
+with open("src/lib/data/text-colors.json", "w") as f:
+    STYLES = {
+        name: match.group(0)
+        for name, style in TEXT_STYLES.items()
+        if name.startswith("cc")
+        and (match := HEX_CODE_PATTERN.search(style))
+    }
+    json.dump(STYLES, f)
+
+with open("src/lib/data/terms.json", "w") as f:
+    TERMS = {
+        name: details["description"]
+        for name, details in (CN_SPECIAL_TERMS | EN_SPECIAL_TERMS).items()
+        if name.startswith("cc")
+    }
+    json.dump(TERMS, f, ensure_ascii=False)
