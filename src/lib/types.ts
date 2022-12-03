@@ -6,23 +6,16 @@ export type FileData = {
 
 type Operator = string;
 
-type Shift = {
-	char: Operator;
-	start: number;
-	end: number;
-};
-
 type Facility = {
-	shifts: Shift[];
+	shifts: {
+		char: Operator;
+		start: number;
+		end: number;
+	}[];
 	level: 1 | 2 | 3 | 4 | 5;
 };
 
 type AtMostFive<T> = [T?, T?, T?, T?, T?];
-
-type CharData = {
-	char: Operator;
-	tier: number;
-};
 
 export type SaveData = {
 	layout: {
@@ -34,5 +27,8 @@ export type SaveData = {
 		office: Facility;
 		dorm: AtMostFive<Facility>;
 	};
-	chars: CharData[];
+	chars: {
+		char: Operator;
+		tier: number;
+	}[];
 };

@@ -5,6 +5,7 @@
 		"checkJs": true,
 		"forceConsistentCasingInFileNames": true,
 		"resolveJsonModule": true,
+		"allowSyntheticDefaultImports": true,
 		"skipLibCheck": true,
 		"sourceMap": false,
 		"strict": true
