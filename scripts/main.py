@@ -25,6 +25,11 @@ class Asset(Enum):
         "base_url": "https://raw.githubusercontent.com/Aceship/Arknight-Images/main/ui/elite/",
         "quality": 25
     }
+    FACILITY = {
+        "folder": "facilities",
+        "base_url": "https://raw.githubusercontent.com/Aceship/Arknight-Images/main/ui/infrastructure/",
+        "quality": 50
+    }
 
 
 NAME_CHANGES = {
@@ -140,6 +145,9 @@ with Session() as s:
 
     for i in range(3):
         save_image(s, Asset.ELITE, str(i))
+
+    for facility in ("control", "dorm", "hire", "manu", "meet", "power", "trade", "train", "workshop"):
+        save_image(s, Asset.FACILITY, facility)
 
 with open("src/lib/data/chars.json", "w") as f:
     json.dump(char_data, f, ensure_ascii=False)
