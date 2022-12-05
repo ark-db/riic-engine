@@ -4,11 +4,9 @@ export type FileData = {
 	readonly created: number;
 };
 
-type Operator = string;
-
 type Facility = {
 	shifts: {
-		char: Operator;
+		char: string;
 		start: number;
 		end: number;
 	}[];
@@ -28,7 +26,7 @@ export type SaveData = {
 		dorm: AtMostFive<Facility>;
 	};
 	chars: {
-		char: Operator;
+		char: string;
 		tier: number;
 	}[];
 };

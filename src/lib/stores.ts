@@ -9,10 +9,6 @@ import listDecreasingIcon from '$lib/images/list-decreasing.svg';
 
 type SaveSortMode = 'modified' | 'created';
 type SaveSortOrder = 'increasing' | 'decreasing';
-type Save = {
-	title: string;
-	data: SaveData;
-};
 
 function createSaveList() {
 	const { subscribe, set } = writable<FileData[]>();
@@ -90,14 +86,12 @@ function createSaveSortOrder() {
 }
 
 function createActiveSave() {
-	const { subscribe, set } = writable<Save>();
+	const { subscribe, set } = writable<SaveData>();
 
 	async function loadSave(name: string) {
 		const data = await invoke<SaveData>('load_save', { name });
-		set({
-			title: name,
-			data
-		});
+		activeSaveTitle.set(name);
+		set(data);
 		goto('/editor');
 	}
 
@@ -111,4 +105,5 @@ export const saveList = createSaveList();
 export const error = createError();
 export const saveSortMode = createSaveSortMode();
 export const saveSortOrder = createSaveSortOrder();
+export const activeSaveTitle = writable<string>();
 export const activeSave = createActiveSave();

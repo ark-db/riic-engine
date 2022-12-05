@@ -1,8 +1,9 @@
 <script>
-	import { activeSave } from '$lib/stores';
+	import { activeSaveTitle, activeSave } from '$lib/stores';
 </script>
 
-<p>Title: {$activeSave.title}</p>
+<p>Title: {$activeSaveTitle}</p>
+<p>Control Center level: {$activeSave.layout.cc.level}</p>
 <a href="/">Go back</a>
 
 <style>

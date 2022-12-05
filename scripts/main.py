@@ -143,8 +143,8 @@ with Session() as s:
             })
             save_image(s, Asset.CHAR, char_id)
 
-    for i in range(3):
-        save_image(s, Asset.ELITE, str(i))
+    for rank in range(3):
+        save_image(s, Asset.ELITE, str(rank))
 
     for facility in ("control", "dorm", "hire", "manu", "meet", "power", "trade", "train", "workshop"):
         save_image(s, Asset.FACILITY, facility)
