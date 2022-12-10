@@ -60,11 +60,11 @@
 </div>
 
 {#if $saveList && $saveList.length > 0}
-	<div class="saves">
+	<main>
 		{#each $saveList.sort((prev, curr) => (prev[$saveSortMode] - curr[$saveSortMode]) * ($saveSortOrder === 'increasing' ? 1 : -1)) as save}
 			<Entry {save} />
 		{/each}
-	</div>
+	</main>
 {:else}
 	<p class="placeholder">No saves found!</p>
 {/if}
@@ -91,7 +91,7 @@
 		background-color: var(--dark-mild);
 		transition: background-color 0.1s;
 	}
-	.saves {
+	main {
 		display: flex;
 		flex-direction: column;
 		row-gap: 0.5em;

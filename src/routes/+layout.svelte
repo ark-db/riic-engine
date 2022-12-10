@@ -3,9 +3,7 @@
 	import Error from '$lib/components/Error.svelte';
 </script>
 
-<main>
-	<slot />
-</main>
+<slot />
 
 {#if $error}
 	<Error msg={$error} />

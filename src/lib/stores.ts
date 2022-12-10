@@ -92,7 +92,7 @@ function createActiveSave() {
 		const data = await invoke<SaveData>('load_save', { name });
 		activeSaveTitle.set(name);
 		set(data);
-		goto('/editor');
+		goto('/editor/setup');
 	}
 
 	return {
