@@ -6,6 +6,7 @@
 #![feature(is_some_and)]
 #![feature(path_file_prefix)]
 
+use tauri::Manager;
 pub mod base;
 pub mod saves;
 
@@ -28,6 +29,9 @@ pub enum CmdError {
 
     #[error("Relative filepaths are forbidden")]
     RelativePath,
+
+    #[error(transparent)]
+    Tauri(#[from] tauri::Error),
 }
 
 impl serde::Serialize for CmdError {
@@ -41,9 +45,17 @@ impl serde::Serialize for CmdError {
 
 pub type CmdResult<T> = Result<T, CmdError>;
 
+#[allow(clippy::needless_pass_by_value)]
+#[tauri::command]
+fn show_window(window: tauri::Window) {
+    let w = window.get_window("main").unwrap();
+    w.show().unwrap();
+}
+
 fn main() {
     tauri::Builder::default()
         .invoke_handler(tauri::generate_handler![
+            show_window,
             saves::fetch_saves,
             saves::create_save,
             saves::rename_save,

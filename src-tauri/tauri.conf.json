@@ -62,7 +62,8 @@
 				"width": 800,
 				"minWidth": 800,
 				"fileDropEnabled": false,
-				"theme": "Dark"
+				"theme": "Dark",
+				"visible": false
 			}
 		]
 	}

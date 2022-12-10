@@ -1,4 +1,5 @@
 <script>
+	import { invoke } from '@tauri-apps/api/tauri';
 	import { saveList, saveSortMode, saveSortOrder } from '$lib/stores';
 	import { tooltip } from '$lib/tooltip';
 	import Header from './Header.svelte';
@@ -6,7 +7,7 @@
 	import addFileIcon from '$lib/images/file-add.svg';
 	import refreshIcon from '$lib/images/refresh.svg';
 
-	saveList.load();
+	saveList.load().then(() => invoke('show_window'));
 </script>
 
 <Header />
