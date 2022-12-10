@@ -26,6 +26,8 @@
 			helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
 		background-color: var(--dark);
 		scrollbar-width: none;
+		user-select: none;
+		-webkit-user-select: none;
 	}
 	:root::-webkit-scrollbar {
 		display: none;

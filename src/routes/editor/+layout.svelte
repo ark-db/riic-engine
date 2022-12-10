@@ -29,7 +29,7 @@
 		<p>{$activeSaveTitle}</p>
 		{#each tabs as tab}
 			{@const url = `${base}/editor${tab.url}`}
-			<a href={url} class:active={$page.url.pathname === url}>
+			<a href={url} class:active={$page.url.pathname === url} on:mousedown|preventDefault>
 				{tab.title}
 			</a>
 		{/each}
