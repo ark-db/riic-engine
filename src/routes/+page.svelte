@@ -77,11 +77,11 @@
 	.right {
 		display: flex;
 		align-items: center;
-		column-gap: 5px;
+		column-gap: 0.5em;
 	}
 	.controls {
-		margin: 1em 0;
-		padding: 0 1em;
+		margin: 0.75em 0;
+		padding: 0 0.75em;
 		justify-content: space-between;
 	}
 	input {
@@ -94,6 +94,7 @@
 		transition: background-color 0.1s;
 	}
 	main {
+		padding: 0.25em 0.5em 0.5em;
 		display: flex;
 		flex-direction: column;
 		row-gap: 0.5em;

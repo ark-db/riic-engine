@@ -55,13 +55,13 @@
 
 <style>
 	.container {
-		min-height: calc(100vh - 1em);
+		min-height: 100vh;
 		display: flex;
-		column-gap: 0.5em;
 	}
 	nav {
 		width: clamp(14em, 20%, 18em);
-		background-color: var(--dark);
+		padding: 0.5em;
+		background-color: var(--darkish);
 		display: flex;
 		flex-direction: column;
 		row-gap: 0.5em;
@@ -81,7 +81,7 @@
 	}
 	.save-name {
 		margin: 0;
-		border-left: 0.3em solid var(--light);
+		border-left: 0.3em solid var(--blue-mild);
 		border-radius: 0 0.5em 0.5em 0;
 		padding: 0.75em;
 		background-color: var(--dark-strong);
@@ -97,20 +97,22 @@
 	a {
 		border-radius: 0.5em;
 		padding: 0.75em;
-		color: var(--light);
+		color: var(--gray-mild);
 		text-decoration: none;
 		font-weight: 600;
-		transition: background-color 0.15s;
+		transition: background-color 0.15s, color 0.15s;
 	}
 	a:hover {
+		color: var(--light);
 		background-color: var(--dark-mild);
 	}
 	a.active {
+		color: var(--light);
 		background-color: var(--dark-strong);
 	}
 	main {
 		flex-grow: 1;
-		border-radius: 0.5em;
+		padding: 0.5em;
 		background-color: var(--dark-strong);
 		overflow: auto;
 	}

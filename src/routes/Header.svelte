@@ -12,7 +12,6 @@
 
 <style>
 	header {
-		border-radius: 0.75em;
 		padding: 1em;
 		background-color: var(--dark-strong);
 		display: flex;

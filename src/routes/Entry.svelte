@@ -55,12 +55,14 @@
 	{/if}
 	<div class="right">
 		{#if hovering}
+			<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
 			<div class="settings">
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					viewBox="0 0 512 512"
 					height="24"
 					width="24"
+					tabindex="0"
 					use:tooltip={'Rename save'}
 					on:click={handleRename}
 					on:keydown={handleRename}
@@ -81,6 +83,7 @@
 					viewBox="0 0 640 512"
 					height="26"
 					width="26"
+					tabindex="0"
 					use:tooltip={'Export save'}
 					on:click={handleExport}
 					on:keydown={handleExport}
@@ -96,6 +99,7 @@
 					viewBox="0 0 448 512"
 					height="20"
 					width="20"
+					tabindex="0"
 					use:tooltip={'Delete save'}
 					on:click={handleDeleteAction}
 					on:keydown={handleDeleteAction}
