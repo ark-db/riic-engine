@@ -9,7 +9,7 @@
 	let input: HTMLInputElement;
 	let origText = `${text}`;
 
-	const parseText = (text: string) => text.replace(/[^\w-]+$/, '');
+	const parseText = (text: string) => text.replace(/[^\w-]+/g, '');
 
 	$: text = parseText(text);
 
@@ -56,7 +56,6 @@
 	bind:value={text}
 	on:keydown={handleKeydown}
 	on:blur={updateText}
-	on:paste|preventDefault
 />
 
 <style>
