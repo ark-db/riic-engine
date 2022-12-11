@@ -2,7 +2,7 @@
 	import { base } from '$app/paths';
 	import { page } from '$app/stores';
 	import { invoke } from '@tauri-apps/api/tauri';
-	import { activeSaveTitle } from '$lib/stores';
+	import { activeSave } from '$lib/stores';
 	import logo from '$lib/images/logo.png';
 
 	type NavLink = {
@@ -26,7 +26,7 @@
 	];
 
 	invoke<void>('rename_window', {
-		name: $activeSaveTitle
+		name: $activeSave.name
 	});
 </script>
 
@@ -37,7 +37,7 @@
 			<p class="app-title">RIIC Engine</p>
 		</a>
 
-		<p class="save-name">{$activeSaveTitle}</p>
+		<p class="save-name">{$activeSave.name}</p>
 
 		<div class="links">
 			{#each tabs as tab}

@@ -2,7 +2,7 @@
 	import { activeSave } from '$lib/stores';
 </script>
 
-<p>Control Center level: {$activeSave.layout.cc.level}</p>
+<p>Control Center level: {$activeSave.data.layout.cc.level}</p>
 
 <style>
 	p {
