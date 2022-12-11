@@ -1,5 +1,5 @@
 import { goto } from '$app/navigation';
-import { writable, get } from 'svelte/store';
+import { writable } from 'svelte/store';
 import { invoke } from '@tauri-apps/api/tauri';
 import type { SaveData, FileData } from '$lib/types';
 import pencilClockIcon from '$lib/images/pencil-clock.svg';
@@ -17,23 +17,16 @@ type ActiveSave = {
 function createSaveList() {
 	const { subscribe, set } = writable<FileData[]>();
 
-	const load = () => invoke<FileData[]>('fetch_saves').then(set).catch(error.handle);
+	const loadSaves = () => invoke<FileData[]>('fetch_saves').then(set);
 
 	return {
 		subscribe,
-		load,
-		create: () => {
-			invoke<void>('create_save').catch(error.handle);
-			load();
-		},
-		export: (name: string) => {
-			invoke<void>('export_save', { name }).catch(error.handle);
-			load();
-		},
-		delete: (name: string) => {
-			invoke<void>('delete_save', { name }).catch(error.handle);
-			load();
-		}
+		load: () => loadSaves().catch(error.handle),
+		create: () => invoke<void>('create_save').then(loadSaves).catch(error.handle),
+		export: (name: string) =>
+			invoke<void>('export_save', { name }).then(loadSaves).catch(error.handle),
+		delete: (name: string) =>
+			invoke<void>('delete_save', { name }).then(loadSaves).catch(error.handle)
 	};
 }
 
@@ -56,36 +49,40 @@ function createError() {
 }
 
 function createSaveSortMode() {
-	const store = writable<SaveSortMode>('modified');
-	const { subscribe, update } = store;
+	const { subscribe, update } = writable<SaveSortMode>('modified');
+
+	let mode: SaveSortMode;
+	subscribe((value) => (mode = value));
 
 	const opposite = (mode: SaveSortMode): SaveSortMode =>
 		mode === 'created' ? 'modified' : 'created';
 
 	return {
 		subscribe,
-		src: () => (get(store) === 'created' ? plusClockIcon : pencilClockIcon),
+		src: () => (mode === 'created' ? plusClockIcon : pencilClockIcon),
 		toggle: () => {
 			update((mode) => opposite(mode));
 			saveList.load();
 		},
-		nextDesc: () => `Sort by time ${opposite(get(store))}`
+		nextDesc: () => `Sort by time ${opposite(mode)}`
 	};
 }
 
 function createSaveSortOrder() {
-	const store = writable<SaveSortOrder>('increasing');
-	const { subscribe, update } = store;
+	const { subscribe, update } = writable<SaveSortOrder>('increasing');
+
+	let order: SaveSortOrder;
+	subscribe((value) => (order = value));
 
 	return {
 		subscribe,
-		src: () => (get(store) === 'increasing' ? listIncreasingIcon : listDecreasingIcon),
+		src: () => (order === 'increasing' ? listIncreasingIcon : listDecreasingIcon),
 		toggle: () => {
 			update((order) => (order === 'increasing' ? 'decreasing' : 'increasing'));
 			saveList.load();
 		},
 		nextDesc: () =>
-			`Sort from ${get(store) === 'increasing' ? 'earliest to latest' : 'latest to earliest'}`
+			`Sort from ${order === 'increasing' ? 'earliest to latest' : 'latest to earliest'}`
 	};
 }
 
