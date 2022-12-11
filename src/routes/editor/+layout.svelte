@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { base } from '$app/paths';
 	import { page } from '$app/stores';
+	import { invoke } from '@tauri-apps/api/tauri';
 	import { activeSaveTitle } from '$lib/stores';
 
 	type NavLink = {
@@ -22,6 +23,10 @@
 			url: '/results'
 		}
 	];
+
+	invoke<void>('rename_window', {
+		name: $activeSaveTitle
+	});
 </script>
 
 <div class="container">
@@ -52,15 +57,16 @@
 		flex-direction: column;
 		row-gap: 0.25em;
 	}
-	p,
-	a {
-		color: var(--light);
+	p {
+		color: var(--gray);
 	}
 	a {
 		border-radius: 0.5em;
 		padding: 0.75em;
+		color: var(--light);
 		text-decoration: none;
 		font-weight: 600;
+		transition: background-color 0.15s;
 	}
 	a:hover {
 		background-color: var(--dark-mild);

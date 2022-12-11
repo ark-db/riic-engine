@@ -52,10 +52,24 @@ fn show_window(window: tauri::Window) {
     w.show().unwrap();
 }
 
+#[allow(clippy::needless_pass_by_value)]
+#[tauri::command]
+fn rename_window(window: tauri::Window, name: Option<&str>) {
+    let w = window.get_window("main").unwrap();
+
+    if let Some(n) = name {
+        w.set_title(format!("RIIC Engine • {}", n).as_str())
+            .unwrap();
+    } else {
+        w.set_title("RIIC Engine").unwrap();
+    }
+}
+
 fn main() {
     tauri::Builder::default()
         .invoke_handler(tauri::generate_handler![
             show_window,
+            rename_window,
             saves::fetch_saves,
             saves::create_save,
             saves::rename_save,

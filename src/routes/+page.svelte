@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { invoke } from '@tauri-apps/api/tauri';
 	import { saveList, saveSortMode, saveSortOrder } from '$lib/stores';
 	import { tooltip } from '$lib/tooltip';
@@ -7,7 +7,9 @@
 	import addFileIcon from '$lib/images/file-add.svg';
 	import refreshIcon from '$lib/images/refresh.svg';
 
-	saveList.load().then(() => invoke('show_window'));
+	invoke<void>('rename_window');
+
+	saveList.load().then(() => invoke<void>('show_window'));
 </script>
 
 <Header />
