@@ -6,7 +6,7 @@
 
 use crate::base::Save;
 use crate::{CmdError, CmdResult};
-use serde::Serialize;
+use serde::{Deserialize, Serialize};
 use std::{
     fs,
     io::BufReader,
@@ -34,8 +34,9 @@ impl FileData {
     }
 }
 
+#[derive(Deserialize)]
 pub struct ImportedSave {
-    title: String,
+    name: String,
     data: Save,
 }
 
@@ -102,6 +103,14 @@ pub fn create_save(app: tauri::AppHandle) -> CmdResult<()> {
 }
 
 #[tauri::command]
+pub fn load_save(app: tauri::AppHandle, name: &str) -> CmdResult<Save> {
+    let target_path = get_save_fp(&app, name)?;
+    let file = fs::File::open(target_path)?;
+    let data: Save = serde_json::from_reader(BufReader::new(file))?;
+    Ok(data)
+}
+
+#[tauri::command]
 pub fn rename_save(app: tauri::AppHandle, old: &str, new: &str) -> CmdResult<()> {
     let new_path = get_save_fp(&app, new)?;
     if new_path.is_file() {
@@ -114,18 +123,19 @@ pub fn rename_save(app: tauri::AppHandle, old: &str, new: &str) -> CmdResult<()>
 }
 
 #[tauri::command]
-pub fn delete_save(app: tauri::AppHandle, name: &str) -> CmdResult<()> {
-    let target_path = get_save_fp(&app, name)?;
-    fs::remove_file(target_path)?;
+pub fn update_save(app: tauri::AppHandle, save: Option<ImportedSave>) -> CmdResult<()> {
+    if let Some(save) = save {
+        let save_path = get_save_fp(&app, save.name.as_str())?;
+        serde_json::to_writer(fs::File::create(save_path)?, &save.data)?;
+    }
     Ok(())
 }
 
 #[tauri::command]
-pub fn load_save(app: tauri::AppHandle, name: &str) -> CmdResult<Save> {
+pub fn delete_save(app: tauri::AppHandle, name: &str) -> CmdResult<()> {
     let target_path = get_save_fp(&app, name)?;
-    let file = fs::File::open(target_path)?;
-    let data: Save = serde_json::from_reader(BufReader::new(file))?;
-    Ok(data)
+    fs::remove_file(target_path)?;
+    Ok(())
 }
 
 #[tauri::command]
@@ -143,7 +153,7 @@ pub fn export_save(app: tauri::AppHandle, name: &str) -> CmdResult<()> {
 pub fn import_saves(app: tauri::AppHandle, saves: Vec<ImportedSave>) -> CmdResult<()> {
     let mut path = get_saves_dir(&app)?;
     for save in saves {
-        path.set_file_name(save.title);
+        path.set_file_name(save.name);
         path.set_extension("json");
         serde_json::to_writer(fs::File::create(&path)?, &save.data)?;
     }

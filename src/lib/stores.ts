@@ -89,14 +89,18 @@ function createSaveSortOrder() {
 function createActiveSave() {
 	const { subscribe, set } = writable<ActiveSave>();
 
+	subscribe((save) => invoke<void>('update_save', { save }).catch(error.handle));
+
 	async function loadSave(name: string) {
 		const data = await invoke<SaveData>('load_save', { name });
 		set({ name, data });
+		await invoke<void>('rename_window', { name });
 		await goto('/editor/setup');
 	}
 
 	return {
 		subscribe,
+		set,
 		load: (name: string) => loadSave(name).catch(error.handle)
 	};
 }

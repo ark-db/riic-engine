@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { base } from '$app/paths';
 	import { page } from '$app/stores';
-	import { invoke } from '@tauri-apps/api/tauri';
 	import { activeSave } from '$lib/stores';
 	import logo from '$lib/images/logo.png';
 
@@ -24,10 +23,6 @@
 			url: '/results'
 		}
 	];
-
-	invoke<void>('rename_window', {
-		name: $activeSave.name
-	});
 </script>
 
 <div class="container">

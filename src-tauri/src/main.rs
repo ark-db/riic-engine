@@ -69,9 +69,10 @@ fn main() {
             rename_window,
             saves::fetch_saves,
             saves::create_save,
-            saves::rename_save,
-            saves::delete_save,
             saves::load_save,
+            saves::rename_save,
+            saves::update_save,
+            saves::delete_save,
             saves::export_save
         ])
         .run(tauri::generate_context!())
