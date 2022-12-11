@@ -29,9 +29,6 @@ pub enum CmdError {
 
     #[error("Relative filepaths are forbidden")]
     RelativePath,
-
-    #[error(transparent)]
-    Tauri(#[from] tauri::Error),
 }
 
 impl serde::Serialize for CmdError {

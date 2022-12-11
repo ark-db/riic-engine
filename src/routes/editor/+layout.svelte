@@ -3,6 +3,7 @@
 	import { page } from '$app/stores';
 	import { invoke } from '@tauri-apps/api/tauri';
 	import { activeSaveTitle } from '$lib/stores';
+	import logo from '$lib/images/logo.png';
 
 	type NavLink = {
 		title: string;
@@ -31,14 +32,21 @@
 
 <div class="container">
 	<nav>
-		<p>{$activeSaveTitle}</p>
-		{#each tabs as tab}
-			{@const url = `${base}/editor${tab.url}`}
-			<a href={url} class:active={$page.url.pathname === url} on:mousedown|preventDefault>
-				{tab.title}
-			</a>
-		{/each}
-		<a href="/">Return to main menu</a>
+		<a href="/" class="home-link" on:mousedown|preventDefault>
+			<img src={logo} alt="App logo" width="48" height="48" />
+			<p class="app-title">RIIC Engine</p>
+		</a>
+
+		<p class="save-name">{$activeSaveTitle}</p>
+
+		<div class="links">
+			{#each tabs as tab}
+				{@const url = `${base}/editor${tab.url}`}
+				<a href={url} class:active={$page.url.pathname === url} on:mousedown|preventDefault>
+					{tab.title}
+				</a>
+			{/each}
+		</div>
 	</nav>
 	<main>
 		<slot />
@@ -47,18 +55,44 @@
 
 <style>
 	.container {
+		min-height: calc(100vh - 1em);
 		display: flex;
 		column-gap: 0.5em;
 	}
 	nav {
-		width: clamp(12em, 20%, 18em);
+		width: clamp(14em, 20%, 18em);
 		background-color: var(--dark);
 		display: flex;
 		flex-direction: column;
-		row-gap: 0.25em;
+		row-gap: 0.5em;
 	}
-	p {
-		color: var(--gray);
+	.home-link {
+		padding: 0.5em;
+		background-color: var(--dark-strong);
+		display: flex;
+		align-items: center;
+		column-gap: 0.75em;
+	}
+	.app-title {
+		margin: 0;
+		color: var(--light);
+		font-weight: 600;
+		font-size: 1.5em;
+	}
+	.save-name {
+		margin: 0;
+		border-left: 0.3em solid var(--light);
+		border-radius: 0 0.5em 0.5em 0;
+		padding: 0.75em;
+		background-color: var(--dark-strong);
+		color: var(--light-strong);
+		text-align: center;
+		font-weight: 600;
+	}
+	.links {
+		display: flex;
+		flex-direction: column;
+		row-gap: 0.3em;
 	}
 	a {
 		border-radius: 0.5em;
@@ -73,5 +107,11 @@
 	}
 	a.active {
 		background-color: var(--dark-strong);
+	}
+	main {
+		flex-grow: 1;
+		border-radius: 0.5em;
+		background-color: var(--dark-strong);
+		overflow: auto;
 	}
 </style>
