@@ -56,6 +56,7 @@
 	bind:value={text}
 	on:keydown={handleKeydown}
 	on:blur={updateText}
+	on:paste|preventDefault
 />
 
 <style>
