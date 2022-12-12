@@ -1,7 +1,10 @@
 <script lang="ts">
 	import { base } from '$app/paths';
 	import { page } from '$app/stores';
-	import { activeSave } from '$lib/stores';
+	import { onMount } from 'svelte';
+	import { invoke } from '@tauri-apps/api/tauri';
+	import { activeSave, error } from '$lib/stores';
+	import type { ActiveSave } from '$lib/types';
 	import logo from '$lib/images/logo.png';
 	import menuIcon from '$lib/images/menu.png';
 	import Button from '$lib/components/Button.svelte';
@@ -27,8 +30,16 @@
 	];
 
 	let menuActive = true;
-
 	$: menuIconDesc = `${menuActive ? 'Collapse' : 'Expand'} menu`;
+
+	invoke<void>('rename_window', { name: $activeSave.name });
+
+	let init = true;
+	function updateSave(save: ActiveSave) {
+		if (!init) invoke<void>('update_save', { save }).catch(error.handle);
+	}
+	$: updateSave($activeSave);
+	onMount(() => (init = false));
 </script>
 
 <div class="container">
@@ -51,7 +62,7 @@
 	</nav>
 	<main>
 		<Button desc={menuIconDesc} onClick={() => (menuActive = !menuActive)}>
-			<img src={menuIcon} alt={menuIconDesc} id="menu-icon" width="30" height="30" />
+			<img src={menuIcon} alt={menuIconDesc} id="menu-icon" width="32" height="32" />
 		</Button>
 		<slot />
 	</main>

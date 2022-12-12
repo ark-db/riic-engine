@@ -30,3 +30,8 @@ export type SaveData = {
 		tier: number;
 	}[];
 };
+
+export type ActiveSave = {
+	name: string;
+	data: SaveData;
+};

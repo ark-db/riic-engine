@@ -1,7 +1,7 @@
 import { goto } from '$app/navigation';
 import { writable } from 'svelte/store';
 import { invoke } from '@tauri-apps/api/tauri';
-import type { SaveData, FileData } from '$lib/types';
+import type { SaveData, FileData, ActiveSave } from '$lib/types';
 import pencilClockIcon from '$lib/images/pencil-clock.svg';
 import plusClockIcon from '$lib/images/plus-clock.svg';
 import listIncreasingIcon from '$lib/images/list-increasing.svg';
@@ -16,10 +16,6 @@ type SaveSortOrder = {
 	order: 'increasing' | 'decreasing';
 	nextDesc: 'Sort from earliest to latest' | 'Sort from latest to earliest';
 	direction: 1 | -1;
-};
-type ActiveSave = {
-	name: string;
-	data: SaveData;
 };
 
 function createSaveList() {
@@ -108,12 +104,9 @@ function createSaveSortOrder() {
 function createActiveSave() {
 	const { subscribe, set } = writable<ActiveSave>();
 
-	subscribe((save) => invoke<void>('update_save', { save }).catch(error.handle));
-
 	async function loadSave(name: string) {
 		const data = await invoke<SaveData>('load_save', { name });
 		set({ name, data });
-		await invoke<void>('rename_window', { name });
 		await goto('/editor/setup');
 	}
 
