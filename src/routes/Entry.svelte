@@ -6,9 +6,20 @@
 	import NameInput from './NameInput.svelte';
 	export let save: FileData;
 
+	type FocusEventType = 'focusin' | 'focusout';
+
 	let hovering = false;
 	let pendingRename = false;
 	let pendingDelete = false;
+
+	let container: HTMLDivElement;
+	let focused = false;
+
+	function handleFocus(e: FocusEvent) {
+		// test different target element depending on the event type
+		let target = (e.type as FocusEventType) === 'focusin' ? e.target : e.relatedTarget;
+		focused = target instanceof Node && (container?.contains(target) ?? false);
+	}
 
 	function formatStr(num: number, unit: string): string {
 		return `${num} ${unit}${num === 1 ? '' : 's'} ago`;
@@ -34,8 +45,11 @@
 
 <div
 	class="container"
+	bind:this={container}
 	on:mouseenter={() => (hovering = true)}
 	on:mouseleave={() => (hovering = false)}
+	on:focusin={handleFocus}
+	on:focusout={handleFocus}
 >
 	{#if pendingRename}
 		<NameInput bind:text={save.name} bind:active={pendingRename} />
@@ -45,7 +59,7 @@
 		</button>
 	{/if}
 	<div class="right">
-		{#if hovering}
+		{#if hovering || focused}
 			<div class="settings">
 				<Button desc="Rename save" onClick={() => (pendingRename = true)}>
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" height="24" width="24">
@@ -133,9 +147,6 @@
 	}
 	path {
 		transition: fill 0.3s;
-	}
-	svg:hover path {
-		transition: fill 0.15s;
 	}
 	svg:hover .export,
 	svg:hover .edit-title {

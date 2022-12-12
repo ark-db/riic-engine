@@ -63,7 +63,6 @@
 	}
 	img:hover {
 		background-color: var(--dark-mild);
-		transition: background-color 0.1s;
 	}
 	main {
 		padding: 0.25em 0.5em 0.5em;
