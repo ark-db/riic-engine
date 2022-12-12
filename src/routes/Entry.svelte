@@ -96,7 +96,7 @@
 			</div>
 		{:else}
 			<p class="time">
-				{formatTime(save[$saveSortMode])}
+				{formatTime(save[$saveSortMode.mode])}
 			</p>
 		{/if}
 	</div>

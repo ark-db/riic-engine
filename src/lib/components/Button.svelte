@@ -3,10 +3,12 @@
 	export let desc: string;
 	export let onClick: () => void;
 
+	// Note: reassigning refreshState forces content refresh via the {#key} block, since {} !== {}
 	let refreshState: Record<string, never> = {};
 
+	$: desc, (refreshState = {});
+
 	function handleClick() {
-		// This hack forces elements to be recreated via the {#key} block, since {} !== {}
 		refreshState = {};
 		onClick();
 	}

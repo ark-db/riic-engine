@@ -24,18 +24,18 @@
 		</Button>
 	</div>
 	<div class="right">
-		<Button desc={saveSortMode.nextDesc()} onClick={saveSortMode.toggle}>
-			<img src={saveSortMode.src()} alt={saveSortMode.nextDesc()} width="25" height="25" />
+		<Button desc={$saveSortMode.nextDesc} onClick={saveSortMode.toggle}>
+			<img src={saveSortMode.src()} alt={$saveSortMode.nextDesc} width="25" height="25" />
 		</Button>
-		<Button desc={saveSortOrder.nextDesc()} onClick={saveSortOrder.toggle}>
-			<img src={saveSortOrder.src()} alt={saveSortOrder.nextDesc()} width="25" height="25" />
+		<Button desc={$saveSortOrder.nextDesc} onClick={saveSortOrder.toggle}>
+			<img src={saveSortOrder.src()} alt={$saveSortOrder.nextDesc} width="25" height="25" />
 		</Button>
 	</div>
 </div>
 
 {#if $saveList && $saveList.length > 0}
 	<main>
-		{#each $saveList.sort((prev, curr) => (prev[$saveSortMode] - curr[$saveSortMode]) * ($saveSortOrder === 'increasing' ? 1 : -1)) as save}
+		{#each $saveList.sort((prev, curr) => (prev[$saveSortMode.mode] - curr[$saveSortMode.mode]) * $saveSortOrder.direction) as save}
 			<Entry {save} />
 		{/each}
 	</main>

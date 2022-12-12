@@ -7,8 +7,16 @@ import plusClockIcon from '$lib/images/plus-clock.svg';
 import listIncreasingIcon from '$lib/images/list-increasing.svg';
 import listDecreasingIcon from '$lib/images/list-decreasing.svg';
 
-type SaveSortMode = 'modified' | 'created';
-type SaveSortOrder = 'increasing' | 'decreasing';
+type SortMode = 'modified' | 'created';
+type SaveSortMode = {
+	mode: SortMode;
+	nextDesc: `Sort by time ${SortMode}`;
+};
+type SaveSortOrder = {
+	order: 'increasing' | 'decreasing';
+	nextDesc: 'Sort from earliest to latest' | 'Sort from latest to earliest';
+	direction: 1 | -1;
+};
 type ActiveSave = {
 	name: string;
 	data: SaveData;
@@ -49,40 +57,51 @@ function createError() {
 }
 
 function createSaveSortMode() {
-	const { subscribe, update } = writable<SaveSortMode>('modified');
+	const { subscribe, update } = writable<SaveSortMode>({
+		mode: 'modified',
+		nextDesc: 'Sort by time created'
+	});
 
-	let mode: SaveSortMode;
-	subscribe((value) => (mode = value));
-
-	const opposite = (mode: SaveSortMode): SaveSortMode =>
-		mode === 'created' ? 'modified' : 'created';
+	let data: SaveSortMode;
+	subscribe((value) => (data = value));
 
 	return {
 		subscribe,
-		src: () => (mode === 'created' ? plusClockIcon : pencilClockIcon),
+		src: () => (data.mode === 'created' ? plusClockIcon : pencilClockIcon),
 		toggle: () => {
-			update((mode) => opposite(mode));
+			update((data) => ({
+				mode: data.mode === 'modified' ? 'created' : 'modified',
+				nextDesc: data.mode === 'modified' ? 'Sort by time modified' : 'Sort by time created'
+			}));
 			saveList.load();
-		},
-		nextDesc: () => `Sort by time ${opposite(mode)}`
+		}
 	};
 }
 
 function createSaveSortOrder() {
-	const { subscribe, update } = writable<SaveSortOrder>('increasing');
+	const { subscribe, update } = writable<SaveSortOrder>({
+		order: 'increasing',
+		nextDesc: 'Sort from earliest to latest',
+		direction: 1
+	});
 
-	let order: SaveSortOrder;
-	subscribe((value) => (order = value));
+	let data: SaveSortOrder;
+	subscribe((value) => (data = value));
 
 	return {
 		subscribe,
-		src: () => (order === 'increasing' ? listIncreasingIcon : listDecreasingIcon),
+		src: () => (data.order === 'increasing' ? listIncreasingIcon : listDecreasingIcon),
 		toggle: () => {
-			update((order) => (order === 'increasing' ? 'decreasing' : 'increasing'));
+			update((data) => ({
+				order: data.order === 'increasing' ? 'decreasing' : 'increasing',
+				nextDesc:
+					data.order === 'increasing'
+						? 'Sort from latest to earliest'
+						: 'Sort from earliest to latest',
+				direction: data.direction === 1 ? -1 : 1
+			}));
 			saveList.load();
-		},
-		nextDesc: () =>
-			`Sort from ${order === 'increasing' ? 'earliest to latest' : 'latest to earliest'}`
+		}
 	};
 }
 
