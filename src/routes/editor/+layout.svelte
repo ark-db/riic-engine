@@ -2,9 +2,9 @@
 	import { base } from '$app/paths';
 	import { page } from '$app/stores';
 	import { activeSave } from '$lib/stores';
-	import { tooltip } from '$lib/tooltip';
 	import logo from '$lib/images/logo.png';
 	import menuIcon from '$lib/images/menu.png';
+	import Button from '$lib/components/Button.svelte';
 
 	type NavLink = {
 		title: string;
@@ -50,18 +50,9 @@
 		</div>
 	</nav>
 	<main>
-		{#key menuIconDesc}
-			<input
-				type="image"
-				src={menuIcon}
-				alt={menuIconDesc}
-				id="menu-icon"
-				width="30"
-				height="30"
-				use:tooltip={menuIconDesc}
-				on:click={() => (menuActive = !menuActive)}
-			/>
-		{/key}
+		<Button desc={menuIconDesc} onClick={() => (menuActive = !menuActive)}>
+			<img src={menuIcon} alt={menuIconDesc} id="menu-icon" width="30" height="30" />
+		</Button>
 		<slot />
 	</main>
 </div>

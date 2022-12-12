@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { invoke } from '@tauri-apps/api/tauri';
 	import { saveList, saveSortMode, saveSortOrder } from '$lib/stores';
-	import { tooltip } from '$lib/tooltip';
+	import Button from '$lib/components/Button.svelte';
 	import Header from './Header.svelte';
 	import Entry from './Entry.svelte';
 	import addFileIcon from '$lib/images/file-add.svg';
@@ -10,66 +10,26 @@
 	invoke<void>('rename_window');
 
 	saveList.load().then(() => invoke<void>('show_window'));
-
-	// This hack forces elements to be recreated via the {#key} block, since {} !== {}
-	let refreshState: Record<string, never> = {};
-	const refresh = () => (refreshState = {});
 </script>
 
 <Header />
 
 <div class="controls">
 	<div class="left">
-		{#key refreshState}
-			<input
-				type="image"
-				src={addFileIcon}
-				alt="Create new setup"
-				width="25"
-				height="25"
-				use:tooltip={'Create new setup'}
-				on:click|trusted={() => {
-					refresh();
-					saveList.create();
-				}}
-			/>
-			<input
-				type="image"
-				src={refreshIcon}
-				alt="Refresh setup list"
-				width="25"
-				height="25"
-				use:tooltip={'Refresh setup list'}
-				on:click|trusted={() => {
-					refresh();
-					saveList.load();
-				}}
-			/>
-		{/key}
+		<Button desc="Create new setup" onClick={saveList.create}>
+			<img src={addFileIcon} alt="Create new setup" width="25" height="25" />
+		</Button>
+		<Button desc="Refresh setup list" onClick={saveList.load}>
+			<img src={refreshIcon} alt="Refresh setup list" width="25" height="25" />
+		</Button>
 	</div>
 	<div class="right">
-		{#key $saveSortMode}
-			<input
-				type="image"
-				src={saveSortMode.src()}
-				alt={saveSortMode.nextDesc()}
-				width="25"
-				height="25"
-				use:tooltip={saveSortMode.nextDesc()}
-				on:click|trusted={saveSortMode.toggle}
-			/>
-		{/key}
-		{#key $saveSortOrder}
-			<input
-				type="image"
-				src={saveSortOrder.src()}
-				alt={saveSortOrder.nextDesc()}
-				width="25"
-				height="25"
-				use:tooltip={saveSortOrder.nextDesc()}
-				on:click|trusted={saveSortOrder.toggle}
-			/>
-		{/key}
+		<Button desc={saveSortMode.nextDesc()} onClick={saveSortMode.toggle}>
+			<img src={saveSortMode.src()} alt={saveSortMode.nextDesc()} width="25" height="25" />
+		</Button>
+		<Button desc={saveSortOrder.nextDesc()} onClick={saveSortOrder.toggle}>
+			<img src={saveSortOrder.src()} alt={saveSortOrder.nextDesc()} width="25" height="25" />
+		</Button>
 	</div>
 </div>
 
@@ -96,12 +56,12 @@
 		padding: 0 0.75em;
 		justify-content: space-between;
 	}
-	input {
+	img {
 		border-radius: 5px;
 		padding: 7.5px;
 		transition: background-color 0.2s;
 	}
-	input:hover {
+	img:hover {
 		background-color: var(--dark-mild);
 		transition: background-color 0.1s;
 	}

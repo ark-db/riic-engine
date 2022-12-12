@@ -1,10 +1,9 @@
 <script lang="ts">
 	import type { FileData } from '$lib/types';
 	import { saveList, saveSortMode, activeSave } from '$lib/stores';
-	import { interaction } from '$lib/utils';
-	import { tooltip } from '$lib/tooltip';
-	import NameInput from './NameInput.svelte';
+	import Button from '$lib/components/Button.svelte';
 	import Modal from '$lib/components/Modal.svelte';
+	import NameInput from './NameInput.svelte';
 	export let save: FileData;
 
 	let hovering = false;
@@ -27,14 +26,6 @@
 		}
 	}
 
-	const handleSelect = interaction(() => activeSave.load(save.name));
-
-	const handleRename = interaction(() => (pendingRename = true));
-
-	const handleExport = interaction(() => saveList.export(save.name));
-
-	const handleDeleteAction = interaction(() => (pendingDelete = true));
-
 	function handleDelete() {
 		pendingDelete = false;
 		saveList.delete(save.name);
@@ -49,14 +40,14 @@
 	{#if pendingRename}
 		<NameInput bind:text={save.name} bind:active={pendingRename} />
 	{:else}
-		<button class="entry-title" on:click={handleSelect} on:keydown={handleSelect}>
+		<button class="entry-title" on:click|trusted={() => activeSave.load(save.name)}>
 			{save.name}
 		</button>
 	{/if}
 	<div class="right">
 		{#if hovering}
 			<div class="settings">
-				<button use:tooltip={'Rename save'} on:click={handleRename}>
+				<Button desc="Rename save" onClick={() => (pendingRename = true)}>
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" height="24" width="24">
 						<path
 							class="edit-title"
@@ -69,8 +60,8 @@
 							fill="#9a9696"
 						/>
 					</svg>
-				</button>
-				<button use:tooltip={'Export save'} on:click={handleExport}>
+				</Button>
+				<Button desc="Export save" onClick={() => saveList.export(save.name)}>
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" height="26" width="26">
 						<path
 							class="export"
@@ -78,8 +69,8 @@
 							d="M32 64C32 28.7 60.7 0 96 0H256V128c0 17.7 14.3 32 32 32H416V288H248c-13.3 0-24 10.7-24 24s10.7 24 24 24H416V448c0 35.3-28.7 64-64 64H96c-35.3 0-64-28.7-64-64V64zM416 336V288H526.1l-39-39c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l80 80c9.4 9.4 9.4 24.6 0 33.9l-80 80c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l39-39H416zm0-208H288V0L416 128z"
 						/>
 					</svg>
-				</button>
-				<button use:tooltip={'Delete save'} on:click={handleDeleteAction}>
+				</Button>
+				<Button desc="Delete save" onClick={() => (pendingDelete = true)}>
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" height="20" width="20">
 						<path
 							class="trash"
@@ -87,7 +78,7 @@
 							d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"
 						/>
 					</svg>
-				</button>
+				</Button>
 			</div>
 		{:else}
 			<p class="time">
@@ -138,13 +129,7 @@
 		margin-right: 5px;
 		display: flex;
 		align-items: center;
-		column-gap: 5px;
-	}
-	.settings button {
-		margin: none;
-		border: none;
-		padding: none;
-		background: none;
+		column-gap: 15px;
 	}
 	path {
 		transition: fill 0.3s;
