@@ -10,30 +10,42 @@
 	invoke<void>('rename_window');
 
 	saveList.load().then(() => invoke<void>('show_window'));
+
+	// This hack forces elements to be recreated via the {#key} block, since {} !== {}
+	let refreshState: Record<string, never> = {};
+	const refresh = () => (refreshState = {});
 </script>
 
 <Header />
 
 <div class="controls">
 	<div class="left">
-		<input
-			type="image"
-			src={addFileIcon}
-			alt="Create new setup"
-			width="25"
-			height="25"
-			use:tooltip={'Create new setup'}
-			on:click={saveList.create}
-		/>
-		<input
-			type="image"
-			src={refreshIcon}
-			alt="Refresh setup list"
-			width="25"
-			height="25"
-			use:tooltip={'Refresh setup list'}
-			on:click={saveList.load}
-		/>
+		{#key refreshState}
+			<input
+				type="image"
+				src={addFileIcon}
+				alt="Create new setup"
+				width="25"
+				height="25"
+				use:tooltip={'Create new setup'}
+				on:click|trusted={() => {
+					refresh();
+					saveList.create();
+				}}
+			/>
+			<input
+				type="image"
+				src={refreshIcon}
+				alt="Refresh setup list"
+				width="25"
+				height="25"
+				use:tooltip={'Refresh setup list'}
+				on:click|trusted={() => {
+					refresh();
+					saveList.load();
+				}}
+			/>
+		{/key}
 	</div>
 	<div class="right">
 		{#key $saveSortMode}
@@ -44,7 +56,7 @@
 				width="25"
 				height="25"
 				use:tooltip={saveSortMode.nextDesc()}
-				on:click={saveSortMode.toggle}
+				on:click|trusted={saveSortMode.toggle}
 			/>
 		{/key}
 		{#key $saveSortOrder}
@@ -55,7 +67,7 @@
 				width="25"
 				height="25"
 				use:tooltip={saveSortOrder.nextDesc()}
-				on:click={saveSortOrder.toggle}
+				on:click|trusted={saveSortOrder.toggle}
 			/>
 		{/key}
 	</div>

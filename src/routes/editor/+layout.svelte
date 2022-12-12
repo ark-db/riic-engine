@@ -2,7 +2,9 @@
 	import { base } from '$app/paths';
 	import { page } from '$app/stores';
 	import { activeSave } from '$lib/stores';
+	import { tooltip } from '$lib/tooltip';
 	import logo from '$lib/images/logo.png';
+	import menuIcon from '$lib/images/menu.png';
 
 	type NavLink = {
 		title: string;
@@ -23,10 +25,14 @@
 			url: '/results'
 		}
 	];
+
+	let menuActive = true;
+
+	$: menuIconDesc = `${menuActive ? 'Collapse' : 'Expand'} menu`;
 </script>
 
 <div class="container">
-	<nav>
+	<nav class:hidden={!menuActive}>
 		<a href="/" class="home-link" on:mousedown|preventDefault>
 			<img src={logo} alt="App logo" width="48" height="48" />
 			<p class="app-title">RIIC Engine</p>
@@ -44,6 +50,18 @@
 		</div>
 	</nav>
 	<main>
+		{#key menuIconDesc}
+			<input
+				type="image"
+				src={menuIcon}
+				alt={menuIconDesc}
+				id="menu-icon"
+				width="30"
+				height="30"
+				use:tooltip={menuIconDesc}
+				on:click={() => (menuActive = !menuActive)}
+			/>
+		{/key}
 		<slot />
 	</main>
 </div>
@@ -57,9 +75,23 @@
 		width: clamp(14em, 20%, 18em);
 		padding: 0.5em;
 		background-color: var(--darkish);
+		box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.75);
+		clip-path: inset(0 -0.5em 0 0);
 		display: flex;
 		flex-direction: column;
 		row-gap: 0.5em;
+		transition: width 0.15s;
+	}
+	nav.hidden {
+		width: 0;
+		padding: 0.5em 0;
+		box-shadow: none;
+		clip-path: none;
+	}
+	nav,
+	nav * {
+		overflow: clip;
+		white-space: nowrap;
 	}
 	.home-link {
 		padding: 0.5em;
@@ -110,5 +142,14 @@
 		padding: 0.5em;
 		background-color: var(--dark-strong);
 		overflow: auto;
+	}
+	#menu-icon {
+		border-radius: 5px;
+		padding: 2.5px;
+		transition: background-color 0.2s;
+		filter: invert(1);
+	}
+	#menu-icon:hover {
+		background-color: var(--gray-mild);
 	}
 </style>
