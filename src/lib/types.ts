@@ -35,3 +35,14 @@ export type ActiveSave = {
 	name: string;
 	data: SaveData;
 };
+
+export type FacilityName =
+	| 'control'
+	| 'dormitory'
+	| 'hire'
+	| 'manufacture'
+	| 'meeting'
+	| 'power'
+	| 'trading'
+	| 'training'
+	| 'workshop';

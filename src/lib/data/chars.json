@@ -769,6 +769,15 @@
 		]
 	},
 	{
+		"charId": "char_4017_puzzle",
+		"name": "Puzzle",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "skillId": "meet_spd&team[000]" },
+			{ "elite": 2, "level": 1, "skillId": "meet_spd_notOwned[001]" }
+		]
+	},
+	{
 		"charId": "char_308_swire",
 		"name": "Swire",
 		"rarity": 5,
@@ -1121,6 +1130,15 @@
 		"skills": [
 			{ "elite": 0, "level": 1, "skillId": "dorm_rec_bd_n1_n2[000]" },
 			{ "elite": 2, "level": 1, "skillId": "dorm_rec_bd_n1[000]" }
+		]
+	},
+	{
+		"charId": "char_297_hamoni",
+		"name": "Harmonie",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "skillId": "dorm_rec_oneself[000]" },
+			{ "elite": 2, "level": 1, "skillId": "meet_spd&cost_condChar[000]" }
 		]
 	},
 	{
@@ -2111,6 +2129,16 @@
 		"skills": [
 			{ "elite": 0, "level": 1, "skillId": "dorm_powToRecAll[000]" },
 			{ "elite": 2, "level": 1, "skillId": "dorm_powToRecAll[010]" }
+		]
+	},
+	{
+		"charId": "char_1020_reed2",
+		"name": "Reed The Flame Shadow",
+		"rarity": 6,
+		"skills": [
+			{ "elite": 0, "level": 1, "skillId": "train_spd_doubleProf[100]" },
+			{ "elite": 2, "level": 1, "skillId": "train_spd_doubleProf[110]" },
+			{ "elite": 1, "level": 1, "skillId": "control_dorm_rec[000]" }
 		]
 	},
 	{

@@ -45,19 +45,31 @@ NAME_CHANGES = {
 
 HEX_CODE_PATTERN = re.compile(r"#[0-9A-F]{6}")
 
+DISALLOWED_FACILITY_TYPES = {
+    "elevator", "corridor"
+}
+
+FACILITY_NAME_CHANGES = {
+    "manufacture": "manu",
+    "trading": "trade",
+    "dormitory": "dorm",
+    "training": "train",
+    "meeting": "meet"
+}
+
 
 # The type hint for char_info is lenient because declaring the entire schema is too painful
-def is_operator(char_info: dict) -> bool:
+def is_operator(char_info: dict[str, object]) -> bool:
     return char_info["profession"] != "TOKEN" \
         and char_info["profession"] != "TRAP" \
         and not char_info["isNotObtainable"]
 
 
-def save_image(session: Session, category: Asset, name: str) -> None:
+def save_image(session: Session, category: Asset, name: str, new_name: str | None = None) -> None:
     folder, base_url, quality = itemgetter("folder", "base_url", "quality")(
         category.value
     )
-    target_path = Path(f"./static/{folder}/{name}.webp")
+    target_path = Path(f"./static/{folder}/{new_name or name}.webp")
 
     if target_path.is_file():
         # No need to attempt downloading image if it is already present
@@ -77,6 +89,7 @@ def save_image(session: Session, category: Asset, name: str) -> None:
 char_data = []
 all_skill_ids: set[str] = set()
 all_skills: dict[str, dict[str, str]] = {}
+facility_info: dict[str, dict[str, str | list[str]]] = {}
 
 with Session() as s:
     CHARS = (
@@ -90,10 +103,9 @@ with Session() as s:
         .json()
     )
 
-    EN_SKILL_DATA = (
+    FACILITY_DATA, EN_SKILL_DATA = itemgetter("rooms", "buffs")(
         s.get("https://raw.githubusercontent.com/Kengxxiao/ArknightsGameData/master/en_US/gamedata/excel/building_data.json")
         .json()
-        ["buffs"]
     )
 
     TEXT_STYLES, CN_SPECIAL_TERMS = itemgetter("richTextStyles", "termDescriptionDict")(
@@ -143,17 +155,39 @@ with Session() as s:
             })
             save_image(s, Asset.CHAR, char_id)
 
+    for facility in FACILITY_DATA.values():
+        facility_id = facility["id"].lower()
+        if facility_id not in DISALLOWED_FACILITY_TYPES:
+            power_cost_by_level: list[int] = []
+            capacity_by_level: list[int] = []
+            for level in facility["phases"]:
+                power_cost_by_level.append(level["electricity"])
+                capacity_by_level.append(level["maxStationedNum"])
+            facility_info.update({
+                facility_id: {
+                    "name": facility["name"],
+                    "power": power_cost_by_level,
+                    "capacity": capacity_by_level
+                }
+            })
+            save_image(
+                s,
+                Asset.FACILITY,
+                FACILITY_NAME_CHANGES.get(facility_id, facility_id),
+                facility_id
+            )
+
     for rank in range(3):
         save_image(s, Asset.ELITE, str(rank))
-
-    for facility in ("control", "dorm", "hire", "manu", "meet", "power", "trade", "train", "workshop"):
-        save_image(s, Asset.FACILITY, facility)
 
 with open("src/lib/data/chars.json", "w") as f:
     json.dump(char_data, f, ensure_ascii=False)
 
 with open("src/lib/data/skills.json", "w") as f:
     json.dump(all_skills, f, ensure_ascii=False)
+
+with open("src/lib/data/facilities.json", "w") as f:
+    json.dump(facility_info, f, ensure_ascii=False)
 
 with open("src/lib/data/text-colors.json", "w") as f:
     STYLES = {

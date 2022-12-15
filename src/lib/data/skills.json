@@ -589,6 +589,11 @@
 		"desc": "进驻会客室时，线索搜集速度提升<@cc.vup>10%</>，且更容易获得线索板上尚未拥有的线索",
 		"iconId": "bskill_meet_spdNotOwned2"
 	},
+	"meet_spd_notOwned[001]": {
+		"name": "情报分析",
+		"desc": "进驻会客室时，更容易获得线索板上尚未拥有的线索",
+		"iconId": "bskill_meet_spdNotOwned1"
+	},
 	"control_tra_spd[010]": {
 		"name": "Princess",
 		"desc": "When this Operator is assigned to the Control Center, all Trading Posts' order efficiency <@cc.vup>+7%</> (only the most effective one will take effect when assigned Operators have the same skill effect)",
@@ -888,6 +893,11 @@
 		"name": "Sleep Talking",
 		"desc": "When this Operator is assigned to a Dormitory, every <@cc.vup>1</> levels of <$cc.bd_a1_a2><@cc.rem>Dreamland</></> is converted into <@cc.vup>1</> points of <$cc.bd_a1><@cc.rem>Perception Information</></>",
 		"iconId": "bskill_dorm_all&bd_n1"
+	},
+	"meet_spd&cost_condChar[000]": {
+		"name": "双面间谍",
+		"desc": "进驻会客室时，如果会客室内只有自身处于工作状态时，线索搜集速度提升<@cc.vup>50%</>，心情每小时消耗<@cc.vdown>+2</>",
+		"iconId": "bskill_meet_spd&cost_condChar"
 	},
 	"power_rec_spd[022]": {
 		"name": "Heat Charge γ",
@@ -1225,8 +1235,8 @@
 		"iconId": "bskill_train_sniper1"
 	},
 	"train_spd&profession2[240]": {
-		"name": "拂弦",
-		"desc": "进驻训练室协助位时，<@cc.kw>狙击</>干员的专精技能训练速度<@cc.vup>+30%</>，如果本次训练专精技能至<@cc.vup>2</>级，则训练速度额外<@cc.vup>+45%</>",
+		"name": "Pluck String",
+		"desc": "When this Operator is assigned to be the Trainer in the Training Room, <@cc.kw>Sniper</> Operators' Specialization training speed <@cc.vup>+30%</>; if training this skill to Specialization Level <@cc.vup>2</>, training speed will be further increased by <@cc.vup>+45%</>",
 		"iconId": "bskill_train2_sniper1"
 	},
 	"power_rec_drone[000]": {
@@ -1823,6 +1833,21 @@
 		"name": "Glimmering Glow β",
 		"desc": "When this Operator is assigned to a Dormitory, restores <@cc.vup>+0.15</> Morale per hour to all Operators assigned to that Dormitory, and every <@cc.kw>1</> Power Plant increases restoration by another <@cc.vup>+0.05</> (Only the strongest stacked effect of this type takes place)",
 		"iconId": "bskill_dorm_powToRecAll2"
+	},
+	"train_spd_doubleProf[100]": {
+		"name": "红龙之血",
+		"desc": "进驻训练室协助位时，<@cc.kw>术师</>与<@cc.kw>医疗</>干员的专精技能训练速度<@cc.vup>+30%</>",
+		"iconId": "bskill_train_caster&medic1"
+	},
+	"train_spd_doubleProf[110]": {
+		"name": "红龙之血",
+		"desc": "进驻训练室协助位时，<@cc.kw>术师</>与<@cc.kw>医疗</>干员的专精技能训练速度<@cc.vup>+45%</>",
+		"iconId": "bskill_train_caster&medic2"
+	},
+	"control_dorm_rec[000]": {
+		"name": "领袖",
+		"desc": "进驻控制中枢时，所有宿舍内所有干员的心情每小时恢复<@cc.vup>+0.05</>（同种效果取最高）",
+		"iconId": "bskill_ctrl_leader"
 	},
 	"train_spd&profession[130]": {
 		"name": "Hannya",
