@@ -22,7 +22,7 @@
 		},
 		{
 			title: 'Editor',
-			url: ''
+			url: '/editor'
 		},
 		{
 			title: 'Results',
