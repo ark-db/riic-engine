@@ -27,7 +27,9 @@
 	}
 
 	function formatTime(secsElapsed: number): string {
-		if (secsElapsed < 60) {
+		if (secsElapsed === 0) {
+			return 'Just now';
+		} else if (secsElapsed < 60) {
 			return formatStr(secsElapsed, 'second');
 		} else if (secsElapsed < 60 * 60) {
 			return formatStr(Math.floor(secsElapsed / 60), 'minute');
