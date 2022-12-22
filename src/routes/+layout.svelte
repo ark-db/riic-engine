@@ -18,6 +18,7 @@
 		--dark-mild: #444550;
 		--darkish: #343538;
 		--dark: #2d2e31;
+		--darker: #2a2b2b;
 		--dark-strong: #1f2023;
 		--blue-mild: #4a82ea;
 		--blue: #1d67ee;

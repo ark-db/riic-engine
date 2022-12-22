@@ -13,7 +13,7 @@
 <style>
 	header {
 		padding: 1em;
-		background-color: var(--dark-strong);
+		background: var(--dark-strong);
 		display: flex;
 		align-items: center;
 		gap: 1em;

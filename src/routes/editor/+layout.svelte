@@ -49,8 +49,6 @@
 			<p class="app-title">RIIC Engine</p>
 		</a>
 
-		<p class="save-name">{$activeSave.name}</p>
-
 		<div class="links">
 			{#each tabs as tab}
 				{@const url = `${base}/editor${tab.url}`}
@@ -81,7 +79,7 @@
 		clip-path: inset(0 -0.5em 0 0);
 		display: flex;
 		flex-direction: column;
-		row-gap: 0.5em;
+		row-gap: 1em;
 		transition: width 0.15s;
 	}
 	nav.hidden {
@@ -96,27 +94,23 @@
 		white-space: nowrap;
 	}
 	.home-link {
+		border: 2px solid transparent;
 		padding: 0.5em;
 		background-color: var(--dark-strong);
 		display: flex;
 		align-items: center;
 		column-gap: 0.75em;
+		transition: border 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+	}
+	.home-link:is(:hover, :focus-within) {
+		border: 2px solid var(--blue-strong);
+		background-color: var(--darker);
 	}
 	.app-title {
 		margin: 0;
 		color: var(--light);
 		font-weight: 600;
 		font-size: 1.5em;
-	}
-	.save-name {
-		margin: 0;
-		border-left: 0.3em solid var(--blue-mild);
-		border-radius: 0 0.5em 0.5em 0;
-		padding: 0.75em;
-		background-color: var(--dark-strong);
-		color: var(--light-strong);
-		text-align: center;
-		font-weight: 600;
 	}
 	.links {
 		display: flex;
