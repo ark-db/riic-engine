@@ -8,6 +8,7 @@
 	import logo from '$lib/images/logo.png';
 	import menuIcon from '$lib/images/menu.png';
 	import Button from '$lib/components/Button.svelte';
+	import GradientContainer from '$lib/components/GradientContainer.svelte';
 
 	type NavLink = {
 		title: string;
@@ -44,12 +45,12 @@
 
 <div class="container">
 	<nav class:hidden={!menuActive}>
-		<a href="/" class="home-link" on:mousedown|preventDefault>
-			<div class="home-link-inner">
+		<GradientContainer --weight="3px" --radius="0.5em" --bg-color="var(--dark-strong)">
+			<a href="/" class="home-link" on:mousedown|preventDefault>
 				<img src={logo} alt="App logo" width="48" height="48" />
 				<p class="app-title">RIIC Engine</p>
-			</div>
-		</a>
+			</a>
+		</GradientContainer>
 
 		<div class="links">
 			{#each tabs as tab}
@@ -96,34 +97,6 @@
 		white-space: nowrap;
 	}
 	.home-link {
-		padding: 3px;
-		background-color: var(--dark-strong);
-		background-clip: content-box;
-		position: relative;
-	}
-	.home-link:after,
-	.home-link:before {
-		position: absolute;
-		top: 0;
-		bottom: 0;
-		left: 0;
-		right: 0;
-		content: '';
-	}
-	.home-link:after {
-		border-radius: inherit;
-		background: var(--dark-strong);
-		z-index: -1;
-		transition: opacity 0.2s;
-	}
-	.home-link:before {
-		background: linear-gradient(to right, var(--blue-strong), var(--blue-mild));
-		z-index: -2;
-	}
-	.home-link:is(:hover, :focus-within):after {
-		opacity: 0;
-	}
-	.home-link-inner {
 		padding: 0.5em;
 		display: flex;
 		align-items: center;
