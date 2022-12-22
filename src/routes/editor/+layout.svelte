@@ -45,8 +45,10 @@
 <div class="container">
 	<nav class:hidden={!menuActive}>
 		<a href="/" class="home-link" on:mousedown|preventDefault>
-			<img src={logo} alt="App logo" width="48" height="48" />
-			<p class="app-title">RIIC Engine</p>
+			<div class="home-link-inner">
+				<img src={logo} alt="App logo" width="48" height="48" />
+				<p class="app-title">RIIC Engine</p>
+			</div>
 		</a>
 
 		<div class="links">
@@ -94,17 +96,41 @@
 		white-space: nowrap;
 	}
 	.home-link {
-		border: 2px solid transparent;
-		padding: 0.5em;
+		padding: 3px;
 		background-color: var(--dark-strong);
+		background-clip: content-box;
+		position: relative;
+	}
+	.home-link:after,
+	.home-link:before {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		content: '';
+	}
+	.home-link:after {
+		border-radius: inherit;
+		background: var(--dark-strong);
+		z-index: -1;
+		transition: opacity 0.2s;
+	}
+	.home-link:before {
+		background: linear-gradient(to right, var(--blue-strong), var(--blue-mild));
+		z-index: -2;
+	}
+	.home-link:is(:hover, :focus-within):after {
+		opacity: 0;
+	}
+	.home-link-inner {
+		padding: 0.5em;
 		display: flex;
 		align-items: center;
 		column-gap: 0.75em;
-		transition: border 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 	}
 	.home-link:is(:hover, :focus-within) {
-		border: 2px solid var(--blue-strong);
-		background-color: var(--darker);
+		background-color: var(--dark);
 	}
 	.app-title {
 		margin: 0;
