@@ -7,8 +7,8 @@
 	import type { ActiveSave } from '$lib/types';
 	import logo from '$lib/images/logo.png';
 	import menuIcon from '$lib/images/menu.png';
-	import Button from '$lib/components/Button.svelte';
 	import GradientContainer from '$lib/components/GradientContainer.svelte';
+	import Button from '$lib/components/Button.svelte';
 
 	type NavLink = {
 		title: string;
