@@ -46,7 +46,7 @@
 <div class="container">
 	<nav class:hidden={!menuActive}>
 		<GradientContainer --weight="3px" --radius="0.5em" --bg-color="var(--dark-strong)">
-			<a href="/" class="home-link" on:mousedown|preventDefault>
+			<a href="/" class="home-link">
 				<img src={logo} alt="App logo" width="48" height="48" />
 				<p class="app-title">RIIC Engine</p>
 			</a>
@@ -55,7 +55,7 @@
 		<div class="links">
 			{#each tabs as tab}
 				{@const url = `${base}/editor${tab.url}`}
-				<a href={url} class:active={$page.url.pathname === url} on:mousedown|preventDefault>
+				<a href={url} class:active={$page.url.pathname === url}>
 					{tab.title}
 				</a>
 			{/each}

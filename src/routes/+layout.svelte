@@ -1,7 +1,18 @@
-<script>
+<script lang="ts">
 	import { error } from '$lib/stores';
 	import Error from '$lib/components/Error.svelte';
+
+	function handleMousedown(event: MouseEvent) {
+		if (
+			event.target &&
+			(event.target instanceof HTMLAnchorElement || event.target instanceof HTMLImageElement)
+		) {
+			event.preventDefault();
+		}
+	}
 </script>
+
+<svelte:body on:mousedown={handleMousedown} />
 
 <slot />
 
