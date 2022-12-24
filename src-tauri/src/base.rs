@@ -69,11 +69,11 @@ impl Layout {
             pp: Vec::with_capacity(3),
             rr: Facility {
                 shifts: Vec::new(),
-                level: 1,
+                level: 0,
             },
             office: Facility {
                 shifts: Vec::new(),
-                level: 1,
+                level: 0,
             },
             dorm: Vec::with_capacity(5),
         }

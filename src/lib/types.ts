@@ -10,7 +10,7 @@ type Facility = {
 		start: number;
 		end: number;
 	}[];
-	level: 1 | 2 | 3 | 4 | 5;
+	level: number;
 };
 
 type AtMostFive<T> = [T?, T?, T?, T?, T?];

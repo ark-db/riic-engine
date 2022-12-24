@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { assets } from '$app/paths';
 	import facilities from '$lib/data/facilities.json';
 	import type { FacilityName } from '$lib/types';
 	import LevelIndicator from './LevelIndicator.svelte';
@@ -25,7 +26,10 @@
 		<p class="facility-name">
 			{facilities[kind].name}
 		</p>
-		<LevelIndicator {level} --color={facilityNameToColor[kind]} />
+		<div class="graphics">
+			<img src={`${assets}/facilities/${kind}.webp`} alt="Facility icon" height="32" width="32" />
+			<LevelIndicator {level} --color={facilityNameToColor[kind]} />
+		</div>
 	</div>
 
 	<div class="buttons">
@@ -58,7 +62,12 @@
 	.info {
 		display: flex;
 		flex-direction: column;
-		row-gap: 0.5em;
+		row-gap: 0.75em;
+	}
+	.graphics {
+		display: flex;
+		align-items: center;
+		column-gap: 0.75em;
 	}
 	.facility-name {
 		margin: 0;
