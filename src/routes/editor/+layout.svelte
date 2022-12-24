@@ -75,6 +75,7 @@
 		display: flex;
 	}
 	nav {
+		z-index: 98;
 		width: clamp(14em, 20%, 18em);
 		padding: 0.5em;
 		background-color: var(--darkish);

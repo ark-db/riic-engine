@@ -19,7 +19,7 @@
 	function handleFocus(e: FocusEvent) {
 		// test different target element depending on the event type
 		let target = (e.type as FocusEventType) === 'focusin' ? e.target : e.relatedTarget;
-		focused = target instanceof Node && (container?.contains(target) ?? false);
+		focused = target instanceof Node && container?.contains(target);
 	}
 
 	function formatStr(num: number, unit: string): string {

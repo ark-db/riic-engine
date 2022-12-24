@@ -46,4 +46,7 @@
 	:root::-webkit-scrollbar {
 		display: none;
 	}
+	:global(button:hover) {
+		cursor: pointer;
+	}
 </style>

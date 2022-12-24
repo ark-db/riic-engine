@@ -23,7 +23,7 @@
 <style>
 	button {
 		margin: 0;
-		border: 0;
+		border: none;
 		padding: 0;
 		background: none;
 	}
