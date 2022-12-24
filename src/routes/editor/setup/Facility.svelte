@@ -8,15 +8,15 @@
 	let maxLevel = facilities[kind].capacity.length;
 
 	const facilityNameToColor: Record<FacilityName, string> = {
-		control: 'rgb(35, 80, 80)',
-		dormitory: 'rgb(93, 195, 182)',
-		hire: 'rgb(147, 147, 147)',
-		manufacture: 'rgb(243, 219, 75)',
-		meeting: 'rgb(203, 105, 80)',
-		power: 'rgb(158, 188, 71)',
-		trading: 'rgb(50, 115, 167)',
-		training: 'rgb(118, 21, 39)',
-		workshop: 'rgb(235, 232, 76)'
+		control: '#005752',
+		dormitory: '#21cdcb',
+		hire: '#565656',
+		manufacture: '#ffd800',
+		meeting: '#dd653f',
+		power: '#8fc31f',
+		trading: '#0075a9',
+		training: '#7d0022',
+		workshop: '#e3eb00'
 	};
 </script>
 
