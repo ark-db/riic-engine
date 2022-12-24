@@ -49,6 +49,18 @@ DISALLOWED_FACILITY_TYPES = {
     "elevator", "corridor"
 }
 
+FACILITY_COLORS = {
+    "control": "#005752",
+    "dormitory": "#21cdcb",
+    "hire": "#565656",
+    "manufacture": "#ffd800",
+    "meeting": "#dd653f",
+    "power": "#8fc31f",
+    "trading": "#0075a9",
+    "training": "#7d0022",
+    "workshop": "#e3eb00"
+}
+
 FACILITY_NAME_CHANGES = {
     "manufacture": "manu",
     "trading": "trade",
@@ -166,6 +178,7 @@ with Session() as s:
             facility_info.update({
                 facility_id: {
                     "name": facility["name"],
+                    "color": FACILITY_COLORS[facility_id],
                     "power": power_cost_by_level,
                     "capacity": capacity_by_level
                 }

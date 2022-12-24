@@ -7,28 +7,16 @@
 	export let level: number;
 
 	let maxLevel = facilities[kind].capacity.length;
-
-	const facilityNameToColor: Record<FacilityName, string> = {
-		control: '#005752',
-		dormitory: '#21cdcb',
-		hire: '#565656',
-		manufacture: '#ffd800',
-		meeting: '#dd653f',
-		power: '#8fc31f',
-		trading: '#0075a9',
-		training: '#7d0022',
-		workshop: '#e3eb00'
-	};
 </script>
 
-<div class="container" style:border={`0.5em solid ${facilityNameToColor[kind]}`}>
+<div class="container" style:border={`0.5em solid ${facilities[kind].color}`}>
 	<div class="info">
 		<p class="facility-name">
 			{facilities[kind].name}
 		</p>
 		<div class="graphics">
 			<img src={`${assets}/facilities/${kind}.webp`} alt="Facility icon" height="32" width="32" />
-			<LevelIndicator {level} --color={facilityNameToColor[kind]} />
+			<LevelIndicator {level} --color={facilities[kind].color} />
 		</div>
 	</div>
 
