@@ -66,7 +66,7 @@
 	.info {
 		display: flex;
 		flex-direction: column;
-		row-gap: 0.75em;
+		row-gap: 0.5em;
 	}
 	.graphics {
 		display: flex;
@@ -84,9 +84,9 @@
 	}
 	button {
 		position: absolute;
-		margin: 0.3em 0;
+		margin: 0.2em 0;
 		border: none;
-		padding: 0.2em 0.1em;
+		padding: 0.1em;
 		background: none;
 	}
 	.increment {
