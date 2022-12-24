@@ -2,4 +2,4 @@
 	import Facility from './Facility.svelte';
 </script>
 
-<Facility kind={'control'} />
+<Facility kind={'control'} level={1} />
