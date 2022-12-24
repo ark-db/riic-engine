@@ -33,22 +33,26 @@
 	</div>
 
 	<div class="buttons">
-		<button on:click={() => (level += 1)} disabled={level >= maxLevel}>
-			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" height="32" width="32">
-				<path
-					d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z"
-					fill="#9a9696"
-				/>
-			</svg>
-		</button>
-		<button on:click={() => (level -= 1)} disabled={level === 1}>
-			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" height="32" width="32">
-				<path
-					d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"
-					fill="#9a9696"
-				/>
-			</svg>
-		</button>
+		{#if level < maxLevel}
+			<button class="increment" on:click={() => (level += 1)}>
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" height="32" width="32">
+					<path
+						d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z"
+						fill="#9a9696"
+					/>
+				</svg>
+			</button>
+		{/if}
+		{#if level > 1}
+			<button class="decrement" on:click={() => (level -= 1)}>
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" height="32" width="32">
+					<path
+						d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"
+						fill="#9a9696"
+					/>
+				</svg>
+			</button>
+		{/if}
 	</div>
 </div>
 
@@ -76,15 +80,25 @@
 		font-weight: 600;
 	}
 	.buttons {
-		display: flex;
-		align-items: center;
-		flex-direction: column;
-		row-gap: 0.1em;
+		position: relative;
 	}
 	button {
-		margin: 0;
+		position: absolute;
+		margin: 0.3em 0;
 		border: none;
-		padding: 0;
+		padding: 0.2em 0.1em;
 		background: none;
+	}
+	.increment {
+		bottom: 0;
+	}
+	.decrement {
+		top: 0;
+	}
+	button:is(:hover, :focus-within) path {
+		fill: var(--light);
+	}
+	path {
+		transition: fill 0.3s;
 	}
 </style>

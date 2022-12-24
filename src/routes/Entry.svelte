@@ -134,9 +134,6 @@
 		font-size: 1.25em;
 		font-weight: 600;
 	}
-	.entry-title:hover {
-		cursor: pointer;
-	}
 	.right {
 		display: flex;
 		align-items: center;
@@ -178,7 +175,6 @@
 		padding: 0.75em;
 		font-size: 0.8em;
 		font-weight: 600;
-		cursor: pointer;
 	}
 	.cancel {
 		background-color: var(--light);
