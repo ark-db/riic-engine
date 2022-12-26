@@ -84,4 +84,12 @@
 		grid-row: 5 / 6;
 		grid-column: 2 / 3;
 	}
+	.tp-wrapper,
+	.fac-wrapper,
+	.pp-wrapper,
+	.dorm-wrapper {
+		display: flex;
+		flex-direction: column;
+		row-gap: 0.5em;
+	}
 </style>

@@ -2,7 +2,6 @@
 	import { base } from '$app/paths';
 	import { page } from '$app/stores';
 	import { onMount } from 'svelte';
-	import { fly } from 'svelte/transition';
 	import { invoke } from '@tauri-apps/api/tauri';
 	import { activeSave, error } from '$lib/stores';
 	import type { ActiveSave } from '$lib/types';
@@ -46,7 +45,7 @@
 
 <div class="container">
 	{#if menuActive}
-		<nav transition:fly|local={{ x: -200, duration: 150 }}>
+		<nav>
 			<GradientContainer --weight="3px" --radius="0.5em" --bg-color="var(--dark-strong)">
 				<a href="/" class="home-link">
 					<img src={logo} alt="App logo" width="48" height="48" />
@@ -64,27 +63,27 @@
 			</div>
 		</nav>
 	{/if}
-	<main>
-		<div class="top-bar">
-			<Button desc={menuIconDesc} onClick={() => (menuActive = !menuActive)}>
-				<img src={menuIcon} alt={menuIconDesc} id="menu-icon" width="32" height="32" />
-			</Button>
-		</div>
-		<div class="content">
-			<slot />
-		</div>
+	<section class="top-bar" class:nav-hidden={!menuActive}>
+		<Button desc={menuIconDesc} onClick={() => (menuActive = !menuActive)}>
+			<img src={menuIcon} alt={menuIconDesc} id="menu-icon" width="32" height="32" />
+		</Button>
+	</section>
+	<main class:nav-hidden={!menuActive}>
+		<slot />
 	</main>
 </div>
 
 <style>
 	.container {
-		min-height: 100vh;
-		display: flex;
+		height: 100vh;
+		display: grid;
+		grid-template-rows: 3em 1fr;
+		grid-template-columns: 15em 1fr;
 	}
 	nav {
+		grid-row: span 2;
+		grid-column: 1 / 2;
 		z-index: 98;
-		min-width: 14em;
-		max-width: 18em;
 		padding: 0.5em;
 		background-color: var(--darkish);
 		box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.75);
@@ -130,17 +129,14 @@
 		color: var(--light);
 		background-color: var(--dark-strong);
 	}
-	main {
-		flex-grow: 1;
-		background-color: var(--dark-strong);
-		overflow: auto;
-	}
 	.top-bar {
-		z-index: 97;
-		position: fixed;
-		top: 0;
-		width: 100%;
-		padding: 0.5em;
+		grid-row: 1 / 2;
+		grid-column: 2 / 3;
+		padding: 0.75em 0.5em 0.5em;
+		align-self: center;
+	}
+	.top-bar.nav-hidden {
+		grid-column: span 2;
 	}
 	#menu-icon {
 		border-radius: 5px;
@@ -153,8 +149,14 @@
 	#menu-icon:hover {
 		background-color: var(--gray-mild);
 	}
-	.content {
-		margin-top: 3em;
+	main {
+		grid-row: 2 / 3;
+		grid-column: 2 / 3;
+		background-color: var(--dark-strong);
+		overflow: auto;
 		padding: 0.5em;
+	}
+	main.nav-hidden {
+		grid-column: span 2;
 	}
 </style>
