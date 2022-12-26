@@ -1,6 +1,13 @@
-<script>
+<script lang="ts">
 	import { activeSave } from '$lib/stores';
+	import type { Facility as FacilityType } from '$lib/types';
 	import Facility from './Facility.svelte';
+	import AddFacility from './AddFacility.svelte';
+
+	const newFacility: FacilityType = {
+		shifts: [],
+		level: 1
+	};
 </script>
 
 <div class="container">
@@ -11,16 +18,43 @@
 		{#each $activeSave.data.layout.tp as facility}
 			<Facility kind={'trading'} minLevel={1} bind:level={facility.level} />
 		{/each}
+		{#if $activeSave.data.layout.tp.length < 5}
+			<AddFacility
+				kind={'trading'}
+				on:click={() => {
+					$activeSave.data.layout.tp.push(newFacility);
+					$activeSave = $activeSave;
+				}}
+			/>
+		{/if}
 	</div>
 	<div class="fac-wrapper">
 		{#each $activeSave.data.layout.fac as facility}
 			<Facility kind={'manufacture'} minLevel={1} bind:level={facility.level} />
 		{/each}
+		{#if $activeSave.data.layout.fac.length < 5}
+			<AddFacility
+				kind={'manufacture'}
+				on:click={() => {
+					$activeSave.data.layout.fac.push(newFacility);
+					$activeSave = $activeSave;
+				}}
+			/>
+		{/if}
 	</div>
 	<div class="pp-wrapper">
 		{#each $activeSave.data.layout.pp as facility}
 			<Facility kind={'power'} minLevel={1} bind:level={facility.level} />
 		{/each}
+		{#if $activeSave.data.layout.pp.length < 5}
+			<AddFacility
+				kind={'power'}
+				on:click={() => {
+					$activeSave.data.layout.pp.push(newFacility);
+					$activeSave = $activeSave;
+				}}
+			/>
+		{/if}
 	</div>
 	<div class="dorm-wrapper">
 		{#each $activeSave.data.layout.dorm as facility}

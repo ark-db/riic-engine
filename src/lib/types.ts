@@ -4,7 +4,7 @@ export type FileData = {
 	readonly created: number;
 };
 
-type Facility = {
+export type Facility = {
 	shifts: {
 		char: string;
 		start: number;
