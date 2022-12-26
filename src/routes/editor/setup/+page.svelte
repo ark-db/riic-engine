@@ -5,21 +5,21 @@
 
 <div class="container">
 	<div class="control">
-		<Facility kind={'control'} bind:level={$activeSave.data.layout.cc.level} />
+		<Facility kind={'control'} minLevel={1} bind:level={$activeSave.data.layout.cc.level} />
 	</div>
 	<div class="tp-wrapper">
 		{#each $activeSave.data.layout.tp as facility}
-			<Facility kind={'trading'} bind:level={facility.level} />
+			<Facility kind={'trading'} minLevel={1} bind:level={facility.level} />
 		{/each}
 	</div>
 	<div class="fac-wrapper">
 		{#each $activeSave.data.layout.fac as facility}
-			<Facility kind={'manufacture'} bind:level={facility.level} />
+			<Facility kind={'manufacture'} minLevel={1} bind:level={facility.level} />
 		{/each}
 	</div>
 	<div class="pp-wrapper">
 		{#each $activeSave.data.layout.pp as facility}
-			<Facility kind={'power'} bind:level={facility.level} />
+			<Facility kind={'power'} minLevel={1} bind:level={facility.level} />
 		{/each}
 	</div>
 	<div class="dorm-wrapper">

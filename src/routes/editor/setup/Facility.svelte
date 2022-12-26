@@ -5,6 +5,7 @@
 	import LevelIndicator from './LevelIndicator.svelte';
 	export let kind: FacilityName;
 	export let level: number;
+	export let minLevel = 0;
 
 	let maxLevel = facilities[kind].capacity.length;
 </script>
@@ -31,7 +32,7 @@
 				</svg>
 			</button>
 		{/if}
-		{#if level > 0}
+		{#if level > minLevel}
 			<button class="decrement" on:click={() => (level -= 1)}>
 				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" height="32" width="32">
 					<path
