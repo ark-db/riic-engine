@@ -65,10 +65,14 @@
 		</nav>
 	{/if}
 	<main>
-		<Button desc={menuIconDesc} onClick={() => (menuActive = !menuActive)}>
-			<img src={menuIcon} alt={menuIconDesc} id="menu-icon" width="32" height="32" />
-		</Button>
-		<slot />
+		<div class="top-bar">
+			<Button desc={menuIconDesc} onClick={() => (menuActive = !menuActive)}>
+				<img src={menuIcon} alt={menuIconDesc} id="menu-icon" width="32" height="32" />
+			</Button>
+		</div>
+		<div class="content">
+			<slot />
+		</div>
 	</main>
 </div>
 
@@ -132,6 +136,11 @@
 		background-color: var(--dark-strong);
 		overflow: auto;
 	}
+	.top-bar {
+		position: fixed;
+		top: 0;
+		padding: 0.5em 0;
+	}
 	#menu-icon {
 		border-radius: 5px;
 		padding: 2.5px;
@@ -140,5 +149,15 @@
 	}
 	#menu-icon:hover {
 		background-color: var(--gray-mild);
+	}
+	.content {
+		margin-top: 3em;
+	}
+	::-webkit-scrollbar {
+		background-color: var(--dark-strong);
+	}
+	::-webkit-scrollbar-thumb {
+		border-radius: 50vh;
+		background-color: var(--dark-mild);
 	}
 </style>

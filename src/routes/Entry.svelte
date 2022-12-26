@@ -43,6 +43,7 @@
 	function handleDelete() {
 		pendingDelete = false;
 		saveList.delete(save.name);
+		hovering = false;
 	}
 </script>
 
