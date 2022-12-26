@@ -22,7 +22,6 @@
 		gap: 0.5em;
 	}
 	.control {
-		/* grid-area: 'control control'; */
 		grid-row: 1 / 2;
 		grid-column: 1 / 3;
 	}

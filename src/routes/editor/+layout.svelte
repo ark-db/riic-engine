@@ -2,6 +2,7 @@
 	import { base } from '$app/paths';
 	import { page } from '$app/stores';
 	import { onMount } from 'svelte';
+	import { fly } from 'svelte/transition';
 	import { invoke } from '@tauri-apps/api/tauri';
 	import { activeSave, error } from '$lib/stores';
 	import type { ActiveSave } from '$lib/types';
@@ -44,23 +45,25 @@
 </script>
 
 <div class="container">
-	<nav class:hidden={!menuActive}>
-		<GradientContainer --weight="3px" --radius="0.5em" --bg-color="var(--dark-strong)">
-			<a href="/" class="home-link">
-				<img src={logo} alt="App logo" width="48" height="48" />
-				<p class="app-title">RIIC Engine</p>
-			</a>
-		</GradientContainer>
-
-		<div class="links">
-			{#each tabs as tab}
-				{@const url = `${base}/editor${tab.url}`}
-				<a href={url} class:active={$page.url.pathname === url}>
-					{tab.title}
+	{#if menuActive}
+		<nav transition:fly|local={{ x: -200, duration: 150 }}>
+			<GradientContainer --weight="3px" --radius="0.5em" --bg-color="var(--dark-strong)">
+				<a href="/" class="home-link">
+					<img src={logo} alt="App logo" width="48" height="48" />
+					<p class="app-title">RIIC Engine</p>
 				</a>
-			{/each}
-		</div>
-	</nav>
+			</GradientContainer>
+
+			<div class="links">
+				{#each tabs as tab}
+					{@const url = `${base}/editor${tab.url}`}
+					<a href={url} class:active={$page.url.pathname === url}>
+						{tab.title}
+					</a>
+				{/each}
+			</div>
+		</nav>
+	{/if}
 	<main>
 		<Button desc={menuIconDesc} onClick={() => (menuActive = !menuActive)}>
 			<img src={menuIcon} alt={menuIconDesc} id="menu-icon" width="32" height="32" />
@@ -76,7 +79,8 @@
 	}
 	nav {
 		z-index: 98;
-		width: clamp(14em, 20%, 18em);
+		min-width: 14em;
+		max-width: 18em;
 		padding: 0.5em;
 		background-color: var(--darkish);
 		box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.75);
@@ -85,17 +89,6 @@
 		flex-direction: column;
 		row-gap: 1em;
 		transition: width 0.15s;
-	}
-	nav.hidden {
-		width: 0;
-		padding: 0.5em 0;
-		box-shadow: none;
-		clip-path: none;
-	}
-	nav,
-	nav * {
-		overflow: clip;
-		white-space: nowrap;
 	}
 	.home-link {
 		padding: 0.5em;
