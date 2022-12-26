@@ -132,7 +132,6 @@
 	}
 	main {
 		flex-grow: 1;
-		padding: 0.5em;
 		background-color: var(--dark-strong);
 		overflow: auto;
 	}
@@ -141,7 +140,7 @@
 		position: fixed;
 		top: 0;
 		width: 100%;
-		padding: 0.5em 0;
+		padding: 0.5em;
 	}
 	#menu-icon {
 		border-radius: 5px;
@@ -156,12 +155,6 @@
 	}
 	.content {
 		margin-top: 3em;
-	}
-	::-webkit-scrollbar {
-		background-color: var(--dark-strong);
-	}
-	::-webkit-scrollbar-thumb {
-		border-radius: 50vh;
-		background-color: var(--dark-mild);
+		padding: 0.5em;
 	}
 </style>
