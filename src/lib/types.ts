@@ -13,17 +13,16 @@ type Facility = {
 	level: number;
 };
 
-type AtMostFive<T> = [T?, T?, T?, T?, T?];
-
 export type SaveData = {
 	layout: {
 		cc: Facility;
-		tp: AtMostFive<Facility>;
-		fac: AtMostFive<Facility>;
-		pp: AtMostFive<Facility>;
+		tp: Facility[];
+		fac: Facility[];
+		pp: Facility[];
+		workshop: Facility;
 		rr: Facility;
 		office: Facility;
-		dorm: AtMostFive<Facility>;
+		dorm: Facility[];
 	};
 	chars: {
 		char: string;

@@ -2,7 +2,7 @@
 
 use serde::{Deserialize, Serialize};
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Default)]
 pub struct Save {
     layout: Layout,
     chars: Vec<CharData>,
@@ -14,6 +14,7 @@ struct Layout {
     tp: Vec<Facility>,
     fac: Vec<Facility>,
     pp: Vec<Facility>,
+    workshop: Facility,
     rr: Facility,
     office: Facility,
     dorm: Vec<Facility>,
@@ -38,24 +39,7 @@ struct CharData {
     tier: u8,
 }
 
-#[derive(Serialize, Deserialize)]
-enum Operator {}
-
-impl Save {
-    #[must_use]
-    pub fn new() -> Self {
-        Self {
-            layout: Layout::new(),
-            chars: Vec::new(),
-        }
-    }
-}
-
-impl Default for Save {
-    fn default() -> Self {
-        Self::new()
-    }
-}
+type Operator = String;
 
 impl Layout {
     fn new() -> Self {
@@ -64,9 +48,22 @@ impl Layout {
                 shifts: Vec::new(),
                 level: 1,
             },
-            tp: Vec::with_capacity(3),
-            fac: Vec::with_capacity(5),
-            pp: Vec::with_capacity(3),
+            tp: vec![Facility {
+                shifts: Vec::new(),
+                level: 1,
+            }],
+            fac: vec![Facility {
+                shifts: Vec::new(),
+                level: 1,
+            }],
+            pp: vec![Facility {
+                shifts: Vec::new(),
+                level: 1,
+            }],
+            workshop: Facility {
+                shifts: Vec::new(),
+                level: 1,
+            },
             rr: Facility {
                 shifts: Vec::new(),
                 level: 0,
@@ -75,7 +72,16 @@ impl Layout {
                 shifts: Vec::new(),
                 level: 0,
             },
-            dorm: Vec::with_capacity(5),
+            dorm: vec![Facility {
+                shifts: Vec::new(),
+                level: 1,
+            }],
         }
+    }
+}
+
+impl Default for Layout {
+    fn default() -> Self {
+        Self::new()
     }
 }

@@ -71,6 +71,7 @@
 		row-gap: 0.5em;
 	}
 	.placeholder {
+		margin: 0 1em;
 		border-radius: 1em;
 		padding: 1em;
 		background-color: var(--dark-strong);

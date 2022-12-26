@@ -98,7 +98,7 @@ pub fn fetch_saves(app: tauri::AppHandle) -> CmdResult<Vec<FileData>> {
 pub fn create_save(app: tauri::AppHandle) -> CmdResult<()> {
     let save_dir = get_saves_dir(&app)?;
     let target_path = get_available_fp(save_dir, "Untitled");
-    serde_json::to_writer(fs::File::create(target_path)?, &Save::new())?;
+    serde_json::to_writer(fs::File::create(target_path)?, &Save::default())?;
     Ok(())
 }
 

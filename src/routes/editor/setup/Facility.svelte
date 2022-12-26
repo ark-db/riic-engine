@@ -49,7 +49,7 @@
 		padding: 0.75em;
 		display: flex;
 		align-items: center;
-		column-gap: 1em;
+		justify-content: space-between;
 	}
 	.info {
 		display: flex;
@@ -69,6 +69,7 @@
 	}
 	.buttons {
 		position: relative;
+		right: 2em;
 	}
 	button {
 		position: absolute;
