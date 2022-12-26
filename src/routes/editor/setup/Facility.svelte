@@ -15,7 +15,7 @@
 			{facilities[kind].name}
 		</p>
 		<div class="graphics">
-			<img src={`${assets}/facilities/${kind}.webp`} alt="Facility icon" height="32" width="32" />
+			<img src={`${assets}/facilities/${kind}.webp`} alt="Facility icon" height="36" width="36" />
 			<LevelIndicator {level} --color={facilities[kind].color} />
 		</div>
 	</div>
@@ -31,7 +31,7 @@
 				</svg>
 			</button>
 		{/if}
-		{#if level > 1}
+		{#if level > 0}
 			<button class="decrement" on:click={() => (level -= 1)}>
 				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" height="32" width="32">
 					<path

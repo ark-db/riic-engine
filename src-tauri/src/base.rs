@@ -17,6 +17,7 @@ struct Layout {
     workshop: Facility,
     rr: Facility,
     office: Facility,
+    train: Facility,
     dorm: Vec<Facility>,
 }
 
@@ -41,41 +42,32 @@ struct CharData {
 
 type Operator = String;
 
+impl Facility {
+    fn new(level: u8) -> Self {
+        Self {
+            shifts: Vec::new(),
+            level,
+        }
+    }
+}
+
 impl Layout {
     fn new() -> Self {
         Self {
-            cc: Facility {
-                shifts: Vec::new(),
-                level: 1,
-            },
-            tp: vec![Facility {
-                shifts: Vec::new(),
-                level: 1,
-            }],
-            fac: vec![Facility {
-                shifts: Vec::new(),
-                level: 1,
-            }],
-            pp: vec![Facility {
-                shifts: Vec::new(),
-                level: 1,
-            }],
-            workshop: Facility {
-                shifts: Vec::new(),
-                level: 1,
-            },
-            rr: Facility {
-                shifts: Vec::new(),
-                level: 0,
-            },
-            office: Facility {
-                shifts: Vec::new(),
-                level: 0,
-            },
-            dorm: vec![Facility {
-                shifts: Vec::new(),
-                level: 1,
-            }],
+            cc: Facility::new(1),
+            tp: vec![Facility::new(1)],
+            fac: vec![Facility::new(1)],
+            pp: vec![Facility::new(1)],
+            workshop: Facility::new(1),
+            rr: Facility::new(0),
+            office: Facility::new(0),
+            train: Facility::new(0),
+            dorm: vec![
+                Facility::new(1),
+                Facility::new(0),
+                Facility::new(0),
+                Facility::new(0),
+            ],
         }
     }
 }

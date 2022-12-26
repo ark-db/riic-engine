@@ -22,6 +22,7 @@ export type SaveData = {
 		workshop: Facility;
 		rr: Facility;
 		office: Facility;
+		train: Facility;
 		dorm: Facility[];
 	};
 	chars: {

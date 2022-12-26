@@ -137,13 +137,17 @@
 		overflow: auto;
 	}
 	.top-bar {
+		z-index: 97;
 		position: fixed;
 		top: 0;
+		width: 100%;
 		padding: 0.5em 0;
 	}
 	#menu-icon {
 		border-radius: 5px;
 		padding: 2.5px;
+		background-color: var(--light);
+		box-shadow: 0 0 0.5em rgba(255, 255, 255, 0.75);
 		transition: background-color 0.2s;
 		filter: invert(1);
 	}
