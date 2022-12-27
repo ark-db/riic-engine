@@ -87,7 +87,7 @@
 	.container {
 		display: grid;
 		grid-template-rows: repeat(5, auto);
-		grid-template-columns: repeat(5, 15em);
+		grid-template-columns: repeat(5, minmax(15em, 24em));
 		gap: 0.5em;
 	}
 	.control {
