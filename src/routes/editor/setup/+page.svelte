@@ -15,8 +15,17 @@
 		<Facility kind={'control'} minLevel={1} bind:level={$activeSave.data.layout.cc.level} />
 	</div>
 	<div class="tp-wrapper">
-		{#each $activeSave.data.layout.tp as tradingPost}
-			<Facility kind={'trading'} minLevel={1} bind:level={tradingPost.level} />
+		{#each $activeSave.data.layout.tp as tradingPost, i}
+			<Facility
+				kind={'trading'}
+				minLevel={1}
+				deletable
+				bind:level={tradingPost.level}
+				on:delete={() => {
+					$activeSave.data.layout.tp.splice(i, 1);
+					$activeSave = $activeSave;
+				}}
+			/>
 		{/each}
 		{#if $activeSave.data.layout.tp.length < 5}
 			<AddFacility
@@ -29,8 +38,17 @@
 		{/if}
 	</div>
 	<div class="fac-wrapper">
-		{#each $activeSave.data.layout.fac as factory}
-			<Facility kind={'manufacture'} minLevel={1} bind:level={factory.level} />
+		{#each $activeSave.data.layout.fac as factory, i}
+			<Facility
+				kind={'manufacture'}
+				minLevel={1}
+				deletable
+				bind:level={factory.level}
+				on:delete={() => {
+					$activeSave.data.layout.fac.splice(i, 1);
+					$activeSave = $activeSave;
+				}}
+			/>
 		{/each}
 		{#if $activeSave.data.layout.fac.length < 5}
 			<AddFacility
@@ -43,8 +61,17 @@
 		{/if}
 	</div>
 	<div class="pp-wrapper">
-		{#each $activeSave.data.layout.pp as powerPlant}
-			<Facility kind={'power'} minLevel={1} bind:level={powerPlant.level} />
+		{#each $activeSave.data.layout.pp as powerPlant, i}
+			<Facility
+				kind={'power'}
+				minLevel={1}
+				deletable
+				bind:level={powerPlant.level}
+				on:delete={() => {
+					$activeSave.data.layout.pp.splice(i, 1);
+					$activeSave = $activeSave;
+				}}
+			/>
 		{/each}
 		{#if $activeSave.data.layout.pp.length < 5}
 			<AddFacility
