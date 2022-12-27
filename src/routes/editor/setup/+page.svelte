@@ -4,10 +4,18 @@
 	import Facility from './Facility.svelte';
 	import AddFacility from './AddFacility.svelte';
 
-	const newFacility: FacilityType = {
-		shifts: [],
-		level: 1
-	};
+	function addFacility(facilities: FacilityType[]) {
+		facilities.push({
+			shifts: [],
+			level: 1
+		});
+		$activeSave = $activeSave;
+	}
+
+	function deleteFacility(facilities: FacilityType[], index: number) {
+		facilities.splice(index, 1);
+		$activeSave = $activeSave;
+	}
 </script>
 
 <div class="container">
@@ -21,20 +29,11 @@
 				minLevel={1}
 				deletable
 				bind:level={tradingPost.level}
-				on:delete={() => {
-					$activeSave.data.layout.tp.splice(i, 1);
-					$activeSave = $activeSave;
-				}}
+				on:delete={() => deleteFacility($activeSave.data.layout.tp, i)}
 			/>
 		{/each}
 		{#if $activeSave.data.layout.tp.length < 5}
-			<AddFacility
-				kind={'trading'}
-				on:click={() => {
-					$activeSave.data.layout.tp.push(newFacility);
-					$activeSave = $activeSave;
-				}}
-			/>
+			<AddFacility kind={'trading'} on:click={() => addFacility($activeSave.data.layout.tp)} />
 		{/if}
 	</div>
 	<div class="fac-wrapper">
@@ -44,20 +43,11 @@
 				minLevel={1}
 				deletable
 				bind:level={factory.level}
-				on:delete={() => {
-					$activeSave.data.layout.fac.splice(i, 1);
-					$activeSave = $activeSave;
-				}}
+				on:delete={() => deleteFacility($activeSave.data.layout.fac, i)}
 			/>
 		{/each}
 		{#if $activeSave.data.layout.fac.length < 5}
-			<AddFacility
-				kind={'manufacture'}
-				on:click={() => {
-					$activeSave.data.layout.fac.push(newFacility);
-					$activeSave = $activeSave;
-				}}
-			/>
+			<AddFacility kind={'manufacture'} on:click={() => addFacility($activeSave.data.layout.fac)} />
 		{/if}
 	</div>
 	<div class="pp-wrapper">
@@ -67,20 +57,11 @@
 				minLevel={1}
 				deletable
 				bind:level={powerPlant.level}
-				on:delete={() => {
-					$activeSave.data.layout.pp.splice(i, 1);
-					$activeSave = $activeSave;
-				}}
+				on:delete={() => deleteFacility($activeSave.data.layout.pp, i)}
 			/>
 		{/each}
 		{#if $activeSave.data.layout.pp.length < 5}
-			<AddFacility
-				kind={'power'}
-				on:click={() => {
-					$activeSave.data.layout.pp.push(newFacility);
-					$activeSave = $activeSave;
-				}}
-			/>
+			<AddFacility kind={'power'} on:click={() => addFacility($activeSave.data.layout.pp)} />
 		{/if}
 	</div>
 	<div class="dorm-wrapper">
