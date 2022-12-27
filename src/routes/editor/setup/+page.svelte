@@ -15,8 +15,8 @@
 		<Facility kind={'control'} minLevel={1} bind:level={$activeSave.data.layout.cc.level} />
 	</div>
 	<div class="tp-wrapper">
-		{#each $activeSave.data.layout.tp as facility}
-			<Facility kind={'trading'} minLevel={1} bind:level={facility.level} />
+		{#each $activeSave.data.layout.tp as tradingPost}
+			<Facility kind={'trading'} minLevel={1} bind:level={tradingPost.level} />
 		{/each}
 		{#if $activeSave.data.layout.tp.length < 5}
 			<AddFacility
@@ -29,8 +29,8 @@
 		{/if}
 	</div>
 	<div class="fac-wrapper">
-		{#each $activeSave.data.layout.fac as facility}
-			<Facility kind={'manufacture'} minLevel={1} bind:level={facility.level} />
+		{#each $activeSave.data.layout.fac as factory}
+			<Facility kind={'manufacture'} minLevel={1} bind:level={factory.level} />
 		{/each}
 		{#if $activeSave.data.layout.fac.length < 5}
 			<AddFacility
@@ -43,8 +43,8 @@
 		{/if}
 	</div>
 	<div class="pp-wrapper">
-		{#each $activeSave.data.layout.pp as facility}
-			<Facility kind={'power'} minLevel={1} bind:level={facility.level} />
+		{#each $activeSave.data.layout.pp as powerPlant}
+			<Facility kind={'power'} minLevel={1} bind:level={powerPlant.level} />
 		{/each}
 		{#if $activeSave.data.layout.pp.length < 5}
 			<AddFacility
