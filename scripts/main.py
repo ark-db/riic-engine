@@ -28,7 +28,7 @@ class Asset(Enum):
     FACILITY = {
         "folder": "facilities",
         "base_url": "https://raw.githubusercontent.com/Aceship/Arknight-Images/main/ui/infrastructure/",
-        "quality": 50
+        "quality": 100
     }
 
 
@@ -77,7 +77,7 @@ def is_operator(char_info: dict[str, object]) -> bool:
         and not char_info["isNotObtainable"]
 
 
-def save_image(session: Session, category: Asset, name: str, new_name: str | None = None) -> None:
+def save_image(session: Session, category: Asset, name: str, new_name: str | None = None, upscale: bool = False) -> None:
     folder, base_url, quality = itemgetter("folder", "base_url", "quality")(
         category.value
     )
@@ -88,9 +88,14 @@ def save_image(session: Session, category: Asset, name: str, new_name: str | Non
         return
     elif (res := session.get(f"{base_url}{name}.png")):
         # The Response returned from get() is truthy if the status code is 2xx or 3xx
-        Image.open(BytesIO(res.content)) \
-             .convert("RGBA") \
-             .save(target_path, "webp", quality=quality)
+        image = Image.open(BytesIO(res.content)).convert("RGBA")
+        if upscale:
+            width, height = image.size
+            image = image.resize(
+                (width*2, height*2),
+                resample=Image.Resampling.LANCZOS
+            )
+        image.save(target_path, "webp", quality=quality)
     else:
         warnings.warn(
             f"Could not save image of {category.name.lower()} with ID \"{name}\"",
@@ -186,8 +191,9 @@ with Session() as s:
             save_image(
                 s,
                 Asset.FACILITY,
-                FACILITY_NAME_CHANGES.get(facility_id, facility_id),
-                facility_id
+                name=FACILITY_NAME_CHANGES.get(facility_id, facility_id),
+                new_name=facility_id,
+                upscale=True
             )
 
     for rank in range(3):
