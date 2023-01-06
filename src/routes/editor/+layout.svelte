@@ -2,11 +2,14 @@
 	import { base } from '$app/paths';
 	import { page } from '$app/stores';
 	import { onMount } from 'svelte';
+	import { derived } from 'svelte/store';
 	import { invoke } from '@tauri-apps/api/tauri';
 	import { activeSave, error } from '$lib/stores';
 	import type { ActiveSave } from '$lib/types';
+	import facilityData from '$lib/data/facilities.json';
 	import logo from '$lib/images/logo.png';
 	import menuIcon from '$lib/images/menu.png';
+	import power from '$lib/images/power.png';
 	import GradientContainer from '$lib/components/GradientContainer.svelte';
 	import Button from '$lib/components/Button.svelte';
 
@@ -41,6 +44,47 @@
 	}
 	$: updateSave($activeSave);
 	onMount(() => (init = false));
+
+	const powerUsage = derived(activeSave, ($activeSave) => {
+		let power = 0;
+		// Control Center power consumption is 0 at all levels,
+		// so it is not part of the calculation.
+		$activeSave.data.layout.dorm.forEach(
+			(facility) =>
+				(power -=
+					facility.level === 0 ? 0 : facilityData.dormitory.power.at(facility.level - 1) ?? 0)
+		);
+		$activeSave.data.layout.tp.forEach(
+			(facility) => (power -= facilityData.trading.power.at(facility.level - 1) ?? 0)
+		);
+		$activeSave.data.layout.fac.forEach(
+			(facility) => (power -= facilityData.manufacture.power.at(facility.level - 1) ?? 0)
+		);
+		// workshop level must be at least 1, so checking
+		// for level 0 (uninitialized) is unnecessary
+		power -= facilityData.workshop.power.at($activeSave.data.layout.workshop.level - 1) ?? 0;
+		power -=
+			$activeSave.data.layout.rr.level === 0
+				? 0
+				: facilityData.meeting.power.at($activeSave.data.layout.rr.level - 1) ?? 0;
+		power -=
+			$activeSave.data.layout.office.level === 0
+				? 0
+				: facilityData.hire.power.at($activeSave.data.layout.office.level - 1) ?? 0;
+		power -=
+			$activeSave.data.layout.train.level === 0
+				? 0
+				: facilityData.training.power.at($activeSave.data.layout.train.level - 1) ?? 0;
+
+		return power;
+	});
+
+	const maxPower = derived(activeSave, ($activeSave) =>
+		$activeSave.data.layout.pp.reduce(
+			(partialSum, facility) => partialSum + (facilityData.power.power.at(facility.level - 1) ?? 0),
+			0
+		)
+	);
 </script>
 
 <div class="container">
@@ -67,6 +111,14 @@
 		<Button desc={menuIconDesc} onClick={() => (menuActive = !menuActive)}>
 			<img src={menuIcon} alt={menuIconDesc} id="menu-icon" width="32" height="32" />
 		</Button>
+		<div class="power-usage">
+			<img src={power} alt="Power usage of base facilities" width="34" height="34" />
+			<div class="text">
+				<p class="power-stats">{$powerUsage}</p>
+				<span class="power-divider">/</span>
+				<p class="power-stats">{$maxPower}</p>
+			</div>
+		</div>
 	</section>
 	<main class:nav-hidden={!menuActive}>
 		<slot />
@@ -132,13 +184,17 @@
 	.top-bar {
 		grid-row: 1 / 2;
 		grid-column: 2 / 3;
-		padding: 0.75em 0.5em 0.5em;
+		padding: 1em 0.5em;
 		align-self: center;
+		display: flex;
+		justify-content: space-between;
+		/*column-gap: 2.5em;*/
 	}
 	.top-bar.nav-hidden {
 		grid-column: span 2;
 	}
 	#menu-icon {
+		margin-top: 0.25em;
 		border-radius: 5px;
 		padding: 2.5px;
 		background-color: var(--light);
@@ -148,6 +204,29 @@
 	}
 	#menu-icon:hover {
 		background-color: var(--gray-mild);
+	}
+	.power-usage {
+		padding: 0 0.5em;
+		color: var(--light);
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		column-gap: 0.5em;
+	}
+	.power-usage .text {
+		display: flex;
+		align-items: center;
+	}
+	.power-stats {
+		margin: 0;
+		font-size: 1.25em;
+		font-weight: 600;
+	}
+	.power-divider {
+		margin: 0;
+		padding: 0 0.1em;
+		font-size: 2em;
+		font-weight: 100;
 	}
 	main {
 		grid-row: 2 / 3;

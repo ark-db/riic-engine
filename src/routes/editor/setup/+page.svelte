@@ -70,7 +70,7 @@
 		{/each}
 	</div>
 	<div class="workshop">
-		<Facility kind={'workshop'} bind:level={$activeSave.data.layout.workshop.level} />
+		<Facility kind={'workshop'} minLevel={1} bind:level={$activeSave.data.layout.workshop.level} />
 	</div>
 	<div class="reception">
 		<Facility kind={'meeting'} bind:level={$activeSave.data.layout.rr.level} />
