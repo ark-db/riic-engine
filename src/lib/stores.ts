@@ -128,18 +128,17 @@ export const powerUsage = derived(activeSave, (save) => {
 	let power = 0;
 	// Control Center power consumption is 0 at all levels,
 	// so it is not part of the calculation.
-	save.data.layout.dorm.forEach(
-		(facility) =>
-			(power -= facility.level === 0 ? 0 : facilityData.dormitory.power.at(facility.level - 1) ?? 0)
-	);
-	save.data.layout.tp.forEach(
-		(facility) => (power -= facilityData.trading.power.at(facility.level - 1) ?? 0)
-	);
-	save.data.layout.fac.forEach(
-		(facility) => (power -= facilityData.manufacture.power.at(facility.level - 1) ?? 0)
-	);
-	// workshop level must be at least 1, so checking
+	for (const fac of save.data.layout.dorm) {
+		power -= fac.level === 0 ? 0 : facilityData.dormitory.power.at(fac.level - 1) ?? 0;
+	}
+	// factory, trading post, and workshop level must be at least 1, so checking
 	// for level 0 (uninitialized) is unnecessary
+	for (const fac of save.data.layout.tp) {
+		power -= facilityData.trading.power.at(fac.level - 1) ?? 0;
+	}
+	for (const fac of save.data.layout.fac) {
+		power -= facilityData.manufacture.power.at(fac.level - 1) ?? 0;
+	}
 	power -= facilityData.workshop.power.at(save.data.layout.workshop.level - 1) ?? 0;
 	power -=
 		save.data.layout.rr.level === 0
