@@ -2,11 +2,9 @@
 	import { base } from '$app/paths';
 	import { page } from '$app/stores';
 	import { onMount } from 'svelte';
-	import { derived } from 'svelte/store';
 	import { invoke } from '@tauri-apps/api/tauri';
-	import { activeSave, error } from '$lib/stores';
+	import { activeSave, error, powerUsage, maxPower } from '$lib/stores';
 	import type { ActiveSave } from '$lib/types';
-	import facilityData from '$lib/data/facilities.json';
 	import logo from '$lib/images/logo.png';
 	import menuIcon from '$lib/images/menu.png';
 	import power from '$lib/images/power.png';
@@ -44,47 +42,6 @@
 	}
 	$: updateSave($activeSave);
 	onMount(() => (init = false));
-
-	const powerUsage = derived(activeSave, ($activeSave) => {
-		let power = 0;
-		// Control Center power consumption is 0 at all levels,
-		// so it is not part of the calculation.
-		$activeSave.data.layout.dorm.forEach(
-			(facility) =>
-				(power -=
-					facility.level === 0 ? 0 : facilityData.dormitory.power.at(facility.level - 1) ?? 0)
-		);
-		$activeSave.data.layout.tp.forEach(
-			(facility) => (power -= facilityData.trading.power.at(facility.level - 1) ?? 0)
-		);
-		$activeSave.data.layout.fac.forEach(
-			(facility) => (power -= facilityData.manufacture.power.at(facility.level - 1) ?? 0)
-		);
-		// workshop level must be at least 1, so checking
-		// for level 0 (uninitialized) is unnecessary
-		power -= facilityData.workshop.power.at($activeSave.data.layout.workshop.level - 1) ?? 0;
-		power -=
-			$activeSave.data.layout.rr.level === 0
-				? 0
-				: facilityData.meeting.power.at($activeSave.data.layout.rr.level - 1) ?? 0;
-		power -=
-			$activeSave.data.layout.office.level === 0
-				? 0
-				: facilityData.hire.power.at($activeSave.data.layout.office.level - 1) ?? 0;
-		power -=
-			$activeSave.data.layout.train.level === 0
-				? 0
-				: facilityData.training.power.at($activeSave.data.layout.train.level - 1) ?? 0;
-
-		return power;
-	});
-
-	const maxPower = derived(activeSave, ($activeSave) =>
-		$activeSave.data.layout.pp.reduce(
-			(partialSum, facility) => partialSum + (facilityData.power.power.at(facility.level - 1) ?? 0),
-			0
-		)
-	);
 </script>
 
 <div class="container">

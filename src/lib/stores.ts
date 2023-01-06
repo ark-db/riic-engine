@@ -1,7 +1,8 @@
 import { goto } from '$app/navigation';
-import { writable } from 'svelte/store';
+import { writable, derived } from 'svelte/store';
 import { invoke } from '@tauri-apps/api/tauri';
 import type { SaveData, FileData, ActiveSave } from '$lib/types';
+import facilityData from '$lib/data/facilities.json';
 import pencilClockIcon from '$lib/images/pencil-clock.svg';
 import plusClockIcon from '$lib/images/plus-clock.svg';
 import listIncreasingIcon from '$lib/images/list-increasing.svg';
@@ -122,3 +123,43 @@ export const error = createError();
 export const saveSortMode = createSaveSortMode();
 export const saveSortOrder = createSaveSortOrder();
 export const activeSave = createActiveSave();
+
+export const powerUsage = derived(activeSave, (save) => {
+	let power = 0;
+	// Control Center power consumption is 0 at all levels,
+	// so it is not part of the calculation.
+	save.data.layout.dorm.forEach(
+		(facility) =>
+			(power -= facility.level === 0 ? 0 : facilityData.dormitory.power.at(facility.level - 1) ?? 0)
+	);
+	save.data.layout.tp.forEach(
+		(facility) => (power -= facilityData.trading.power.at(facility.level - 1) ?? 0)
+	);
+	save.data.layout.fac.forEach(
+		(facility) => (power -= facilityData.manufacture.power.at(facility.level - 1) ?? 0)
+	);
+	// workshop level must be at least 1, so checking
+	// for level 0 (uninitialized) is unnecessary
+	power -= facilityData.workshop.power.at(save.data.layout.workshop.level - 1) ?? 0;
+	power -=
+		save.data.layout.rr.level === 0
+			? 0
+			: facilityData.meeting.power.at(save.data.layout.rr.level - 1) ?? 0;
+	power -=
+		save.data.layout.office.level === 0
+			? 0
+			: facilityData.hire.power.at(save.data.layout.office.level - 1) ?? 0;
+	power -=
+		save.data.layout.train.level === 0
+			? 0
+			: facilityData.training.power.at(save.data.layout.train.level - 1) ?? 0;
+
+	return power;
+});
+
+export const maxPower = derived(activeSave, (save) =>
+	save.data.layout.pp.reduce(
+		(partialSum, facility) => partialSum + (facilityData.power.power.at(facility.level - 1) ?? 0),
+		0
+	)
+);
