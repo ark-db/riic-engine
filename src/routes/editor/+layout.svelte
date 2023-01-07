@@ -7,7 +7,7 @@
 	import type { ActiveSave } from '$lib/types';
 	import logo from '$lib/images/logo.png';
 	import menuIcon from '$lib/images/menu.png';
-	import power from '$lib/images/power.png';
+	import powerIcon from '$lib/images/power.png';
 	import GradientContainer from '$lib/components/GradientContainer.svelte';
 	import Button from '$lib/components/Button.svelte';
 
@@ -69,7 +69,7 @@
 			<img src={menuIcon} alt={menuIconDesc} id="menu-icon" width="32" height="32" />
 		</Button>
 		<div class="power-usage">
-			<img src={power} alt="Power usage of base facilities" width="34" height="34" />
+			<img src={powerIcon} alt="Power usage of base facilities" width="34" height="34" />
 			<div class="text">
 				<p class="power-stats">{$powerUsage}</p>
 				<span class="power-divider">/</span>
