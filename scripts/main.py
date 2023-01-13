@@ -106,7 +106,7 @@ def save_image(session: Session, category: Asset, name: str, new_name: str | Non
 char_data = []
 all_skill_ids: set[str] = set()
 all_skills: dict[str, dict[str, str]] = {}
-facility_info: dict[str, dict[str, str | list[str]]] = {}
+facility_info: dict[str, dict[str, object]] = {}
 
 with Session() as s:
     CHARS = (
@@ -155,13 +155,11 @@ with Session() as s:
                             skill_id, CN_SKILL_DATA[skill_id]
                         )
                         icon_id = skill_info["skillIcon"]
-                        all_skills.update({
-                            skill_id: {
-                                "name": skill_info["buffName"],
-                                "desc": skill_info["description"],
-                                "iconId": icon_id
-                            }
-                        })
+                        all_skills[skill_id] = {
+                            "name": skill_info["buffName"],
+                            "desc": skill_info["description"],
+                            "iconId": icon_id
+                        }
                         save_image(s, Asset.SKILL, icon_id)
 
             char_data.append({
@@ -180,14 +178,12 @@ with Session() as s:
             for level in facility["phases"]:
                 power_cost_by_level.append(level["electricity"])
                 capacity_by_level.append(level["maxStationedNum"])
-            facility_info.update({
-                facility_id: {
-                    "name": facility["name"],
-                    "color": FACILITY_COLORS[facility_id],
-                    "power": power_cost_by_level,
-                    "capacity": capacity_by_level
-                }
-            })
+            facility_info[facility_id] = {
+                "name": facility["name"],
+                "color": FACILITY_COLORS[facility_id],
+                "power": power_cost_by_level,
+                "capacity": capacity_by_level
+            }
             save_image(
                 s,
                 Asset.FACILITY,

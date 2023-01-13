@@ -401,7 +401,7 @@
 	},
 	"trade_ord_limit_count[000]": {
 		"name": "Basic Needs",
-		"desc": "When this Operator is assigned to a Trading Post, reduces the order limit by <@cc.vdown>-1</> for every <@cc.vup>10%</> order acquisition efficiency provided by all other Operators stationed at that Trading Post (to a minimum of 1); Furthermore, increases order acquisition efficiency by <@cc.vup>+4%</> per every <@cc.vup>1</> order(s)",
+		"desc": "When this Operator is assigned to a Trading Post, reduces the order limit by <@cc.vdown>-1</> for every <@cc.vup>10%</> order acquisition efficiency provided by all other Operators stationed at that Trading Post (to a minimum of 1); Furthermore, increases order acquisition efficiency by <@cc.vup>+4%</> for every <@cc.vup>1</> order(s) (<$cc.t.strong2><@cc.rem>Special Interaction Rules</></> apply with certain skills)",
 		"iconId": "bskill_tra_limit_count"
 	},
 	"train_spd&profession[070]": {
@@ -580,13 +580,13 @@
 		"iconId": "bskill_train1_vanguard1"
 	},
 	"meet_spd_notOwned[000]": {
-		"name": "不容遗漏·α",
-		"desc": "进驻会客室时，更容易获得线索板上尚未拥有的线索",
+		"name": "Overlook Nothing α",
+		"desc": "When this Operator is assigned to the Reception Room, increases the likelihood of obtaining clues that are not on the Clue Board.",
 		"iconId": "bskill_meet_spdNotOwned1"
 	},
 	"meet_spd_notOwned[010]": {
-		"name": "不容遗漏·β",
-		"desc": "进驻会客室时，线索搜集速度提升<@cc.vup>10%</>，且更容易获得线索板上尚未拥有的线索",
+		"name": "Overlook Nothing β",
+		"desc": "When this Operator is assigned to the Reception Room, Clue search speed increases by <@cc.vup>10%</>, and increases the likelihood of obtaining clues that are not on the Clue Board.",
 		"iconId": "bskill_meet_spdNotOwned2"
 	},
 	"meet_spd_notOwned[001]": {
@@ -826,7 +826,7 @@
 	},
 	"dorm_rec_single_P[001]": {
 		"name": "Barbecue Master",
-		"desc": "When this Operator is assigned to a Dormitory, restores <@cc.vup>+0.55</> Morale per hour to another Operator assigned to that Dormitory whose Morale is not full (Only the strongest effect of this type takes place); if the target is <@cc.kw>Gavial</>, further increases Morale restored by <@cc.vup>+0.45</>",
+		"desc": "When this Operator is assigned to a Dormitory, restores <@cc.vup>+0.55</> Morale per hour to all other Operators assigned to that Dormitory whose Morale is not full (only the most effective one will take effect when assigned Operators have the same skill effect); if the target is <@cc.kw><@cc.gvial>Gavial</></>, further increases Morale restored by <@cc.vup>+0.45</>",
 		"iconId": "bskill_dorm_single_tomimi"
 	},
 	"train_spd&profession2[150]": {
@@ -940,18 +940,18 @@
 		"iconId": "bskill_ws_drop_polyester"
 	},
 	"manu_constrLv[000]": {
-		"name": "绘图设计",
-		"desc": "进驻制造站时，基建内每间设施每级<@cc.vup>+1</>个<@cc.kw><$cc.bd_malist>工程机器人</></>，上限<@cc.vup>64</>个",
+		"name": "Graphic Design",
+		"desc": "When this Operator is assigned to a Factory, gain <@cc.vup>+1</> <@cc.kw><$cc.bd_malist> Engineering Robot per level per building</></>, max <@cc.vup>64</>",
 		"iconId": "bskill_man_constrLv"
 	},
 	"manu_prod_spd_bd[100]": {
-		"name": "机械辅助·α",
-		"desc": "进驻制造站时，每<@cc.vup>16</>个<@cc.kw><$cc.bd_malist>工程机器人</></><@cc.vup>+5%</>生产力",
+		"name": "Machine Assistance α",
+		"desc": "When this Operator is assigned to a Factory, for every <@cc.vup>16</><@cc.kw><$cc.bd_malist> Engineering Robot present, productivity </></><@cc.vup>+5%</>",
 		"iconId": "bskill_man_spd_bd3"
 	},
 	"manu_prod_spd_bd[110]": {
-		"name": "机械辅助·β",
-		"desc": "进驻制造站时，每<@cc.vup>8</>个<@cc.kw><$cc.bd_malist>工程机器人</></><@cc.vup>+5%</>生产力",
+		"name": "Machine Assistance β",
+		"desc": "When this Operator is assigned to a Factory, for every <@cc.vup>8</><@cc.kw><$cc.bd_malist> Engineering Robot present, productivity </></><@cc.vup>+5%</>",
 		"iconId": "bskill_man_spd_bd4"
 	},
 	"workshop_proc_probability[030]": {
@@ -1006,12 +1006,12 @@
 	},
 	"trade_ord_spd&gold[000]": {
 		"name": "Logistics Planning α",
-		"desc": "When this Operator is assigned to a Trading Post, order acquisition efficiency <@cc.vup>+5%</>; Furthermore, increase order acquisition efficiency by an additional <@cc.vup>+15%</> for every <@cc.kw>4</> <$cc.t.line_gold><@cc.kw>Pure Gold Production Lines</></>",
+		"desc": "When this Operator is assigned to a Trading Post, order acquisition efficiency <@cc.vup>+5%</>; Furthermore, increase order acquisition efficiency by an additional <@cc.vup>+15%</> for every <@cc.kw>4</> <$cc.t.flow_gold><@cc.kw>Pure Gold Production Line</></>",
 		"iconId": "bskill_tra_flow_gs1"
 	},
 	"trade_ord_spd&gold[010]": {
 		"name": "Logistics Planning β",
-		"desc": "When this Operator is assigned to a Trading Post, order acquisition efficiency <@cc.vup>+5%</>; Furthermore, increase order acquisition efficiency by an additional <@cc.vup>+15%</> for every <@cc.kw>2</> <$cc.t.line_gold><@cc.kw>Pure Gold Production Lines</></>",
+		"desc": "When this Operator is assigned to a Trading Post, order acquisition efficiency <@cc.vup>+5%</>; Furthermore, increase order acquisition efficiency by an additional <@cc.vup>+15%</> for every <@cc.kw>2</> <$cc.t.flow_gold><@cc.kw>Pure Gold Production Line</></>",
 		"iconId": "bskill_tra_flow_gs2"
 	},
 	"hire_spd_cost[100]": {
@@ -1045,8 +1045,8 @@
 		"iconId": "bskill_dorm_single3"
 	},
 	"train_spd&profession2[270]": {
-		"name": "护理专精",
-		"desc": "进驻训练室协助位时，<@cc.kw>医疗</>干员的专精技能训练速度<@cc.vup>+30%</>，如果本次训练专精技能至<@cc.vup>2</>级，则训练速度额外<@cc.vup>+45%</>",
+		"name": "Nursing Specialist",
+		"desc": "When this Operator is assigned to be the Trainer in the Training Room, <@cc.kw>Medic</> Operators' Specialization training speed <@cc.vup>+30%</>; if training this skill to Specialization Level <@cc.vup>2</>, training speed will be further increased by <@cc.vup>+45%</>",
 		"iconId": "bskill_train2_medic1"
 	},
 	"control_tra_spd[020]": {
@@ -1160,13 +1160,13 @@
 		"iconId": "bskill_train_artsprotector"
 	},
 	"dorm_rec_bd_n1_n3[000]": {
-		"name": "慢板行歌",
-		"desc": "进驻宿舍时，使该宿舍内除自身以外心情未满的某个干员每小时恢复<@cc.vup>+0.65</>（同种效果取最高），同时当前宿舍每级提供<@cc.vup>1</>个<$cc.bd_a1_a3><@cc.rem>小节</></>",
+		"name": "Adagio",
+		"desc": "When this Operator is assigned to a Dormitory, restores <@cc.vup>+0.65</> Morale per hour to another Operator assigned to that Dormitory whose Morale is not full (only the strongest effect of this type applies), and each Dormitory level gives <@cc.vup>1</> <$cc.bd_a1_a3><@cc.rem>Measure</></>",
 		"iconId": "bskill_dorm_all&bd_n1_n3"
 	},
 	"dorm_rec_bd_n1[100]": {
-		"name": "琴键漫步",
-		"desc": "进驻宿舍时，每<@cc.vup>1</>个<$cc.bd_a1_a3><@cc.rem>小节</></>转化为<@cc.vup>1</>点<$cc.bd_a1><@cc.rem>感知信息</></>",
+		"name": "Walking the Keyboard",
+		"desc": "When this Operator is assigned to a Dormitory, convert every <@cc.vup>1</> <$cc.bd_a1_a3><@cc.rem>Measure</></> to <@cc.vup>1</> <$cc.bd_a1><@cc.rem>Perception Information</></>",
 		"iconId": "bskill_dorm_all&bd_n1_2"
 	},
 	"hire_spd_blitz[000]": {
@@ -1391,12 +1391,12 @@
 	},
 	"trade_ord_line_gold[000]": {
 		"name": "Order Flow Visualization α",
-		"desc": "When this Operator is assigned to a Trading Post, order acquisition efficiency <@cc.vup>+5%</>; Furthermore, gain <@cc.vup>+2</> <$cc.t.line_gold><@cc.kw>Pure Gold Production Lines</></> for every <@cc.kw>4</> <$cc.t.line_gold><@cc.kw>Pure Gold Production Lines</></>",
+		"desc": "When this Operator is assigned to a Trading Post, order acquisition efficiency <@cc.vup>+5%</>, and for every <@cc.kw>4</> <$cc.t.flow_gold><@cc.kw>Pure Gold Production Line</></>, Trading Post gains another <@cc.vup>2</> <$cc.t.flow_gold><@cc.kw>Pure Gold Production Line</></>",
 		"iconId": "bskill_tra_flow_gc1"
 	},
 	"trade_ord_line_gold[010]": {
 		"name": "Order Flow Visualization β",
-		"desc": "When this Operator is assigned to a Trading Post, order acquisition efficiency <@cc.vup>+5%</>; Furthermore, gain <@cc.vup>+2</> <$cc.t.line_gold><@cc.kw>Pure Gold Production Lines</></> for every <@cc.kw>2</> <$cc.t.line_gold><@cc.kw>Pure Gold Production Lines</></>",
+		"desc": "When this Operator is assigned to a Trading Post, order acquisition efficiency <@cc.vup>+5%</>, and for every <@cc.kw>2</> <$cc.t.flow_gold><@cc.kw>Pure Gold Production Line</></>, Trading Post gains another <@cc.vup>2</> <$cc.t.flow_gold><@cc.kw>Pure Gold Production Line</></>",
 		"iconId": "bskill_tra_flow_gc2"
 	},
 	"meet_spd&cost[000]": {
@@ -1475,13 +1475,13 @@
 		"iconId": "bskill_train_sniper3"
 	},
 	"trade_ord_spd&gold[100]": {
-		"name": "销路宣发",
-		"desc": "进驻贸易站时，每有<@cc.kw>1</>条<$cc.t.flow_gold><@cc.kw>赤金生产线</></>，则当前贸易站订单获取效率<@cc.vup>+5%</>",
+		"name": "Sales Promotions",
+		"desc": "When this operator is assigned to a Trading Post, for every <@cc.kw>1</> <$cc.t.flow_gold><@cc.kw> Pure Gold Production Line, </></>, Trading Post order acquisition efficiency <@cc.vup>+5%</>",
 		"iconId": "bskill_tra_flow_gs"
 	},
 	"trade_ord_line_durin[010]": {
-		"name": "际崖居民",
-		"desc": "进驻贸易站时，基建内每<@cc.kw>1</>名<$cc.tag.durin><@cc.kw>杜林族</></>干员（最多<@cc.kw>4</>名）为当前贸易站提供<@cc.kw>1</>条<$cc.t.flow_gold><@cc.kw>赤金生产线</></>",
+		"name": "Zeruertza Resident",
+		"desc": "When this Operator is assigned to a Trading post, for every <@cc.kw>1</> <$cc.tag.durin><@cc.kw>Durin</></> Operator in the base (max <@cc.kw>4</>), Trading Post gains another <@cc.kw>1</><$cc.t.flow_gold><@cc.kw> Pure Gold Production Line</></>",
 		"iconId": "bskill_tra_flow_durin"
 	},
 	"dorm_rec_all&oneself[042]": {
@@ -1645,18 +1645,18 @@
 		"iconId": "bskill_pow_spd3"
 	},
 	"trade_ord_spd_bd_n1[000]": {
-		"name": "乐感",
-		"desc": "进驻贸易站时，宿舍内每有<@cc.kw>1</>名干员则<$cc.bd_a1><@cc.rem>感知信息</></><@cc.vup>+1</>，同时每<@cc.vup>1</>点<$cc.bd_a1><@cc.rem>感知信息</></>转化为<@cc.vup>1</>点<$cc.bd_B><@cc.rem>无声共鸣</></>",
+		"name": "Musicianship",
+		"desc": "When this Operator is assigned to a Trading Post, for every <@cc.kw>1</> Operator in the Dormitories, <$cc.bd_a1><@cc.rem>Perception Information</></> <@cc.vup>+1</>, and every <@cc.vup>1</> <$cc.bd_a1><@cc.rem>Perception Information</></> is converted to <@cc.vup>1</> <$cc.bd_B><@cc.rem>Soundless Resonance</></>",
 		"iconId": "bskill_tra_bd_n1"
 	},
 	"trade_ord_spd_bd[000]": {
-		"name": "徘徊旋律",
-		"desc": "进驻贸易站时，每<@cc.vup>4</>点<$cc.bd_B><@cc.rem>无声共鸣</></><@cc.vup>+1%</>订单效率",
+		"name": "Lingering Melody",
+		"desc": "When this Operator is assigned to a Trading Post, for every <@cc.vup>4</> <$cc.bd_B><@cc.rem>Soundless Resonance</></>, <@cc.vup>+1%</> order efficiency",
 		"iconId": "bskill_tra_spd_bd1"
 	},
 	"trade_ord_spd_bd[010]": {
-		"name": "怅惘和声",
-		"desc": "进驻贸易站时，每<@cc.vup>2</>点<$cc.bd_B><@cc.rem>无声共鸣</></><@cc.vup>+1%</>订单效率",
+		"name": "Harmony Astray",
+		"desc": "When this Operator is assigned to a Trading Post, for every <@cc.vup>2</> <$cc.bd_B><@cc.rem>Soundless Resonance</></>, <@cc.vup>+1%</> order efficiency",
 		"iconId": "bskill_tra_spd_bd2"
 	},
 	"control_mp_cost&faction[030]": {
@@ -1785,8 +1785,8 @@
 		"iconId": "bskill_ctrl_aegir2"
 	},
 	"manu_skill_spd1[000]": {
-		"name": "意识协议",
-		"desc": "进驻制造站时，当前制造站内每个<$cc.sk.manu1><@cc.kw>标准化类技能</></>为自身<@cc.vup>+5%</>的生产力",
+		"name": "Consciousness Agreement",
+		"desc": "When this Operator is assigned to a Factory, provides an additional <@cc.vup>+5%</> productivity for every <$cc.sk.manu1><@cc.kw>Standardization Skill</></> in the same Factory",
 		"iconId": "bskill_man_skill_spd"
 	},
 	"train_spd&profession2[680]": {
@@ -1800,9 +1800,9 @@
 		"iconId": "bskill_train_specter"
 	},
 	"manu_skill_spd1[010]": {
-		"name": "Consciousness Agreement",
-		"desc": "When this Operator is assigned to a Factory, provides an additional <@cc.vup>+5%</> productivity for every <$cc.sk.manu1><@cc.kw>Standardization Skill</></> in the same Factory",
-		"iconId": "bskill_man_skill_spd"
+		"name": "源石技艺理论应用",
+		"desc": "进驻制造站时，当前制造站内每个<$cc.sk.manu2><@cc.kw>莱茵科技类技能</></>为自身<@cc.vup>+5%</>的生产力",
+		"iconId": "bskill_man_skill_spd2"
 	},
 	"dorm_rec_single[020]": {
 		"name": "Mercy",
@@ -1965,13 +1965,13 @@
 		"iconId": "bskill_ws_build3"
 	},
 	"train_spd&profession2[620]": {
-		"name": "实战指导",
-		"desc": "进驻训练室协助位时，<@cc.kw>近卫</>干员的专精技能训练速度<@cc.vup>+30%</>，如果本次训练专精技能至<@cc.vup>3</>级，则训练速度额外<@cc.vup>+65%</>",
+		"name": "Practical Instruction",
+		"desc": "When this Operator is assigned to be the Trainer in the Training Room, <@cc.kw>Guard</> Operators' Specialization training speed <@cc.vup>+30%</>; if training this skill to Specialization Level <@cc.vup>3</>, training speed will be further increased by <@cc.vup>+65%</>",
 		"iconId": "bskill_train3_guard2"
 	},
 	"train_cost&profession[320]": {
-		"name": "过量训练",
-		"desc": "进驻训练室协助<@cc.kw>近卫</>干员训练专精技能至<@cc.vup>3</>级时，心情每小时消耗<@cc.vdown>+1</>",
+		"name": "Excessive Training",
+		"desc": "When this Operator is assigned to be the Trainer in the Training Room, Morale consumed per hour is increased by <@cc.vdown>+1</> when training a <@cc.kw>Guard</> Operator's skill to Specialization Level <@cc.vup>3</>",
 		"iconId": "bskill_train_gavial"
 	},
 	"train_spd&profession[120]": {
