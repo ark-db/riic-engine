@@ -794,6 +794,21 @@
 		"desc": "When this Operator is assigned to the Workshop to process <@cc.kw>elite material</>, the production rate of byproduct increases by <@cc.vup>75%</>",
 		"iconId": "bskill_ws_evolve2"
 	},
+	"manu_bd_to_bd[000]": {
+		"name": "古老巫术",
+		"desc": "进驻制造站时，每<@cc.vup>5</>点<$cc.bd_b1><@cc.rem>人间烟火</></>转化为<@cc.vup>1</>点<$cc.bd_C><@cc.rem>巫术结晶</></>",
+		"iconId": "bskill_man_bd1"
+	},
+	"manu_prod_spd_bd[200]": {
+		"name": "逐水草",
+		"desc": "进驻制造站时，每<@cc.vup>1</>点<$cc.bd_C><@cc.rem>巫术结晶</></><@cc.vup>+1%</>生产力",
+		"iconId": "bskill_man_spd_bd5"
+	},
+	"manu_prod_spd_bd[201]": {
+		"name": "问枯荣",
+		"desc": "进驻制造站时，每<@cc.vup>1</>点<$cc.bd_C><@cc.rem>巫术结晶</></><@cc.vup>+2%</>生产力",
+		"iconId": "bskill_man_spd_bd6"
+	},
 	"control_mp_cost[003]": {
 		"name": "Cleaning Agreement",
 		"desc": "When this Operator is assigned to the Control Center, increases Morale of all Operators in the Control Center by <@cc.vup>+0.05</> per hour.",
@@ -1188,6 +1203,16 @@
 		"name": "Field Experience",
 		"desc": "When this Operator is assigned to be the Trainer in the Training Room, increases the Specialization training speed of <@cc.kw>Defender</> Operators by <@cc.vup>+30%</>, and further increases this speed by <@cc.vup>+45%</> if training the skill to Specialization Level <@cc.vup>2</>",
 		"iconId": "bskill_train2_defender1"
+	},
+	"trade_cost[000]": {
+		"name": "暖场",
+		"desc": "进驻贸易站时，贸易站内干员心情每小时消耗<@cc.vup>-0.1</>",
+		"iconId": "bskill_tra_cost1"
+	},
+	"trade_ord_spd&share[000]": {
+		"name": "代为说项",
+		"desc": "进驻贸易站时，贸易站内除自身以外每名处于工作状态的干员<@cc.vup>+15%</>订单获取效率",
+		"iconId": "bskill_tra_share1"
 	},
 	"train_spd&profession2[130]": {
 		"name": "Polar Survival",
@@ -1639,6 +1664,16 @@
 		"desc": "When this Operator is assigned to be the Trainer in the Training Room, <@cc.kw>Caster</> Operators' Specialization training speed <@cc.vup>+60%</>",
 		"iconId": "bskill_train_caster3"
 	},
+	"hire_spd_cost[111]": {
+		"name": "特殊渠道 ",
+		"desc": "进驻人力办公室时，人脉资源的联络速度<@cc.vup>+20%</>，心情每小时消耗<@cc.vup>-0.25</>",
+		"iconId": "bskill_hire_spd&cost4"
+	},
+	"hire_spd_cost&extra[000]": {
+		"name": "用人唯才",
+		"desc": "进驻人力办公室时，每个招募位（不包含初始招募位）<@cc.vup>+10%</>人脉资源的联络速度",
+		"iconId": "bskill_hire_spd&extra1"
+	},
 	"power_rec_spd[023]": {
 		"name": "Discharge",
 		"desc": "When this Operator is assigned to a Power Plant, increases the drone recovery rate by <@cc.vup>+20%</>",
@@ -1923,6 +1958,16 @@
 		"name": "Columbian History",
 		"desc": "When this Operator is assigned to the Reception Room, every time that a non-<@cc.kw>Rhine Lab</> clue is collected, the likelihood of obtaining <@cc.kw>Rhine Lab</> clues is increased (working time improves the likelihood)",
 		"iconId": "bskill_meet_flag_rhine"
+	},
+	"control_mp_cost&bd_up[000]": {
+		"name": "知我为我",
+		"desc": "进驻控制中枢时，自身心情每小时消耗<@cc.vdown>+0.5</>；每个<$cc.g.sui><@cc.kw>岁</></>干员进驻在宿舍以外的设施则<$cc.bd_b1><@cc.rem>人间烟火</></><@cc.vup>+5</>（最多5名）",
+		"iconId": "bskill_ctrl_cost_bd3"
+	},
+	"control_mp_bd_cost_expand[000]": {
+		"name": "孤光共照",
+		"desc": "进驻控制中枢时，<$cc.c.room2><@cc.kw>其他设施</></>内处于工作状态的干员心情每小时恢复<@cc.vup>+0.05</>；同时每有<@cc.vup>20</>点<$cc.bd_b1><@cc.rem>人间烟火</></>，则额外<@cc.vup>+0.05</>，（与控制中枢加成有<$cc.c.sui2_1><@cc.rem>特殊比较规则</></>）",
+		"iconId": "bskill_ctrl_cost_bd4"
 	},
 	"trade_ord_spd&limit[022]": {
 		"name": "Lord of Karlan",

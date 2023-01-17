@@ -9,7 +9,7 @@ repository = "https://github.com/ark-db/riic-engine"
 
 [tool.poetry.dependencies]
 python = "^3.11"
-requests = "^2.28.1"
+requests = "^2.28.2"
 pillow = "^9.4.0"
 
 

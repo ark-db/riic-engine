@@ -1015,6 +1015,16 @@
 		]
 	},
 	{
+		"charId": "char_4078_bdhkgt",
+		"name": "Jieyun",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "skillId": "manu_bd_to_bd[000]" },
+			{ "elite": 0, "level": 1, "skillId": "manu_prod_spd_bd[200]" },
+			{ "elite": 2, "level": 1, "skillId": "manu_prod_spd_bd[201]" }
+		]
+	},
+	{
 		"charId": "char_279_excu",
 		"name": "Executor",
 		"rarity": 5,
@@ -1443,6 +1453,15 @@
 		"skills": [
 			{ "elite": 0, "level": 1, "skillId": "manu_prod_spd[002]" },
 			{ "elite": 2, "level": 1, "skillId": "manu_prod_spd[012]" }
+		]
+	},
+	{
+		"charId": "char_493_firwhl",
+		"name": "Firewhistle",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "skillId": "trade_cost[000]" },
+			{ "elite": 2, "level": 1, "skillId": "trade_ord_spd&share[000]" }
 		]
 	},
 	{
@@ -1930,6 +1949,15 @@
 		]
 	},
 	{
+		"charId": "char_4080_lin",
+		"name": "Lin",
+		"rarity": 6,
+		"skills": [
+			{ "elite": 0, "level": 1, "skillId": "hire_spd_cost[111]" },
+			{ "elite": 2, "level": 1, "skillId": "hire_spd_cost&extra[000]" }
+		]
+	},
+	{
 		"charId": "char_377_gdglow",
 		"name": "Goldenglow",
 		"rarity": 6,
@@ -2221,6 +2249,15 @@
 		"skills": [
 			{ "elite": 0, "level": 1, "skillId": "hire_spd&clue2[230]" },
 			{ "elite": 2, "level": 1, "skillId": "meet_flag[010]" }
+		]
+	},
+	{
+		"charId": "char_2024_chyue",
+		"name": "Chongyue",
+		"rarity": 6,
+		"skills": [
+			{ "elite": 0, "level": 1, "skillId": "control_mp_cost&bd_up[000]" },
+			{ "elite": 2, "level": 1, "skillId": "control_mp_bd_cost_expand[000]" }
 		]
 	},
 	{
