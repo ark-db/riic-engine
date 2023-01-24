@@ -71,9 +71,12 @@
 		<div class="power-usage">
 			<img src={powerIcon} alt="Power usage of base facilities" width="34" height="34" />
 			<div class="text">
-				<p class="power-stats">{$powerUsage}</p>
-				<span class="power-divider">/</span>
-				<p class="power-stats">{$maxPower}</p>
+				<p class="power-stats">
+					<span class:invalid={$powerUsage < 0 || $powerUsage > $maxPower}>
+						{$powerUsage}
+					</span>
+					/ {$maxPower}
+				</p>
 			</div>
 		</div>
 	</section>
@@ -179,11 +182,8 @@
 		font-size: 1.25em;
 		font-weight: 600;
 	}
-	.power-divider {
-		margin: 0;
-		padding: 0 0.1em;
-		font-size: 2em;
-		font-weight: 100;
+	.power-stats .invalid {
+		color: var(--salmon-strong);
 	}
 	main {
 		grid-row: 2 / 3;
