@@ -1,11 +1,4 @@
-#![allow(
-    clippy::missing_errors_doc,
-    clippy::module_name_repetitions,
-    clippy::needless_pass_by_value
-)]
-
-use crate::base::Save;
-use crate::{CmdError, CmdResult};
+use crate::{base::Save, CmdError, CmdResult};
 use serde::{Deserialize, Serialize};
 use std::{
     fs,
@@ -79,6 +72,11 @@ fn get_available_fp(dir: PathBuf, name: &str) -> PathBuf {
     unreachable!()
 }
 
+/// # Errors
+/// Returns error if:
+/// - Save dir cannot be fetched or read
+/// - Entry in save dir cannot be read
+/// - FileData cannot be initialized
 #[tauri::command]
 pub fn fetch_saves(app: AppHandle) -> CmdResult<Vec<FileData>> {
     let mut saves = Vec::new();
@@ -95,6 +93,10 @@ pub fn fetch_saves(app: AppHandle) -> CmdResult<Vec<FileData>> {
     Ok(saves)
 }
 
+/// # Errors
+/// Returns error if:
+/// - Save dir cannot be fetched
+/// - New save file cannot be created
 #[tauri::command]
 pub fn create_save(app: AppHandle) -> CmdResult<()> {
     let save_dir = get_saves_dir(&app)?;
@@ -103,14 +105,21 @@ pub fn create_save(app: AppHandle) -> CmdResult<()> {
     Ok(())
 }
 
+/// # Errors
+/// Returns error if:
+/// - Path of save file cannot be fetched
+/// - Save file cannot be opened or serialized
 #[tauri::command]
 pub fn load_save(app: AppHandle, name: &str) -> CmdResult<Save> {
     let target_path = get_save_fp(&app, name)?;
     let file = fs::File::open(target_path)?;
-    let data: Save = serde_json::from_reader(BufReader::new(file))?;
-    Ok(data)
+    Ok(serde_json::from_reader(BufReader::new(file))?)
 }
 
+/// # Errors
+/// Returns error if:
+/// - Path of old or new save file cannot be fetched
+/// - Save file cannot be renamed
 #[tauri::command]
 pub fn rename_save(app: AppHandle, old: &str, new: &str) -> CmdResult<()> {
     let new_path = get_save_fp(&app, new)?;
@@ -123,6 +132,10 @@ pub fn rename_save(app: AppHandle, old: &str, new: &str) -> CmdResult<()> {
     Ok(())
 }
 
+/// # Errors
+/// Returns error if:
+/// - Path of save file cannot be fetched
+/// - Save file cannot be created or deserialized
 #[tauri::command]
 pub fn update_save(app: AppHandle, save: Option<ImportedSave>) -> CmdResult<()> {
     if let Some(save) = save {
@@ -132,6 +145,10 @@ pub fn update_save(app: AppHandle, save: Option<ImportedSave>) -> CmdResult<()> 
     Ok(())
 }
 
+/// # Errors
+/// Returns error if:
+/// - Path of save file cannot be fetched
+/// - Save file cannot be removed
 #[tauri::command]
 pub fn delete_save(app: AppHandle, name: &str) -> CmdResult<()> {
     let target_path = get_save_fp(&app, name)?;
@@ -139,6 +156,10 @@ pub fn delete_save(app: AppHandle, name: &str) -> CmdResult<()> {
     Ok(())
 }
 
+/// # Errors
+/// Returns error if:
+/// - Path of save file cannot be fetched
+/// - Save file cannot be copied
 #[tauri::command]
 pub fn export_save(app: tauri::AppHandle, name: &str) -> CmdResult<()> {
     let save_path = get_save_fp(&app, name)?;
