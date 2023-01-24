@@ -6,9 +6,9 @@
 #![feature(is_some_and)]
 #![feature(path_file_prefix)]
 
-use tauri::Manager;
-pub mod base;
-pub mod saves;
+use tauri::{Manager, Window};
+mod base;
+mod saves;
 
 #[derive(Debug, thiserror::Error)]
 pub enum CmdError {
@@ -44,19 +44,18 @@ pub type CmdResult<T> = Result<T, CmdError>;
 
 #[allow(clippy::needless_pass_by_value)]
 #[tauri::command]
-fn show_window(window: tauri::Window) {
+fn show_window(window: Window) {
     let w = window.get_window("main").unwrap();
     w.show().unwrap();
 }
 
 #[allow(clippy::needless_pass_by_value)]
 #[tauri::command]
-fn rename_window(window: tauri::Window, name: Option<&str>) {
+fn rename_window(window: Window, name: Option<&str>) {
     let w = window.get_window("main").unwrap();
 
     if let Some(n) = name {
-        w.set_title(format!("RIIC Engine • {}", n).as_str())
-            .unwrap();
+        w.set_title(&format!("RIIC Engine • {n}")).unwrap();
     } else {
         w.set_title("RIIC Engine").unwrap();
     }

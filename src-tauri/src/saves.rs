@@ -12,6 +12,7 @@ use std::{
     io::BufReader,
     path::{Path, PathBuf},
 };
+use tauri::AppHandle;
 
 #[derive(Serialize)]
 pub struct FileData {
@@ -40,7 +41,7 @@ pub struct ImportedSave {
     data: Save,
 }
 
-fn get_saves_dir(app: &tauri::AppHandle) -> CmdResult<PathBuf> {
+fn get_saves_dir(app: &AppHandle) -> CmdResult<PathBuf> {
     let saves_dir = app
         .path_resolver()
         .app_data_dir()
@@ -54,7 +55,7 @@ fn get_saves_dir(app: &tauri::AppHandle) -> CmdResult<PathBuf> {
     Ok(saves_dir)
 }
 
-fn get_save_fp(app: &tauri::AppHandle, name: &str) -> CmdResult<PathBuf> {
+fn get_save_fp(app: &AppHandle, name: &str) -> CmdResult<PathBuf> {
     if name.is_empty() {
         return Err(CmdError::NameEmpty);
     }
@@ -79,7 +80,7 @@ fn get_available_fp(dir: PathBuf, name: &str) -> PathBuf {
 }
 
 #[tauri::command]
-pub fn fetch_saves(app: tauri::AppHandle) -> CmdResult<Vec<FileData>> {
+pub fn fetch_saves(app: AppHandle) -> CmdResult<Vec<FileData>> {
     let mut saves = Vec::new();
 
     for entry in fs::read_dir(get_saves_dir(&app)?)? {
@@ -95,7 +96,7 @@ pub fn fetch_saves(app: tauri::AppHandle) -> CmdResult<Vec<FileData>> {
 }
 
 #[tauri::command]
-pub fn create_save(app: tauri::AppHandle) -> CmdResult<()> {
+pub fn create_save(app: AppHandle) -> CmdResult<()> {
     let save_dir = get_saves_dir(&app)?;
     let target_path = get_available_fp(save_dir, "Untitled");
     serde_json::to_writer(fs::File::create(target_path)?, &Save::default())?;
@@ -103,7 +104,7 @@ pub fn create_save(app: tauri::AppHandle) -> CmdResult<()> {
 }
 
 #[tauri::command]
-pub fn load_save(app: tauri::AppHandle, name: &str) -> CmdResult<Save> {
+pub fn load_save(app: AppHandle, name: &str) -> CmdResult<Save> {
     let target_path = get_save_fp(&app, name)?;
     let file = fs::File::open(target_path)?;
     let data: Save = serde_json::from_reader(BufReader::new(file))?;
@@ -111,7 +112,7 @@ pub fn load_save(app: tauri::AppHandle, name: &str) -> CmdResult<Save> {
 }
 
 #[tauri::command]
-pub fn rename_save(app: tauri::AppHandle, old: &str, new: &str) -> CmdResult<()> {
+pub fn rename_save(app: AppHandle, old: &str, new: &str) -> CmdResult<()> {
     let new_path = get_save_fp(&app, new)?;
     if new_path.is_file() {
         return Err(CmdError::DuplicateName);
@@ -123,16 +124,16 @@ pub fn rename_save(app: tauri::AppHandle, old: &str, new: &str) -> CmdResult<()>
 }
 
 #[tauri::command]
-pub fn update_save(app: tauri::AppHandle, save: Option<ImportedSave>) -> CmdResult<()> {
+pub fn update_save(app: AppHandle, save: Option<ImportedSave>) -> CmdResult<()> {
     if let Some(save) = save {
-        let save_path = get_save_fp(&app, save.name.as_str())?;
+        let save_path = get_save_fp(&app, &save.name)?;
         serde_json::to_writer(fs::File::create(save_path)?, &save.data)?;
     }
     Ok(())
 }
 
 #[tauri::command]
-pub fn delete_save(app: tauri::AppHandle, name: &str) -> CmdResult<()> {
+pub fn delete_save(app: AppHandle, name: &str) -> CmdResult<()> {
     let target_path = get_save_fp(&app, name)?;
     fs::remove_file(target_path)?;
     Ok(())
@@ -146,16 +147,5 @@ pub fn export_save(app: tauri::AppHandle, name: &str) -> CmdResult<()> {
         name,
     );
     fs::copy(save_path, target_path)?;
-    Ok(())
-}
-
-#[tauri::command]
-pub fn import_saves(app: tauri::AppHandle, saves: Vec<ImportedSave>) -> CmdResult<()> {
-    let mut path = get_saves_dir(&app)?;
-    for save in saves {
-        path.set_file_name(save.name);
-        path.set_extension("json");
-        serde_json::to_writer(fs::File::create(&path)?, &save.data)?;
-    }
     Ok(())
 }
