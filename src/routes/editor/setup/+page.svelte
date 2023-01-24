@@ -88,7 +88,7 @@
 		display: grid;
 		grid-template-rows: repeat(5, auto);
 		grid-template-columns: repeat(5, minmax(15em, 24em));
-		gap: 0.5em;
+		gap: 0.75em;
 	}
 	.control {
 		grid-row: 1 / 2;
@@ -132,6 +132,6 @@
 	.dorm-wrapper {
 		display: flex;
 		flex-direction: column;
-		row-gap: 0.5em;
+		row-gap: 0.75em;
 	}
 </style>

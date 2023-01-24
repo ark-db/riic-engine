@@ -197,7 +197,7 @@
 		grid-column: 2 / 3;
 		background-color: var(--dark-strong);
 		overflow: auto;
-		padding: 1em;
+		padding: 0.75em;
 	}
 	main.nav-hidden {
 		grid-column: span 2;
