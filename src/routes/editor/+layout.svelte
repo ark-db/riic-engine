@@ -8,6 +8,7 @@
 	import logo from '$lib/images/logo.png';
 	import menuIcon from '$lib/images/menu.png';
 	import powerIcon from '$lib/images/power.png';
+	import slash from '$lib/images/slash.png';
 	import GradientContainer from '$lib/components/GradientContainer.svelte';
 	import Button from '$lib/components/Button.svelte';
 
@@ -75,8 +76,9 @@
 					<span class:invalid={$powerUsage < 0 || $powerUsage > $maxPower}>
 						{$powerUsage}
 					</span>
-					/ {$maxPower}
 				</p>
+				<img class="power-divider" src={slash} alt="slash" width="13" height="31" />
+				<p class="power-stats">{$maxPower}</p>
 			</div>
 		</div>
 	</section>
@@ -178,7 +180,7 @@
 		align-items: center;
 	}
 	.power-stats {
-		margin: 0;
+		margin: 0 0.1em;
 		font-size: 1.25em;
 		font-weight: 600;
 	}
