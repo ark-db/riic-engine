@@ -18,7 +18,7 @@ impl FileData {
     fn new(path: &Path, metadata: &fs::Metadata) -> CmdResult<Self> {
         let data = Self {
             name: path
-                .file_prefix()
+                .file_stem()
                 .map_or("Untitled", |f| f.to_str().unwrap())
                 .to_owned(),
             modified: metadata.modified()?.elapsed()?.as_secs(),
@@ -85,8 +85,10 @@ pub fn fetch_saves(app: AppHandle) -> CmdResult<Vec<FileData>> {
         let path = entry?.path();
         let metadata = fs::metadata(&path)?;
 
-        if metadata.is_file() && path.extension().is_some_and(|ext| ext == "json") {
-            saves.push(FileData::new(&path, &metadata)?);
+        if let Some(ext) = path.extension() {
+            if ext == "json" && metadata.is_file() {
+                saves.push(FileData::new(&path, &metadata)?);
+            }
         }
     }
 

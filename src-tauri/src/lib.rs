@@ -1,6 +1,5 @@
 #![warn(clippy::all, clippy::pedantic)]
-#![feature(is_some_and, path_file_prefix)]
-#![allow(clippy::needless_pass_by_value)]
+#![allow(clippy::needless_pass_by_value)] // Tauri commands need ownership of arguments passed to them
 
 mod base;
 pub mod savefile;
