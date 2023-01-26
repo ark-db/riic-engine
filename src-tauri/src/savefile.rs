@@ -1,7 +1,7 @@
 use crate::{base::Save, CmdError, CmdResult};
 use serde::{Deserialize, Serialize};
 use std::{
-    fs,
+    fs::{copy, create_dir_all, metadata, read_dir, remove_file, rename, File, Metadata},
     io::BufReader,
     path::{Path, PathBuf},
 };
@@ -15,7 +15,7 @@ pub struct FileData {
 }
 
 impl FileData {
-    fn new(path: &Path, metadata: &fs::Metadata) -> CmdResult<Self> {
+    fn new(path: &Path, metadata: &Metadata) -> CmdResult<Self> {
         let data = Self {
             name: path
                 .file_stem()
@@ -42,7 +42,7 @@ fn get_saves_dir(app: &AppHandle) -> CmdResult<PathBuf> {
         .join("saves");
 
     if !saves_dir.is_dir() {
-        fs::create_dir_all(&saves_dir)?;
+        create_dir_all(&saves_dir)?;
     }
 
     Ok(saves_dir)
@@ -79,20 +79,19 @@ fn get_available_fp(dir: PathBuf, name: &str) -> PathBuf {
 /// - FileData cannot be initialized
 #[tauri::command]
 pub fn fetch_saves(app: AppHandle) -> CmdResult<Vec<FileData>> {
-    let mut saves = Vec::new();
-
-    for entry in fs::read_dir(get_saves_dir(&app)?)? {
-        let path = entry?.path();
-        let metadata = fs::metadata(&path)?;
-
-        if let Some(ext) = path.extension() {
-            if ext == "json" && metadata.is_file() {
-                saves.push(FileData::new(&path, &metadata)?);
+    Ok(read_dir(get_saves_dir(&app)?)?
+        .filter_map(|entry| entry.map(|e| e.path()).ok())
+        .filter_map(|path| {
+            if let Ok(metadata) = metadata(&path) {
+                if let Some(ext) = path.extension() {
+                    if ext == "json" && metadata.is_file() {
+                        return FileData::new(&path, &metadata).ok();
+                    }
+                }
             }
-        }
-    }
-
-    Ok(saves)
+            None
+        })
+        .collect())
 }
 
 /// # Errors
@@ -103,7 +102,7 @@ pub fn fetch_saves(app: AppHandle) -> CmdResult<Vec<FileData>> {
 pub fn create_save(app: AppHandle) -> CmdResult<()> {
     let save_dir = get_saves_dir(&app)?;
     let target_path = get_available_fp(save_dir, "Untitled");
-    serde_json::to_writer(fs::File::create(target_path)?, &Save::default())?;
+    serde_json::to_writer(File::create(target_path)?, &Save::default())?;
     Ok(())
 }
 
@@ -114,7 +113,7 @@ pub fn create_save(app: AppHandle) -> CmdResult<()> {
 #[tauri::command]
 pub fn load_save(app: AppHandle, name: &str) -> CmdResult<Save> {
     let target_path = get_save_fp(&app, name)?;
-    let file = fs::File::open(target_path)?;
+    let file = File::open(target_path)?;
     Ok(serde_json::from_reader(BufReader::new(file))?)
 }
 
@@ -130,7 +129,7 @@ pub fn rename_save(app: AppHandle, old: &str, new: &str) -> CmdResult<()> {
     }
 
     let old_path = get_save_fp(&app, old)?;
-    fs::rename(old_path, new_path)?;
+    rename(old_path, new_path)?;
     Ok(())
 }
 
@@ -142,7 +141,7 @@ pub fn rename_save(app: AppHandle, old: &str, new: &str) -> CmdResult<()> {
 pub fn update_save(app: AppHandle, save: Option<ImportedSave>) -> CmdResult<()> {
     if let Some(save) = save {
         let save_path = get_save_fp(&app, &save.name)?;
-        serde_json::to_writer(fs::File::create(save_path)?, &save.data)?;
+        serde_json::to_writer(File::create(save_path)?, &save.data)?;
     }
     Ok(())
 }
@@ -154,7 +153,7 @@ pub fn update_save(app: AppHandle, save: Option<ImportedSave>) -> CmdResult<()> 
 #[tauri::command]
 pub fn delete_save(app: AppHandle, name: &str) -> CmdResult<()> {
     let target_path = get_save_fp(&app, name)?;
-    fs::remove_file(target_path)?;
+    remove_file(target_path)?;
     Ok(())
 }
 
@@ -169,6 +168,6 @@ pub fn export_save(app: tauri::AppHandle, name: &str) -> CmdResult<()> {
         tauri::api::path::download_dir().expect("Download directory should be retrievable"),
         name,
     );
-    fs::copy(save_path, target_path)?;
+    copy(save_path, target_path)?;
     Ok(())
 }
