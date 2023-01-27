@@ -1,11 +1,14 @@
 use crate::{base::Save, CmdError, CmdResult};
+use once_cell::sync::OnceCell;
 use serde::{Deserialize, Serialize};
 use std::{
-    fs::{copy, create_dir_all, metadata, read_dir, remove_file, rename, File, Metadata},
+    fs::{copy, metadata, read_dir, remove_file, rename, File, Metadata},
     io::BufReader,
     path::{Path, PathBuf},
 };
-use tauri::AppHandle;
+use tauri::api::path::download_dir;
+
+pub static SAVE_DIR: OnceCell<PathBuf> = OnceCell::new();
 
 #[derive(Serialize)]
 pub struct FileData {
@@ -17,10 +20,10 @@ pub struct FileData {
 impl FileData {
     fn new(path: &Path, metadata: &Metadata) -> CmdResult<Self> {
         let data = Self {
-            name: path
-                .file_stem()
-                .map_or("Untitled", |f| f.to_str().unwrap())
-                .to_owned(),
+            name: path.file_stem().map_or_else(
+                || String::from("Untitled"),
+                |f| f.to_string_lossy().to_string(),
+            ),
             modified: metadata.modified()?.elapsed()?.as_secs(),
             created: metadata.created()?.elapsed()?.as_secs(),
         };
@@ -34,42 +37,28 @@ pub struct ImportedSave {
     data: Save,
 }
 
-fn get_saves_dir(app: &AppHandle) -> CmdResult<PathBuf> {
-    let saves_dir = app
-        .path_resolver()
-        .app_data_dir()
-        .expect("App directory should be retrievable")
-        .join("saves");
-
-    if !saves_dir.is_dir() {
-        create_dir_all(&saves_dir)?;
-    }
-
-    Ok(saves_dir)
-}
-
-fn get_save_fp(app: &AppHandle, name: &str) -> CmdResult<PathBuf> {
+fn get_save_fp(name: &str) -> CmdResult<PathBuf> {
     if name.is_empty() {
         return Err(CmdError::NameEmpty);
     }
-    let target_path = get_saves_dir(app)?.join(name).with_extension("json");
+    let target_path = SAVE_DIR.wait().join(name).with_extension("json");
     if target_path.is_relative() {
         return Err(CmdError::RelativePath);
     }
     Ok(target_path)
 }
 
-fn get_available_fp(dir: PathBuf, name: &str) -> PathBuf {
-    let mut path = dir;
+fn get_available_fp(dir: &Path, name: &str) -> PathBuf {
+    let mut path = dir.to_path_buf();
     path.push(name);
     path.set_extension("json");
-    for i in 1.. {
-        if !path.is_file() {
-            return path;
-        }
-        path.set_file_name(format!("{}-{}.json", name, i));
+
+    let mut index = 0u32;
+    while path.is_file() {
+        index += 1;
+        path.set_file_name(format!("{}-{}.json", name, index));
     }
-    unreachable!()
+    path
 }
 
 /// # Errors
@@ -78,10 +67,11 @@ fn get_available_fp(dir: PathBuf, name: &str) -> PathBuf {
 /// - Entry in save dir cannot be read
 /// - FileData cannot be initialized
 #[tauri::command]
-pub fn fetch_saves(app: AppHandle) -> CmdResult<Vec<FileData>> {
-    Ok(read_dir(get_saves_dir(&app)?)?
-        .filter_map(|entry| entry.map(|e| e.path()).ok())
-        .filter_map(|path| {
+pub fn fetch_saves() -> CmdResult<Vec<FileData>> {
+    Ok(read_dir(SAVE_DIR.wait())?
+        .filter_map(Result::ok)
+        .filter_map(|entry| {
+            let path = entry.path();
             if let Ok(metadata) = metadata(&path) {
                 if let Some(ext) = path.extension() {
                     if ext == "json" && metadata.is_file() {
@@ -99,9 +89,8 @@ pub fn fetch_saves(app: AppHandle) -> CmdResult<Vec<FileData>> {
 /// - Save dir cannot be fetched
 /// - New save file cannot be created
 #[tauri::command]
-pub fn create_save(app: AppHandle) -> CmdResult<()> {
-    let save_dir = get_saves_dir(&app)?;
-    let target_path = get_available_fp(save_dir, "Untitled");
+pub fn create_save() -> CmdResult<()> {
+    let target_path = get_available_fp(SAVE_DIR.wait(), "Untitled");
     serde_json::to_writer(File::create(target_path)?, &Save::default())?;
     Ok(())
 }
@@ -111,8 +100,8 @@ pub fn create_save(app: AppHandle) -> CmdResult<()> {
 /// - Path of save file cannot be fetched
 /// - Save file cannot be opened or serialized
 #[tauri::command]
-pub fn load_save(app: AppHandle, name: &str) -> CmdResult<Save> {
-    let target_path = get_save_fp(&app, name)?;
+pub fn load_save(name: &str) -> CmdResult<Save> {
+    let target_path = get_save_fp(name)?;
     let file = File::open(target_path)?;
     Ok(serde_json::from_reader(BufReader::new(file))?)
 }
@@ -122,13 +111,13 @@ pub fn load_save(app: AppHandle, name: &str) -> CmdResult<Save> {
 /// - Path of old or new save file cannot be fetched
 /// - Save file cannot be renamed
 #[tauri::command]
-pub fn rename_save(app: AppHandle, old: &str, new: &str) -> CmdResult<()> {
-    let new_path = get_save_fp(&app, new)?;
+pub fn rename_save(old: &str, new: &str) -> CmdResult<()> {
+    let new_path = get_save_fp(new)?;
     if new_path.is_file() {
         return Err(CmdError::DuplicateName);
     }
 
-    let old_path = get_save_fp(&app, old)?;
+    let old_path = get_save_fp(old)?;
     rename(old_path, new_path)?;
     Ok(())
 }
@@ -138,9 +127,9 @@ pub fn rename_save(app: AppHandle, old: &str, new: &str) -> CmdResult<()> {
 /// - Path of save file cannot be fetched
 /// - Save file cannot be created or deserialized
 #[tauri::command]
-pub fn update_save(app: AppHandle, save: Option<ImportedSave>) -> CmdResult<()> {
+pub fn update_save(save: Option<ImportedSave>) -> CmdResult<()> {
     if let Some(save) = save {
-        let save_path = get_save_fp(&app, &save.name)?;
+        let save_path = get_save_fp(&save.name)?;
         serde_json::to_writer(File::create(save_path)?, &save.data)?;
     }
     Ok(())
@@ -151,8 +140,8 @@ pub fn update_save(app: AppHandle, save: Option<ImportedSave>) -> CmdResult<()> 
 /// - Path of save file cannot be fetched
 /// - Save file cannot be removed
 #[tauri::command]
-pub fn delete_save(app: AppHandle, name: &str) -> CmdResult<()> {
-    let target_path = get_save_fp(&app, name)?;
+pub fn delete_save(name: &str) -> CmdResult<()> {
+    let target_path = get_save_fp(name)?;
     remove_file(target_path)?;
     Ok(())
 }
@@ -162,10 +151,10 @@ pub fn delete_save(app: AppHandle, name: &str) -> CmdResult<()> {
 /// - Path of save file cannot be fetched
 /// - Save file cannot be copied
 #[tauri::command]
-pub fn export_save(app: tauri::AppHandle, name: &str) -> CmdResult<()> {
-    let save_path = get_save_fp(&app, name)?;
+pub fn export_save(name: &str) -> CmdResult<()> {
+    let save_path = get_save_fp(name)?;
     let target_path = get_available_fp(
-        tauri::api::path::download_dir().expect("Download directory should be retrievable"),
+        &download_dir().expect("Download directory should be retrievable"),
         name,
     );
     copy(save_path, target_path)?;
