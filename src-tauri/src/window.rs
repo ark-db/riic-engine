@@ -1,4 +1,4 @@
-#![allow(clippy::module_name_repetitions)]
+#![allow(clippy::module_name_repetitions, clippy::needless_pass_by_value)]
 
 use tauri::{Manager, Window};
 
