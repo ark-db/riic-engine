@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { assets } from '$app/paths';
 	import { createEventDispatcher } from 'svelte';
+	import FacilityIcon from '$lib/components/FacilityIcon.svelte';
 	import facilities from '$lib/data/facilities.json';
 	import type { FacilityName } from '$lib/types';
 	import LevelIndicator from './LevelIndicator.svelte';
@@ -9,19 +9,21 @@
 	export let minLevel = 0;
 	export let deletable = false;
 
-	let maxLevel = facilities[kind].capacity.length;
+	let facility = facilities[kind];
+
+	let maxLevel = facility.capacity.length;
 
 	const dispatch = createEventDispatcher<{ delete: Record<string, never> }>();
 </script>
 
-<div class="container" style:border={`0.5em solid ${facilities[kind].color}`}>
+<div class="container" style:border={`0.5em solid ${facility.color}`}>
 	<div class="info">
 		<p class="facility-name">
-			{facilities[kind].name}
+			{facility.name}
 		</p>
 		<div class="graphics">
-			<img src={`${assets}/facilities/${kind}.webp`} alt="Facility icon" height="36" width="36" />
-			<LevelIndicator {level} --color={facilities[kind].color} />
+			<FacilityIcon {kind} size={36} />
+			<LevelIndicator {level} --color={facility.color} />
 		</div>
 	</div>
 
