@@ -1,5 +1,3 @@
-#![warn(clippy::all, clippy::pedantic)]
-
 use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize, Default)]
@@ -51,8 +49,8 @@ impl Facility {
     }
 }
 
-impl Layout {
-    fn new() -> Self {
+impl Default for Layout {
+    fn default() -> Self {
         Self {
             cc: Facility::new(1),
             tp: vec![Facility::new(1)],
@@ -69,11 +67,5 @@ impl Layout {
                 Facility::new(0),
             ],
         }
-    }
-}
-
-impl Default for Layout {
-    fn default() -> Self {
-        Self::new()
     }
 }
