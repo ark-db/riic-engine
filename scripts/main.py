@@ -12,12 +12,12 @@ import json
 class Asset(Enum):
     CHAR = {
         "folder": "chars",
-        "base_url": "https://raw.githubusercontent.com/Aceship/Arknight-Images/main/avatars/",
+        "base_url": "https://raw.githubusercontent.com/astral4/arkdata/main/assets/torappu/dynamicassets/arts/charavatars/",
         "quality": 25
     }
     SKILL = {
         "folder": "skills",
-        "base_url": "https://raw.githubusercontent.com/Aceship/Arknight-Images/main/ui/infrastructure/skill/",
+        "base_url": "https://raw.githubusercontent.com/astral4/arkdata/main/assets/torappu/dynamicassets/arts/building/skills/",
         "quality": 50
     }
     ELITE = {
