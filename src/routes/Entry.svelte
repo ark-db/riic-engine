@@ -101,7 +101,7 @@
 				</div>
 			{:else}
 				<p class="time">
-					{formatTime(save[$saveSortMode.mode])}
+					{formatTime(Math.round(save[$saveSortMode.mode]))}
 				</p>
 			{/if}
 		</div>

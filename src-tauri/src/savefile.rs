@@ -13,8 +13,8 @@ pub static SAVE_DIR: OnceCell<PathBuf> = OnceCell::new();
 #[derive(Serialize)]
 pub struct FileData {
     name: String,
-    modified: u64,
-    created: u64,
+    modified: f32,
+    created: f32,
 }
 
 impl FileData {
@@ -24,8 +24,8 @@ impl FileData {
                 || String::from("Untitled"),
                 |f| f.to_string_lossy().to_string(),
             ),
-            modified: metadata.modified()?.elapsed()?.as_secs(),
-            created: metadata.created()?.elapsed()?.as_secs(),
+            modified: metadata.modified()?.elapsed()?.as_secs_f32(),
+            created: metadata.created()?.elapsed()?.as_secs_f32(),
         };
         Ok(data)
     }
