@@ -11,25 +11,25 @@ import json
 
 class Asset(Enum):
     CHAR = {
-        "folder": "chars",
+        "target_dir": "static/chars",
         "base_url": "https://raw.githubusercontent.com/astral4/arkdata/main/assets/torappu/dynamicassets/arts/charavatars",
         "quality": 25,
         "upscale": False
     }
     SKILL = {
-        "folder": "skills",
+        "target_dir": "static/skills",
         "base_url": "https://raw.githubusercontent.com/astral4/arkdata/main/assets/torappu/dynamicassets/arts/building/skills",
         "quality": 50,
         "upscale": False
     }
     ELITE = {
-        "folder": "elite",
+        "target_dir": "static/elite",
         "base_url": "https://raw.githubusercontent.com/Aceship/Arknight-Images/main/ui/elite",
         "quality": 25,
         "upscale": False
     }
     FACILITY = {
-        "folder": "facilities",
+        "target_dir": "static/facilities",
         "base_url": "https://raw.githubusercontent.com/astral4/arkdata/main/assets/arts/building/buffs",
         "quality": 100,
         "upscale": False
@@ -74,10 +74,13 @@ def is_operator(char_info: dict[str, object]) -> bool:
 
 
 def save_image(session: Session, category: Asset, name: str) -> None:
-    folder, base_url, quality, upscale = itemgetter("folder", "base_url", "quality", "upscale")(
+    target_dir, base_url, quality, upscale = itemgetter("target_dir", "base_url", "quality", "upscale")(
         category.value
     )
-    target_path = Path(f"./static/{folder}/{name}.webp")
+    target_path = Path(target_dir, name).with_suffix(".webp")
+
+    if not target_path.parent.is_dir():
+        target_path.parent.mkdir(parents=True, exist_ok=True)
 
     if target_path.is_file():
         # No need to attempt downloading image if it is already present
