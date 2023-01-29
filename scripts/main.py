@@ -12,22 +12,22 @@ import json
 class Asset(Enum):
     CHAR = {
         "folder": "chars",
-        "base_url": "https://raw.githubusercontent.com/astral4/arkdata/main/assets/torappu/dynamicassets/arts/charavatars/",
+        "base_url": "https://raw.githubusercontent.com/astral4/arkdata/main/assets/torappu/dynamicassets/arts/charavatars",
         "quality": 25
     }
     SKILL = {
         "folder": "skills",
-        "base_url": "https://raw.githubusercontent.com/astral4/arkdata/main/assets/torappu/dynamicassets/arts/building/skills/",
+        "base_url": "https://raw.githubusercontent.com/astral4/arkdata/main/assets/torappu/dynamicassets/arts/building/skills",
         "quality": 50
     }
     ELITE = {
         "folder": "elite",
-        "base_url": "https://raw.githubusercontent.com/Aceship/Arknight-Images/main/ui/elite/",
+        "base_url": "https://raw.githubusercontent.com/Aceship/Arknight-Images/main/ui/elite",
         "quality": 25
     }
     FACILITY = {
         "folder": "facilities",
-        "base_url": "https://raw.githubusercontent.com/Aceship/Arknight-Images/main/ui/infrastructure/",
+        "base_url": "https://raw.githubusercontent.com/astral4/arkdata/main/assets/arts/building/buffs",
         "quality": 100
     }
 
@@ -61,14 +61,6 @@ FACILITY_COLORS = {
     "workshop": "#e3eb00"
 }
 
-FACILITY_NAME_CHANGES = {
-    "manufacture": "manu",
-    "trading": "trade",
-    "dormitory": "dorm",
-    "training": "train",
-    "meeting": "meet"
-}
-
 
 # The type hint for char_info is lenient because declaring the entire schema is too painful
 def is_operator(char_info: dict[str, object]) -> bool:
@@ -77,16 +69,16 @@ def is_operator(char_info: dict[str, object]) -> bool:
         and not char_info["isNotObtainable"]
 
 
-def save_image(session: Session, category: Asset, name: str, new_name: str | None = None, upscale: bool = False) -> None:
+def save_image(session: Session, category: Asset, name: str, upscale: bool = False) -> None:
     folder, base_url, quality = itemgetter("folder", "base_url", "quality")(
         category.value
     )
-    target_path = Path(f"./static/{folder}/{new_name or name}.webp")
+    target_path = Path(f"./static/{folder}/{name}.webp")
 
     if target_path.is_file():
         # No need to attempt downloading image if it is already present
         return
-    elif (res := session.get(f"{base_url}{name}.png")):
+    elif (res := session.get(f"{base_url}/{name}.png")):
         # The Response returned from get() is truthy if the status code is 2xx or 3xx
         image = Image.open(BytesIO(res.content)).convert("RGBA")
         if upscale:
@@ -187,8 +179,7 @@ with Session() as s:
             save_image(
                 s,
                 Asset.FACILITY,
-                name=FACILITY_NAME_CHANGES.get(facility_id, facility_id),
-                new_name=facility_id,
+                name=facility_id,
                 upscale=True
             )
 
