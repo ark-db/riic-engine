@@ -19,15 +19,14 @@ pub struct FileData {
 
 impl FileData {
     fn new(path: &Path, metadata: &Metadata) -> CmdResult<Self> {
-        let data = Self {
+        Ok(Self {
             name: path.file_stem().map_or_else(
                 || String::from("Untitled"),
                 |f| f.to_string_lossy().to_string(),
             ),
             modified: metadata.modified()?.elapsed()?.as_secs_f32(),
             created: metadata.created()?.elapsed()?.as_secs_f32(),
-        };
-        Ok(data)
+        })
     }
 }
 
@@ -38,14 +37,9 @@ pub struct ImportedSave {
 }
 
 fn get_save_fp(name: &str) -> CmdResult<PathBuf> {
-    if name.is_empty() {
-        return Err(CmdError::NameEmpty);
-    }
-    let target_path = SAVE_DIR.wait().join(name).with_extension("json");
-    if target_path.is_relative() {
-        return Err(CmdError::RelativePath);
-    }
-    Ok(target_path)
+    (!name.is_empty())
+        .then(|| SAVE_DIR.wait().join(name).with_extension("json"))
+        .ok_or(CmdError::NameEmpty)
 }
 
 fn get_available_fp(dir: &Path, name: &str) -> PathBuf {
@@ -70,8 +64,8 @@ fn get_available_fp(dir: &Path, name: &str) -> PathBuf {
 pub fn fetch_saves() -> CmdResult<Vec<FileData>> {
     Ok(read_dir(SAVE_DIR.wait())?
         .filter_map(Result::ok)
-        .filter_map(|entry| {
-            let path = entry.path();
+        .map(|entry| entry.path())
+        .filter_map(|path| {
             if let Ok(metadata) = metadata(&path) {
                 if let Some(ext) = path.extension() {
                     if ext == "json" && metadata.is_file() {

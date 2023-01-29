@@ -15,10 +15,8 @@ pub fn show_window(window: Window) {
 #[tauri::command]
 pub fn rename_window(window: Window, name: Option<&str>) {
     let w = window.get_window("main").unwrap();
-
-    if let Some(n) = name {
-        w.set_title(&format!("RIIC Engine • {n}")).unwrap();
-    } else {
-        w.set_title("RIIC Engine").unwrap();
+    match name {
+        Some(n) => w.set_title(&format!("RIIC Engine • {n}")).unwrap(),
+        None => w.set_title("RIIC Engine").unwrap(),
     }
 }

@@ -20,9 +20,6 @@ pub enum CmdError {
 
     #[error("Another file with the same name already exists")]
     DuplicateName,
-
-    #[error("Relative filepaths are forbidden")]
-    RelativePath,
 }
 
 impl serde::Serialize for CmdError {
