@@ -13,22 +13,26 @@ class Asset(Enum):
     CHAR = {
         "folder": "chars",
         "base_url": "https://raw.githubusercontent.com/astral4/arkdata/main/assets/torappu/dynamicassets/arts/charavatars",
-        "quality": 25
+        "quality": 25,
+        "upscale": False
     }
     SKILL = {
         "folder": "skills",
         "base_url": "https://raw.githubusercontent.com/astral4/arkdata/main/assets/torappu/dynamicassets/arts/building/skills",
-        "quality": 50
+        "quality": 50,
+        "upscale": False
     }
     ELITE = {
         "folder": "elite",
         "base_url": "https://raw.githubusercontent.com/Aceship/Arknight-Images/main/ui/elite",
-        "quality": 25
+        "quality": 25,
+        "upscale": False
     }
     FACILITY = {
         "folder": "facilities",
         "base_url": "https://raw.githubusercontent.com/astral4/arkdata/main/assets/arts/building/buffs",
-        "quality": 100
+        "quality": 100,
+        "upscale": False
     }
 
 
@@ -69,8 +73,8 @@ def is_operator(char_info: dict[str, object]) -> bool:
         and not char_info["isNotObtainable"]
 
 
-def save_image(session: Session, category: Asset, name: str, upscale: bool = False) -> None:
-    folder, base_url, quality = itemgetter("folder", "base_url", "quality")(
+def save_image(session: Session, category: Asset, name: str) -> None:
+    folder, base_url, quality, upscale = itemgetter("folder", "base_url", "quality", "upscale")(
         category.value
     )
     target_path = Path(f"./static/{folder}/{name}.webp")
@@ -167,21 +171,19 @@ with Session() as s:
         if facility_id not in DISALLOWED_FACILITY_TYPES:
             power_cost_by_level: list[int] = []
             capacity_by_level: list[int] = []
+
             for level in facility["phases"]:
                 power_cost_by_level.append(level["electricity"])
                 capacity_by_level.append(level["maxStationedNum"])
+
             facility_info[facility_id] = {
                 "name": facility["name"],
                 "color": FACILITY_COLORS[facility_id],
                 "power": power_cost_by_level,
                 "capacity": capacity_by_level
             }
-            save_image(
-                s,
-                Asset.FACILITY,
-                name=facility_id,
-                upscale=True
-            )
+
+            save_image(s, Asset.FACILITY, facility_id)
 
     for rank in range(3):
         save_image(s, Asset.ELITE, str(rank))
