@@ -6,13 +6,13 @@
 
 	let { color } = facilities[kind];
 
-	function hexToRGBA(hex: string, alpha: number): string {
+	function hexToRgb(hex: string, alpha: number): string {
 		let r = parseInt(hex.slice(1, 3), 16),
 			g = parseInt(hex.slice(3, 5), 16),
 			b = parseInt(hex.slice(5, 7), 16);
 
-		return `rgb(${r}, ${g}, ${b}, ${alpha})`;
+		return `rgb(${r} ${g} ${b} ${alpha})`;
 	}
 </script>
 
-<FacilityRow {kind} --color={color} --color-a={hexToRGBA(color, 0.5)} />
+<FacilityRow {kind} --color={color} --color-a={hexToRgb(color, 0.5)} />

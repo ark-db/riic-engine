@@ -100,7 +100,7 @@
 		z-index: 98;
 		padding: 0.5em;
 		background-color: var(--darkish);
-		box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.75);
+		box-shadow: 0 0 0.5em rgb(0, 0, 0, 0.75);
 		clip-path: inset(0 -0.5em 0 0);
 		display: flex;
 		flex-direction: column;
@@ -159,7 +159,7 @@
 		border-radius: 5px;
 		padding: 2.5px;
 		background-color: var(--light);
-		box-shadow: 0 0 0.5em rgba(255, 255, 255, 0.75);
+		box-shadow: 0 0 0.5em rgb(255 255 255 0.75);
 		transition: background-color 0.2s;
 		filter: invert(1);
 	}
