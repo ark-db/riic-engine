@@ -8,12 +8,8 @@
 	let facility = facilities[kind];
 </script>
 
-<div
-	class="container"
-	style:border-left="1em solid {facility.color}"
-	style:background-color={facility.color}
->
-	<div class="edge" style:background-color={facility.color} use:tooltip={facility.name}>
+<div class="container">
+	<div class="edge" use:tooltip={facility.name}>
 		<FacilityIcon {kind} size={24} />
 	</div>
 </div>
@@ -21,5 +17,10 @@
 <style>
 	.container {
 		display: flex;
+		border-left: 1em solid var(--color);
+		background-color: var(--color-a);
+	}
+	.edge {
+		background-color: var(--color);
 	}
 </style>

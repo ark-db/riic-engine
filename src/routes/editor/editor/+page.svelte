@@ -1,6 +1,5 @@
 <script lang="ts">
-	// import { activeSave } from '$lib/stores';
-	import FacilityRow from './FacilityRow.svelte';
+	import RowWrapper from './RowWrapper.svelte';
 </script>
 
-<FacilityRow kind={'control'} />
+<RowWrapper kind={'control'} />
