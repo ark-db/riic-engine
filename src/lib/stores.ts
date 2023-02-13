@@ -118,13 +118,7 @@ function createActiveSave() {
 	};
 }
 
-export const saveList = createSaveList();
-export const error = createError();
-export const saveSortMode = createSaveSortMode();
-export const saveSortOrder = createSaveSortOrder();
-export const activeSave = createActiveSave();
-
-export const powerUsage = derived(activeSave, (save) => {
+function calculatePowerUsage(save: ActiveSave): number {
 	let power = 0;
 	// Control Center power consumption is 0 at all levels,
 	// so it is not part of the calculation.
@@ -154,11 +148,19 @@ export const powerUsage = derived(activeSave, (save) => {
 			: facilityData.training.power.at(save.data.layout.train.level - 1) ?? 0;
 
 	return power;
-});
+}
 
-export const maxPower = derived(activeSave, (save) =>
-	save.data.layout.pp.reduce(
+function calculatePowerCapacity(save: ActiveSave): number {
+	return save.data.layout.pp.reduce(
 		(partialSum, facility) => partialSum + (facilityData.power.power.at(facility.level - 1) ?? 0),
 		0
-	)
-);
+	);
+}
+
+export const saveList = createSaveList();
+export const error = createError();
+export const saveSortMode = createSaveSortMode();
+export const saveSortOrder = createSaveSortOrder();
+export const activeSave = createActiveSave();
+export const powerUsage = derived(activeSave, calculatePowerUsage);
+export const maxPower = derived(activeSave, calculatePowerCapacity);
