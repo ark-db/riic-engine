@@ -8,17 +8,6 @@ import listIncreasingIcon from '$lib/images/list-increasing.svg';
 import listDecreasingIcon from '$lib/images/list-decreasing.svg';
 import type { SaveData, FileData, ActiveSave } from '$lib/types';
 
-type SortMode = 'modified' | 'created';
-type SaveSortMode = {
-	mode: SortMode;
-	nextDesc: `Sort by time ${SortMode}`;
-};
-type SaveSortOrder = {
-	order: 'increasing' | 'decreasing';
-	nextDesc: 'Sort from earliest to latest' | 'Sort from latest to earliest';
-	direction: 1 | -1;
-};
-
 // The list of saves on the main menu. Interacting with the list (creating, deleting, etc.) will refresh it.
 function createSaveList() {
 	const { subscribe, set } = writable<FileData[]>();
@@ -57,6 +46,12 @@ function createError() {
 
 // Controls whether the save list on the main menu is sorted by time of creation or last edit
 function createSaveSortMode() {
+	type SortMode = 'modified' | 'created';
+	type SaveSortMode = {
+		mode: SortMode;
+		nextDesc: `Sort by time ${SortMode}`;
+	};
+
 	const { subscribe, update } = writable<SaveSortMode>({
 		mode: 'modified',
 		nextDesc: 'Sort by time created'
@@ -80,6 +75,12 @@ function createSaveSortMode() {
 
 // Controls whether the save list on the main menu is sorted oldest-to-newest or newest-to-oldest
 function createSaveSortOrder() {
+	type SaveSortOrder = {
+		order: 'increasing' | 'decreasing';
+		nextDesc: 'Sort from earliest to latest' | 'Sort from latest to earliest';
+		direction: 1 | -1;
+	};
+
 	const { subscribe, update } = writable<SaveSortOrder>({
 		order: 'increasing',
 		nextDesc: 'Sort from earliest to latest',

@@ -8,8 +8,6 @@
 
 	export let save: FileData;
 
-	type FocusEventType = 'focusin' | 'focusout';
-
 	let hovering = false;
 	let pendingRename = false;
 	let pendingDelete = false;
@@ -19,6 +17,8 @@
 
 	// Checks if this component instance contains the currently-focused element. Works with keyboard navigation!
 	function handleFocus(e: FocusEvent) {
+		type FocusEventType = 'focusin' | 'focusout';
+
 		// Test different target element depending on the event type
 		let target = (e.type as FocusEventType) === 'focusin' ? e.target : e.relatedTarget;
 		focused = target instanceof Node && container?.contains(target);
