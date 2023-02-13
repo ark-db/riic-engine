@@ -3,6 +3,7 @@
 	import facilities from '$lib/data/facilities.json';
 	import { tooltip } from '$lib/tooltip';
 	import type { FacilityName } from '$lib/types';
+
 	export let kind: FacilityName;
 
 	let facility = facilities[kind];

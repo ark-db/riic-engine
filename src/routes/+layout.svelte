@@ -1,7 +1,8 @@
 <script lang="ts">
-	import { error } from '$lib/stores';
 	import Error from '$lib/components/Error.svelte';
+	import { error } from '$lib/stores';
 
+	// Disable copying/saving links and images contained within the app
 	function handleMousedown(event: MouseEvent) {
 		if (
 			event.target &&

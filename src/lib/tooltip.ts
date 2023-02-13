@@ -31,6 +31,7 @@ export function tooltip(element: Element, content: string) {
 	});
 
 	return {
+		// Destroy the tooltip when the element it is attached to is destroyed
 		destroy: instance.destroy
 	};
 }

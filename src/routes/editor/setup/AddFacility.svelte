@@ -1,6 +1,7 @@
 <script lang="ts">
 	import facilities from '$lib/data/facilities.json';
 	import type { FacilityName } from '$lib/types';
+
 	export let kind: FacilityName;
 
 	let { color } = facilities[kind];

@@ -1,12 +1,12 @@
 import { goto } from '$app/navigation';
 import { writable, derived } from 'svelte/store';
 import { invoke } from '@tauri-apps/api/tauri';
-import type { SaveData, FileData, ActiveSave } from '$lib/types';
 import facilityData from '$lib/data/facilities.json';
 import pencilClockIcon from '$lib/images/pencil-clock.svg';
 import plusClockIcon from '$lib/images/plus-clock.svg';
 import listIncreasingIcon from '$lib/images/list-increasing.svg';
 import listDecreasingIcon from '$lib/images/list-decreasing.svg';
+import type { SaveData, FileData, ActiveSave } from '$lib/types';
 
 type SortMode = 'modified' | 'created';
 type SaveSortMode = {
@@ -19,6 +19,7 @@ type SaveSortOrder = {
 	direction: 1 | -1;
 };
 
+// The list of saves on the main menu. Interacting with the list (creating, deleting, etc.) will refresh it.
 function createSaveList() {
 	const { subscribe, set } = writable<FileData[]>();
 
@@ -35,6 +36,7 @@ function createSaveList() {
 	};
 }
 
+// App-wide error store to display errors to users
 function createError() {
 	const { subscribe, set } = writable<string>('');
 
@@ -53,6 +55,7 @@ function createError() {
 	};
 }
 
+// Controls whether the save list on the main menu is sorted by time of creation or last edit
 function createSaveSortMode() {
 	const { subscribe, update } = writable<SaveSortMode>({
 		mode: 'modified',
@@ -75,6 +78,7 @@ function createSaveSortMode() {
 	};
 }
 
+// Controls whether the save list on the main menu is sorted oldest-to-newest or newest-to-oldest
 function createSaveSortOrder() {
 	const { subscribe, update } = writable<SaveSortOrder>({
 		order: 'increasing',
@@ -102,6 +106,7 @@ function createSaveSortOrder() {
 	};
 }
 
+// Stores data of the currently-active save file
 function createActiveSave() {
 	const { subscribe, set } = writable<ActiveSave>();
 
@@ -118,6 +123,7 @@ function createActiveSave() {
 	};
 }
 
+// Calculates power usage of all facilities from a base layout
 function calculatePowerUsage(save: ActiveSave): number {
 	let power = 0;
 	// Control Center power consumption is 0 at all levels,
@@ -150,6 +156,7 @@ function calculatePowerUsage(save: ActiveSave): number {
 	return power;
 }
 
+// Calculates the maximum power available from a base layout
 function calculatePowerCapacity(save: ActiveSave): number {
 	return save.data.layout.pp.reduce(
 		(partialSum, facility) => partialSum + (facilityData.power.power.at(facility.level - 1) ?? 0),

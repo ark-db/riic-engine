@@ -3,14 +3,14 @@
 	import { page } from '$app/stores';
 	import { onMount } from 'svelte';
 	import { invoke } from '@tauri-apps/api/tauri';
-	import { activeSave, error, powerUsage, maxPower } from '$lib/stores';
-	import type { ActiveSave } from '$lib/types';
+	import GradientContainer from '$lib/components/GradientContainer.svelte';
+	import Button from '$lib/components/Button.svelte';
 	import logo from '$lib/images/logo.png';
 	import menuIcon from '$lib/images/menu.png';
 	import powerIcon from '$lib/images/power.png';
 	import slash from '$lib/images/slash.png';
-	import GradientContainer from '$lib/components/GradientContainer.svelte';
-	import Button from '$lib/components/Button.svelte';
+	import { activeSave, error, powerUsage, maxPower } from '$lib/stores';
+	import type { ActiveSave } from '$lib/types';
 
 	type NavLink = {
 		title: string;
@@ -35,8 +35,14 @@
 	let menuActive = true;
 	$: menuIconDesc = `${menuActive ? 'Collapse' : 'Expand'} menu`;
 
+	// Rename the app window when moving from the main menu to the editor
 	invoke<void>('rename_window', { name: $activeSave.name });
 
+	// The following code doesn't work:
+	// $: invoke<void>('update_save', { save: $activeSave }).catch(error.handle);
+	// because it will also run when the editor is initially loading the save and no changes have been made yet.
+	// The last-modified time will be updated, which is not wanted.
+	// The code below will not update the save during initial load which resolves the issue.
 	let init = true;
 	function updateSave(save: ActiveSave) {
 		if (!init) invoke<void>('update_save', { save }).catch(error.handle);

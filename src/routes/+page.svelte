@@ -1,14 +1,16 @@
 <script lang="ts">
 	import { invoke } from '@tauri-apps/api/tauri';
-	import { saveList, saveSortMode, saveSortOrder } from '$lib/stores';
 	import Button from '$lib/components/Button.svelte';
-	import Header from './Header.svelte';
-	import Entry from './Entry.svelte';
 	import addFileIcon from '$lib/images/file-add.svg';
 	import refreshIcon from '$lib/images/refresh.svg';
+	import { saveList, saveSortMode, saveSortOrder } from '$lib/stores';
+	import Header from './Header.svelte';
+	import Entry from './Entry.svelte';
 
+	// Rename the app window when moving from the editor to the main menu
 	invoke<void>('rename_window');
 
+	// Upon app startup, load save list before displaying window
 	saveList.load().then(() => invoke<void>('show_window'));
 </script>
 

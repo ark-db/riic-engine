@@ -4,6 +4,7 @@
 	import facilities from '$lib/data/facilities.json';
 	import type { FacilityName } from '$lib/types';
 	import LevelIndicator from './LevelIndicator.svelte';
+
 	export let kind: FacilityName;
 	export let level: number;
 	export let minLevel = 0;

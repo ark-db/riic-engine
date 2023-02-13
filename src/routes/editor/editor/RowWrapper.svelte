@@ -2,11 +2,13 @@
 	import FacilityRow from './FacilityRow.svelte';
 	import facilities from '$lib/data/facilities.json';
 	import type { FacilityName } from '$lib/types';
+
 	export let kind: FacilityName;
 
 	let { color } = facilities[kind];
 
-	function hexToRgb(hex: string, alpha: number): string {
+	// Converts a hex triplet into the CSS rgb() format
+	function hexToRgb(hex: string, alpha = 1.0): string {
 		let r = parseInt(hex.slice(1, 3), 16),
 			g = parseInt(hex.slice(3, 5), 16),
 			b = parseInt(hex.slice(5, 7), 16);

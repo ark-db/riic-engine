@@ -9,11 +9,13 @@
 			shifts: [],
 			level: 1
 		});
+		// notify store subscribers with assignment
 		$activeSave = $activeSave;
 	}
 
 	function deleteFacility(facilities: FacilityType[], index: number) {
 		facilities.splice(index, 1);
+		// notify store subscribers with assignment
 		$activeSave = $activeSave;
 	}
 </script>

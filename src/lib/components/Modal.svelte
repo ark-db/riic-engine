@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { interaction } from '$lib/utils';
+
 	export let onClose: () => void;
 
 	const handleClose = interaction(onClose, ['Escape']);

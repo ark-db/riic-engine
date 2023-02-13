@@ -1,11 +1,16 @@
 <script lang="ts">
+	// tippy.js tooltips are buggy when used on interactive elements such as <button>.
+	// This custom button component resolves some of the issues by refreshing the element.
+
 	import { tooltip } from '$lib/tooltip';
+
 	export let desc: string;
 	export let onClick: () => void;
 
-	// Note: reassigning refreshState forces content refresh via the {#key} block, since {} !== {}
+	// Reassigning `refreshState` forces element refresh via the {#key} block, since {} !== {}
 	let refreshState: Record<string, never> = {};
 
+	// Force element refresh whenever `desc` changes
 	$: desc, (refreshState = {});
 
 	function handleClick() {

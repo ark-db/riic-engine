@@ -3,6 +3,7 @@
 	import { invoke } from '@tauri-apps/api/tauri';
 	import { error } from '$lib/stores';
 	import { interaction } from '$lib/utils';
+
 	export let text: string;
 	export let active: boolean;
 
@@ -19,6 +20,7 @@
 
 	const handleKeydown = interaction(() => input.blur());
 
+	// Updates the save name if the new name is valid
 	function updateText() {
 		active = false;
 		let name = parseText(text);

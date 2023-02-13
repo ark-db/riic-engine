@@ -1,10 +1,11 @@
 <script lang="ts">
-	import type { FileData } from '$lib/types';
-	import { saveList, saveSortMode, activeSave } from '$lib/stores';
 	import GradientContainer from '$lib/components/GradientContainer.svelte';
 	import Button from '$lib/components/Button.svelte';
 	import Modal from '$lib/components/Modal.svelte';
+	import { saveList, saveSortMode, activeSave } from '$lib/stores';
+	import type { FileData } from '$lib/types';
 	import NameInput from './NameInput.svelte';
+
 	export let save: FileData;
 
 	type FocusEventType = 'focusin' | 'focusout';
@@ -16,8 +17,9 @@
 	let container: HTMLDivElement;
 	let focused = false;
 
+	// Checks if this component instance contains the currently-focused element. Works with keyboard navigation!
 	function handleFocus(e: FocusEvent) {
-		// test different target element depending on the event type
+		// Test different target element depending on the event type
 		let target = (e.type as FocusEventType) === 'focusin' ? e.target : e.relatedTarget;
 		focused = target instanceof Node && container?.contains(target);
 	}
@@ -26,6 +28,7 @@
 		return `${num} ${unit}${num === 1 ? '' : 's'} ago`;
 	}
 
+	// Formats an elapsed duration (in seconds) as a human-readable string
 	function formatTime(secsElapsed: number): string {
 		if (secsElapsed === 0) {
 			return 'Just now';
@@ -40,6 +43,7 @@
 		}
 	}
 
+	// Deletes a save file
 	function handleDelete() {
 		pendingDelete = false;
 		saveList.delete(save.name);
