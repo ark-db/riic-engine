@@ -1,10 +1,8 @@
 <script lang="ts">
-	import { createEventDispatcher } from 'svelte';
 	import { interaction } from '$lib/utils';
+	export let onClose: () => void;
 
-	const dispatch = createEventDispatcher<{ close: Record<string, never> }>();
-
-	const handleClose = interaction(() => dispatch('close'), ['Escape']);
+	const handleClose = interaction(onClose, ['Escape']);
 </script>
 
 <div class="bg" on:click={handleClose} on:keydown={handleClose} />

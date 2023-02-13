@@ -109,7 +109,7 @@
 </GradientContainer>
 
 {#if pendingDelete}
-	<Modal on:close={() => (pendingDelete = false)}>
+	<Modal onClose={() => (pendingDelete = false)}>
 		<p class="modal-text">Are you sure you want to delete this save file?</p>
 		<div class="modal-options">
 			<button class="cancel" on:click={() => (pendingDelete = false)}>Cancel</button>
