@@ -19,7 +19,7 @@
 		left: 0;
 		height: 100vh;
 		width: 100vw;
-		background-color: rgb(0 0 0 0.7);
+		background-color: rgb(0 0 0 / 0.7);
 	}
 	section {
 		position: fixed;
