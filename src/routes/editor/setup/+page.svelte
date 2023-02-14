@@ -29,9 +29,8 @@
 			<Facility
 				kind={'trading'}
 				minLevel={1}
-				deletable
+				onDelete={() => deleteFacility($activeSave.data.layout.tp, i)}
 				bind:level={tradingPost.level}
-				on:delete={() => deleteFacility($activeSave.data.layout.tp, i)}
 			/>
 		{/each}
 		{#if $activeSave.data.layout.tp.length < 5}
@@ -43,9 +42,8 @@
 			<Facility
 				kind={'manufacture'}
 				minLevel={1}
-				deletable
+				onDelete={() => deleteFacility($activeSave.data.layout.fac, i)}
 				bind:level={factory.level}
-				on:delete={() => deleteFacility($activeSave.data.layout.fac, i)}
 			/>
 		{/each}
 		{#if $activeSave.data.layout.fac.length < 5}
@@ -57,9 +55,8 @@
 			<Facility
 				kind={'power'}
 				minLevel={1}
-				deletable
+				onDelete={() => deleteFacility($activeSave.data.layout.pp, i)}
 				bind:level={powerPlant.level}
-				on:delete={() => deleteFacility($activeSave.data.layout.pp, i)}
 			/>
 		{/each}
 		{#if $activeSave.data.layout.pp.length < 5}
