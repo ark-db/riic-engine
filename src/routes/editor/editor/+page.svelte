@@ -48,6 +48,5 @@
 		width: 2px;
 		background-color: var(--gray);
 		height: 100%;
-		/*float: left;*/
 	}
 </style>
