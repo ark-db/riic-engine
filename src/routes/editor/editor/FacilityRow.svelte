@@ -17,11 +17,15 @@
 
 <style>
 	.container {
+		height: 5em;
 		display: flex;
-		border-left: 1em solid var(--color);
 		background-color: var(--color-a);
 	}
 	.edge {
+		padding: 0 0.5em;
 		background-color: var(--color);
+		display: flex;
+		align-items: center;
+		justify-content: center;
 	}
 </style>
