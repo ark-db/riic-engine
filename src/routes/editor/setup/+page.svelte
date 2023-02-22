@@ -22,63 +22,63 @@
 
 <div class="container">
 	<div class="control">
-		<Facility kind={'control'} minLevel={1} bind:level={$activeSave.data.layout.cc.level} />
+		<Facility kind="control" minLevel={1} bind:level={$activeSave.data.layout.cc.level} />
 	</div>
 	<div class="tp-wrapper">
 		{#each $activeSave.data.layout.tp as tradingPost, i}
 			<Facility
-				kind={'trading'}
+				kind="trading"
 				minLevel={1}
 				onDelete={() => deleteFacility($activeSave.data.layout.tp, i)}
 				bind:level={tradingPost.level}
 			/>
 		{/each}
 		{#if $activeSave.data.layout.tp.length < 5}
-			<AddFacility kind={'trading'} on:click={() => addFacility($activeSave.data.layout.tp)} />
+			<AddFacility kind="trading" on:click={() => addFacility($activeSave.data.layout.tp)} />
 		{/if}
 	</div>
 	<div class="fac-wrapper">
 		{#each $activeSave.data.layout.fac as factory, i}
 			<Facility
-				kind={'manufacture'}
+				kind="manufacture"
 				minLevel={1}
 				onDelete={() => deleteFacility($activeSave.data.layout.fac, i)}
 				bind:level={factory.level}
 			/>
 		{/each}
 		{#if $activeSave.data.layout.fac.length < 5}
-			<AddFacility kind={'manufacture'} on:click={() => addFacility($activeSave.data.layout.fac)} />
+			<AddFacility kind="manufacture" on:click={() => addFacility($activeSave.data.layout.fac)} />
 		{/if}
 	</div>
 	<div class="pp-wrapper">
 		{#each $activeSave.data.layout.pp as powerPlant, i}
 			<Facility
-				kind={'power'}
+				kind="power"
 				minLevel={1}
 				onDelete={() => deleteFacility($activeSave.data.layout.pp, i)}
 				bind:level={powerPlant.level}
 			/>
 		{/each}
 		{#if $activeSave.data.layout.pp.length < 5}
-			<AddFacility kind={'power'} on:click={() => addFacility($activeSave.data.layout.pp)} />
+			<AddFacility kind="power" on:click={() => addFacility($activeSave.data.layout.pp)} />
 		{/if}
 	</div>
 	<div class="dorm-wrapper">
 		{#each $activeSave.data.layout.dorm as facility}
-			<Facility kind={'dormitory'} bind:level={facility.level} />
+			<Facility kind="dormitory" bind:level={facility.level} />
 		{/each}
 	</div>
 	<div class="workshop">
-		<Facility kind={'workshop'} minLevel={1} bind:level={$activeSave.data.layout.workshop.level} />
+		<Facility kind="workshop" minLevel={1} bind:level={$activeSave.data.layout.workshop.level} />
 	</div>
 	<div class="reception">
-		<Facility kind={'meeting'} bind:level={$activeSave.data.layout.rr.level} />
+		<Facility kind="meeting" bind:level={$activeSave.data.layout.rr.level} />
 	</div>
 	<div class="office">
-		<Facility kind={'hire'} bind:level={$activeSave.data.layout.office.level} />
+		<Facility kind="hire" bind:level={$activeSave.data.layout.office.level} />
 	</div>
 	<div class="training">
-		<Facility kind={'training'} bind:level={$activeSave.data.layout.train.level} />
+		<Facility kind="training" bind:level={$activeSave.data.layout.train.level} />
 	</div>
 </div>
 
