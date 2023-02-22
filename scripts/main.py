@@ -14,25 +14,21 @@ class Asset(Enum):
         "target_dir": "static/chars",
         "base_url": "https://raw.githubusercontent.com/astral4/arkdata/main/assets/torappu/dynamicassets/arts/charavatars",
         "quality": 25,
-        "upscale": False
     }
     SKILL = {
         "target_dir": "static/skills",
         "base_url": "https://raw.githubusercontent.com/astral4/arkdata/main/assets/torappu/dynamicassets/arts/building/skills",
         "quality": 50,
-        "upscale": False
     }
     ELITE = {
         "target_dir": "static/elite",
         "base_url": "https://raw.githubusercontent.com/Aceship/Arknight-Images/main/ui/elite",
         "quality": 25,
-        "upscale": False
     }
     FACILITY = {
         "target_dir": "static/facilities",
         "base_url": "https://raw.githubusercontent.com/astral4/arkdata/main/assets/arts/building/buffs",
         "quality": 100,
-        "upscale": False
     }
 
 
@@ -62,7 +58,7 @@ FACILITY_COLORS = {
     "power": "#8fc31f",
     "trading": "#0075a9",
     "training": "#7d0022",
-    "workshop": "#e3eb00"
+    "workshop": "#e3eb00",
 }
 
 
@@ -74,7 +70,7 @@ def is_operator(char_info: dict[str, object]) -> bool:
 
 
 def save_image(session: Session, category: Asset, name: str) -> None:
-    target_dir, base_url, quality, upscale = itemgetter("target_dir", "base_url", "quality", "upscale")(
+    target_dir, base_url, quality = itemgetter("target_dir", "base_url", "quality")(
         category.value
     )
     target_path = Path(target_dir, name).with_suffix(".webp")
@@ -87,14 +83,9 @@ def save_image(session: Session, category: Asset, name: str) -> None:
         return
     elif (res := session.get(f"{base_url}/{name}.png")):
         # The Response returned from get() is truthy if the status code is 2xx or 3xx
-        image = Image.open(BytesIO(res.content)).convert("RGBA")
-        if upscale:
-            width, height = image.size
-            image = image.resize(
-                (width*2, height*2),
-                resample=Image.Resampling.LANCZOS
-            )
-        image.save(target_path, "webp", quality=quality)
+        Image.open(BytesIO(res.content)) \
+            .convert("RGBA") \
+            .save(target_path, "webp", quality=quality)
     else:
         warnings.warn(
             f"Could not save image of {category.name.lower()} with ID \"{name}\"",
