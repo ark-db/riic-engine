@@ -664,6 +664,16 @@
 		"desc": "When this Operator is assigned to the Reception Room, Clue search speed increases by <@cc.vup>10%</>",
 		"iconId": "bskill_meet_spd1"
 	},
+	"trade_cost&bd2[000]": {
+		"name": "跋山涉水",
+		"desc": "进驻贸易站时，贸易站内全体干员每小时心情消耗<@cc.vup>-0.1</>，每有<@cc.vup>10</>点<$cc.bd_b1><@cc.rem>人间烟火</></>，则额外<@cc.vup>-0.01</>",
+		"iconId": "bskill_tra_bd_cost1"
+	},
+	"trade_cost&bd2[001]": {
+		"name": "万里传书",
+		"desc": "进驻贸易站时，贸易站内全体干员每小时心情消耗<@cc.vup>-0.1</>，每有<@cc.vup>10</>点<$cc.bd_b1><@cc.rem>人间烟火</></>，则额外<@cc.vup>-0.02</>",
+		"iconId": "bskill_tra_bd_cost2"
+	},
 	"trade_ord_wt&cost[000]": {
 		"name": "Tailoring α",
 		"desc": "When this Operator is assigned to a Trading Post, the chance of getting <@cc.kw>higher-yield Precious Metal orders</> is <@cc.kw>increased slightly</> (rate is influenced by length of work time), and Morale consumed per hour is reduced by <@cc.vup>-0.25</>",
@@ -1983,6 +1993,16 @@
 		"name": "'Explosion Arts'",
 		"desc": "When this Operator is assigned to the Workshop to process <@cc.kw>any material</>, this Operator's Morale will be <@cc.kw>restored once</> for every <@cc.vup>2</> times no byproducts are produced during processing, equal to the Morale consumed <@cc.kw>for processing that corresponding formula one time</> (the final Morale total is calculated after processing is completed)",
 		"iconId": "bskill_ws_recovery"
+	},
+	"train_spd&profession3[160]": {
+		"name": "近卫专精·α",
+		"desc": "进驻训练室协助位时，<@cc.kw>近卫</>干员的专精技能训练速度<@cc.vup>+30%</>",
+		"iconId": "bskill_train_guard1"
+	},
+	"train_spd&profession3[161]": {
+		"name": "实战技巧：领主",
+		"desc": "进驻训练室协助位时，<@cc.kw>近卫</>干员的专精技能训练速度<@cc.vup>+30%</>，如果训练位干员分支为<@cc.kw>领主</>，则训练速度额外<@cc.vup>+45%</>",
+		"iconId": "bskill_train_lord"
 	},
 	"control_mp_cost&faction[000]": {
 		"name": "Integrity & Capability",

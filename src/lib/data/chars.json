@@ -861,6 +861,15 @@
 		]
 	},
 	{
+		"charId": "char_4083_chimes",
+		"name": "Wind Chimes",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "skillId": "trade_cost&bd2[000]" },
+			{ "elite": 2, "level": 1, "skillId": "trade_cost&bd2[001]" }
+		]
+	},
+	{
 		"charId": "char_252_bibeak",
 		"name": "Bibeak",
 		"rarity": 5,
@@ -2276,6 +2285,15 @@
 		"skills": [
 			{ "elite": 0, "level": 1, "skillId": "workshop_proc_probability[012]" },
 			{ "elite": 2, "level": 1, "skillId": "workshop_formula_recovery[000]" }
+		]
+	},
+	{
+		"charId": "char_4082_qiubai",
+		"name": "Qiubai",
+		"rarity": 6,
+		"skills": [
+			{ "elite": 0, "level": 1, "skillId": "train_spd&profession3[160]" },
+			{ "elite": 2, "level": 1, "skillId": "train_spd&profession3[161]" }
 		]
 	},
 	{
