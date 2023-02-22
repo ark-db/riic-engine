@@ -165,6 +165,17 @@ function calculatePowerCapacity(save: ActiveSave): number {
 	);
 }
 
+// Calculates the position (column number) of the last shift in a base layout
+function calculateLastShiftIndex(save: ActiveSave): number {
+	// When there are no shifts specified in the save, the result is -Infinity, so 0 is included as a "floor" value
+	return Math.max(
+		0,
+		...Object.values(save.data.layout)
+			.flat()
+			.map((facility) => Math.max(...facility.shifts.map(({ end }) => end)))
+	);
+}
+
 export const saveList = createSaveList();
 export const error = createError();
 export const saveSortMode = createSaveSortMode();
@@ -172,3 +183,4 @@ export const saveSortOrder = createSaveSortOrder();
 export const activeSave = createActiveSave();
 export const powerUsage = derived(activeSave, calculatePowerUsage);
 export const maxPower = derived(activeSave, calculatePowerCapacity);
+export const lastShiftIndex = derived(activeSave, calculateLastShiftIndex);
