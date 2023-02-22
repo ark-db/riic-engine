@@ -93,7 +93,7 @@ def save_image(session: Session, category: Asset, name: str) -> None:
         )
 
 
-char_data = []
+char_data: list[dict[str, object]] = []
 all_skill_ids: set[str] = set()
 all_skills: dict[str, dict[str, str]] = {}
 facility_info: dict[str, dict[str, object]] = {}
@@ -128,7 +128,7 @@ with Session() as s:
 
     for char_id, details in CHARS.items():
         if is_operator(details):
-            skills = []
+            skills: list[dict[str, str | int]] = []
             for skill in CHAR_SKILLS[char_id]["buffChar"]:
                 for tier in skill["buffData"]:
                     level_req = tier["cond"]
