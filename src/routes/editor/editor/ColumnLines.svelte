@@ -13,13 +13,18 @@
 
 <style>
 	.markers {
+		--column-gap: 36px;
 		z-index: 1;
 		position: absolute;
 		top: 0.35em;
-		left: calc(1.75em + 22px + 36px);
+		/* padding from navbar
+            + facility row edge padding
+            + facility icon width
+            + width of one-column wide gap */
+		left: calc(0.75em + 1em + 22px + var(--column-gap));
 		overflow: hidden;
 		display: flex;
-		column-gap: 36px;
+		column-gap: var(--column-gap);
 	}
 	.column-marker {
 		color: var(--light-strong);
@@ -32,7 +37,7 @@
 	.column-line {
 		height: var(--column-height);
 		width: 1.5px;
-		background-color: var(--light-strong);
+		background-color: var(--light);
 		opacity: 0.5;
 	}
 </style>
