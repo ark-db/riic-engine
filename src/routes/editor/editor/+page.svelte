@@ -4,9 +4,10 @@
 	import ColumnLines from './ColumnLines.svelte';
 
 	let columnHeight: number;
+	const columnGap = 36;
 </script>
 
-<ColumnLines --column-height={`${columnHeight}px`} />
+<ColumnLines {columnGap} {columnHeight} />
 
 <div class="facilities" bind:clientHeight={columnHeight}>
 	<RowWrapper kind="control" />

@@ -1,8 +1,11 @@
 <script lang="ts">
 	import { lastShiftIndex } from '$lib/stores';
+
+	export let columnGap: number;
+	export let columnHeight: number;
 </script>
 
-<div class="markers">
+<div class="markers" style="--column-gap: {columnGap}px; --column-height: {columnHeight}px;">
 	{#each { length: $lastShiftIndex + 4 } as _, i}
 		<div class="column-marker">
 			{i + 1}
@@ -13,7 +16,6 @@
 
 <style>
 	.markers {
-		--column-gap: 36px;
 		z-index: 1;
 		position: absolute;
 		top: 0.35em;
