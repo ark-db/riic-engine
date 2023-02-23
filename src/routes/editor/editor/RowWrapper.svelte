@@ -17,4 +17,4 @@
 	}
 </script>
 
-<FacilityRow {kind} --color={color} --color-a={hexToRgb(color, 0.6)} />
+<FacilityRow {kind} --color={color} --color-a={hexToRgb(color, 0.65)} />
