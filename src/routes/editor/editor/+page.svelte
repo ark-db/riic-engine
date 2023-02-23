@@ -1,15 +1,17 @@
 <script lang="ts">
-	import { activeSave } from '$lib/stores';
+	import { activeSave, lastColumnNumber } from '$lib/stores';
 	import RowWrapper from './RowWrapper.svelte';
 	import ColumnLines from './ColumnLines.svelte';
 
 	let columnHeight: number;
 	const columnGap = 36;
+
+	$: width = Math.round($lastColumnNumber * 1.4 - 1) * columnGap;
 </script>
 
 <ColumnLines {columnGap} {columnHeight} />
 
-<div class="facilities" bind:clientHeight={columnHeight}>
+<div class="facilities" bind:clientHeight={columnHeight} style="--width: {width}px;">
 	<RowWrapper kind="control" />
 
 	{#each $activeSave.data.layout.tp as _}
@@ -39,6 +41,7 @@
 
 <style>
 	.facilities {
+		width: var(--width);
 		margin-top: 0.75em;
 		display: flex;
 		flex-direction: column;
