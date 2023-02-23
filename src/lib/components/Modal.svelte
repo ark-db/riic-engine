@@ -10,7 +10,7 @@
 	}
 </script>
 
-<svelte:window on:keydown|trusted={handleKeyboardClose} />
+<svelte:window on:keydown|trusted|preventDefault={handleKeyboardClose} />
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <div class="bg" on:click|trusted={handleMouseClose} />
