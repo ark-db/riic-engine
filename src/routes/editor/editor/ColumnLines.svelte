@@ -3,9 +3,14 @@
 
 	export let columnGap: number;
 	export let columnHeight: number;
+	export let totalColumnWidth: number;
 </script>
 
-<div class="markers" style="--column-gap: {columnGap}px; --column-height: {columnHeight}px;">
+<div
+	class="markers"
+	style="--column-gap: {columnGap}px; --column-height: {columnHeight}px;"
+	bind:clientWidth={totalColumnWidth}
+>
 	{#each { length: $lastColumnNumber } as _, i}
 		<div class="column-marker">
 			{i + 1}
