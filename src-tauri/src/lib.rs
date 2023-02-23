@@ -32,7 +32,7 @@ pub enum CmdError {
     #[error("An error occurred while writing the save file")]
     FileWrite(#[from] serde_json::Error),
 
-    #[error("No name specified")]
+    #[error("A save file name was not specified")]
     NameEmpty,
 
     #[error("Another file with the same name already exists")]

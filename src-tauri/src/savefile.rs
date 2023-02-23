@@ -20,10 +20,11 @@ pub struct FileData {
 impl FileData {
     fn new(path: &Path, metadata: &Metadata) -> CmdResult<Self> {
         Ok(Self {
-            name: path.file_stem().map_or_else(
-                || String::from("Untitled"),
-                |f| f.to_string_lossy().to_string(),
-            ),
+            name: path
+                .file_stem()
+                .ok_or(CmdError::NameEmpty)?
+                .to_string_lossy()
+                .to_string(),
             modified: metadata.modified()?.elapsed()?.as_secs_f32(),
             created: metadata.created()?.elapsed()?.as_secs_f32(),
         })
@@ -37,9 +38,11 @@ pub struct ImportedSave {
 }
 
 fn get_save_fp(name: &str) -> CmdResult<PathBuf> {
-    (!name.is_empty())
-        .then(|| SAVE_DIR.wait().join(name).with_extension("json"))
-        .ok_or(CmdError::NameEmpty)
+    if name.is_empty() {
+        Err(CmdError::NameEmpty)
+    } else {
+        Ok(SAVE_DIR.wait().join(name).with_extension("json"))
+    }
 }
 
 fn get_available_fp(dir: &Path, name: &str) -> PathBuf {
@@ -66,14 +69,13 @@ pub fn fetch_saves() -> CmdResult<Vec<FileData>> {
         .filter_map(Result::ok)
         .map(|entry| entry.path())
         .filter_map(|path| {
-            if let Ok(metadata) = metadata(&path) {
-                if let Some(ext) = path.extension() {
-                    if ext == "json" && metadata.is_file() {
-                        return FileData::new(&path, &metadata).ok();
-                    }
-                }
+            let data = metadata(&path).ok()?;
+            let ext = path.extension()?;
+            if ext == "json" && data.is_file() {
+                FileData::new(&path, &data).ok()
+            } else {
+                None
             }
-            None
         })
         .collect())
 }
