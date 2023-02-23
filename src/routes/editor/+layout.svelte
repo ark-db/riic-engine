@@ -201,9 +201,10 @@
 	main {
 		grid-row: 2 / 3;
 		grid-column: 2 / 3;
+		position: relative;
+		padding: 0.75em;
 		background-color: var(--dark-strong);
 		overflow: auto;
-		padding: 0.75em;
 	}
 	main.nav-hidden {
 		grid-column: span 2;

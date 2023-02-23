@@ -1,18 +1,14 @@
 <script lang="ts">
-	import { activeSave, lastShiftIndex } from '$lib/stores';
+	import { activeSave } from '$lib/stores';
 	import RowWrapper from './RowWrapper.svelte';
+	import ColumnLines from './ColumnLines.svelte';
+
+	let columnHeight: number;
 </script>
 
-<div class="markers">
-	{#each { length: $lastShiftIndex } as _, i}
-		<div class="column-marker">
-			{i}
-			<div class="column-line" />
-		</div>
-	{/each}
-</div>
+<ColumnLines --column-height={`${columnHeight}px`} />
 
-<div class="facilities">
+<div class="facilities" bind:clientHeight={columnHeight}>
 	<RowWrapper kind="control" />
 
 	{#each $activeSave.data.layout.tp as _}
@@ -41,17 +37,8 @@
 </div>
 
 <style>
-	.markers {
-		position: absolute;
-		display: flex;
-		column-gap: 24px;
-	}
-	.column-marker {
-		width: 2px;
-		background-color: var(--gray);
-		height: 100%;
-	}
 	.facilities {
+		margin-top: 0.75em;
 		display: flex;
 		flex-direction: column;
 		row-gap: 0.75em;
