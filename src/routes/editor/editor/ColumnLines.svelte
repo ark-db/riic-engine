@@ -1,12 +1,12 @@
 <script lang="ts">
-	import { lastShiftIndex } from '$lib/stores';
+	import { lastColumnNumber } from '$lib/stores';
 
 	export let columnGap: number;
 	export let columnHeight: number;
 </script>
 
 <div class="markers" style="--column-gap: {columnGap}px; --column-height: {columnHeight}px;">
-	{#each { length: $lastShiftIndex + 4 } as _, i}
+	{#each { length: $lastColumnNumber } as _, i}
 		<div class="column-marker">
 			{i + 1}
 			<div class="column-line" />
