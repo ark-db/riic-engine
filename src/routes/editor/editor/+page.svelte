@@ -12,7 +12,7 @@
 
 <div
 	class="facilities"
-	style="--width: {totalColumnWidth + columnGap + 30}px;"
+	style="--width: {totalColumnWidth + columnGap * 2}px;"
 	bind:clientHeight={columnHeight}
 >
 	<FacilityRow kind="control" />

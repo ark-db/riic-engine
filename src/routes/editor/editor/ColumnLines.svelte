@@ -24,16 +24,13 @@
 		z-index: 1;
 		position: absolute;
 		top: 0.35em;
-		/* padding from navbar
-            + facility row edge padding
-            + facility icon width
-            + width of one-column wide gap */
-		left: calc(0.75em + 1em + 22px + var(--column-gap));
+		left: calc(3.5em + var(--column-gap));
 		overflow: hidden;
 		display: flex;
 		column-gap: var(--column-gap);
 	}
 	.column-marker {
+		width: 1em;
 		color: var(--light-strong);
 		font-size: 0.8em;
 		display: flex;
