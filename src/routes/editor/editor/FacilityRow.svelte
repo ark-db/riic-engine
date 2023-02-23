@@ -6,11 +6,21 @@
 
 	export let kind: FacilityName;
 
-	let facility = facilities[kind];
+	const rowOpacity = 0.65;
+	let { name, color } = facilities[kind];
+
+	// Converts a hex triplet into the CSS rgb() format
+	function hexToRgb(hex: string, alpha = 1.0): string {
+		let r = parseInt(hex.slice(1, 3), 16),
+			g = parseInt(hex.slice(3, 5), 16),
+			b = parseInt(hex.slice(5, 7), 16);
+
+		return `rgb(${r} ${g} ${b} / ${alpha})`;
+	}
 </script>
 
-<div class="container">
-	<div class="edge" use:tooltip={facility.name}>
+<div class="container" style="--color: {color}; --color-a: {hexToRgb(color, rowOpacity)}">
+	<div class="edge" use:tooltip={name}>
 		<FacilityIcon {kind} size={24} />
 	</div>
 </div>

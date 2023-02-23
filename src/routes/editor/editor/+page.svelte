@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { activeSave } from '$lib/stores';
-	import RowWrapper from './RowWrapper.svelte';
+	import FacilityRow from './FacilityRow.svelte';
 	import ColumnLines from './ColumnLines.svelte';
 
 	let columnHeight: number;
@@ -15,30 +15,30 @@
 	style="--width: {totalColumnWidth + columnGap + 30}px;"
 	bind:clientHeight={columnHeight}
 >
-	<RowWrapper kind="control" />
+	<FacilityRow kind="control" />
 
 	{#each $activeSave.data.layout.tp as _}
-		<RowWrapper kind="trading" />
+		<FacilityRow kind="trading" />
 	{/each}
 
 	{#each $activeSave.data.layout.fac as _}
-		<RowWrapper kind="manufacture" />
+		<FacilityRow kind="manufacture" />
 	{/each}
 
 	{#each $activeSave.data.layout.pp as _}
-		<RowWrapper kind="power" />
+		<FacilityRow kind="power" />
 	{/each}
 
 	{#if $activeSave.data.layout.rr}
-		<RowWrapper kind="meeting" />
+		<FacilityRow kind="meeting" />
 	{/if}
 
 	{#if $activeSave.data.layout.office}
-		<RowWrapper kind="hire" />
+		<FacilityRow kind="hire" />
 	{/if}
 
 	{#each $activeSave.data.layout.dorm as _}
-		<RowWrapper kind="dormitory" />
+		<FacilityRow kind="dormitory" />
 	{/each}
 </div>
 
