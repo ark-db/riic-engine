@@ -167,12 +167,12 @@ function calculatePowerCapacity(save: ActiveSave): number {
 
 // Calculates the position (column number) of the last shift in a base layout
 function calculateLastShiftIndex(save: ActiveSave): number {
-	// When there are no shifts specified in the save, the result is -Infinity, so 1 is included as a "floor" value
+	// When there are no shifts specified in the save, the result is -Infinity, so 0 is included as a "floor" value
 	return Math.max(
-		1,
+		0,
 		...Object.values(save.data.layout)
 			.flat()
-			.map((facility) => Math.max(...facility.shifts.map(({ end }) => end + 1)))
+			.map((facility) => Math.max(...facility.shifts.map(({ end }) => end)))
 	);
 }
 

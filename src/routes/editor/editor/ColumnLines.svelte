@@ -3,7 +3,7 @@
 </script>
 
 <div class="markers">
-	{#each { length: $lastShiftIndex } as _, i}
+	{#each { length: $lastShiftIndex + 4 } as _, i}
 		<div class="column-marker">
 			{i + 1}
 			<div class="column-line" />
