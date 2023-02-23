@@ -2,7 +2,6 @@
 	import { onMount } from 'svelte';
 	import { invoke } from '@tauri-apps/api/tauri';
 	import { error } from '$lib/stores';
-	import { interaction } from '$lib/utils';
 
 	export let text: string;
 	export let active: boolean;
@@ -18,7 +17,9 @@
 		if (input) input.focus();
 	});
 
-	const handleKeydown = interaction(() => input.blur());
+	function handleKeydown(event: KeyboardEvent) {
+		if (event.key === 'Enter') input.blur();
+	}
 
 	// Updates the save name if the new name is valid
 	function updateText() {
@@ -56,7 +57,7 @@
 	enterkeyhint="done"
 	bind:this={input}
 	bind:value={text}
-	on:keydown={handleKeydown}
+	on:keydown|trusted={handleKeydown}
 	on:blur={updateText}
 />
 

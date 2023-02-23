@@ -1,12 +1,20 @@
 <script lang="ts">
-	import { interaction } from '$lib/utils';
-
 	export let onClose: () => void;
 
-	const handleClose = interaction(onClose, ['Escape']);
+	function handleMouseClose(event: MouseEvent) {
+		if (event.button === 0) onClose();
+	}
+
+	function handleKeyboardClose(event: KeyboardEvent) {
+		if (event.key === 'Escape') onClose();
+	}
 </script>
 
-<div class="bg" on:click={handleClose} on:keydown={handleClose} />
+<svelte:window on:keydown|trusted={handleKeyboardClose} />
+
+<!-- svelte-ignore a11y-click-events-have-key-events -->
+<div class="bg" on:click|trusted={handleMouseClose} />
+
 <section>
 	<slot />
 </section>
