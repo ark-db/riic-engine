@@ -150,7 +150,7 @@ pub fn delete_save(name: &str) -> CmdResult<()> {
 pub fn export_save(name: &str) -> CmdResult<()> {
     let save_path = get_save_fp(name)?;
     let target_path = get_available_fp(
-        &download_dir().expect("Download directory should be retrievable"),
+        &download_dir().expect("Failed to retrieve download directory"),
         name,
     );
     copy(save_path, target_path)?;

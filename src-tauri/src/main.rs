@@ -23,7 +23,7 @@ fn main() {
             let saves_dir = app
                 .path_resolver()
                 .app_data_dir()
-                .expect("App directory should be retrievable")
+                .expect("Failed to retrieve app directory")
                 .join("saves");
 
             if !saves_dir.is_dir() {
