@@ -32,6 +32,8 @@ class Asset(Enum):
     }
 
 
+MIN_IMAGE_SIZE = 60
+
 NAME_CHANGES = {
     "char_118_yuki": "Shirayuki",
     "char_196_sunbr": "Gummy",
@@ -83,9 +85,19 @@ def save_image(session: Session, category: Asset, name: str) -> None:
         return
     elif (res := session.get(f"{base_url}/{name}.png")):
         # The Response returned from get() is truthy if the status code is 2xx or 3xx
-        Image.open(BytesIO(res.content)) \
-            .convert("RGBA") \
-            .save(target_path, "webp", quality=quality)
+        img = Image.open(BytesIO(res.content)) \
+            .convert("RGBA")
+
+        (height, width) = img.size
+
+        if height < MIN_IMAGE_SIZE or width < MIN_IMAGE_SIZE:
+            scale_factor = MIN_IMAGE_SIZE / min(height, width)
+            img = img.resize(
+                (round(scale_factor * width), round(scale_factor * height)),
+                Image.LANCZOS
+            )
+
+        img.save(target_path, "webp", quality=quality)
     else:
         warnings.warn(
             f"Could not save image of {category.name.lower()} with ID \"{name}\"",
