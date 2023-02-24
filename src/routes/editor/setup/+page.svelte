@@ -25,12 +25,12 @@
 		<Facility kind="control" minLevel={1} bind:level={$activeSave.data.layout.cc.level} />
 	</div>
 	<div class="tp-wrapper">
-		{#each $activeSave.data.layout.tp as tradingPost, i}
+		{#each $activeSave.data.layout.tp as room, i}
 			<Facility
 				kind="trading"
 				minLevel={1}
 				onDelete={() => deleteFacility($activeSave.data.layout.tp, i)}
-				bind:level={tradingPost.level}
+				bind:level={room.level}
 			/>
 		{/each}
 		{#if $activeSave.data.layout.tp.length < 5}
@@ -38,12 +38,12 @@
 		{/if}
 	</div>
 	<div class="fac-wrapper">
-		{#each $activeSave.data.layout.fac as factory, i}
+		{#each $activeSave.data.layout.fac as room, i}
 			<Facility
 				kind="manufacture"
 				minLevel={1}
 				onDelete={() => deleteFacility($activeSave.data.layout.fac, i)}
-				bind:level={factory.level}
+				bind:level={room.level}
 			/>
 		{/each}
 		{#if $activeSave.data.layout.fac.length < 5}
@@ -51,12 +51,12 @@
 		{/if}
 	</div>
 	<div class="pp-wrapper">
-		{#each $activeSave.data.layout.pp as powerPlant, i}
+		{#each $activeSave.data.layout.pp as room, i}
 			<Facility
 				kind="power"
 				minLevel={1}
 				onDelete={() => deleteFacility($activeSave.data.layout.pp, i)}
-				bind:level={powerPlant.level}
+				bind:level={room.level}
 			/>
 		{/each}
 		{#if $activeSave.data.layout.pp.length < 5}
@@ -64,8 +64,8 @@
 		{/if}
 	</div>
 	<div class="dorm-wrapper">
-		{#each $activeSave.data.layout.dorm as facility}
-			<Facility kind="dormitory" bind:level={facility.level} />
+		{#each $activeSave.data.layout.dorm as room}
+			<Facility kind="dormitory" bind:level={room.level} />
 		{/each}
 	</div>
 	<div class="workshop">
