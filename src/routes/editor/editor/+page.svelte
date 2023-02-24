@@ -4,17 +4,14 @@
 	import ColumnLines from './ColumnLines.svelte';
 
 	let columnHeight: number;
-	const columnGap = 36;
+	const columnGap = 24;
 	let totalColumnWidth: number;
+	$: facilityRowWidth = totalColumnWidth + columnGap * 2 + (36 - columnGap);
 </script>
 
 <ColumnLines {columnGap} {columnHeight} bind:totalColumnWidth />
 
-<div
-	class="facilities"
-	style="--width: {totalColumnWidth + columnGap * 2}px;"
-	bind:clientHeight={columnHeight}
->
+<div class="facilities" style="--width: {facilityRowWidth}px;" bind:clientHeight={columnHeight}>
 	<FacilityRow kind="control" />
 
 	{#each $activeSave.data.layout.tp as _}
