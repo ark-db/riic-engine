@@ -40,8 +40,8 @@
 	}
 	.column-line {
 		height: var(--column-height);
-		width: 1.5px;
+		width: 1px;
 		background-color: var(--light);
-		opacity: 0.5;
+		opacity: 0.6;
 	}
 </style>

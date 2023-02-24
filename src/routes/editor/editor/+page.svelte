@@ -4,9 +4,9 @@
 	import ColumnLines from './ColumnLines.svelte';
 
 	let columnHeight: number;
-	const columnGap = 24;
+	const columnGap = 36;
 	let totalColumnWidth: number;
-	$: facilityRowWidth = totalColumnWidth + columnGap * 2 + (36 - columnGap);
+	$: facilityRowWidth = totalColumnWidth + columnGap + 36;
 </script>
 
 <ColumnLines {columnGap} {columnHeight} bind:totalColumnWidth />
