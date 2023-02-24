@@ -58,7 +58,7 @@
 	bind:this={input}
 	bind:value={text}
 	on:keydown|trusted={handleKeydown}
-	on:blur={updateText}
+	on:focusout={updateText}
 />
 
 <style>
