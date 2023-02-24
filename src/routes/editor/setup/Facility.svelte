@@ -14,7 +14,7 @@
 	let maxLevel = facility.capacity.length;
 </script>
 
-<div class="container" style:border={`0.5em solid ${facility.color}`}>
+<div class="container" class:unused={level === 0} style:border={`0.5em solid ${facility.color}`}>
 	<div class="info">
 		<p class="facility-name">
 			{facility.name}
@@ -64,6 +64,9 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
+	}
+	.unused {
+		filter: brightness(0.6);
 	}
 	.info {
 		display: flex;
