@@ -26,16 +26,18 @@
 		<FacilityRow kind="power" />
 	{/each}
 
-	{#if $activeSave.data.layout.rr}
+	{#if $activeSave.data.layout.rr.level > 0}
 		<FacilityRow kind="meeting" />
 	{/if}
 
-	{#if $activeSave.data.layout.office}
+	{#if $activeSave.data.layout.office.level > 0}
 		<FacilityRow kind="hire" />
 	{/if}
 
-	{#each $activeSave.data.layout.dorm as _}
-		<FacilityRow kind="dormitory" />
+	{#each $activeSave.data.layout.dorm as room}
+		{#if room.level > 0}
+			<FacilityRow kind="dormitory" />
+		{/if}
 	{/each}
 </div>
 
