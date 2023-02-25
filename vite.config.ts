@@ -8,6 +8,10 @@ const config: UserConfig = {
 	},
 	build: {
 		assetsInlineLimit: 0
+	},
+	server: {
+		port: 5173,
+		strictPort: true
 	}
 };
 

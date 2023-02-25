@@ -2,7 +2,7 @@
 name = "riic-engine"
 version = "0.1.0"
 description = "Standalone desktop app for simulating performance of RIIC setups"
-authors = ["astral4 <88992929+astral4@users.noreply.github.com>"]
+authors = ["Kyle Chen"]
 license = "GPL-3.0-or-later"
 repository = "https://github.com/ark-db/riic-engine"
 edition = "2021"

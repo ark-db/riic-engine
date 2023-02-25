@@ -20,7 +20,7 @@
 			"shortDescription": "Standalone desktop app for simulating performance of RIIC setups",
 			"longDescription": "Standalone desktop app for simulating performance of RIIC setups",
 			"category": "Utility",
-			"copyright": "© 2022 astral4",
+			"copyright": "Copyright © 2023 Kyle Chen",
 			"icon": [
 				"icons/32x32.png",
 				"icons/128x128.png",
@@ -35,16 +35,15 @@
 				"depends": []
 			},
 			"macOS": {
-				"entitlements": null,
-				"exceptionDomain": "",
-				"frameworks": [],
-				"providerShortName": null,
-				"signingIdentity": null
+				"minimumSystemVersion": "11.0",
+				"license": "../LICENSE"
 			},
 			"windows": {
-				"certificateThumbprint": null,
 				"digestAlgorithm": "sha256",
-				"timestampUrl": ""
+				"wix": {
+					"language": "en-US",
+					"license": "../LICENSE"
+				}
 			}
 		},
 		"security": {
@@ -57,9 +56,9 @@
 			{
 				"title": "RIIC Engine",
 				"center": true,
-				"height": 600,
+				"height": 720,
+				"width": 960,
 				"minHeight": 600,
-				"width": 800,
 				"minWidth": 800,
 				"fileDropEnabled": false,
 				"theme": "Dark",
