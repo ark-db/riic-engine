@@ -31,14 +31,12 @@
 			"resources": [],
 			"targets": "all",
 			"macOS": {
-				"minimumSystemVersion": "11.0",
-				"license": "../LICENSE"
+				"minimumSystemVersion": "11.0"
 			},
 			"windows": {
 				"digestAlgorithm": "sha256",
 				"wix": {
-					"language": "en-US",
-					"license": "../LICENSE"
+					"language": "en-US"
 				}
 			}
 		},
