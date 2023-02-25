@@ -5,6 +5,9 @@ const config: UserConfig = {
 	plugins: [sveltekit()],
 	json: {
 		stringify: true
+	},
+	build: {
+		assetsInlineLimit: 0
 	}
 };
 
