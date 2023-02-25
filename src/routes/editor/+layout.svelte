@@ -5,10 +5,10 @@
 	import { invoke } from '@tauri-apps/api/tauri';
 	import GradientContainer from '$lib/components/GradientContainer.svelte';
 	import Button from '$lib/components/Button.svelte';
-	import logo from '$lib/images/logo.png';
-	import menuIcon from '$lib/images/menu.png';
-	import powerIcon from '$lib/images/power.png';
-	import slash from '$lib/images/slash.png';
+	import logo from '$lib/images/logo.webp';
+	import menuIcon from '$lib/images/menu.webp';
+	import powerIcon from '$lib/images/power.webp';
+	import slash from '$lib/images/slash.webp';
 	import { activeSave, error, powerUsage, maxPower } from '$lib/stores';
 	import type { ActiveSave } from '$lib/types';
 
@@ -163,14 +163,14 @@
 	#menu-icon {
 		margin: 0.25em 0.25em 0;
 		border-radius: 5px;
-		padding: 2.5px;
-		background-color: var(--light);
-		box-shadow: 0 0 0.5em rgb(255 255 255 / 0.75);
-		transition: background-color 0.2s;
-		filter: invert(1);
+		padding: 5px;
+		background-color: var(--dark-strong);
+		box-shadow: 0 0 0.25em var(--dark-strong);
+		transition: all 0.2s;
 	}
 	#menu-icon:hover {
-		background-color: var(--gray-mild);
+		background-color: var(--dark-mild);
+		box-shadow: 0 0 0.25em var(--dark-mild);
 	}
 	.power-usage {
 		padding: 0 0.5em;
