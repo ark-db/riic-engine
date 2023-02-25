@@ -29,11 +29,7 @@
 				"icons/icon.ico"
 			],
 			"resources": [],
-			"externalBin": [],
 			"targets": "all",
-			"deb": {
-				"depends": []
-			},
 			"macOS": {
 				"minimumSystemVersion": "11.0",
 				"license": "../LICENSE"
