@@ -49,6 +49,7 @@
 		"windows": [
 			{
 				"title": "RIIC Engine",
+				"label": "main",
 				"center": true,
 				"height": 720,
 				"width": 960,
