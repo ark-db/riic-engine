@@ -2,13 +2,30 @@ use crate::{base::Save, CmdError, CmdResult};
 use once_cell::sync::OnceCell;
 use serde::{Deserialize, Serialize};
 use std::{
-    fs::{copy, metadata, read_dir, remove_file, rename, File, Metadata},
+    fs::{copy, create_dir_all, metadata, read_dir, remove_file, rename, File, Metadata},
     io::BufReader,
     path::{Path, PathBuf},
 };
-use tauri::api::path::download_dir;
+use tauri::{api::path::download_dir, App};
 
-pub static SAVE_DIR: OnceCell<PathBuf> = OnceCell::new();
+static SAVE_DIR: OnceCell<PathBuf> = OnceCell::new();
+static DOWNLOAD_DIR: OnceCell<PathBuf> = OnceCell::new();
+
+pub(crate) fn load_savefile_dirs(app: &App) {
+    let path_resolver = app.path_resolver();
+
+    let saves_dir = path_resolver
+        .app_data_dir()
+        .expect("Failed to retrieve app data directory")
+        .join("saves");
+    if !saves_dir.is_dir() {
+        create_dir_all(&saves_dir).expect("Failed to create save directory");
+    }
+    SAVE_DIR.set(saves_dir).unwrap();
+
+    let download_dir = download_dir().expect("Failed to retrieve download directory");
+    DOWNLOAD_DIR.set(download_dir).unwrap();
+}
 
 #[derive(Serialize)]
 pub struct FileData {
@@ -149,10 +166,7 @@ pub fn delete_save(name: &str) -> CmdResult<()> {
 #[tauri::command]
 pub fn export_save(name: &str) -> CmdResult<()> {
     let save_path = get_save_fp(name)?;
-    let target_path = get_available_fp(
-        &download_dir().expect("Failed to retrieve download directory"),
-        name,
-    );
+    let target_path = get_available_fp(DOWNLOAD_DIR.wait(), name);
     copy(save_path, target_path)?;
     Ok(())
 }

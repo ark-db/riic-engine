@@ -19,6 +19,7 @@ pub mod savefile;
 pub mod window;
 
 use serde::Serialize;
+use tauri::App;
 use thiserror::Error;
 
 #[derive(Debug, Error)]
@@ -49,3 +50,11 @@ impl Serialize for CmdError {
 }
 
 pub type CmdResult<T> = Result<T, CmdError>;
+
+/// # Errors
+/// Returns error if:
+/// - Savefile-related directories cannot be loaded
+pub fn setup_app(app: &mut App) -> Result<(), Box<dyn std::error::Error>> {
+    savefile::load_savefile_dirs(app);
+    Ok(())
+}
