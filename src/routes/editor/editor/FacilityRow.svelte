@@ -6,7 +6,7 @@
 
 	export let kind: FacilityName;
 
-	const rowOpacity = 0.65;
+	const rowOpacity = 0.7;
 	let { name, color } = facilities[kind];
 
 	// Converts a hex triplet into the CSS rgb() format
