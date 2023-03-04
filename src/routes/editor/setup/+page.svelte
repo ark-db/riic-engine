@@ -1,19 +1,29 @@
 <script lang="ts">
 	import { activeSave } from '$lib/stores';
-	import type { Facility as FacilityType } from '$lib/types';
+	import type { Facility as FacilityType, BoostFacility as BoostFacilityType } from '$lib/types';
 	import Facility from './Facility.svelte';
 	import AddFacility from './AddFacility.svelte';
 
 	function addFacility(facilities: FacilityType[]) {
 		facilities.push({
-			shifts: [],
-			level: 1
+			level: 1,
+			shifts: []
 		});
 		// notify store subscribers with assignment
 		$activeSave = $activeSave;
 	}
 
-	function deleteFacility(facilities: FacilityType[], index: number) {
+	function addBoostFacility(facilities: BoostFacilityType[]) {
+		facilities.push({
+			level: 1,
+			shifts: [],
+			boosts: []
+		});
+		// notify store subscribers with assignment
+		$activeSave = $activeSave;
+	}
+
+	function deleteFacility(facilities: FacilityType[] | BoostFacilityType[], index: number) {
 		facilities.splice(index, 1);
 		// notify store subscribers with assignment
 		$activeSave = $activeSave;
@@ -34,7 +44,7 @@
 			/>
 		{/each}
 		{#if $activeSave.data.layout.tp.length < 5}
-			<AddFacility kind="trading" on:click={() => addFacility($activeSave.data.layout.tp)} />
+			<AddFacility kind="trading" on:click={() => addBoostFacility($activeSave.data.layout.tp)} />
 		{/if}
 	</div>
 	<div class="fac-wrapper">
@@ -47,7 +57,10 @@
 			/>
 		{/each}
 		{#if $activeSave.data.layout.fac.length < 5}
-			<AddFacility kind="manufacture" on:click={() => addFacility($activeSave.data.layout.fac)} />
+			<AddFacility
+				kind="manufacture"
+				on:click={() => addBoostFacility($activeSave.data.layout.fac)}
+			/>
 		{/if}
 	</div>
 	<div class="pp-wrapper">

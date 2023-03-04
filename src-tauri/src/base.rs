@@ -10,8 +10,8 @@ pub struct Save {
 #[derive(Serialize, Deserialize)]
 struct Layout {
     cc: Facility,
-    tp: Vec<Facility>,
-    fac: Vec<Facility>,
+    tp: Vec<BoostFacility>,
+    fac: Vec<BoostFacility>,
     pp: Vec<Facility>,
     workshop: Facility,
     rr: Facility,
@@ -22,8 +22,8 @@ struct Layout {
 
 #[derive(Serialize, Deserialize)]
 struct Facility {
-    shifts: Vec<Shift>,
     level: u8,
+    shifts: Vec<Shift>,
 }
 
 #[derive(Serialize, Deserialize)]
@@ -50,12 +50,35 @@ impl Facility {
     }
 }
 
+#[derive(Serialize, Deserialize)]
+struct BoostFacility {
+    level: u8,
+    shifts: Vec<Shift>,
+    boosts: Vec<Boost>,
+}
+
+#[derive(Serialize, Deserialize)]
+struct Boost {
+    drones: u32,
+    col: u64,
+}
+
+impl BoostFacility {
+    fn new(level: u8) -> Self {
+        Self {
+            level,
+            shifts: Vec::new(),
+            boosts: Vec::new(),
+        }
+    }
+}
+
 impl Default for Layout {
     fn default() -> Self {
         Self {
             cc: Facility::new(1),
-            tp: vec![Facility::new(1)],
-            fac: vec![Facility::new(1)],
+            tp: vec![BoostFacility::new(1)],
+            fac: vec![BoostFacility::new(1)],
             pp: vec![Facility::new(1)],
             workshop: Facility::new(1),
             rr: Facility::new(0),
