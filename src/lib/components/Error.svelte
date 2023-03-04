@@ -31,6 +31,7 @@
 	}
 	p {
 		color: var(--salmon-strong);
+		line-height: 1.4;
 	}
 	input {
 		position: absolute;
