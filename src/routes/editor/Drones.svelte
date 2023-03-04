@@ -33,6 +33,7 @@
 <div class="container">
 	<img src={drones} alt="Drone icon" width="33" height="33" />
 	<input
+		class="input-template"
 		class:invalid
 		type="number"
 		placeholder="Drones..."
@@ -58,25 +59,8 @@
 		column-gap: 0.25em;
 	}
 	input {
-		margin: 0;
 		padding: 0.3em 0.5em;
 		font-size: clamp(1.25em, 2.5vh, 1.5em);
-		font-weight: 600;
-		color: var(--light);
-		background-color: var(--dark-strong);
-		appearance: textfield;
-		-moz-appearance: textfield;
-	}
-	input::-webkit-outer-spin-button,
-	input::-webkit-inner-spin-button {
-		-webkit-appearance: none;
-		margin: 0;
-	}
-	input:focus {
-		outline: none;
-		border: 2px solid var(--light);
-		border-radius: 0.25em;
-		background-color: var(--dark);
 	}
 	.invalid:not(:placeholder-shown) {
 		border: 2px solid var(--salmon-strong);
@@ -84,6 +68,5 @@
 	}
 	::placeholder {
 		font-size: 0.9em;
-		color: var(--gray);
 	}
 </style>

@@ -50,4 +50,30 @@
 	:global(button:hover) {
 		cursor: pointer;
 	}
+	:global(input.input-template) {
+		margin: 0;
+		font-weight: 600;
+		color: var(--light);
+		background-color: var(--dark-strong);
+	}
+	:global(input[type='number'].input-template) {
+		appearance: textfield;
+		-moz-appearance: textfield;
+	}
+	:global(
+			input[type='number'].input-template::-webkit-outer-spin-button,
+			input[type='number'].input-template::-webkit-inner-spin-button
+		) {
+		-webkit-appearance: none;
+		margin: 0;
+	}
+	:global(input.input-template:focus) {
+		outline: none;
+		border: 2px solid var(--light);
+		border-radius: 0.25em;
+		background-color: var(--dark);
+	}
+	:global(input.input-template::placeholder) {
+		color: var(--gray);
+	}
 </style>

@@ -45,6 +45,7 @@
 </script>
 
 <input
+	class="input-template"
 	type="text"
 	placeholder="Setup name..."
 	required={true}
@@ -63,24 +64,11 @@
 
 <style>
 	input {
-		margin: 0;
 		padding: 0.3em 0.5em 0.4em;
 		font-size: 1.25em;
-		font-weight: 600;
-		color: var(--light);
-		background-color: var(--dark-strong);
-	}
-	input:focus {
-		outline: none;
-		border: 2px solid var(--light);
-		border-radius: 0.25em;
-		background-color: var(--dark);
 	}
 	input:invalid:not(:placeholder-shown) {
 		border: 2px solid var(--salmon-strong);
 		border-radius: 0.25em;
-	}
-	::placeholder {
-		color: var(--gray);
 	}
 </style>
