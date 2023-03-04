@@ -1,6 +1,6 @@
 use serde::{Deserialize, Serialize};
 
-#[derive(Serialize, Deserialize, Default)]
+#[derive(Serialize, Deserialize)]
 pub struct Save {
     layout: Layout,
     chars: Vec<CharData>,
@@ -90,6 +90,16 @@ impl Default for Layout {
                 Facility::new(0),
                 Facility::new(0),
             ],
+        }
+    }
+}
+
+impl Default for Save {
+    fn default() -> Self {
+        Self {
+            layout: Layout::default(),
+            chars: Vec::new(),
+            drones: 70,
         }
     }
 }
