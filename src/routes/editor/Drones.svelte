@@ -42,7 +42,9 @@
 		{min}
 		{max}
 		step="1"
+		autocapitalize="off"
 		autocomplete="off"
+		spellcheck="false"
 		enterkeyhint="done"
 		bind:this={input}
 		bind:value={qty}
