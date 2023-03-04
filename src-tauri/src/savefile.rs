@@ -11,6 +11,11 @@ use tauri::{api::path::download_dir, App};
 static SAVE_DIR: OnceCell<PathBuf> = OnceCell::new();
 static DOWNLOAD_DIR: OnceCell<PathBuf> = OnceCell::new();
 
+/// # Panics
+/// Panics if:
+/// - The app data directory cannot be retrieved
+/// - The savefile directory cannot be created
+/// - The download directory cannot be retrieved
 pub(crate) fn load_savefile_dirs(app: &App) {
     let path_resolver = app.path_resolver();
 
