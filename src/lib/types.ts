@@ -29,6 +29,7 @@ export type SaveData = {
 		char: string;
 		tier: number;
 	}[];
+	drones: number;
 };
 
 export type ActiveSave = {

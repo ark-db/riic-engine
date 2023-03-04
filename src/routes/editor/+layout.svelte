@@ -9,6 +9,7 @@
 	import menuIcon from '$lib/images/menu.webp';
 	import { activeSave, error } from '$lib/stores';
 	import type { ActiveSave } from '$lib/types';
+	import Drones from './Drones.svelte';
 	import PowerUsage from './PowerUsage.svelte';
 
 	type NavLink = {
@@ -74,7 +75,10 @@
 		<Button desc={menuIconDesc} onClick={() => (menuActive = !menuActive)}>
 			<img src={menuIcon} alt={menuIconDesc} id="menu-icon" width="32" height="32" />
 		</Button>
-		<PowerUsage />
+		<div class="stats">
+			<Drones />
+			<PowerUsage />
+		</div>
 	</section>
 	<main class:nav-hidden={!menuActive}>
 		<slot />
@@ -159,6 +163,10 @@
 	#menu-icon:hover {
 		background-color: var(--dark-mild);
 		box-shadow: 0 0 0.25em var(--dark-mild);
+	}
+	.stats {
+		display: flex;
+		align-items: center;
 	}
 	main {
 		grid-row: 2 / 3;

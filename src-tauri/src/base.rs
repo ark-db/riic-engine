@@ -4,6 +4,7 @@ use serde::{Deserialize, Serialize};
 pub struct Save {
     layout: Layout,
     chars: Vec<CharData>,
+    drones: u32,
 }
 
 #[derive(Serialize, Deserialize)]
