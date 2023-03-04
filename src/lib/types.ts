@@ -15,10 +15,10 @@ export type SaveData = {
 		tp: BoostFacility[];
 		fac: BoostFacility[];
 		pp: Facility[];
-		workshop: Facility;
+		workshop: NoShiftFacility;
 		rr: Facility;
 		office: Facility;
-		train: Facility;
+		train: NoShiftFacility;
 		dorm: Facility[];
 	};
 	chars: {
@@ -40,6 +40,10 @@ export type BoostFacility = {
 		drones: number;
 		col: number;
 	}[];
+};
+
+type NoShiftFacility = {
+	level: number;
 };
 
 type Shift = {

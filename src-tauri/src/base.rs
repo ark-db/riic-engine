@@ -13,10 +13,10 @@ struct Layout {
     tp: Vec<BoostFacility>,
     fac: Vec<BoostFacility>,
     pp: Vec<Facility>,
-    workshop: Facility,
+    workshop: NoShiftFacility,
     rr: Facility,
     office: Facility,
-    train: Facility,
+    train: NoShiftFacility,
     dorm: Vec<Facility>,
 }
 
@@ -73,6 +73,17 @@ impl BoostFacility {
     }
 }
 
+#[derive(Serialize, Deserialize)]
+struct NoShiftFacility {
+    level: u8,
+}
+
+impl NoShiftFacility {
+    fn new(level: u8) -> Self {
+        Self { level }
+    }
+}
+
 impl Default for Layout {
     fn default() -> Self {
         Self {
@@ -80,10 +91,10 @@ impl Default for Layout {
             tp: vec![BoostFacility::new(1)],
             fac: vec![BoostFacility::new(1)],
             pp: vec![Facility::new(1)],
-            workshop: Facility::new(1),
+            workshop: NoShiftFacility::new(1),
             rr: Facility::new(0),
             office: Facility::new(0),
-            train: Facility::new(0),
+            train: NoShiftFacility::new(0),
             dorm: vec![
                 Facility::new(1),
                 Facility::new(0),

@@ -5,7 +5,7 @@ import pencilClockIcon from '$lib/images/pencil-clock.svg';
 import plusClockIcon from '$lib/images/plus-clock.svg';
 import listIncreasingIcon from '$lib/images/list-increasing.svg';
 import listDecreasingIcon from '$lib/images/list-decreasing.svg';
-import type { SaveData, FileData, ActiveSave } from '$lib/types';
+import type { SaveData, FileData, ActiveSave, Facility, BoostFacility } from '$lib/types';
 
 // The list of saves on the main menu. Interacting with the list (creating, deleting, etc.) will refresh it.
 function createSaveList() {
@@ -131,7 +131,12 @@ function calculateLastColumnNumber(save: ActiveSave): number {
 			10,
 			...Object.values(save.data.layout)
 				.flat()
-				.map((facility) => Math.max(...facility.shifts.map(({ end }) => end)))
+				.map((facility) =>
+					Math.max(
+						...((facility as Facility | BoostFacility)?.shifts?.map(({ end }) => end) ?? []),
+						...((facility as BoostFacility)?.boosts?.map(({ col }) => col) ?? [])
+					)
+				)
 		) + 2
 	);
 }
