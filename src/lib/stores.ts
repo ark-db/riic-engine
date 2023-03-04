@@ -1,7 +1,6 @@
 import { goto } from '$app/navigation';
 import { writable, derived } from 'svelte/store';
 import { invoke } from '@tauri-apps/api/tauri';
-import facilityData from '$lib/data/facilities.json';
 import pencilClockIcon from '$lib/images/pencil-clock.svg';
 import plusClockIcon from '$lib/images/plus-clock.svg';
 import listIncreasingIcon from '$lib/images/list-increasing.svg';
@@ -124,47 +123,6 @@ function createActiveSave() {
 	};
 }
 
-// Calculates power usage of all facilities from a base layout
-function calculatePowerUsage(save: ActiveSave): number {
-	let power = 0;
-	// Control Center power consumption is 0 at all levels,
-	// so it is not part of the calculation.
-	for (const fac of save.data.layout.dorm) {
-		power -= fac.level === 0 ? 0 : facilityData.dormitory.power.at(fac.level - 1) ?? 0;
-	}
-	// factory, trading post, and workshop level must be at least 1, so checking
-	// for level 0 (uninitialized) is unnecessary
-	for (const fac of save.data.layout.tp) {
-		power -= facilityData.trading.power.at(fac.level - 1) ?? 0;
-	}
-	for (const fac of save.data.layout.fac) {
-		power -= facilityData.manufacture.power.at(fac.level - 1) ?? 0;
-	}
-	power -= facilityData.workshop.power.at(save.data.layout.workshop.level - 1) ?? 0;
-	power -=
-		save.data.layout.rr.level === 0
-			? 0
-			: facilityData.meeting.power.at(save.data.layout.rr.level - 1) ?? 0;
-	power -=
-		save.data.layout.office.level === 0
-			? 0
-			: facilityData.hire.power.at(save.data.layout.office.level - 1) ?? 0;
-	power -=
-		save.data.layout.train.level === 0
-			? 0
-			: facilityData.training.power.at(save.data.layout.train.level - 1) ?? 0;
-
-	return power;
-}
-
-// Calculates the maximum power available from a base layout
-function calculatePowerCapacity(save: ActiveSave): number {
-	return save.data.layout.pp.reduce(
-		(partialSum, facility) => partialSum + (facilityData.power.power.at(facility.level - 1) ?? 0),
-		0
-	);
-}
-
 // Calculates the last column number in a base layout
 function calculateLastColumnNumber(save: ActiveSave): number {
 	// When there are no shifts specified in the save, the result is -Infinity, so a "floor" value is used
@@ -183,6 +141,4 @@ export const error = createError();
 export const saveSortMode = createSaveSortMode();
 export const saveSortOrder = createSaveSortOrder();
 export const activeSave = createActiveSave();
-export const powerUsage = derived(activeSave, calculatePowerUsage);
-export const maxPower = derived(activeSave, calculatePowerCapacity);
 export const lastColumnNumber = derived(activeSave, calculateLastColumnNumber);
