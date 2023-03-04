@@ -1,6 +1,7 @@
 use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
 pub struct Save {
     layout: Layout,
     chars: Vec<CharData>,
@@ -8,6 +9,7 @@ pub struct Save {
 }
 
 #[derive(Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
 struct Layout {
     cc: Facility,
     tp: Vec<BoostFacility>,
@@ -21,12 +23,14 @@ struct Layout {
 }
 
 #[derive(Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
 struct Facility {
     level: u8,
     shifts: Vec<Shift>,
 }
 
 #[derive(Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
 struct Shift {
     char: Operator,
     start: u64,
@@ -34,6 +38,7 @@ struct Shift {
 }
 
 #[derive(Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
 struct CharData {
     char: Operator,
     tier: u8,
@@ -51,6 +56,7 @@ impl Facility {
 }
 
 #[derive(Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
 struct BoostFacility {
     level: u8,
     shifts: Vec<Shift>,
@@ -58,6 +64,7 @@ struct BoostFacility {
 }
 
 #[derive(Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
 struct Boost {
     drones: u32,
     col: u64,
@@ -74,6 +81,7 @@ impl BoostFacility {
 }
 
 #[derive(Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
 struct NoShiftFacility {
     level: u8,
 }
