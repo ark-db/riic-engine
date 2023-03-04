@@ -50,21 +50,21 @@
 	}
 </script>
 
-<div class="power-usage">
-	<img src={powerIcon} alt="Power usage of base facilities" width="34" height="34" />
+<div class="container">
+	<img src={powerIcon} alt="Power usage icon" width="34" height="34" />
 	<div class="text">
-		<p class="power-stats">
+		<p class="stats">
 			<span class:invalid={powerUsage < 0 || powerUsage > maxPower}>
 				{powerUsage}
 			</span>
 		</p>
-		<img class="power-divider" src={slash} alt="slash" width="13" height="31" />
-		<p class="power-stats">{maxPower}</p>
+		<img class="divider" src={slash} alt="slash" width="13" height="31" />
+		<p class="stats">{maxPower}</p>
 	</div>
 </div>
 
 <style>
-	.power-usage {
+	.container {
 		padding: 0 0.5em;
 		color: var(--light);
 		display: flex;
@@ -72,19 +72,19 @@
 		justify-content: space-between;
 		column-gap: 0.5em;
 	}
-	.power-usage .text {
+	.text {
 		display: flex;
 		align-items: center;
 	}
-	.power-stats {
+	.stats {
 		margin: 0;
 		font-size: clamp(1.25em, 2.5vh, 1.5em);
 		font-weight: 600;
 	}
-	.power-stats .invalid {
+	.invalid {
 		color: var(--salmon-strong);
 	}
-	.power-divider {
+	.divider {
 		margin: 0 0.2em;
 		--height: clamp(30px, 3.5vh, 40px);
 		height: var(--height);
