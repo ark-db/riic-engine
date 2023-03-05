@@ -63,7 +63,10 @@
 		{#if pendingRename}
 			<NameInput bind:text={save.name} bind:active={pendingRename} />
 		{:else}
-			<button class="entry-title" on:click|trusted={() => activeSave.load(save.name)}>
+			<button
+				class="entry-title focus-template"
+				on:click|trusted={() => activeSave.load(save.name)}
+			>
 				{save.name}
 			</button>
 		{/if}
@@ -152,6 +155,7 @@
 		color: var(--light);
 		font-size: 1.25em;
 		font-weight: 600;
+		--border-offset: -4px;
 	}
 	.right {
 		display: flex;

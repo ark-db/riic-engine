@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Error from '$lib/components/Error.svelte';
 	import { error } from '$lib/stores';
+	import '../focus.css';
 	import '../input.css';
 
 	// Disable copying/saving links and images contained within the app

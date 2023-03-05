@@ -64,7 +64,7 @@
 			<div class="links">
 				{#each tabs as tab}
 					{@const url = `${base}/editor${tab.url}`}
-					<a href={url} class:active={$page.url.pathname === url}>
+					<a href={url} class="focus-template" class:active={$page.url.pathname === url}>
 						{tab.title}
 					</a>
 				{/each}
@@ -112,6 +112,7 @@
 		column-gap: 0.75em;
 	}
 	.home-link:is(:hover, :focus-within) {
+		outline: none;
 		background-color: var(--dark);
 	}
 	.app-title {
@@ -133,11 +134,14 @@
 		font-weight: 600;
 		transition: background-color 0.15s, color 0.15s;
 	}
-	a:hover {
+	.links a {
+		--border-offset: -2px;
+	}
+	.links a:is(:hover, :focus-within) {
 		color: var(--light);
 		background-color: var(--dark-mild);
 	}
-	a.active {
+	.links a.active {
 		color: var(--light);
 		background-color: var(--dark-strong);
 	}

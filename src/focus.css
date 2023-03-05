@@ -1,0 +1,25 @@
+.focus-template {
+	position: relative;
+}
+
+.focus-template:after {
+	opacity: 0;
+	transition: opacity 0.4s;
+}
+
+.focus-template:focus {
+	outline: none;
+}
+
+.focus-template:focus:after {
+	content: '';
+	display: block;
+	position: absolute;
+	top: var(--border-offset);
+	bottom: var(--border-offset);
+	left: var(--border-offset);
+	right: var(--border-offset);
+	border-radius: 8px;
+	border: 2.5px solid var(--blue-mild);
+	opacity: 1;
+}
