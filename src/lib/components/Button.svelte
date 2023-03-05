@@ -13,6 +13,10 @@
 	// Force element refresh whenever `desc` changes
 	$: desc, (refreshState = {});
 
+	let buttonWidth: number;
+	let buttonHeight: number;
+	$: focusOffset = Math.min(buttonHeight, buttonWidth) < 32 ? -8 : -4;
+
 	function handleClick() {
 		refreshState = {};
 		onClick();
@@ -20,16 +24,42 @@
 </script>
 
 {#key refreshState}
-	<button use:tooltip={desc} on:click|trusted={handleClick}>
+	<button
+		style="--border-offset: {focusOffset}px;"
+		use:tooltip={desc}
+		on:click|trusted={handleClick}
+		bind:clientHeight={buttonHeight}
+		bind:clientWidth={buttonWidth}
+	>
 		<slot />
 	</button>
 {/key}
 
 <style>
 	button {
+		position: relative;
 		margin: 0;
 		border: none;
 		padding: 0;
 		background: none;
+	}
+	button:after {
+		opacity: 0;
+		transition: opacity 0.35s;
+	}
+	button:focus {
+		outline: none;
+	}
+	button:focus:after {
+		content: '';
+		display: block;
+		position: absolute;
+		top: var(--border-offset);
+		bottom: var(--border-offset);
+		left: var(--border-offset);
+		right: var(--border-offset);
+		border-radius: 8px;
+		border: 2.5px solid var(--blue-mild);
+		opacity: 1;
 	}
 </style>
