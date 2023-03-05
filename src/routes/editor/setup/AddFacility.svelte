@@ -7,7 +7,7 @@
 	let { color } = facilities[kind];
 </script>
 
-<button style:border="4px dashed {color}" on:click>
+<button class="focus-template" style:border="4px dashed {color}" on:click>
 	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" height="48" width="48">
 		<path
 			fill={color}
@@ -23,5 +23,6 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		--focus-border-offset: -8px;
 	}
 </style>
