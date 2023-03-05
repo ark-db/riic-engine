@@ -26,7 +26,7 @@
 {#key refreshState}
 	<button
 		class="focus-template"
-		style="--border-offset: {focusOffset}px;"
+		style="--focus-border-offset: {focusOffset}px;"
 		use:tooltip={desc}
 		on:click|trusted={handleClick}
 		bind:clientHeight={buttonHeight}

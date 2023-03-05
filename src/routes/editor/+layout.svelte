@@ -135,7 +135,7 @@
 		transition: background-color 0.15s, color 0.15s;
 	}
 	.links a {
-		--border-offset: -2px;
+		--focus-border-offset: -2px;
 	}
 	.links a:is(:hover, :focus-within) {
 		color: var(--light);

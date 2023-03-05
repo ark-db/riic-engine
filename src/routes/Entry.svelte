@@ -155,7 +155,7 @@
 		color: var(--light);
 		font-size: 1.25em;
 		font-weight: 600;
-		--border-offset: -4px;
+		--focus-border-offset: -4px;
 	}
 	.right {
 		display: flex;

@@ -15,10 +15,10 @@
 	content: '';
 	display: block;
 	position: absolute;
-	top: var(--border-offset);
-	bottom: var(--border-offset);
-	left: var(--border-offset);
-	right: var(--border-offset);
+	top: var(--focus-border-offset);
+	bottom: var(--focus-border-offset);
+	left: var(--focus-border-offset);
+	right: var(--focus-border-offset);
 	border-radius: 8px;
 	border: 2.5px solid var(--blue-mild);
 	opacity: 1;
