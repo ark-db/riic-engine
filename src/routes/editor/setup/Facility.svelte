@@ -61,6 +61,7 @@
 <style>
 	.container {
 		padding: 0.75em;
+		background: var(--dark-strong);
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
