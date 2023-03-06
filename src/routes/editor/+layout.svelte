@@ -177,7 +177,8 @@
 		grid-column: 2 / 3;
 		position: relative;
 		padding: 0.75em;
-		background-color: var(--dark-strong);
+		background: url('$lib/images/contours.webp') no-repeat;
+		background-size: cover;
 		overflow: auto;
 	}
 	main.nav-hidden {
