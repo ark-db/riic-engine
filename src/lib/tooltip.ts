@@ -6,10 +6,12 @@ function render(instance: Instance) {
 	popper.setAttribute(
 		'style',
 		`
-        background-color: #000000;
-        color: var(--light);
+		box-shadow: 0 4px 6px rgba(0 0 0 / 0.2);
+		border: 1px solid var(--darkish);
         border-radius: 0.5em;
         padding: 0.5em 0.6em;
+		background-color: #000000;
+        color: var(--light);
     `
 	);
 
