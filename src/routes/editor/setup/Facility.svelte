@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { scale } from 'svelte/transition';
 	import FacilityIcon from '$lib/components/FacilityIcon.svelte';
 	import facilities from '$lib/data/facilities.json';
 	import type { FacilityName } from '$lib/types';
@@ -14,7 +15,12 @@
 	let maxLevel = facility.capacity.length;
 </script>
 
-<div class="container" class:unused={level === 0} style:border={`0.5em solid ${facility.color}`}>
+<div
+	class="container"
+	class:unused={level === 0}
+	style:border={`0.5em solid ${facility.color}`}
+	in:scale|local
+>
 	<div class="info">
 		<p class="facility-name">
 			{facility.name}
@@ -65,6 +71,9 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
+		transition: filter 0.3s;
+		/* translate3d() prevents elements from flickering after transition on WebKit */
+		transform: translate3d(0, 0, 0);
 	}
 	.unused {
 		filter: brightness(0.6);

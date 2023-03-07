@@ -30,9 +30,12 @@
 	}
 </script>
 
+<!-- Note: Some Facility components are contained in {#if true} blocks to make transitions within the component work properly -->
 <div class="container">
 	<div class="control">
-		<Facility kind="control" minLevel={1} bind:level={$activeSave.data.layout.cc.level} />
+		{#if true}
+			<Facility kind="control" minLevel={1} bind:level={$activeSave.data.layout.cc.level} />
+		{/if}
 	</div>
 	<div class="tp-wrapper">
 		{#each $activeSave.data.layout.tp as room, i}
@@ -82,16 +85,24 @@
 		{/each}
 	</div>
 	<div class="workshop">
-		<Facility kind="workshop" minLevel={1} bind:level={$activeSave.data.layout.workshop.level} />
+		{#if true}
+			<Facility kind="workshop" minLevel={1} bind:level={$activeSave.data.layout.workshop.level} />
+		{/if}
 	</div>
 	<div class="reception">
-		<Facility kind="meeting" bind:level={$activeSave.data.layout.rr.level} />
+		{#if true}
+			<Facility kind="meeting" bind:level={$activeSave.data.layout.rr.level} />
+		{/if}
 	</div>
 	<div class="office">
-		<Facility kind="hire" bind:level={$activeSave.data.layout.office.level} />
+		{#if true}
+			<Facility kind="hire" bind:level={$activeSave.data.layout.office.level} />
+		{/if}
 	</div>
 	<div class="training">
-		<Facility kind="training" bind:level={$activeSave.data.layout.train.level} />
+		{#if true}
+			<Facility kind="training" bind:level={$activeSave.data.layout.train.level} />
+		{/if}
 	</div>
 </div>
 
