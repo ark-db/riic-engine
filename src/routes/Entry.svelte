@@ -171,11 +171,11 @@
 	path {
 		transition: fill 0.3s;
 	}
-	svg.edit-title:is(:hover, :focus-within) path,
-	svg.export:is(:hover, :focus-within) path {
+	.settings > button:is(:hover, :focus-within) > .edit-title path,
+	.settings > button:is(:hover, :focus-within) > .export path {
 		fill: var(--light);
 	}
-	svg.trash:is(:hover, :focus-within) path {
+	.settings > button:is(:hover, :focus-within) > .trash path {
 		fill: var(--salmon-strong);
 	}
 	.time {
