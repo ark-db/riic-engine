@@ -78,8 +78,8 @@
 							class="edit-title"
 							xmlns="http://www.w3.org/2000/svg"
 							viewBox="0 0 512 512"
-							height="24"
 							width="24"
+							height="24"
 						>
 							<path
 								d="M43 16C28.0656 16 16 28.0656 16 43C16 57.9344 28.0656 70 43 70L151 70L151 367C151 381.934 163.066 394 178 394C192.934 394 205 381.934 205 367L205 70L313 70C327.934 70 340 57.9344 340 43C340 28.0656 327.934 16 313 16L178 16L43 16Z"
@@ -96,8 +96,8 @@
 							class="export"
 							xmlns="http://www.w3.org/2000/svg"
 							viewBox="0 0 640 512"
-							height="26"
 							width="26"
+							height="26"
 						>
 							<path
 								fill="#9a9696"
@@ -110,8 +110,8 @@
 							class="trash"
 							xmlns="http://www.w3.org/2000/svg"
 							viewBox="0 0 448 512"
-							height="21"
 							width="21"
+							height="21"
 						>
 							<path
 								fill="#9a9696"

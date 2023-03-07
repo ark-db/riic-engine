@@ -86,8 +86,8 @@
 	}
 	.divider {
 		--height: clamp(30px, 3.5vh, 40px);
-		margin: 0 0.2em;
-		height: var(--height);
 		width: calc(var(--height) / 2.5);
+		height: var(--height);
+		margin: 0 0.2em;
 	}
 </style>

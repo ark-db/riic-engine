@@ -11,8 +11,8 @@
 		type="image"
 		src={xmark}
 		alt="Delete button"
-		height="20"
 		width="20"
+		height="20"
 		on:click={error.clear}
 	/>
 </div>

@@ -15,7 +15,7 @@
 
 	let buttonWidth: number;
 	let buttonHeight: number;
-	$: small = Math.min(buttonHeight, buttonWidth) < 32;
+	$: small = Math.min(buttonWidth, buttonHeight) < 32;
 
 	function handleClick() {
 		refreshState = {};
@@ -29,8 +29,8 @@
 		class:small
 		use:tooltip={desc}
 		on:click|trusted={handleClick}
-		bind:clientHeight={buttonHeight}
 		bind:clientWidth={buttonWidth}
+		bind:clientHeight={buttonHeight}
 	>
 		<slot />
 	</button>

@@ -12,8 +12,8 @@
 		--track-height: 0.4em;
 		--track-border-radius: calc(var(--track-height) / 2);
 		--track-color: var(--gray);
-		--thumb-height: 2em;
 		--thumb-width: 1em;
+		--thumb-height: 2em;
 		--thumb-border-radius: 0.25em;
 		--thumb-color: var(--light-strong);
 		--focus-outline: 2.5px solid var(--blue-mild);

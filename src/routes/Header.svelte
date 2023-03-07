@@ -3,7 +3,7 @@
 </script>
 
 <header>
-	<img src={logo} alt="App logo" height="128" width="128" />
+	<img src={logo} alt="App logo" width="128" height="128" />
 	<div>
 		<h1>RIIC Engine</h1>
 		<p>astralsky • v0.1.0</p>

@@ -39,8 +39,8 @@
 		row-gap: 0.25em;
 	}
 	.column-line {
-		height: var(--column-height);
 		width: 1px;
+		height: var(--column-height);
 		background-color: var(--light);
 		opacity: 0.6;
 	}
