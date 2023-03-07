@@ -9,19 +9,19 @@
 
 <style>
 	input {
-		appearance: none;
-		background: transparent;
-		cursor: pointer;
-		width: 15rem;
 		--track-height: 0.4em;
 		--track-border-radius: calc(var(--track-height) / 2);
-		--track-color: var(--dark);
+		--track-color: var(--gray);
 		--thumb-height: 2em;
 		--thumb-width: 1em;
 		--thumb-border-radius: 0.25em;
 		--thumb-color: var(--light-strong);
-		--focus-outline: 2.5px solid var(--blue-strong);
+		--focus-outline: 2.5px solid var(--blue-mild);
 		--focus-offset: 2px;
+		appearance: none;
+		background: transparent;
+		cursor: pointer;
+		width: 15em;
 	}
 	/* Track styles */
 	input::-webkit-slider-runnable-track {
