@@ -15,6 +15,9 @@
 	"cc.bd_a1_a2": "Affects skills related to <$cc.bd_a1><@cc.rem>Perception Information</></>\nProvided by the following Operator's skills\nIris",
 	"cc.bd_a1_a3": "Affects skills related to <$cc.bd_a1><@cc.rem>Perception Information</></>\nProvided by the following Operator's skills\nCzerny",
 	"cc.bd.costdrop": "干员自身心情上限与当前心情值的差值",
+	"cc.bd_felyne": "可影响<$cc.bd_felyne_1><@cc.rem>可爱的艾露猫</></>、<$cc.bd_felyne_2><@cc.rem>可靠的随从们</></>相关技能\n由以下干员的基建技能提供\n火龙S黑角、麒麟X夜刀",
+	"cc.bd_felyne_1": "拥有该基建技能的干员\n泰拉大陆调查团",
+	"cc.bd_felyne_2": "拥有该基建技能的干员\n泰拉大陆调查团",
 	"cc.m.var1": "Operators with this skill\nVermeil",
 	"cc.m.var2": "Operators with this skill\nWaai Fu",
 	"cc.t.snsant1": "拥有该基建技能的干员\n雪雉",
@@ -48,5 +51,6 @@
 	"cc.tag.op": "Includes the following Operators: \nLancet-2, Castle-3, THRM-EX, 'Justice Knight'",
 	"cc.tag.knight": "Includes the following Operators: \nNearl the Radiant Knight, Nearl (mutually exclusive), Blemishine, Whislash, Flametail, Fartooth, Ashlock, Wild Mane, 'Justice Knight', Gravel",
 	"cc.tag.durin": "Includes the following Operators:\nMinimalist, Myrtle, Chestnut, Durin",
+	"cc.tag.mh": "包含以下干员\n火龙S黑角、麒麟X夜刀、泰拉大陆调查团",
 	"cc.gvial": "Includes the following Operators:\nGavial the Invincible, Gavial"
 }

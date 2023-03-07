@@ -36,6 +36,15 @@
 		]
 	},
 	{
+		"charId": "char_4077_palico",
+		"name": "Terra Research Commission",
+		"rarity": 1,
+		"skills": [
+			{ "elite": 0, "level": 1, "skillId": "trade_ord_spd&limit&bd[000]" },
+			{ "elite": 0, "level": 30, "skillId": "manu_prod_spd&limit&bd[000]" }
+		]
+	},
+	{
 		"charId": "char_502_nblade",
 		"name": "Yato",
 		"rarity": 2,
@@ -930,6 +939,15 @@
 		"skills": [
 			{ "elite": 0, "level": 1, "skillId": "train_spd&profession2[020]" },
 			{ "elite": 2, "level": 1, "skillId": "train_spd&profession2[120]" }
+		]
+	},
+	{
+		"charId": "char_1030_noirc2",
+		"name": "Rathalos S Noir Corne",
+		"rarity": 5,
+		"skills": [
+			{ "elite": 0, "level": 1, "skillId": "control_mp_bd2[000]" },
+			{ "elite": 2, "level": 1, "skillId": "control_token_tra_spd[000]" }
 		]
 	},
 	{
@@ -2065,6 +2083,15 @@
 		"skills": [
 			{ "elite": 0, "level": 1, "skillId": "train_spd_doubleProf2[001]" },
 			{ "elite": 2, "level": 1, "skillId": "train_spd_doubleProf2[000]" }
+		]
+	},
+	{
+		"charId": "char_1029_yato2",
+		"name": "Kirin X Yato",
+		"rarity": 6,
+		"skills": [
+			{ "elite": 0, "level": 1, "skillId": "control_mp_cost&bd2[010]" },
+			{ "elite": 2, "level": 1, "skillId": "control_token_prod_spd2[000]" }
 		]
 	},
 	{

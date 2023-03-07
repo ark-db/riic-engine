@@ -24,6 +24,16 @@
 		"desc": "When this Operator is assigned to a Power Plant, increases the productivity of the Factory <@cc.kw>Wild Mane</> is assigned to by <@cc.vup>+5%</>",
 		"iconId": "bskill_pow_jnight"
 	},
+	"trade_ord_spd&limit&bd[000]": {
+		"name": "可爱的艾露猫",
+		"desc": "进驻贸易站时，订单获取效率<@cc.vup>+5%</>，且订单上限<@cc.vup>+2</>，同时每有1个<$cc.bd_felyne><@cc.rem>木天蓼</></>，则订单获取效率<@cc.vup>+3%</>",
+		"iconId": "bskill_tra_spd&limit_felyne"
+	},
+	"manu_prod_spd&limit&bd[000]": {
+		"name": "可靠的随从们",
+		"desc": "进驻制造站时，仓库容量上限<@cc.vup>+8</>，生产力<@cc.vup>+5%</>，同时每有1个<$cc.bd_felyne><@cc.rem>木天蓼</></>，则生产力<@cc.vup>+1%</>",
+		"iconId": "bskill_man_spd&limit_felyne"
+	},
 	"trade_ord_spd[001]": {
 		"name": "Order Distribution β",
 		"desc": "When this Operator is assigned to a Trading Post, order acquisition efficiency <@cc.vup>+30%</>",
@@ -713,6 +723,16 @@
 		"name": "Nobukage-ryu",
 		"desc": "When this Operator is assigned to be the Trainer in the Training Room, <@cc.kw>Guard</> Operators' Specialization training speed <@cc.vup>+30%</>; if training this skill to Specialization Level <@cc.vup>1</>, training speed will be further increased by <@cc.vup>+45%</>",
 		"iconId": "bskill_train1_guard1"
+	},
+	"control_mp_bd2[000]": {
+		"name": "团队合作",
+		"desc": "进驻控制中枢时，控制中枢内每有1名<$cc.tag.mh><@cc.kw>怪物猎人小队</></>干员，则<$cc.bd_felyne><@cc.rem>木天蓼</></><@cc.vup>+2</>",
+		"iconId": "bskill_ctrl_felyne"
+	},
+	"control_token_tra_spd[000]": {
+		"name": "秘传交涉术",
+		"desc": "当与<$cc.tag.mh><@cc.kw>怪物猎人小队</></>干员进驻控制中枢一起工作时，所有贸易站订单效率<@cc.vup>+7%</>（同种效果取最高）",
+		"iconId": "bskill_ctrl_token_t_spd"
 	},
 	"workshop_formula_cost3[000]": {
 		"name": "Spaced Out",
@@ -1783,6 +1803,16 @@
 		"name": "破斩桎梏",
 		"desc": "进驻训练室协助位时，<@cc.kw>特种</>与<@cc.kw>先锋</>干员的专精技能训练速度<@cc.vup>+30%</>，如果本次训练专精技能至<@cc.vup>2</>级，则训练速度额外<@cc.vup>+50%</>",
 		"iconId": "bskill_train2_specialist&pioneer1"
+	},
+	"control_mp_cost&bd2[010]": {
+		"name": "耐力回复",
+		"desc": "进驻控制中枢时，自身心情每小时消耗<@cc.vdown>+0.5</>，<$cc.bd_felyne><@cc.rem>木天蓼</></><@cc.vup>+8</>",
+		"iconId": "bskill_ctrl_cost_felyne"
+	},
+	"control_token_prod_spd2[000]": {
+		"name": "以身作则",
+		"desc": "当与<$cc.tag.mh><@cc.kw>怪物猎人小队</></>干员进驻控制中枢一起工作时，所有制造站生产力<@cc.vup>+2%</>（同种效果取最高）",
+		"iconId": "bskill_ctrl_token_p_spd2"
 	},
 	"control_allCost_condChar[000]": {
 		"name": "Moment of Respite",
