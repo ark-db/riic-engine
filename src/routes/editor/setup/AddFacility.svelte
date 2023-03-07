@@ -18,11 +18,11 @@
 
 <style>
 	button {
+		--focus-border-offset: -8px;
 		padding: 2.25em;
 		background: none;
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		--focus-border-offset: -8px;
 	}
 </style>

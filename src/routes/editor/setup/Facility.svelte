@@ -101,12 +101,12 @@
 		justify-content: center;
 	}
 	button {
+		--focus-border-offset: -3px;
 		position: absolute;
 		margin: 0.2em 0;
 		border: none;
 		padding: 0.25em;
 		background: none;
-		--focus-border-offset: -3px;
 	}
 	.increment {
 		bottom: 0;

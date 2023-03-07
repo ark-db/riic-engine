@@ -148,6 +148,7 @@
 		justify-content: space-between;
 	}
 	.entry-title {
+		--focus-border-offset: -4px;
 		margin-left: 0.1em;
 		border: none;
 		padding: 0.5em;
@@ -155,7 +156,6 @@
 		color: var(--light);
 		font-size: 1.25em;
 		font-weight: 600;
-		--focus-border-offset: -4px;
 	}
 	.right {
 		display: flex;
