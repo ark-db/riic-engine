@@ -21,7 +21,7 @@ function render(instance: Instance) {
 }
 
 export function tooltip(element: Element, content: string) {
-	const instance = tippy(element, {
+	const { destroy } = tippy(element, {
 		content,
 		arrow: false,
 		duration: 0,
@@ -30,8 +30,8 @@ export function tooltip(element: Element, content: string) {
 		render
 	});
 
+	// Destroy the tooltip when the element it is attached to is destroyed
 	return {
-		// Destroy the tooltip when the element it is attached to is destroyed
-		destroy: instance.destroy
+		destroy
 	};
 }
