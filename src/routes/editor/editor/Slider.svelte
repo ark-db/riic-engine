@@ -19,9 +19,9 @@
 		--focus-outline: 2.5px solid var(--blue-mild);
 		--focus-offset: 2px;
 		appearance: none;
-		background: transparent;
 		cursor: pointer;
 		width: 15em;
+		background: transparent;
 	}
 	/* Track styles */
 	input::-webkit-slider-runnable-track {

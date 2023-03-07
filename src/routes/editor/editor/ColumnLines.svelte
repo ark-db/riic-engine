@@ -30,6 +30,7 @@
 		column-gap: var(--column-gap);
 	}
 	.column-marker {
+		cursor: default;
 		width: 1em;
 		color: var(--light-strong);
 		font-size: 0.8em;

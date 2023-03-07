@@ -73,6 +73,7 @@
 		column-gap: 0.5em;
 	}
 	.text {
+		cursor: default;
 		display: flex;
 		align-items: center;
 	}

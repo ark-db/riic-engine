@@ -26,7 +26,6 @@ export function tooltip(element: Element, content: string) {
 	const { destroy } = tippy(element, {
 		content,
 		arrow: false,
-		duration: 0,
 		hideOnClick: false,
 		followCursor: true,
 		plugins: [followCursor],

@@ -18,6 +18,9 @@
 		align-items: center;
 		gap: 1em;
 	}
+	div {
+		cursor: default;
+	}
 	h1 {
 		color: var(--light);
 		font-size: 4em;
