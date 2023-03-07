@@ -15,7 +15,7 @@
 
 	let buttonWidth: number;
 	let buttonHeight: number;
-	$: focusOffset = Math.min(buttonHeight, buttonWidth) < 32 ? -8 : -4;
+	$: small = Math.min(buttonHeight, buttonWidth) < 32;
 
 	function handleClick() {
 		refreshState = {};
@@ -26,7 +26,7 @@
 {#key refreshState}
 	<button
 		class="focus-template"
-		style="--focus-border-offset: {focusOffset}px;"
+		class:small
 		use:tooltip={desc}
 		on:click|trusted={handleClick}
 		bind:clientHeight={buttonHeight}
@@ -42,5 +42,9 @@
 		border: none;
 		padding: 0;
 		background: none;
+		--focus-border-offset: -4px;
+	}
+	.small {
+		--focus-border-offset: -8px;
 	}
 </style>
