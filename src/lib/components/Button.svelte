@@ -1,7 +1,4 @@
 <script lang="ts">
-	// tippy.js tooltips are buggy when used on interactive elements such as <button>.
-	// This custom button component resolves some of the issues by refreshing the element.
-
 	import { tooltip } from '$lib/tooltip';
 
 	export let desc: string;
@@ -16,11 +13,6 @@
 	let buttonWidth: number;
 	let buttonHeight: number;
 	$: small = Math.min(buttonWidth, buttonHeight) < 32;
-
-	function handleClick() {
-		refreshState = {};
-		onClick();
-	}
 </script>
 
 {#key refreshState}
@@ -28,7 +20,7 @@
 		class="focus-template"
 		class:small
 		use:tooltip={desc}
-		on:click|trusted={handleClick}
+		on:click|trusted={onClick}
 		bind:clientWidth={buttonWidth}
 		bind:clientHeight={buttonHeight}
 	>
