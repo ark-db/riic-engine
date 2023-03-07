@@ -124,7 +124,7 @@
 	.links {
 		display: flex;
 		flex-direction: column;
-		row-gap: 0.3em;
+		row-gap: 0.4em;
 	}
 	a {
 		border-radius: 0.5em;

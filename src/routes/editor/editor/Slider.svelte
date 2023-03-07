@@ -9,7 +9,6 @@
 
 <style>
 	input {
-		-webkit-appearance: none;
 		appearance: none;
 		background: transparent;
 		cursor: pointer;
@@ -37,7 +36,6 @@
 	}
 	/* Thumb styles */
 	input::-webkit-slider-thumb {
-		-webkit-appearance: none;
 		appearance: none;
 		height: var(--thumb-height);
 		width: var(--thumb-width);
