@@ -187,7 +187,7 @@ function createZoomShortcut() {
 	const { x, y, min, max } = zoomControls;
 
 	const mode = writable<ShortcutMode>('max');
-	const { subscribe } = derived([x, y], ([$x, $y]) => ({ x: $x, y: $y }));
+	const { subscribe } = derived([x, y], ([x, y]) => ({ x, y }));
 	subscribe(({ x, y }) => {
 		if (x === min && y === min) mode.set('max');
 		if (x === max && y === max) mode.set('min');
@@ -202,8 +202,8 @@ function createZoomShortcut() {
 		y.set(max);
 	}
 
-	return derived<typeof mode, ShortcutDetails>(mode, ($mode) =>
-		$mode === 'max'
+	return derived<typeof mode, ShortcutDetails>(mode, (mode) =>
+		mode === 'max'
 			? {
 					src: maximizeIcon,
 					desc: 'Zoom to maximum',
