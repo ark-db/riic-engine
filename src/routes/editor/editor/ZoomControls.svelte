@@ -13,26 +13,12 @@
 
 	$: xScale = $x;
 	$: yScale = $y;
-	$: console.log($x, $y);
-
-	function setMin() {
-		x.set(min);
-		y.set(min);
-	}
-	function setMax() {
-		x.set(max);
-		y.set(max);
-	}
-
-	$: if ($x === min && $y === min) $zoomShortcut = 'max';
-	$: if ($x === max && $y === max) $zoomShortcut = 'min';
-	$: centerFn = $zoomShortcut === 'max' ? setMax : setMin;
 </script>
 
 <div class="controls">
 	<div class="center">
-		<Button desc={zoomShortcut.desc()} onClick={centerFn}>
-			<img src={zoomShortcut.src()} alt={zoomShortcut.desc()} width="36" height="36" />
+		<Button desc={$zoomShortcut.desc} onClick={$zoomShortcut.run}>
+			<img src={$zoomShortcut.src} alt={$zoomShortcut.desc} width="36" height="36" />
 		</Button>
 	</div>
 	<div class="slider x">

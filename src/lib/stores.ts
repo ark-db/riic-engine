@@ -177,19 +177,46 @@ function createZoomControls() {
 }
 
 function createZoomShortcut() {
-	type ZoomMode = 'max' | 'min';
-	const { subscribe, set, update } = writable<ZoomMode>('max');
-
-	let mode: ZoomMode = 'max';
-	subscribe((value) => (mode = value));
-
-	return {
-		subscribe,
-		set,
-		update,
-		src: () => (mode === 'max' ? maximizeIcon : minimizeIcon),
-		desc: () => (mode === 'max' ? 'Zoom to maximum' : 'Zoom to minimum')
+	type ShortcutMode = 'min' | 'max';
+	type ShortcutDetails = {
+		src: string;
+		desc: string;
+		run: () => void;
 	};
+
+	const { x, y, min, max } = zoomControls;
+
+	const mode = writable<ShortcutMode>('max');
+	const { subscribe } = derived([x, y], ([$x, $y]) => ({ x: $x, y: $y }));
+	subscribe(({ x, y }) => {
+		if (x === min && y === min) mode.set('max');
+		if (x === max && y === max) mode.set('min');
+	});
+
+	function setMin() {
+		x.set(min);
+		y.set(min);
+	}
+	function setMax() {
+		x.set(max);
+		y.set(max);
+	}
+
+	const details = derived<typeof mode, ShortcutDetails>(mode, ($mode) =>
+		$mode === 'max'
+			? {
+				src: maximizeIcon,
+				desc: 'Zoom to maximum',
+				run: setMax
+			}
+			: {
+				src: minimizeIcon,
+				desc: 'Zoom to minimum',
+				run: setMin
+			}
+	);
+
+	return details;
 }
 
 export const saveList = createSaveList();
