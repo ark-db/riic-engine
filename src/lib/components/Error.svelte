@@ -6,14 +6,9 @@
 {#if $error}
 	<div>
 		<p>{$error}</p>
-		<input
-			type="image"
-			src={xmark}
-			alt="Delete button"
-			width="20"
-			height="20"
-			on:click={error.clear}
-		/>
+		<button on:click={error.clear}>
+			<img src={xmark} alt="Delete button" width="20" height="20" />
+		</button>
 	</div>
 {/if}
 
@@ -33,13 +28,15 @@
 		color: var(--salmon-strong);
 		line-height: 1.4;
 	}
-	input {
+	button {
 		position: absolute;
-		top: -15px;
-		right: -15px;
+		top: -17px;
+		right: -17px;
 		border: 2px solid var(--salmon-strong);
 		border-radius: 50%;
 		padding: 2.5px;
 		background-color: var(--dark-strong);
+		display: flex;
+		align-items: center;
 	}
 </style>
