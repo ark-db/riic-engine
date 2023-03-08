@@ -5,14 +5,10 @@
 
 	let xScale: number;
 	let yScale: number;
-
-	const columnGap = 36;
-	let totalColumnWidth: number;
-	$: facilityRowWidth = totalColumnWidth + columnGap + 36;
 </script>
 
-<ColumnLines {columnGap} bind:totalColumnWidth />
+<ColumnLines columnGapScale={xScale} />
 
-<FacilityGrid rowLength={facilityRowWidth} rowHeightScale={yScale} />
+<FacilityGrid rowHeightScale={yScale} />
 
 <ZoomControls bind:xScale bind:yScale />

@@ -1,9 +1,21 @@
+<script context="module" lang="ts">
+	import { writable } from 'svelte/store';
+
+	export const rowLength = writable<number>();
+</script>
+
 <script lang="ts">
 	import { lastColumnNumber } from '$lib/stores';
 	import { gridHeight } from './FacilityGrid.svelte';
 
-	export let columnGap: number;
-	export let totalColumnWidth: number;
+	export let columnGapScale: number;
+
+	let totalColumnWidth: number;
+
+	const baseColumnGap = 36;
+	$: columnGap = columnGapScale * baseColumnGap;
+
+	$: $rowLength = totalColumnWidth + columnGap + 36;
 </script>
 
 <div

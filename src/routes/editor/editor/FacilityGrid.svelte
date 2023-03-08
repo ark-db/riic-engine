@@ -7,15 +7,15 @@
 <script lang="ts">
 	import { activeSave } from '$lib/stores';
 	import FacilityRow from './FacilityRow.svelte';
+	import { rowLength } from './ColumnLines.svelte';
 
-	export let rowLength: number;
 	export let rowHeightScale: number;
 
 	const baseRowHeight = 80;
 	$: rowHeight = rowHeightScale * baseRowHeight;
 </script>
 
-<div class="facilities" style="--width: {rowLength}px;" bind:clientHeight={$gridHeight}>
+<div class="facilities" style="--width: {$rowLength}px;" bind:clientHeight={$gridHeight}>
 	<FacilityRow kind="control" height={rowHeight} />
 
 	{#each $activeSave.data.layout.tp as _}
