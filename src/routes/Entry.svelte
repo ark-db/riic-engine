@@ -49,7 +49,13 @@
 		saveList.delete(save.name);
 		hovering = false;
 	}
+
+	function handleDeleteKeydown(e: KeyboardEvent) {
+		if (pendingDelete && e.key === 'Enter') handleDelete();
+	}
 </script>
+
+<svelte:window on:keydown|trusted={handleDeleteKeydown} />
 
 <GradientContainer --weight="3px" --radius="0.75em" --bg-color="var(--dark-strong)">
 	<div
