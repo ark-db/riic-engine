@@ -202,7 +202,7 @@ function createZoomShortcut() {
 		y.set(max);
 	}
 
-	const details = derived<typeof mode, ShortcutDetails>(mode, ($mode) =>
+	return derived<typeof mode, ShortcutDetails>(mode, ($mode) =>
 		$mode === 'max'
 			? {
 					src: maximizeIcon,
@@ -215,8 +215,6 @@ function createZoomShortcut() {
 					run: setMin
 			  }
 	);
-
-	return details;
 }
 
 export const saveList = createSaveList();
