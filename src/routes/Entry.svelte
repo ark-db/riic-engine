@@ -140,7 +140,7 @@
 		<p class="modal-text">Are you sure you want to delete this save file?</p>
 		<div class="modal-options">
 			<button
-				class="cancel"
+				class="focus-template cancel"
 				on:click={() => {
 					modal.close();
 					pendingDelete = false;
@@ -149,7 +149,7 @@
 				Cancel
 			</button>
 			<button
-				class="delete"
+				class="focus-template delete"
 				on:click={() => {
 					modal.close();
 					handleDelete();
@@ -215,6 +215,7 @@
 		column-gap: 1em;
 	}
 	.modal-options > button {
+		--focus-border-offset: -4px;
 		border: none;
 		border-radius: 0.5em;
 		padding: 0.75em;
