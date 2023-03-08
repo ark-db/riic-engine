@@ -1,42 +1,81 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
+
 	export let onClose: () => void;
 
+	let modal: HTMLDialogElement;
+	onMount(() => modal.show());
+
 	function handleMouseClose(event: MouseEvent) {
-		if (event.button === 0) onClose();
+		let { button, target } = event;
+		if (button === 0 && target instanceof Node && !modal.contains(target)) {
+			onClose();
+		}
 	}
 
 	function handleKeyboardClose(event: KeyboardEvent) {
-		if (event.key === 'Escape') onClose();
+		if (event.key === 'Escape') {
+			event.preventDefault();
+			onClose();
+		}
 	}
 </script>
 
-<svelte:window on:keydown|trusted|preventDefault={handleKeyboardClose} />
+<svelte:window on:keydown|trusted={handleKeyboardClose} />
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
-<div class="bg" on:click|trusted={handleMouseClose} />
-
-<div class="content">
-	<slot />
+<div on:click|trusted={handleMouseClose}>
+	<dialog bind:this={modal}>
+		<slot {modal} />
+	</dialog>
 </div>
 
 <style>
-	.bg {
+	div {
 		position: fixed;
-		z-index: 99;
 		top: 0;
 		left: 0;
-		width: 100vw;
-		height: 100vh;
-		background-color: rgb(0 0 0 / 0.7);
+		right: 0;
+		bottom: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 	}
-	.content {
+	div:before {
+		content: '';
+		background: rgba(0 0 0 / 0.7);
 		position: fixed;
-		z-index: 100;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+	}
+	div:has(dialog[open]):before {
+		animation: fade 0.2s ease-out;
+	}
+	@keyframes fade {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+	}
+	dialog {
+		border: none;
 		border-radius: 1em;
 		padding: 2em;
 		background-color: var(--dark);
+	}
+	dialog[open] {
+		animation: zoom 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+	}
+	@keyframes zoom {
+		from {
+			transform: scale(0.95);
+		}
+		to {
+			transform: scale(1);
+		}
 	}
 </style>
