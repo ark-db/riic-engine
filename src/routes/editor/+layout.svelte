@@ -1,6 +1,4 @@
 <script lang="ts">
-	import { base } from '$app/paths';
-	import { page } from '$app/stores';
 	import { onMount } from 'svelte';
 	import { invoke } from '@tauri-apps/api/tauri';
 	import GradientContainer from '$lib/components/GradientContainer.svelte';
@@ -9,28 +7,9 @@
 	import menuIcon from '$lib/images/menu.webp';
 	import { activeSave, error } from '$lib/stores';
 	import type { ActiveSave } from '$lib/types';
+	import Links from './Links.svelte';
 	import Drones from './Drones.svelte';
 	import PowerUsage from './PowerUsage.svelte';
-
-	type NavLink = {
-		title: string;
-		url: string;
-	};
-
-	const tabs: NavLink[] = [
-		{
-			title: 'Layout',
-			url: '/setup'
-		},
-		{
-			title: 'Editor',
-			url: '/editor'
-		},
-		{
-			title: 'Results',
-			url: '/results'
-		}
-	];
 
 	let menuActive = true;
 	$: menuIconDesc = `${menuActive ? 'Collapse' : 'Expand'} menu`;
@@ -60,15 +39,7 @@
 					<p class="app-title">RIIC Engine</p>
 				</a>
 			</GradientContainer>
-
-			<div class="links">
-				{#each tabs as tab}
-					{@const url = `${base}/editor${tab.url}`}
-					<a href={url} class="focus-template" class:active={$page.url.pathname === url}>
-						{tab.title}
-					</a>
-				{/each}
-			</div>
+			<Links />
 		</nav>
 	{/if}
 	<section class="top-bar" class:nav-hidden={!menuActive}>
@@ -106,10 +77,12 @@
 		transition: width 0.15s;
 	}
 	.home-link {
+		border-radius: 0.5em;
 		padding: 0.5em;
 		display: flex;
 		align-items: center;
 		column-gap: 0.75em;
+		transition: background-color 0.15s, color 0.15s;
 	}
 	.home-link:is(:hover, :focus-within) {
 		outline: none;
@@ -120,30 +93,6 @@
 		color: var(--light);
 		font-weight: 600;
 		font-size: 1.5em;
-	}
-	.links {
-		display: flex;
-		flex-direction: column;
-		row-gap: 0.4em;
-	}
-	a {
-		border-radius: 0.5em;
-		padding: 0.75em;
-		color: var(--gray-mild);
-		text-decoration: none;
-		font-weight: 600;
-		transition: background-color 0.15s, color 0.15s;
-	}
-	.links a {
-		--focus-border-offset: -2px;
-	}
-	.links a:is(:hover, :focus-within) {
-		color: var(--light);
-		background-color: var(--dark-mild);
-	}
-	.links a.active {
-		color: var(--light);
-		background-color: var(--dark-strong);
 	}
 	.top-bar {
 		grid-row: 1 / 2;

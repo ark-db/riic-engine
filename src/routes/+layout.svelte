@@ -52,4 +52,7 @@
 	:global(button:hover) {
 		cursor: pointer;
 	}
+	:global(a) {
+		text-decoration: none;
+	}
 </style>
