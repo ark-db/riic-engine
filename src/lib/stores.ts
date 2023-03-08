@@ -187,8 +187,8 @@ function createZoomShortcut() {
 	const { x, y, min, max } = zoomControls;
 
 	const mode = writable<ShortcutMode>('max');
-	const { subscribe } = derived([x, y], ([x, y]) => ({ x, y }));
-	subscribe(({ x, y }) => {
+
+	derived([x, y], (val) => val).subscribe(([x, y]) => {
 		if (x === min && y === min) mode.set('max');
 		if (x === max && y === max) mode.set('min');
 	});
