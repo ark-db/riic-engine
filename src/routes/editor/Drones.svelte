@@ -64,7 +64,7 @@
 		padding: 0.3em 0.5em;
 		font-size: clamp(1.25em, 2.5vh, 1.5em);
 	}
-	.invalid:not(:placeholder-shown) {
+	input.invalid:not(:placeholder-shown) {
 		border: 2px solid var(--salmon-strong);
 		border-radius: 0.25em;
 	}

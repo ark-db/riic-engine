@@ -5,7 +5,7 @@
 	export let msg: string;
 </script>
 
-<div class="container">
+<div>
 	<p>{msg}</p>
 	<input
 		type="image"
@@ -18,7 +18,7 @@
 </div>
 
 <style>
-	.container {
+	div {
 		position: fixed;
 		z-index: 999;
 		bottom: 5%;

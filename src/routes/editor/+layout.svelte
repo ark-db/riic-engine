@@ -102,7 +102,7 @@
 		display: flex;
 		justify-content: space-between;
 	}
-	.top-bar.nav-hidden {
+	.nav-hidden {
 		grid-column: span 2;
 	}
 	#menu-icon {
@@ -129,8 +129,5 @@
 		background: url('$lib/images/contours.webp') no-repeat;
 		background-size: cover;
 		overflow: auto;
-	}
-	main.nav-hidden {
-		grid-column: span 2;
 	}
 </style>

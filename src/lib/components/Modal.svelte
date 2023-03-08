@@ -15,9 +15,9 @@
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <div class="bg" on:click|trusted={handleMouseClose} />
 
-<section>
+<div class="content">
 	<slot />
-</section>
+</div>
 
 <style>
 	.bg {
@@ -29,7 +29,7 @@
 		height: 100vh;
 		background-color: rgb(0 0 0 / 0.7);
 	}
-	section {
+	.content {
 		position: fixed;
 		z-index: 100;
 		top: 50%;

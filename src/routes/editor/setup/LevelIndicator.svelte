@@ -4,7 +4,7 @@
 
 <div class="container">
 	{#each { length: level } as _}
-		<div class="hexagon">
+		<div>
 			<div class="top" />
 			<div class="middle" />
 			<div class="bottom" />

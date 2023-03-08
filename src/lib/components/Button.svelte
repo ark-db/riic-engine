@@ -36,7 +36,7 @@
 		padding: 0;
 		background: none;
 	}
-	.small {
+	button.small {
 		--focus-border-offset: -8px;
 	}
 </style>

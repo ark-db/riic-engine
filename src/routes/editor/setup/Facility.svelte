@@ -82,7 +82,7 @@
 		/* translate3d() prevents elements from flickering after transition on WebKit */
 		transform: translate3d(0, 0, 0);
 	}
-	.unused {
+	.container.unused {
 		filter: brightness(0.6);
 	}
 	.info {

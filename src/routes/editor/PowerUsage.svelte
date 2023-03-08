@@ -53,10 +53,8 @@
 <div class="container">
 	<img src={powerIcon} alt="Power usage icon" width="34" height="34" />
 	<div class="text">
-		<p class="stats">
-			<span class:invalid={powerUsage < 0 || powerUsage > maxPower}>
-				{powerUsage}
-			</span>
+		<p class="stats" class:invalid={powerUsage < 0 || powerUsage > maxPower}>
+			{powerUsage}
 		</p>
 		<img class="divider" src={slash} alt="slash" width="13" height="31" />
 		<p class="stats">{maxPower}</p>
@@ -66,7 +64,6 @@
 <style>
 	.container {
 		padding: 0 0.5em;
-		color: var(--light);
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
@@ -79,10 +76,11 @@
 	}
 	.stats {
 		margin: 0;
+		color: var(--light);
 		font-size: clamp(1.25em, 2.5vh, 1.5em);
 		font-weight: 600;
 	}
-	.invalid {
+	.stats.invalid {
 		color: var(--salmon-strong);
 	}
 	.divider {

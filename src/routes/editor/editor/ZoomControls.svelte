@@ -87,6 +87,12 @@
 <style>
 	.controls {
 		--window-edge-gap: 24px;
+		z-index: 2;
+		position: fixed;
+		right: calc(var(--window-edge-gap) + 16px);
+		bottom: var(--window-edge-gap);
+	}
+	.controls > div {
 		--slider-center-gap: 1em;
 		/* slider thumb height = 2em */
 		--slider-width: calc(2em + var(--slider-padding) * 2);
@@ -96,13 +102,7 @@
 		--center-padding: 0.75em;
 		--slider-padding: 1.5em;
 		--slider-spacing: 0.75em;
-		z-index: 2;
-		position: fixed;
-		right: calc(var(--window-edge-gap) + 16px);
-		bottom: var(--window-edge-gap);
-	}
-	.controls > div {
-		--blur-effect: blur(2px);
+		--blur-effect: blur(5px);
 		position: absolute;
 		box-shadow: 0 4px 12px rgba(0 0 0 / 0.2);
 		border: 1px solid rgba(255 255 255 / 0.25);
@@ -111,28 +111,28 @@
 		backdrop-filter: var(--blur-effect);
 		-webkit-backdrop-filter: var(--blur-effect);
 	}
-	.controls > .center {
+	.center {
 		right: var(--center-margin);
 		bottom: var(--center-margin);
 		padding: var(--center-padding);
 	}
-	.controls > .slider {
+	.slider {
 		padding: var(--slider-padding);
 		display: flex;
 		align-items: center;
 		column-gap: var(--slider-spacing);
 	}
-	.controls > .x {
+	.x {
 		right: calc(var(--center-size) + var(--center-margin) * 2 + var(--slider-center-gap));
 		bottom: 0;
 	}
-	.controls > .y {
+	.y {
 		rotate: 90deg;
 		transform-origin: right;
 		right: 36px;
 		bottom: calc(var(--center-size) / 2 + var(--center-margin) + var(--slider-center-gap));
 	}
-	.controls > .y img {
+	.y img {
 		rotate: -90deg;
 	}
 </style>
