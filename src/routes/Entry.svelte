@@ -144,15 +144,19 @@
 				on:click={() => {
 					modal.close();
 					pendingDelete = false;
-				}}>Cancel</button
+				}}
 			>
+				Cancel
+			</button>
 			<button
 				class="delete"
 				on:click={() => {
 					modal.close();
 					handleDelete();
-				}}>Delete</button
+				}}
 			>
+				Delete
+			</button>
 		</div>
 	</Modal>
 {/if}
