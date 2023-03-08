@@ -47,7 +47,7 @@
 			/>
 		{/each}
 		{#if $activeSave.data.layout.tp.length < 5}
-			<AddFacility kind="trading" on:click={() => addBoostFacility($activeSave.data.layout.tp)} />
+			<AddFacility kind="trading" onClick={() => addBoostFacility($activeSave.data.layout.tp)} />
 		{/if}
 	</div>
 	<div class="fac-wrapper">
@@ -62,7 +62,7 @@
 		{#if $activeSave.data.layout.fac.length < 5}
 			<AddFacility
 				kind="manufacture"
-				on:click={() => addBoostFacility($activeSave.data.layout.fac)}
+				onClick={() => addBoostFacility($activeSave.data.layout.fac)}
 			/>
 		{/if}
 	</div>
@@ -76,7 +76,7 @@
 			/>
 		{/each}
 		{#if $activeSave.data.layout.pp.length < 5}
-			<AddFacility kind="power" on:click={() => addFacility($activeSave.data.layout.pp)} />
+			<AddFacility kind="power" onClick={() => addFacility($activeSave.data.layout.pp)} />
 		{/if}
 	</div>
 	<div class="dorm-wrapper">

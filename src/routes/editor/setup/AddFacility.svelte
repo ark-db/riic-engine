@@ -1,13 +1,20 @@
 <script lang="ts">
 	import facilities from '$lib/data/facilities.json';
+	import { tooltip } from '$lib/tooltip';
 	import type { FacilityName } from '$lib/types';
 
 	export let kind: FacilityName;
+	export let onClick: () => void;
 
 	let { color } = facilities[kind];
 </script>
 
-<button class="focus-template" style:border="4px dashed {color}" on:click>
+<button
+	class="focus-template"
+	style:border="4px dashed {color}"
+	use:tooltip={'Add facility'}
+	on:click={onClick}
+>
 	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="48" height="48">
 		<path
 			fill={color}
