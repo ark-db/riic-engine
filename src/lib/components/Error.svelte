@@ -1,26 +1,26 @@
 <script lang="ts">
 	import xmark from '$lib/images/red-xmark.svg';
 	import { error } from '$lib/stores';
+
+	let dialog: HTMLDialogElement;
+
+	$: if (dialog) $error ? dialog.show() : dialog.close();
 </script>
 
-{#if $error}
-	<div>
-		<p>{$error}</p>
-		<button on:click={error.clear}>
-			<img src={xmark} alt="Delete button" width="20" height="20" />
-		</button>
-	</div>
-{/if}
+<dialog bind:this={dialog}>
+	<p>{$error}</p>
+	<button class="focus-template" on:click={error.clear}>
+		<img src={xmark} alt="Delete button" width="20" height="20" />
+	</button>
+</dialog>
 
 <style>
-	div {
+	dialog {
+		--border-weight: 2px;
 		position: fixed;
-		z-index: 999;
-		bottom: 5%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-		border: 2px solid var(--salmon-strong);
-		border-radius: 1em;
+		bottom: 10%;
+		border: var(--border-weight) solid var(--salmon-strong);
+		border-radius: 0.75em;
 		padding: 0 1em;
 		background-color: var(--dark-strong);
 	}
@@ -29,12 +29,20 @@
 		line-height: 1.4;
 	}
 	button {
+		--focus-border-offset: -6px;
+		--focus-border-radius: 50%;
+		--button-icon-size: 20px;
+		--button-padding: 2.5px;
+		--button-size: calc(
+			var(--button-icon-size) + var(--button-padding) * 2 + var(--border-weight) * 4
+		);
+		--button-shift: calc(0px - var(--button-size) / 2);
 		position: absolute;
-		top: -17px;
-		right: -17px;
-		border: 2px solid var(--salmon-strong);
+		top: var(--button-shift);
+		right: var(--button-shift);
+		border: var(--border-weight) solid var(--salmon-strong);
 		border-radius: 50%;
-		padding: 2.5px;
+		padding: var(--button-padding);
 		background-color: var(--dark-strong);
 		display: flex;
 		align-items: center;
