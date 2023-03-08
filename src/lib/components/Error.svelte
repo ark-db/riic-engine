@@ -1,21 +1,21 @@
 <script lang="ts">
 	import xmark from '$lib/images/red-xmark.svg';
 	import { error } from '$lib/stores';
-
-	export let msg: string;
 </script>
 
-<div>
-	<p>{msg}</p>
-	<input
-		type="image"
-		src={xmark}
-		alt="Delete button"
-		width="20"
-		height="20"
-		on:click={error.clear}
-	/>
-</div>
+{#if $error}
+	<div>
+		<p>{$error}</p>
+		<input
+			type="image"
+			src={xmark}
+			alt="Delete button"
+			width="20"
+			height="20"
+			on:click={error.clear}
+		/>
+	</div>
+{/if}
 
 <style>
 	div {

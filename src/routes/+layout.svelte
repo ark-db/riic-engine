@@ -1,6 +1,5 @@
 <script lang="ts">
 	import Error from '$lib/components/Error.svelte';
-	import { error } from '$lib/stores';
 	import '../focus.css';
 	import '../input.css';
 
@@ -19,9 +18,7 @@
 
 <slot />
 
-{#if $error}
-	<Error msg={$error} />
-{/if}
+<Error />
 
 <style>
 	:root {
