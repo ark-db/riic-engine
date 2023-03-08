@@ -1,84 +1,55 @@
 <script lang="ts">
-	import { tweened } from 'svelte/motion';
-	import { cubicOut } from 'svelte/easing';
 	import Button from '$lib/components/Button.svelte';
-	import maximize from '$lib/images/maximize.svg';
-	import minimize from '$lib/images/minimize.svg';
 	import plus from '$lib/images/plus.svg';
 	import minus from '$lib/images/minus.svg';
+	import { zoomControls, zoomShortcut } from '$lib/stores';
 	import Slider from './Slider.svelte';
 
 	export let xScale: number;
 	export let yScale: number;
 
-	const minZoom = 1;
-	const maxZoom = 4;
+	const { x, y, min, max, changeX, changeY } = zoomControls;
 	const zoomStep = 0.25;
-
-	const initTweened = () =>
-		tweened(1, {
-			duration: 300,
-			easing: cubicOut
-		});
-
-	const x = initTweened();
-	const y = initTweened();
 
 	$: xScale = $x;
 	$: yScale = $y;
+	$: console.log($x, $y);
 
-	function setMaxZoom() {
-		$x = maxZoom;
-		$y = maxZoom;
+	function setMin() {
+		x.set(min);
+		y.set(min);
 	}
-	function setMinZoom() {
-		$x = minZoom;
-		$y = minZoom;
+	function setMax() {
+		x.set(max);
+		y.set(max);
 	}
 
-	type ZoomMode = 'max' | 'min';
-	let centerZoomMode: ZoomMode = 'max';
-	$: if ($x === minZoom && $y === minZoom) centerZoomMode = 'max';
-	$: if ($x === maxZoom && $y === maxZoom) centerZoomMode = 'min';
-	$: centerDesc = centerZoomMode === 'max' ? 'Zoom to maximum' : 'Zoom to minimum';
-	$: centerSrc = centerZoomMode === 'max' ? maximize : minimize;
-	$: centerFn = centerZoomMode === 'max' ? setMaxZoom : setMinZoom;
-
-	function incrementX() {
-		if ($x < maxZoom) $x = Math.min($x + zoomStep, maxZoom);
-	}
-	function decrementX() {
-		if ($x > minZoom) $x = Math.max($x - zoomStep, minZoom);
-	}
-	function incrementY() {
-		if ($y < maxZoom) $y = Math.min($y + zoomStep, maxZoom);
-	}
-	function decrementY() {
-		if ($y > minZoom) $y = Math.max($y - zoomStep, minZoom);
-	}
+	$: if ($x === min && $y === min) $zoomShortcut = 'max';
+	$: if ($x === max && $y === max) $zoomShortcut = 'min';
+	$: centerFn = $zoomShortcut === 'max' ? setMax : setMin;
 </script>
 
 <div class="controls">
 	<div class="center">
-		<Button desc={centerDesc} onClick={centerFn}>
-			<img src={centerSrc} alt={centerDesc} width="36" height="36" />
+		<Button desc={zoomShortcut.desc()} onClick={centerFn}>
+			<img src={zoomShortcut.src()} alt={zoomShortcut.desc()} width="36" height="36" />
 		</Button>
 	</div>
 	<div class="slider x">
-		<Button desc="Zoom out" onClick={decrementX}>
+		<Button desc="Zoom out" onClick={() => changeX(-zoomStep)}>
 			<img src={minus} alt="Zoom out" width="22" height="22" />
 		</Button>
-		<Slider min={minZoom} max={maxZoom} step={0.002} bind:value={$x} />
-		<Button desc="Zoom in" onClick={incrementX}>
+		<Slider {min} {max} step={0.002} bind:value={$x} />
+		<Button desc="Zoom in" onClick={() => changeX(zoomStep)}>
 			<img src={plus} alt="Zoom in" width="22" height="22" />
 		</Button>
 	</div>
 	<div class="slider y">
-		<Button desc="Zoom out" onClick={decrementY}>
+		<Button desc="Zoom out" onClick={() => changeY(-zoomStep)}>
 			<img src={minus} alt="Zoom out" width="22" height="22" />
 		</Button>
-		<Slider min={minZoom} max={maxZoom} step={0.002} bind:value={$y} />
-		<Button desc="Zoom in" onClick={incrementY}>
+		<Slider {min} {max} step={0.002} bind:value={$y} />
+		<Button desc="Zoom in" onClick={() => changeY(zoomStep)}>
 			<img src={plus} alt="Zoom in" width="22" height="22" />
 		</Button>
 	</div>

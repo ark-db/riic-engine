@@ -1,10 +1,14 @@
 import { goto } from '$app/navigation';
 import { writable, derived } from 'svelte/store';
+import { tweened } from 'svelte/motion';
+import { cubicOut } from 'svelte/easing';
 import { invoke } from '@tauri-apps/api/tauri';
 import pencilClockIcon from '$lib/images/pencil-clock.svg';
 import plusClockIcon from '$lib/images/plus-clock.svg';
 import listIncreasingIcon from '$lib/images/list-increasing.svg';
 import listDecreasingIcon from '$lib/images/list-decreasing.svg';
+import maximizeIcon from '$lib/images/maximize.svg';
+import minimizeIcon from '$lib/images/minimize.svg';
 import type { SaveData, FileData, ActiveSave, Facility, BoostFacility } from '$lib/types';
 
 // The list of saves on the main menu. Interacting with the list (creating, deleting, etc.) will refresh it.
@@ -141,9 +145,58 @@ function calculateLastColumnNumber(save: ActiveSave): number {
 	);
 }
 
+function createZoomControls() {
+	const minZoom = 1;
+	const maxZoom = 4;
+
+	const initTweened = () =>
+		tweened(1, {
+			duration: 300,
+			easing: cubicOut
+		});
+
+	const x = initTweened();
+	const y = initTweened();
+
+	function clamp(value: number): number {
+		return Math.min(maxZoom, Math.max(minZoom, value));
+	}
+
+	return {
+		x,
+		y,
+		min: minZoom,
+		max: maxZoom,
+		changeX: (value: number) => {
+			x.update((old) => clamp(old + value));
+		},
+		changeY: (value: number) => {
+			y.update((old) => clamp(old + value));
+		}
+	};
+}
+
+function createZoomShortcut() {
+	type ZoomMode = 'max' | 'min';
+	const { subscribe, set, update } = writable<ZoomMode>('max');
+
+	let mode: ZoomMode = 'max';
+	subscribe((value) => (mode = value));
+
+	return {
+		subscribe,
+		set,
+		update,
+		src: () => (mode === 'max' ? maximizeIcon : minimizeIcon),
+		desc: () => (mode === 'max' ? 'Zoom to maximum' : 'Zoom to minimum')
+	};
+}
+
 export const saveList = createSaveList();
 export const error = createError();
 export const saveSortMode = createSaveSortMode();
 export const saveSortOrder = createSaveSortOrder();
 export const activeSave = createActiveSave();
 export const lastColumnNumber = derived(activeSave, calculateLastColumnNumber);
+export const zoomControls = createZoomControls();
+export const zoomShortcut = createZoomShortcut();
