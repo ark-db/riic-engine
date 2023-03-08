@@ -1,3 +1,7 @@
+:root {
+	--focus-border-radius: 8px;
+}
+
 .focus-template {
 	position: relative;
 }
@@ -19,7 +23,7 @@
 	bottom: var(--focus-border-offset);
 	left: var(--focus-border-offset);
 	right: var(--focus-border-offset);
-	border-radius: 8px;
+	border-radius: var(--focus-border-radius);
 	border: 2px solid var(--blue-mild);
 	opacity: 1;
 }
