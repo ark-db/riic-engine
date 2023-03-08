@@ -3,6 +3,7 @@ import type { UserConfig } from 'vite';
 
 const config: UserConfig = {
 	plugins: [sveltekit()],
+	clearScreen: false,
 	json: {
 		stringify: true
 	},

@@ -10,12 +10,11 @@
 
 	export let columnGapScale: number;
 
-	let totalColumnWidth: number;
-
 	const baseColumnGap = 36;
 	$: columnGap = columnGapScale * baseColumnGap;
 
-	$: $rowLength = totalColumnWidth + columnGap + 36 + 1;
+	let totalColumnWidth: number;
+	$: $rowLength = totalColumnWidth + columnGap + 37;
 </script>
 
 <div
