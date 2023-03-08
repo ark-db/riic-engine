@@ -42,16 +42,26 @@
 		justify-content: center;
 	}
 	div:before {
-		content: '';
-		background: rgba(0 0 0 / 0.7);
 		position: fixed;
 		top: 0;
 		left: 0;
 		right: 0;
 		bottom: 0;
+		content: '';
+		background: rgba(0 0 0 / 0.7);
 	}
 	div:has(dialog[open]):before {
 		animation: fade 0.2s ease-out;
+	}
+	dialog {
+		box-shadow: 0 8px 8px rgba(0 0 0 / 0.5);
+		border: none;
+		border-radius: 1em;
+		padding: 2em;
+		background-color: var(--dark);
+	}
+	dialog[open] {
+		animation: zoom 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 	}
 	@keyframes fade {
 		from {
@@ -61,21 +71,12 @@
 			opacity: 1;
 		}
 	}
-	dialog {
-		border: none;
-		border-radius: 1em;
-		padding: 2em;
-		background-color: var(--dark);
-	}
-	dialog[open] {
-		animation: zoom 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-	}
 	@keyframes zoom {
 		from {
-			transform: scale(0.95);
+			scale: 0.95;
 		}
 		to {
-			transform: scale(1);
+			scale: 1;
 		}
 	}
 </style>
