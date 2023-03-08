@@ -103,10 +103,14 @@
 		right: calc(0px - var(--right-shift) - var(--slider-padding));
 	}
 	.controls > div {
+		--blur-effect: blur(2px);
 		position: relative;
 		box-shadow: 0 4px 12px rgba(0 0 0 / 0.2);
 		border: 1px solid rgba(255 255 255 / 0.25);
 		border-radius: 16px;
+		background: rgba(255 255 255 / 0.04);
+		backdrop-filter: var(--blur-effect);
+		-webkit-backdrop-filter: var(--blur-effect);
 	}
 	.controls > .center {
 		--icon-width: 36px;
@@ -118,14 +122,9 @@
 			var(--center-shift) - 1.375em - var(--center-padding) / 2 - var(--slider-spacing) / 2
 		);
 		padding: var(--center-padding);
-		background-color: var(--dark);
 	}
 	.controls > .slider {
-		--blur-effect: blur(2px);
 		padding: var(--slider-padding);
-		background: rgba(255 255 255 / 0.04);
-		backdrop-filter: var(--blur-effect);
-		-webkit-backdrop-filter: var(--blur-effect);
 		display: flex;
 		align-items: center;
 		column-gap: var(--slider-spacing);
