@@ -11,8 +11,8 @@
 
 	const iconSize = 22;
 	const minZoom = 1;
-	const maxZoom = 2;
-	const zoomStep = 0.125;
+	const maxZoom = 4;
+	const zoomStep = 0.25;
 
 	const initTweened = () =>
 		tweened(1, {
