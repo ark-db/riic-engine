@@ -92,7 +92,7 @@
 		--slider-width: calc(2em + var(--slider-padding) * 2);
 		/* center icon size = 36px */
 		--center-size: calc(36px + var(--center-padding) * 2);
-		--center-margin: calc(calc(var(--slider-width) - var(--center-size)) / 4);
+		--center-margin: calc((var(--slider-width) - var(--center-size)) / 4);
 		--center-padding: 0.75em;
 		--slider-padding: 1.5em;
 		--slider-spacing: 0.75em;
