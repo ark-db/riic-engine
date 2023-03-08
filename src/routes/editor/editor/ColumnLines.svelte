@@ -1,14 +1,14 @@
 <script lang="ts">
 	import { lastColumnNumber } from '$lib/stores';
+	import { gridHeight } from './FacilityGrid.svelte';
 
 	export let columnGap: number;
-	export let columnHeight: number;
 	export let totalColumnWidth: number;
 </script>
 
 <div
 	class="markers"
-	style="--column-gap: {columnGap}px; --column-height: {columnHeight}px;"
+	style="--column-gap: {columnGap}px; --column-height: {$gridHeight}px;"
 	bind:clientWidth={totalColumnWidth}
 >
 	{#each { length: $lastColumnNumber } as _, i}

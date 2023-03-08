@@ -5,6 +5,7 @@
 	import type { FacilityName } from '$lib/types';
 
 	export let kind: FacilityName;
+	export let height: number;
 
 	const rowOpacity = 0.7;
 	let { name, color } = facilities[kind];
@@ -19,7 +20,10 @@
 	}
 </script>
 
-<div class="container" style="--color: {color}; --color-a: {hexToRgb(color, rowOpacity)}">
+<div
+	class="container"
+	style="--height: {height}px; --color: {color}; --color-a: {hexToRgb(color, rowOpacity)}"
+>
 	<div class="edge" use:tooltip={name}>
 		<FacilityIcon {kind} size={24} />
 	</div>
@@ -27,7 +31,7 @@
 
 <style>
 	.container {
-		height: 5em;
+		height: var(--height);
 		display: flex;
 		background-color: var(--color-a);
 	}
