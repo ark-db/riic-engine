@@ -205,15 +205,15 @@ function createZoomShortcut() {
 	const details = derived<typeof mode, ShortcutDetails>(mode, ($mode) =>
 		$mode === 'max'
 			? {
-				src: maximizeIcon,
-				desc: 'Zoom to maximum',
-				run: setMax
-			}
+					src: maximizeIcon,
+					desc: 'Zoom to maximum',
+					run: setMax
+			  }
 			: {
-				src: minimizeIcon,
-				desc: 'Zoom to minimum',
-				run: setMin
-			}
+					src: minimizeIcon,
+					desc: 'Zoom to minimum',
+					run: setMin
+			  }
 	);
 
 	return details;
