@@ -32,6 +32,7 @@
 
 <style>
 	div {
+		z-index: 1;
 		position: fixed;
 		top: 0;
 		left: 0;
