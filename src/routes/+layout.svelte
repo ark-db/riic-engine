@@ -2,6 +2,7 @@
 	import Error from '$lib/components/Error.svelte';
 	import '../focus.css';
 	import '../input.css';
+	import '../misc.css';
 
 	// Disable copying/saving links and images contained within the app
 	function handleMousedown(event: MouseEvent) {
@@ -42,14 +43,5 @@
 		scrollbar-width: none;
 		user-select: none;
 		-webkit-user-select: none;
-	}
-	:root::-webkit-scrollbar {
-		display: none;
-	}
-	:global(button:hover) {
-		cursor: pointer;
-	}
-	:global(a) {
-		text-decoration: none;
 	}
 </style>

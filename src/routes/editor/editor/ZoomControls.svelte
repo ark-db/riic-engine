@@ -61,7 +61,7 @@
 		--window-edge-gap: 24px;
 		z-index: 2;
 		position: fixed;
-		right: calc(var(--window-edge-gap) + 16px);
+		right: var(--window-edge-gap);
 		bottom: var(--window-edge-gap);
 	}
 	.controls > div {
