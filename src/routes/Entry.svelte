@@ -16,11 +16,11 @@
 	let focused = false;
 
 	// Checks if this component instance contains the currently-focused element. Works with keyboard navigation!
-	function handleFocus(e: FocusEvent) {
+	function handleFocus(event: FocusEvent) {
 		type FocusEventType = 'focusin' | 'focusout';
 
 		// Test different target element depending on the event type
-		let target = (e.type as FocusEventType) === 'focusin' ? e.target : e.relatedTarget;
+		let target = (event.type as FocusEventType) === 'focusin' ? event.target : event.relatedTarget;
 		focused = target instanceof Node && container?.contains(target);
 	}
 
@@ -50,8 +50,8 @@
 		hovering = false;
 	}
 
-	function handleDeleteKeydown(e: KeyboardEvent) {
-		if (pendingDelete && e.key === 'Enter') handleDelete();
+	function handleDeleteKeydown(event: KeyboardEvent) {
+		if (pendingDelete && event.key === 'Enter') handleDelete();
 	}
 </script>
 
