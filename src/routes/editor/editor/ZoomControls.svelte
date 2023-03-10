@@ -13,7 +13,22 @@
 
 	$: xScale = $x;
 	$: yScale = $y;
+
+	function handleKeydown(event: KeyboardEvent) {
+		if (event.metaKey) {
+			if (event.key === '-') {
+				changeX(-zoomStep);
+				changeY(-zoomStep);
+			}
+			if (event.key === '=') {
+				changeX(zoomStep);
+				changeY(zoomStep);
+			}
+		}
+	}
 </script>
+
+<svelte:window on:keydown|trusted={handleKeydown} />
 
 <div class="controls">
 	<div class="center">
