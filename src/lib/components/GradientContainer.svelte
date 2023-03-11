@@ -1,4 +1,10 @@
-<div>
+<script lang="ts">
+	export let weight: number;
+	export let radius: number;
+	export let bgColor: string;
+</script>
+
+<div style="--weight: {weight}px; --radius: {radius}px; --bg-color: {bgColor};">
 	<slot />
 </div>
 

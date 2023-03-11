@@ -33,7 +33,7 @@
 <div class="container">
 	{#if menuActive}
 		<nav>
-			<GradientContainer --weight="3px" --radius="0.5em" --bg-color="var(--dark-strong)">
+			<GradientContainer weight={3} radius={8} bgColor="var(--dark-strong)">
 				<a href="/" class="home-link">
 					<img src={logo} alt="App logo" width="48" height="48" />
 					<p class="app-title">RIIC Engine</p>

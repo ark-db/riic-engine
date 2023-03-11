@@ -57,7 +57,7 @@
 
 <svelte:window on:keydown|trusted={handleDeleteKeydown} />
 
-<GradientContainer --weight="3px" --radius="0.75em" --bg-color="var(--dark-strong)">
+<GradientContainer weight={3} radius={12} bgColor="var(--dark-strong)">
 	<div
 		class="container"
 		bind:this={container}
