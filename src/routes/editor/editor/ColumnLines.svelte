@@ -1,7 +1,8 @@
 <script context="module" lang="ts">
-	import { writable } from 'svelte/store';
+	import { writable, readonly } from 'svelte/store';
 
-	export const rowLength = writable<number>();
+	const rowLengthStore = writable<number>();
+	export const rowLength = readonly(rowLengthStore);
 </script>
 
 <script lang="ts">
@@ -14,7 +15,7 @@
 	$: columnGap = columnGapScale * baseColumnGap;
 
 	let totalColumnWidth: number;
-	$: $rowLength = totalColumnWidth + columnGap + 37;
+	$: $rowLengthStore = totalColumnWidth + columnGap + 37;
 </script>
 
 <div

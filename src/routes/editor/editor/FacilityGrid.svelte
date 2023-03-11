@@ -1,7 +1,8 @@
 <script context="module" lang="ts">
-	import { writable } from 'svelte/store';
+	import { writable, readonly } from 'svelte/store';
 
-	export const gridHeight = writable<number>();
+	const gridHeightStore = writable<number>();
+	export const gridHeight = readonly(gridHeightStore);
 </script>
 
 <script lang="ts">
@@ -15,7 +16,7 @@
 	$: rowHeight = rowHeightScale * baseRowHeight;
 </script>
 
-<div class="facilities" style="--width: {$rowLength}px;" bind:clientHeight={$gridHeight}>
+<div class="facilities" style="--width: {$rowLength}px;" bind:clientHeight={$gridHeightStore}>
 	<FacilityRow kind="control" height={rowHeight} />
 
 	{#each $activeSave.data.layout.tp as _}
