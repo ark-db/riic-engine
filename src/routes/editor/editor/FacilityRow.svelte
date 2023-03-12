@@ -3,9 +3,9 @@
 	import facilities from '$lib/data/facilities.json';
 	import { tooltip } from '$lib/tooltip';
 	import type { FacilityName } from '$lib/types';
+	import { rowHeight } from './FacilityGrid.svelte';
 
 	export let kind: FacilityName;
-	export let height: number;
 
 	const rowOpacity = 0.7;
 	let { name, color } = facilities[kind];
@@ -22,7 +22,7 @@
 
 <div
 	class="container"
-	style="--height: {height}px; --color: {color}; --color-a: {hexToRgb(color, rowOpacity)}"
+	style="--height: {$rowHeight}px; --color: {color}; --color-a: {hexToRgb(color, rowOpacity)}"
 >
 	<div class="edge" use:tooltip={name}>
 		<FacilityIcon {kind} size={24} />

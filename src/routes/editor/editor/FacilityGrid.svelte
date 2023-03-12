@@ -3,6 +3,9 @@
 
 	const gridHeightStore = writable<number>();
 	export const gridHeight = readonly(gridHeightStore);
+
+	const rowHeightStore = writable<number>();
+	export const rowHeight = readonly(rowHeightStore);
 </script>
 
 <script lang="ts">
@@ -13,35 +16,35 @@
 	export let rowHeightScale: number;
 
 	const baseRowHeight = 80;
-	$: rowHeight = rowHeightScale * baseRowHeight;
+	$: $rowHeightStore = rowHeightScale * baseRowHeight;
 </script>
 
 <div class="facilities" style="--width: {$rowLength}px;" bind:clientHeight={$gridHeightStore}>
-	<FacilityRow kind="control" height={rowHeight} />
+	<FacilityRow kind="control" />
 
 	{#each $activeSave.data.layout.tp as _}
-		<FacilityRow kind="trading" height={rowHeight} />
+		<FacilityRow kind="trading" />
 	{/each}
 
 	{#each $activeSave.data.layout.fac as _}
-		<FacilityRow kind="manufacture" height={rowHeight} />
+		<FacilityRow kind="manufacture" />
 	{/each}
 
 	{#each $activeSave.data.layout.pp as _}
-		<FacilityRow kind="power" height={rowHeight} />
+		<FacilityRow kind="power" />
 	{/each}
 
 	{#if $activeSave.data.layout.rr.level > 0}
-		<FacilityRow kind="meeting" height={rowHeight} />
+		<FacilityRow kind="meeting" />
 	{/if}
 
 	{#if $activeSave.data.layout.office.level > 0}
-		<FacilityRow kind="hire" height={rowHeight} />
+		<FacilityRow kind="hire" />
 	{/if}
 
 	{#each $activeSave.data.layout.dorm as room}
 		{#if room.level > 0}
-			<FacilityRow kind="dormitory" height={rowHeight} />
+			<FacilityRow kind="dormitory" />
 		{/if}
 	{/each}
 </div>
