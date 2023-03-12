@@ -70,10 +70,10 @@
 		--slider-spacing: 0.75em;
 		--blur-effect: blur(5px);
 		position: absolute;
-		box-shadow: 0 4px 12px rgba(0 0 0 / 0.2);
-		border: 1px solid rgba(255 255 255 / 0.25);
+		box-shadow: 0 4px 12px rgb(0 0 0 / 0.2);
+		border: 1px solid rgb(200 200 200 / 0.25);
 		border-radius: 16px;
-		background: rgba(255 255 255 / 0.04);
+		background: rgb(127 127 127 / 0.05);
 		backdrop-filter: var(--blur-effect);
 		-webkit-backdrop-filter: var(--blur-effect);
 	}

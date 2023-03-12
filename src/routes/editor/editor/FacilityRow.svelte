@@ -7,7 +7,7 @@
 	export let kind: FacilityName;
 	export let height: number;
 
-	const rowOpacity = 0.7;
+	const rowOpacity = 0.75;
 	let { name, color } = facilities[kind];
 
 	// Converts a hex triplet into the CSS rgb() format
