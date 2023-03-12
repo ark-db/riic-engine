@@ -39,9 +39,8 @@
 
 		font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue,
 			helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
-		background-color: var(--dark);
-		scrollbar-width: none;
 		user-select: none;
 		-webkit-user-select: none;
+		background-color: var(--dark);
 	}
 </style>
