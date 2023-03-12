@@ -1,22 +1,20 @@
 <script context="module" lang="ts">
-	import { writable, readonly } from 'svelte/store';
+	import { writable, readonly, derived } from 'svelte/store';
+	import { zoomControls } from '$lib/stores';
+
+	const { yScale } = zoomControls;
+	const baseRowHeight = 84;
 
 	const gridHeightStore = writable<number>();
 	export const gridHeight = readonly(gridHeightStore);
 
-	const rowHeightStore = writable<number>();
-	export const rowHeight = readonly(rowHeightStore);
+	export const rowHeight = derived(yScale, ($yScale) => $yScale * baseRowHeight);
 </script>
 
 <script lang="ts">
 	import { activeSave } from '$lib/stores';
 	import FacilityRow from './FacilityRow.svelte';
 	import { rowLength } from './ColumnLines.svelte';
-
-	export let rowHeightScale: number;
-
-	const baseRowHeight = 84;
-	$: $rowHeightStore = rowHeightScale * baseRowHeight;
 </script>
 
 <div class="facilities" style="--width: {$rowLength}px;" bind:clientHeight={$gridHeightStore}>
