@@ -1,48 +1,38 @@
-<script context="module" lang="ts">
-	import { writable, readonly, derived } from 'svelte/store';
-	import { zoomControls } from '$lib/stores';
-
-	const { yScale } = zoomControls;
-	const baseRowHeight = 84;
-
-	const gridHeightStore = writable<number>();
-	export const gridHeight = readonly(gridHeightStore);
-
-	export const rowHeight = derived(yScale, ($yScale) => $yScale * baseRowHeight);
-</script>
-
 <script lang="ts">
 	import { activeSave } from '$lib/stores';
 	import FacilityRow from './FacilityRow.svelte';
-	import { rowLength } from './ColumnLines.svelte';
+
+	export let rowWidth: number;
+	export let rowHeight: number;
+	export let gridHeight: number;
 </script>
 
-<div class="facilities" style="--width: {$rowLength}px;" bind:clientHeight={$gridHeightStore}>
-	<FacilityRow kind="control" />
+<div class="facilities" style="--width: {rowWidth}px;" bind:clientHeight={gridHeight}>
+	<FacilityRow kind="control" height={rowHeight} />
 
 	{#each $activeSave.data.layout.tp as _}
-		<FacilityRow kind="trading" />
+		<FacilityRow kind="trading" height={rowHeight} />
 	{/each}
 
 	{#each $activeSave.data.layout.fac as _}
-		<FacilityRow kind="manufacture" />
+		<FacilityRow kind="manufacture" height={rowHeight} />
 	{/each}
 
 	{#each $activeSave.data.layout.pp as _}
-		<FacilityRow kind="power" />
+		<FacilityRow kind="power" height={rowHeight} />
 	{/each}
 
 	{#if $activeSave.data.layout.rr.level > 0}
-		<FacilityRow kind="meeting" />
+		<FacilityRow kind="meeting" height={rowHeight} />
 	{/if}
 
 	{#if $activeSave.data.layout.office.level > 0}
-		<FacilityRow kind="hire" />
+		<FacilityRow kind="hire" height={rowHeight} />
 	{/if}
 
 	{#each $activeSave.data.layout.dorm as room}
 		{#if room.level > 0}
-			<FacilityRow kind="dormitory" />
+			<FacilityRow kind="dormitory" height={rowHeight} />
 		{/if}
 	{/each}
 </div>

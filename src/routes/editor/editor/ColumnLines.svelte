@@ -1,26 +1,15 @@
-<script context="module" lang="ts">
-	import { derived } from 'svelte/store';
-	import { zoomControls } from '$lib/stores';
-
-	const { xScale } = zoomControls;
-	const baseColumnGap = 40;
-	let totalColumnWidth: number;
-
-	export const rowLength = derived(
-		xScale,
-		($xScale) => totalColumnWidth + $xScale * baseColumnGap + 37
-	);
-</script>
-
 <script lang="ts">
 	import { lastColumnNumber } from '$lib/stores';
-	import { gridHeight } from './FacilityGrid.svelte';
+
+	export let columnGap: number;
+	export let gridWidth: number;
+	export let gridHeight: number;
 </script>
 
 <div
 	class="markers"
-	style="--column-gap: {$xScale * baseColumnGap}px; --column-height: {$gridHeight}px;"
-	bind:clientWidth={totalColumnWidth}
+	style="--column-gap: {columnGap}px; --column-height: {gridHeight}px;"
+	bind:clientWidth={gridWidth}
 >
 	{#each { length: $lastColumnNumber } as _, i}
 		<div class="column-marker">
