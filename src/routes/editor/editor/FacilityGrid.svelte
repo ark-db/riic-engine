@@ -15,7 +15,7 @@
 
 	export let rowHeightScale: number;
 
-	const baseRowHeight = 80;
+	const baseRowHeight = 84;
 	$: $rowHeightStore = rowHeightScale * baseRowHeight;
 </script>
 
@@ -55,6 +55,6 @@
 		margin-top: 0.75em;
 		display: flex;
 		flex-direction: column;
-		row-gap: 0.75em;
+		row-gap: 0.625em;
 	}
 </style>

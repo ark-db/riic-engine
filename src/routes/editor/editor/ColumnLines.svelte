@@ -11,7 +11,7 @@
 
 	export let columnGapScale: number;
 
-	const baseColumnGap = 36;
+	const baseColumnGap = 40;
 	$: columnGap = columnGapScale * baseColumnGap;
 
 	let totalColumnWidth: number;
@@ -25,7 +25,7 @@
 >
 	{#each { length: $lastColumnNumber } as _, i}
 		<div class="column-marker">
-			{i + 1}
+			<p>{i + 1}</p>
 			<div class="column-line" />
 		</div>
 	{/each}
@@ -42,7 +42,6 @@
 		column-gap: var(--column-gap);
 	}
 	.column-marker {
-		cursor: default;
 		width: 1em;
 		color: var(--light-strong);
 		font-size: 0.8em;
@@ -50,6 +49,10 @@
 		flex-direction: column;
 		align-items: center;
 		row-gap: 0.25em;
+	}
+	p {
+		cursor: default;
+		margin: 0;
 	}
 	.column-line {
 		width: 1px;
