@@ -11,23 +11,6 @@ import maximizeIcon from '$lib/images/maximize.svg';
 import minimizeIcon from '$lib/images/minimize.svg';
 import type { SaveData, FileData, ActiveSave, Facility, BoostFacility } from '$lib/types';
 
-// The list of saves on the main menu. Interacting with the list (creating, deleting, etc.) will refresh it.
-function createSaveList() {
-	const { subscribe, set } = writable<FileData[]>();
-
-	const loadSaves = () => invoke<FileData[]>('fetch_saves').then(set);
-
-	return {
-		subscribe,
-		load: () => loadSaves().catch(error.handle),
-		create: () => invoke<void>('create_save').then(loadSaves).catch(error.handle),
-		export: (name: string) =>
-			invoke<void>('export_save', { name }).then(loadSaves).catch(error.handle),
-		delete: (name: string) =>
-			invoke<void>('delete_save', { name }).then(loadSaves).catch(error.handle)
-	};
-}
-
 // App-wide error store to display errors to users
 function createError() {
 	const { subscribe, set } = writable<string>('');
@@ -110,6 +93,29 @@ function createSaveSortOrder() {
 	};
 }
 
+// The list of saves on the main menu. Interacting with the list (creating, deleting, etc.) will refresh it.
+function createSaveList() {
+	const saves = writable<FileData[]>();
+
+	const { subscribe } = derived(
+		[saves, saveSortMode, saveSortOrder],
+		([$saves, { mode }, { direction }]) =>
+			$saves ? $saves.sort((prev, curr) => (prev[mode] - curr[mode]) * direction) : []
+	);
+
+	const loadSaves = () => invoke<FileData[]>('fetch_saves').then(saves.set);
+
+	return {
+		subscribe,
+		load: () => loadSaves().catch(error.handle),
+		create: () => invoke<void>('create_save').then(loadSaves).catch(error.handle),
+		export: (name: string) =>
+			invoke<void>('export_save', { name }).then(loadSaves).catch(error.handle),
+		delete: (name: string) =>
+			invoke<void>('delete_save', { name }).then(loadSaves).catch(error.handle)
+	};
+}
+
 // Stores data of the currently-active save file
 function createActiveSave() {
 	const { subscribe, set } = writable<ActiveSave>();
@@ -145,6 +151,7 @@ function calculateLastColumnNumber(save: ActiveSave): number {
 	);
 }
 
+// The zoom values in the save editor. Zoom values for the X and Y axes are independently controlled.
 function createZoomControls() {
 	const minZoom = 1;
 	const maxZoom = 4;
@@ -176,6 +183,7 @@ function createZoomControls() {
 	};
 }
 
+// Shortcut (minimize + maximize) store for the save editor zoom controls
 function createZoomShortcut() {
 	type ShortcutMode = 'min' | 'max';
 	type ShortcutDetails = {
@@ -217,10 +225,10 @@ function createZoomShortcut() {
 	);
 }
 
-export const saveList = createSaveList();
 export const error = createError();
 export const saveSortMode = createSaveSortMode();
 export const saveSortOrder = createSaveSortOrder();
+export const saveList = createSaveList();
 export const activeSave = createActiveSave();
 export const lastColumnNumber = derived(activeSave, calculateLastColumnNumber);
 export const zoomControls = createZoomControls();

@@ -35,9 +35,9 @@
 	</div>
 </div>
 
-{#if $saveList && $saveList.length > 0}
+{#if $saveList.length > 0}
 	<main>
-		{#each $saveList.sort((prev, curr) => (prev[$saveSortMode.mode] - curr[$saveSortMode.mode]) * $saveSortOrder.direction) as save}
+		{#each $saveList as save}
 			<Entry {save} />
 		{/each}
 	</main>
