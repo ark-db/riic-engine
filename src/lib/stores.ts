@@ -155,23 +155,23 @@ function createZoomControls() {
 			easing: cubicOut
 		});
 
-	const x = initTweened();
-	const y = initTweened();
+	const xScale = initTweened();
+	const yScale = initTweened();
 
 	function clamp(value: number): number {
 		return Math.min(maxZoom, Math.max(minZoom, value));
 	}
 
 	return {
-		x,
-		y,
+		xScale,
+		yScale,
 		min: minZoom,
 		max: maxZoom,
 		changeX: (value: number) => {
-			x.update((old) => clamp(old + value));
+			xScale.update((old) => clamp(old + value));
 		},
 		changeY: (value: number) => {
-			y.update((old) => clamp(old + value));
+			yScale.update((old) => clamp(old + value));
 		}
 	};
 }
@@ -184,22 +184,22 @@ function createZoomShortcut() {
 		run: () => void;
 	};
 
-	const { x, y, min, max } = zoomControls;
+	const { xScale, yScale, min, max } = zoomControls;
 
 	const mode = writable<ShortcutMode>('max');
 
-	derived([x, y], (val) => val).subscribe(([x, y]) => {
+	derived([xScale, yScale], (val) => val).subscribe(([x, y]) => {
 		if (x === min && y === min) mode.set('max');
 		if (x === max && y === max) mode.set('min');
 	});
 
 	function setMin() {
-		x.set(min);
-		y.set(min);
+		xScale.set(min);
+		yScale.set(min);
 	}
 	function setMax() {
-		x.set(max);
-		y.set(max);
+		xScale.set(max);
+		yScale.set(max);
 	}
 
 	return derived<typeof mode, ShortcutDetails>(mode, (mode) =>

@@ -1,14 +1,14 @@
 <script lang="ts">
+	import { zoomControls } from '$lib/stores';
 	import ColumnLines from './ColumnLines.svelte';
 	import FacilityGrid from './FacilityGrid.svelte';
 	import ZoomControls from './ZoomControls.svelte';
 
-	let xScale: number;
-	let yScale: number;
+	const { xScale, yScale } = zoomControls;
 </script>
 
-<ColumnLines columnGapScale={xScale} />
+<ColumnLines columnGapScale={$xScale} />
 
-<FacilityGrid rowHeightScale={yScale} />
+<FacilityGrid rowHeightScale={$yScale} />
 
-<ZoomControls bind:xScale bind:yScale />
+<ZoomControls />

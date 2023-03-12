@@ -5,14 +5,8 @@
 	import { zoomControls, zoomShortcut } from '$lib/stores';
 	import Slider from './Slider.svelte';
 
-	export let xScale: number;
-	export let yScale: number;
-
-	const { x, y, min, max, changeX, changeY } = zoomControls;
+	const { xScale, yScale, min, max, changeX, changeY } = zoomControls;
 	const zoomStep = 0.25;
-
-	$: xScale = $x;
-	$: yScale = $y;
 
 	function handleKeydown(event: KeyboardEvent) {
 		if (event.metaKey) {
@@ -40,7 +34,7 @@
 		<Button desc="Zoom out" onClick={() => changeX(-zoomStep)}>
 			<img src={minus} alt="Zoom out" width="22" height="22" />
 		</Button>
-		<Slider {min} {max} step={0.002} bind:value={$x} />
+		<Slider {min} {max} step={0.002} bind:value={$xScale} />
 		<Button desc="Zoom in" onClick={() => changeX(zoomStep)}>
 			<img src={plus} alt="Zoom in" width="22" height="22" />
 		</Button>
@@ -49,7 +43,7 @@
 		<Button desc="Zoom out" onClick={() => changeY(-zoomStep)}>
 			<img src={minus} alt="Zoom out" width="22" height="22" />
 		</Button>
-		<Slider {min} {max} step={0.002} bind:value={$y} />
+		<Slider {min} {max} step={0.002} bind:value={$yScale} />
 		<Button desc="Zoom in" onClick={() => changeY(zoomStep)}>
 			<img src={plus} alt="Zoom in" width="22" height="22" />
 		</Button>
