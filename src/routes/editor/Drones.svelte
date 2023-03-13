@@ -30,7 +30,7 @@
 	}
 </script>
 
-<div class="container">
+<div>
 	<img src={drones} alt="Drone icon" width="33" height="33" />
 	<input
 		class="input-template"
@@ -54,7 +54,7 @@
 </div>
 
 <style>
-	.container {
+	div {
 		padding: 0 0.5em;
 		display: flex;
 		align-items: center;
@@ -62,11 +62,10 @@
 	}
 	input {
 		padding: 0.3em 0.5em;
-		font-size: clamp(1.25em, 2.5vh, 1.5em);
+		font-size: var(--font-size);
 	}
 	input.invalid:not(:placeholder-shown) {
-		border: 2px solid var(--salmon-strong);
-		border-radius: 0.25em;
+		border-color: var(--salmon-strong);
 	}
 	::placeholder {
 		font-size: 0.9em;

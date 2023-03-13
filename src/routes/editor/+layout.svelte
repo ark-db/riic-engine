@@ -8,8 +8,7 @@
 	import { activeSave, error } from '$lib/stores';
 	import type { ActiveSave } from '$lib/types';
 	import Links from './Links.svelte';
-	import Drones from './Drones.svelte';
-	import PowerUsage from './PowerUsage.svelte';
+	import SaveStats from './SaveStats.svelte';
 
 	let menuActive = true;
 	$: menuIconDesc = `${menuActive ? 'Collapse' : 'Expand'} menu`;
@@ -46,10 +45,7 @@
 		<Button desc={menuIconDesc} onClick={() => (menuActive = !menuActive)}>
 			<img src={menuIcon} alt={menuIconDesc} id="menu-icon" width="32" height="32" />
 		</Button>
-		<div class="stats">
-			<Drones />
-			<PowerUsage />
-		</div>
+		<SaveStats />
 	</section>
 	<main class:nav-hidden={!menuActive}>
 		<slot />
@@ -116,10 +112,6 @@
 	#menu-icon:hover {
 		background-color: var(--dark-mild);
 		box-shadow: 0 0 0.25em var(--dark-mild);
-	}
-	.stats {
-		display: flex;
-		align-items: center;
 	}
 	main {
 		grid-row: 2 / 3;

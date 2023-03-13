@@ -77,7 +77,7 @@
 	.stats {
 		margin: 0;
 		color: var(--light);
-		font-size: clamp(1.25em, 2.5vh, 1.5em);
+		font-size: var(--font-size);
 		font-weight: 600;
 	}
 	.stats.invalid {
