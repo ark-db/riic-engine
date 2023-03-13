@@ -1,8 +1,10 @@
 input.input-template {
 	margin: 0;
-	font-weight: 600;
-	color: var(--light);
+	border: 2px solid var(--dark-strong);
+	border-radius: 0.25em;
 	background-color: var(--dark-strong);
+	color: var(--light);
+	font-weight: 600;
 }
 
 input[type='number'].input-template {
@@ -18,8 +20,7 @@ input[type='number'].input-template::-webkit-inner-spin-button {
 
 input.input-template:focus {
 	outline: none;
-	border: 2px solid var(--light);
-	border-radius: 0.25em;
+	border-color: var(--light);
 	background-color: var(--dark);
 }
 
