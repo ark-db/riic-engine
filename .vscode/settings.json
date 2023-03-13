@@ -1,0 +1,6 @@
+{
+	"[svelte]": {
+		"editor.defaultFormatter": "svelte.svelte-vscode"
+	},
+	"python.analysis.typeCheckingMode": "strict"
+}
