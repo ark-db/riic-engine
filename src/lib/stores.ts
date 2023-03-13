@@ -136,7 +136,7 @@ function createActiveSave() {
 // The zoom values in the save editor. Zoom values for the X and Y axes are independently controlled.
 function createZoomControls() {
 	const minZoom = 1;
-	const maxZoom = 4;
+	const maxZoom = 5;
 
 	const initTweened = () =>
 		tweened(1, {

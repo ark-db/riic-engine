@@ -6,8 +6,8 @@
 
 	const { xScale, yScale } = zoomControls;
 
-	const baseColumnGap = 40;
-	const baseRowHeight = 84;
+	const baseColumnGap = 32;
+	const baseRowHeight = 72;
 
 	let gridWidth: number;
 	let gridHeight: number;

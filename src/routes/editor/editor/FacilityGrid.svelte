@@ -5,9 +5,15 @@
 	export let rowWidth: number;
 	export let rowHeight: number;
 	export let gridHeight: number;
+
+	$: rowGap = Math.max(6, Math.min(15, rowHeight ** 0.9 / 10));
 </script>
 
-<div class="facilities" style="--width: {rowWidth}px;" bind:clientHeight={gridHeight}>
+<div
+	class="facilities"
+	style="--width: {rowWidth}px; --row-gap: {rowGap}px;"
+	bind:clientHeight={gridHeight}
+>
 	<FacilityRow kind="control" height={rowHeight} />
 
 	{#each $activeSave.data.layout.tp as _}
@@ -43,6 +49,6 @@
 		margin-top: 0.75em;
 		display: flex;
 		flex-direction: column;
-		row-gap: 0.625em;
+		row-gap: var(--row-gap);
 	}
 </style>
