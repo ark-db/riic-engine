@@ -17,6 +17,7 @@
 <style>
 	dialog {
 		--border-weight: 2px;
+		z-index: 2;
 		position: fixed;
 		bottom: 10%;
 		border: var(--border-weight) solid var(--salmon-strong);

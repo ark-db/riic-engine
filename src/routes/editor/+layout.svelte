@@ -62,7 +62,6 @@
 	nav {
 		grid-row: span 2;
 		grid-column: 1 / 2;
-		z-index: 98;
 		padding: 0.5em;
 		background-color: var(--darkish);
 		box-shadow: 0 0 0.5em rgb(0 0 0 / 0.75);
