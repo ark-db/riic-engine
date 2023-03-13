@@ -8,7 +8,8 @@
 	import { activeSave, error } from '$lib/stores';
 	import type { ActiveSave } from '$lib/types';
 	import Links from './Links.svelte';
-	import SaveStats from './SaveStats.svelte';
+	import Drones from './Drones.svelte';
+	import PowerUsage from './PowerUsage.svelte';
 
 	let menuActive = true;
 	$: menuIconDesc = `${menuActive ? 'Collapse' : 'Expand'} menu`;
@@ -45,7 +46,10 @@
 		<Button desc={menuIconDesc} onClick={() => (menuActive = !menuActive)}>
 			<img src={menuIcon} alt={menuIconDesc} id="menu-icon" width="32" height="32" />
 		</Button>
-		<SaveStats />
+		<div class="stats">
+			<Drones />
+			<PowerUsage />
+		</div>
 	</section>
 	<main class:nav-hidden={!menuActive}>
 		<slot />
@@ -90,27 +94,35 @@
 		font-size: 1.5em;
 	}
 	.top-bar {
+		--font-size: clamp(1.25em, 2.5vh, 1.5em);
 		grid-row: 1 / 2;
 		grid-column: 2 / 3;
 		padding: 0.5em;
 		align-self: center;
 		display: flex;
+		align-items: center;
 		justify-content: space-between;
 	}
 	.nav-hidden {
 		grid-column: span 2;
 	}
 	#menu-icon {
+		--icon-size: clamp(24px, 5vh, 40px);
+		width: var(--icon-size);
+		height: var(--icon-size);
 		margin: 0.25em 0.25em 0;
-		border-radius: 5px;
-		padding: 5px;
+		border-radius: 0.5em;
+		padding: calc(var(--icon-size) / 8);
 		background-color: var(--dark-strong);
-		box-shadow: 0 0 0.25em var(--dark-strong);
 		transition: all 0.2s;
 	}
 	#menu-icon:hover {
 		background-color: var(--dark-mild);
 		box-shadow: 0 0 0.25em var(--dark-mild);
+	}
+	.stats {
+		display: flex;
+		align-items: center;
 	}
 	main {
 		grid-row: 2 / 3;
