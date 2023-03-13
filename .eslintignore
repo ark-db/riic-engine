@@ -3,6 +3,7 @@ node_modules
 /.svelte-kit
 
 /.venv
+/scripts
 /src/lib/data
 /src/lib/images
 /src-tauri

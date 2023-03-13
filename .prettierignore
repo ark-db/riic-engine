@@ -1,10 +1,10 @@
-.DS_Store
 node_modules
 /build
 /.svelte-kit
 
 /.venv
-/src/lib/data
 /src/lib/images
-/src-tauri
+/src-tauri/icons
+/src-tauri/src
+/src-tauri/target
 /static
