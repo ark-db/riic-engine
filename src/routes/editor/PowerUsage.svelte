@@ -3,6 +3,7 @@
 	import powerIcon from '$lib/images/power.webp';
 	import slash from '$lib/images/slash.webp';
 	import { activeSave } from '$lib/stores';
+	import { tooltip } from '$lib/tooltip';
 	import type { ActiveSave } from '$lib/types';
 
 	$: powerUsage = calculatePowerUsage($activeSave);
@@ -50,7 +51,7 @@
 	}
 </script>
 
-<div class="container">
+<div class="container" use:tooltip={'Power usage'}>
 	<img src={powerIcon} alt="Power usage icon" width="34" height="34" />
 	<div class="text">
 		<p class="stats" class:invalid={powerUsage < 0 || powerUsage > maxPower}>

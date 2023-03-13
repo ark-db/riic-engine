@@ -1,6 +1,7 @@
 <script lang="ts">
 	import drones from '$lib/images/drones.webp';
 	import { activeSave, error } from '$lib/stores';
+	import { tooltip } from '$lib/tooltip';
 
 	const min = 0;
 	const max = 999999;
@@ -31,7 +32,7 @@
 </script>
 
 <div>
-	<img src={drones} alt="Drone icon" width="33" height="33" />
+	<img use:tooltip={'Drone limit'} src={drones} alt="Drone icon" width="33" height="33" />
 	<input
 		class="input-template"
 		class:invalid
