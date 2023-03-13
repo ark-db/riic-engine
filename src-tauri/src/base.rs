@@ -2,10 +2,13 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize)]
 #[serde(deny_unknown_fields)]
+#[serde(rename_all = "camelCase")]
 pub struct Save {
     layout: Layout,
     chars: Vec<CharData>,
-    drones: u32,
+    drones: u32,    // Maximum number of drones available for use
+    max_shift: u16, // Total number of shifts in rotation
+    interval: u16,  // Length of one shift in minutes
 }
 
 #[derive(Serialize, Deserialize)]
@@ -119,6 +122,8 @@ impl Default for Save {
             layout: Layout::default(),
             chars: Vec::new(),
             drones: 70,
+            max_shift: 12,
+            interval: 120,
         }
     }
 }

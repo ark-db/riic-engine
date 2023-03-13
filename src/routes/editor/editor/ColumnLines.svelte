@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { lastColumnNumber } from '$lib/stores';
+	import { activeSave } from '$lib/stores';
 
 	export let columnGap: number;
 	export let gridWidth: number;
@@ -11,7 +11,7 @@
 	style="--column-gap: {columnGap}px; --column-height: {gridHeight}px;"
 	bind:clientWidth={gridWidth}
 >
-	{#each { length: $lastColumnNumber } as _, i}
+	{#each { length: $activeSave.data.maxShift } as _, i}
 		<div class="column-marker">
 			<p>{i + 1}</p>
 			<div class="column-line" />

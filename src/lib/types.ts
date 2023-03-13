@@ -26,6 +26,8 @@ export type SaveData = {
 		tier: number;
 	}[];
 	drones: number;
+	maxShift: number;
+	interval: number;
 };
 
 export type Facility = {

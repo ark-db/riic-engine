@@ -9,7 +9,7 @@ import listIncreasingIcon from '$lib/images/list-increasing.svg';
 import listDecreasingIcon from '$lib/images/list-decreasing.svg';
 import maximizeIcon from '$lib/images/maximize.svg';
 import minimizeIcon from '$lib/images/minimize.svg';
-import type { SaveData, FileData, ActiveSave, Facility, BoostFacility } from '$lib/types';
+import type { SaveData, FileData, ActiveSave } from '$lib/types';
 
 // App-wide error store to display errors to users
 function createError() {
@@ -133,24 +133,6 @@ function createActiveSave() {
 	};
 }
 
-// Calculates the last column number in a base layout
-function calculateLastColumnNumber(save: ActiveSave): number {
-	// When there are no shifts specified in the save, the result is -Infinity, so a "floor" value is used
-	return (
-		Math.max(
-			10,
-			...Object.values(save.data.layout)
-				.flat()
-				.map((facility) =>
-					Math.max(
-						...((facility as Facility | BoostFacility)?.shifts?.map(({ end }) => end) ?? []),
-						...((facility as BoostFacility)?.boosts?.map(({ col }) => col) ?? [])
-					)
-				)
-		) + 2
-	);
-}
-
 // The zoom values in the save editor. Zoom values for the X and Y axes are independently controlled.
 function createZoomControls() {
 	const minZoom = 1;
@@ -230,6 +212,5 @@ export const saveSortMode = createSaveSortMode();
 export const saveSortOrder = createSaveSortOrder();
 export const saveList = createSaveList();
 export const activeSave = createActiveSave();
-export const lastColumnNumber = derived(activeSave, calculateLastColumnNumber);
 export const zoomControls = createZoomControls();
 export const zoomShortcut = createZoomShortcut();
