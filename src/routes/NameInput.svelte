@@ -68,7 +68,6 @@
 		font-size: 1.25em;
 	}
 	input:invalid:not(:placeholder-shown) {
-		border: 2px solid var(--salmon-strong);
-		border-radius: 0.25em;
+		border-color: var(--salmon-strong);
 	}
 </style>
