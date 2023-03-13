@@ -2,6 +2,7 @@ input.input-template {
 	margin: 0;
 	border: 2px solid var(--dark-strong);
 	border-radius: 0.25em;
+	padding: 0.3em 0.5em;
 	background-color: var(--dark-strong);
 	color: var(--light);
 	font-weight: 600;

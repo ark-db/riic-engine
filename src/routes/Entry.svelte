@@ -70,7 +70,7 @@
 			<NameInput bind:text={save.name} bind:active={pendingRename} />
 		{:else}
 			<button
-				class="entry-title focus-template"
+				class="focus-template entry-title"
 				on:click|trusted={() => activeSave.load(save.name)}
 			>
 				{save.name}

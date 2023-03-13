@@ -61,13 +61,10 @@
 		column-gap: 0.25em;
 	}
 	input {
-		padding: 0.3em 0.5em;
+		width: 4.1em;
 		font-size: var(--font-size);
 	}
 	input.invalid:not(:placeholder-shown) {
 		border-color: var(--salmon-strong);
-	}
-	::placeholder {
-		font-size: 0.9em;
 	}
 </style>

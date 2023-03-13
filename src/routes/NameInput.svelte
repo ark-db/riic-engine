@@ -64,7 +64,7 @@
 
 <style>
 	input {
-		padding: 0.3em 0.5em 0.4em;
+		padding-bottom: 0.3em;
 		font-size: 1.25em;
 	}
 	input:invalid:not(:placeholder-shown) {
