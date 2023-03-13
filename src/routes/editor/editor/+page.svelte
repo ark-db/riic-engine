@@ -1,10 +1,10 @@
 <script lang="ts">
-	import { zoomControls } from '$lib/stores';
+	import { zoomScales } from '$lib/stores';
 	import ColumnLines from './ColumnLines.svelte';
 	import FacilityGrid from './FacilityGrid.svelte';
 	import ZoomControls from './ZoomControls.svelte';
 
-	const { xScale, yScale } = zoomControls;
+	const { xScale, yScale } = zoomScales;
 
 	const baseColumnGap = 32;
 	const baseRowHeight = 72;

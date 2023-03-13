@@ -135,32 +135,32 @@ function createActiveSave() {
 
 // The zoom values in the save editor. Zoom values for the X and Y axes are independently controlled.
 function createZoomControls() {
-	const minZoom = 1;
-	const maxZoom = 5;
+	const minFactor = 0;
+	const maxFactor = 3;
 
 	const initTweened = () =>
-		tweened(1, {
+		tweened(0, {
 			duration: 300,
 			easing: cubicOut
 		});
 
-	const xScale = initTweened();
-	const yScale = initTweened();
+	const xFactor = initTweened();
+	const yFactor = initTweened();
 
 	function clamp(value: number): number {
-		return Math.min(maxZoom, Math.max(minZoom, value));
+		return Math.min(maxFactor, Math.max(minFactor, value));
 	}
 
 	return {
-		xScale,
-		yScale,
-		min: minZoom,
-		max: maxZoom,
+		xFactor,
+		yFactor,
+		minFactor,
+		maxFactor,
 		changeX: (value: number) => {
-			xScale.update((old) => clamp(old + value));
+			xFactor.update((old) => clamp(old + value));
 		},
 		changeY: (value: number) => {
-			yScale.update((old) => clamp(old + value));
+			yFactor.update((old) => clamp(old + value));
 		}
 	};
 }
@@ -174,22 +174,22 @@ function createZoomShortcut() {
 		run: () => void;
 	};
 
-	const { xScale, yScale, min, max } = zoomControls;
+	const { xFactor, yFactor, minFactor, maxFactor } = zoomControls;
 
 	const mode = writable<ShortcutMode>('max');
 
-	derived([xScale, yScale], (val) => val).subscribe(([x, y]) => {
-		if (x === min && y === min) mode.set('max');
-		if (x === max && y === max) mode.set('min');
+	derived([xFactor, yFactor], (val) => val).subscribe(([x, y]) => {
+		if (x === minFactor && y === minFactor) mode.set('max');
+		if (x === maxFactor && y === maxFactor) mode.set('min');
 	});
 
 	function setMin() {
-		xScale.set(min);
-		yScale.set(min);
+		xFactor.set(minFactor);
+		yFactor.set(minFactor);
 	}
 	function setMax() {
-		xScale.set(max);
-		yScale.set(max);
+		xFactor.set(maxFactor);
+		yFactor.set(maxFactor);
 	}
 
 	return derived<typeof mode, ShortcutDetails>(mode, (mode) =>
@@ -207,6 +207,15 @@ function createZoomShortcut() {
 	);
 }
 
+function createZoomScales() {
+	const { xFactor, yFactor } = zoomControls;
+
+	return {
+		xScale: derived(xFactor, ($x) => 2 ** $x),
+		yScale: derived(yFactor, ($y) => 2 ** $y)
+	};
+}
+
 export const error = createError();
 export const saveSortMode = createSaveSortMode();
 export const saveSortOrder = createSaveSortOrder();
@@ -214,3 +223,4 @@ export const saveList = createSaveList();
 export const activeSave = createActiveSave();
 export const zoomControls = createZoomControls();
 export const zoomShortcut = createZoomShortcut();
+export const zoomScales = createZoomScales();
