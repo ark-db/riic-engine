@@ -25,12 +25,12 @@
 <svelte:window on:keydown|trusted={handleKeydown} />
 
 <div class="controls">
-	<div class="glass-template center">
+	<div class="center">
 		<Button desc={$zoomShortcut.desc} onClick={$zoomShortcut.run}>
 			<img src={$zoomShortcut.src} alt={$zoomShortcut.desc} width="36" height="36" />
 		</Button>
 	</div>
-	<div class="glass-template slider x">
+	<div class="slider x">
 		<Button desc="Zoom out" onClick={() => changeX(-zoomStep)}>
 			<img src={minus} alt="Zoom out" width="22" height="22" />
 		</Button>
@@ -39,7 +39,7 @@
 			<img src={plus} alt="Zoom in" width="22" height="22" />
 		</Button>
 	</div>
-	<div class="glass-template slider y">
+	<div class="slider y">
 		<Button desc="Zoom out" onClick={() => changeY(-zoomStep)}>
 			<img src={minus} alt="Zoom out" width="22" height="22" />
 		</Button>
@@ -53,6 +53,12 @@
 <style>
 	.controls {
 		--window-edge-gap: 24px;
+		z-index: 2;
+		position: fixed;
+		right: var(--window-edge-gap);
+		bottom: var(--window-edge-gap);
+	}
+	.controls > div {
 		--slider-center-gap: 1em;
 		/* slider thumb height = 2em */
 		--slider-width: calc(2em + var(--slider-padding) * 2);
@@ -62,14 +68,15 @@
 		--center-padding: 0.75em;
 		--slider-padding: 1.5em;
 		--slider-spacing: 0.75em;
-		z-index: 2;
-		position: fixed;
-		right: var(--window-edge-gap);
-		bottom: var(--window-edge-gap);
-	}
-	.glass-template {
-		--blur-radius: 5px;
+
+		--blur-effect: blur(5px);
 		position: absolute;
+		box-shadow: 0 4px 12px rgb(0 0 0 / 0.2);
+		border: 1px solid rgb(200 200 200 / 0.25);
+		border-radius: 16px;
+		background: rgb(100 100 100 / 0.05);
+		backdrop-filter: var(--blur-effect);
+		-webkit-backdrop-filter: var(--blur-effect);
 	}
 	.center {
 		right: var(--center-margin);

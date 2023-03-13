@@ -1,7 +1,6 @@
 <script lang="ts">
 	import Error from '$lib/components/Error.svelte';
 	import '../focus.css';
-	import '../glass.css';
 	import '../input.css';
 	import '../misc.css';
 
