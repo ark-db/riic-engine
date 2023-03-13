@@ -47,6 +47,7 @@
 	.facilities {
 		width: var(--width);
 		margin-top: 0.75em;
+		padding-right: 1em;
 		display: flex;
 		flex-direction: column;
 		row-gap: var(--row-gap);

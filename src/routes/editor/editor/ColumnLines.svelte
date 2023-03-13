@@ -25,7 +25,6 @@
 		position: absolute;
 		top: 0.35em;
 		left: calc(3.5em + var(--column-gap));
-		overflow: hidden;
 		display: flex;
 		column-gap: var(--column-gap);
 	}
