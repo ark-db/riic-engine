@@ -8,10 +8,10 @@
 	min={0}
 	max={9999}
 	initial={$activeSave.data.interval}
-	placeholder={'Time'}
+	placeholder="Time"
 	onValidInput={(value) => ($activeSave.data.interval = value)}
-	errorMsg={'The specified shift duration should be a number from 0 to 9999'}
+	errorMsg="The specified shift duration should be a number from 0 to 9999"
 	iconSrc={clock}
-	iconDesc={'Shift duration in minutes'}
+	iconDesc="Shift duration in minutes"
 	iconSize={30}
 />
