@@ -11,7 +11,6 @@
 	export let iconSrc: string;
 	export let iconDesc: string;
 	export let iconSize: number;
-	export let widthScale: number | undefined = undefined;
 
 	let input: HTMLInputElement;
 	let qty = initial;
@@ -43,7 +42,6 @@
 	<input
 		class="input-template"
 		class:invalid
-		style={widthScale ? `--width: ${widthScale}em;` : ''}
 		type="number"
 		{placeholder}
 		required
@@ -70,11 +68,12 @@
 		column-gap: 0.25em;
 	}
 	input {
-		/* The width property will not apply if `widthScale` is undefined (because then --width is undefined) */
-		width: var(--width);
 		font-size: var(--font-size);
 	}
 	input.invalid:not(:placeholder-shown) {
 		border-color: var(--salmon-strong);
+	}
+	::placeholder {
+		font-size: 0.9em;
 	}
 </style>
