@@ -38,7 +38,7 @@
 		class:invalid
 		type="number"
 		placeholder="Drones..."
-		required={true}
+		required
 		pattern="[0-9]+"
 		{min}
 		{max}

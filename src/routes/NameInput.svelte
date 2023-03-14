@@ -48,7 +48,7 @@
 	class="input-template"
 	type="text"
 	placeholder="Setup name..."
-	required={true}
+	required
 	pattern="[\w-]+$"
 	minlength="1"
 	maxlength="25"
