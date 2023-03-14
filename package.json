@@ -8,7 +8,7 @@
 		"postinstall": "svelte-kit sync",
 		"prepare": "husky install",
 		"format": "prettier --plugin-search-dir . --write . && cd src-tauri && cargo fmt",
-		"lint": "prettier --plugin-search-dir . --check . && svelte-check --tsconfig ./tsconfig.json && eslint . --max-warnings=0 --exit-on-fatal-error && cd src-tauri && cargo clippy",
+		"lint": "prettier --plugin-search-dir . --check . && svelte-check --tsconfig ./tsconfig.json && eslint . --max-warnings=0 --exit-on-fatal-error && cd src-tauri && cargo fmt --check && cargo clippy",
 		"update": "npx npm-check-updates -u && npm install && poetry update && cd src-tauri && cargo upgrade --incompatible && cargo update",
 		"tauri": "tauri"
 	},
