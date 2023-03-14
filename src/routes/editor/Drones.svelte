@@ -1,71 +1,18 @@
 <script lang="ts">
 	import drones from '$lib/images/drones.webp';
-	import { activeSave, error } from '$lib/stores';
-	import { tooltip } from '$lib/tooltip';
-
-	const min = 0;
-	const max = 999999;
-
-	let input: HTMLInputElement;
-	let qty = $activeSave.data.drones;
-	$: invalid = !isValid(qty);
-
-	function handleKeydown(event: KeyboardEvent) {
-		if (event.key === 'Enter') input.blur();
-	}
-
-	function isValid(value: unknown): boolean {
-		return typeof value === 'number' && min <= value && value <= max;
-	}
-
-	function handleSubmit() {
-		if (invalid) {
-			qty = $activeSave.data.drones;
-			error.handle('The specified drone quantity should be a number from 0 to 999999');
-		} else {
-			if ($activeSave.data.drones !== qty) {
-				$activeSave.data.drones = qty;
-			}
-			error.clear();
-		}
-	}
+	import { activeSave } from '$lib/stores';
+	import NumberInput from './NumberInput.svelte';
 </script>
 
-<div>
-	<img use:tooltip={'Drone limit'} src={drones} alt="Drone icon" width="33" height="33" />
-	<input
-		class="input-template"
-		class:invalid
-		type="number"
-		placeholder="Drones..."
-		required
-		pattern="[0-9]+"
-		{min}
-		{max}
-		step="1"
-		autocapitalize="off"
-		autocomplete="off"
-		spellcheck="false"
-		enterkeyhint="done"
-		bind:this={input}
-		bind:value={qty}
-		on:keydown|trusted={handleKeydown}
-		on:blur={handleSubmit}
-	/>
-</div>
-
-<style>
-	div {
-		padding: 0 0.5em;
-		display: flex;
-		align-items: center;
-		column-gap: 0.25em;
-	}
-	input {
-		width: 4.1em;
-		font-size: var(--font-size);
-	}
-	input.invalid:not(:placeholder-shown) {
-		border-color: var(--salmon-strong);
-	}
-</style>
+<NumberInput
+	min={0}
+	max={999999}
+	initial={$activeSave.data.drones}
+	placeholder={'Drones...'}
+	onValidInput={(value) => ($activeSave.data.drones = value)}
+	errorMsg={'The specified drone quantity should be a number from 0 to 999999'}
+	iconSrc={drones}
+	iconDesc={'Drone limit'}
+	iconSize={33}
+	widthScale={4.1}
+/>
