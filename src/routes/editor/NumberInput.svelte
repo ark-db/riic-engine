@@ -65,7 +65,7 @@
 		padding: 0 0.5em;
 		display: flex;
 		align-items: center;
-		column-gap: 0.25em;
+		column-gap: 0.5em;
 	}
 	input {
 		font-size: var(--font-size);

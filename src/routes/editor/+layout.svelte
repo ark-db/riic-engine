@@ -8,6 +8,7 @@
 	import { activeSave, error } from '$lib/stores';
 	import type { ActiveSave } from '$lib/types';
 	import Links from './Links.svelte';
+	import ShiftInterval from './ShiftInterval.svelte';
 	import Drones from './Drones.svelte';
 	import PowerUsage from './PowerUsage.svelte';
 
@@ -47,6 +48,7 @@
 			<img src={menuIcon} alt={menuIconDesc} id="menu-icon" width="32" height="32" />
 		</Button>
 		<div class="stats">
+			<ShiftInterval />
 			<Drones />
 			<PowerUsage />
 		</div>
@@ -60,7 +62,7 @@
 	.container {
 		height: 100vh;
 		display: grid;
-		grid-template-rows: minmax(3.5em, 6vh) 1fr;
+		grid-template-rows: minmax(3.5em, 6.25vh) 1fr;
 		grid-template-columns: 15em 1fr;
 	}
 	nav {
@@ -107,7 +109,7 @@
 		grid-column: span 2;
 	}
 	#menu-icon {
-		--icon-size: clamp(24px, 5vh, 40px);
+		--icon-size: clamp(3em, 3.75vh, 3.75vh);
 		width: var(--icon-size);
 		height: var(--icon-size);
 		margin: 0.25em 0.25em 0;
@@ -123,6 +125,7 @@
 	.stats {
 		display: flex;
 		align-items: center;
+		column-gap: 0.5em;
 	}
 	main {
 		grid-row: 2 / 3;
