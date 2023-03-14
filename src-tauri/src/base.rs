@@ -6,9 +6,9 @@ use serde::{Deserialize, Serialize};
 pub struct Save {
     layout: Layout,
     chars: Vec<CharData>,
-    drones: u32,    // Maximum number of drones available for use
+    drones: u32,    // Drone capacity; drones will regenerate up to this amount
     max_shift: u16, // Total number of shifts in rotation
-    interval: u16,  // Length of one shift in minutes
+    interval: u16,  // Duration of one shift (in minutes)
 }
 
 #[derive(Serialize, Deserialize)]
