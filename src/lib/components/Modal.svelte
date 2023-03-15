@@ -1,7 +1,11 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 
+	export let label: string;
 	export let onClose: () => void;
+
+	const focusableElements =
+		'a[href], button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])';
 
 	let modal: HTMLDialogElement;
 	onMount(() => modal.show());
@@ -13,19 +17,33 @@
 		}
 	}
 
-	function handleKeyboardClose(event: KeyboardEvent) {
-		if (event.key === 'Escape') {
+	function handleKeyboardEvent(event: KeyboardEvent) {
+		if (event.key === 'Tab') {
+			const content = modal.querySelectorAll(focusableElements);
+			const firstEl = content.item(0) as HTMLElement;
+			const lastEl = content.item(content.length - 1) as HTMLElement;
+
+			if (event.shiftKey) {
+				if (document.activeElement === firstEl) {
+					event.preventDefault();
+					lastEl.focus();
+				}
+			} else if (document.activeElement === lastEl) {
+				event.preventDefault();
+				firstEl.focus();
+			}
+		} else if (event.key === 'Escape') {
 			event.preventDefault();
 			onClose();
 		}
 	}
 </script>
 
-<svelte:window on:keydown|trusted={handleKeyboardClose} />
+<svelte:window on:keydown|trusted={handleKeyboardEvent} />
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <div on:click|trusted={handleMouseClose}>
-	<dialog bind:this={modal}>
+	<dialog aria-modal="true" aria-label={label} bind:this={modal}>
 		<slot {modal} />
 	</dialog>
 </div>

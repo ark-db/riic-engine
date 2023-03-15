@@ -136,7 +136,7 @@
 </GradientContainer>
 
 {#if pendingDelete}
-	<Modal let:modal onClose={() => (pendingDelete = false)}>
+	<Modal let:modal label="Confirm save deletion" onClose={() => (pendingDelete = false)}>
 		<p class="modal-text">Are you sure you want to delete this save file?</p>
 		<div class="modal-options">
 			<button
