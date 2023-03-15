@@ -19,6 +19,7 @@
 	<button
 		class="focus-template"
 		class:small
+		aria-label={desc}
 		use:tooltip={desc}
 		on:click|trusted={onClick}
 		bind:clientWidth={buttonWidth}

@@ -34,7 +34,13 @@
 		<Button desc="Zoom out" onClick={() => changeX(-zoomStep)}>
 			<img src={minus} alt="Zoom out" width="22" height="22" />
 		</Button>
-		<Slider min={minFactor} max={maxFactor} step={0.01} bind:value={$xFactor} />
+		<Slider
+			label="Horizontal zoom"
+			bind:value={$xFactor}
+			min={minFactor}
+			max={maxFactor}
+			step={0.02}
+		/>
 		<Button desc="Zoom in" onClick={() => changeX(zoomStep)}>
 			<img src={plus} alt="Zoom in" width="22" height="22" />
 		</Button>
@@ -43,7 +49,13 @@
 		<Button desc="Zoom out" onClick={() => changeY(-zoomStep)}>
 			<img src={minus} alt="Zoom out" width="22" height="22" />
 		</Button>
-		<Slider min={minFactor} max={maxFactor} step={0.01} bind:value={$yFactor} />
+		<Slider
+			label="Vertical zoom"
+			bind:value={$yFactor}
+			min={minFactor}
+			max={maxFactor}
+			step={0.02}
+		/>
 		<Button desc="Zoom in" onClick={() => changeY(zoomStep)}>
 			<img src={plus} alt="Zoom in" width="22" height="22" />
 		</Button>

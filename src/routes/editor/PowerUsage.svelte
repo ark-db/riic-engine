@@ -53,7 +53,7 @@
 
 <div class="container" use:tooltip={'Power usage'}>
 	<img src={powerIcon} alt="Power usage icon" width="36" height="36" />
-	<div class="text">
+	<div class="text" aria-live="polite">
 		<p class="stats" class:invalid={powerUsage < 0 || powerUsage > maxPower}>
 			{powerUsage}
 		</p>

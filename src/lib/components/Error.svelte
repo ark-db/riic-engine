@@ -7,9 +7,9 @@
 	$: if (dialog) $error ? dialog.show() : dialog.close();
 </script>
 
-<dialog bind:this={dialog}>
-	<p>{$error}</p>
-	<button class="focus-template" on:click={error.clear}>
+<dialog role="alertdialog" aria-label="Error message" aria-describedby="message" bind:this={dialog}>
+	<p id="message">{$error}</p>
+	<button class="focus-template" aria-label="Dismiss error" on:click={error.clear}>
 		<img src={xmark} alt="Delete button" width="20" height="20" />
 	</button>
 </dialog>

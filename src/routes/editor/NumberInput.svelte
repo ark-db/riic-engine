@@ -2,6 +2,7 @@
 	import { error } from '$lib/stores';
 	import { tooltip } from '$lib/tooltip';
 
+	export let desc: string;
 	export let min: number;
 	export let max: number;
 	export let initial: number;
@@ -9,7 +10,6 @@
 	export let onValidInput: (value: number) => void;
 	export let errorMsg: string;
 	export let iconSrc: string;
-	export let iconDesc: string;
 	export let iconSize: number;
 
 	let input: HTMLInputElement;
@@ -38,10 +38,11 @@
 </script>
 
 <div>
-	<img use:tooltip={iconDesc} src={iconSrc} alt={iconDesc} width={iconSize} height={iconSize} />
+	<img use:tooltip={desc} src={iconSrc} alt={desc} width={iconSize} height={iconSize} />
 	<input
 		class="input-template"
 		class:invalid
+		aria-label={desc}
 		type="number"
 		{placeholder}
 		required

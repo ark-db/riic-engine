@@ -1,11 +1,12 @@
 <script lang="ts">
+	export let label: string;
 	export let value: number;
 	export let min: number;
 	export let max: number;
 	export let step: number;
 </script>
 
-<input type="range" bind:value {min} {max} {step} />
+<input type="range" aria-label={label} bind:value {min} {max} {step} />
 
 <style>
 	input {

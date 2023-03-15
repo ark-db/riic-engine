@@ -12,6 +12,7 @@
 <button
 	class="focus-template"
 	style:border="4px dashed {color}"
+	aria-label="Add facility"
 	use:tooltip={'Add facility'}
 	on:click={onClick}
 >

@@ -46,6 +46,7 @@
 
 <input
 	class="input-template"
+	aria-label="Save name"
 	type="text"
 	placeholder="Setup name..."
 	required

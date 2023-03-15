@@ -5,6 +5,7 @@
 </script>
 
 <NumberInput
+	desc="Shift duration in minutes"
 	min={0}
 	max={9999}
 	initial={$activeSave.data.interval}
@@ -12,6 +13,5 @@
 	onValidInput={(value) => ($activeSave.data.interval = value)}
 	errorMsg="The specified shift duration should be a number from 0 to 9999"
 	iconSrc={clock}
-	iconDesc="Shift duration in minutes"
 	iconSize={30}
 />
