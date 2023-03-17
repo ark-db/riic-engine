@@ -30,6 +30,10 @@
 	}
 </script>
 
+<svelte:head>
+	<title>RIIC Engine • Facility Setup</title>
+</svelte:head>
+
 <!-- Note: Some Facility components are contained in {#if true} blocks to make transitions within the component work properly -->
 <div class="container">
 	<div class="control">

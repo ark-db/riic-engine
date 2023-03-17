@@ -14,6 +14,10 @@
 	saveList.load().then(() => invoke<void>('show_window'));
 </script>
 
+<svelte:head>
+	<title>RIIC Engine • Home</title>
+</svelte:head>
+
 <Header />
 
 <div class="controls">

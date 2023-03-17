@@ -17,6 +17,10 @@
 	$: rowHeight = $yScale * baseRowHeight;
 </script>
 
+<svelte:head>
+	<title>RIIC Engine • Editor</title>
+</svelte:head>
+
 <ColumnLines {columnGap} bind:gridWidth {gridHeight} />
 
 <FacilityGrid {rowWidth} {rowHeight} bind:gridHeight />
