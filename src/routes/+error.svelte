@@ -1,9 +1,9 @@
-<script>
+<script lang="ts">
 	import { page } from '$app/stores';
 </script>
 
 <div>
-	<h1>{$page.status} <span>|</span> {$page.error?.message}</h1>
+	<h1>{$page.status} <span>|</span> {$page.error?.message ?? 'Unknown error'}</h1>
 	<p>An unexpected error occurred.</p>
 	<a href="/">Return to main menu</a>
 </div>
