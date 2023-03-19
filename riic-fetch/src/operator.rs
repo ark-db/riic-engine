@@ -2,8 +2,6 @@ use crate::Fetch;
 use ahash::HashMap;
 use serde::{de, Deserialize};
 
-const OPERATOR_URL: &str = "https://raw.githubusercontent.com/Kengxxiao/ArknightsGameData/master/zh_CN/gamedata/excel/character_table.json";
-
 #[derive(Deserialize)]
 struct OperatorTable<'a> {
     #[serde(flatten, borrow)]
@@ -11,7 +9,6 @@ struct OperatorTable<'a> {
 }
 
 #[derive(Deserialize)]
-#[serde(rename_all = "camelCase")]
 struct OperatorData<'a> {
     #[serde(rename = "appellation")]
     name: &'a str,
