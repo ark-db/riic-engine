@@ -1,3 +1,4 @@
+use crate::Fetch;
 use ahash::HashMap;
 use serde::{de, Deserialize};
 
@@ -49,4 +50,8 @@ enum Profession {
     Specialist,
     Token,
     Trap,
+}
+
+impl Fetch for OperatorTable<'_> {
+    const FETCH_URL: &'static str = OPERATOR_URL;
 }

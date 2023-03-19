@@ -1,3 +1,4 @@
+use crate::Fetch;
 use ahash::HashMap;
 use serde::{Deserialize, Serialize};
 
@@ -18,4 +19,8 @@ struct SkillData<'a> {
     desc: &'a str,
     #[serde(rename(deserialize = "skillIcon"))]
     icon_id: &'a str,
+}
+
+impl Fetch for SkillTable<'_> {
+    const FETCH_URL: &'static str = SKILL_URL;
 }

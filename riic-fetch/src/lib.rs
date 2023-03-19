@@ -15,3 +15,35 @@
 )]
 
 mod config;
+mod operator;
+mod skill;
+
+use async_trait::async_trait;
+use reqwest::Client;
+use serde::Deserialize;
+use thiserror::Error;
+
+#[derive(Error, Debug)]
+enum FetchError {
+    #[error(transparent)]
+    Reqwest(#[from] reqwest::Error),
+}
+
+#[async_trait]
+trait Fetch {
+    const FETCH_URL: &'static str;
+
+    async fn fetch(client: &Client) -> Result<Self, FetchError>
+    where
+        for<'de> Self: Sized + Deserialize<'de>,
+    {
+        client
+            .get(Self::FETCH_URL)
+            .send()
+            .await?
+            .error_for_status()?
+            .json()
+            .await
+            .map_err(FetchError::Reqwest)
+    }
+}

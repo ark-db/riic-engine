@@ -22,6 +22,17 @@ dependencies = [
 ]
 
 [[package]]
+name = "async-trait"
+version = "0.1.67"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "86ea188f25f0255d8f92797797c97ebf5631fa88178beb1a46fdf5622c9a00e4"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn 2.0.2",
+]
+
+[[package]]
 name = "autocfg"
 version = "1.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -592,6 +603,7 @@ name = "riic-fetch"
 version = "0.1.0"
 dependencies = [
  "ahash",
+ "async-trait",
  "futures",
  "image",
  "reqwest",
