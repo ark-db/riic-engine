@@ -7,20 +7,28 @@ use std::{
 use thiserror::Error;
 
 #[derive(Deserialize)]
-struct Config {
-    operator: ImageConfig,
-    skill: ImageConfig,
+pub(crate) struct Config {
+    operator: SaveConfig,
+    skill: SaveConfig,
     item: ImageConfig,
     elite: ImageConfig,
-    facility: ImageConfig,
+    facility: SaveConfig,
     name_overrides: HashMap<String, String>,
     item_whitelist: Vec<String>,
     min_image_size: u8,
 }
 
 #[derive(Deserialize)]
+struct SaveConfig {
+    data_path: PathBuf,
+    image_dir: PathBuf,
+    #[serde(deserialize_with = "deserialize_quality")]
+    quality: u8,
+}
+
+#[derive(Deserialize)]
 struct ImageConfig {
-    target_dir: PathBuf,
+    image_dir: PathBuf,
     #[serde(deserialize_with = "deserialize_quality")]
     quality: u8,
 }
