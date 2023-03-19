@@ -14,14 +14,28 @@
     unused_qualifications
 )]
 
+mod base;
 mod config;
 mod operator;
-mod skill;
 
 use async_trait::async_trait;
 use reqwest::Client;
 use serde::Deserialize;
 use thiserror::Error;
+
+enum Server {
+    US,
+    CN,
+}
+
+impl ToString for Server {
+    fn to_string(&self) -> String {
+        match self {
+            Self::US => String::from("en_US"),
+            Self::CN => String::from("zh_CN"),
+        }
+    }
+}
 
 #[derive(Error, Debug)]
 enum FetchError {
@@ -31,14 +45,20 @@ enum FetchError {
 
 #[async_trait]
 trait Fetch {
-    const FETCH_URL: &'static str;
+    const FETCH_PATH: &'static str;
 
-    async fn fetch(client: &Client) -> Result<Self, FetchError>
+    async fn fetch(client: &Client, server: Server) -> Result<Self, FetchError>
     where
         for<'de> Self: Sized + Deserialize<'de>,
     {
+        let url = format!(
+            "https://raw.githubusercontent.com/Kengxxiao/ArknightsGameData/master/{}/{}",
+            server.to_string(),
+            Self::FETCH_PATH
+        );
+
         client
-            .get(Self::FETCH_URL)
+            .get(url)
             .send()
             .await?
             .error_for_status()?

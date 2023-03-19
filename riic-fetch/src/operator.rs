@@ -53,5 +53,5 @@ enum Profession {
 }
 
 impl Fetch for OperatorTable<'_> {
-    const FETCH_URL: &'static str = OPERATOR_URL;
+    const FETCH_PATH: &'static str = "gamedata/excel/character_table.json";
 }

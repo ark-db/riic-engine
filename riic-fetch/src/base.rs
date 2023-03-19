@@ -2,7 +2,13 @@ use crate::Fetch;
 use ahash::HashMap;
 use serde::{Deserialize, Serialize};
 
-const SKILL_URL: &str = "https://raw.githubusercontent.com/Kengxxiao/ArknightsGameData/master/zh_CN/gamedata/excel/building_data.json";
+#[derive(Deserialize)]
+struct BaseData<'a> {
+    chars: u8, // TODO
+    rooms: u8, // TODO
+    #[serde(borrow)]
+    buffs: SkillTable<'a>,
+}
 
 #[derive(Deserialize, Serialize)]
 struct SkillTable<'a> {
@@ -21,6 +27,6 @@ struct SkillData<'a> {
     icon_id: &'a str,
 }
 
-impl Fetch for SkillTable<'_> {
-    const FETCH_URL: &'static str = SKILL_URL;
+impl Fetch for BaseData<'_> {
+    const FETCH_PATH: &'static str = "gamedata/excel/building_data.json";
 }
