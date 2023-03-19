@@ -4,14 +4,14 @@ use serde::{de, Deserialize};
 const OPERATOR_URL: &str = "https://raw.githubusercontent.com/Kengxxiao/ArknightsGameData/master/zh_CN/gamedata/excel/character_table.json";
 
 #[derive(Deserialize)]
-struct OperatorData<'a> {
+struct OperatorTable<'a> {
     #[serde(flatten, borrow)]
-    inner: HashMap<&'a str, OperatorInner<'a>>,
+    inner: HashMap<&'a str, OperatorData<'a>>,
 }
 
 #[derive(Deserialize)]
 #[serde(rename_all = "camelCase")]
-struct OperatorInner<'a> {
+struct OperatorData<'a> {
     #[serde(rename = "appellation")]
     name: &'a str,
     #[serde(deserialize_with = "deserialize_rarity")]
