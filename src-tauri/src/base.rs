@@ -27,6 +27,12 @@ struct Layout {
 
 #[derive(Serialize, Deserialize)]
 #[serde(deny_unknown_fields)]
+struct NoShiftFacility {
+    level: FacilityLevel,
+}
+
+#[derive(Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
 struct Facility {
     level: FacilityLevel,
     shifts: Vec<Shift>,
@@ -39,12 +45,6 @@ struct BoostFacility<P> {
     shifts: Vec<Shift>,
     boosts: Vec<Boost>,
     products: Vec<Product<P>>,
-}
-
-#[derive(Serialize, Deserialize)]
-#[serde(deny_unknown_fields)]
-struct NoShiftFacility {
-    level: FacilityLevel,
 }
 
 #[derive(Serialize, Deserialize)]
@@ -101,6 +101,12 @@ type FacilityLevel = u8;
 
 type Operator = String;
 
+impl NoShiftFacility {
+    fn new(level: u8) -> Self {
+        Self { level }
+    }
+}
+
 impl Facility {
     fn new(level: u8) -> Self {
         Self {
@@ -118,12 +124,6 @@ impl<P> BoostFacility<P> {
             boosts: Vec::new(),
             products: Vec::new(),
         }
-    }
-}
-
-impl NoShiftFacility {
-    fn new(level: u8) -> Self {
-        Self { level }
     }
 }
 

@@ -30,14 +30,13 @@ export type SaveData = {
 	interval: number;
 };
 
-export type Facility = {
+type NoShiftFacility = {
 	level: number;
-	shifts: Shift[];
 };
 
-export type BoostFacility<P> = {
-	level: number;
-	shifts: Shift[];
+export type Facility = NoShiftFacility & { shifts: Shift[] };
+
+export type BoostFacility<P> = Facility & {
 	boosts: {
 		drones: number;
 		col: number;
@@ -46,10 +45,6 @@ export type BoostFacility<P> = {
 		kind: P;
 		end: number;
 	}[];
-};
-
-type NoShiftFacility = {
-	level: number;
 };
 
 type Shift = {
