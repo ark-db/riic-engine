@@ -17,6 +17,7 @@
 mod base;
 mod config;
 mod operator;
+mod terms;
 
 use async_trait::async_trait;
 use reqwest::Client;
