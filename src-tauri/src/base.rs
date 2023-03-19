@@ -6,9 +6,9 @@ use serde::{Deserialize, Serialize};
 pub struct Save {
     layout: Layout,
     chars: Vec<CharData>,
-    drones: u32,            // Drone capacity; drones will regenerate up to this amount
-    max_shift: ShiftNumber, // Total number of shifts in rotation
-    interval: u16,          // Duration of one shift (in minutes)
+    drones: DroneCount, // Drone capacity; drones will regenerate up to this amount
+    max_shift: ShiftCount, // Total number of shifts in rotation
+    interval: u16,      // Duration of one shift (in minutes)
 }
 
 #[derive(Serialize, Deserialize)]
@@ -28,14 +28,14 @@ struct Layout {
 #[derive(Serialize, Deserialize)]
 #[serde(deny_unknown_fields)]
 struct Facility {
-    level: u8,
+    level: FacilityLevel,
     shifts: Vec<Shift>,
 }
 
 #[derive(Serialize, Deserialize)]
 #[serde(deny_unknown_fields)]
 struct BoostFacility<P> {
-    level: u8,
+    level: FacilityLevel,
     shifts: Vec<Shift>,
     boosts: Vec<Boost>,
     products: Vec<Product<P>>,
@@ -44,29 +44,29 @@ struct BoostFacility<P> {
 #[derive(Serialize, Deserialize)]
 #[serde(deny_unknown_fields)]
 struct NoShiftFacility {
-    level: u8,
+    level: FacilityLevel,
 }
 
 #[derive(Serialize, Deserialize)]
 #[serde(deny_unknown_fields)]
 struct Shift {
     char: Operator,
-    start: ShiftNumber,
-    end: ShiftNumber,
+    start: ShiftCount,
+    end: ShiftCount,
 }
 
 #[derive(Serialize, Deserialize)]
 #[serde(deny_unknown_fields)]
 struct Boost {
-    drones: u32,
-    col: ShiftNumber,
+    drones: DroneCount,
+    col: ShiftCount,
 }
 
 #[derive(Serialize, Deserialize)]
 #[serde(deny_unknown_fields)]
 struct Product<T> {
     kind: T,
-    end: ShiftNumber,
+    end: ShiftCount,
 }
 
 #[derive(Serialize, Deserialize)]
@@ -93,7 +93,11 @@ struct CharData {
     tier: u8,
 }
 
-type ShiftNumber = u16;
+type DroneCount = u32;
+
+type ShiftCount = u16;
+
+type FacilityLevel = u8;
 
 type Operator = String;
 
