@@ -2,10 +2,21 @@ use crate::Fetch;
 use ahash::HashMap;
 use serde::{de, Deserialize};
 
+type OpTable<'a> = HashMap<&'a str, OperatorData<'a>>;
+
 #[derive(Deserialize)]
 struct OperatorTable<'a> {
-    #[serde(flatten, borrow)]
-    inner: HashMap<&'a str, OperatorData<'a>>,
+    #[serde(flatten, borrow, deserialize_with = "deserialize_ops")]
+    inner: OpTable<'a>,
+}
+
+fn deserialize_ops<'de, D>(deserializer: D) -> Result<OpTable<'de>, D::Error>
+where
+    D: de::Deserializer<'de>,
+{
+    let mut table: OpTable<'de> = Deserialize::deserialize(deserializer)?;
+    table.retain(|_, data| data.is_operator());
+    Ok(table)
 }
 
 #[derive(Deserialize)]
@@ -47,6 +58,12 @@ enum Profession {
     Specialist,
     Token,
     Trap,
+}
+
+impl OperatorData<'_> {
+    fn is_operator(&self) -> bool {
+        !self.unobtainable && !matches!(self.profession, Profession::Token | Profession::Trap)
+    }
 }
 
 impl Fetch for OperatorTable<'_> {
