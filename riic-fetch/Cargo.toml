@@ -19,3 +19,9 @@ serde_json = "1.0.94"
 thiserror = "1.0.40"
 tokio = { version = "1.26.0", features = ["macros", "rt-multi-thread"] }
 toml = "0.7.3"
+
+[profile.release]
+panic = "abort"
+codegen-units = 1
+lto = true
+strip = true
