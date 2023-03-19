@@ -8,6 +8,7 @@
 	import { activeSave, error } from '$lib/stores';
 	import type { ActiveSave } from '$lib/types';
 	import Links from './Links.svelte';
+	import ShiftCount from './ShiftCount.svelte';
 	import ShiftInterval from './ShiftInterval.svelte';
 	import Drones from './Drones.svelte';
 	import PowerUsage from './PowerUsage.svelte';
@@ -48,6 +49,7 @@
 			<img src={menuIcon} alt={menuIconDesc} id="menu-icon" width="32" height="32" />
 		</Button>
 		<div class="stats">
+			<ShiftCount />
 			<ShiftInterval />
 			<Drones />
 			<PowerUsage />
@@ -104,6 +106,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
+		column-gap: 1em;
 	}
 	.nav-hidden {
 		grid-column: span 2;
