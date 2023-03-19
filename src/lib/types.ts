@@ -12,8 +12,8 @@ export type ActiveSave = {
 export type SaveData = {
 	layout: {
 		cc: Facility;
-		tp: BoostFacility[];
-		fac: BoostFacility[];
+		tp: BoostFacility<TradingProduct>[];
+		fac: BoostFacility<FactoryProduct>[];
 		pp: Facility[];
 		workshop: NoShiftFacility;
 		rr: Facility;
@@ -35,12 +35,16 @@ export type Facility = {
 	shifts: Shift[];
 };
 
-export type BoostFacility = {
+export type BoostFacility<P> = {
 	level: number;
 	shifts: Shift[];
 	boosts: {
 		drones: number;
 		col: number;
+	}[];
+	products: {
+		kind: P;
+		end: number;
 	}[];
 };
 
@@ -53,6 +57,10 @@ type Shift = {
 	start: number;
 	end: number;
 };
+
+type TradingProduct = 'lmd' | 'orundum';
+
+type FactoryProduct = 'exp200' | 'exp400' | 'exp1000' | 'gold' | 'shard';
 
 export type FacilityName =
 	| 'control'

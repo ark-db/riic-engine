@@ -6,17 +6,17 @@ use serde::{Deserialize, Serialize};
 pub struct Save {
     layout: Layout,
     chars: Vec<CharData>,
-    drones: u32,    // Drone capacity; drones will regenerate up to this amount
-    max_shift: u16, // Total number of shifts in rotation
-    interval: u16,  // Duration of one shift (in minutes)
+    drones: u32,            // Drone capacity; drones will regenerate up to this amount
+    max_shift: ShiftNumber, // Total number of shifts in rotation
+    interval: u16,          // Duration of one shift (in minutes)
 }
 
 #[derive(Serialize, Deserialize)]
 #[serde(deny_unknown_fields)]
 struct Layout {
     cc: Facility,
-    tp: Vec<BoostFacility>,
-    fac: Vec<BoostFacility>,
+    tp: Vec<BoostFacility<TradingProduct>>,
+    fac: Vec<BoostFacility<FactoryProduct>>,
     pp: Vec<Facility>,
     workshop: NoShiftFacility,
     rr: Facility,
@@ -34,10 +34,56 @@ struct Facility {
 
 #[derive(Serialize, Deserialize)]
 #[serde(deny_unknown_fields)]
+struct BoostFacility<P> {
+    level: u8,
+    shifts: Vec<Shift>,
+    boosts: Vec<Boost>,
+    products: Vec<Product<P>>,
+}
+
+#[derive(Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
+struct NoShiftFacility {
+    level: u8,
+}
+
+#[derive(Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
 struct Shift {
     char: Operator,
-    start: u64,
-    end: u64,
+    start: ShiftNumber,
+    end: ShiftNumber,
+}
+
+#[derive(Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
+struct Boost {
+    drones: u32,
+    col: ShiftNumber,
+}
+
+#[derive(Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
+struct Product<T> {
+    kind: T,
+    end: ShiftNumber,
+}
+
+#[derive(Serialize, Deserialize)]
+#[serde(rename_all = "lowercase")]
+enum TradingProduct {
+    Lmd,     // consumes Pure Gold, produces LMD
+    Orundum, // consumes Originium Shard, produces Orundum
+}
+
+#[derive(Serialize, Deserialize)]
+#[serde(rename_all = "lowercase")]
+enum FactoryProduct {
+    Exp200,  // Drill Battle Record
+    Exp400,  // Frontline Battle Record
+    Exp1000, // Tactical Battle Record
+    Gold,    // Pure Gold
+    Shard,   // Originium Shard
 }
 
 #[derive(Serialize, Deserialize)]
@@ -46,6 +92,8 @@ struct CharData {
     char: Operator,
     tier: u8,
 }
+
+type ShiftNumber = u16;
 
 type Operator = String;
 
@@ -58,35 +106,15 @@ impl Facility {
     }
 }
 
-#[derive(Serialize, Deserialize)]
-#[serde(deny_unknown_fields)]
-struct BoostFacility {
-    level: u8,
-    shifts: Vec<Shift>,
-    boosts: Vec<Boost>,
-}
-
-#[derive(Serialize, Deserialize)]
-#[serde(deny_unknown_fields)]
-struct Boost {
-    drones: u32,
-    col: u64,
-}
-
-impl BoostFacility {
+impl<P> BoostFacility<P> {
     fn new(level: u8) -> Self {
         Self {
             level,
             shifts: Vec::new(),
             boosts: Vec::new(),
+            products: Vec::new(),
         }
     }
-}
-
-#[derive(Serialize, Deserialize)]
-#[serde(deny_unknown_fields)]
-struct NoShiftFacility {
-    level: u8,
 }
 
 impl NoShiftFacility {

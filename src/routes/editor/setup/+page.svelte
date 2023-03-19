@@ -13,17 +13,18 @@
 		$activeSave = $activeSave;
 	}
 
-	function addBoostFacility(facilities: BoostFacilityType[]) {
+	function addBoostFacility<P>(facilities: BoostFacilityType<P>[]) {
 		facilities.push({
 			level: 1,
 			shifts: [],
-			boosts: []
+			boosts: [],
+			products: []
 		});
 		// notify store subscribers with assignment
 		$activeSave = $activeSave;
 	}
 
-	function deleteFacility(facilities: FacilityType[] | BoostFacilityType[], index: number) {
+	function deleteFacility<P>(facilities: FacilityType[] | BoostFacilityType<P>[], index: number) {
 		facilities.splice(index, 1);
 		// notify store subscribers with assignment
 		$activeSave = $activeSave;
