@@ -1,5 +1,6 @@
 use crate::Fetch;
 use ahash::HashMap;
+use phf::{phf_map, Map};
 use serde::{de, Deserialize, Serialize};
 
 type CharSkills<'a> = HashMap<&'a str, Vec<BaseSkill<'a>>>;
@@ -8,8 +9,8 @@ type CharSkills<'a> = HashMap<&'a str, Vec<BaseSkill<'a>>>;
 struct BaseData<'a> {
     #[serde(deserialize_with = "deserialize_skills")]
     chars: CharSkills<'a>,
-    rooms: u8, // TODO
     #[serde(borrow)]
+    rooms: FacilityTable<'a>,
     buffs: SkillTable<'a>,
 }
 
@@ -71,6 +72,80 @@ impl<'a> From<UnprocessedCharEntry<'a>> for Vec<BaseSkill<'a>> {
             }
         }
         skills
+    }
+}
+
+type FacilityData<'a> = HashMap<&'a str, Facility<'a>>;
+
+const FACILITY_COLORS: Map<&'static str, &'static str> = phf_map! {
+    "control" => "#005752",
+    "dormitory" => "#21cdcb",
+    "hire" => "#565656",
+    "manufacture" => "#ffd800",
+    "meeting" => "#dd653f",
+    "power" => "#8fc31f",
+    "trading" => "#0075a9",
+    "training" => "#7d0022",
+    "workshop" => "#e3eb00",
+};
+
+#[derive(Deserialize, Serialize)]
+struct FacilityTable<'a> {
+    #[serde(flatten, borrow, deserialize_with = "deserialize_facilities")]
+    inner: FacilityData<'a>,
+}
+
+#[derive(Deserialize)]
+struct UnprocessedFacility<'a> {
+    id: &'a str,
+    name: &'a str,
+    phases: Vec<UnprocessedFacilityPhase>,
+}
+
+#[derive(Deserialize)]
+struct UnprocessedFacilityPhase {
+    #[serde(rename = "electricity")]
+    power: i16,
+    #[serde(rename = "maxStationedNum")]
+    capacity: u8,
+}
+
+#[derive(Deserialize, Serialize)]
+struct Facility<'a> {
+    name: &'a str,
+    color: &'a str,
+    power: Vec<i16>,
+    capacity: Vec<u8>,
+}
+
+fn deserialize_facilities<'de, D>(deserializer: D) -> Result<FacilityData<'de>, D::Error>
+where
+    D: de::Deserializer<'de>,
+{
+    let data: HashMap<&'de str, UnprocessedFacility<'de>> = Deserialize::deserialize(deserializer)?;
+
+    Ok(data
+        .into_iter()
+        .map(|(id, data)| (id, data.into()))
+        .collect())
+}
+
+impl<'a> From<UnprocessedFacility<'a>> for Facility<'a> {
+    fn from(value: UnprocessedFacility<'a>) -> Self {
+        let (mut power, mut capacity) = (Vec::with_capacity(5), Vec::with_capacity(5));
+        for phase in value.phases {
+            power.push(phase.power);
+            capacity.push(phase.capacity);
+        }
+
+        let color = FACILITY_COLORS.get_key(&value.id.to_lowercase()).unwrap();
+
+        Self {
+            name: value.name,
+            color,
+            power,
+            capacity,
+        }
     }
 }
 
