@@ -13,3 +13,5 @@
     unused_import_braces,
     unused_qualifications
 )]
+
+mod config;
