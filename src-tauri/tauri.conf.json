@@ -54,7 +54,7 @@
 				"height": 720,
 				"width": 960,
 				"minHeight": 600,
-				"minWidth": 800,
+				"minWidth": 900,
 				"fileDropEnabled": false,
 				"theme": "Dark",
 				"visible": false
