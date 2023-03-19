@@ -1,6 +1,6 @@
 use crate::Fetch;
 use ahash::HashMap;
-use phf::{phf_map, Map};
+use phf::{phf_map, phf_set, Map, Set};
 use serde::{de, Deserialize, Serialize};
 
 type CharSkills<'a> = HashMap<&'a str, Vec<BaseSkill<'a>>>;
@@ -77,6 +77,10 @@ impl<'a> From<UnprocessedCharEntry<'a>> for Vec<BaseSkill<'a>> {
 
 type FacilityData<'a> = HashMap<&'a str, Facility<'a>>;
 
+const IGNORED_FACILITIES: Set<&'static str> = phf_set! {
+    "elevator", "corridor"
+};
+
 const FACILITY_COLORS: Map<&'static str, &'static str> = phf_map! {
     "control" => "#005752",
     "dormitory" => "#21cdcb",
@@ -126,6 +130,7 @@ where
 
     Ok(data
         .into_iter()
+        .filter(|(_, data)| !IGNORED_FACILITIES.contains(&data.id.to_lowercase()))
         .map(|(id, data)| (id, data.into()))
         .collect())
 }
