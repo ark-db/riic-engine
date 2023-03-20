@@ -21,7 +21,7 @@ pub struct Config {
 }
 
 #[derive(Deserialize)]
-struct SaveConfig {
+pub(crate) struct SaveConfig {
     data_path: PathBuf,
     image_dir: PathBuf,
     #[serde(deserialize_with = "deserialize_quality")]
@@ -29,7 +29,7 @@ struct SaveConfig {
 }
 
 #[derive(Deserialize)]
-struct ImageConfig {
+pub(crate) struct ImageConfig {
     image_dir: PathBuf,
     #[serde(deserialize_with = "deserialize_quality")]
     quality: u8,
@@ -51,6 +51,7 @@ where
 }
 
 #[derive(Error, Debug)]
+#[allow(clippy::module_name_repetitions)]
 pub enum ConfigError {
     #[error(transparent)]
     Io(#[from] std::io::Error),
@@ -59,6 +60,8 @@ pub enum ConfigError {
 }
 
 impl Config {
+    /// # Errors
+    /// Returns an error if an I/O error occurs or the file at the input path cannot be parsed successfully.
     pub fn from_toml<P: AsRef<Path>>(path: P) -> Result<Self, ConfigError> {
         let data = read_to_string(path)?;
         toml::from_str(&data).map_err(ConfigError::Toml)
