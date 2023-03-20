@@ -55,6 +55,7 @@ where
 
     Ok(data
         .into_iter()
+        .filter(|(id, _)| id.starts_with("cc"))
         .map(|(id, entry)| (id.to_string(), entry.description.to_string()))
         .collect())
 }
