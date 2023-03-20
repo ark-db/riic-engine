@@ -1,22 +1,11 @@
 use crate::base::{BaseSkill, CharSkills};
+use crate::consts::NAME_OVERRIDES;
 use crate::{Fetch, FetchImage, SaveJson};
 use ahash::HashMap;
-use phf::{phf_map, Map};
 use serde::{de, Deserialize, Serialize};
 use std::borrow::Cow;
 
 type OpTable = HashMap<String, OperatorData>;
-
-const NAME_OVERRIDES: Map<&'static str, &'static str> = phf_map! {
-    "char_118_yuki" => "Shirayuki",
-    "char_196_sunbr" => "Gummy",
-    "char_115_headbr" => "Zima",
-    "char_195_glassb" => "Istina",
-    "char_197_poca" => "Rosa",
-    "char_1001_amiya2" => "Amiya (Guard)",
-    "char_4055_bgsnow" => "Pozyomka",
-    "char_4064_mlynar" => "Mlynar",
-};
 
 #[derive(Deserialize)]
 pub(crate) struct OperatorTable {

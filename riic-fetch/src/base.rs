@@ -1,6 +1,6 @@
+use crate::consts::{FACILITY_COLORS, IGNORED_FACILITIES};
 use crate::{Fetch, FetchImage, SaveJson};
 use ahash::HashMap;
-use phf::{phf_map, phf_set, Map, Set};
 use serde::{de, Deserialize, Serialize};
 use std::borrow::Cow;
 
@@ -77,22 +77,6 @@ impl<'a> From<UnprocessedCharEntry<'a>> for Vec<BaseSkill> {
 }
 
 type FacilityData = HashMap<String, Facility>;
-
-const IGNORED_FACILITIES: Set<&'static str> = phf_set! {
-    "elevator", "corridor"
-};
-
-const FACILITY_COLORS: Map<&'static str, &'static str> = phf_map! {
-    "control" => "#005752",
-    "dormitory" => "#21cdcb",
-    "hire" => "#565656",
-    "manufacture" => "#ffd800",
-    "meeting" => "#dd653f",
-    "power" => "#8fc31f",
-    "trading" => "#0075a9",
-    "training" => "#7d0022",
-    "workshop" => "#e3eb00",
-};
 
 #[derive(Deserialize, Serialize)]
 pub(crate) struct FacilityTable {
