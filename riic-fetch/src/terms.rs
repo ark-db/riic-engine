@@ -66,4 +66,10 @@ impl Fetch for MiscGamedata {
 
 impl SaveJson for StyleTable {}
 
+impl TermTable {
+    pub(crate) fn extend(&mut self, other: Self) {
+        self.inner.extend(other.inner);
+    }
+}
+
 impl SaveJson for TermTable {}

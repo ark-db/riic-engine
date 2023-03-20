@@ -72,7 +72,7 @@ impl Fetch for OperatorTable {
 }
 
 #[derive(Serialize)]
-struct UpdatedOperatorTable<'a> {
+pub(crate) struct UpdatedOperatorTable<'a> {
     #[serde(flatten)]
     inner: HashMap<String, UpdatedOperatorData<'a>>,
 }
@@ -85,7 +85,7 @@ struct UpdatedOperatorData<'a> {
 }
 
 impl OperatorTable {
-    fn to_updated<'a>(self, skill_table: &CharSkills) -> UpdatedOperatorTable<'_> {
+    pub(crate) fn to_updated<'a>(self, skill_table: &CharSkills) -> UpdatedOperatorTable<'_> {
         let updated = self
             .inner
             .into_iter()

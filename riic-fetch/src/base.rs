@@ -190,6 +190,12 @@ impl FetchImage for FacilityTable {
     }
 }
 
+impl SkillTable {
+    pub(crate) fn extend(&mut self, other: Self) {
+        self.inner.extend(other.inner);
+    }
+}
+
 impl SaveJson for SkillTable {}
 
 impl FetchImage for SkillTable {

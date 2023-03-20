@@ -11,7 +11,6 @@ pub struct Config {
     pub(crate) operator: SaveConfig,
     pub(crate) skill: SaveConfig,
     pub(crate) item: ImageConfig,
-    pub(crate) elite: ImageConfig,
     pub(crate) facility: SaveConfig,
     pub(crate) terms_path: PathBuf,
     pub(crate) styles_path: PathBuf,
@@ -22,17 +21,17 @@ pub struct Config {
 
 #[derive(Deserialize)]
 pub(crate) struct SaveConfig {
-    data_path: PathBuf,
-    image_dir: PathBuf,
+    pub(crate) data_path: PathBuf,
+    pub(crate) image_dir: PathBuf,
     #[serde(deserialize_with = "deserialize_quality")]
-    quality: u8,
+    pub(crate) quality: u8,
 }
 
 #[derive(Deserialize)]
 pub(crate) struct ImageConfig {
-    image_dir: PathBuf,
+    pub(crate) image_dir: PathBuf,
     #[serde(deserialize_with = "deserialize_quality")]
-    quality: u8,
+    pub(crate) quality: u8,
 }
 
 fn deserialize_quality<'de, D>(deserializer: D) -> Result<u8, D::Error>
