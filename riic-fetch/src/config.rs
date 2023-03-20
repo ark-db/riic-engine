@@ -15,7 +15,7 @@ pub(crate) struct Config {
     facility: SaveConfig,
     name_overrides: HashMap<String, String>,
     item_whitelist: Vec<String>,
-    min_image_size: u8,
+    min_image_size: u32,
 }
 
 #[derive(Deserialize)]
