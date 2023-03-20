@@ -1,6 +1,5 @@
 terms_path = "../src/lib/data/terms.json"
 styles_path = "../src/lib/data/text-colors.json"
-item_whitelist = []
 min_image_size = 60
 
 [operator]
@@ -13,13 +12,12 @@ data_path = "../src/lib/data/skills.json"
 image_dir = "../static/skills"
 quality = 50
 
-[item]
-image_dir = "../static/items"
-quality = 50
-
 [facility]
 data_path = "../src/lib/facilities.json"
 image_dir = "../static/facilities"
 quality = 100
 
-[name_overrides]
+[item]
+whitelist = []
+image_dir = "../static/items"
+quality = 50

@@ -203,6 +203,15 @@ impl Config {
             .use_rustls_tls()
             .build()?;
 
+        self.item
+            .save_images(
+                &client,
+                &self.item.image_dir,
+                self.item.quality,
+                self.min_image_size,
+            )
+            .await?;
+
         let mut cn_misc = terms::MiscGamedata::fetch(&client, Server::CN).await?;
         cn_misc.styles.save_json(&self.styles_path)?;
         let en_terms = terms::MiscGamedata::fetch(&client, Server::US).await?.terms;
@@ -238,7 +247,7 @@ impl Config {
         cn_base_data.chars.extend(us_base_data.chars);
         let chars = operator::OperatorTable::fetch(&client, Server::CN)
             .await?
-            .to_updated(&cn_base_data.chars);
+            .into_updated(&cn_base_data.chars);
         chars.save_json(&self.operator.data_path)?;
         chars
             .save_images(

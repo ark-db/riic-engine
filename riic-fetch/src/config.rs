@@ -1,3 +1,4 @@
+use crate::FetchImage;
 use serde::{de, Deserialize};
 use std::{
     fs::read_to_string,
@@ -9,11 +10,10 @@ use thiserror::Error;
 pub struct Config {
     pub(crate) operator: SaveConfig,
     pub(crate) skill: SaveConfig,
-    pub(crate) item: ImageConfig,
     pub(crate) facility: SaveConfig,
+    pub(crate) item: ImageConfig,
     pub(crate) terms_path: PathBuf,
     pub(crate) styles_path: PathBuf,
-    pub(crate) item_whitelist: Vec<String>,
     pub(crate) min_image_size: u32,
 }
 
@@ -27,6 +27,7 @@ pub(crate) struct SaveConfig {
 
 #[derive(Deserialize)]
 pub(crate) struct ImageConfig {
+    pub(crate) whitelist: Vec<String>,
     pub(crate) image_dir: PathBuf,
     #[serde(deserialize_with = "deserialize_quality")]
     pub(crate) quality: u8,
@@ -62,5 +63,13 @@ impl Config {
     pub fn from_toml<P: AsRef<Path>>(path: P) -> Result<Self, ConfigError> {
         let data = read_to_string(path)?;
         toml::from_str(&data).map_err(ConfigError::Toml)
+    }
+}
+
+impl FetchImage for ImageConfig {
+    const FETCH_DIR: &'static str = "torappu/dynamicassets/arts/items/icons";
+
+    fn image_ids(&self) -> Vec<String> {
+        self.whitelist.clone()
     }
 }

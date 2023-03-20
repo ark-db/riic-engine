@@ -104,7 +104,7 @@ struct UpdatedOperatorData<'a> {
 }
 
 impl OperatorTable {
-    pub(crate) fn to_updated<'a>(self, skill_table: &CharSkills) -> UpdatedOperatorTable<'_> {
+    pub(crate) fn into_updated(self, skill_table: &CharSkills) -> UpdatedOperatorTable<'_> {
         let updated = self
             .inner
             .into_iter()
