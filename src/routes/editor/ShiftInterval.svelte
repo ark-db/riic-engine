@@ -1,5 +1,5 @@
 <script lang="ts">
-	import clock from '$lib/images/clock.svg';
+	import clock from '$lib/images/ui/clock.svg';
 	import { activeSave } from '$lib/stores';
 	import NumberInput from './NumberInput.svelte';
 </script>

@@ -3,12 +3,12 @@ import { writable, derived } from 'svelte/store';
 import { tweened } from 'svelte/motion';
 import { cubicOut } from 'svelte/easing';
 import { invoke } from '@tauri-apps/api/tauri';
-import pencilClockIcon from '$lib/images/pencil-clock.svg';
-import plusClockIcon from '$lib/images/plus-clock.svg';
-import listIncreasingIcon from '$lib/images/list-increasing.svg';
-import listDecreasingIcon from '$lib/images/list-decreasing.svg';
-import maximizeIcon from '$lib/images/maximize.svg';
-import minimizeIcon from '$lib/images/minimize.svg';
+import pencilClockIcon from '$lib/images/ui/pencil-clock.svg';
+import plusClockIcon from '$lib/images/ui/plus-clock.svg';
+import listIncreasingIcon from '$lib/images/ui/list-increasing.svg';
+import listDecreasingIcon from '$lib/images/ui/list-decreasing.svg';
+import maximizeIcon from '$lib/images/ui/maximize.svg';
+import minimizeIcon from '$lib/images/ui/minimize.svg';
 import type { SaveData, FileData, ActiveSave } from '$lib/types';
 
 // App-wide error store to display errors to users

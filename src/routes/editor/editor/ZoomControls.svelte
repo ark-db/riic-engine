@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Button from '$lib/components/Button.svelte';
-	import plus from '$lib/images/plus.svg';
-	import minus from '$lib/images/minus.svg';
+	import minus from '$lib/images/ui/minus.svg';
+	import plus from '$lib/images/ui/plus.svg';
 	import { zoomControls, zoomShortcut } from '$lib/stores';
 	import Slider from './Slider.svelte';
 

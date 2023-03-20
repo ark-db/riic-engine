@@ -4,7 +4,7 @@
 	import GradientContainer from '$lib/components/GradientContainer.svelte';
 	import Button from '$lib/components/Button.svelte';
 	import logo from '$lib/images/logo.webp';
-	import menuIcon from '$lib/images/menu.webp';
+	import menuIcon from '$lib/images/ui/menu.webp';
 	import { activeSave, error } from '$lib/stores';
 	import type { ActiveSave } from '$lib/types';
 	import Links from './Links.svelte';

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import briefcase from '$lib/images/briefcase.svg';
+	import briefcase from '$lib/images/ui/briefcase.svg';
 	import { activeSave } from '$lib/stores';
 	import NumberInput from './NumberInput.svelte';
 </script>

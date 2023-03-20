@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { invoke } from '@tauri-apps/api/tauri';
 	import Button from '$lib/components/Button.svelte';
-	import addFileIcon from '$lib/images/file-add.svg';
-	import refreshIcon from '$lib/images/refresh.svg';
+	import addFileIcon from '$lib/images/ui/file-add.svg';
+	import refreshIcon from '$lib/images/ui/refresh.svg';
 	import { saveList, saveSortMode, saveSortOrder } from '$lib/stores';
 	import Header from './Header.svelte';
 	import Entry from './Entry.svelte';

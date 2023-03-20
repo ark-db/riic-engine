@@ -1,5 +1,5 @@
 <script lang="ts">
-	import drones from '$lib/images/drones.webp';
+	import drones from '$lib/images/ui/drones.webp';
 	import { activeSave } from '$lib/stores';
 	import NumberInput from './NumberInput.svelte';
 </script>

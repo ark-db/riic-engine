@@ -1,5 +1,5 @@
 <script lang="ts">
-	import xmark from '$lib/images/red-xmark.svg';
+	import xmark from '$lib/images/ui/red-xmark.svg';
 	import { error } from '$lib/stores';
 
 	let dialog: HTMLDialogElement;
