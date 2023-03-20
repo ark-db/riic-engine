@@ -1,9 +1,9 @@
-use crate::Fetch;
+use crate::{Fetch, SaveJson};
 use ahash::HashMap;
 use phf::{phf_map, phf_set, Map, Set};
 use serde::{de, Deserialize, Serialize};
 
-type CharSkills<'a> = HashMap<&'a str, Vec<BaseSkill<'a>>>;
+pub(crate) type CharSkills<'a> = HashMap<&'a str, Vec<BaseSkill<'a>>>;
 
 #[derive(Deserialize)]
 struct BaseData<'a> {
@@ -40,7 +40,8 @@ struct UnprocessedSkillPhase {
     level: u8,
 }
 
-struct BaseSkill<'a> {
+#[derive(Serialize)]
+pub(crate) struct BaseSkill<'a> {
     id: &'a str,
     elite: u8,
     level: u8,
@@ -174,3 +175,7 @@ struct SkillInfo<'a> {
 impl Fetch for BaseData<'_> {
     const FETCH_PATH: &'static str = "gamedata/excel/building_data.json";
 }
+
+impl SaveJson for FacilityTable<'_> {}
+
+impl SaveJson for SkillTable<'_> {}

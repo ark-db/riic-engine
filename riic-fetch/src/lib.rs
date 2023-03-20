@@ -21,7 +21,8 @@ mod terms;
 
 use async_trait::async_trait;
 use reqwest::Client;
-use serde::Deserialize;
+use serde::{Deserialize, Serialize};
+use std::{fs::File, path::Path};
 use thiserror::Error;
 
 enum Server {
@@ -66,5 +67,20 @@ trait Fetch {
             .json()
             .await
             .map_err(FetchError::Reqwest)
+    }
+}
+
+#[derive(Error, Debug)]
+enum SaveError {
+    #[error(transparent)]
+    Io(#[from] std::io::Error),
+    #[error(transparent)]
+    Serde(#[from] serde_json::Error),
+}
+
+trait SaveJson: Serialize {
+    fn save_json<P: AsRef<Path>>(&self, path: P) -> Result<(), SaveError> {
+        let file = File::create(path)?;
+        serde_json::to_writer(file, self).map_err(SaveError::Serde)
     }
 }

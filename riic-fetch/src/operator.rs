@@ -1,6 +1,7 @@
-use crate::Fetch;
+use crate::base::{BaseSkill, CharSkills};
+use crate::{Fetch, SaveJson};
 use ahash::HashMap;
-use serde::{de, Deserialize};
+use serde::{de, Deserialize, Serialize};
 
 type OpTable<'a> = HashMap<&'a str, OperatorData<'a>>;
 
@@ -69,3 +70,39 @@ impl OperatorData<'_> {
 impl Fetch for OperatorTable<'_> {
     const FETCH_PATH: &'static str = "gamedata/excel/character_table.json";
 }
+
+#[derive(Serialize)]
+struct UpdatedOperatorTable<'a> {
+    #[serde(flatten)]
+    inner: HashMap<&'a str, UpdatedOperatorData<'a>>,
+}
+
+#[derive(Serialize)]
+struct UpdatedOperatorData<'a> {
+    name: &'a str,
+    rarity: u8,
+    skills: &'a Vec<BaseSkill<'a>>,
+}
+
+impl<'a> OperatorTable<'a> {
+    fn to_updated(self, skill_table: &'a CharSkills<'a>) -> UpdatedOperatorTable<'a> {
+        let updated = self
+            .inner
+            .into_iter()
+            .map(|(id, data)| {
+                (
+                    id,
+                    UpdatedOperatorData {
+                        name: data.name,
+                        rarity: data.rarity,
+                        skills: skill_table.get(id).unwrap(),
+                    },
+                )
+            })
+            .collect();
+
+        UpdatedOperatorTable { inner: updated }
+    }
+}
+
+impl SaveJson for UpdatedOperatorTable<'_> {}

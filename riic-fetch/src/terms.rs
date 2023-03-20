@@ -1,4 +1,4 @@
-use crate::Fetch;
+use crate::{Fetch, SaveJson};
 use ahash::HashMap;
 use serde::{de, Deserialize, Serialize};
 
@@ -62,3 +62,7 @@ where
 impl Fetch for MiscGamedata<'_> {
     const FETCH_PATH: &'static str = "gamedata/excel/gamedata_const.json";
 }
+
+impl SaveJson for StyleTable<'_> {}
+
+impl SaveJson for TermTable<'_> {}
