@@ -81,11 +81,11 @@ struct UpdatedOperatorTable<'a> {
 struct UpdatedOperatorData<'a> {
     name: &'a str,
     rarity: u8,
-    skills: &'a Vec<BaseSkill<'a>>,
+    skills: &'a Vec<BaseSkill>,
 }
 
 impl<'a> OperatorTable<'a> {
-    fn to_updated(self, skill_table: &'a CharSkills<'a>) -> UpdatedOperatorTable<'a> {
+    fn to_updated(self, skill_table: &'a CharSkills) -> UpdatedOperatorTable<'a> {
         let updated = self
             .inner
             .into_iter()

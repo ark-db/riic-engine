@@ -3,15 +3,14 @@ use ahash::HashMap;
 use phf::{phf_map, phf_set, Map, Set};
 use serde::{de, Deserialize, Serialize};
 
-pub(crate) type CharSkills<'a> = HashMap<&'a str, Vec<BaseSkill<'a>>>;
+pub(crate) type CharSkills = HashMap<String, Vec<BaseSkill>>;
 
 #[derive(Deserialize)]
-struct BaseData<'a> {
+pub(crate) struct BaseData {
     #[serde(deserialize_with = "deserialize_skills")]
-    chars: CharSkills<'a>,
-    #[serde(borrow)]
-    rooms: FacilityTable<'a>,
-    buffs: SkillTable<'a>,
+    chars: CharSkills,
+    rooms: FacilityTable,
+    buffs: SkillTable,
 }
 
 #[derive(Deserialize)]
@@ -41,13 +40,13 @@ struct UnprocessedSkillPhase {
 }
 
 #[derive(Serialize)]
-pub(crate) struct BaseSkill<'a> {
-    id: &'a str,
+pub(crate) struct BaseSkill {
+    id: String,
     elite: u8,
     level: u8,
 }
 
-fn deserialize_skills<'de, D>(deserializer: D) -> Result<CharSkills<'de>, D::Error>
+fn deserialize_skills<'de, D>(deserializer: D) -> Result<CharSkills, D::Error>
 where
     D: de::Deserializer<'de>,
 {
@@ -56,17 +55,17 @@ where
 
     Ok(data
         .into_iter()
-        .map(|(char_id, data)| (char_id, data.into()))
+        .map(|(char_id, data)| (char_id.to_string(), data.into()))
         .collect())
 }
 
-impl<'a> From<UnprocessedCharEntry<'a>> for Vec<BaseSkill<'a>> {
+impl<'a> From<UnprocessedCharEntry<'a>> for Vec<BaseSkill> {
     fn from(value: UnprocessedCharEntry<'a>) -> Self {
         let mut skills = Vec::with_capacity(2);
         for set in value.inner {
             for skill in set.inner {
                 skills.push(BaseSkill {
-                    id: skill.id,
+                    id: skill.id.to_string(),
                     elite: skill.cond.elite,
                     level: skill.cond.level,
                 });
@@ -76,7 +75,7 @@ impl<'a> From<UnprocessedCharEntry<'a>> for Vec<BaseSkill<'a>> {
     }
 }
 
-type FacilityData<'a> = HashMap<&'a str, Facility<'a>>;
+type FacilityData = HashMap<String, Facility>;
 
 const IGNORED_FACILITIES: Set<&'static str> = phf_set! {
     "elevator", "corridor"
@@ -95,9 +94,9 @@ const FACILITY_COLORS: Map<&'static str, &'static str> = phf_map! {
 };
 
 #[derive(Deserialize, Serialize)]
-struct FacilityTable<'a> {
-    #[serde(flatten, borrow, deserialize_with = "deserialize_facilities")]
-    inner: FacilityData<'a>,
+struct FacilityTable {
+    #[serde(flatten, deserialize_with = "deserialize_facilities")]
+    inner: FacilityData,
 }
 
 #[derive(Deserialize)]
@@ -116,14 +115,14 @@ struct UnprocessedFacilityPhase {
 }
 
 #[derive(Deserialize, Serialize)]
-struct Facility<'a> {
-    name: &'a str,
-    color: &'a str,
+struct Facility {
+    name: String,
+    color: String,
     power: Vec<i16>,
     capacity: Vec<u8>,
 }
 
-fn deserialize_facilities<'de, D>(deserializer: D) -> Result<FacilityData<'de>, D::Error>
+fn deserialize_facilities<'de, D>(deserializer: D) -> Result<FacilityData, D::Error>
 where
     D: de::Deserializer<'de>,
 {
@@ -132,11 +131,11 @@ where
     Ok(data
         .into_iter()
         .filter(|(_, data)| !IGNORED_FACILITIES.contains(&data.id.to_lowercase()))
-        .map(|(id, data)| (id, data.into()))
+        .map(|(id, data)| (id.to_string(), data.into()))
         .collect())
 }
 
-impl<'a> From<UnprocessedFacility<'a>> for Facility<'a> {
+impl<'a> From<UnprocessedFacility<'a>> for Facility {
     fn from(value: UnprocessedFacility<'a>) -> Self {
         let (mut power, mut capacity) = (Vec::with_capacity(5), Vec::with_capacity(5));
         for phase in value.phases {
@@ -146,10 +145,11 @@ impl<'a> From<UnprocessedFacility<'a>> for Facility<'a> {
 
         let color = FACILITY_COLORS
             .get_key(&value.id.to_lowercase())
-            .unwrap_or_else(|| panic!("Facility '{}' did not have an associated color", &value.id));
+            .unwrap_or_else(|| panic!("Facility '{}' did not have an associated color", &value.id))
+            .to_string();
 
         Self {
-            name: value.name,
+            name: value.name.to_string(),
             color,
             power,
             capacity,
@@ -158,29 +158,29 @@ impl<'a> From<UnprocessedFacility<'a>> for Facility<'a> {
 }
 
 #[derive(Deserialize, Serialize)]
-struct SkillTable<'a> {
-    #[serde(flatten, borrow)]
-    inner: HashMap<&'a str, SkillInfo<'a>>,
+struct SkillTable {
+    #[serde(flatten)]
+    inner: HashMap<String, SkillInfo>,
 }
 
 #[derive(Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
-struct SkillInfo<'a> {
+struct SkillInfo {
     #[serde(rename(deserialize = "buffName"))]
-    name: &'a str,
+    name: String,
     #[serde(rename(deserialize = "description"))]
-    desc: &'a str,
+    desc: String,
     #[serde(rename(deserialize = "skillIcon"))]
-    icon_id: &'a str,
+    icon_id: String,
 }
 
-impl Fetch for BaseData<'_> {
+impl Fetch for BaseData {
     const FETCH_PATH: &'static str = "gamedata/excel/building_data.json";
 }
 
-impl SaveJson for FacilityTable<'_> {}
+impl SaveJson for FacilityTable {}
 
-impl FetchImage for FacilityTable<'_> {
+impl FetchImage for FacilityTable {
     const FETCH_DIR: &'static str = "arts/building/buffs";
 
     fn image_ids(&self) -> Vec<String> {
@@ -188,9 +188,9 @@ impl FetchImage for FacilityTable<'_> {
     }
 }
 
-impl SaveJson for SkillTable<'_> {}
+impl SaveJson for SkillTable {}
 
-impl FetchImage for SkillTable<'_> {
+impl FetchImage for SkillTable {
     const FETCH_DIR: &'static str = "torappu/dynamicassets/arts/building/skills";
 
     fn image_ids(&self) -> Vec<String> {
