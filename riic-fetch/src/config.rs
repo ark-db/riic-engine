@@ -1,4 +1,3 @@
-use ahash::HashMap;
 use serde::{de, Deserialize};
 use std::{
     fs::read_to_string,
@@ -14,7 +13,6 @@ pub struct Config {
     pub(crate) facility: SaveConfig,
     pub(crate) terms_path: PathBuf,
     pub(crate) styles_path: PathBuf,
-    pub(crate) name_overrides: HashMap<String, String>,
     pub(crate) item_whitelist: Vec<String>,
     pub(crate) min_image_size: u32,
 }
