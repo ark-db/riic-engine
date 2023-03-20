@@ -89,7 +89,7 @@ pub enum SaveError {
 trait SaveJson: Serialize {
     fn save_json<P: AsRef<Path>>(&self, path: P) -> Result<(), SaveError> {
         let file = File::create(path)?;
-        serde_json::to_writer(file, self).map_err(SaveError::Serde)
+        serde_json::to_writer_pretty(file, self).map_err(SaveError::Serde)
     }
 }
 
