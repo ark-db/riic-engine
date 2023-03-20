@@ -8,9 +8,9 @@ pub(crate) type CharSkills = HashMap<String, Vec<BaseSkill>>;
 #[derive(Deserialize)]
 pub(crate) struct BaseData {
     #[serde(deserialize_with = "deserialize_skills")]
-    chars: CharSkills,
-    rooms: FacilityTable,
-    buffs: SkillTable,
+    pub(crate) chars: CharSkills,
+    pub(crate) rooms: FacilityTable,
+    pub(crate) buffs: SkillTable,
 }
 
 #[derive(Deserialize)]
@@ -94,7 +94,7 @@ const FACILITY_COLORS: Map<&'static str, &'static str> = phf_map! {
 };
 
 #[derive(Deserialize, Serialize)]
-struct FacilityTable {
+pub(crate) struct FacilityTable {
     #[serde(flatten, deserialize_with = "deserialize_facilities")]
     inner: FacilityData,
 }
@@ -143,10 +143,12 @@ impl<'a> From<UnprocessedFacility<'a>> for Facility {
             capacity.push(phase.capacity);
         }
 
-        let color = FACILITY_COLORS
+        let color = (*FACILITY_COLORS
             .get_key(&value.id.to_lowercase())
-            .unwrap_or_else(|| panic!("Facility '{}' did not have an associated color", &value.id))
-            .to_string();
+            .unwrap_or_else(|| {
+                panic!("Facility '{}' did not have an associated color", &value.id)
+            }))
+        .to_string();
 
         Self {
             name: value.name.to_string(),
@@ -158,7 +160,7 @@ impl<'a> From<UnprocessedFacility<'a>> for Facility {
 }
 
 #[derive(Deserialize, Serialize)]
-struct SkillTable {
+pub(crate) struct SkillTable {
     #[serde(flatten)]
     inner: HashMap<String, SkillInfo>,
 }
