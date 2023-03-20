@@ -3,26 +3,26 @@ use ahash::HashMap;
 use serde::{de, Deserialize, Serialize};
 
 #[derive(Deserialize)]
-struct MiscGamedata<'a> {
-    #[serde(borrow, rename = "richTextStyles")]
-    styles: StyleTable<'a>,
+pub(crate) struct MiscGamedata {
+    #[serde(rename = "richTextStyles")]
+    pub(crate) styles: StyleTable,
     #[serde(rename = "termDescriptionDict")]
-    terms: TermTable<'a>,
+    pub(crate) terms: TermTable,
 }
 
-type StyleData<'a> = HashMap<&'a str, String>;
+type StyleData = HashMap<String, String>;
 
 #[derive(Deserialize, Serialize)]
-struct StyleTable<'a> {
-    #[serde(flatten, borrow, deserialize_with = "deserialize_styles")]
-    inner: StyleData<'a>,
+pub(crate) struct StyleTable {
+    #[serde(flatten, deserialize_with = "deserialize_styles")]
+    inner: StyleData,
 }
 
-fn deserialize_styles<'de, D>(deserializer: D) -> Result<StyleData<'de>, D::Error>
+fn deserialize_styles<'de, D>(deserializer: D) -> Result<StyleData, D::Error>
 where
     D: de::Deserializer<'de>,
 {
-    let data: StyleData<'de> = Deserialize::deserialize(deserializer)?;
+    let data: StyleData = Deserialize::deserialize(deserializer)?;
 
     Ok(data
         .into_iter()
@@ -34,12 +34,12 @@ where
         .collect())
 }
 
-type TermData<'a> = HashMap<&'a str, &'a str>;
+type TermData = HashMap<String, String>;
 
 #[derive(Deserialize, Serialize)]
-struct TermTable<'a> {
-    #[serde(flatten, borrow, deserialize_with = "deserialize_terms")]
-    inner: TermData<'a>,
+pub(crate) struct TermTable {
+    #[serde(flatten, deserialize_with = "deserialize_terms")]
+    inner: TermData,
 }
 
 #[derive(Deserialize)]
@@ -47,7 +47,7 @@ struct UnprocessedTerm<'a> {
     description: &'a str,
 }
 
-fn deserialize_terms<'de, D>(deserializer: D) -> Result<TermData<'de>, D::Error>
+fn deserialize_terms<'de, D>(deserializer: D) -> Result<TermData, D::Error>
 where
     D: de::Deserializer<'de>,
 {
@@ -55,14 +55,14 @@ where
 
     Ok(data
         .into_iter()
-        .map(|(id, entry)| (id, entry.description))
+        .map(|(id, entry)| (id.to_string(), entry.description.to_string()))
         .collect())
 }
 
-impl Fetch for MiscGamedata<'_> {
+impl Fetch for MiscGamedata {
     const FETCH_PATH: &'static str = "gamedata/excel/gamedata_const.json";
 }
 
-impl SaveJson for StyleTable<'_> {}
+impl SaveJson for StyleTable {}
 
-impl SaveJson for TermTable<'_> {}
+impl SaveJson for TermTable {}
