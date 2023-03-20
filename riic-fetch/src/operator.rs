@@ -95,7 +95,9 @@ impl<'a> OperatorTable<'a> {
                     UpdatedOperatorData {
                         name: data.name,
                         rarity: data.rarity,
-                        skills: skill_table.get(id).unwrap(),
+                        skills: skill_table.get(id).unwrap_or_else(|| {
+                            panic!("Operator '{}' had no base skills", data.name)
+                        }),
                     },
                 )
             })

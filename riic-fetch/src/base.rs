@@ -144,7 +144,9 @@ impl<'a> From<UnprocessedFacility<'a>> for Facility<'a> {
             capacity.push(phase.capacity);
         }
 
-        let color = FACILITY_COLORS.get_key(&value.id.to_lowercase()).unwrap();
+        let color = FACILITY_COLORS
+            .get_key(&value.id.to_lowercase())
+            .unwrap_or_else(|| panic!("Facility '{}' did not have an associated color", &value.id));
 
         Self {
             name: value.name,
