@@ -19,7 +19,7 @@ export type SaveData = {
 		rr: Facility;
 		office: Facility;
 		train: NoShiftFacility;
-		dorm: Facility[];
+		dorm: FixedLengthArray<[Facility, Facility, Facility, Facility]>;
 	};
 	chars: {
 		char: string;
@@ -57,6 +57,12 @@ type Shift = {
 type TradingProduct = 'lmd' | 'orundum';
 
 type FactoryProduct = 'exp200' | 'exp400' | 'exp1000' | 'gold' | 'shard';
+
+type ArrayLengthMutationKeys = 'splice' | 'push' | 'pop' | 'shift' | 'unshift' | number;
+type ArrayItems<T extends unknown[]> = T extends Array<infer TItems> ? TItems : never;
+type FixedLengthArray<T extends unknown[]> = Pick<T, Exclude<keyof T, ArrayLengthMutationKeys>> & {
+	[Symbol.iterator]: () => IterableIterator<ArrayItems<T>>;
+};
 
 export type FacilityName =
 	| 'control'
