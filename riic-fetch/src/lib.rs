@@ -29,7 +29,7 @@ use image::{
     load_from_memory_with_format, ColorType, ImageFormat,
 };
 use reqwest::Client;
-use serde::{Deserialize, Serialize};
+use serde::{de::DeserializeOwned, Serialize};
 use std::{
     borrow::Cow,
     cmp::min,
@@ -66,7 +66,7 @@ trait Fetch {
 
     async fn fetch(client: &Client, server: Server) -> Result<Self, FetchError>
     where
-        for<'de> Self: Sized + Deserialize<'de>,
+        Self: Sized + DeserializeOwned,
     {
         let url = format!(
             "https://raw.githubusercontent.com/Kengxxiao/ArknightsGameData/master/{}/{}",
@@ -93,10 +93,15 @@ pub enum SaveError {
     Serde(#[from] serde_json::Error),
 }
 
-trait SaveJson: Serialize {
-    fn save_json<P: AsRef<Path>>(&self, path: P) -> Result<(), SaveError> {
+trait SaveJson {
+    fn save_json<P>(&self, path: P) -> Result<(), SaveError>
+    where
+        Self: Serialize,
+        P: AsRef<Path>,
+    {
         let file = File::create(path)?;
-        serde_json::to_writer_pretty(file, self).map_err(SaveError::Serde)
+        serde_json::to_writer_pretty(file, self)?;
+        Ok(())
     }
 }
 
@@ -161,18 +166,26 @@ trait FetchImage {
 
         let file = File::create(target_path)?;
 
-        WebPEncoder::new_with_quality(file, WebPQuality::lossy(quality))
-            .encode(&image, image.width(), image.height(), ColorType::Rgba8)
-            .map_err(ImageSaveError::Image)
+        WebPEncoder::new_with_quality(file, WebPQuality::lossy(quality)).encode(
+            &image,
+            image.width(),
+            image.height(),
+            ColorType::Rgba8,
+        )?;
+
+        Ok(())
     }
 
-    async fn save_images<P: AsRef<Path>>(
+    async fn save_images<P>(
         &self,
         client: &Client,
         target_dir: P,
         quality: u8,
         min_size: u32,
-    ) -> Result<(), ImageSaveError> {
+    ) -> Result<(), ImageSaveError>
+    where
+        P: AsRef<Path>,
+    {
         if !target_dir.as_ref().is_dir() {
             create_dir_all(&target_dir)?;
         }
