@@ -29,7 +29,13 @@ use image::{
 };
 use reqwest::Client;
 use serde::{Deserialize, Serialize};
-use std::{borrow::Cow, cmp::min, fs::File, path::Path, time::Duration};
+use std::{
+    borrow::Cow,
+    cmp::min,
+    fs::{create_dir_all, File},
+    path::Path,
+    time::Duration,
+};
 use thiserror::Error;
 use tokio as _;
 
@@ -159,13 +165,17 @@ trait FetchImage {
             .map_err(ImageSaveError::Image)
     }
 
-    async fn save_images<P: AsRef<Path> + Send>(
+    async fn save_images<P: AsRef<Path>>(
         &self,
         client: &Client,
         target_dir: P,
         quality: u8,
         min_size: u32,
     ) -> Result<(), ImageSaveError> {
+        if !target_dir.as_ref().is_dir() {
+            create_dir_all(&target_dir)?;
+        }
+
         self.image_ids()
             .into_iter()
             .map(|id| Self::save_image(client, id, target_dir.as_ref(), quality, min_size))
