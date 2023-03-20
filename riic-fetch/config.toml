@@ -13,7 +13,7 @@ image_dir = "../static/skills"
 quality = 50
 
 [facility]
-data_path = "../src/lib/facilities.json"
+data_path = "../src/lib/data/facilities.json"
 image_dir = "../static/facilities"
 quality = 100
 

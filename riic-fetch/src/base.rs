@@ -21,7 +21,7 @@ struct UnprocessedCharEntry<'a> {
 
 #[derive(Deserialize)]
 struct UnprocessedSkillSet<'a> {
-    #[serde(borrow, rename = "buffChar")]
+    #[serde(borrow, rename = "buffData")]
     inner: Vec<UnprocessedSkill<'a>>,
 }
 
@@ -131,7 +131,7 @@ where
     Ok(data
         .into_iter()
         .filter(|(_, data)| !IGNORED_FACILITIES.contains(&data.id.to_lowercase()))
-        .map(|(id, data)| (id.to_string(), data.into()))
+        .map(|(id, data)| (id.to_lowercase(), data.into()))
         .collect())
 }
 
@@ -144,7 +144,7 @@ impl<'a> From<UnprocessedFacility<'a>> for Facility {
         }
 
         let color = (*FACILITY_COLORS
-            .get_key(&value.id.to_lowercase())
+            .get(&value.id.to_lowercase())
             .unwrap_or_else(|| {
                 panic!("Facility '{}' did not have an associated color", &value.id)
             }))
@@ -186,7 +186,7 @@ impl FetchImage for FacilityTable {
     const FETCH_DIR: &'static str = "arts/building/buffs";
 
     fn image_ids(&self) -> Vec<String> {
-        self.inner.keys().map(|k| (*k).to_string()).collect()
+        self.inner.keys().map(|k| k.to_lowercase()).collect()
     }
 }
 
@@ -202,6 +202,6 @@ impl FetchImage for SkillTable {
     const FETCH_DIR: &'static str = "torappu/dynamicassets/arts/building/skills";
 
     fn image_ids(&self) -> Vec<String> {
-        self.inner.keys().map(|k| (*k).to_string()).collect()
+        self.inner.values().map(|v| v.icon_id.clone()).collect()
     }
 }

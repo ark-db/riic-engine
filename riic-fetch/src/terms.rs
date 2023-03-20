@@ -43,20 +43,20 @@ pub(crate) struct TermTable {
 }
 
 #[derive(Deserialize)]
-struct UnprocessedTerm<'a> {
-    description: &'a str,
+struct UnprocessedTerm {
+    description: String,
 }
 
 fn deserialize_terms<'de, D>(deserializer: D) -> Result<TermData, D::Error>
 where
     D: de::Deserializer<'de>,
 {
-    let data: HashMap<&'de str, UnprocessedTerm<'de>> = Deserialize::deserialize(deserializer)?;
+    let data: HashMap<&'de str, UnprocessedTerm> = Deserialize::deserialize(deserializer)?;
 
     Ok(data
         .into_iter()
         .filter(|(id, _)| id.starts_with("cc"))
-        .map(|(id, entry)| (id.to_string(), entry.description.to_string()))
+        .map(|(id, entry)| (id.to_string(), entry.description))
         .collect())
 }
 

@@ -68,14 +68,14 @@ where
 #[derive(Deserialize)]
 #[serde(rename_all = "UPPERCASE")]
 enum Profession {
-    Vanguard,
-    Guard,
-    Defender,
+    Pioneer, // Vanguard
+    Warrior, // Guard
+    Tank,    // Defender
     Sniper,
     Caster,
     Medic,
-    Supporter,
-    Specialist,
+    Support, // Supporter
+    Special, // Specialist
     Token,
     Trap,
 }

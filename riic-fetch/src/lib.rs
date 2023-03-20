@@ -116,7 +116,7 @@ trait FetchImage {
         quality: u8,
         min_size: u32,
     ) -> Result<(), ImageSaveError> {
-        let target_path = target_dir.join(&id).with_extension(".webp");
+        let target_path = target_dir.join(&id).with_extension("webp");
 
         if target_path.is_file() {
             return Ok(());
