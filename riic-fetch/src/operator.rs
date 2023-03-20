@@ -3,27 +3,27 @@ use crate::{Fetch, FetchImage, SaveJson};
 use ahash::HashMap;
 use serde::{de, Deserialize, Serialize};
 
-type OpTable<'a> = HashMap<&'a str, OperatorData<'a>>;
+type OpTable = HashMap<String, OperatorData>;
 
 #[derive(Deserialize)]
-struct OperatorTable<'a> {
-    #[serde(flatten, borrow, deserialize_with = "deserialize_ops")]
-    inner: OpTable<'a>,
+pub(crate) struct OperatorTable {
+    #[serde(flatten, deserialize_with = "deserialize_ops")]
+    inner: OpTable,
 }
 
-fn deserialize_ops<'de, D>(deserializer: D) -> Result<OpTable<'de>, D::Error>
+fn deserialize_ops<'de, D>(deserializer: D) -> Result<OpTable, D::Error>
 where
     D: de::Deserializer<'de>,
 {
-    let mut table: OpTable<'de> = Deserialize::deserialize(deserializer)?;
+    let mut table: OpTable = Deserialize::deserialize(deserializer)?;
     table.retain(|_, data| data.is_operator());
     Ok(table)
 }
 
 #[derive(Deserialize)]
-struct OperatorData<'a> {
+struct OperatorData {
     #[serde(rename = "appellation")]
-    name: &'a str,
+    name: String,
     #[serde(deserialize_with = "deserialize_rarity")]
     rarity: u8,
     #[serde(rename = "isNotObtainable")]
@@ -61,43 +61,43 @@ enum Profession {
     Trap,
 }
 
-impl OperatorData<'_> {
+impl OperatorData {
     fn is_operator(&self) -> bool {
         !self.unobtainable && !matches!(self.profession, Profession::Token | Profession::Trap)
     }
 }
 
-impl Fetch for OperatorTable<'_> {
+impl Fetch for OperatorTable {
     const FETCH_PATH: &'static str = "gamedata/excel/character_table.json";
 }
 
 #[derive(Serialize)]
 struct UpdatedOperatorTable<'a> {
     #[serde(flatten)]
-    inner: HashMap<&'a str, UpdatedOperatorData<'a>>,
+    inner: HashMap<String, UpdatedOperatorData<'a>>,
 }
 
 #[derive(Serialize)]
 struct UpdatedOperatorData<'a> {
-    name: &'a str,
+    name: String,
     rarity: u8,
     skills: &'a Vec<BaseSkill>,
 }
 
-impl<'a> OperatorTable<'a> {
-    fn to_updated(self, skill_table: &'a CharSkills) -> UpdatedOperatorTable<'a> {
+impl OperatorTable {
+    fn to_updated<'a>(self, skill_table: &CharSkills) -> UpdatedOperatorTable<'_> {
         let updated = self
             .inner
             .into_iter()
             .map(|(id, data)| {
                 (
-                    id,
+                    id.clone(),
                     UpdatedOperatorData {
                         name: data.name,
                         rarity: data.rarity,
-                        skills: skill_table.get(id).unwrap_or_else(|| {
-                            panic!("Operator '{}' had no base skills", data.name)
-                        }),
+                        skills: skill_table
+                            .get(&id)
+                            .unwrap_or_else(|| panic!("Operator '{id}' had no base skills")),
                     },
                 )
             })
