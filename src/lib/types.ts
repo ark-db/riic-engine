@@ -43,6 +43,7 @@ export type BoostFacility<P> = Facility & {
 	}[];
 	products: {
 		kind: P;
+		start: number;
 		end: number;
 	}[];
 };

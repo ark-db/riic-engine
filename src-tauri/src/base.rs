@@ -66,6 +66,7 @@ struct Boost {
 #[serde(deny_unknown_fields)]
 struct Product<T> {
     kind: T,
+    start: ShiftCount,
     end: ShiftCount,
 }
 
