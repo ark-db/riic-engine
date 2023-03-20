@@ -8,12 +8,12 @@ RIIC Engine is a standalone desktop app for simulating Arknights base setups. Th
 2. Run `npm i` to install dependencies
 3. Run `npm run tauri dev` to start the app in dev mode or `npm run tauri build` to build the app
 
-To update game assets used in the app:
+Useful commands:
 
-1. Make sure [Python](https://www.python.org/downloads/) (3.11+) and [Poetry](https://python-poetry.org/docs/#installation) are installed
-2. Run `poetry env use 3.11` to set up a virtual environment
-3. Run `poetry install` to install dependencies
-4. Run `poetry run python scripts/main.py` to fetch the latest assets
+- `npm run format` to format all project files
+- `npm run lint` to lint all project files
+- `npm run update` to update all dependencies
+- `npm run fetch` to fetch the latest assets
 
 ## License
 

@@ -6,4 +6,5 @@ build
 .svelte-kit
 
 # Rust
+riic-fetch/target
 src-tauri/target

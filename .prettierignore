@@ -2,7 +2,7 @@ node_modules
 /build
 /.svelte-kit
 
-/.venv
+/riic-fetch
 /src/lib/images
 /src-tauri/icons
 /src-tauri/src

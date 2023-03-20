@@ -1,0 +1,26 @@
+terms_path = "../src/lib/data/terms.json"
+styles_path = "../src/lib/data/text-colors.json"
+min_image_size = 60
+
+[operator]
+data_path = "../src/lib/data/chars.json"
+image_dir = "../static/chars"
+quality = 25
+
+[skill]
+data_path = "../src/lib/data/skills.json"
+image_dir = "../static/skills"
+quality = 50
+
+[facility]
+data_path = "../src/lib/data/facilities.json"
+image_dir = "../static/facilities"
+quality = 100
+
+[item]
+whitelist = [
+    "AP_BASE", "DIAMOND_SHD", "GOLD", "MTL_DIAMOND_SHD", "MTL_GOLD3", # Drones, Orundum, LMD, Originium Shard, Pure Gold
+    "sprite_exp_card_t1", "sprite_exp_card_t2", "sprite_exp_card_t3", # Battle Records
+]
+image_dir = "../src/lib/images/items"
+quality = 50

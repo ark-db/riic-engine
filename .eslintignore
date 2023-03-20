@@ -2,7 +2,7 @@ node_modules
 /build
 /.svelte-kit
 
-/.venv
+/riic-fetch
 /scripts
 /src/lib/data
 /src/lib/images
