@@ -7,15 +7,17 @@ use std::{
 use thiserror::Error;
 
 #[derive(Deserialize)]
-pub(crate) struct Config {
-    operator: SaveConfig,
-    skill: SaveConfig,
-    item: ImageConfig,
-    elite: ImageConfig,
-    facility: SaveConfig,
-    name_overrides: HashMap<String, String>,
-    item_whitelist: Vec<String>,
-    min_image_size: u32,
+pub struct Config {
+    pub(crate) operator: SaveConfig,
+    pub(crate) skill: SaveConfig,
+    pub(crate) item: ImageConfig,
+    pub(crate) elite: ImageConfig,
+    pub(crate) facility: SaveConfig,
+    pub(crate) terms_path: PathBuf,
+    pub(crate) styles_path: PathBuf,
+    pub(crate) name_overrides: HashMap<String, String>,
+    pub(crate) item_whitelist: Vec<String>,
+    pub(crate) min_image_size: u32,
 }
 
 #[derive(Deserialize)]
@@ -49,7 +51,7 @@ where
 }
 
 #[derive(Error, Debug)]
-enum ConfigError {
+pub enum ConfigError {
     #[error(transparent)]
     Io(#[from] std::io::Error),
     #[error(transparent)]
@@ -57,7 +59,7 @@ enum ConfigError {
 }
 
 impl Config {
-    fn from_toml<P: AsRef<Path>>(path: P) -> Result<Self, ConfigError> {
+    pub fn from_toml<P: AsRef<Path>>(path: P) -> Result<Self, ConfigError> {
         let data = read_to_string(path)?;
         toml::from_str(&data).map_err(ConfigError::Toml)
     }
