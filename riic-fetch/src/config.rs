@@ -1,6 +1,7 @@
 use crate::FetchImage;
 use serde::{de, Deserialize};
 use std::{
+    borrow::Cow,
     fs::read_to_string,
     path::{Path, PathBuf},
 };
@@ -69,7 +70,10 @@ impl Config {
 impl FetchImage for ImageConfig {
     const FETCH_DIR: &'static str = "torappu/dynamicassets/arts/items/icons";
 
-    fn image_ids(&self) -> Vec<String> {
-        self.whitelist.clone()
+    fn image_ids(&self) -> Vec<Cow<'_, str>> {
+        self.whitelist
+            .iter()
+            .map(|s| Cow::Borrowed(s.as_str()))
+            .collect()
     }
 }

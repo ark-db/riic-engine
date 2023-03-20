@@ -3,6 +3,7 @@ use crate::{Fetch, FetchImage, SaveJson};
 use ahash::HashMap;
 use phf::{phf_map, Map};
 use serde::{de, Deserialize, Serialize};
+use std::borrow::Cow;
 
 type OpTable = HashMap<String, OperatorData>;
 
@@ -131,7 +132,10 @@ impl SaveJson for UpdatedOperatorTable<'_> {}
 impl FetchImage for UpdatedOperatorTable<'_> {
     const FETCH_DIR: &'static str = "torappu/dynamicassets/arts/charavatars";
 
-    fn image_ids(&self) -> Vec<String> {
-        self.inner.keys().map(|k| (*k).to_string()).collect()
+    fn image_ids(&self) -> Vec<Cow<'_, str>> {
+        self.inner
+            .keys()
+            .map(|k| Cow::Borrowed(k.as_str()))
+            .collect()
     }
 }

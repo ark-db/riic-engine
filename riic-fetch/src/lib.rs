@@ -29,7 +29,7 @@ use image::{
 };
 use reqwest::Client;
 use serde::{Deserialize, Serialize};
-use std::{cmp::min, fs::File, path::Path, time::Duration};
+use std::{borrow::Cow, cmp::min, fs::File, path::Path, time::Duration};
 use thiserror::Error;
 use tokio as _;
 
@@ -107,16 +107,16 @@ pub enum ImageSaveError {
 trait FetchImage {
     const FETCH_DIR: &'static str;
 
-    fn image_ids(&self) -> Vec<String>;
+    fn image_ids(&self) -> Vec<Cow<'_, str>>;
 
     async fn save_image(
         client: &Client,
-        id: String,
+        id: Cow<'_, str>,
         target_dir: &Path,
         quality: u8,
         min_size: u32,
     ) -> Result<(), ImageSaveError> {
-        let target_path = target_dir.join(&id).with_extension("webp");
+        let target_path = target_dir.join(id.as_ref()).with_extension("webp");
 
         if target_path.is_file() {
             return Ok(());

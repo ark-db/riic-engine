@@ -2,6 +2,7 @@ use crate::{Fetch, FetchImage, SaveJson};
 use ahash::HashMap;
 use phf::{phf_map, phf_set, Map, Set};
 use serde::{de, Deserialize, Serialize};
+use std::borrow::Cow;
 
 pub(crate) type CharSkills = HashMap<String, Vec<BaseSkill>>;
 
@@ -185,8 +186,11 @@ impl SaveJson for FacilityTable {}
 impl FetchImage for FacilityTable {
     const FETCH_DIR: &'static str = "arts/building/buffs";
 
-    fn image_ids(&self) -> Vec<String> {
-        self.inner.keys().map(|k| k.to_lowercase()).collect()
+    fn image_ids(&self) -> Vec<Cow<'_, str>> {
+        self.inner
+            .keys()
+            .map(|k| Cow::Owned(k.to_lowercase()))
+            .collect()
     }
 }
 
@@ -201,7 +205,10 @@ impl SaveJson for SkillTable {}
 impl FetchImage for SkillTable {
     const FETCH_DIR: &'static str = "torappu/dynamicassets/arts/building/skills";
 
-    fn image_ids(&self) -> Vec<String> {
-        self.inner.values().map(|v| v.icon_id.clone()).collect()
+    fn image_ids(&self) -> Vec<Cow<'_, str>> {
+        self.inner
+            .values()
+            .map(|v| Cow::Borrowed(v.icon_id.as_str()))
+            .collect()
     }
 }
