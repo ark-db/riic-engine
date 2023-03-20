@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { activeSave } from '$lib/stores';
-	import type { Facility as FacilityType, BoostFacility as BoostFacilityType } from '$lib/types';
+	import type { Facility as MiscFacility, BoostFacility } from '$lib/types';
 	import Facility from './Facility.svelte';
 	import AddFacility from './AddFacility.svelte';
 
-	function addFacility(facilities: FacilityType[]) {
+	function addFacility(facilities: MiscFacility[]) {
 		facilities.push({
 			level: 1,
 			shifts: []
@@ -13,7 +13,7 @@
 		$activeSave = $activeSave;
 	}
 
-	function addBoostFacility<P>(facilities: BoostFacilityType<P>[]) {
+	function addBoostFacility<P>(facilities: BoostFacility<P>[]) {
 		facilities.push({
 			level: 1,
 			shifts: [],
@@ -24,7 +24,7 @@
 		$activeSave = $activeSave;
 	}
 
-	function deleteFacility<P>(facilities: FacilityType[] | BoostFacilityType<P>[], index: number) {
+	function deleteFacility<P>(facilities: (MiscFacility | BoostFacility<P>)[], index: number) {
 		facilities.splice(index, 1);
 		// notify store subscribers with assignment
 		$activeSave = $activeSave;

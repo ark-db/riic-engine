@@ -22,7 +22,7 @@ struct Layout {
     rr: Facility,
     office: Facility,
     train: NoShiftFacility,
-    dorm: Vec<Facility>,
+    dorm: [Facility; 4],
 }
 
 #[derive(Serialize, Deserialize)]
@@ -139,7 +139,7 @@ impl Default for Layout {
             rr: Facility::new(0),
             office: Facility::new(0),
             train: NoShiftFacility::new(0),
-            dorm: vec![
+            dorm: [
                 Facility::new(1),
                 Facility::new(0),
                 Facility::new(0),
