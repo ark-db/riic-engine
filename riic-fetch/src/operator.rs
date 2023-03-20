@@ -1,5 +1,5 @@
 use crate::base::{BaseSkill, CharSkills};
-use crate::{Fetch, SaveJson};
+use crate::{Fetch, FetchImage, SaveJson};
 use ahash::HashMap;
 use serde::{de, Deserialize, Serialize};
 
@@ -108,3 +108,11 @@ impl<'a> OperatorTable<'a> {
 }
 
 impl SaveJson for UpdatedOperatorTable<'_> {}
+
+impl FetchImage for UpdatedOperatorTable<'_> {
+    const FETCH_DIR: &'static str = "torappu/dynamicassets/arts/charavatars";
+
+    fn image_ids(&self) -> Vec<String> {
+        self.inner.keys().map(|k| (*k).to_string()).collect()
+    }
+}

@@ -1,4 +1,4 @@
-use crate::{Fetch, SaveJson};
+use crate::{Fetch, FetchImage, SaveJson};
 use ahash::HashMap;
 use phf::{phf_map, phf_set, Map, Set};
 use serde::{de, Deserialize, Serialize};
@@ -180,4 +180,20 @@ impl Fetch for BaseData<'_> {
 
 impl SaveJson for FacilityTable<'_> {}
 
+impl FetchImage for FacilityTable<'_> {
+    const FETCH_DIR: &'static str = "arts/building/buffs";
+
+    fn image_ids(&self) -> Vec<String> {
+        self.inner.keys().map(|k| (*k).to_string()).collect()
+    }
+}
+
 impl SaveJson for SkillTable<'_> {}
+
+impl FetchImage for SkillTable<'_> {
+    const FETCH_DIR: &'static str = "torappu/dynamicassets/arts/building/skills";
+
+    fn image_ids(&self) -> Vec<String> {
+        self.inner.keys().map(|k| (*k).to_string()).collect()
+    }
+}
