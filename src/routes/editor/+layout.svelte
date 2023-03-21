@@ -98,6 +98,7 @@
 		font-size: 1.5em;
 	}
 	.top-bar {
+		/* --font-size is used in ./NumberInput.svelte */
 		--font-size: clamp(1.25em, 2.5vh, 1.5em);
 		grid-row: 1 / 2;
 		grid-column: 2 / 3;
