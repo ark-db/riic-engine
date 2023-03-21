@@ -13,7 +13,7 @@
 		$activeSave = $activeSave;
 	}
 
-	function addBoostFacility<P>(facilities: BoostFacility<P>[]) {
+	function addBoostFacility(facilities: BoostFacility[]) {
 		facilities.push({
 			level: 1,
 			shifts: [],
@@ -24,7 +24,7 @@
 		$activeSave = $activeSave;
 	}
 
-	function deleteFacility<P>(facilities: (MiscFacility | BoostFacility<P>)[], index: number) {
+	function deleteFacility(facilities: (MiscFacility | BoostFacility)[], index: number) {
 		facilities.splice(index, 1);
 		// notify store subscribers with assignment
 		$activeSave = $activeSave;

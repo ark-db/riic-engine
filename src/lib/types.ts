@@ -12,8 +12,8 @@ export type ActiveSave = {
 export type SaveData = {
 	layout: {
 		cc: Facility;
-		tp: BoostFacility<TradingProduct>[];
-		fac: BoostFacility<FactoryProduct>[];
+		tp: TradingPost[];
+		fac: Factory[];
 		pp: Facility[];
 		workshop: NoShiftFacility;
 		rr: Facility;
@@ -36,7 +36,7 @@ type NoShiftFacility = {
 
 export type Facility = NoShiftFacility & { shifts: Shift[] };
 
-export type BoostFacility<P> = Facility & {
+type BoostFacilityBase<P> = Facility & {
 	boosts: {
 		drones: number;
 		col: number;
@@ -47,6 +47,10 @@ export type BoostFacility<P> = Facility & {
 		end: number;
 	}[];
 };
+
+type TradingPost = BoostFacilityBase<TradingProduct>;
+type Factory = BoostFacilityBase<FactoryProduct>;
+export type BoostFacility = TradingPost | Factory;
 
 type Shift = {
 	char: string;

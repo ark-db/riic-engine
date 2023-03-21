@@ -11,12 +11,15 @@ pub struct Save {
     interval: u16,      // Duration of one shift (in minutes)
 }
 
+type TradingPost = BoostFacility<TradingProduct>;
+type Factory = BoostFacility<FactoryProduct>;
+
 #[derive(Serialize, Deserialize)]
 #[serde(deny_unknown_fields)]
 struct Layout {
     cc: Facility,
-    tp: Vec<BoostFacility<TradingProduct>>,
-    fac: Vec<BoostFacility<FactoryProduct>>,
+    tp: Vec<TradingPost>,
+    fac: Vec<Factory>,
     pp: Vec<Facility>,
     workshop: NoShiftFacility,
     rr: Facility,
