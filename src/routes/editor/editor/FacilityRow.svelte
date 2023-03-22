@@ -2,12 +2,13 @@
 	import FacilityIcon from '$lib/components/FacilityIcon.svelte';
 	import facilities from '$lib/data/facilities.json';
 	import { tooltip } from '$lib/tooltip';
-	import type { FacilityName } from '$lib/types';
+	import type { FacilityName, Facility, BoostFacility } from '$lib/types';
 
 	export let kind: FacilityName;
 	export let height: number;
+	export let room: Facility | BoostFacility;
 
-	const rowOpacity = 0.75;
+	const rowOpacity = 0.7;
 	let { name, color } = facilities[kind];
 
 	// Converts a hex triplet into the CSS rgb() format
@@ -20,18 +21,24 @@
 	}
 </script>
 
-<div
-	class="container"
-	style="--height: {height}px; --color: {color}; --color-a: {hexToRgb(color, rowOpacity)}"
->
+<div class="container" style="--color: {color}; --color-a: {hexToRgb(color, rowOpacity)}">
 	<div class="edge" use:tooltip={name}>
 		<FacilityIcon {kind} size={24} />
+	</div>
+	<div class="main" style="--height: {height}px;">
+		{#if 'products' in room}
+			<div class="products">
+				<!-- TODO -->
+			</div>
+		{/if}
+		<div class="chars">
+			<!-- TODO -->
+		</div>
 	</div>
 </div>
 
 <style>
 	.container {
-		height: var(--height);
 		display: flex;
 		background-color: var(--color-a);
 	}
@@ -41,5 +48,18 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
+	}
+	.main {
+		flex-grow: 1;
+	}
+	.products {
+		--row-height: calc(var(--height) / 5);
+		--shadow-size: calc(var(--row-height) / 16);
+		height: var(--row-height);
+		box-shadow: calc(var(--shadow-size) / 2) var(--shadow-size) var(--shadow-size) rgb(0 0 0 / 0.5);
+		background-color: var(--darkish);
+	}
+	.chars {
+		height: var(--height);
 	}
 </style>

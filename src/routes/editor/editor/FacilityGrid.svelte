@@ -14,31 +14,31 @@
 	style="--width: {rowWidth}px; --row-gap: {rowGap}px;"
 	bind:clientHeight={gridHeight}
 >
-	<FacilityRow kind="control" height={rowHeight} />
+	<FacilityRow kind="control" height={rowHeight} bind:room={$activeSave.data.layout.cc} />
 
-	{#each $activeSave.data.layout.tp as _}
-		<FacilityRow kind="trading" height={rowHeight} />
+	{#each $activeSave.data.layout.tp as room}
+		<FacilityRow kind="trading" height={rowHeight} bind:room />
 	{/each}
 
-	{#each $activeSave.data.layout.fac as _}
-		<FacilityRow kind="manufacture" height={rowHeight} />
+	{#each $activeSave.data.layout.fac as room}
+		<FacilityRow kind="manufacture" height={rowHeight} bind:room />
 	{/each}
 
-	{#each $activeSave.data.layout.pp as _}
-		<FacilityRow kind="power" height={rowHeight} />
+	{#each $activeSave.data.layout.pp as room}
+		<FacilityRow kind="power" height={rowHeight} bind:room />
 	{/each}
 
 	{#if $activeSave.data.layout.rr.level > 0}
-		<FacilityRow kind="meeting" height={rowHeight} />
+		<FacilityRow kind="meeting" height={rowHeight} bind:room={$activeSave.data.layout.rr} />
 	{/if}
 
 	{#if $activeSave.data.layout.office.level > 0}
-		<FacilityRow kind="hire" height={rowHeight} />
+		<FacilityRow kind="hire" height={rowHeight} bind:room={$activeSave.data.layout.office} />
 	{/if}
 
 	{#each $activeSave.data.layout.dorm as room}
 		{#if room.level > 0}
-			<FacilityRow kind="dormitory" height={rowHeight} />
+			<FacilityRow kind="dormitory" height={rowHeight} bind:room />
 		{/if}
 	{/each}
 </div>
