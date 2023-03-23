@@ -1,0 +1,30 @@
+{
+	"lmd": {
+		"name": "LMD",
+		"rarity": 4
+	},
+	"orundum": {
+		"name": "Orundum",
+		"rarity": 5
+	},
+	"exp200": {
+		"name": "Drill Battle Record",
+		"rarity": 2
+	},
+	"exp400": {
+		"name": "Frontline Battle Record",
+		"rarity": 3
+	},
+	"exp1000": {
+		"name": "Tactical Battle Record",
+		"rarity": 4
+	},
+	"gold": {
+		"name": "Pure Gold",
+		"rarity": 4
+	},
+	"shard": {
+		"name": "Originium Shard",
+		"rarity": 5
+	}
+}
