@@ -5,7 +5,8 @@
 	import type { FacilityName, Facility, BoostFacility } from '$lib/types';
 
 	export let kind: FacilityName;
-	export let height: number;
+	export let rowHeight: number;
+	export let columnWidth: number;
 	export let room: Facility | BoostFacility;
 
 	const rowOpacity = 0.7;
@@ -25,10 +26,11 @@
 	<div class="edge" use:tooltip={name}>
 		<FacilityIcon {kind} size={24} />
 	</div>
-	<div class="main" style="--height: {height}px;">
+	<div class="main" style="--height: {rowHeight}px;">
 		{#if 'products' in room}
 			<div class="products">
 				<!-- TODO -->
+				{columnWidth}
 			</div>
 		{/if}
 		<div class="chars">

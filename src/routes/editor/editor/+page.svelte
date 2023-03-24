@@ -23,6 +23,6 @@
 
 <ColumnLines {columnWidth} bind:gridWidth {gridHeight} />
 
-<FacilityGrid {rowWidth} {rowHeight} bind:gridHeight />
+<FacilityGrid {rowWidth} {rowHeight} {columnWidth} bind:gridHeight />
 
 <ZoomControls />
