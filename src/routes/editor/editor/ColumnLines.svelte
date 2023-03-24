@@ -1,14 +1,14 @@
 <script lang="ts">
 	import { activeSave } from '$lib/stores';
 
-	export let columnGap: number;
+	export let columnWidth: number;
 	export let gridWidth: number;
 	export let gridHeight: number;
 </script>
 
 <div
 	class="markers"
-	style="--column-gap: {columnGap}px; --column-height: {gridHeight}px;"
+	style="--column-width: {columnWidth}px; --column-height: {gridHeight}px;"
 	bind:clientWidth={gridWidth}
 >
 	{#each { length: $activeSave.data.maxShift } as _, i}
@@ -24,9 +24,9 @@
 		z-index: 1;
 		position: absolute;
 		top: 0.35em;
-		left: calc(3.5em + var(--column-gap));
+		left: calc(3.5em + var(--column-width));
 		display: flex;
-		column-gap: var(--column-gap);
+		column-gap: var(--column-width);
 	}
 	.column-marker {
 		width: 1em;

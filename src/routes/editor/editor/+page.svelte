@@ -6,14 +6,14 @@
 
 	const { xScale, yScale } = zoomScales;
 
-	const baseColumnGap = 32;
+	const baseColumnWidth = 32;
 	const baseRowHeight = 72;
 
 	let gridWidth: number;
 	let gridHeight: number;
 
-	$: columnGap = $xScale * baseColumnGap;
-	$: rowWidth = gridWidth + columnGap + 37;
+	$: columnWidth = $xScale * baseColumnWidth;
+	$: rowWidth = gridWidth + columnWidth + 37;
 	$: rowHeight = $yScale * baseRowHeight;
 </script>
 
@@ -21,7 +21,7 @@
 	<title>RIIC Engine • Editor</title>
 </svelte:head>
 
-<ColumnLines {columnGap} bind:gridWidth {gridHeight} />
+<ColumnLines {columnWidth} bind:gridWidth {gridHeight} />
 
 <FacilityGrid {rowWidth} {rowHeight} bind:gridHeight />
 
