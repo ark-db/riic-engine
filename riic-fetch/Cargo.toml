@@ -10,9 +10,9 @@ publish = false
 
 [dependencies]
 ahash = { version = "0.8.3", features = ["serde"] }
-async-trait = "0.1.67"
+async-trait = "0.1.68"
 futures = "0.3.27"
-image = { version = "0.24.5", default-features = false, features = ["png", "webp", "webp-encoder"] }
+image = { version = "0.24.6", default-features = false, features = ["png", "webp", "webp-encoder"] }
 phf = { version = "0.11.1", features = ["macros"] }
 reqwest = { version = "0.11.15", default-features = false, features = ["rustls-tls", "json"] }
 serde = { version = "1.0.158", features = ["derive"] }
