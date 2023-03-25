@@ -21,7 +21,7 @@
 		if (event.key === 'Enter') input.blur();
 	}
 
-	// Updates the save name if the new name is valid
+	// Updates the save name if the new name is valid and different from the old name
 	function handleSubmit() {
 		active = false;
 		let name = parseText(text);

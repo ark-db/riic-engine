@@ -31,7 +31,7 @@ pub enum CmdError {
     Time(#[from] std::time::SystemTimeError),
 
     #[error("An error occurred while reading from or writing to the save file")]
-    FileWrite(#[from] serde_json::Error),
+    Serde(#[from] serde_json::Error),
 
     #[error("A save file name was not specified")]
     NameEmpty,
