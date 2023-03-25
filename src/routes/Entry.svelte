@@ -16,7 +16,7 @@
 	let focused = false;
 
 	// Checks if this component instance contains the currently-focused element. Works with keyboard navigation!
-	function handleFocus(event: FocusEvent) {
+	function handleFocusChange(event: FocusEvent) {
 		type FocusEventType = 'focusin' | 'focusout';
 
 		// Test different target element depending on the event type
@@ -24,23 +24,23 @@
 		focused = target instanceof Node && container?.contains(target);
 	}
 
-	function formatStr(num: number, unit: string): string {
-		return `${num} ${unit}${num === 1 ? '' : 's'} ago`;
+	// Formats an elapsed duration (in seconds) as a human-readable string
+	function formatElapsedTime(secs: number): string {
+		if (secs === 0) {
+			return 'Just now';
+		} else if (secs < 60) {
+			return formatStr(secs, 'second');
+		} else if (secs < 60 * 60) {
+			return formatStr(Math.floor(secs / 60), 'minute');
+		} else if (secs < 60 * 60 * 24) {
+			return formatStr(Math.floor(secs / (60 * 60)), 'hour');
+		} else {
+			return formatStr(Math.floor(secs / (60 * 60 * 24)), 'day');
+		}
 	}
 
-	// Formats an elapsed duration (in seconds) as a human-readable string
-	function formatTime(secsElapsed: number): string {
-		if (secsElapsed === 0) {
-			return 'Just now';
-		} else if (secsElapsed < 60) {
-			return formatStr(secsElapsed, 'second');
-		} else if (secsElapsed < 60 * 60) {
-			return formatStr(Math.floor(secsElapsed / 60), 'minute');
-		} else if (secsElapsed < 60 * 60 * 24) {
-			return formatStr(Math.floor(secsElapsed / (60 * 60)), 'hour');
-		} else {
-			return formatStr(Math.floor(secsElapsed / (60 * 60 * 24)), 'day');
-		}
+	function formatStr(num: number, unit: string): string {
+		return `${num} ${unit}${num === 1 ? '' : 's'} ago`;
 	}
 
 	// Deletes a save file
@@ -63,8 +63,8 @@
 		bind:this={container}
 		on:mouseenter={() => (hovering = true)}
 		on:mouseleave={() => (hovering = false)}
-		on:focusin={handleFocus}
-		on:focusout={handleFocus}
+		on:focusin={handleFocusChange}
+		on:focusout={handleFocusChange}
 	>
 		{#if pendingRename}
 			<NameInput bind:text={save.name} bind:active={pendingRename} />
@@ -85,7 +85,7 @@
 				/>
 			{:else}
 				<p class="time">
-					{formatTime(Math.round(save[$saveSortMode.mode]))}
+					{formatElapsedTime(Math.round(save[$saveSortMode.mode]))}
 				</p>
 			{/if}
 		</div>

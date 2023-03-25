@@ -22,7 +22,7 @@
 	}
 
 	// Updates the save name if the new name is valid
-	function updateText() {
+	function handleSubmit() {
 		active = false;
 		let name = parseText(text);
 		if (!name) {
@@ -60,7 +60,7 @@
 	bind:this={input}
 	bind:value={text}
 	on:keydown|trusted={handleKeydown}
-	on:focusout={updateText}
+	on:focusout={handleSubmit}
 />
 
 <style>

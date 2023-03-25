@@ -4,29 +4,29 @@
 	import Facility from './Facility.svelte';
 	import AddFacility from './AddFacility.svelte';
 
-	function addFacility(facilities: MiscFacility[]) {
-		facilities.push({
+	function addFacility(facs: MiscFacility[]) {
+		facs.push({
 			level: 1,
 			shifts: []
 		});
-		// notify store subscribers with assignment
+		// Notify store subscribers with assignment
 		$activeSave = $activeSave;
 	}
 
-	function addBoostFacility(facilities: BoostFacility[]) {
-		facilities.push({
+	function addBoostFacility(facs: BoostFacility[]) {
+		facs.push({
 			level: 1,
 			shifts: [],
 			boosts: [],
 			products: []
 		});
-		// notify store subscribers with assignment
+		// Notify store subscribers with assignment
 		$activeSave = $activeSave;
 	}
 
-	function deleteFacility(facilities: (MiscFacility | BoostFacility)[], index: number) {
-		facilities.splice(index, 1);
-		// notify store subscribers with assignment
+	function deleteFacility(facs: MiscFacility[] | BoostFacility[], index: number) {
+		facs.splice(index, 1);
+		// Notify store subscribers with assignment
 		$activeSave = $activeSave;
 	}
 </script>

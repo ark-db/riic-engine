@@ -10,15 +10,17 @@
 	let modal: HTMLDialogElement;
 	onMount(() => modal.show());
 
-	function handleMouseClose(event: MouseEvent) {
+	// Runs the `onClose` callback if a user clicks on the dialog background
+	function handleClick(event: MouseEvent) {
 		let { button, target } = event;
 		if (button === 0 && target instanceof Node && !modal.contains(target)) {
 			onClose();
 		}
 	}
 
-	function handleKeyboardEvent(event: KeyboardEvent) {
+	function handleKeydown(event: KeyboardEvent) {
 		if (event.key === 'Tab') {
+			// Implements a "focus trap" for the modal, making elements outside the modal non-tabbable
 			const content = modal.querySelectorAll(focusableElements);
 			const firstEl = content.item(0) as HTMLElement;
 			const lastEl = content.item(content.length - 1) as HTMLElement;
@@ -33,16 +35,17 @@
 				firstEl.focus();
 			}
 		} else if (event.key === 'Escape') {
+			// Runs the `onClose` callback if the Escape key is pressed
 			event.preventDefault();
 			onClose();
 		}
 	}
 </script>
 
-<svelte:window on:keydown|trusted={handleKeyboardEvent} />
+<svelte:window on:keydown|trusted={handleKeydown} />
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
-<div on:click|trusted={handleMouseClose}>
+<div on:click|trusted={handleClick}>
 	<dialog aria-modal="true" aria-label={label} bind:this={modal}>
 		<slot {modal} />
 	</dialog>

@@ -24,6 +24,7 @@
 		return typeof value === 'number' && value >= min && value <= max;
 	}
 
+	// Runs the `onValidInput` callback if the new value is valid and different from the old value
 	function handleSubmit() {
 		if (invalid) {
 			if (qty !== null) {
