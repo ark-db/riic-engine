@@ -3,6 +3,6 @@ div.tooltip-template {
 	border: 1px solid var(--darkish);
 	border-radius: 0.5em;
 	padding: 0.5em 0.6em;
-	background-color: #000000;
+	background-color: black;
 	color: var(--light);
 }

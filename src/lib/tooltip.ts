@@ -3,7 +3,7 @@ import tippy, { followCursor, type Instance } from 'tippy.js/headless';
 function render(instance: Instance) {
 	const popper = document.createElement('div');
 
-	popper.classList.add('tooltip-template');
+	popper.className = 'tooltip-template';
 
 	if (typeof instance.props.content === 'string') {
 		popper.textContent = instance.props.content;
