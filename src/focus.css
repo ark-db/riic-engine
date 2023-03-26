@@ -16,8 +16,7 @@
 }
 
 .focus-template:focus:after {
-	content: '';
-	display: block;
+	pointer-events: none;
 	position: absolute;
 	top: var(--focus-border-offset);
 	bottom: var(--focus-border-offset);
@@ -26,4 +25,6 @@
 	border-radius: var(--focus-border-radius);
 	border: 2px solid var(--blue-mild);
 	opacity: 1;
+	content: '';
+	display: block;
 }
