@@ -21,9 +21,11 @@
 
 <style>
 	.markers {
+		--label-border-width: 1px;
+		--label-padding: calc(0.35em - var(--label-border-width));
 		z-index: 1;
 		position: absolute;
-		top: 0.35em;
+		top: calc(0.25em - var(--label-padding) * 2);
 		left: calc(3.5em + var(--column-width));
 		display: flex;
 		column-gap: var(--column-width);
@@ -38,8 +40,10 @@
 	p {
 		z-index: 2;
 		position: sticky;
-		top: -0.5em;
+		top: calc(0px - 0.575em - var(--label-padding) - var(--label-border-width));
 		margin: 0;
+		border: var(--label-border-width) solid var(--dark);
+		padding: var(--label-padding);
 		background-color: black;
 		cursor: default;
 		color: var(--light-strong);
