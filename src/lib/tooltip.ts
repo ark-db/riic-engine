@@ -1,21 +1,16 @@
-import tippy, { followCursor, type Instance } from 'tippy.js/headless';
-
-function render(instance: Instance) {
-	const popper = document.createElement('div');
-
-	popper.className = 'tooltip-template';
-
-	if (typeof instance.props.content === 'string') {
-		popper.textContent = instance.props.content;
-	}
-
-	return { popper };
-}
+import tippy, { followCursor } from 'tippy.js/headless';
 
 export function tooltip(element: Element, content: string) {
+	function render() {
+		const popper = document.createElement('div');
+		popper.className = 'tooltip-template';
+		popper.textContent = content;
+
+		return { popper };
+	}
+
 	const { destroy } = tippy(element, {
 		arrow: false,
-		content,
 		followCursor: true,
 		hideOnClick: false,
 		plugins: [followCursor],
