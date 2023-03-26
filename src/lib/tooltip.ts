@@ -18,7 +18,5 @@ export function tooltip(element: Element, content: string) {
 	});
 
 	// Destroy the tooltip when the element it is attached to is destroyed
-	return {
-		destroy
-	};
+	return { destroy };
 }
