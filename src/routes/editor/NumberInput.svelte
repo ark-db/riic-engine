@@ -55,8 +55,8 @@
 		autocomplete="off"
 		spellcheck="false"
 		enterkeyhint="done"
-		bind:this={input}
 		bind:value={qty}
+		bind:this={input}
 		on:keydown|trusted={handleKeydown}
 		on:blur={handleSubmit}
 	/>

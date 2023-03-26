@@ -36,10 +36,10 @@
 		</Button>
 		<Slider
 			label="Horizontal zoom"
-			bind:value={$xFactor}
 			min={minFactor}
 			max={maxFactor}
 			step={0.02}
+			bind:value={$xFactor}
 		/>
 		<Button desc="Zoom in" onClick={() => changeX(zoomStep)}>
 			<img src={plus} alt="Zoom in" width="22" height="22" />
@@ -51,10 +51,10 @@
 		</Button>
 		<Slider
 			label="Vertical zoom"
-			bind:value={$yFactor}
 			min={minFactor}
 			max={maxFactor}
 			step={0.02}
+			bind:value={$yFactor}
 		/>
 		<Button desc="Zoom in" onClick={() => changeY(zoomStep)}>
 			<img src={plus} alt="Zoom in" width="22" height="22" />

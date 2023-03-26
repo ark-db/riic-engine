@@ -50,8 +50,8 @@
 		hovering = false;
 	}
 
-	function handleDeleteKeydown(event: KeyboardEvent) {
-		if (pendingDelete && event.key === 'Enter') handleDelete();
+	function handleDeleteKeydown({ key }: KeyboardEvent) {
+		if (pendingDelete && key === 'Enter') handleDelete();
 	}
 </script>
 

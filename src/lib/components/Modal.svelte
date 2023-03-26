@@ -18,7 +18,7 @@
 	}
 
 	function handleKeydown(event: KeyboardEvent) {
-		let { key, shiftKey } = event;
+		const { key, shiftKey } = event;
 
 		if (key === 'Tab') {
 			// Implements a "focus trap" for the modal, making elements outside the modal non-tabbable

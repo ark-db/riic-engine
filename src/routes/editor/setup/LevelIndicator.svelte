@@ -19,18 +19,19 @@
 	}
 	.top {
 		width: 0;
-		border-bottom: 7.5px solid var(--color);
+		/* --facility-color is defined in ./Facility.svelte */
+		border-bottom: 7.5px solid var(--facility-color);
 		border-left: 5px solid transparent;
 		border-right: 5px solid transparent;
 	}
 	.middle {
 		width: 10px;
 		height: 20px;
-		background-color: var(--color);
+		background-color: var(--facility-color);
 	}
 	.bottom {
 		width: 0;
-		border-top: 7.5px solid var(--color);
+		border-top: 7.5px solid var(--facility-color);
 		border-left: 5px solid transparent;
 		border-right: 5px solid transparent;
 	}

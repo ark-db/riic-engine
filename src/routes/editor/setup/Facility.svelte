@@ -19,7 +19,7 @@
 <div
 	class="container"
 	class:unused={level === 0}
-	style:border={`0.5em solid ${facility.color}`}
+	style="--facility-color: {facility.color};"
 	in:scale|local
 >
 	<div class="info">
@@ -28,7 +28,7 @@
 		</p>
 		<div class="graphics">
 			<FacilityIcon {kind} size={36} />
-			<LevelIndicator {level} --color={facility.color} />
+			<LevelIndicator {level} />
 		</div>
 	</div>
 
@@ -73,6 +73,8 @@
 
 <style>
 	.container {
+		/* --facility-color is used in ./LevelIndicator.svelte */
+		border: 0.5em solid var(--facility-color);
 		padding: 0.75em;
 		background: var(--dark-strong);
 		display: flex;

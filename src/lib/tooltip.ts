@@ -24,10 +24,10 @@ function render(instance: Instance) {
 
 export function tooltip(element: Element, content: string) {
 	const { destroy } = tippy(element, {
-		content,
 		arrow: false,
-		hideOnClick: false,
+		content,
 		followCursor: true,
+		hideOnClick: false,
 		plugins: [followCursor],
 		render
 	});
