@@ -3,6 +3,7 @@
 	import '../focus.css';
 	import '../input.css';
 	import '../misc.css';
+	import '../tooltip.css';
 
 	// Disable copying/saving links and images contained within the app
 	function handleMousedown(event: MouseEvent) {
