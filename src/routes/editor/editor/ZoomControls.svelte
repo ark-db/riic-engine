@@ -8,13 +8,13 @@
 	const { xFactor, yFactor, minFactor, maxFactor, changeX, changeY } = zoomControls;
 	const zoomStep = 0.5;
 
-	function handleKeydown(event: KeyboardEvent) {
-		if (event.metaKey) {
-			if (event.key === '-') {
+	function handleKeydown({ key, metaKey }: KeyboardEvent) {
+		if (metaKey) {
+			if (key === '-') {
 				changeX(-zoomStep);
 				changeY(-zoomStep);
 			}
-			if (event.key === '=') {
+			if (key === '=') {
 				changeX(zoomStep);
 				changeY(zoomStep);
 			}

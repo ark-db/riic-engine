@@ -11,21 +11,22 @@
 	onMount(() => modal.show());
 
 	// Runs the `onClose` callback if a user clicks on the dialog background
-	function handleClick(event: MouseEvent) {
-		let { button, target } = event;
+	function handleClick({ button, target }: MouseEvent) {
 		if (button === 0 && target instanceof Node && !modal.contains(target)) {
 			onClose();
 		}
 	}
 
 	function handleKeydown(event: KeyboardEvent) {
-		if (event.key === 'Tab') {
+		let { key, shiftKey } = event;
+
+		if (key === 'Tab') {
 			// Implements a "focus trap" for the modal, making elements outside the modal non-tabbable
 			const content = modal.querySelectorAll(focusableElements);
 			const firstEl = content.item(0) as HTMLElement;
 			const lastEl = content.item(content.length - 1) as HTMLElement;
 
-			if (event.shiftKey) {
+			if (shiftKey) {
 				if (document.activeElement === firstEl) {
 					event.preventDefault();
 					lastEl.focus();
@@ -34,7 +35,7 @@
 				event.preventDefault();
 				firstEl.focus();
 			}
-		} else if (event.key === 'Escape') {
+		} else if (key === 'Escape') {
 			// Runs the `onClose` callback if the Escape key is pressed
 			event.preventDefault();
 			onClose();

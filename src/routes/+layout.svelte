@@ -6,10 +6,9 @@
 
 	// Disable copying/saving links and images contained within the app
 	function handleMousedown(event: MouseEvent) {
-		if (
-			event.target &&
-			(event.target instanceof HTMLAnchorElement || event.target instanceof HTMLImageElement)
-		) {
+		let { target } = event;
+
+		if (target && (target instanceof HTMLAnchorElement || target instanceof HTMLImageElement)) {
 			event.preventDefault();
 		}
 	}

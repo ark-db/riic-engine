@@ -16,12 +16,12 @@
 	let focused = false;
 
 	// Checks if this component instance contains the currently-focused element. Works with keyboard navigation!
-	function handleFocusChange(event: FocusEvent) {
+	function handleFocusChange({ type, target, relatedTarget }: FocusEvent) {
 		type FocusEventType = 'focusin' | 'focusout';
 
 		// Test different target element depending on the event type
-		let target = (event.type as FocusEventType) === 'focusin' ? event.target : event.relatedTarget;
-		focused = target instanceof Node && container?.contains(target);
+		let focusTarget = (type as FocusEventType) === 'focusin' ? target : relatedTarget;
+		focused = focusTarget instanceof Node && container?.contains(focusTarget);
 	}
 
 	// Formats an elapsed duration (in seconds) as a human-readable string

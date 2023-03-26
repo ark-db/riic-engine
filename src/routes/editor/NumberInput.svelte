@@ -16,8 +16,8 @@
 	let qty = initial;
 	$: invalid = !isValid(qty);
 
-	function handleKeydown(event: KeyboardEvent) {
-		if (event.key === 'Enter') input.blur();
+	function handleKeydown({ key }: KeyboardEvent) {
+		if (key === 'Enter') input.blur();
 	}
 
 	function isValid(value: unknown): boolean {

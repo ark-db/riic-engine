@@ -17,8 +17,8 @@
 		if (input) input.focus();
 	});
 
-	function handleKeydown(event: KeyboardEvent) {
-		if (event.key === 'Enter') input.blur();
+	function handleKeydown({ key }: KeyboardEvent) {
+		if (key === 'Enter') input.blur();
 	}
 
 	// Updates the save name if the new name is valid and different from the old name
