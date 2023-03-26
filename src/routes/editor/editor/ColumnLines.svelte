@@ -30,16 +30,20 @@
 	}
 	.column-marker {
 		width: 1em;
-		color: var(--light-strong);
-		font-size: 0.8em;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		row-gap: 0.25em;
 	}
 	p {
-		cursor: default;
+		z-index: 2;
+		position: sticky;
+		top: -0.5em;
 		margin: 0;
+		background-color: black;
+		cursor: default;
+		color: var(--light-strong);
+		font-size: 0.8em;
 	}
 	.column-line {
 		width: 1px;
