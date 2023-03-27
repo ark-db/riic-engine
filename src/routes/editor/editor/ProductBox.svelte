@@ -8,8 +8,7 @@
 
 	function render() {
 		const popper = document.createElement('div');
-		popper.className = menuTemplate.className;
-		popper.innerHTML = menuTemplate.innerHTML;
+		popper.appendChild(menuTemplate);
 		return { popper };
 	}
 
@@ -18,7 +17,7 @@
 			menu = tippy(box, {
 				arrow: false,
 				interactive: true,
-				offset: [0, 0],
+				offset: [8, 0],
 				placement: 'right-start',
 				render,
 				trigger: 'manual'

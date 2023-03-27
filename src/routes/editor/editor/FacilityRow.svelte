@@ -5,6 +5,7 @@
 	import { tooltip } from '$lib/tooltip';
 	import type { FacilityName, Facility, BoostFacility } from '$lib/types';
 	import ProductBox from './ProductBox.svelte';
+	import ProductMenu from './ProductMenu.svelte';
 
 	export let kind: FacilityName;
 	export let rowHeight: number;
@@ -44,12 +45,27 @@
 	</div>
 </div>
 
-<div class="template">
-	<div class="tooltip-template product-menu" bind:this={productMenu}>
-		<p>todo</p>
-		<p>todo</p>
+{#if 'products' in room}
+	<div class="template">
+		<div class="tooltip-template" bind:this={productMenu}>
+			{#if kind === 'trading'}
+				{#if room.level === 3}
+					<ProductMenu products={['lmd', 'orundum']} />
+				{:else}
+					<ProductMenu products={['lmd']} />
+				{/if}
+			{:else if kind === 'manufacture'}
+				{#if room.level === 3}
+					<ProductMenu products={['exp200', 'exp400', 'exp1000', 'gold', 'shard']} />
+				{:else if room.level === 2}
+					<ProductMenu products={['exp200', 'exp400', 'gold']} />
+				{:else if room.level === 1}
+					<ProductMenu products={['exp200', 'gold']} />
+				{/if}
+			{/if}
+		</div>
 	</div>
-</div>
+{/if}
 
 <style>
 	.container {
@@ -80,11 +96,5 @@
 	}
 	.template {
 		display: none;
-	}
-	.product-menu {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		column-gap: 1em;
 	}
 </style>

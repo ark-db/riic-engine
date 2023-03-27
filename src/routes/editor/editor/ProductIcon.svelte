@@ -1,10 +1,9 @@
 <script lang="ts">
 	import { assets } from '$app/paths';
 	import items from '$lib/data/items.json';
-	import { tooltip } from '$lib/tooltip';
-	import type { Product } from '$lib/types';
+	import type { FactoryProduct, TradingProduct } from '$lib/types';
 
-	export let item: Product;
+	export let product: FactoryProduct | TradingProduct;
 	export let size: number;
 
 	let bgWidth: number;
@@ -13,10 +12,10 @@
 	let iconWidth: number;
 	let iconHeight: number;
 
-	let { name, rarity } = items[item];
+	let { name, rarity } = items[product];
 </script>
 
-<div style="--size: {size}px;" use:tooltip={name}>
+<div style="--size: {size}px;">
 	<img
 		src={`${assets}/rarities/${rarity}.webp`}
 		alt=""
@@ -26,7 +25,7 @@
 		bind:naturalHeight={bgHeight}
 	/>
 	<img
-		src={`${assets}/items/${item}.webp`}
+		src={`${assets}/items/${product}.webp`}
 		alt={name}
 		width={(iconWidth / bgWidth) * size}
 		height={(iconHeight / bgHeight) * size}

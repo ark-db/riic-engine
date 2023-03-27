@@ -58,9 +58,8 @@ type Shift = {
 	end: number;
 };
 
-type TradingProduct = 'lmd' | 'orundum';
-type FactoryProduct = 'exp200' | 'exp400' | 'exp1000' | 'gold' | 'shard';
-export type Product = TradingProduct | FactoryProduct;
+export type TradingProduct = 'lmd' | 'orundum';
+export type FactoryProduct = 'exp200' | 'exp400' | 'exp1000' | 'gold' | 'shard';
 
 type ArrayLengthMutationKeys = 'splice' | 'push' | 'pop' | 'shift' | 'unshift' | number;
 type ArrayItems<T extends unknown[]> = T extends Array<infer TItems> ? TItems : never;
