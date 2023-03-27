@@ -11,6 +11,8 @@
 	export let columnWidth: number;
 	export let room: Facility | BoostFacility;
 
+	let productMenu: HTMLDivElement;
+
 	const rowOpacity = 0.7;
 	let { name, color } = facilities[kind];
 
@@ -32,13 +34,20 @@
 		{#if 'products' in room}
 			<div class="products">
 				{#each { length: $activeSave.data.maxShift } as _}
-					<ProductBox />
+					<ProductBox menuTemplate={productMenu} />
 				{/each}
 			</div>
 		{/if}
 		<div class="chars">
 			<!-- TODO -->
 		</div>
+	</div>
+</div>
+
+<div class="template">
+	<div class="tooltip-template product-menu" bind:this={productMenu}>
+		<p>todo</p>
+		<p>todo</p>
 	</div>
 </div>
 
@@ -68,5 +77,14 @@
 	}
 	.chars {
 		height: var(--height);
+	}
+	.template {
+		display: none;
+	}
+	.product-menu {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		column-gap: 1em;
 	}
 </style>

@@ -1,8 +1,9 @@
 <script lang="ts">
 	import tippy, { type Instance, type Props } from 'tippy.js/headless';
 
+	export let menuTemplate: HTMLDivElement;
+
 	let box: HTMLDivElement;
-	let menuTemplate: HTMLDivElement;
 	let menu: Instance<Props>;
 
 	function render() {
@@ -60,12 +61,6 @@
 		on:contextmenu|trusted|preventDefault={handleContextOpen}
 		on:keydown|trusted={handleKeydown}
 	/>
-	<div class="template">
-		<div class="tooltip-template menu" bind:this={menuTemplate}>
-			<p>todo</p>
-			<p>todo</p>
-		</div>
-	</div>
 </div>
 
 <style>
@@ -78,14 +73,5 @@
 		/* --row-height is defined in ./FacilityRow.svelte */
 		height: var(--row-height);
 		position: relative;
-	}
-	.template {
-		display: none;
-	}
-	.menu {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		column-gap: 1em;
 	}
 </style>
