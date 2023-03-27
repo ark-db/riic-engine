@@ -1,5 +1,4 @@
 <script lang="ts">
-	import type { Instance, Props } from 'tippy.js/headless';
 	import FacilityIcon from '$lib/components/FacilityIcon.svelte';
 	import facilities from '$lib/data/facilities.json';
 	import { activeSave } from '$lib/stores';
@@ -13,8 +12,7 @@
 	export let columnWidth: number;
 	export let room: Facility | BoostFacility;
 
-	let productMenuTemplate: HTMLDivElement;
-	let productMenu: Instance<Props>;
+	let productMenu: HTMLDivElement;
 
 	const rowOpacity = 0.7;
 	let { name, color } = facilities[kind];
@@ -37,7 +35,7 @@
 		{#if 'products' in room}
 			<div class="products">
 				{#each { length: $activeSave.data.maxShift } as _}
-					<ProductBox menuTemplate={productMenuTemplate} bind:menu={productMenu} />
+					<ProductBox menuTemplate={productMenu} />
 				{/each}
 			</div>
 		{/if}
@@ -49,7 +47,7 @@
 
 {#if 'products' in room}
 	<div class="template">
-		<div class="tooltip-template" bind:this={productMenuTemplate} on:blur={productMenu.destroy}>
+		<div class="tooltip-template" bind:this={productMenu}>
 			{#if kind === 'trading'}
 				{#if room.level === 3}
 					<ProductMenu products={['lmd', 'orundum']} />

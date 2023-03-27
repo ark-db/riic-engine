@@ -2,15 +2,9 @@
 	import tippy, { type Instance, type Props } from 'tippy.js/headless';
 
 	export let menuTemplate: HTMLDivElement;
-	export let menu: Instance<Props>;
 
 	let box: HTMLDivElement;
-
-	function render() {
-		const popper = document.createElement('div');
-		popper.appendChild(menuTemplate);
-		return { popper };
-	}
+	let menu: Instance<Props>;
 
 	function initMenu() {
 		if (!menu) {
@@ -19,7 +13,7 @@
 				interactive: true,
 				offset: [8, 0],
 				placement: 'right-start',
-				render,
+				render: () => ({ popper: menuTemplate }),
 				trigger: 'manual'
 			});
 		}
