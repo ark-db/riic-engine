@@ -1,4 +1,5 @@
 <script lang="ts">
+	import type { Instance, Props } from 'tippy.js/headless';
 	import FacilityIcon from '$lib/components/FacilityIcon.svelte';
 	import facilities from '$lib/data/facilities.json';
 	import { activeSave } from '$lib/stores';
@@ -12,7 +13,8 @@
 	export let columnWidth: number;
 	export let room: Facility | BoostFacility;
 
-	let productMenu: HTMLDivElement;
+	let productMenuTemplate: HTMLDivElement;
+	let productMenu: Instance<Props>;
 
 	const rowOpacity = 0.7;
 	let { name, color } = facilities[kind];
@@ -35,7 +37,7 @@
 		{#if 'products' in room}
 			<div class="products">
 				{#each { length: $activeSave.data.maxShift } as _}
-					<ProductBox menuTemplate={productMenu} />
+					<ProductBox menuTemplate={productMenuTemplate} bind:menu={productMenu} />
 				{/each}
 			</div>
 		{/if}
@@ -47,20 +49,23 @@
 
 {#if 'products' in room}
 	<div class="template">
-		<div class="tooltip-template" bind:this={productMenu}>
+		<div class="tooltip-template" bind:this={productMenuTemplate}>
 			{#if kind === 'trading'}
 				{#if room.level === 3}
-					<ProductMenu products={['lmd', 'orundum']} />
+					<ProductMenu products={['lmd', 'orundum']} menu={productMenu} />
 				{:else}
-					<ProductMenu products={['lmd']} />
+					<ProductMenu products={['lmd']} menu={productMenu} />
 				{/if}
 			{:else if kind === 'manufacture'}
 				{#if room.level === 3}
-					<ProductMenu products={['exp200', 'exp400', 'exp1000', 'gold', 'shard']} />
+					<ProductMenu
+						products={['exp200', 'exp400', 'exp1000', 'gold', 'shard']}
+						menu={productMenu}
+					/>
 				{:else if room.level === 2}
-					<ProductMenu products={['exp200', 'exp400', 'gold']} />
+					<ProductMenu products={['exp200', 'exp400', 'gold']} menu={productMenu} />
 				{:else if room.level === 1}
-					<ProductMenu products={['exp200', 'gold']} />
+					<ProductMenu products={['exp200', 'gold']} menu={productMenu} />
 				{/if}
 			{/if}
 		</div>

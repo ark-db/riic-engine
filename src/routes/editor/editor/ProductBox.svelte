@@ -2,9 +2,9 @@
 	import tippy, { type Instance, type Props } from 'tippy.js/headless';
 
 	export let menuTemplate: HTMLDivElement;
+	export let menu: Instance<Props>;
 
 	let box: HTMLDivElement;
-	let menu: Instance<Props>;
 
 	function render() {
 		const popper = document.createElement('div');
