@@ -1,14 +1,12 @@
 <script lang="ts">
-	import type { Instance, Props } from 'tippy.js/headless';
 	import items from '$lib/data/items.json';
 	import type { FactoryProduct, TradingProduct } from '$lib/types';
 	import ProductIcon from './ProductIcon.svelte';
 
 	export let products: FactoryProduct[] | TradingProduct[];
-	export let menu: Instance<Props>;
 </script>
 
-<div class:container={products.length > 1} on:blur={menu.destroy}>
+<div class:container={products.length > 1}>
 	{#each products as product}
 		<div class="label">
 			<p>{items[product].name}</p>

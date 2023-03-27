@@ -49,23 +49,20 @@
 
 {#if 'products' in room}
 	<div class="template">
-		<div class="tooltip-template" bind:this={productMenuTemplate}>
+		<div class="tooltip-template" bind:this={productMenuTemplate} on:blur={productMenu.destroy}>
 			{#if kind === 'trading'}
 				{#if room.level === 3}
-					<ProductMenu products={['lmd', 'orundum']} menu={productMenu} />
+					<ProductMenu products={['lmd', 'orundum']} />
 				{:else}
-					<ProductMenu products={['lmd']} menu={productMenu} />
+					<ProductMenu products={['lmd']} />
 				{/if}
 			{:else if kind === 'manufacture'}
 				{#if room.level === 3}
-					<ProductMenu
-						products={['exp200', 'exp400', 'exp1000', 'gold', 'shard']}
-						menu={productMenu}
-					/>
+					<ProductMenu products={['exp200', 'exp400', 'exp1000', 'gold', 'shard']} />
 				{:else if room.level === 2}
-					<ProductMenu products={['exp200', 'exp400', 'gold']} menu={productMenu} />
+					<ProductMenu products={['exp200', 'exp400', 'gold']} />
 				{:else if room.level === 1}
-					<ProductMenu products={['exp200', 'gold']} menu={productMenu} />
+					<ProductMenu products={['exp200', 'gold']} />
 				{/if}
 			{/if}
 		</div>
