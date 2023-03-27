@@ -6,10 +6,3 @@ div.tooltip-template {
 	background-color: black;
 	color: var(--light);
 }
-
-.product-ctxmenu {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	column-gap: 1em;
-}

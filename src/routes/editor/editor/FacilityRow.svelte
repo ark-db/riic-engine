@@ -28,11 +28,11 @@
 	<div class="edge" use:tooltip={name}>
 		<FacilityIcon {kind} size={24} />
 	</div>
-	<div class="main" style="--height: {rowHeight}px;">
+	<div class="main" style="--height: {rowHeight}px; --column-width: {columnWidth}px;">
 		{#if 'products' in room}
 			<div class="products">
 				{#each { length: $activeSave.data.maxShift } as _}
-					<ProductBox {columnWidth} />
+					<ProductBox />
 				{/each}
 			</div>
 		{/if}

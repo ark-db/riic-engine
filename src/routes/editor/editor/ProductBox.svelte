@@ -1,28 +1,70 @@
 <script lang="ts">
-	// import { draggable } from '@neodrag/svelte';
-	import { context } from '$lib/ctxmenu';
+	import tippy, { type Instance, type Props } from 'tippy.js/headless';
 
-	export let columnWidth: number;
+	let box: HTMLDivElement;
+	let menuTemplate: HTMLDivElement;
+	let menu: Instance<Props>;
 
-	const contextMenu = `
-		<div class="product-ctxmenu">
-			<p>todo</p>
-			<p>todo</p>
-		</div>
-	`;
+	function render() {
+		const popper = document.createElement('div');
+		popper.className = menuTemplate.className;
+		popper.innerHTML = menuTemplate.innerHTML;
+		return { popper };
+	}
+
+	function initMenu() {
+		if (!menu) {
+			menu = tippy(box, {
+				arrow: false,
+				interactive: true,
+				offset: [0, 0],
+				placement: 'right-start',
+				render,
+				trigger: 'manual'
+			});
+		}
+	}
+
+	function handleContextOpen({ x, y }: MouseEvent) {
+		initMenu();
+		menu.setProps({
+			getReferenceClientRect: () => ({
+				width: 0,
+				height: 0,
+				top: y,
+				bottom: y,
+				left: x,
+				right: x,
+				x,
+				y,
+				toJSON: () => ({ x, y })
+			})
+		});
+		menu.show();
+	}
+
+	function handleKeydown({ key }: KeyboardEvent) {
+		if (key === 'Enter') {
+			initMenu();
+			menu.show();
+		}
+	}
 </script>
 
 <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
-<!-- This outer div exists so that the context menu created by tippy.js is accessible via keyboard navigation -->
 <div>
 	<div
 		class="focus-template box"
-		style="--column-width: {columnWidth}px;"
 		tabindex="0"
-		use:context={contextMenu}
-	>
-		<div class="handle left" />
-		<div class="handle right" />
+		bind:this={box}
+		on:contextmenu|trusted|preventDefault={handleContextOpen}
+		on:keydown|trusted={handleKeydown}
+	/>
+	<div class="template">
+		<div class="tooltip-template menu" bind:this={menuTemplate}>
+			<p>todo</p>
+			<p>todo</p>
+		</div>
 	</div>
 </div>
 
@@ -30,23 +72,20 @@
 	.box {
 		--focus-border-offset: -1px;
 		--focus-border-radius: 0;
+		/* --column-width is defined in ./FacilityRow.svelte */
 		--box-width: calc(var(--column-width) + 1em);
 		width: var(--box-width);
 		/* --row-height is defined in ./FacilityRow.svelte */
 		height: var(--row-height);
 		position: relative;
 	}
-	.handle {
-		width: calc(var(--box-width) / 8);
-		height: var(--row-height);
-		position: absolute;
+	.template {
+		display: none;
 	}
-	.left {
-		left: 0;
-		cursor: w-resize;
-	}
-	.right {
-		right: 0;
-		cursor: e-resize;
+	.menu {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		column-gap: 1em;
 	}
 </style>
