@@ -1,13 +1,23 @@
 <script lang="ts">
 	import tippy, { type Instance, type Props } from 'tippy.js/headless';
+	import type { FacilityName } from '$lib/types';
+	import ProductMenu from './ProductMenu.svelte';
 
-	export let menuTemplate: HTMLDivElement;
+	export let kind: Exclude<
+		FacilityName,
+		'control' | 'dormitory' | 'hire' | 'meeting' | 'power' | 'training' | 'workshop'
+	>;
+	export let level: number;
 
 	let box: HTMLDivElement;
 	let menu: Instance<Props>;
+	let menuTemplate: HTMLDivElement;
+
+	let menuActive = false;
 
 	function initMenu() {
 		if (!menu) {
+			menuActive = true;
 			menu = tippy(box, {
 				arrow: false,
 				interactive: true,
@@ -46,6 +56,7 @@
 </script>
 
 <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
+<!-- This outer div exists so that the context menu created by tippy.js is accessible via keyboard navigation -->
 <div>
 	<div
 		class="focus-template box"
@@ -54,6 +65,28 @@
 		on:contextmenu|trusted|preventDefault={handleContextOpen}
 		on:keydown|trusted={handleKeydown}
 	/>
+</div>
+
+<div class="template">
+	<div class="tooltip-template" bind:this={menuTemplate}>
+		{#if menuActive}
+			{#if kind === 'trading'}
+				{#if level === 3}
+					<ProductMenu products={['lmd', 'orundum']} />
+				{:else}
+					<ProductMenu products={['lmd']} />
+				{/if}
+			{:else if kind === 'manufacture'}
+				{#if level === 3}
+					<ProductMenu products={['exp200', 'exp400', 'exp1000', 'gold', 'shard']} />
+				{:else if level === 2}
+					<ProductMenu products={['exp200', 'exp400', 'gold']} />
+				{:else if level === 1}
+					<ProductMenu products={['exp200', 'gold']} />
+				{/if}
+			{/if}
+		{/if}
+	</div>
 </div>
 
 <style>
@@ -66,5 +99,8 @@
 		/* --row-height is defined in ./FacilityRow.svelte */
 		height: var(--row-height);
 		position: relative;
+	}
+	.template {
+		display: none;
 	}
 </style>

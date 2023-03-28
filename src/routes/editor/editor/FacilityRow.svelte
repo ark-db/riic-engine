@@ -5,14 +5,11 @@
 	import { tooltip } from '$lib/tooltip';
 	import type { FacilityName, Facility, BoostFacility } from '$lib/types';
 	import ProductBox from './ProductBox.svelte';
-	import ProductMenu from './ProductMenu.svelte';
 
 	export let kind: FacilityName;
 	export let rowHeight: number;
 	export let columnWidth: number;
 	export let room: Facility | BoostFacility;
-
-	let productMenu: HTMLDivElement;
 
 	const rowOpacity = 0.7;
 	let { name, color } = facilities[kind];
@@ -32,10 +29,10 @@
 		<FacilityIcon {kind} size={24} />
 	</div>
 	<div class="main" style="--height: {rowHeight}px; --column-width: {columnWidth}px;">
-		{#if 'products' in room}
+		{#if 'products' in room && (kind === 'manufacture' || kind === 'trading')}
 			<div class="products">
 				{#each { length: $activeSave.data.maxShift } as _}
-					<ProductBox menuTemplate={productMenu} />
+					<ProductBox {kind} level={room.level} />
 				{/each}
 			</div>
 		{/if}
@@ -44,28 +41,6 @@
 		</div>
 	</div>
 </div>
-
-{#if 'products' in room}
-	<div class="template">
-		<div class="tooltip-template" bind:this={productMenu}>
-			{#if kind === 'trading'}
-				{#if room.level === 3}
-					<ProductMenu products={['lmd', 'orundum']} />
-				{:else}
-					<ProductMenu products={['lmd']} />
-				{/if}
-			{:else if kind === 'manufacture'}
-				{#if room.level === 3}
-					<ProductMenu products={['exp200', 'exp400', 'exp1000', 'gold', 'shard']} />
-				{:else if room.level === 2}
-					<ProductMenu products={['exp200', 'exp400', 'gold']} />
-				{:else if room.level === 1}
-					<ProductMenu products={['exp200', 'gold']} />
-				{/if}
-			{/if}
-		</div>
-	</div>
-{/if}
 
 <style>
 	.container {
@@ -93,8 +68,5 @@
 	}
 	.chars {
 		height: var(--height);
-	}
-	.template {
-		display: none;
 	}
 </style>
