@@ -55,6 +55,10 @@
 		}
 	}
 
+	function handleFocusout({ relatedTarget }: FocusEvent) {
+		if (!(relatedTarget instanceof Node && menuTemplate?.contains(relatedTarget))) menu.hide();
+	}
+
 	function handleSelect(product: TradingProduct | FactoryProduct) {
 		menu.hide();
 		onAddProduct(product);
@@ -74,7 +78,7 @@
 </div>
 
 <div class="template">
-	<div class="tooltip-template" bind:this={menuTemplate}>
+	<div class="tooltip-template" bind:this={menuTemplate} on:focusout={handleFocusout}>
 		{#if menuActive}
 			{#if kind === 'trading'}
 				{#if level === 3}
