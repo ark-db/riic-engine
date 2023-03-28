@@ -56,7 +56,7 @@
 	}
 
 	function handleFocusout({ relatedTarget }: FocusEvent) {
-		if (!(relatedTarget instanceof Node && menuTemplate?.contains(relatedTarget))) menu.hide();
+		if (!(relatedTarget instanceof Node && menuTemplate.contains(relatedTarget))) menu.hide();
 	}
 
 	function handleSelect(product: TradingProduct | FactoryProduct) {

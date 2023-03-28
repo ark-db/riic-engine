@@ -21,7 +21,7 @@
 
 		// Test different target element depending on the event type
 		let focusTarget = (type as FocusEventType) === 'focusin' ? target : relatedTarget;
-		focused = focusTarget instanceof Node && container?.contains(focusTarget);
+		focused = focusTarget instanceof Node && container.contains(focusTarget);
 	}
 
 	// Formats an elapsed duration (in seconds) as a human-readable string
