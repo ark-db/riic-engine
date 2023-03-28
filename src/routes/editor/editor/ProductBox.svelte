@@ -54,6 +54,11 @@
 			menu.show();
 		}
 	}
+
+	function handleSelect(product: TradingProduct | FactoryProduct) {
+		menu.hide();
+		onAddProduct(product);
+	}
 </script>
 
 <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
@@ -73,20 +78,20 @@
 		{#if menuActive}
 			{#if kind === 'trading'}
 				{#if level === 3}
-					<ProductMenu products={['lmd', 'orundum']} onSelect={onAddProduct} />
+					<ProductMenu products={['lmd', 'orundum']} onSelect={handleSelect} />
 				{:else}
-					<ProductMenu products={['lmd']} onSelect={onAddProduct} />
+					<ProductMenu products={['lmd']} onSelect={handleSelect} />
 				{/if}
 			{:else if kind === 'manufacture'}
 				{#if level === 3}
 					<ProductMenu
 						products={['exp200', 'exp400', 'exp1000', 'gold', 'shard']}
-						onSelect={onAddProduct}
+						onSelect={handleSelect}
 					/>
 				{:else if level === 2}
-					<ProductMenu products={['exp200', 'exp400', 'gold']} onSelect={onAddProduct} />
+					<ProductMenu products={['exp200', 'exp400', 'gold']} onSelect={handleSelect} />
 				{:else if level === 1}
-					<ProductMenu products={['exp200', 'gold']} onSelect={onAddProduct} />
+					<ProductMenu products={['exp200', 'gold']} onSelect={handleSelect} />
 				{/if}
 			{/if}
 		{/if}

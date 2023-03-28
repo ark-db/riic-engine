@@ -9,7 +9,7 @@
 
 <div class:container={products.length > 1}>
 	{#each products as product}
-		<button class="focus-template product" on:click={() => onSelect(product)}>
+		<button class="focus-template product" on:click|trusted={() => onSelect(product)}>
 			<p>{items[product].name}</p>
 			<ProductIcon {product} size={64} />
 		</button>
