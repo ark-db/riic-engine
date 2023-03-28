@@ -1,6 +1,6 @@
 <script lang="ts">
 	import tippy, { type Instance, type Props } from 'tippy.js/headless';
-	import type { FacilityName } from '$lib/types';
+	import type { FacilityName, TradingProduct, FactoryProduct } from '$lib/types';
 	import ProductMenu from './ProductMenu.svelte';
 
 	export let kind: Exclude<
@@ -8,6 +8,7 @@
 		'control' | 'dormitory' | 'hire' | 'meeting' | 'power' | 'training' | 'workshop'
 	>;
 	export let level: number;
+	export let onAddProduct: (product: TradingProduct | FactoryProduct) => void;
 
 	let box: HTMLDivElement;
 	let menu: Instance<Props>;
@@ -72,17 +73,20 @@
 		{#if menuActive}
 			{#if kind === 'trading'}
 				{#if level === 3}
-					<ProductMenu products={['lmd', 'orundum']} />
+					<ProductMenu products={['lmd', 'orundum']} onSelect={onAddProduct} />
 				{:else}
-					<ProductMenu products={['lmd']} />
+					<ProductMenu products={['lmd']} onSelect={onAddProduct} />
 				{/if}
 			{:else if kind === 'manufacture'}
 				{#if level === 3}
-					<ProductMenu products={['exp200', 'exp400', 'exp1000', 'gold', 'shard']} />
+					<ProductMenu
+						products={['exp200', 'exp400', 'exp1000', 'gold', 'shard']}
+						onSelect={onAddProduct}
+					/>
 				{:else if level === 2}
-					<ProductMenu products={['exp200', 'exp400', 'gold']} />
+					<ProductMenu products={['exp200', 'exp400', 'gold']} onSelect={onAddProduct} />
 				{:else if level === 1}
-					<ProductMenu products={['exp200', 'gold']} />
+					<ProductMenu products={['exp200', 'gold']} onSelect={onAddProduct} />
 				{/if}
 			{/if}
 		{/if}

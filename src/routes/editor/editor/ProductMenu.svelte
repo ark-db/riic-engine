@@ -1,17 +1,18 @@
 <script lang="ts">
 	import items from '$lib/data/items.json';
-	import type { FactoryProduct, TradingProduct } from '$lib/types';
+	import type { TradingProduct, FactoryProduct } from '$lib/types';
 	import ProductIcon from './ProductIcon.svelte';
 
-	export let products: FactoryProduct[] | TradingProduct[];
+	export let products: TradingProduct[] | FactoryProduct[];
+	export let onSelect: (product: (typeof products)[number]) => void;
 </script>
 
 <div class:container={products.length > 1}>
 	{#each products as product}
-		<div class="label">
+		<button class="focus-template product" on:click={() => onSelect(product)}>
 			<p>{items[product].name}</p>
 			<ProductIcon {product} size={64} />
-		</div>
+		</button>
 	{/each}
 </div>
 
@@ -21,24 +22,28 @@
 		grid-template-columns: repeat(2, 1fr);
 		gap: 0.5em;
 	}
-	.label {
+	.product {
+		--focus-border-offset: -2px;
+		margin: 0;
 		border: 2px solid transparent;
 		border-radius: 8px;
-		padding: 0.375em 0.375em 0.375em 0.75em;
+		padding: 0.5em 0.5em 0.5em 1em;
 		background-color: var(--dark-strong);
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		column-gap: 1em;
+		column-gap: 1.5em;
 		transition: border 0.2s;
 	}
-	.label:hover {
+	.product:hover {
 		border-color: var(--blue-mild);
 	}
 	p {
-		max-width: 6.5em;
+		width: 6.5em;
 		margin: 0;
-		font-size: 1.15em;
+		color: var(--light-strong);
+		text-align: left;
+		font-size: 1.5em;
 		font-weight: 600;
 		line-height: 1.4em;
 	}

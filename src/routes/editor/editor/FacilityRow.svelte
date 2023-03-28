@@ -31,8 +31,12 @@
 	<div class="main" style="--height: {rowHeight}px; --column-width: {columnWidth}px;">
 		{#if 'products' in room && (kind === 'manufacture' || kind === 'trading')}
 			<div class="products">
-				{#each { length: $activeSave.data.maxShift } as _}
-					<ProductBox {kind} level={room.level} />
+				{#each { length: $activeSave.data.maxShift } as _, i}
+					<ProductBox
+						{kind}
+						level={room.level}
+						onAddProduct={(p) => console.log(`Added product ${p} at column ${i}`)}
+					/>
 				{/each}
 			</div>
 		{/if}
