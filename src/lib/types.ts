@@ -60,6 +60,7 @@ type Shift = {
 
 export type TradingProduct = 'lmd' | 'orundum';
 export type FactoryProduct = 'exp200' | 'exp400' | 'exp1000' | 'gold' | 'shard';
+export type Product = TradingProduct | FactoryProduct;
 
 type ArrayLengthMutationKeys = 'splice' | 'push' | 'pop' | 'shift' | 'unshift' | number;
 type ArrayItems<T extends unknown[]> = T extends Array<infer TItems> ? TItems : never;

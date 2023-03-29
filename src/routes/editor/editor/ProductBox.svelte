@@ -1,14 +1,11 @@
 <script lang="ts">
 	import tippy, { type Instance, type Props } from 'tippy.js/headless';
-	import type { FacilityName, TradingProduct, FactoryProduct } from '$lib/types';
+	import type { Product } from '$lib/types';
 	import ProductMenu from './ProductMenu.svelte';
 
-	export let kind: Exclude<
-		FacilityName,
-		'control' | 'dormitory' | 'hire' | 'meeting' | 'power' | 'training' | 'workshop'
-	>;
+	export let kind: 'trading' | 'manufacture';
 	export let level: number;
-	export let onAddProduct: (product: TradingProduct | FactoryProduct) => void;
+	export let onAddProduct: (product: Product) => void;
 
 	let box: HTMLDivElement;
 	let menu: Instance<Props>;
@@ -59,7 +56,7 @@
 		if (!(relatedTarget instanceof Node && menuTemplate.contains(relatedTarget))) menu.hide();
 	}
 
-	function handleSelect(product: TradingProduct | FactoryProduct) {
+	function handleSelect(product: Product) {
 		menu.hide();
 		onAddProduct(product);
 	}

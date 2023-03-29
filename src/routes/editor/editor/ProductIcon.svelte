@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { assets } from '$app/paths';
 	import items from '$lib/data/items.json';
-	import type { TradingProduct, FactoryProduct } from '$lib/types';
+	import type { Product } from '$lib/types';
 
-	export let product: TradingProduct | FactoryProduct;
+	export let product: Product;
 	export let size: number;
 
 	let bgWidth: number;

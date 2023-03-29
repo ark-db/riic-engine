@@ -3,7 +3,7 @@
 	import facilities from '$lib/data/facilities.json';
 	import { activeSave } from '$lib/stores';
 	import { tooltip } from '$lib/tooltip';
-	import type { FacilityName, Facility, BoostFacility } from '$lib/types';
+	import type { FacilityName, Facility, BoostFacility, Product } from '$lib/types';
 	import ProductBox from './ProductBox.svelte';
 
 	export let kind: FacilityName;
@@ -22,6 +22,17 @@
 
 		return `rgb(${r} ${g} ${b} / ${alpha})`;
 	}
+
+	function addProduct(product: Product, index: number) {
+		if ('products' in room) {
+			room.products.push({
+				kind: product,
+				start: index,
+				end: index + 1
+			} as never);
+			room = room;
+		}
+	}
 </script>
 
 <div class="container" style="--color: {color}; --color-a: {hexToRgb(color, rowOpacity)}">
@@ -29,13 +40,13 @@
 		<FacilityIcon {kind} size={24} />
 	</div>
 	<div class="main" style="--height: {rowHeight}px; --column-width: {columnWidth}px;">
-		{#if 'products' in room && (kind === 'manufacture' || kind === 'trading')}
+		{#if kind === 'trading' || kind === 'manufacture'}
 			<div class="products">
 				{#each { length: $activeSave.data.maxShift } as _, i}
 					<ProductBox
 						{kind}
 						level={room.level}
-						onAddProduct={(p) => console.log(`Added product ${p} at column ${i}`)}
+						onAddProduct={(product) => addProduct(product, i)}
 					/>
 				{/each}
 			</div>
