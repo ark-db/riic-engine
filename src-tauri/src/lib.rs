@@ -38,6 +38,9 @@ pub enum CmdError {
 
     #[error("Another file with the same name already exists")]
     DuplicateName,
+
+    #[error("The save file name is invalid")]
+    InvalidName,
 }
 
 impl Serialize for CmdError {

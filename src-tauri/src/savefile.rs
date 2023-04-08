@@ -59,11 +59,26 @@ pub struct ImportedSave {
     data: Save,
 }
 
+fn validate_save_name(name: &str) -> CmdResult<&str> {
+    if name
+        .chars()
+        .all(|c| c.is_ascii_alphanumeric() || c == '-' || c == '_')
+    {
+        Ok(name)
+    } else {
+        Err(CmdError::InvalidName)
+    }
+}
+
 fn get_save_fp(name: &str) -> CmdResult<PathBuf> {
     if name.is_empty() {
         Err(CmdError::NameEmpty)
     } else {
-        Ok(SAVE_DIR.wait().join(name).with_extension("json"))
+        let path = SAVE_DIR
+            .wait()
+            .join(validate_save_name(name)?)
+            .with_extension("json");
+        Ok(path)
     }
 }
 
