@@ -18,9 +18,6 @@ image_dir = "../static/facilities"
 quality = 100
 
 [item]
-whitelist = [
-    "AP_BASE", "DIAMOND_SHD", "GOLD", "MTL_DIAMOND_SHD", "MTL_GOLD3", # Drones, Orundum, LMD, Originium Shard, Pure Gold
-    "sprite_exp_card_t1", "sprite_exp_card_t2", "sprite_exp_card_t3", # Battle Records
-]
+whitelist = []
 image_dir = "../src/lib/images/items"
 quality = 50
