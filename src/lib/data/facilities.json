@@ -1,9 +1,15 @@
 {
-	"manufacture": {
-		"name": "Factory",
-		"color": "#ffd800",
+	"trading": {
+		"name": "Trading Post",
+		"color": "#0075a9",
 		"power": [-10, -30, -60],
 		"capacity": [1, 2, 3]
+	},
+	"hire": {
+		"name": "Office",
+		"color": "#565656",
+		"power": [-10, -30, -60],
+		"capacity": [1, 1, 1]
 	},
 	"control": {
 		"name": "Control Center",
@@ -17,11 +23,17 @@
 		"power": [-10, -20, -30, -45, -65],
 		"capacity": [5, 5, 5, 5, 5]
 	},
-	"hire": {
-		"name": "Office",
-		"color": "#565656",
+	"manufacture": {
+		"name": "Factory",
+		"color": "#ffd800",
 		"power": [-10, -30, -60],
-		"capacity": [1, 1, 1]
+		"capacity": [1, 2, 3]
+	},
+	"training": {
+		"name": "Training Room",
+		"color": "#7d0022",
+		"power": [-10, -30, -60],
+		"capacity": [2, 2, 2]
 	},
 	"meeting": {
 		"name": "Reception Room",
@@ -40,17 +52,5 @@
 		"color": "#e3eb00",
 		"power": [-10, -10, -10],
 		"capacity": [1, 1, 1]
-	},
-	"training": {
-		"name": "Training Room",
-		"color": "#7d0022",
-		"power": [-10, -30, -60],
-		"capacity": [2, 2, 2]
-	},
-	"trading": {
-		"name": "Trading Post",
-		"color": "#0075a9",
-		"power": [-10, -30, -60],
-		"capacity": [1, 2, 3]
 	}
 }
