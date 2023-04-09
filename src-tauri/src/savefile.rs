@@ -1,4 +1,4 @@
-use crate::{base::Save, CmdError, CmdResult};
+use crate::{base::Save, AppError, AppResult};
 use once_cell::sync::OnceCell;
 use serde::{Deserialize, Serialize};
 use std::{
@@ -40,11 +40,11 @@ pub struct FileData {
 }
 
 impl FileData {
-    fn new(path: &Path, metadata: &Metadata) -> CmdResult<Self> {
+    fn new(path: &Path, metadata: &Metadata) -> AppResult<Self> {
         Ok(Self {
             name: path
                 .file_stem()
-                .ok_or(CmdError::NameEmpty)?
+                .ok_or(AppError::NameEmpty)?
                 .to_string_lossy()
                 .to_string(),
             modified: metadata.modified()?.elapsed()?.as_secs_f32(),
@@ -59,20 +59,20 @@ pub struct ImportedSave {
     data: Save,
 }
 
-fn validate_save_name(name: &str) -> CmdResult<&str> {
+fn validate_save_name(name: &str) -> AppResult<&str> {
     if name
         .chars()
         .all(|c| c.is_ascii_alphanumeric() || c == '-' || c == '_')
     {
         Ok(name)
     } else {
-        Err(CmdError::InvalidName)
+        Err(AppError::InvalidName)
     }
 }
 
-fn get_save_fp(name: &str) -> CmdResult<PathBuf> {
+fn get_save_fp(name: &str) -> AppResult<PathBuf> {
     if name.is_empty() {
-        Err(CmdError::NameEmpty)
+        Err(AppError::NameEmpty)
     } else {
         let path = SAVE_DIR
             .wait()
@@ -101,7 +101,7 @@ fn get_available_fp(dir: &Path, name: &str) -> PathBuf {
 /// - Entry in save dir cannot be read
 /// - FileData cannot be initialized
 #[tauri::command]
-pub fn fetch_saves() -> CmdResult<Vec<FileData>> {
+pub fn fetch_saves() -> AppResult<Vec<FileData>> {
     Ok(read_dir(SAVE_DIR.wait())?
         .filter_map(Result::ok)
         .map(|entry| entry.path())
@@ -122,7 +122,7 @@ pub fn fetch_saves() -> CmdResult<Vec<FileData>> {
 /// - Save dir cannot be fetched
 /// - New save file cannot be created
 #[tauri::command]
-pub fn create_save() -> CmdResult<()> {
+pub fn create_save() -> AppResult<()> {
     let target_path = get_available_fp(SAVE_DIR.wait(), "Untitled");
     serde_json::to_writer(File::create(target_path)?, &Save::default())?;
     Ok(())
@@ -133,7 +133,7 @@ pub fn create_save() -> CmdResult<()> {
 /// - Path of save file cannot be fetched
 /// - Save file cannot be opened or serialized
 #[tauri::command]
-pub fn load_save(name: &str) -> CmdResult<Save> {
+pub fn load_save(name: &str) -> AppResult<Save> {
     let target_path = get_save_fp(name)?;
     let file = File::open(target_path)?;
     Ok(serde_json::from_reader(BufReader::new(file))?)
@@ -144,10 +144,10 @@ pub fn load_save(name: &str) -> CmdResult<Save> {
 /// - Path of old or new save file cannot be fetched
 /// - Save file cannot be renamed
 #[tauri::command]
-pub fn rename_save(old: &str, new: &str) -> CmdResult<()> {
+pub fn rename_save(old: &str, new: &str) -> AppResult<()> {
     let new_path = get_save_fp(new)?;
     if new_path.is_file() {
-        return Err(CmdError::DuplicateName);
+        return Err(AppError::DuplicateName);
     }
 
     let old_path = get_save_fp(old)?;
@@ -160,7 +160,7 @@ pub fn rename_save(old: &str, new: &str) -> CmdResult<()> {
 /// - Path of save file cannot be fetched
 /// - Save file cannot be created or deserialized
 #[tauri::command]
-pub fn update_save(save: Option<ImportedSave>) -> CmdResult<()> {
+pub fn update_save(save: Option<ImportedSave>) -> AppResult<()> {
     if let Some(save) = save {
         let save_path = get_save_fp(&save.name)?;
         serde_json::to_writer(File::create(save_path)?, &save.data)?;
@@ -173,7 +173,7 @@ pub fn update_save(save: Option<ImportedSave>) -> CmdResult<()> {
 /// - Path of save file cannot be fetched
 /// - Save file cannot be removed
 #[tauri::command]
-pub fn delete_save(name: &str) -> CmdResult<()> {
+pub fn delete_save(name: &str) -> AppResult<()> {
     let target_path = get_save_fp(name)?;
     remove_file(target_path)?;
     Ok(())
@@ -184,7 +184,7 @@ pub fn delete_save(name: &str) -> CmdResult<()> {
 /// - Path of save file cannot be fetched
 /// - Save file cannot be copied
 #[tauri::command]
-pub fn export_save(name: &str) -> CmdResult<()> {
+pub fn export_save(name: &str) -> AppResult<()> {
     let save_path = get_save_fp(name)?;
     let target_path = get_available_fp(DOWNLOAD_DIR.wait(), name);
     copy(save_path, target_path)?;

@@ -23,7 +23,7 @@ use tauri::App;
 use thiserror::Error;
 
 #[derive(Debug, Error)]
-pub enum CmdError {
+pub enum AppError {
     #[error("A system I/O error occurred")]
     Io(#[from] std::io::Error),
 
@@ -43,7 +43,7 @@ pub enum CmdError {
     InvalidName,
 }
 
-impl Serialize for CmdError {
+impl Serialize for AppError {
     fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
     where
         S: serde::ser::Serializer,
@@ -52,7 +52,7 @@ impl Serialize for CmdError {
     }
 }
 
-pub type CmdResult<T> = Result<T, CmdError>;
+pub type AppResult<T> = Result<T, AppError>;
 
 /// # Errors
 /// Returns error if:
