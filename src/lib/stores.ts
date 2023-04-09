@@ -9,7 +9,7 @@ import listIncreasingIcon from '$lib/images/ui/list-increasing.svg';
 import listDecreasingIcon from '$lib/images/ui/list-decreasing.svg';
 import maximizeIcon from '$lib/images/ui/maximize.svg';
 import minimizeIcon from '$lib/images/ui/minimize.svg';
-import type { SaveData, FileData } from '$lib/types';
+import type { SaveData, SaveTimeData } from '$lib/types';
 
 // App-wide error store to display errors to users
 function createError() {
@@ -95,7 +95,7 @@ function createSaveSortOrder() {
 
 // The list of saves on the main menu. Interacting with the list (creating, deleting, etc.) will refresh it.
 function createSaveList() {
-	const saves = writable<FileData[]>();
+	const saves = writable<SaveTimeData[]>();
 
 	const { subscribe } = derived(
 		[saves, saveSortMode, saveSortOrder],
@@ -103,7 +103,7 @@ function createSaveList() {
 			$saves ? $saves.sort((prev, curr) => (prev[mode] - curr[mode]) * direction) : []
 	);
 
-	const loadSaves = () => invoke<FileData[]>('fetch_saves').then(saves.set);
+	const loadSaves = () => invoke<SaveTimeData[]>('fetch_saves').then(saves.set);
 
 	return {
 		subscribe,

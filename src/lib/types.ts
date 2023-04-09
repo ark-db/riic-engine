@@ -1,4 +1,4 @@
-export type FileData = {
+export type SaveTimeData = {
 	name: string;
 	readonly modified: number;
 	readonly created: number;

@@ -2,11 +2,11 @@
 	import GradientContainer from '$lib/components/GradientContainer.svelte';
 	import Modal from '$lib/components/Modal.svelte';
 	import { saveList, saveSortMode, activeSave } from '$lib/stores';
-	import type { FileData } from '$lib/types';
+	import type { SaveTimeData } from '$lib/types';
 	import NameInput from './NameInput.svelte';
 	import EntrySettings from './EntrySettings.svelte';
 
-	export let save: FileData;
+	export let save: SaveTimeData;
 
 	let hovering = false;
 	let pendingRename = false;
