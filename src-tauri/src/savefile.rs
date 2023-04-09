@@ -76,17 +76,6 @@ fn get_available_fp(dir: &Path, name: &str) -> PathBuf {
 
 /// # Errors
 /// Returns error if:
-/// - Save dir cannot be fetched
-/// - New save file cannot be created
-#[tauri::command]
-pub fn create_save() -> AppResult<()> {
-    let target_path = get_available_fp(SAVE_DIR.wait(), "Untitled");
-    serde_json::to_writer(File::create(target_path)?, &Save::default())?;
-    Ok(())
-}
-
-/// # Errors
-/// Returns error if:
 /// - Path of save file cannot be fetched
 /// - Save file cannot be opened or serialized
 #[tauri::command]

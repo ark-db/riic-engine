@@ -1,6 +1,10 @@
+use crate::base::Save;
+use ahash::HashSet;
+use chrono::{DateTime, Utc};
 use parking_lot::Mutex;
-use rusqlite::{config::DbConfig, limits::Limit, Connection, Error as SqlError};
+use rusqlite::{config::DbConfig, limits::Limit, types::Type, Connection, Error as SqlError, Row};
 use serde::Serialize;
+use std::borrow::Cow;
 use tauri::{InvokeError, State};
 use thiserror::Error;
 
@@ -70,7 +74,12 @@ pub enum DbError {
 
     #[error("An error occurred while fetching saves")]
     Fetch,
+
+    #[error("An error occurred while creating a new save")]
+    Creation,
 }
+
+type DbResult<T> = Result<T, DbError>;
 
 impl From<DbError> for InvokeError {
     fn from(val: DbError) -> Self {
@@ -81,8 +90,18 @@ impl From<DbError> for InvokeError {
 #[derive(Serialize)]
 pub struct FileData {
     name: String,
-    created: f64,
-    modified: f64,
+    created: f32,
+    modified: f32,
+}
+
+fn get_elapsed_time(row: &Row<'_>, index: &str, present: DateTime<Utc>) -> Result<f32, SqlError> {
+    let dt: DateTime<Utc> = row.get(index)?;
+
+    Ok(present
+        .signed_duration_since(dt)
+        .to_std()
+        .map_err(|_| SqlError::InvalidColumnType(0, String::from(index), Type::Text))?
+        .as_secs_f32())
 }
 
 /// # Errors
@@ -90,8 +109,10 @@ pub struct FileData {
 /// - Database query failed
 #[tauri::command]
 #[allow(clippy::needless_pass_by_value)]
-pub fn fetch_saves(db: State<'_, Database>) -> Result<Vec<FileData>, DbError> {
+pub fn fetch_saves(db: State<'_, Database>) -> DbResult<Vec<FileData>> {
     let conn = db.0.lock();
+
+    let now = Utc::now();
 
     let query = conn
         .prepare_cached("SELECT name, created, last_modified FROM save")
@@ -99,8 +120,8 @@ pub fn fetch_saves(db: State<'_, Database>) -> Result<Vec<FileData>, DbError> {
         .query_and_then([], |row| {
             Ok(FileData {
                 name: row.get("name")?,
-                created: row.get("created")?,
-                modified: row.get("last_modified")?,
+                created: get_elapsed_time(row, "created", now)?,
+                modified: get_elapsed_time(row, "last_modified", now)?,
             })
         })
         .map_err(|_| DbError::Fetch)?
@@ -108,4 +129,58 @@ pub fn fetch_saves(db: State<'_, Database>) -> Result<Vec<FileData>, DbError> {
         .map_err(|_| DbError::Fetch)?;
 
     Ok(query)
+}
+
+fn get_available_name<F>(name: &str, is_available: F) -> Cow<'_, str>
+where
+    F: Fn(&str) -> bool,
+{
+    if is_available(name) {
+        return Cow::Borrowed(name);
+    }
+
+    let mut i = 1u32;
+    let mut new_name: String;
+    while {
+        new_name = format!("{name}-{i}");
+        !is_available(&new_name)
+    } {
+        i += 1;
+    }
+    Cow::Owned(new_name)
+}
+
+/// # Errors
+/// Returns error if:
+/// - Database query failed
+/// - Database insertion failed
+#[tauri::command]
+#[allow(clippy::needless_pass_by_value)]
+pub fn create_save(db: State<'_, Database>) -> DbResult<()> {
+    let conn = db.0.lock();
+
+    let names = conn
+        .prepare_cached("SELECT name FROM save")
+        .map_err(|_| DbError::Execution)?
+        .query_and_then([], |row| row.get("name"))
+        .map_err(|_| DbError::Fetch)?
+        .collect::<Result<HashSet<String>, SqlError>>()
+        .map_err(|_| DbError::Fetch)?;
+
+    let save_name = get_available_name("Untitled", |new_name| !names.contains(new_name));
+
+    let now = Utc::now();
+
+    conn.prepare_cached(
+        "INSERT INTO save (
+            name, created, last_modified, data
+        ) VALUES (
+            ?1, ?2, ?3, ?4
+        )",
+    )
+    .map_err(|_| DbError::Execution)?
+    .execute((save_name, now, now, Save::default()))
+    .map_err(|_| DbError::Creation)?;
+
+    Ok(())
 }
