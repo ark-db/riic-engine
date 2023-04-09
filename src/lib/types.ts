@@ -43,8 +43,7 @@ type BoostFacilityBase<P> = Facility & {
 	}[];
 	products: {
 		kind: P;
-		start: number;
-		end: number;
+		col: number;
 	}[];
 };
 
@@ -54,8 +53,7 @@ export type BoostFacility = TradingPost | Factory;
 
 type Shift = {
 	char: string;
-	start: number;
-	end: number;
+	col: number;
 };
 
 export type TradingProduct = 'lmd' | 'orundum';

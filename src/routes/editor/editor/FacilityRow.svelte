@@ -27,8 +27,7 @@
 		if ('products' in room) {
 			room.products.push({
 				kind: product,
-				start: index,
-				end: index + 1
+				col: index
 			} as never);
 			room = room;
 		}

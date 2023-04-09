@@ -54,8 +54,7 @@ struct BoostFacility<P> {
 #[serde(deny_unknown_fields)]
 struct Shift {
     char: Operator,
-    start: ShiftCount,
-    end: ShiftCount,
+    col: ShiftCount,
 }
 
 #[derive(Serialize, Deserialize)]
@@ -69,8 +68,7 @@ struct Boost {
 #[serde(deny_unknown_fields)]
 struct Product<T> {
     kind: T,
-    start: ShiftCount,
-    end: ShiftCount,
+    col: ShiftCount,
 }
 
 #[derive(Serialize, Deserialize)]
