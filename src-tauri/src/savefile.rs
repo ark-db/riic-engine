@@ -1,8 +1,8 @@
 use crate::{base::Save, AppError, AppResult};
 use once_cell::sync::OnceCell;
-use serde::{Deserialize, Serialize};
+use serde::Deserialize;
 use std::{
-    fs::{copy, create_dir_all, metadata, read_dir, remove_file, rename, File, Metadata},
+    fs::{copy, create_dir_all, remove_file, rename, File},
     io::BufReader,
     path::{Path, PathBuf},
 };
@@ -30,27 +30,6 @@ pub(crate) fn load_savefile_dirs(app: &App) {
 
     let download_dir = download_dir().expect("Failed to retrieve download directory");
     DOWNLOAD_DIR.set(download_dir).unwrap();
-}
-
-#[derive(Serialize)]
-pub struct FileData {
-    name: String,
-    modified: f32,
-    created: f32,
-}
-
-impl FileData {
-    fn new(path: &Path, metadata: &Metadata) -> AppResult<Self> {
-        Ok(Self {
-            name: path
-                .file_stem()
-                .ok_or(AppError::NameEmpty)?
-                .to_string_lossy()
-                .to_string(),
-            modified: metadata.modified()?.elapsed()?.as_secs_f32(),
-            created: metadata.created()?.elapsed()?.as_secs_f32(),
-        })
-    }
 }
 
 #[derive(Deserialize)]
@@ -93,28 +72,6 @@ fn get_available_fp(dir: &Path, name: &str) -> PathBuf {
         path.set_file_name(format!("{}-{}.json", name, index));
     }
     path
-}
-
-/// # Errors
-/// Returns error if:
-/// - Save dir cannot be fetched or read
-/// - Entry in save dir cannot be read
-/// - FileData cannot be initialized
-#[tauri::command]
-pub fn fetch_saves() -> AppResult<Vec<FileData>> {
-    Ok(read_dir(SAVE_DIR.wait())?
-        .filter_map(Result::ok)
-        .map(|entry| entry.path())
-        .filter_map(|path| {
-            let data = metadata(&path).ok()?;
-            let ext = path.extension()?;
-            if ext == "json" && data.is_file() {
-                FileData::new(&path, &data).ok()
-            } else {
-                None
-            }
-        })
-        .collect())
 }
 
 /// # Errors

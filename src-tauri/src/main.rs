@@ -11,7 +11,7 @@ fn main() {
         .invoke_handler(tauri::generate_handler![
             window::show_window,
             window::rename_window,
-            savefile::fetch_saves,
+            db::fetch_saves,
             savefile::create_save,
             savefile::load_save,
             savefile::rename_save,

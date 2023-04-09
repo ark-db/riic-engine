@@ -1,5 +1,8 @@
 use parking_lot::Mutex;
-use rusqlite::{config::DbConfig, limits::Limit, Connection, Error};
+use rusqlite::{config::DbConfig, limits::Limit, Connection, Error as SqlError};
+use serde::Serialize;
+use tauri::{InvokeError, State};
+use thiserror::Error;
 
 pub struct Database(Mutex<Connection>);
 
@@ -10,7 +13,7 @@ impl Database {
     /// - Database settings and limits cannot be set
     /// - SQL statements executed during initialization fail
     /// - SQL statements cannot be prepared and cached
-    pub fn init() -> Result<Self, Error> {
+    pub fn init() -> Result<Self, SqlError> {
         let conn = Connection::open("./data.db")?;
 
         // Set configuration
@@ -57,4 +60,52 @@ impl Database {
 
         Ok(Self(Mutex::from(conn)))
     }
+}
+
+#[derive(Debug, Error)]
+#[allow(clippy::module_name_repetitions)]
+pub enum DbError {
+    #[error("Failed to execute query statement")]
+    Execution,
+
+    #[error("An error occurred while fetching saves")]
+    Fetch,
+}
+
+impl From<DbError> for InvokeError {
+    fn from(val: DbError) -> Self {
+        InvokeError::from(val.to_string())
+    }
+}
+
+#[derive(Serialize)]
+pub struct FileData {
+    name: String,
+    created: f64,
+    modified: f64,
+}
+
+/// # Errors
+/// Returns error if:
+/// - Database query failed
+#[tauri::command]
+#[allow(clippy::needless_pass_by_value)]
+pub fn fetch_saves(db: State<'_, Database>) -> Result<Vec<FileData>, DbError> {
+    let conn = db.0.lock();
+
+    let query = conn
+        .prepare_cached("SELECT name, created, last_modified FROM save")
+        .map_err(|_| DbError::Execution)?
+        .query_and_then([], |row| {
+            Ok(FileData {
+                name: row.get("name")?,
+                created: row.get("created")?,
+                modified: row.get("last_modified")?,
+            })
+        })
+        .map_err(|_| DbError::Fetch)?
+        .collect::<Result<Vec<FileData>, SqlError>>()
+        .map_err(|_| DbError::Fetch)?;
+
+    Ok(query)
 }
