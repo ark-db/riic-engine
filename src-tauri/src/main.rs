@@ -13,7 +13,7 @@ fn main() {
             window::rename_window,
             db::fetch_saves,
             db::create_save,
-            savefile::load_save,
+            db::get_save,
             savefile::rename_save,
             savefile::update_save,
             savefile::delete_save,

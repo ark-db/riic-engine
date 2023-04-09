@@ -121,7 +121,7 @@ function createActiveSave() {
 	const { subscribe, set } = writable<ActiveSave>();
 
 	async function loadSave(name: string) {
-		const data = await invoke<SaveData>('load_save', { name });
+		const data = await invoke<SaveData>('get_save', { name });
 		set({ name, data });
 		await goto('/editor/setup');
 	}

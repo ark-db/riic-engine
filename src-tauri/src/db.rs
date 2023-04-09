@@ -182,3 +182,20 @@ pub fn create_save(db: State<'_, Database>) -> DbResult<()> {
 
     Ok(())
 }
+
+/// # Errors
+/// Returns error if:
+/// - Database query failed
+#[tauri::command]
+#[allow(clippy::needless_pass_by_value)]
+pub fn get_save(db: State<'_, Database>, name: &str) -> DbResult<Save> {
+    let conn = db.0.lock();
+
+    let query = conn
+        .prepare_cached("SELECT data FROM save WHERE name = ?1")
+        .map_err(|_| DbError::Execution)?
+        .query_row([name], |row| row.get("data"))
+        .map_err(|_| DbError::Fetch)?;
+
+    Ok(query)
+}

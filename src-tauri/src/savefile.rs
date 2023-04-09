@@ -3,7 +3,6 @@ use once_cell::sync::OnceCell;
 use serde::Deserialize;
 use std::{
     fs::{copy, create_dir_all, remove_file, rename, File},
-    io::BufReader,
     path::{Path, PathBuf},
 };
 use tauri::{api::path::download_dir, App};
@@ -72,17 +71,6 @@ fn get_available_fp(dir: &Path, name: &str) -> PathBuf {
         path.set_file_name(format!("{}-{}.json", name, index));
     }
     path
-}
-
-/// # Errors
-/// Returns error if:
-/// - Path of save file cannot be fetched
-/// - Save file cannot be opened or serialized
-#[tauri::command]
-pub fn load_save(name: &str) -> AppResult<Save> {
-    let target_path = get_save_fp(name)?;
-    let file = File::open(target_path)?;
-    Ok(serde_json::from_reader(BufReader::new(file))?)
 }
 
 /// # Errors
