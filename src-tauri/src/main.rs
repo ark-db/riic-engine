@@ -14,7 +14,7 @@ fn main() {
             db::fetch_saves,
             db::create_save,
             db::get_save,
-            savefile::rename_save,
+            db::rename_save,
             savefile::update_save,
             savefile::delete_save,
             savefile::export_save

@@ -2,7 +2,7 @@ use crate::{base::Save, AppError, AppResult};
 use once_cell::sync::OnceCell;
 use serde::Deserialize;
 use std::{
-    fs::{copy, create_dir_all, remove_file, rename, File},
+    fs::{copy, create_dir_all, remove_file, File},
     path::{Path, PathBuf},
 };
 use tauri::{api::path::download_dir, App};
@@ -71,22 +71,6 @@ fn get_available_fp(dir: &Path, name: &str) -> PathBuf {
         path.set_file_name(format!("{}-{}.json", name, index));
     }
     path
-}
-
-/// # Errors
-/// Returns error if:
-/// - Path of old or new save file cannot be fetched
-/// - Save file cannot be renamed
-#[tauri::command]
-pub fn rename_save(old: &str, new: &str) -> AppResult<()> {
-    let new_path = get_save_fp(new)?;
-    if new_path.is_file() {
-        return Err(AppError::DuplicateName);
-    }
-
-    let old_path = get_save_fp(old)?;
-    rename(old_path, new_path)?;
-    Ok(())
 }
 
 /// # Errors

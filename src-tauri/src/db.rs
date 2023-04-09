@@ -2,7 +2,7 @@ use crate::base::Save;
 use ahash::HashSet;
 use chrono::{DateTime, Utc};
 use parking_lot::Mutex;
-use rusqlite::{config::DbConfig, limits::Limit, Connection, Error as SqlError};
+use rusqlite::{config::DbConfig, limits::Limit, Connection, Error as SqlError, ErrorCode};
 use serde::Serialize;
 use std::borrow::Cow;
 use tauri::{InvokeError, State};
@@ -73,10 +73,16 @@ pub enum DbError {
     Execution,
 
     #[error("An error occurred while fetching saves")]
-    Fetch,
+    Fetching,
 
     #[error("An error occurred while creating a new save")]
     Creation,
+
+    #[error("An error occurred while renaming the save")]
+    Renaming,
+
+    #[error("Another save with the same name already exists")]
+    DuplicateName,
 }
 
 type DbResult<T> = Result<T, DbError>;
@@ -104,6 +110,7 @@ fn get_elapsed_time(earlier: DateTime<Utc>, later: DateTime<Utc>) -> f32 {
 
 /// # Errors
 /// Returns error if:
+/// - Invalid SQL statement is present
 /// - Database query failed
 #[tauri::command]
 #[allow(clippy::needless_pass_by_value)]
@@ -122,9 +129,9 @@ pub fn fetch_saves(db: State<'_, Database>) -> DbResult<Vec<FileData>> {
                 modified: get_elapsed_time(row.get("last_modified")?, now),
             })
         })
-        .map_err(|_| DbError::Fetch)?
+        .map_err(|_| DbError::Fetching)?
         .collect::<Result<Vec<FileData>, SqlError>>()
-        .map_err(|_| DbError::Fetch)?;
+        .map_err(|_| DbError::Fetching)?;
 
     Ok(query)
 }
@@ -150,6 +157,7 @@ where
 
 /// # Errors
 /// Returns error if:
+/// - Invalid SQL statement is present
 /// - Database query failed
 /// - Database insertion failed
 #[tauri::command]
@@ -161,9 +169,9 @@ pub fn create_save(db: State<'_, Database>) -> DbResult<()> {
         .prepare_cached("SELECT name FROM save")
         .map_err(|_| DbError::Execution)?
         .query_and_then([], |row| row.get("name"))
-        .map_err(|_| DbError::Fetch)?
+        .map_err(|_| DbError::Fetching)?
         .collect::<Result<HashSet<String>, SqlError>>()
-        .map_err(|_| DbError::Fetch)?;
+        .map_err(|_| DbError::Fetching)?;
 
     let save_name = get_available_name("Untitled", |new_name| !names.contains(new_name));
 
@@ -185,6 +193,7 @@ pub fn create_save(db: State<'_, Database>) -> DbResult<()> {
 
 /// # Errors
 /// Returns error if:
+/// - Invalid SQL statement is present
 /// - Database query failed
 #[tauri::command]
 #[allow(clippy::needless_pass_by_value)]
@@ -195,7 +204,32 @@ pub fn get_save(db: State<'_, Database>, name: &str) -> DbResult<Save> {
         .prepare_cached("SELECT data FROM save WHERE name = ?1")
         .map_err(|_| DbError::Execution)?
         .query_row([name], |row| row.get("data"))
-        .map_err(|_| DbError::Fetch)?;
+        .map_err(|_| DbError::Fetching)?;
 
     Ok(query)
+}
+
+/// # Errors
+/// Returns error if:
+/// - Invalid SQL statement is present
+/// - Database update failed
+/// - A save with name `new` already exists
+#[tauri::command]
+#[allow(clippy::needless_pass_by_value)]
+pub fn rename_save(db: State<'_, Database>, old: &str, new: &str) -> DbResult<()> {
+    let conn = db.0.lock();
+
+    conn.prepare_cached("UPDATE save SET name = ?2 WHERE name = ?1")
+        .map_err(|_| DbError::Execution)?
+        .execute([old, new])
+        .map_err(|e| {
+            if let Some(code) = e.sqlite_error_code() {
+                if code == ErrorCode::ConstraintViolation {
+                    return DbError::DuplicateName;
+                }
+            }
+            DbError::Renaming
+        })?;
+
+    Ok(())
 }
