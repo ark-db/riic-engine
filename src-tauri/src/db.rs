@@ -2,7 +2,7 @@ use crate::base::Save;
 use ahash::HashSet;
 use chrono::{DateTime, Utc};
 use parking_lot::Mutex;
-use rusqlite::{config::DbConfig, limits::Limit, types::Type, Connection, Error as SqlError, Row};
+use rusqlite::{config::DbConfig, limits::Limit, Connection, Error as SqlError};
 use serde::Serialize;
 use std::borrow::Cow;
 use tauri::{InvokeError, State};
@@ -94,14 +94,12 @@ pub struct FileData {
     modified: f32,
 }
 
-fn get_elapsed_time(row: &Row<'_>, index: &str, present: DateTime<Utc>) -> Result<f32, SqlError> {
-    let dt: DateTime<Utc> = row.get(index)?;
-
-    Ok(present
-        .signed_duration_since(dt)
+fn get_elapsed_time(earlier: DateTime<Utc>, later: DateTime<Utc>) -> f32 {
+    later
+        .signed_duration_since(earlier)
         .to_std()
-        .map_err(|_| SqlError::InvalidColumnType(0, String::from(index), Type::Text))?
-        .as_secs_f32())
+        .expect("`earlier` datetime should be earlier than the `later` datetime")
+        .as_secs_f32()
 }
 
 /// # Errors
@@ -120,8 +118,8 @@ pub fn fetch_saves(db: State<'_, Database>) -> DbResult<Vec<FileData>> {
         .query_and_then([], |row| {
             Ok(FileData {
                 name: row.get("name")?,
-                created: get_elapsed_time(row, "created", now)?,
-                modified: get_elapsed_time(row, "last_modified", now)?,
+                created: get_elapsed_time(row.get("created")?, now),
+                modified: get_elapsed_time(row.get("last_modified")?, now),
             })
         })
         .map_err(|_| DbError::Fetch)?
