@@ -15,6 +15,7 @@
 )]
 
 mod base;
+pub mod db;
 pub mod savefile;
 pub mod window;
 

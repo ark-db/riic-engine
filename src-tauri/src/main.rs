@@ -3,10 +3,11 @@
     windows_subsystem = "windows"
 )]
 
-use riic_engine::{savefile, setup_app, window};
+use riic_engine::{db, savefile, setup_app, window};
 
 fn main() {
     tauri::Builder::default()
+        .manage(db::Database::init().expect("Failed to initialize app database"))
         .invoke_handler(tauri::generate_handler![
             window::show_window,
             window::rename_window,
