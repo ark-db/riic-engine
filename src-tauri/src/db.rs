@@ -31,8 +31,8 @@ impl Database {
             "BEGIN;
             CREATE TABLE IF NOT EXISTS save (
                 name            TEXT NOT NULL UNIQUE,
-                created         REAL NOT NULL,
-                last_modified   REAL NOT NULL,
+                created         TEXT NOT NULL,
+                last_modified   TEXT NOT NULL,
                 data            BLOB NOT NULL
             ) STRICT;
             CREATE INDEX idx_name_data ON save (
