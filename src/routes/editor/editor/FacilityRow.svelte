@@ -41,7 +41,7 @@
 	<div class="main" style="--height: {rowHeight}px; --column-width: {columnWidth}px;">
 		{#if kind === 'trading' || kind === 'manufacture'}
 			<div class="products">
-				{#each { length: $activeSave.data.maxShift } as _, i}
+				{#each { length: $activeSave.maxShift } as _, i}
 					<ProductBox
 						{kind}
 						level={room.level}

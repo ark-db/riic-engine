@@ -4,47 +4,45 @@
 	import slash from '$lib/images/ui/slash.webp';
 	import { activeSave } from '$lib/stores';
 	import { tooltip } from '$lib/tooltip';
-	import type { ActiveSave } from '$lib/types';
+	import type { SaveData } from '$lib/types';
 
 	$: powerUsage = calculatePowerUsage($activeSave);
 	$: maxPower = calculatePowerCapacity($activeSave);
 
 	// Calculates power usage of all facilities from a base layout
-	function calculatePowerUsage(save: ActiveSave): number {
+	function calculatePowerUsage(save: SaveData): number {
 		let power = 0;
 		// Control Center power consumption is 0 at all levels,
 		// so it is not part of the calculation.
-		for (const fac of save.data.layout.dorm) {
+		for (const fac of save.layout.dorm) {
 			power -= fac.level === 0 ? 0 : facilityData.dormitory.power.at(fac.level - 1) ?? 0;
 		}
 		// factory, trading post, and workshop level must be at least 1, so checking
 		// for level 0 (uninitialized) is unnecessary
-		for (const fac of save.data.layout.tp) {
+		for (const fac of save.layout.tp) {
 			power -= facilityData.trading.power.at(fac.level - 1) ?? 0;
 		}
-		for (const fac of save.data.layout.fac) {
+		for (const fac of save.layout.fac) {
 			power -= facilityData.manufacture.power.at(fac.level - 1) ?? 0;
 		}
-		power -= facilityData.workshop.power.at(save.data.layout.workshop.level - 1) ?? 0;
+		power -= facilityData.workshop.power.at(save.layout.workshop.level - 1) ?? 0;
 		power -=
-			save.data.layout.rr.level === 0
-				? 0
-				: facilityData.meeting.power.at(save.data.layout.rr.level - 1) ?? 0;
+			save.layout.rr.level === 0 ? 0 : facilityData.meeting.power.at(save.layout.rr.level - 1) ?? 0;
 		power -=
-			save.data.layout.office.level === 0
+			save.layout.office.level === 0
 				? 0
-				: facilityData.hire.power.at(save.data.layout.office.level - 1) ?? 0;
+				: facilityData.hire.power.at(save.layout.office.level - 1) ?? 0;
 		power -=
-			save.data.layout.train.level === 0
+			save.layout.train.level === 0
 				? 0
-				: facilityData.training.power.at(save.data.layout.train.level - 1) ?? 0;
+				: facilityData.training.power.at(save.layout.train.level - 1) ?? 0;
 
 		return power;
 	}
 
 	// Calculates the maximum power available from a base layout
-	function calculatePowerCapacity(save: ActiveSave): number {
-		return save.data.layout.pp.reduce(
+	function calculatePowerCapacity(save: SaveData): number {
+		return save.layout.pp.reduce(
 			(partialSum, facility) => partialSum + (facilityData.power.power.at(facility.level - 1) ?? 0),
 			0
 		);

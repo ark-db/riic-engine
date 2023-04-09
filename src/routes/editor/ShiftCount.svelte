@@ -8,9 +8,9 @@
 	desc="Number of shifts"
 	min={0}
 	max={99}
-	initial={$activeSave.data.maxShift}
+	initial={$activeSave.maxShift}
 	placeholder=" "
-	onValidInput={(value) => ($activeSave.data.maxShift = value)}
+	onValidInput={(value) => ($activeSave.maxShift = value)}
 	errorMsg="The specified number of shifts should be a number from 0 to 99"
 	iconSrc={briefcase}
 	iconSize={36}

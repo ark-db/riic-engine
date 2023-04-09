@@ -4,11 +4,6 @@ export type FileData = {
 	readonly created: number;
 };
 
-export type ActiveSave = {
-	name: string;
-	data: SaveData;
-};
-
 export type SaveData = {
 	layout: {
 		cc: Facility;

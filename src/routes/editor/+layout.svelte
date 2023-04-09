@@ -15,9 +15,6 @@
 	let menuActive = true;
 	$: menuIconDesc = `${menuActive ? 'Collapse' : 'Expand'} menu`;
 
-	// Rename the app window when moving from the main menu to the editor
-	invoke<void>('rename_window', { name: $activeSave.name });
-
 	/*
 	$: invoke('update_save', { save: $activeSave });
 

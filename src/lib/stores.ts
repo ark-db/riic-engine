@@ -9,7 +9,7 @@ import listIncreasingIcon from '$lib/images/ui/list-increasing.svg';
 import listDecreasingIcon from '$lib/images/ui/list-decreasing.svg';
 import maximizeIcon from '$lib/images/ui/maximize.svg';
 import minimizeIcon from '$lib/images/ui/minimize.svg';
-import type { SaveData, FileData, ActiveSave } from '$lib/types';
+import type { SaveData, FileData } from '$lib/types';
 
 // App-wide error store to display errors to users
 function createError() {
@@ -118,12 +118,13 @@ function createSaveList() {
 
 // Stores data of the currently-active save file
 function createActiveSave() {
-	const { subscribe, set } = writable<ActiveSave>();
+	const { subscribe, set } = writable<SaveData>();
 
 	async function loadSave(name: string) {
 		const data = await invoke<SaveData>('get_save', { name });
-		set({ name, data });
+		set(data);
 		await goto('/editor/setup');
+		await invoke<void>('rename_window', { name });
 	}
 
 	return {

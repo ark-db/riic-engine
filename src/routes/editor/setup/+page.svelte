@@ -39,74 +39,71 @@
 <div class="container">
 	<div class="control">
 		{#if true}
-			<Facility kind="control" minLevel={1} bind:level={$activeSave.data.layout.cc.level} />
+			<Facility kind="control" minLevel={1} bind:level={$activeSave.layout.cc.level} />
 		{/if}
 	</div>
 	<div class="tp-wrapper">
-		{#each $activeSave.data.layout.tp as room, i}
+		{#each $activeSave.layout.tp as room, i}
 			<Facility
 				kind="trading"
 				minLevel={1}
-				onDelete={() => deleteFacility($activeSave.data.layout.tp, i)}
+				onDelete={() => deleteFacility($activeSave.layout.tp, i)}
 				bind:level={room.level}
 			/>
 		{/each}
-		{#if $activeSave.data.layout.tp.length < 5}
-			<AddFacility kind="trading" onClick={() => addBoostFacility($activeSave.data.layout.tp)} />
+		{#if $activeSave.layout.tp.length < 5}
+			<AddFacility kind="trading" onClick={() => addBoostFacility($activeSave.layout.tp)} />
 		{/if}
 	</div>
 	<div class="fac-wrapper">
-		{#each $activeSave.data.layout.fac as room, i}
+		{#each $activeSave.layout.fac as room, i}
 			<Facility
 				kind="manufacture"
 				minLevel={1}
-				onDelete={() => deleteFacility($activeSave.data.layout.fac, i)}
+				onDelete={() => deleteFacility($activeSave.layout.fac, i)}
 				bind:level={room.level}
 			/>
 		{/each}
-		{#if $activeSave.data.layout.fac.length < 5}
-			<AddFacility
-				kind="manufacture"
-				onClick={() => addBoostFacility($activeSave.data.layout.fac)}
-			/>
+		{#if $activeSave.layout.fac.length < 5}
+			<AddFacility kind="manufacture" onClick={() => addBoostFacility($activeSave.layout.fac)} />
 		{/if}
 	</div>
 	<div class="pp-wrapper">
-		{#each $activeSave.data.layout.pp as room, i}
+		{#each $activeSave.layout.pp as room, i}
 			<Facility
 				kind="power"
 				minLevel={1}
-				onDelete={() => deleteFacility($activeSave.data.layout.pp, i)}
+				onDelete={() => deleteFacility($activeSave.layout.pp, i)}
 				bind:level={room.level}
 			/>
 		{/each}
-		{#if $activeSave.data.layout.pp.length < 5}
-			<AddFacility kind="power" onClick={() => addFacility($activeSave.data.layout.pp)} />
+		{#if $activeSave.layout.pp.length < 5}
+			<AddFacility kind="power" onClick={() => addFacility($activeSave.layout.pp)} />
 		{/if}
 	</div>
 	<div class="dorm-wrapper">
-		{#each $activeSave.data.layout.dorm as room}
+		{#each $activeSave.layout.dorm as room}
 			<Facility kind="dormitory" bind:level={room.level} />
 		{/each}
 	</div>
 	<div class="workshop">
 		{#if true}
-			<Facility kind="workshop" minLevel={1} bind:level={$activeSave.data.layout.workshop.level} />
+			<Facility kind="workshop" minLevel={1} bind:level={$activeSave.layout.workshop.level} />
 		{/if}
 	</div>
 	<div class="reception">
 		{#if true}
-			<Facility kind="meeting" bind:level={$activeSave.data.layout.rr.level} />
+			<Facility kind="meeting" bind:level={$activeSave.layout.rr.level} />
 		{/if}
 	</div>
 	<div class="office">
 		{#if true}
-			<Facility kind="hire" bind:level={$activeSave.data.layout.office.level} />
+			<Facility kind="hire" bind:level={$activeSave.layout.office.level} />
 		{/if}
 	</div>
 	<div class="training">
 		{#if true}
-			<Facility kind="training" bind:level={$activeSave.data.layout.train.level} />
+			<Facility kind="training" bind:level={$activeSave.layout.train.level} />
 		{/if}
 	</div>
 </div>
