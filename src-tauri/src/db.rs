@@ -26,6 +26,8 @@ impl Database {
         // Set configuration
         conn.set_db_config(DbConfig::SQLITE_DBCONFIG_DEFENSIVE, true)?;
         conn.set_db_config(DbConfig::SQLITE_DBCONFIG_TRUSTED_SCHEMA, false)?;
+        conn.set_db_config(DbConfig::SQLITE_DBCONFIG_ENABLE_TRIGGER, false)?;
+        conn.set_db_config(DbConfig::SQLITE_DBCONFIG_ENABLE_VIEW, false)?;
         conn.set_limit(Limit::SQLITE_LIMIT_LENGTH, 1_000_000);
         conn.set_limit(Limit::SQLITE_LIMIT_SQL_LENGTH, 1_000_000);
 

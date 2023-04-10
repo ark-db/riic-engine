@@ -9,10 +9,6 @@
 	let input: HTMLInputElement;
 	let origText = `${text}`;
 
-	const parseText = (text: string) => text.replace(/[^\w-]+/g, '');
-
-	$: text = parseText(text);
-
 	onMount(() => {
 		if (input) input.focus();
 	});
@@ -24,13 +20,12 @@
 	// Updates the save name if the new name is valid and different from the old name
 	function handleSubmit() {
 		active = false;
-		let name = parseText(text);
-		if (!name) {
+		if (!text) {
 			text = origText;
-		} else if (origText !== name) {
+		} else if (origText !== text) {
 			invoke<void>('rename_save', {
 				old: origText,
-				new: name
+				new: text
 			})
 				.then(() => {
 					origText = text;
@@ -50,9 +45,8 @@
 	type="text"
 	placeholder="Setup name..."
 	required
-	pattern="[\w-]+$"
 	minlength="1"
-	maxlength="25"
+	maxlength="30"
 	autocapitalize="off"
 	autocomplete="off"
 	spellcheck="false"
