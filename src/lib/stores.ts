@@ -1,4 +1,5 @@
 import { goto } from '$app/navigation';
+import { navigating } from '$app/stores';
 import { writable, derived } from 'svelte/store';
 import { tweened } from 'svelte/motion';
 import { cubicOut } from 'svelte/easing';
@@ -9,7 +10,7 @@ import listIncreasingIcon from '$lib/images/ui/list-increasing.svg';
 import listDecreasingIcon from '$lib/images/ui/list-decreasing.svg';
 import maximizeIcon from '$lib/images/ui/maximize.svg';
 import minimizeIcon from '$lib/images/ui/minimize.svg';
-import type { SaveData, FileData, ActiveSave } from '$lib/types';
+import type { SaveData, SaveTimeData } from '$lib/types';
 
 // App-wide error store to display errors to users
 function createError() {
@@ -95,7 +96,7 @@ function createSaveSortOrder() {
 
 // The list of saves on the main menu. Interacting with the list (creating, deleting, etc.) will refresh it.
 function createSaveList() {
-	const saves = writable<FileData[]>();
+	const saves = writable<SaveTimeData[]>();
 
 	const { subscribe } = derived(
 		[saves, saveSortMode, saveSortOrder],
@@ -103,7 +104,7 @@ function createSaveList() {
 			$saves ? $saves.sort((prev, curr) => (prev[mode] - curr[mode]) * direction) : []
 	);
 
-	const loadSaves = () => invoke<FileData[]>('fetch_saves').then(saves.set);
+	const loadSaves = () => invoke<SaveTimeData[]>('fetch_saves').then(saves.set);
 
 	return {
 		subscribe,
@@ -118,12 +119,23 @@ function createSaveList() {
 
 // Stores data of the currently-active save file
 function createActiveSave() {
-	const { subscribe, set } = writable<ActiveSave>();
+	const { subscribe, set } = writable<SaveData>();
+
+	let saveName: string;
+	let loading = true;
+	navigating.subscribe((value) => (loading = value ? true : false));
+	subscribe((save) => {
+		if (!save) goto('/');
+		else if (!loading) invoke<void>('update_save', { name: saveName, save }).catch(error.handle);
+	});
 
 	async function loadSave(name: string) {
-		const data = await invoke<SaveData>('load_save', { name });
-		set({ name, data });
+		const data = await invoke<SaveData>('get_save', { name });
+		loading = true;
+		set(data);
+		saveName = name;
 		await goto('/editor/setup');
+		await invoke<void>('rename_window', { name });
 	}
 
 	return {

@@ -11,7 +11,7 @@
 	style="--column-width: {columnWidth}px; --column-height: {gridHeight}px;"
 	bind:clientWidth={gridWidth}
 >
-	{#each { length: $activeSave.data.maxShift } as _, i}
+	{#each { length: $activeSave.maxShift } as _, i}
 		<div class="column-marker">
 			<p>{i + 1}</p>
 			<div class="column-line" />

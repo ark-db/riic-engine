@@ -15,49 +15,5 @@
 )]
 
 mod base;
-pub mod savefile;
+pub mod db;
 pub mod window;
-
-use serde::Serialize;
-use tauri::App;
-use thiserror::Error;
-
-#[derive(Debug, Error)]
-pub enum CmdError {
-    #[error("A system I/O error occurred")]
-    Io(#[from] std::io::Error),
-
-    #[error("A system time error occurred")]
-    Time(#[from] std::time::SystemTimeError),
-
-    #[error("An error occurred while reading from or writing to the save file")]
-    Serde(#[from] serde_json::Error),
-
-    #[error("A save file name was not specified")]
-    NameEmpty,
-
-    #[error("Another file with the same name already exists")]
-    DuplicateName,
-
-    #[error("The save file name is invalid")]
-    InvalidName,
-}
-
-impl Serialize for CmdError {
-    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
-    where
-        S: serde::ser::Serializer,
-    {
-        serializer.serialize_str(&self.to_string())
-    }
-}
-
-pub type CmdResult<T> = Result<T, CmdError>;
-
-/// # Errors
-/// Returns error if:
-/// - Savefile-related directories cannot be loaded
-pub fn setup_app(app: &mut App) -> Result<(), Box<dyn std::error::Error>> {
-    savefile::load_savefile_dirs(app);
-    Ok(())
-}

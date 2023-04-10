@@ -1,3 +1,7 @@
+use rusqlite::{
+    types::{FromSql, FromSqlError, ToSql, ToSqlOutput, Value, ValueRef},
+    Error as SqlError,
+};
 use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize)]
@@ -159,5 +163,20 @@ impl Default for Save {
             max_shift: 12,
             interval: 120,
         }
+    }
+}
+
+impl ToSql for Save {
+    fn to_sql(&self) -> Result<ToSqlOutput<'_>, SqlError> {
+        let data =
+            serde_json::to_vec(self).map_err(|e| SqlError::ToSqlConversionFailure(e.into()))?;
+
+        Ok(ToSqlOutput::Owned(Value::Blob(data)))
+    }
+}
+
+impl FromSql for Save {
+    fn column_result(value: ValueRef<'_>) -> Result<Self, FromSqlError> {
+        serde_json::from_slice(value.as_blob()?).map_err(|e| FromSqlError::Other(e.into()))
     }
 }

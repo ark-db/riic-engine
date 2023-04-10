@@ -15,29 +15,29 @@
 	style="--width: {rowWidth}px; --row-gap: {rowGap}px;"
 	bind:clientHeight={gridHeight}
 >
-	<FacilityRow kind="control" {rowHeight} {columnWidth} bind:room={$activeSave.data.layout.cc} />
+	<FacilityRow kind="control" {rowHeight} {columnWidth} bind:room={$activeSave.layout.cc} />
 
-	{#each $activeSave.data.layout.tp as room}
+	{#each $activeSave.layout.tp as room}
 		<FacilityRow kind="trading" {rowHeight} {columnWidth} bind:room />
 	{/each}
 
-	{#each $activeSave.data.layout.fac as room}
+	{#each $activeSave.layout.fac as room}
 		<FacilityRow kind="manufacture" {rowHeight} {columnWidth} bind:room />
 	{/each}
 
-	{#each $activeSave.data.layout.pp as room}
+	{#each $activeSave.layout.pp as room}
 		<FacilityRow kind="power" {rowHeight} {columnWidth} bind:room />
 	{/each}
 
-	{#if $activeSave.data.layout.rr.level > 0}
-		<FacilityRow kind="meeting" {rowHeight} {columnWidth} bind:room={$activeSave.data.layout.rr} />
+	{#if $activeSave.layout.rr.level > 0}
+		<FacilityRow kind="meeting" {rowHeight} {columnWidth} bind:room={$activeSave.layout.rr} />
 	{/if}
 
-	{#if $activeSave.data.layout.office.level > 0}
-		<FacilityRow kind="hire" {rowHeight} {columnWidth} bind:room={$activeSave.data.layout.office} />
+	{#if $activeSave.layout.office.level > 0}
+		<FacilityRow kind="hire" {rowHeight} {columnWidth} bind:room={$activeSave.layout.office} />
 	{/if}
 
-	{#each $activeSave.data.layout.dorm as room}
+	{#each $activeSave.layout.dorm as room}
 		{#if room.level > 0}
 			<FacilityRow kind="dormitory" {rowHeight} {columnWidth} bind:room />
 		{/if}
