@@ -35,7 +35,7 @@ impl Database {
                 last_modified   TEXT NOT NULL,
                 data            BLOB NOT NULL
             ) STRICT;
-            CREATE INDEX idx_name_data ON save (
+            CREATE INDEX IF NOT EXISTS idx_name_data ON save (
                 name, data
             );
             COMMIT;",
@@ -58,7 +58,7 @@ impl Database {
         // Rename
         conn.prepare_cached("UPDATE save SET name = ?2 WHERE name = ?1")?;
         // Update
-        conn.prepare_cached("UPDATE save SET data = ?2, last_modified = ?3 WHERE name = ?1")?;
+        conn.prepare_cached("UPDATE save SET last_modified = ?2, data = ?3 WHERE name = ?1")?;
         // Delete
         conn.prepare_cached("DELETE FROM save WHERE name = ?1")?;
 
@@ -83,6 +83,9 @@ pub enum DbError {
 
     #[error("Another save with the same name already exists")]
     DuplicateName,
+
+    #[error("An error occurred while updating the save")]
+    Updating,
 }
 
 type DbResult<T> = Result<T, DbError>;
@@ -230,6 +233,23 @@ pub fn rename_save(db: State<'_, Database>, old: &str, new: &str) -> DbResult<()
             }
             DbError::Renaming
         })?;
+
+    Ok(())
+}
+
+/// # Errors
+/// Returns error if:
+/// - Invalid SQL statement is present
+/// - Database update failed
+#[tauri::command]
+#[allow(clippy::needless_pass_by_value)]
+pub fn update_save(db: State<'_, Database>, name: &str, save: Save) -> DbResult<()> {
+    let conn = db.0.lock();
+
+    conn.prepare_cached("UPDATE save SET last_modified = ?2, data = ?3 WHERE name = ?1")
+        .map_err(|_| DbError::Execution)?
+        .execute((name, Utc::now(), save))
+        .map_err(|_| DbError::Updating)?;
 
     Ok(())
 }

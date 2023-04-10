@@ -1,11 +1,8 @@
 <script lang="ts">
-	import { beforeNavigate, afterNavigate } from '$app/navigation';
-	import { invoke } from '@tauri-apps/api/tauri';
 	import GradientContainer from '$lib/components/GradientContainer.svelte';
 	import Button from '$lib/components/Button.svelte';
 	import logo from '$lib/images/logo.webp';
 	import menuIcon from '$lib/images/ui/menu.webp';
-	import { activeSave, error } from '$lib/stores';
 	import Links from './Links.svelte';
 	import ShiftCount from './ShiftCount.svelte';
 	import ShiftInterval from './ShiftInterval.svelte';
@@ -14,23 +11,6 @@
 
 	let menuActive = true;
 	$: menuIconDesc = `${menuActive ? 'Collapse' : 'Expand'} menu`;
-
-	/*
-	$: invoke('update_save', { save: $activeSave });
-
-	This way of invoking the `update_save` command whenever the value of `$activeSave` changes
-	produces unwanted behavior because it will also run when a user navigates to any editor page.
-	This means that the last-modified time will update even when no changes have been made.
-	So, the command should only be invoked after, not during, navigation.
-	*/
-
-	let loading = true;
-	beforeNavigate(() => (loading = true));
-	afterNavigate(() => (loading = false));
-
-	activeSave.subscribe((save) => {
-		if (!loading) invoke<void>('update_save', { save }).catch(error.handle);
-	});
 </script>
 
 <div class="container">

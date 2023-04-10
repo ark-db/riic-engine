@@ -1,8 +1,7 @@
-use crate::{base::Save, AppError, AppResult};
+use crate::{AppError, AppResult};
 use once_cell::sync::OnceCell;
-use serde::Deserialize;
 use std::{
-    fs::{copy, create_dir_all, remove_file, File},
+    fs::{copy, create_dir_all, remove_file},
     path::{Path, PathBuf},
 };
 use tauri::{api::path::download_dir, App};
@@ -29,12 +28,6 @@ pub(crate) fn load_savefile_dirs(app: &App) {
 
     let download_dir = download_dir().expect("Failed to retrieve download directory");
     DOWNLOAD_DIR.set(download_dir).unwrap();
-}
-
-#[derive(Deserialize)]
-pub struct ImportedSave {
-    name: String,
-    data: Save,
 }
 
 fn validate_save_name(name: &str) -> AppResult<&str> {
@@ -71,19 +64,6 @@ fn get_available_fp(dir: &Path, name: &str) -> PathBuf {
         path.set_file_name(format!("{}-{}.json", name, index));
     }
     path
-}
-
-/// # Errors
-/// Returns error if:
-/// - Path of save file cannot be fetched
-/// - Save file cannot be created or deserialized
-#[tauri::command]
-pub fn update_save(save: Option<ImportedSave>) -> AppResult<()> {
-    if let Some(save) = save {
-        let save_path = get_save_fp(&save.name)?;
-        serde_json::to_writer(File::create(save_path)?, &save.data)?;
-    }
-    Ok(())
 }
 
 /// # Errors

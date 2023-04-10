@@ -1,4 +1,5 @@
 import { goto } from '$app/navigation';
+import { navigating } from '$app/stores';
 import { writable, derived } from 'svelte/store';
 import { tweened } from 'svelte/motion';
 import { cubicOut } from 'svelte/easing';
@@ -120,9 +121,19 @@ function createSaveList() {
 function createActiveSave() {
 	const { subscribe, set } = writable<SaveData>();
 
+	let saveName: string;
+	let loading = true;
+	navigating.subscribe((value) => (loading = value ? true : false));
+	subscribe((save) => {
+		if (!save) goto('/');
+		else if (!loading) invoke<void>('update_save', { name: saveName, save }).catch(error.handle);
+	});
+
 	async function loadSave(name: string) {
 		const data = await invoke<SaveData>('get_save', { name });
+		loading = true;
 		set(data);
+		saveName = name;
 		await goto('/editor/setup');
 		await invoke<void>('rename_window', { name });
 	}
