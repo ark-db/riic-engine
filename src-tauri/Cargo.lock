@@ -2117,7 +2117,6 @@ version = "0.1.0"
 dependencies = [
  "ahash 0.8.3",
  "chrono",
- "once_cell",
  "parking_lot",
  "rusqlite",
  "serde",

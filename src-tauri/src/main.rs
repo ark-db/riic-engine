@@ -3,7 +3,7 @@
     windows_subsystem = "windows"
 )]
 
-use riic_engine::{db, savefile, setup_app, window};
+use riic_engine::{db, window};
 
 fn main() {
     tauri::Builder::default()
@@ -17,9 +17,8 @@ fn main() {
             db::rename_save,
             db::update_save,
             db::delete_save,
-            savefile::export_save
+            db::export_save
         ])
-        .setup(setup_app)
         .run(tauri::generate_context!())
         .expect("An error occurred while running the application.");
 }

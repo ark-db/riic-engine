@@ -4,8 +4,8 @@ use chrono::{DateTime, Utc};
 use parking_lot::Mutex;
 use rusqlite::{config::DbConfig, limits::Limit, Connection, Error as SqlError, ErrorCode};
 use serde::Serialize;
-use std::borrow::Cow;
-use tauri::{InvokeError, State};
+use std::{borrow::Cow, fs::File, io::BufWriter, ops::Deref};
+use tauri::{api::path::download_dir, InvokeError, State};
 use thiserror::Error;
 
 pub struct Database(Mutex<Connection>);
@@ -89,6 +89,12 @@ pub enum DbError {
 
     #[error("An error occurred while deleting the save")]
     Deletion,
+
+    #[error("The download directory could not be located")]
+    NoExportTarget,
+
+    #[error("An error occurred while exporting the save")]
+    Export,
 }
 
 type DbResult<T> = Result<T, DbError>;
@@ -112,6 +118,35 @@ fn get_elapsed_time(earlier: DateTime<Utc>, later: DateTime<Utc>) -> f32 {
         .to_std()
         .expect("`earlier` datetime should be earlier than the `later` datetime")
         .as_secs_f32()
+}
+
+fn get_available_name<F>(name: &str, is_available: F) -> Cow<'_, str>
+where
+    F: Fn(&str) -> bool,
+{
+    if is_available(name) {
+        return Cow::Borrowed(name);
+    }
+
+    let mut i = 1u32;
+    let mut new_name: String;
+    while {
+        new_name = format!("{name}-{i}");
+        !is_available(&new_name)
+    } {
+        i += 1;
+    }
+    Cow::Owned(new_name)
+}
+
+fn get_save_from_name<C>(conn: C, name: &str) -> DbResult<Save>
+where
+    C: Deref<Target = Connection>,
+{
+    conn.prepare_cached("SELECT data FROM save WHERE name = ?1")
+        .map_err(|_| DbError::Execution)?
+        .query_row([name], |row| row.get("data"))
+        .map_err(|_| DbError::Fetching)
 }
 
 /// # Errors
@@ -140,25 +175,6 @@ pub fn fetch_saves(db: State<'_, Database>) -> DbResult<Vec<FileData>> {
         .map_err(|_| DbError::Fetching)?;
 
     Ok(query)
-}
-
-fn get_available_name<F>(name: &str, is_available: F) -> Cow<'_, str>
-where
-    F: Fn(&str) -> bool,
-{
-    if is_available(name) {
-        return Cow::Borrowed(name);
-    }
-
-    let mut i = 1u32;
-    let mut new_name: String;
-    while {
-        new_name = format!("{name}-{i}");
-        !is_available(&new_name)
-    } {
-        i += 1;
-    }
-    Cow::Owned(new_name)
 }
 
 /// # Errors
@@ -205,14 +221,7 @@ pub fn create_save(db: State<'_, Database>) -> DbResult<()> {
 #[allow(clippy::needless_pass_by_value)]
 pub fn get_save(db: State<'_, Database>, name: &str) -> DbResult<Save> {
     let conn = db.0.lock();
-
-    let query = conn
-        .prepare_cached("SELECT data FROM save WHERE name = ?1")
-        .map_err(|_| DbError::Execution)?
-        .query_row([name], |row| row.get("data"))
-        .map_err(|_| DbError::Fetching)?;
-
-    Ok(query)
+    get_save_from_name(conn, name)
 }
 
 /// # Errors
@@ -272,4 +281,39 @@ pub fn delete_save(db: State<'_, Database>, name: &str) -> DbResult<()> {
         .map_err(|_| DbError::Deletion)?;
 
     Ok(())
+}
+
+#[derive(Serialize)]
+struct NamedSave<'cmd> {
+    name: &'cmd str,
+    data: Save,
+}
+
+/// # Errors
+/// Returns error if:
+/// - Invalid SQL statement is present
+/// - Database update failed
+#[tauri::command]
+#[allow(clippy::needless_pass_by_value)]
+pub fn export_save(db: State<'_, Database>, name: &str) -> DbResult<()> {
+    let target_dir = if let Some(dir) = download_dir() {
+        dir
+    } else {
+        return Err(DbError::NoExportTarget);
+    };
+    let target_name = get_available_name("export", |new_name| {
+        !target_dir.join(new_name).with_extension("json").is_file()
+    });
+    let target_file = BufWriter::new(
+        File::create(target_dir.join(target_name.as_ref()).with_extension("json"))
+            .map_err(|_| DbError::Export)?,
+    );
+
+    let conn = db.0.lock();
+    let save = NamedSave {
+        name,
+        data: get_save_from_name(conn, name)?,
+    };
+
+    serde_json::to_writer(target_file, &save).map_err(|_| DbError::Export)
 }
