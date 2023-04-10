@@ -5,7 +5,7 @@ use parking_lot::Mutex;
 use rusqlite::{config::DbConfig, limits::Limit, Connection, Error as SqlError, ErrorCode};
 use serde::Serialize;
 use std::{borrow::Cow, fs::File, io::BufWriter, ops::Deref};
-use tauri::{api::path::download_dir, InvokeError, State};
+use tauri::{api::path::download_dir, utils::platform::current_exe, InvokeError, State};
 use thiserror::Error;
 
 pub struct Database(Mutex<Connection>);
@@ -18,7 +18,10 @@ impl Database {
     /// - SQL statements executed during initialization fail
     /// - SQL statements cannot be prepared and cached
     pub fn init() -> Result<Self, SqlError> {
-        let conn = Connection::open("./data.db")?;
+        let db_path = current_exe()
+            .expect("Failed to get the currently-running binary path")
+            .with_file_name("data.db");
+        let conn = Connection::open(db_path)?;
 
         // Set configuration
         conn.set_db_config(DbConfig::SQLITE_DBCONFIG_DEFENSIVE, true)?;
