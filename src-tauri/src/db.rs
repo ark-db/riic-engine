@@ -85,7 +85,10 @@ pub enum DbError {
     DuplicateName,
 
     #[error("An error occurred while updating the save")]
-    Updating,
+    Update,
+
+    #[error("An error occurred while deleting the save")]
+    Deletion,
 }
 
 type DbResult<T> = Result<T, DbError>;
@@ -249,7 +252,24 @@ pub fn update_save(db: State<'_, Database>, name: &str, save: Save) -> DbResult<
     conn.prepare_cached("UPDATE save SET last_modified = ?2, data = ?3 WHERE name = ?1")
         .map_err(|_| DbError::Execution)?
         .execute((name, Utc::now(), save))
-        .map_err(|_| DbError::Updating)?;
+        .map_err(|_| DbError::Update)?;
+
+    Ok(())
+}
+
+/// # Errors
+/// Returns error if:
+/// - Invalid SQL statement is present
+/// - Database update failed
+#[tauri::command]
+#[allow(clippy::needless_pass_by_value)]
+pub fn delete_save(db: State<'_, Database>, name: &str) -> DbResult<()> {
+    let conn = db.0.lock();
+
+    conn.prepare_cached("DELETE FROM save WHERE name = ?1")
+        .map_err(|_| DbError::Execution)?
+        .execute([name])
+        .map_err(|_| DbError::Deletion)?;
 
     Ok(())
 }

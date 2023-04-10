@@ -1,7 +1,7 @@
 use crate::{AppError, AppResult};
 use once_cell::sync::OnceCell;
 use std::{
-    fs::{copy, create_dir_all, remove_file},
+    fs::{copy, create_dir_all},
     path::{Path, PathBuf},
 };
 use tauri::{api::path::download_dir, App};
@@ -64,17 +64,6 @@ fn get_available_fp(dir: &Path, name: &str) -> PathBuf {
         path.set_file_name(format!("{}-{}.json", name, index));
     }
     path
-}
-
-/// # Errors
-/// Returns error if:
-/// - Path of save file cannot be fetched
-/// - Save file cannot be removed
-#[tauri::command]
-pub fn delete_save(name: &str) -> AppResult<()> {
-    let target_path = get_save_fp(name)?;
-    remove_file(target_path)?;
-    Ok(())
 }
 
 /// # Errors

@@ -16,7 +16,7 @@ fn main() {
             db::get_save,
             db::rename_save,
             db::update_save,
-            savefile::delete_save,
+            db::delete_save,
             savefile::export_save
         ])
         .setup(setup_app)
