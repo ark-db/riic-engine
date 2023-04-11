@@ -14,7 +14,7 @@ impl Database {
     /// # Errors
     /// Returns error if:
     /// - A connection to the database cannot be opened
-    /// - Database settings and limits cannot be set
+    /// - Database configuration cannot be set
     /// - SQL statements executed during initialization fail
     /// - SQL statements cannot be prepared and cached
     pub fn init() -> Result<Self, SqlError> {
@@ -117,12 +117,9 @@ pub struct FileData {
     modified: f32,
 }
 
+#[allow(clippy::cast_precision_loss)]
 fn get_elapsed_time(earlier: DateTime<Utc>, later: DateTime<Utc>) -> f32 {
-    later
-        .signed_duration_since(earlier)
-        .to_std()
-        .expect("`earlier` datetime should be earlier than the `later` datetime")
-        .as_secs_f32()
+    (later - earlier).num_milliseconds() as f32 / 1000.
 }
 
 fn get_available_name<F>(name: &str, is_available: F) -> Cow<'_, str>
