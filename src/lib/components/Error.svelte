@@ -7,10 +7,15 @@
 	$: if (dialog) $error ? dialog.show() : dialog.close();
 </script>
 
-<dialog role="alertdialog" aria-label="Error message" aria-describedby="message" bind:this={dialog}>
-	<p id="message">{$error}</p>
+<dialog
+	role="alertdialog"
+	aria-label="Error message"
+	aria-describedby="error-message"
+	bind:this={dialog}
+>
+	<p id="error-message">{$error}</p>
 	<button class="focus-template" aria-label="Dismiss error" on:click|trusted={error.clear}>
-		<img src={xmark} alt="Delete button" width="20" height="20" />
+		<img src={xmark} alt="Red X mark" width="20" height="20" />
 	</button>
 </dialog>
 
@@ -19,7 +24,8 @@
 		--border-weight: 2px;
 		z-index: 2;
 		position: fixed;
-		bottom: 10%;
+		bottom: 7.5%;
+		box-shadow: 0 6px 6px rgba(0 0 0 / 0.5);
 		border: var(--border-weight) solid var(--salmon-strong);
 		border-radius: 0.75em;
 		padding: 0 1em;
