@@ -28,11 +28,12 @@
 		box-shadow: 0 6px 6px rgba(0 0 0 / 0.5);
 		border: var(--border-weight) solid var(--salmon-strong);
 		border-radius: 0.75em;
-		padding: 0 1em;
+		padding: 0.25em 1.25em;
 		background-color: var(--dark-strong);
 	}
 	p {
 		color: var(--salmon-strong);
+		font-size: 1.05em;
 		line-height: 1.4;
 	}
 	button {
