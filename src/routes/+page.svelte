@@ -4,6 +4,7 @@
 	import addFileIcon from '$lib/images/ui/file-add.svg';
 	import refreshIcon from '$lib/images/ui/refresh.svg';
 	import { saveList, saveSortMode, saveSortOrder } from '$lib/stores';
+	import ExportNotice from './ExportNotice.svelte';
 	import Header from './Header.svelte';
 	import Entry from './Entry.svelte';
 
@@ -17,6 +18,8 @@
 <svelte:head>
 	<title>RIIC Engine • Home</title>
 </svelte:head>
+
+<ExportNotice />
 
 <Header />
 

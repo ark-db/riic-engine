@@ -31,6 +31,16 @@ function createError() {
 	};
 }
 
+function createExportNotice() {
+	const { subscribe, set } = writable<boolean>(false);
+
+	return {
+		subscribe,
+		activate: () => set(true),
+		deactivate: () => set(false)
+	};
+}
+
 // Controls whether the save list on the main menu is sorted by time of creation or last edit
 function createSaveSortMode() {
 	type SortMode = 'modified' | 'created';
@@ -111,7 +121,10 @@ function createSaveList() {
 		load: () => loadSaves().catch(error.handle),
 		create: () => invoke<void>('create_save').then(loadSaves).catch(error.handle),
 		export: (name: string) =>
-			invoke<void>('export_save', { name }).then(loadSaves).catch(error.handle),
+			invoke<void>('export_save', { name })
+				.then(exportNotice.activate)
+				.then(loadSaves)
+				.catch(error.handle),
 		delete: (name: string) =>
 			invoke<void>('delete_save', { name }).then(loadSaves).catch(error.handle)
 	};
@@ -229,6 +242,7 @@ function createZoomScales() {
 }
 
 export const error = createError();
+export const exportNotice = createExportNotice();
 export const saveSortMode = createSaveSortMode();
 export const saveSortOrder = createSaveSortOrder();
 export const saveList = createSaveList();
