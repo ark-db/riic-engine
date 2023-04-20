@@ -136,10 +136,9 @@ function createActiveSave() {
 
 	let saveName: string;
 	let loading = true;
-	navigating.subscribe((value) => (loading = value ? true : false));
+	navigating.subscribe((value) => (loading = !!value));
 	subscribe((save) => {
-		if (!save) goto('/');
-		else if (!loading) invoke<void>('update_save', { name: saveName, save }).catch(error.handle);
+		if (save && !loading) invoke<void>('update_save', { name: saveName, save }).catch(error.handle);
 	});
 
 	async function loadSave(name: string) {
