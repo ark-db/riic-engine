@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { dev } from '$app/environment';
 	import Error from '$lib/components/Error.svelte';
 	import '../focus.css';
 	import '../input.css';
@@ -13,9 +14,14 @@
 			event.preventDefault();
 		}
 	}
+
+	// Disable context menus in release builds
+	function handleContextOpen(event: MouseEvent) {
+		if (!dev) event.preventDefault();
+	}
 </script>
 
-<svelte:body on:mousedown={handleMousedown} />
+<svelte:body on:mousedown={handleMousedown} on:contextmenu={handleContextOpen} />
 
 <slot />
 
