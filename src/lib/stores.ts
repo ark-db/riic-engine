@@ -1,3 +1,4 @@
+import { dev } from '$app/environment';
 import { goto } from '$app/navigation';
 import { navigating } from '$app/stores';
 import { writable, derived } from 'svelte/store';
@@ -136,12 +137,20 @@ function createActiveSave() {
 	The `subscribe` method on `activeSave` runs whenever a non-root page loads.
 	When this happens, the `update_save` command should NOT be invoked: if it did,
 	the last-modified time of a save would be updated without any edits made!
-	The `navigating` store is used to determine if a page is loading. 
+	The `navigating` store is used to determine if a page is loading.
+
+	When editing certain files during development, Vite's HMR will cause the
+	value of `activeSave` to be undefined. Then, some editor components that
+	depend on `activeSave` will throw unrecoverable errors. To prevent this,
+	the app will redirect to the root page instead.
 	*/
 	let loading = true;
 	navigating.subscribe((value) => (loading = !!value));
 	subscribe((save) => {
-		if (save && !loading) invoke<void>('update_save', { name: saveName, save }).catch(error.handle);
+		if (!loading) {
+			if (save) invoke<void>('update_save', { name: saveName, save }).catch(error.handle);
+			else if (dev) goto('/');
+		}
 	});
 
 	async function loadSave(name: string) {
