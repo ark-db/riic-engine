@@ -31,6 +31,7 @@ function createError() {
 	};
 }
 
+// State of the save export notice on the main menu
 function createExportNotice() {
 	const { subscribe, set } = writable<boolean>(false);
 
@@ -49,22 +50,22 @@ function createSaveSortMode() {
 		nextDesc: `Sort by time ${SortMode}`;
 	};
 
-	const { subscribe, update } = writable<SaveSortMode>({
+	const { subscribe, set } = writable<SaveSortMode>({
 		mode: 'modified',
 		nextDesc: 'Sort by time created'
 	});
 
-	let data: SaveSortMode;
-	subscribe((value) => (data = value));
+	let currentMode: SortMode;
+	subscribe((value) => (currentMode = value.mode));
 
 	return {
 		subscribe,
-		src: () => (data.mode === 'created' ? plusClockIcon : pencilClockIcon),
+		src: () => (currentMode === 'created' ? plusClockIcon : pencilClockIcon),
 		toggle: () => {
-			update((data) => ({
-				mode: data.mode === 'modified' ? 'created' : 'modified',
-				nextDesc: data.mode === 'modified' ? 'Sort by time modified' : 'Sort by time created'
-			}));
+			set({
+				mode: currentMode === 'modified' ? 'created' : 'modified',
+				nextDesc: currentMode === 'modified' ? 'Sort by time modified' : 'Sort by time created'
+			});
 			saveList.load();
 		}
 	};
@@ -72,34 +73,29 @@ function createSaveSortMode() {
 
 // Controls whether the save list on the main menu is sorted oldest-to-newest or newest-to-oldest
 function createSaveSortOrder() {
+	type SortOrder = 1 | -1;
 	type SaveSortOrder = {
-		order: 'increasing' | 'decreasing';
+		order: SortOrder;
 		nextDesc: 'Sort from earliest to latest' | 'Sort from latest to earliest';
-		direction: 1 | -1;
 	};
 
-	const { subscribe, update } = writable<SaveSortOrder>({
-		order: 'increasing',
-		nextDesc: 'Sort from earliest to latest',
-		direction: 1
+	const { subscribe, set } = writable<SaveSortOrder>({
+		order: 1,
+		nextDesc: 'Sort from earliest to latest'
 	});
 
-	let data: SaveSortOrder;
-	subscribe((value) => (data = value));
+	let currentOrder: SortOrder;
+	subscribe((value) => (currentOrder = value.order));
 
 	return {
 		subscribe,
-		src: () => (data.order === 'increasing' ? listIncreasingIcon : listDecreasingIcon),
+		src: () => (currentOrder === 1 ? listIncreasingIcon : listDecreasingIcon),
 		toggle: () => {
-			update((data) => ({
-				order: data.order === 'increasing' ? 'decreasing' : 'increasing',
+			set({
+				order: currentOrder === 1 ? -1 : 1,
 				nextDesc:
-					data.order === 'increasing'
-						? 'Sort from latest to earliest'
-						: 'Sort from earliest to latest',
-				direction: data.direction === 1 ? -1 : 1
-			}));
-			saveList.load();
+					currentOrder === 1 ? 'Sort from latest to earliest' : 'Sort from earliest to latest'
+			});
 		}
 	};
 }
@@ -110,8 +106,8 @@ function createSaveList() {
 
 	const { subscribe } = derived(
 		[saves, saveSortMode, saveSortOrder],
-		([$saves, { mode }, { direction }]) =>
-			$saves ? $saves.sort((prev, curr) => (prev[mode] - curr[mode]) * direction) : []
+		([$saves, { mode }, { order }]) =>
+			$saves ? $saves.sort((prev, curr) => (prev[mode] - curr[mode]) * order) : []
 	);
 
 	const loadSaves = () => invoke<SaveTimeData[]>('fetch_saves').then(saves.set);
