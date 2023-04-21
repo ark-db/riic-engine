@@ -130,6 +130,12 @@ function createSaveList() {
 function createActiveSave() {
 	const { subscribe, set } = writable<SaveData>();
 
+	/*
+	The `subscribe` method on `activeSave` runs whenever a non-root page loads.
+	When this happens, the `update_save` command should NOT be invoked: if it did,
+	the last-modified time of a save would be updated without any edits made!
+	The `navigating` store is used to determine if a page is loading. 
+	*/
 	let saveName: string;
 	let loading = true;
 	navigating.subscribe((value) => (loading = !!value));
