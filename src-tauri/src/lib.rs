@@ -17,3 +17,13 @@
 mod base;
 pub mod db;
 pub mod window;
+
+pub mod open {
+    /// # Errors
+    /// Returns error if the URL cannot be opened.
+    #[tauri::command]
+    #[allow(clippy::module_name_repetitions)]
+    pub fn open(url: &str) -> Result<(), &str> {
+        open::that(url).map_err(|_| "An error occurred while opening the URL")
+    }
+}
