@@ -1,34 +1,28 @@
 [package]
 name = "riic-engine"
-version = "0.1.0"
+version.workspace = true
 description = "Standalone desktop app for simulating performance of RIIC setups"
-authors = ["Kyle Chen"]
-license = "GPL-3.0-or-later"
-repository = "https://github.com/ark-db/riic-engine"
-edition = "2021"
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+edition.workspace = true
 rust-version = "1.57"
-publish = false
+publish.workspace = true
 
 [build-dependencies]
 tauri-build = { version = "1.3.0", features = [] }
 
 [dependencies]
-ahash = "0.8.3"
+ahash.workspace = true
 chrono = { version = "0.4.24", default-features = false, features = ["clock"] }
 open = "4.1.0"
 parking_lot = "0.12.1"
 rusqlite = { version = "0.29.0", features = ["bundled", "chrono", "limits"] }
-serde = { version = "1.0.160", features = ["derive"] }
-serde_json = "1.0.96"
+serde.workspace = true
+serde_json.workspace = true
 tauri = { version = "1.3.0", features = [] }
-thiserror = "1.0.40"
+thiserror.workspace = true
 
 [features]
 default = ["custom-protocol"]
 custom-protocol = ["tauri/custom-protocol"]
-
-[profile.release]
-panic = "abort"
-codegen-units = 1
-lto = true
-strip = true

@@ -1,0 +1,22 @@
+[workspace]
+members = ["riic-fetch", "src-tauri"]
+
+[workspace.package]
+version = "0.1.0"
+authors = ["Kyle Chen"]
+license = "GPL-3.0-or-later"
+repository = "https://github.com/ark-db/riic-engine"
+edition = "2021"
+publish = false
+
+[workspace.dependencies]
+ahash = "0.8.3"
+serde = { version = "1.0.160", features = ["derive"] }
+serde_json = "1.0.96"
+thiserror = "1.0.40"
+
+[profile.release]
+panic = "abort"
+codegen-units = 1
+lto = true
+strip = true

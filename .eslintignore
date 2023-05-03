@@ -8,3 +8,4 @@ node_modules
 /src/lib/images
 /src-tauri
 /static
+/target
