@@ -54,7 +54,7 @@ fn deserialize_rarity<'de, D>(deserializer: D) -> Result<u8, D::Error>
 where
     D: Deserializer<'de>,
 {
-    let data: RarityRepr<'de> = Deserialize::deserialize(deserializer)?;
+    let data = Deserialize::deserialize(deserializer)?;
 
     match data {
         RarityRepr::Number(num) => match num {
