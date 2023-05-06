@@ -35,9 +35,16 @@ struct UnprocessedSkill<'a> {
 
 #[derive(Deserialize)]
 struct UnprocessedSkillPhase {
-    #[serde(rename = "phase")]
+    #[serde(rename = "phase", deserialize_with = "deserialize_elite")]
     elite: u8,
     level: u8,
+}
+
+#[derive(Deserialize)]
+#[serde(untagged)]
+enum EliteRepr<'a> {
+    Number(u8),
+    String(&'a str),
 }
 
 #[derive(Serialize)]
@@ -58,6 +65,32 @@ where
         .into_iter()
         .map(|(char_id, data)| (char_id.to_string(), data.into()))
         .collect())
+}
+
+fn deserialize_elite<'de, D>(deserializer: D) -> Result<u8, D::Error>
+where
+    D: de::Deserializer<'de>,
+{
+    let data: EliteRepr<'de> = Deserialize::deserialize(deserializer)?;
+
+    match data {
+        EliteRepr::Number(num) => match num {
+            n @ 0..=2 => Ok(n),
+            _ => Err(de::Error::invalid_value(
+                de::Unexpected::Unsigned(num.into()),
+                &"Expected a u8 from 0 to 2",
+            )),
+        },
+        EliteRepr::String(s) => match s {
+            "PHASE_0" => Ok(0),
+            "PHASE_1" => Ok(1),
+            "PHASE_2" => Ok(2),
+            _ => Err(de::Error::invalid_value(
+                de::Unexpected::Str(s),
+                &"Expected a string with pattern \"PHASE_{n}\", where n is a number from 0 to 2",
+            )),
+        },
+    }
 }
 
 impl<'a> From<UnprocessedCharEntry<'a>> for Vec<BaseSkill> {
