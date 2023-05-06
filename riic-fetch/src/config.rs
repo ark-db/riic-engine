@@ -1,5 +1,8 @@
 use crate::FetchImage;
-use serde::{de, Deserialize};
+use serde::{
+    de::{Error, Unexpected},
+    Deserialize, Deserializer,
+};
 use std::{
     borrow::Cow,
     fs::read_to_string,
@@ -36,14 +39,14 @@ pub(crate) struct ImageConfig {
 
 fn deserialize_quality<'de, D>(deserializer: D) -> Result<u8, D::Error>
 where
-    D: de::Deserializer<'de>,
+    D: Deserializer<'de>,
 {
-    let num: u8 = Deserialize::deserialize(deserializer)?;
+    let num = Deserialize::deserialize(deserializer)?;
 
     match num {
         n @ 1..=100 => Ok(n),
-        other => Err(de::Error::invalid_value(
-            de::Unexpected::Unsigned(u64::from(other)),
+        other => Err(Error::invalid_value(
+            Unexpected::Unsigned(u64::from(other)),
             &"Expected a u8 from 1 to 100",
         )),
     }

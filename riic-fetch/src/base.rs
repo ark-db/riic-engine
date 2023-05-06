@@ -1,7 +1,10 @@
 use crate::consts::{FACILITY_COLORS, IGNORED_FACILITIES};
 use crate::{Fetch, FetchImage, SaveJson};
 use ahash::HashMap;
-use serde::{de, Deserialize, Serialize};
+use serde::{
+    de::{Error, Unexpected},
+    Deserialize, Deserializer, Serialize,
+};
 use std::borrow::Cow;
 
 pub(crate) type CharSkills = HashMap<String, Vec<BaseSkill>>;
@@ -56,7 +59,7 @@ pub(crate) struct BaseSkill {
 
 fn deserialize_skills<'de, D>(deserializer: D) -> Result<CharSkills, D::Error>
 where
-    D: de::Deserializer<'de>,
+    D: Deserializer<'de>,
 {
     let data: HashMap<&'de str, UnprocessedCharEntry<'de>> =
         Deserialize::deserialize(deserializer)?;
@@ -69,15 +72,15 @@ where
 
 fn deserialize_elite<'de, D>(deserializer: D) -> Result<u8, D::Error>
 where
-    D: de::Deserializer<'de>,
+    D: Deserializer<'de>,
 {
-    let data: EliteRepr<'de> = Deserialize::deserialize(deserializer)?;
+    let data = Deserialize::deserialize(deserializer)?;
 
     match data {
         EliteRepr::Number(num) => match num {
             n @ 0..=2 => Ok(n),
-            _ => Err(de::Error::invalid_value(
-                de::Unexpected::Unsigned(num.into()),
+            _ => Err(Error::invalid_value(
+                Unexpected::Unsigned(num.into()),
                 &"Expected a u8 from 0 to 2",
             )),
         },
@@ -85,8 +88,8 @@ where
             "PHASE_0" => Ok(0),
             "PHASE_1" => Ok(1),
             "PHASE_2" => Ok(2),
-            _ => Err(de::Error::invalid_value(
-                de::Unexpected::Str(s),
+            _ => Err(Error::invalid_value(
+                Unexpected::Str(s),
                 &"Expected a string with pattern \"PHASE_{n}\", where n is a number from 0 to 2",
             )),
         },
@@ -142,7 +145,7 @@ struct Facility {
 
 fn deserialize_facilities<'de, D>(deserializer: D) -> Result<FacilityData, D::Error>
 where
-    D: de::Deserializer<'de>,
+    D: Deserializer<'de>,
 {
     let data: HashMap<&'de str, UnprocessedFacility<'de>> = Deserialize::deserialize(deserializer)?;
 

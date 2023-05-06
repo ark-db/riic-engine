@@ -1,6 +1,6 @@
 use crate::{Fetch, SaveJson};
 use ahash::HashMap;
-use serde::{de, Deserialize, Serialize};
+use serde::{Deserialize, Deserializer, Serialize};
 
 #[derive(Deserialize)]
 pub(crate) struct MiscGamedata {
@@ -20,7 +20,7 @@ pub(crate) struct StyleTable {
 
 fn deserialize_styles<'de, D>(deserializer: D) -> Result<StyleData, D::Error>
 where
-    D: de::Deserializer<'de>,
+    D: Deserializer<'de>,
 {
     let data: StyleData = Deserialize::deserialize(deserializer)?;
 
@@ -49,7 +49,7 @@ struct UnprocessedTerm {
 
 fn deserialize_terms<'de, D>(deserializer: D) -> Result<TermData, D::Error>
 where
-    D: de::Deserializer<'de>,
+    D: Deserializer<'de>,
 {
     let data: HashMap<&'de str, UnprocessedTerm> = Deserialize::deserialize(deserializer)?;
 

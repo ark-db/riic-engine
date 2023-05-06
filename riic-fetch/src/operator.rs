@@ -2,7 +2,10 @@ use crate::base::{BaseSkill, CharSkills};
 use crate::consts::NAME_OVERRIDES;
 use crate::{Fetch, FetchImage, SaveJson};
 use ahash::HashMap;
-use serde::{de, Deserialize, Serialize};
+use serde::{
+    de::{Error, Unexpected},
+    Deserialize, Deserializer, Serialize,
+};
 use std::borrow::Cow;
 
 type OpTable = HashMap<String, OperatorData>;
@@ -15,7 +18,7 @@ pub(crate) struct OperatorTable {
 
 fn deserialize_ops<'de, D>(deserializer: D) -> Result<OpTable, D::Error>
 where
-    D: de::Deserializer<'de>,
+    D: Deserializer<'de>,
 {
     let mut table: OpTable = Deserialize::deserialize(deserializer)?;
     table.retain(|_, data| data.is_operator());
@@ -49,15 +52,15 @@ enum RarityRepr<'a> {
 
 fn deserialize_rarity<'de, D>(deserializer: D) -> Result<u8, D::Error>
 where
-    D: de::Deserializer<'de>,
+    D: Deserializer<'de>,
 {
     let data: RarityRepr<'de> = Deserialize::deserialize(deserializer)?;
 
     match data {
         RarityRepr::Number(num) => match num {
             n @ 0..=5 => Ok(n + 1),
-            _ => Err(de::Error::invalid_value(
-                de::Unexpected::Unsigned(num.into()),
+            _ => Err(Error::invalid_value(
+                Unexpected::Unsigned(num.into()),
                 &"Expected a u8 from 0 to 5",
             )),
         },
@@ -68,8 +71,8 @@ where
             "TIER_4" => Ok(4),
             "TIER_5" => Ok(5),
             "TIER_6" => Ok(6),
-            _ => Err(de::Error::invalid_value(
-                de::Unexpected::Str(s),
+            _ => Err(Error::invalid_value(
+                Unexpected::Str(s),
                 &"Expected a string with pattern \"TIER_{n}\", where n is a number from 1 to 6",
             )),
         },
