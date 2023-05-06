@@ -1,6 +1,6 @@
 {
-	"cc.rem": "#F49800",
-	"cc.vup": "#0098DC",
 	"cc.vdown": "#FF6237",
+	"cc.vup": "#0098DC",
+	"cc.rem": "#F49800",
 	"cc.kw": "#00B0FF"
 }
