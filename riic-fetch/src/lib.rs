@@ -22,11 +22,15 @@ mod terms;
 mod traits;
 pub use config::{Config, ConfigError};
 
+use ahash::RandomState;
+use indexmap::IndexMap;
 use reqwest::Client;
 use std::time::Duration;
 use thiserror::Error;
 use tokio as _;
 use traits::{Fetch, FetchError, FetchImage, ImageSaveError, SaveError, SaveJson};
+
+type HashMap<K, V> = IndexMap<K, V, RandomState>;
 
 enum Server {
     US,

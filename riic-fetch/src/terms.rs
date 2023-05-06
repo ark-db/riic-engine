@@ -1,5 +1,4 @@
-use crate::{Fetch, SaveJson};
-use ahash::HashMap;
+use crate::{Fetch, HashMap, SaveJson};
 use serde::{Deserialize, Deserializer, Serialize};
 
 #[derive(Deserialize)]

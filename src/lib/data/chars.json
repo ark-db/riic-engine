@@ -1,4663 +1,2283 @@
 {
-	"char_185_frncat": {
-		"name": "Mousse",
-		"rarity": 4,
-		"skills": [
-			{
-				"id": "trade_ord_spd[001]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "dorm_rec_single&oneself[010]",
-				"elite": 1,
-				"level": 1
-			}
-		]
-	},
-	"char_1023_ghost2": {
-		"name": "Specter the Unchained",
-		"rarity": 6,
-		"skills": [
-			{
-				"id": "train_spd&profession2[080]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "train_spd&profession2[680]",
-				"elite": 2,
-				"level": 1
-			},
-			{
-				"id": "train_cost&profession[380]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_4027_heyak": {
-		"name": "Ho'olheyak",
-		"rarity": 6,
-		"skills": [
-			{
-				"id": "meet_spd&cost_condChar[001]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "meet_spd&cost_condChar[011]",
-				"elite": 2,
-				"level": 1
-			},
-			{
-				"id": "meet_spd&condChar_mustget[000]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_283_midn": {
-		"name": "Midnight",
-		"rarity": 3,
-		"skills": [
-			{
-				"id": "trade_ord_spd&cost[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "manu_formula_spd[200]",
-				"elite": 1,
-				"level": 1
-			}
-		]
-	},
-	"char_237_gravel": {
-		"name": "Gravel",
-		"rarity": 4,
-		"skills": [
-			{
-				"id": "workshop_proc_probability[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "manu_formula_spd[110]",
-				"elite": 1,
-				"level": 1
-			}
-		]
-	},
-	"char_103_angel": {
-		"name": "Exusiai",
-		"rarity": 6,
-		"skills": [
-			{
-				"id": "trade_ord_spd[010]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "trade_ord_spd[020]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_4072_ironmn": {
-		"name": "Stainless",
-		"rarity": 6,
-		"skills": [
-			{
-				"id": "workshop_formula_cost&dorm[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "workshop_formula_dorm[002]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_4040_rockr": {
-		"name": "Rockrock",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "workshop_proc_probability[031]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "workshop_formula_drop[020]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_2024_chyue": {
-		"name": "Chongyue",
-		"rarity": 6,
-		"skills": [
-			{
-				"id": "control_mp_cost&bd_up[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "control_mp_bd_cost_expand[000]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_174_slbell": {
-		"name": "Pramanix",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "dorm_rec_single&oneself[021]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "train_spd&profession[061]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_452_bstalk": {
-		"name": "Beanstalk",
-		"rarity": 4,
-		"skills": [
-			{
-				"id": "manu_prod_spd[003]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "manu_prod_limit&cost[001]",
-				"elite": 1,
-				"level": 1
-			}
-		]
-	},
-	"char_131_flameb": {
-		"name": "Flamebringer",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "workshop_formula_probability[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "workshop_formula_probability[020]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_210_stward": {
-		"name": "Steward",
-		"rarity": 3,
-		"skills": [
-			{
-				"id": "trade_ord_limit&cost[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "manu_prod_spd[010]",
-				"elite": 1,
-				"level": 1
-			}
-		]
-	},
-	"char_187_ccheal": {
-		"name": "Gavial",
-		"rarity": 4,
-		"skills": [
-			{
-				"id": "workshop_formula_probability[110]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "train_spd&profession[070]",
-				"elite": 1,
-				"level": 1
-			}
-		]
-	},
-	"char_1012_skadi2": {
-		"name": "Skadi the Corrupting Heart",
-		"rarity": 6,
-		"skills": [
-			{
-				"id": "train_spd&profession2[060]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "train_spd&profession2[660]",
-				"elite": 2,
-				"level": 1
-			},
-			{
-				"id": "train_cost&profession[360]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_344_beewax": {
-		"name": "Beeswax",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "train_spd&profession[050]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "train_spd&profession[051]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_4042_lumen": {
-		"name": "Lumen",
-		"rarity": 6,
-		"skills": [
-			{
-				"id": "dorm_powToRecAll[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "dorm_powToRecAll[010]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_4048_doroth": {
-		"name": "Dorothy",
-		"rarity": 6,
-		"skills": [
-			{
-				"id": "manu_skill_spd1[010]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "manu_prod_spd[011]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_469_indigo": {
-		"name": "Indigo",
-		"rarity": 4,
-		"skills": [
-			{
-				"id": "dorm_rec_single_P[002]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "power_rec_spd[002]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "power_rec_spd[017]",
-				"elite": 1,
-				"level": 1
-			}
-		]
-	},
-	"char_4041_chnut": {
-		"name": "Chestnut",
-		"rarity": 4,
-		"skills": [
-			{
-				"id": "manu_prod_spd[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "manu_formula_spd[201]",
-				"elite": 1,
-				"level": 1
-			}
-		]
-	},
-	"char_4036_forcer": {
-		"name": "Enforcer",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "meet_spd&cost[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "meet_spd&cost[100]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_332_archet": {
-		"name": "Archetto",
-		"rarity": 6,
-		"skills": [
-			{
-				"id": "trade_ord_spd&dorm&lv[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "trade_ord_spd&dorm&lv[010]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_208_melan": {
-		"name": "Melantha",
-		"rarity": 3,
-		"skills": [
-			{
-				"id": "trade_ord_spd&limit[010]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "workshop_proc_probability[000]",
-				"elite": 1,
-				"level": 1
-			}
-		]
-	},
-	"char_236_rope": {
-		"name": "Rope",
-		"rarity": 4,
-		"skills": [
-			{
-				"id": "meet_spd[020]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "trade_ord_limit&cost[000]",
-				"elite": 1,
-				"level": 1
-			}
-		]
-	},
-	"char_289_gyuki": {
-		"name": "Matoimaru",
-		"rarity": 4,
-		"skills": [
-			{
-				"id": "workshop_formula_probability[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "trade_ord_spd[001]",
-				"elite": 1,
-				"level": 1
-			}
-		]
-	},
-	"char_181_flower": {
-		"name": "Perfumer",
-		"rarity": 4,
-		"skills": [
-			{
-				"id": "workshop_formula_probability[110]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "manu_prod_spd[010]",
-				"elite": 1,
-				"level": 1
-			}
-		]
-	},
-	"char_211_adnach": {
-		"name": "Adnachiel",
-		"rarity": 3,
-		"skills": [
-			{
-				"id": "trade_ord_spd[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "workshop_proc_probability[010]",
-				"elite": 1,
-				"level": 1
-			}
-		]
-	},
 	"char_285_medic2": {
 		"name": "Lancet-2",
 		"rarity": 1,
 		"skills": [
-			{
-				"id": "power_rec_spd[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "dorm_rec_single[000]",
-				"elite": 0,
-				"level": 30
-			}
-		]
-	},
-	"char_279_excu": {
-		"name": "Executor",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "train_spd&profession[040]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "control_mp_cost[003]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_4067_lolxh": {
-		"name": "Luo Xiaohei",
-		"rarity": 4,
-		"skills": [
-			{
-				"id": "workshop_proc_cost[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "workshop_formula_lolxh[000]",
-				"elite": 1,
-				"level": 1
-			}
-		]
-	},
-	"char_349_chiave": {
-		"name": "Chiave",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "workshop_formula_cost3[110]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "workshop_formula_device[000]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_322_lmlee": {
-		"name": "Lee",
-		"rarity": 6,
-		"skills": [
-			{
-				"id": "control_allCost_condChar[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "control_upMeetingSpeed[000]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_4062_totter": {
-		"name": "Totter",
-		"rarity": 4,
-		"skills": [
-			{
-				"id": "manu_prod_spd_reduce[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "manu_prod_spd_addition&cost[000]",
-				"elite": 1,
-				"level": 1
-			}
-		]
-	},
-	"char_449_glider": {
-		"name": "Honeyberry",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "workshop_formula_probability[114]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "workshop_formula_probability[124]",
-				"elite": 2,
-				"level": 1
-			},
-			{
-				"id": "dorm_rec_single[032]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_275_breeze": {
-		"name": "Breeze",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "meet_spd&team[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "meet_spd&team[071]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_486_takila": {
-		"name": "Tequila",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "trade_ord_long[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "trade_ord_long[010]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_180_amgoat": {
-		"name": "Eyjafjalla",
-		"rarity": 6,
-		"skills": [
-			{
-				"id": "manu_formula_spd[213]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "hire_spd[011]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_365_aprl": {
-		"name": "April",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "trade_ord_spd&limit[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "trade_ord_spd&limit[001]",
-				"elite": 2,
-				"level": 1
-			},
-			{
-				"id": "dorm_rec_all[000]",
-				"elite": 0,
-				"level": 1
-			}
-		]
-	},
-	"char_243_waaifu": {
-		"name": "Waai Fu",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "manu_cost_all[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "manu_prod_spd_variable2[000]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_430_fartth": {
-		"name": "Fartooth",
-		"rarity": 6,
-		"skills": [
-			{
-				"id": "dorm_rec_all&oneself[042]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "manu_prod_spd[002]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "manu_prod_spd[012]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_381_bubble": {
-		"name": "Bubble",
-		"rarity": 4,
-		"skills": [
-			{
-				"id": "manu_prod_limit&cost[010]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "manu_prod_spd_variable3[000]",
-				"elite": 1,
-				"level": 1
-			}
-		]
-	},
-	"char_263_skadi": {
-		"name": "Skadi",
-		"rarity": 6,
-		"skills": [
-			{
-				"id": "dorm_rec_oneself[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "dorm_rec_oneself[020]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_214_kafka": {
-		"name": "Kafka",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "trade_ord_wt&cost[001]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "trade_ord_wt&cost[011]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_225_haak": {
-		"name": "Aak",
-		"rarity": 6,
-		"skills": [
-			{
-				"id": "control_clue_cost[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "train_spd&profession[170]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_304_zebra": {
-		"name": "Heavyrain",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "control_mp_cost[006]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "train_spd&profession2[030]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "train_spd&profession2[230]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_258_podego": {
-		"name": "Podenco",
-		"rarity": 4,
-		"skills": [
-			{
-				"id": "dorm_rec_single[010]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "dorm_rec_single[001]",
-				"elite": 1,
-				"level": 1
-			},
-			{
-				"id": "dorm_rec_all[012]",
-				"elite": 1,
-				"level": 1
-			}
-		]
-	},
-	"char_242_otter": {
-		"name": "Mayer",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "workshop_proc_probability[030]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "manu_prod_spd[020]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_411_tomimi": {
-		"name": "Tomimi",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "dorm_rec_single_P[001]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "train_spd&profession2[150]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_1029_yato2": {
-		"name": "Kirin X Yato",
-		"rarity": 6,
-		"skills": [
-			{
-				"id": "control_mp_cost&bd2[010]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "control_token_prod_spd2[000]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_345_folnic": {
-		"name": "Folinic",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "workshop_formula_probability[111]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "workshop_formula_cost3[100]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_166_skfire": {
-		"name": "Skyfire",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "train_spd&profession[050]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "train_spd&profession[051]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_195_glassb": {
-		"name": "Istina",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "train_spd&profession[060]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "meet_spd&team[050]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_422_aurora": {
-		"name": "Aurora",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "train_spd&profession2[030]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "train_spd&profession2[130]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_293_thorns": {
-		"name": "Thorns",
-		"rarity": 6,
-		"skills": [
-			{
-				"id": "workshop_proc_probability[012]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "workshop_formula_recovery[000]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_192_falco": {
-		"name": "Plume",
-		"rarity": 3,
-		"skills": [
-			{
-				"id": "train_spd&profession[010]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "trade_ord_spd&limit[000]",
-				"elite": 1,
-				"level": 1
-			}
-		]
-	},
-	"char_4016_kazema": {
-		"name": "Kazemaru",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "meet_spd[010]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "meet_spd_condChar[000]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_358_lisa": {
-		"name": "Suzuran",
-		"rarity": 6,
-		"skills": [
-			{
-				"id": "train_spd&profession[060]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "train_spd&profession[160]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_253_greyy": {
-		"name": "Greyy",
-		"rarity": 4,
-		"skills": [
-			{
-				"id": "power_rec_spd[020]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "workshop_proc_probability[010]",
-				"elite": 1,
-				"level": 1
-			}
-		]
-	},
-	"char_4064_mlynar": {
-		"name": "Mlynar",
-		"rarity": 6,
-		"skills": [
-			{
-				"id": "control_mp_cost[008]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "control_mp_lonely[000]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_278_orchid": {
-		"name": "Orchid",
-		"rarity": 3,
-		"skills": [
-			{
-				"id": "hire_spd[020]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "trade_ord_spd&limit[010]",
-				"elite": 1,
-				"level": 1
-			}
-		]
-	},
-	"char_362_saga": {
-		"name": "Saga",
-		"rarity": 6,
-		"skills": [
-			{
-				"id": "train_spd&profession[010]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "train_spd&profession[110]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_136_hsguma": {
-		"name": "Hoshiguma",
-		"rarity": 6,
-		"skills": [
-			{
-				"id": "train_spd&profession[030]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "train_spd&profession[130]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_123_fang": {
-		"name": "Fang",
-		"rarity": 3,
-		"skills": [
-			{
-				"id": "manu_prod_spd_addition[030]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "trade_ord_spd[001]",
-				"elite": 1,
-				"level": 1
-			}
-		]
-	},
-	"char_338_iris": {
-		"name": "Iris",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "dorm_rec_bd_n1_n2[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "dorm_rec_bd_n1[000]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_472_pasngr": {
-		"name": "Passenger",
-		"rarity": 6,
-		"skills": [
-			{
-				"id": "power_rec_spd[003]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "power_rec_spd[016]",
-				"elite": 2,
-				"level": 1
-			},
-			{
-				"id": "manu_prod_spd&power[000]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_150_snakek": {
-		"name": "Cuora",
-		"rarity": 4,
-		"skills": [
-			{
-				"id": "manu_prod_spd&limit[001]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "trade_ord_spd[000]",
-				"elite": 1,
-				"level": 1
-			}
-		]
-	},
-	"char_1031_slent2": {
-		"name": "Silence the Paradigmatic",
-		"rarity": 6,
-		"skills": [
-			{
-				"id": "hire_spd[032]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "manu_prod_spd[021]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_391_rosmon": {
-		"name": "Rosmontis",
-		"rarity": 6,
-		"skills": [
-			{
-				"id": "manu_prod_spd_bd_n1[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "manu_prod_spd_bd[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "manu_prod_spd_bd[010]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_193_frostl": {
-		"name": "Frostleaf",
-		"rarity": 4,
-		"skills": [
-			{
-				"id": "dorm_rec_oneself[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "manu_formula_spd[010]",
-				"elite": 1,
-				"level": 1
-			}
-		]
-	},
-	"char_485_pallas": {
-		"name": "Pallas",
-		"rarity": 6,
-		"skills": [
-			{
-				"id": "manu_prod_limit&cost[003]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "manu_formula_spd[000]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_475_akafyu": {
-		"name": "Akafuyu",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "train_spd&profession2[020]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "train_spd&profession2[120]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_501_durin": {
-		"name": "Durin",
-		"rarity": 2,
-		"skills": [
-			{
-				"id": "dorm_rec_all&oneself[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "dorm_rec_all&oneself[001]",
-				"elite": 0,
-				"level": 30
-			}
-		]
-	},
-	"char_4054_malist": {
-		"name": "Minimalist",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "manu_constrLv[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "manu_prod_spd_bd[100]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "manu_prod_spd_bd[110]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_017_huang": {
-		"name": "Blaze",
-		"rarity": 6,
-		"skills": [
-			{
-				"id": "power_rec_spd[001]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "workshop_formula_probability[210]",
-				"elite": 1,
-				"level": 1
-			}
-		]
-	},
-	"char_198_blackd": {
-		"name": "Courier",
-		"rarity": 4,
-		"skills": [
-			{
-				"id": "trade_ord_spd&limit[020]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "meet_spd&team[040]",
-				"elite": 1,
-				"level": 1
-			}
-		]
-	},
-	"char_4047_pianst": {
-		"name": "Czerny",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "dorm_rec_bd_n1_n3[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "dorm_rec_bd_n1[100]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_281_popka": {
-		"name": "Popukar",
-		"rarity": 3,
-		"skills": [
-			{
-				"id": "manu_prod_spd&limit&cost[010]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "dorm_rec_single&oneself[020]",
-				"elite": 1,
-				"level": 1
-			}
-		]
-	},
-	"char_107_liskam": {
-		"name": "Liskarm",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "power_rec_spd[014]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "power_rec_spd[021]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_282_catap": {
-		"name": "Catapult",
-		"rarity": 3,
-		"skills": [
-			{
-				"id": "trade_ord_spd&cost[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "workshop_formula_probability[122]",
-				"elite": 1,
-				"level": 1
-			}
-		]
-	},
-	"char_106_franka": {
-		"name": "Franka",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "train_spd&profession[020]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "train_spd&profession[021]",
-				"elite": 2,
-				"level": 1
-			},
-			{
-				"id": "meet_spd&team[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "meet_spd&team[031]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_1028_texas2": {
-		"name": "Texas the Omertosa",
-		"rarity": 6,
-		"skills": [
-			{
-				"id": "train_spd_doubleProf2[001]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "train_spd_doubleProf2[000]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_333_sidero": {
-		"name": "Sideroca",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "train_spd&profession2[020]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "train_spd&profession2[320]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_109_fmout": {
-		"name": "Gitano",
-		"rarity": 4,
-		"skills": [
-			{
-				"id": "trade_ord_spd&limit[010]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "meet_spd[030]",
-				"elite": 1,
-				"level": 1
-			}
-		]
-	},
-	"char_363_toddi": {
-		"name": "Toddifons",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "workshop_formula_cost3[111]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "workshop_formula_device[020]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_311_mudrok": {
-		"name": "Mudrock",
-		"rarity": 6,
-		"skills": [
-			{
-				"id": "workshop_formula_cost4[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "workshop_formula_device[050]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_235_jesica": {
-		"name": "Jessica",
-		"rarity": 4,
-		"skills": [
-			{
-				"id": "manu_prod_spd[010]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "meet_spd&team[030]",
-				"elite": 1,
-				"level": 1
-			}
-		]
-	},
-	"char_4091_ulika": {
-		"name": "U-Official",
-		"rarity": 1,
-		"skills": [
-			{
-				"id": "trade_ord_spd&wt[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "meet_spd_Owned[000]",
-				"elite": 0,
-				"level": 30
-			}
-		]
-	},
-	"char_4043_erato": {
-		"name": "Erato",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "train_spd&profession2[040]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "train_spd&profession2[240]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_478_kirara": {
-		"name": "Kirara",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "trade_ord_line_gold[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "trade_ord_line_gold[010]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_298_susuro": {
-		"name": "Sussurro",
-		"rarity": 4,
-		"skills": [
-			{
-				"id": "train_spd&profession[070]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "workshop_formula_probability[120]",
-				"elite": 1,
-				"level": 1
-			}
+			{ "id": "power_rec_spd[000]", "elite": 0, "level": 1 },
+			{ "id": "dorm_rec_single[000]", "elite": 0, "level": 30 }
 		]
 	},
 	"char_286_cast3": {
 		"name": "Castle-3",
 		"rarity": 1,
 		"skills": [
-			{
-				"id": "power_rec_spd[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "manu_formula_spd[010]",
-				"elite": 0,
-				"level": 30
-			}
-		]
-	},
-	"char_010_chen": {
-		"name": "Ch'en",
-		"rarity": 6,
-		"skills": [
-			{
-				"id": "control_mp_cost&faction[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "meet_spd&team[100]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_405_absin": {
-		"name": "Absinthe",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "meet_team[050]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "meet_flag[050]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_4080_lin": {
-		"name": "Lin",
-		"rarity": 6,
-		"skills": [
-			{
-				"id": "hire_spd_cost[111]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "hire_spd_cost&extra[000]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_254_vodfox": {
-		"name": "Shamare",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "trade_ord_wt&cost[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "trade_ord_vodfox[000]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_416_zumama": {
-		"name": "Eunectes",
-		"rarity": 6,
-		"skills": [
-			{
-				"id": "manu_prod_spd&power[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "manu_prod_spd&power[010]",
-				"elite": 2,
-				"level": 1
-			},
-			{
-				"id": "control_pow_bot[000]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_4065_judge": {
-		"name": "Penance",
-		"rarity": 6,
-		"skills": [
-			{
-				"id": "hire_spd_cost[210]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "dorm_hireToRecAll[000]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_179_cgbird": {
-		"name": "Nightingale",
-		"rarity": 6,
-		"skills": [
-			{
-				"id": "dorm_rec_all[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "dorm_rec_all[021]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_493_firwhl": {
-		"name": "Firewhistle",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "trade_cost[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "trade_ord_spd&share[000]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_151_myrtle": {
-		"name": "Myrtle",
-		"rarity": 4,
-		"skills": [
-			{
-				"id": "trade_ord_limit&cost[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "dorm_rec_all[013]",
-				"elite": 1,
-				"level": 1
-			}
-		]
-	},
-	"char_474_glady": {
-		"name": "Gladiia",
-		"rarity": 6,
-		"skills": [
-			{
-				"id": "control_mp_aegir1[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "control_mp_aegir2[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "control_mp_aegir2[010]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_1027_greyy2": {
-		"name": "Greyy the Lightningbearer",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "power_rec_drone[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "power_count[000]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_4055_bgsnow": {
-		"name": "Pozyomka",
-		"rarity": 6,
-		"skills": [
-			{
-				"id": "trade_ord_spd&gold[100]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "trade_ord_line_durin[010]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_4082_qiubai": {
-		"name": "Qiubai",
-		"rarity": 6,
-		"skills": [
-			{
-				"id": "train_spd&profession3[160]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "train_spd&profession3[161]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_206_gnosis": {
-		"name": "Gnosis",
-		"rarity": 6,
-		"skills": [
-			{
-				"id": "control_mp_cost&faction[030]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "control_tra_limit&spd[000]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_2014_nian": {
-		"name": "Nian",
-		"rarity": 6,
-		"skills": [
-			{
-				"id": "workshop_formula_probability[160]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "workshop_formula_cost[010]",
-				"elite": 0,
-				"level": 1
-			}
-		]
-	},
-	"char_1014_nearl2": {
-		"name": "Nearl the Radiant Knight",
-		"rarity": 6,
-		"skills": [
-			{
-				"id": "train_spd_tag[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "train_spd_tag[010]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_437_mizuki": {
-		"name": "Mizuki",
-		"rarity": 6,
-		"skills": [
-			{
-				"id": "manu_skill_spd1[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "manu_prod_spd[010]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_455_nothin": {
-		"name": "Mr.Nothing",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "hire_spd&clue[101]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "trade_ord_spd_bd_n2[000]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_367_swllow": {
-		"name": "GreyThroat",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "control_mp_cost[005]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "dorm_rec_oneself[000]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_4078_bdhkgt": {
-		"name": "Jieyun",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "manu_bd_to_bd[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "manu_prod_spd_bd[200]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "manu_prod_spd_bd[201]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_220_grani": {
-		"name": "Grani",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "train_spd&profession[010]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "train_spd&profession[011]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_4006_melnte": {
-		"name": "Melanite",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "train_spd&profession2[040]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "train_spd&profession2[630]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_108_silent": {
-		"name": "Silence",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "manu_prod_spd[001]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "manu_prod_spd[011]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_009_12fce": {
-		"name": "12F",
-		"rarity": 2,
-		"skills": [
-			{
-				"id": "meet_spd[020]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "workshop_formula_probability[300]",
-				"elite": 0,
-				"level": 30
-			}
-		]
-	},
-	"char_343_tknogi": {
-		"name": "Tsukinogi",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "hire_spd&clue[010]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "hire_spd&clue[100]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_118_yuki": {
-		"name": "Shirayuki",
-		"rarity": 4,
-		"skills": [
-			{
-				"id": "meet_spd[020]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "manu_formula_spd[010]",
-				"elite": 1,
-				"level": 1
-			}
-		]
-	},
-	"char_4087_ines": {
-		"name": "Ines",
-		"rarity": 6,
-		"skills": [
-			{
-				"id": "hire_spd[001]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "meet_spd_hast[000]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_201_moeshd": {
-		"name": "Croissant",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "trade_ord_spd&limit[030]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "trade_ord_spd&limit[031]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_147_shining": {
-		"name": "Shining",
-		"rarity": 6,
-		"skills": [
-			{
-				"id": "dorm_rec_single[010]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "dorm_rec_single[020]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_466_qanik": {
-		"name": "Qanipalaat",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "hire_spd_cost&clue[001]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "hire_spd_cost&clue[000]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_4046_ebnhlz": {
-		"name": "Ebenholz",
-		"rarity": 6,
-		"skills": [
-			{
-				"id": "trade_ord_spd_bd_n1[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "trade_ord_spd_bd[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "trade_ord_spd_bd[010]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_497_ctable": {
-		"name": "Cantabile",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "meet_spd_notOwned[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "meet_spd_notOwned[010]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_2015_dusk": {
-		"name": "Dusk",
-		"rarity": 6,
-		"skills": [
-			{
-				"id": "control_mp_cost&bd1[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "control_mp_cost&bd2[000]",
-				"elite": 0,
-				"level": 1
-			}
-		]
-	},
-	"char_348_ceylon": {
-		"name": "Ceylon",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "workshop_formula_probability[129]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "manu_formula_spd[212]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_340_shwaz": {
-		"name": "Schwarz",
-		"rarity": 6,
-		"skills": [
-			{
-				"id": "dorm_rec_single_P[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "train_spd&profession[140]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_272_strong": {
-		"name": "Jaye",
-		"rarity": 4,
-		"skills": [
-			{
-				"id": "trade_ord_limit_diff[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "trade_ord_limit_count[000]",
-				"elite": 1,
-				"level": 1
-			}
-		]
-	},
-	"char_291_aglina": {
-		"name": "Angelina",
-		"rarity": 6,
-		"skills": [
-			{
-				"id": "meet_spd&team[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "meet_spd&team[060]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_218_cuttle": {
-		"name": "Andreana",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "dorm_rec_oneself[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "dorm_rec_oneself[011]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_347_jaksel": {
-		"name": "Jackie",
-		"rarity": 4,
-		"skills": [
-			{
-				"id": "dorm_rec_single&oneself[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "meet_spd[0020]",
-				"elite": 1,
-				"level": 1
-			}
-		]
-	},
-	"char_1021_kroos2": {
-		"name": "Kroos the Keen Glint",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "control_mp_cost&faction[900]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "train_spd&profession3[140]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_274_astesi": {
-		"name": "Astesia",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "meet_spd&team[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "meet_spd&team[110]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_301_cutter": {
-		"name": "Cutter",
-		"rarity": 4,
-		"skills": [
-			{
-				"id": "workshop_formula_probability[300]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "workshop_formula_cost3[300]",
-				"elite": 1,
-				"level": 1
-			}
-		]
-	},
-	"char_2023_ling": {
-		"name": "Ling",
-		"rarity": 6,
-		"skills": [
-			{
-				"id": "control_facCostReset[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "control_costToBD[000]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_129_bluep": {
-		"name": "Blue Poison",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "workshop_formula_probability[111]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "workshop_formula_probability[121]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_202_demkni": {
-		"name": "Saria",
-		"rarity": 6,
-		"skills": [
-			{
-				"id": "meet_spd&team[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "meet_spd&team[010]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_249_mlyss": {
-		"name": "Muelsyse",
-		"rarity": 6,
-		"skills": [
-			{
-				"id": "dorm_rec_all&oneself[022]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "power_rec_rhine[000]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_4083_chimes": {
-		"name": "Wind Chimes",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "trade_cost&bd2[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "trade_cost&bd2[001]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_436_whispr": {
-		"name": "Whisperain",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "hire_spd_bd_n1_n1[100]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "hire_spd_bd_n1[000]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_101_sora": {
-		"name": "Sora",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "dorm_rec_all[011]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "trade_ord_spd[011]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_415_flint": {
-		"name": "Flint",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "train_spd&profession2[020]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "train_spd&profession2[220]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_183_skgoat": {
-		"name": "Earthspirit",
-		"rarity": 4,
-		"skills": [
-			{
-				"id": "hire_spd_cost[010]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "hire_spd_cost[200]",
-				"elite": 1,
-				"level": 1
-			},
-			{
-				"id": "manu_formula_spd[211]",
-				"elite": 1,
-				"level": 1
-			}
-		]
-	},
-	"char_336_folivo": {
-		"name": "Scene",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "manu_prod_spd_addition[041]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "manu_formula_limit[0000]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_164_nightm": {
-		"name": "Nightmare",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "train_spd&profession[050]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "hire_spd[020]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_113_cqbw": {
-		"name": "W",
-		"rarity": 6,
-		"skills": [
-			{
-				"id": "train_spd&profession2[040]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "train_spd&profession2[640]",
-				"elite": 2,
-				"level": 1
-			},
-			{
-				"id": "train_cost&profession[340]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_1013_chen2": {
-		"name": "Ch'en the Holungday",
-		"rarity": 6,
-		"skills": [
-			{
-				"id": "train_spd&profession2[040]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "train_spd&profession2[440]",
-				"elite": 2,
-				"level": 1
-			},
-			{
-				"id": "train_cost&profession[140]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_155_tiger": {
-		"name": "Indra",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "meet_spd&team[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "meet_spd&team[070]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_456_ash": {
-		"name": "Ash",
-		"rarity": 6,
-		"skills": [
-			{
-				"id": "control_mp_cost&faction[990]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "control_mp_bd[000]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_476_blkngt": {
-		"name": "Blacknight",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "train_spd&profession2[010]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "train_spd&profession2[110]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_4025_aprot2": {
-		"name": "Shalem",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "train_spd&profession3[130]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "train_spd&profession3[131]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_4019_ncdeer": {
-		"name": "Nine-Colored Deer",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "workshop_formula_bonus1[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "workshop_formula_bonus2[000]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_130_doberm": {
-		"name": "Dobermann",
-		"rarity": 4,
-		"skills": [
-			{
-				"id": "control_mp_cost[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "train_spd[000]",
-				"elite": 1,
-				"level": 1
-			}
-		]
-	},
-	"char_1026_gvial2": {
-		"name": "Gavial the Invincible",
-		"rarity": 6,
-		"skills": [
-			{
-				"id": "train_spd&profession2[020]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "train_spd&profession2[620]",
-				"elite": 2,
-				"level": 1
-			},
-			{
-				"id": "train_cost&profession[320]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_115_headbr": {
-		"name": "Zima",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "dorm_rec_all[013]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "dorm_rec_all[020]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_400_weedy": {
-		"name": "Weedy",
-		"rarity": 6,
-		"skills": [
-			{
-				"id": "manu_prod_spd&power[010]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "manu_prod_spd&power[020]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_197_poca": {
-		"name": "Rosa",
-		"rarity": 6,
-		"skills": [
-			{
-				"id": "control_mp_cost&faction[020]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "hire_spd&clue2[250]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_4017_puzzle": {
-		"name": "Puzzle",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "meet_spd&team[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "meet_spd_notOwned[001]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_128_plosis": {
-		"name": "Ptilopsis",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "manu_prod_spd[001]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "manu_prod_spd[011]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_431_ashlok": {
-		"name": "Ashlock",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "manu_prod_spd[002]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "manu_prod_spd[012]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_346_aosta": {
-		"name": "Aosta",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "workshop_formula_cost3[110]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "workshop_formula_device[030]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_140_whitew": {
-		"name": "Lappland",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "trade_ord_limit&cost_P[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "trade_ord_limit&cost_P[001]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_503_rang": {
-		"name": "Rangers",
-		"rarity": 2,
-		"skills": [
-			{
-				"id": "hire_spd[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "workshop_proc_probability[021]",
-				"elite": 0,
-				"level": 30
-			}
-		]
-	},
-	"char_102_texas": {
-		"name": "Texas",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "trade_ord_spd&cost_P[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "trade_ord_limit&cost_P[010]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_458_rfrost": {
-		"name": "Frost",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "control_mp_cost&faction[990]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "workshop_formula_frost[000]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_126_shotst": {
-		"name": "Meteor",
-		"rarity": 4,
-		"skills": [
-			{
-				"id": "manu_prod_spd[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "dorm_rec_single[010]",
-				"elite": 1,
-				"level": 1
-			}
-		]
-	},
-	"char_121_lava": {
-		"name": "Lava",
-		"rarity": 3,
-		"skills": [
-			{
-				"id": "power_rec_spd[001]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "manu_formula_spd[210]",
-				"elite": 1,
-				"level": 1
-			}
-		]
-	},
-	"char_163_hpsts": {
-		"name": "Vulcan",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "manu_prod_spd&limit&cost[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "manu_prod_spd&limit&cost[001]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_459_tachak": {
-		"name": "Tachanka",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "control_mp_cost&faction[990]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "control_mp_bd[010]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_284_spot": {
-		"name": "Spot",
-		"rarity": 3,
-		"skills": [
-			{
-				"id": "workshop_proc_probability[010]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "manu_formula_spd[100]",
-				"elite": 1,
-				"level": 1
-			}
+			{ "id": "power_rec_spd[000]", "elite": 0, "level": 1 },
+			{ "id": "manu_formula_spd[010]", "elite": 0, "level": 30 }
 		]
 	},
 	"char_376_therex": {
 		"name": "Thermal-EX",
 		"rarity": 1,
 		"skills": [
-			{
-				"id": "power_rec_spd[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "power_rec_spd&cost[000]",
-				"elite": 0,
-				"level": 30
-			}
-		]
-	},
-	"char_157_dagda": {
-		"name": "Dagda",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "train_spd&profession3[150]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "train_spd&profession3[151]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_144_red": {
-		"name": "Projekt Red",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "control_mp_cost[001]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "meet_spd[031]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_328_cammou": {
-		"name": "Click",
-		"rarity": 4,
-		"skills": [
-			{
-				"id": "manu_formula_cost[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "manu_formula_limit[010]",
-				"elite": 1,
-				"level": 1
-			}
-		]
-	},
-	"char_143_ghost": {
-		"name": "Specter",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "dorm_rec_oneself[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "dorm_rec_oneself[010]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_356_broca": {
-		"name": "Broca",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "train_spd&profession[020]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "train_spd&profession[021]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_300_phenxi": {
-		"name": "Fiammetta",
-		"rarity": 6,
-		"skills": [
-			{
-				"id": "dorm_recExcludeOther[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "dorm_exchangeAp[000]",
-				"elite": 0,
-				"level": 1
-			}
-		]
-	},
-	"char_241_panda": {
-		"name": "FEater",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "manu_formula_spd[010]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "manu_formula_spd[020]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_4013_kjera": {
-		"name": "Kjera",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "meet_spd&team[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "meet_spd&team[041]",
-				"elite": 2,
-				"level": 1
-			},
-			{
-				"id": "meet_flag[040]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_226_hmau": {
-		"name": "Hung",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "workshop_proc_probability[010]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "control_mp_cost&faction2[000]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_473_mberry": {
-		"name": "Mulberry",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "hire_spd_cost[100]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "hire_spd_cost[110]",
-				"elite": 1,
-				"level": 1
-			},
-			{
-				"id": "hire_spd_bd_n1_n1[200]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_423_blemsh": {
-		"name": "Blemishine",
-		"rarity": 6,
-		"skills": [
-			{
-				"id": "workshop_formula_free[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "workshop_formula_cost2[000]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_112_siege": {
-		"name": "Siege",
-		"rarity": 6,
-		"skills": [
-			{
-				"id": "dorm_rec_all[013]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "dorm_rec_all[022]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_1024_hbisc2": {
-		"name": "Hibiscus the Purifier",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "control_mp_cost&faction[900]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "train_spd&profession2[270]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_502_nblade": {
-		"name": "Yato",
-		"rarity": 2,
-		"skills": [
-			{
-				"id": "trade_ord_spd[001]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "manu_prod_spd[000]",
-				"elite": 0,
-				"level": 30
-			}
-		]
-	},
-	"char_117_myrrh": {
-		"name": "Myrrh",
-		"rarity": 4,
-		"skills": [
-			{
-				"id": "workshop_formula_probability[110]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "dorm_rec_single[010]",
-				"elite": 1,
-				"level": 1
-			}
-		]
-	},
-	"char_294_ayer": {
-		"name": "Ayerscarpe",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "meet_spd[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "meet_spd[020]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_134_ifrit": {
-		"name": "Ifrit",
-		"rarity": 6,
-		"skills": [
-			{
-				"id": "power_rec_spd[001]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "power_rec_spd[013]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_479_sleach": {
-		"name": "Saileach",
-		"rarity": 6,
-		"skills": [
-			{
-				"id": "dorm_rec_single[031]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "control_hire_spd[000]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_306_leizi": {
-		"name": "Leizi",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "control_clue_cost[010]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "control_clue_cost[011]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_4066_highmo": {
-		"name": "Highmore",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "manu_skill_change[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "manu_prod_spd[010]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_1020_reed2": {
-		"name": "Reed The Flame Shadow",
-		"rarity": 6,
-		"skills": [
-			{
-				"id": "train_spd_doubleProf[100]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "train_spd_doubleProf[110]",
-				"elite": 2,
-				"level": 1
-			},
-			{
-				"id": "control_dorm_rec[000]",
-				"elite": 1,
-				"level": 1
-			}
-		]
-	},
-	"char_271_spikes": {
-		"name": "Arene",
-		"rarity": 4,
-		"skills": [
-			{
-				"id": "workshop_formula_dorm[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "workshop_formula_dorm[001]",
-				"elite": 1,
-				"level": 1
-			},
-			{
-				"id": "dorm_rec_oneself2[000]",
-				"elite": 1,
-				"level": 1
-			}
-		]
-	},
-	"char_148_nearl": {
-		"name": "Nearl",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "control_mp_cost[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "dorm_rec_single&oneself[030]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_379_sesa": {
-		"name": "Sesa",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "workshop_formula_cost3[120]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "workshop_formula_probability[119]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_4063_quartz": {
-		"name": "Quartz",
-		"rarity": 4,
-		"skills": [
-			{
-				"id": "manu_prod_spd[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "trade_ord_spd&formula[000]",
-				"elite": 1,
-				"level": 1
-			}
-		]
-	},
-	"char_433_windft": {
-		"name": "Windflit",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "workshop_formula_probability[115]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "manu_prod_spd&power[000]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_196_sunbr": {
-		"name": "Gummy",
-		"rarity": 4,
-		"skills": [
-			{
-				"id": "trade_ord_spd&cost[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "dorm_rec_single&oneself[011]",
-				"elite": 1,
-				"level": 1
-			}
-		]
-	},
-	"char_002_amiya": {
-		"name": "Amiya",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "control_tra_spd[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "dorm_rec_all[010]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_369_bena": {
-		"name": "Bena",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "manu_prod_spd&limit&cost[020]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "trade_ord_wt&cost[000]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_222_bpipe": {
-		"name": "Bagpipe",
-		"rarity": 6,
-		"skills": [
-			{
-				"id": "dorm_rec_all&oneself[021]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "workshop_formula_probability[310]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_1030_noirc2": {
-		"name": "Rathalos S Noir Corne",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "control_mp_bd2[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "control_token_tra_spd[000]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_215_mantic": {
-		"name": "Manticore",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "train_spd&profession[080]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "train_spd&profession[081]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_172_svrash": {
-		"name": "SilverAsh",
-		"rarity": 6,
-		"skills": [
-			{
-				"id": "trade_ord_spd&limit[020]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "trade_ord_spd&limit[022]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_4045_heidi": {
-		"name": "Heidi",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "trade_ord_spd[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "trade_ord_spd[021]",
-				"elite": 2,
-				"level": 1
-			},
-			{
-				"id": "control_clue_faction[070]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_120_hibisc": {
-		"name": "Hibiscus",
-		"rarity": 3,
-		"skills": [
-			{
-				"id": "dorm_rec_single[010]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "workshop_formula_probability[100]",
-				"elite": 1,
-				"level": 1
-			}
-		]
-	},
-	"char_133_mm": {
-		"name": "May",
-		"rarity": 4,
-		"skills": [
-			{
-				"id": "meet_spd[0020]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "meet_team[020]",
-				"elite": 1,
-				"level": 1
-			}
-		]
-	},
-	"char_213_mostma": {
-		"name": "Mostima",
-		"rarity": 6,
-		"skills": [
-			{
-				"id": "meet_spd&team[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "meet_spd&team[020]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_188_helage": {
-		"name": "Hellagur",
-		"rarity": 6,
-		"skills": [
-			{
-				"id": "dorm_rec_all&oneself[010]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "dorm_rec_all&oneself[011]",
-				"elite": 1,
-				"level": 1
-			},
-			{
-				"id": "dorm_rec_all&oneself[012]",
-				"elite": 2,
-				"level": 1
-			},
-			{
-				"id": "workshop_formula_probability[010]",
-				"elite": 0,
-				"level": 1
-			}
-		]
-	},
-	"char_4039_horn": {
-		"name": "Horn",
-		"rarity": 6,
-		"skills": [
-			{
-				"id": "workshop_formula_cost3[112]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "workshop_formula_device[111]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_141_nights": {
-		"name": "Haze",
-		"rarity": 4,
-		"skills": [
-			{
-				"id": "manu_formula_spd[100]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "trade_ord_spd[001]",
-				"elite": 1,
-				"level": 1
-			}
-		]
-	},
-	"char_158_milu": {
-		"name": "Firewatch",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "meet_spd[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "meet_spd[020]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_261_sddrag": {
-		"name": "Reed",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "dorm_rec_oneself[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "control_mp_cost[004]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_326_glacus": {
-		"name": "Glaucus",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "power_rec_spd[003]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "power_rec_spd[015]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_500_noirc": {
-		"name": "Noir Corne",
-		"rarity": 2,
-		"skills": [
-			{
-				"id": "manu_prod_spd&limit[001]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "trade_ord_spd&limit[000]",
-				"elite": 0,
-				"level": 30
-			}
-		]
-	},
-	"char_4014_lunacu": {
-		"name": "Lunacub",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "dorm_rec_oneself[001]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "workshop_formula_probability[011]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_402_tuye": {
-		"name": "Tuye",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "trade_ord_spd&gold[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "trade_ord_spd&gold[010]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_290_vigna": {
-		"name": "Vigna",
-		"rarity": 4,
-		"skills": [
-			{
-				"id": "manu_formula_spd[010]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "train_spd&profession[011]",
-				"elite": 1,
-				"level": 1
-			}
-		]
-	},
-	"char_219_meteo": {
-		"name": "Meteorite",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "workshop_formula_probability[112]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "workshop_formula_probability[122]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_204_platnm": {
-		"name": "Platinum",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "train_spd&profession[040]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "train_spd&profession[041]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_199_yak": {
-		"name": "Matterhorn",
-		"rarity": 4,
-		"skills": [
-			{
-				"id": "trade_ord_spd&limit[020]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "train_spd&profession[031]",
-				"elite": 1,
-				"level": 1
-			}
-		]
-	},
-	"char_388_mint": {
-		"name": "Mint",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "train_spd&profession2[050]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "train_spd&profession2[250]",
-				"elite": 2,
-				"level": 1
-			},
-			{
-				"id": "manu_formula_spd[201]",
-				"elite": 1,
-				"level": 1
-			}
-		]
-	},
-	"char_4077_palico": {
-		"name": "Terra Research Commission",
-		"rarity": 1,
-		"skills": [
-			{
-				"id": "trade_ord_spd&limit&bd[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "manu_prod_spd&limit&bd[000]",
-				"elite": 0,
-				"level": 30
-			}
-		]
-	},
-	"char_154_morgan": {
-		"name": "Morgan",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "dorm_rec_toone[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "trade_ord_spd_par[000]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_190_clour": {
-		"name": "Vermeil",
-		"rarity": 4,
-		"skills": [
-			{
-				"id": "manu_prod_limit&cost[0000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "manu_prod_spd_variable[000]",
-				"elite": 1,
-				"level": 1
-			}
-		]
-	},
-	"char_250_phatom": {
-		"name": "Phantom",
-		"rarity": 6,
-		"skills": [
-			{
-				"id": "train_spd&profession[080]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "train_spd&profession[180]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_212_ansel": {
-		"name": "Ansel",
-		"rarity": 3,
-		"skills": [
-			{
-				"id": "dorm_rec_single[010]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "workshop_formula_probability[110]",
-				"elite": 1,
-				"level": 1
-			}
-		]
-	},
-	"char_1011_lava2": {
-		"name": "Lava the Purgatory",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "control_mp_cost&faction[900]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "power_rec_spd[022]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_297_hamoni": {
-		"name": "Harmonie",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "dorm_rec_oneself[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "meet_spd&cost_condChar[000]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_260_durnar": {
-		"name": "Dur-nar",
-		"rarity": 4,
-		"skills": [
-			{
-				"id": "train_spd&profession[030]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "control_mp_cost[002]",
-				"elite": 1,
-				"level": 1
-			}
-		]
-	},
-	"char_451_robin": {
-		"name": "Robin",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "train_spd&profession2[080]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "train_spd&profession2[180]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_003_kalts": {
-		"name": "Kal'tsit",
-		"rarity": 6,
-		"skills": [
-			{
-				"id": "workshop_proc_probability[040]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "control_prod_spd[000]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_4032_provs": {
-		"name": "Proviso",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "trade_ord_law[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "trade_ord_against[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "trade_ord_against[010]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_355_ethan": {
-		"name": "Ethan",
-		"rarity": 4,
-		"skills": [
-			{
-				"id": "hire_spd[030]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "dorm_rec_oneself[030]",
-				"elite": 1,
-				"level": 1
-			}
-		]
-	},
-	"char_230_savage": {
-		"name": "Savage",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "workshop_formula_probability[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "dorm_rec_single&oneself[011]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_366_acdrop": {
-		"name": "Aciddrop",
-		"rarity": 4,
-		"skills": [
-			{
-				"id": "hire_spd[031]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "dorm_rec_single&oneself[012]",
-				"elite": 1,
-				"level": 1
-			}
-		]
-	},
-	"char_484_robrta": {
-		"name": "Roberta",
-		"rarity": 4,
-		"skills": [
-			{
-				"id": "workshop_formula_probability[200]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "manu_prod_spd[010]",
-				"elite": 1,
-				"level": 1
-			}
-		]
-	},
-	"char_302_glaze": {
-		"name": "Ambriel",
-		"rarity": 4,
-		"skills": [
-			{
-				"id": "dorm_rec_all&oneself[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "trade_ord_spd[001]",
-				"elite": 1,
-				"level": 1
-			}
-		]
-	},
-	"char_373_lionhd": {
-		"name": "Leonhardt",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "workshop_formula_probability[220]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "workshop_formula_cost3[220]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_489_serum": {
-		"name": "Corroserum",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "workshop_formula_probability[113]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "workshop_formula_probability[123]",
-				"elite": 2,
-				"level": 1
-			},
-			{
-				"id": "workshop_formula_drop[030]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_4071_peper": {
-		"name": "Paprika",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "control_tra_spd[020]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "trade_ord_wt&cost[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "trade_ord_wt&cost[010]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_4004_pudd": {
-		"name": "Pudding",
-		"rarity": 4,
-		"skills": [
-			{
-				"id": "power_rec_spd[010]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "control_token_prod_spd[000]",
-				"elite": 1,
-				"level": 1
-			}
-		]
-	},
-	"char_127_estell": {
-		"name": "Estelle",
-		"rarity": 4,
-		"skills": [
-			{
-				"id": "workshop_proc_probability[020]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "dorm_rec_oneself[000]",
-				"elite": 1,
-				"level": 1
-			}
+			{ "id": "power_rec_spd[000]", "elite": 0, "level": 1 },
+			{ "id": "power_rec_spd&cost[000]", "elite": 0, "level": 30 }
 		]
 	},
 	"char_4000_jnight": {
 		"name": "\"Justice Knight\"",
 		"rarity": 1,
 		"skills": [
-			{
-				"id": "power_rec_spd[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "power_prod_spd_P[000]",
-				"elite": 0,
-				"level": 30
-			}
+			{ "id": "power_rec_spd[000]", "elite": 0, "level": 1 },
+			{ "id": "power_prod_spd_P[000]", "elite": 0, "level": 30 }
 		]
 	},
-	"char_209_ardign": {
-		"name": "Cardigan",
+	"char_4077_palico": {
+		"name": "Terra Research Commission",
+		"rarity": 1,
+		"skills": [
+			{ "id": "trade_ord_spd&limit&bd[000]", "elite": 0, "level": 1 },
+			{ "id": "manu_prod_spd&limit&bd[000]", "elite": 0, "level": 30 }
+		]
+	},
+	"char_4091_ulika": {
+		"name": "U-Official",
+		"rarity": 1,
+		"skills": [
+			{ "id": "trade_ord_spd&wt[000]", "elite": 0, "level": 1 },
+			{ "id": "meet_spd_Owned[000]", "elite": 0, "level": 30 }
+		]
+	},
+	"char_502_nblade": {
+		"name": "Yato",
+		"rarity": 2,
+		"skills": [
+			{ "id": "trade_ord_spd[001]", "elite": 0, "level": 1 },
+			{ "id": "manu_prod_spd[000]", "elite": 0, "level": 30 }
+		]
+	},
+	"char_500_noirc": {
+		"name": "Noir Corne",
+		"rarity": 2,
+		"skills": [
+			{ "id": "manu_prod_spd&limit[001]", "elite": 0, "level": 1 },
+			{ "id": "trade_ord_spd&limit[000]", "elite": 0, "level": 30 }
+		]
+	},
+	"char_503_rang": {
+		"name": "Rangers",
+		"rarity": 2,
+		"skills": [
+			{ "id": "hire_spd[000]", "elite": 0, "level": 1 },
+			{ "id": "workshop_proc_probability[021]", "elite": 0, "level": 30 }
+		]
+	},
+	"char_501_durin": {
+		"name": "Durin",
+		"rarity": 2,
+		"skills": [
+			{ "id": "dorm_rec_all&oneself[000]", "elite": 0, "level": 1 },
+			{ "id": "dorm_rec_all&oneself[001]", "elite": 0, "level": 30 }
+		]
+	},
+	"char_009_12fce": {
+		"name": "12F",
+		"rarity": 2,
+		"skills": [
+			{ "id": "meet_spd[020]", "elite": 0, "level": 1 },
+			{ "id": "workshop_formula_probability[300]", "elite": 0, "level": 30 }
+		]
+	},
+	"char_123_fang": {
+		"name": "Fang",
 		"rarity": 3,
 		"skills": [
-			{
-				"id": "manu_prod_spd&limit[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "dorm_rec_single&oneself[000]",
-				"elite": 1,
-				"level": 1
-			}
-		]
-	},
-	"char_277_sqrrel": {
-		"name": "Shaw",
-		"rarity": 4,
-		"skills": [
-			{
-				"id": "workshop_formula_probability[200]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "power_rec_spd[010]",
-				"elite": 1,
-				"level": 1
-			}
-		]
-	},
-	"char_457_blitz": {
-		"name": "Blitz",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "control_mp_cost&faction[990]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "hire_spd_blitz[000]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_383_snsant": {
-		"name": "Snowsant",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "trade_ord_spd_variable2[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "trade_ord_spd_variable2[001]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_264_f12yin": {
-		"name": "Mountain",
-		"rarity": 6,
-		"skills": [
-			{
-				"id": "hire_spd&clue2[230]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "meet_flag[010]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_137_brownb": {
-		"name": "Beehunter",
-		"rarity": 4,
-		"skills": [
-			{
-				"id": "train_spd&profession[020]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "workshop_formula_probability[300]",
-				"elite": 1,
-				"level": 1
-			}
-		]
-	},
-	"char_110_deepcl": {
-		"name": "Deepcolor",
-		"rarity": 4,
-		"skills": [
-			{
-				"id": "trade_ord_spd[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "workshop_proc_probability[020]",
-				"elite": 1,
-				"level": 1
-			}
-		]
-	},
-	"char_464_cement": {
-		"name": "Cement",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "manu_prod_spd[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "manu_prod_limit&cost[021]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_145_prove": {
-		"name": "Provence",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "hire_spd[010]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "hire_spd[011]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_149_scave": {
-		"name": "Scavenger",
-		"rarity": 4,
-		"skills": [
-			{
-				"id": "control_mp_cost[001]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "manu_prod_limit&cost[000]",
-				"elite": 1,
-				"level": 1
-			}
-		]
-	},
-	"char_420_flamtl": {
-		"name": "Flametail",
-		"rarity": 6,
-		"skills": [
-			{
-				"id": "control_mp_cost[007]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "control_mp_psk[000]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_427_vigil": {
-		"name": "Vigil",
-		"rarity": 6,
-		"skills": [
-			{
-				"id": "meet_spd[032]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "trade_ord_spd&meet[000]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_401_elysm": {
-		"name": "Elysium",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "meet_team[060]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "meet_flag[060]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_124_kroos": {
-		"name": "Kroos",
-		"rarity": 3,
-		"skills": [
-			{
-				"id": "manu_prod_spd_addition[040]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "dorm_rec_oneself[000]",
-				"elite": 1,
-				"level": 1
-			}
-		]
-	},
-	"char_421_crow": {
-		"name": "La Pluma",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "workshop_formula_cost3[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "workshop_formula_probability[030]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_385_finlpp": {
-		"name": "Purestream",
-		"rarity": 4,
-		"skills": [
-			{
-				"id": "power_rec_spd[011]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "manu_prod_spd&trade[000]",
-				"elite": 1,
-				"level": 1
-			}
-		]
-	},
-	"char_122_beagle": {
-		"name": "Beagle",
-		"rarity": 3,
-		"skills": [
-			{
-				"id": "manu_prod_spd&limit[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "dorm_rec_single&oneself[000]",
-				"elite": 1,
-				"level": 1
-			}
-		]
-	},
-	"char_135_halo": {
-		"name": "Astgenne",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "manu_prod_spd[001]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "manu_prod_spd[011]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_440_pinecn": {
-		"name": "Pinecone",
-		"rarity": 4,
-		"skills": [
-			{
-				"id": "workshop_formula_probability[200]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "workshop_formula_cost3[200]",
-				"elite": 1,
-				"level": 1
-			}
-		]
-	},
-	"char_2013_cerber": {
-		"name": "Ceobe",
-		"rarity": 6,
-		"skills": [
-			{
-				"id": "manu_prod_limit&cost[002]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "manu_prod_spd_addition[031]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_308_swire": {
-		"name": "Swire",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "control_tra_spd[010]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "train_spd[000]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_377_gdglow": {
-		"name": "Goldenglow",
-		"rarity": 6,
-		"skills": [
-			{
-				"id": "power_rec_spd[003]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "power_rec_spd[023]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_496_wildmn": {
-		"name": "Wild Mane",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "manu_prod_spd[002]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "manu_prod_spd[012]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_4009_irene": {
-		"name": "Irene",
-		"rarity": 6,
-		"skills": [
-			{
-				"id": "train_spd_doubleProf[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "train_spd_reduceTime[000]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_159_peacok": {
-		"name": "Conviction",
-		"rarity": 4,
-		"skills": [
-			{
-				"id": "dorm_rec_single[030]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "manu_formula_spd[020]",
-				"elite": 1,
-				"level": 1
-			}
-		]
-	},
-	"char_173_slchan": {
-		"name": "Cliffheart",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "dorm_rec_single&oneself[001]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "trade_ord_spd&limit[021]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_325_bison": {
-		"name": "Bison",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "trade_ord_spd&limit[032]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "trade_ord_spd&limit[033]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_265_sophia": {
-		"name": "Whislash",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "train_spd&profession[020]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "train_spd[0000]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_252_bibeak": {
-		"name": "Bibeak",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "trade_ord_wt&cost[000]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "trade_ord_wt&cost[010]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_171_bldsk": {
-		"name": "Warfarin",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "train_spd&profession[070]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "train_spd&profession[071]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_350_surtr": {
-		"name": "Surtr",
-		"rarity": 6,
-		"skills": [
-			{
-				"id": "train_spd&profession[020]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "train_spd&profession[120]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_492_quercu": {
-		"name": "Quercus",
-		"rarity": 5,
-		"skills": [
-			{
-				"id": "meet_team[070]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "meet_flag[070]",
-				"elite": 2,
-				"level": 1
-			}
-		]
-	},
-	"char_426_billro": {
-		"name": "Carnelian",
-		"rarity": 6,
-		"skills": [
-			{
-				"id": "train_spd&profession[050]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "train_spd&profession[150]",
-				"elite": 2,
-				"level": 1
-			}
+			{ "id": "manu_prod_spd_addition[030]", "elite": 0, "level": 1 },
+			{ "id": "trade_ord_spd[001]", "elite": 1, "level": 1 }
 		]
 	},
 	"char_240_wyvern": {
 		"name": "Vanilla",
 		"rarity": 3,
 		"skills": [
-			{
-				"id": "manu_prod_spd[010]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "trade_ord_spd[000]",
-				"elite": 1,
-				"level": 1
-			}
+			{ "id": "manu_prod_spd[010]", "elite": 0, "level": 1 },
+			{ "id": "trade_ord_spd[000]", "elite": 1, "level": 1 }
+		]
+	},
+	"char_192_falco": {
+		"name": "Plume",
+		"rarity": 3,
+		"skills": [
+			{ "id": "train_spd&profession[010]", "elite": 0, "level": 1 },
+			{ "id": "trade_ord_spd&limit[000]", "elite": 1, "level": 1 }
+		]
+	},
+	"char_208_melan": {
+		"name": "Melantha",
+		"rarity": 3,
+		"skills": [
+			{ "id": "trade_ord_spd&limit[010]", "elite": 0, "level": 1 },
+			{ "id": "workshop_proc_probability[000]", "elite": 1, "level": 1 }
+		]
+	},
+	"char_281_popka": {
+		"name": "Popukar",
+		"rarity": 3,
+		"skills": [
+			{ "id": "manu_prod_spd&limit&cost[010]", "elite": 0, "level": 1 },
+			{ "id": "dorm_rec_single&oneself[020]", "elite": 1, "level": 1 }
+		]
+	},
+	"char_209_ardign": {
+		"name": "Cardigan",
+		"rarity": 3,
+		"skills": [
+			{ "id": "manu_prod_spd&limit[000]", "elite": 0, "level": 1 },
+			{ "id": "dorm_rec_single&oneself[000]", "elite": 1, "level": 1 }
+		]
+	},
+	"char_122_beagle": {
+		"name": "Beagle",
+		"rarity": 3,
+		"skills": [
+			{ "id": "manu_prod_spd&limit[000]", "elite": 0, "level": 1 },
+			{ "id": "dorm_rec_single&oneself[000]", "elite": 1, "level": 1 }
+		]
+	},
+	"char_284_spot": {
+		"name": "Spot",
+		"rarity": 3,
+		"skills": [
+			{ "id": "workshop_proc_probability[010]", "elite": 0, "level": 1 },
+			{ "id": "manu_formula_spd[100]", "elite": 1, "level": 1 }
+		]
+	},
+	"char_124_kroos": {
+		"name": "Kroos",
+		"rarity": 3,
+		"skills": [
+			{ "id": "manu_prod_spd_addition[040]", "elite": 0, "level": 1 },
+			{ "id": "dorm_rec_oneself[000]", "elite": 1, "level": 1 }
+		]
+	},
+	"char_211_adnach": {
+		"name": "Adnachiel",
+		"rarity": 3,
+		"skills": [
+			{ "id": "trade_ord_spd[000]", "elite": 0, "level": 1 },
+			{ "id": "workshop_proc_probability[010]", "elite": 1, "level": 1 }
+		]
+	},
+	"char_121_lava": {
+		"name": "Lava",
+		"rarity": 3,
+		"skills": [
+			{ "id": "power_rec_spd[001]", "elite": 0, "level": 1 },
+			{ "id": "manu_formula_spd[210]", "elite": 1, "level": 1 }
+		]
+	},
+	"char_120_hibisc": {
+		"name": "Hibiscus",
+		"rarity": 3,
+		"skills": [
+			{ "id": "dorm_rec_single[010]", "elite": 0, "level": 1 },
+			{ "id": "workshop_formula_probability[100]", "elite": 1, "level": 1 }
+		]
+	},
+	"char_212_ansel": {
+		"name": "Ansel",
+		"rarity": 3,
+		"skills": [
+			{ "id": "dorm_rec_single[010]", "elite": 0, "level": 1 },
+			{ "id": "workshop_formula_probability[110]", "elite": 1, "level": 1 }
+		]
+	},
+	"char_210_stward": {
+		"name": "Steward",
+		"rarity": 3,
+		"skills": [
+			{ "id": "trade_ord_limit&cost[000]", "elite": 0, "level": 1 },
+			{ "id": "manu_prod_spd[010]", "elite": 1, "level": 1 }
+		]
+	},
+	"char_278_orchid": {
+		"name": "Orchid",
+		"rarity": 3,
+		"skills": [
+			{ "id": "hire_spd[020]", "elite": 0, "level": 1 },
+			{ "id": "trade_ord_spd&limit[010]", "elite": 1, "level": 1 }
+		]
+	},
+	"char_141_nights": {
+		"name": "Haze",
+		"rarity": 4,
+		"skills": [
+			{ "id": "manu_formula_spd[100]", "elite": 0, "level": 1 },
+			{ "id": "trade_ord_spd[001]", "elite": 1, "level": 1 }
+		]
+	},
+	"char_109_fmout": {
+		"name": "Gitano",
+		"rarity": 4,
+		"skills": [
+			{ "id": "trade_ord_spd&limit[010]", "elite": 0, "level": 1 },
+			{ "id": "meet_spd[030]", "elite": 1, "level": 1 }
+		]
+	},
+	"char_253_greyy": {
+		"name": "Greyy",
+		"rarity": 4,
+		"skills": [
+			{ "id": "power_rec_spd[020]", "elite": 0, "level": 1 },
+			{ "id": "workshop_proc_probability[010]", "elite": 1, "level": 1 }
+		]
+	},
+	"char_328_cammou": {
+		"name": "Click",
+		"rarity": 4,
+		"skills": [
+			{ "id": "manu_formula_cost[000]", "elite": 0, "level": 1 },
+			{ "id": "manu_formula_limit[010]", "elite": 1, "level": 1 }
+		]
+	},
+	"char_469_indigo": {
+		"name": "Indigo",
+		"rarity": 4,
+		"skills": [
+			{ "id": "dorm_rec_single_P[002]", "elite": 0, "level": 1 },
+			{ "id": "power_rec_spd[002]", "elite": 0, "level": 1 },
+			{ "id": "power_rec_spd[017]", "elite": 1, "level": 1 }
+		]
+	},
+	"char_4004_pudd": {
+		"name": "Pudding",
+		"rarity": 4,
+		"skills": [
+			{ "id": "power_rec_spd[010]", "elite": 0, "level": 1 },
+			{ "id": "control_token_prod_spd[000]", "elite": 1, "level": 1 }
+		]
+	},
+	"char_235_jesica": {
+		"name": "Jessica",
+		"rarity": 4,
+		"skills": [
+			{ "id": "manu_prod_spd[010]", "elite": 0, "level": 1 },
+			{ "id": "meet_spd&team[030]", "elite": 1, "level": 1 }
+		]
+	},
+	"char_126_shotst": {
+		"name": "Meteor",
+		"rarity": 4,
+		"skills": [
+			{ "id": "manu_prod_spd[000]", "elite": 0, "level": 1 },
+			{ "id": "dorm_rec_single[010]", "elite": 1, "level": 1 }
+		]
+	},
+	"char_190_clour": {
+		"name": "Vermeil",
+		"rarity": 4,
+		"skills": [
+			{ "id": "manu_prod_limit&cost[0000]", "elite": 0, "level": 1 },
+			{ "id": "manu_prod_spd_variable[000]", "elite": 1, "level": 1 }
+		]
+	},
+	"char_133_mm": {
+		"name": "May",
+		"rarity": 4,
+		"skills": [
+			{ "id": "meet_spd[0020]", "elite": 0, "level": 1 },
+			{ "id": "meet_team[020]", "elite": 1, "level": 1 }
+		]
+	},
+	"char_118_yuki": {
+		"name": "Shirayuki",
+		"rarity": 4,
+		"skills": [
+			{ "id": "meet_spd[020]", "elite": 0, "level": 1 },
+			{ "id": "manu_formula_spd[010]", "elite": 1, "level": 1 }
+		]
+	},
+	"char_440_pinecn": {
+		"name": "Pinecone",
+		"rarity": 4,
+		"skills": [
+			{ "id": "workshop_formula_probability[200]", "elite": 0, "level": 1 },
+			{ "id": "workshop_formula_cost3[200]", "elite": 1, "level": 1 }
+		]
+	},
+	"char_302_glaze": {
+		"name": "Ambriel",
+		"rarity": 4,
+		"skills": [
+			{ "id": "dorm_rec_all&oneself[000]", "elite": 0, "level": 1 },
+			{ "id": "trade_ord_spd[001]", "elite": 1, "level": 1 }
+		]
+	},
+	"char_366_acdrop": {
+		"name": "Aciddrop",
+		"rarity": 4,
+		"skills": [
+			{ "id": "hire_spd[031]", "elite": 0, "level": 1 },
+			{ "id": "dorm_rec_single&oneself[012]", "elite": 1, "level": 1 }
+		]
+	},
+	"char_4062_totter": {
+		"name": "Totter",
+		"rarity": 4,
+		"skills": [
+			{ "id": "manu_prod_spd_reduce[000]", "elite": 0, "level": 1 },
+			{ "id": "manu_prod_spd_addition&cost[000]", "elite": 1, "level": 1 }
+		]
+	},
+	"char_198_blackd": {
+		"name": "Courier",
+		"rarity": 4,
+		"skills": [
+			{ "id": "trade_ord_spd&limit[020]", "elite": 0, "level": 1 },
+			{ "id": "meet_spd&team[040]", "elite": 1, "level": 1 }
+		]
+	},
+	"char_149_scave": {
+		"name": "Scavenger",
+		"rarity": 4,
+		"skills": [
+			{ "id": "control_mp_cost[001]", "elite": 0, "level": 1 },
+			{ "id": "manu_prod_limit&cost[000]", "elite": 1, "level": 1 }
+		]
+	},
+	"char_290_vigna": {
+		"name": "Vigna",
+		"rarity": 4,
+		"skills": [
+			{ "id": "manu_formula_spd[010]", "elite": 0, "level": 1 },
+			{ "id": "train_spd&profession[011]", "elite": 1, "level": 1 }
+		]
+	},
+	"char_151_myrtle": {
+		"name": "Myrtle",
+		"rarity": 4,
+		"skills": [
+			{ "id": "trade_ord_limit&cost[000]", "elite": 0, "level": 1 },
+			{ "id": "dorm_rec_all[013]", "elite": 1, "level": 1 }
+		]
+	},
+	"char_452_bstalk": {
+		"name": "Beanstalk",
+		"rarity": 4,
+		"skills": [
+			{ "id": "manu_prod_spd[003]", "elite": 0, "level": 1 },
+			{ "id": "manu_prod_limit&cost[001]", "elite": 1, "level": 1 }
+		]
+	},
+	"char_130_doberm": {
+		"name": "Dobermann",
+		"rarity": 4,
+		"skills": [
+			{ "id": "control_mp_cost[000]", "elite": 0, "level": 1 },
+			{ "id": "train_spd[000]", "elite": 1, "level": 1 }
+		]
+	},
+	"char_289_gyuki": {
+		"name": "Matoimaru",
+		"rarity": 4,
+		"skills": [
+			{ "id": "workshop_formula_probability[000]", "elite": 0, "level": 1 },
+			{ "id": "trade_ord_spd[001]", "elite": 1, "level": 1 }
+		]
+	},
+	"char_159_peacok": {
+		"name": "Conviction",
+		"rarity": 4,
+		"skills": [
+			{ "id": "dorm_rec_single[030]", "elite": 0, "level": 1 },
+			{ "id": "manu_formula_spd[020]", "elite": 1, "level": 1 }
+		]
+	},
+	"char_193_frostl": {
+		"name": "Frostleaf",
+		"rarity": 4,
+		"skills": [
+			{ "id": "dorm_rec_oneself[000]", "elite": 0, "level": 1 },
+			{ "id": "manu_formula_spd[010]", "elite": 1, "level": 1 }
+		]
+	},
+	"char_127_estell": {
+		"name": "Estelle",
+		"rarity": 4,
+		"skills": [
+			{ "id": "workshop_proc_probability[020]", "elite": 0, "level": 1 },
+			{ "id": "dorm_rec_oneself[000]", "elite": 1, "level": 1 }
+		]
+	},
+	"char_185_frncat": {
+		"name": "Mousse",
+		"rarity": 4,
+		"skills": [
+			{ "id": "trade_ord_spd[001]", "elite": 0, "level": 1 },
+			{ "id": "dorm_rec_single&oneself[010]", "elite": 1, "level": 1 }
+		]
+	},
+	"char_301_cutter": {
+		"name": "Cutter",
+		"rarity": 4,
+		"skills": [
+			{ "id": "workshop_formula_probability[300]", "elite": 0, "level": 1 },
+			{ "id": "workshop_formula_cost3[300]", "elite": 1, "level": 1 }
 		]
 	},
 	"char_337_utage": {
 		"name": "Utage",
 		"rarity": 4,
 		"skills": [
-			{
-				"id": "hire_spd[020]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "meet_spd[020]",
-				"elite": 1,
-				"level": 1
-			}
+			{ "id": "hire_spd[020]", "elite": 0, "level": 1 },
+			{ "id": "meet_spd[020]", "elite": 1, "level": 1 }
+		]
+	},
+	"char_271_spikes": {
+		"name": "Arene",
+		"rarity": 4,
+		"skills": [
+			{ "id": "workshop_formula_dorm[000]", "elite": 0, "level": 1 },
+			{ "id": "workshop_formula_dorm[001]", "elite": 1, "level": 1 },
+			{ "id": "dorm_rec_oneself2[000]", "elite": 1, "level": 1 }
+		]
+	},
+	"char_4067_lolxh": {
+		"name": "Luo Xiaohei",
+		"rarity": 4,
+		"skills": [
+			{ "id": "workshop_proc_cost[000]", "elite": 0, "level": 1 },
+			{ "id": "workshop_formula_lolxh[000]", "elite": 1, "level": 1 }
+		]
+	},
+	"char_4063_quartz": {
+		"name": "Quartz",
+		"rarity": 4,
+		"skills": [
+			{ "id": "manu_prod_spd[000]", "elite": 0, "level": 1 },
+			{ "id": "trade_ord_spd&formula[000]", "elite": 1, "level": 1 }
 		]
 	},
 	"char_491_humus": {
 		"name": "Humus",
 		"rarity": 4,
 		"skills": [
-			{
-				"id": "workshop_proc_probability[013]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "workshop_formula_rub[000]",
-				"elite": 1,
-				"level": 1
-			}
+			{ "id": "workshop_proc_probability[013]", "elite": 0, "level": 1 },
+			{ "id": "workshop_formula_rub[000]", "elite": 1, "level": 1 }
+		]
+	},
+	"char_237_gravel": {
+		"name": "Gravel",
+		"rarity": 4,
+		"skills": [
+			{ "id": "workshop_proc_probability[000]", "elite": 0, "level": 1 },
+			{ "id": "manu_formula_spd[110]", "elite": 1, "level": 1 }
+		]
+	},
+	"char_272_strong": {
+		"name": "Jaye",
+		"rarity": 4,
+		"skills": [
+			{ "id": "trade_ord_limit_diff[000]", "elite": 0, "level": 1 },
+			{ "id": "trade_ord_limit_count[000]", "elite": 1, "level": 1 }
+		]
+	},
+	"char_236_rope": {
+		"name": "Rope",
+		"rarity": 4,
+		"skills": [
+			{ "id": "meet_spd[020]", "elite": 0, "level": 1 },
+			{ "id": "trade_ord_limit&cost[000]", "elite": 1, "level": 1 }
+		]
+	},
+	"char_117_myrrh": {
+		"name": "Myrrh",
+		"rarity": 4,
+		"skills": [
+			{ "id": "workshop_formula_probability[110]", "elite": 0, "level": 1 },
+			{ "id": "dorm_rec_single[010]", "elite": 1, "level": 1 }
+		]
+	},
+	"char_187_ccheal": {
+		"name": "Gavial",
+		"rarity": 4,
+		"skills": [
+			{ "id": "workshop_formula_probability[110]", "elite": 0, "level": 1 },
+			{ "id": "train_spd&profession[070]", "elite": 1, "level": 1 }
+		]
+	},
+	"char_298_susuro": {
+		"name": "Sussurro",
+		"rarity": 4,
+		"skills": [
+			{ "id": "train_spd&profession[070]", "elite": 0, "level": 1 },
+			{ "id": "workshop_formula_probability[120]", "elite": 1, "level": 1 }
+		]
+	},
+	"char_181_flower": {
+		"name": "Perfumer",
+		"rarity": 4,
+		"skills": [
+			{ "id": "workshop_formula_probability[110]", "elite": 0, "level": 1 },
+			{ "id": "manu_prod_spd[010]", "elite": 1, "level": 1 }
+		]
+	},
+	"char_385_finlpp": {
+		"name": "Purestream",
+		"rarity": 4,
+		"skills": [
+			{ "id": "power_rec_spd[011]", "elite": 0, "level": 1 },
+			{ "id": "manu_prod_spd&trade[000]", "elite": 1, "level": 1 }
+		]
+	},
+	"char_4041_chnut": {
+		"name": "Chestnut",
+		"rarity": 4,
+		"skills": [
+			{ "id": "manu_prod_spd[000]", "elite": 0, "level": 1 },
+			{ "id": "manu_formula_spd[201]", "elite": 1, "level": 1 }
+		]
+	},
+	"char_199_yak": {
+		"name": "Matterhorn",
+		"rarity": 4,
+		"skills": [
+			{ "id": "trade_ord_spd&limit[020]", "elite": 0, "level": 1 },
+			{ "id": "train_spd&profession[031]", "elite": 1, "level": 1 }
+		]
+	},
+	"char_150_snakek": {
+		"name": "Cuora",
+		"rarity": 4,
+		"skills": [
+			{ "id": "manu_prod_spd&limit[001]", "elite": 0, "level": 1 },
+			{ "id": "trade_ord_spd[000]", "elite": 1, "level": 1 }
+		]
+	},
+	"char_381_bubble": {
+		"name": "Bubble",
+		"rarity": 4,
+		"skills": [
+			{ "id": "manu_prod_limit&cost[010]", "elite": 0, "level": 1 },
+			{ "id": "manu_prod_spd_variable3[000]", "elite": 1, "level": 1 }
+		]
+	},
+	"char_196_sunbr": {
+		"name": "Gummy",
+		"rarity": 4,
+		"skills": [
+			{ "id": "trade_ord_spd&cost[000]", "elite": 0, "level": 1 },
+			{ "id": "dorm_rec_single&oneself[011]", "elite": 1, "level": 1 }
+		]
+	},
+	"char_260_durnar": {
+		"name": "Dur-nar",
+		"rarity": 4,
+		"skills": [
+			{ "id": "train_spd&profession[030]", "elite": 0, "level": 1 },
+			{ "id": "control_mp_cost[002]", "elite": 1, "level": 1 }
+		]
+	},
+	"char_110_deepcl": {
+		"name": "Deepcolor",
+		"rarity": 4,
+		"skills": [
+			{ "id": "trade_ord_spd[000]", "elite": 0, "level": 1 },
+			{ "id": "workshop_proc_probability[020]", "elite": 1, "level": 1 }
+		]
+	},
+	"char_183_skgoat": {
+		"name": "Earthspirit",
+		"rarity": 4,
+		"skills": [
+			{ "id": "hire_spd_cost[010]", "elite": 0, "level": 1 },
+			{ "id": "hire_spd_cost[200]", "elite": 1, "level": 1 },
+			{ "id": "manu_formula_spd[211]", "elite": 1, "level": 1 }
+		]
+	},
+	"char_258_podego": {
+		"name": "Podenco",
+		"rarity": 4,
+		"skills": [
+			{ "id": "dorm_rec_single[010]", "elite": 0, "level": 1 },
+			{ "id": "dorm_rec_single[001]", "elite": 1, "level": 1 },
+			{ "id": "dorm_rec_all[012]", "elite": 1, "level": 1 }
+		]
+	},
+	"char_484_robrta": {
+		"name": "Roberta",
+		"rarity": 4,
+		"skills": [
+			{ "id": "workshop_formula_probability[200]", "elite": 0, "level": 1 },
+			{ "id": "manu_prod_spd[010]", "elite": 1, "level": 1 }
+		]
+	},
+	"char_355_ethan": {
+		"name": "Ethan",
+		"rarity": 4,
+		"skills": [
+			{ "id": "hire_spd[030]", "elite": 0, "level": 1 },
+			{ "id": "dorm_rec_oneself[030]", "elite": 1, "level": 1 }
+		]
+	},
+	"char_277_sqrrel": {
+		"name": "Shaw",
+		"rarity": 4,
+		"skills": [
+			{ "id": "workshop_formula_probability[200]", "elite": 0, "level": 1 },
+			{ "id": "power_rec_spd[010]", "elite": 1, "level": 1 }
+		]
+	},
+	"char_128_plosis": {
+		"name": "Ptilopsis",
+		"rarity": 5,
+		"skills": [
+			{ "id": "manu_prod_spd[001]", "elite": 0, "level": 1 },
+			{ "id": "manu_prod_spd[011]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_275_breeze": {
+		"name": "Breeze",
+		"rarity": 5,
+		"skills": [
+			{ "id": "meet_spd&team[000]", "elite": 0, "level": 1 },
+			{ "id": "meet_spd&team[071]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_115_headbr": {
+		"name": "Zima",
+		"rarity": 5,
+		"skills": [
+			{ "id": "dorm_rec_all[013]", "elite": 0, "level": 1 },
+			{ "id": "dorm_rec_all[020]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_102_texas": {
+		"name": "Texas",
+		"rarity": 5,
+		"skills": [
+			{ "id": "trade_ord_spd&cost_P[000]", "elite": 0, "level": 1 },
+			{ "id": "trade_ord_limit&cost_P[010]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_349_chiave": {
+		"name": "Chiave",
+		"rarity": 5,
+		"skills": [
+			{ "id": "workshop_formula_cost3[110]", "elite": 0, "level": 1 },
+			{ "id": "workshop_formula_device[000]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_261_sddrag": {
+		"name": "Reed",
+		"rarity": 5,
+		"skills": [
+			{ "id": "dorm_rec_oneself[000]", "elite": 0, "level": 1 },
+			{ "id": "control_mp_cost[004]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_496_wildmn": {
+		"name": "Wild Mane",
+		"rarity": 5,
+		"skills": [
+			{ "id": "manu_prod_spd[002]", "elite": 0, "level": 1 },
+			{ "id": "manu_prod_spd[012]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_401_elysm": {
+		"name": "Elysium",
+		"rarity": 5,
+		"skills": [
+			{ "id": "meet_team[060]", "elite": 0, "level": 1 },
+			{ "id": "meet_flag[060]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_476_blkngt": {
+		"name": "Blacknight",
+		"rarity": 5,
+		"skills": [
+			{ "id": "train_spd&profession2[010]", "elite": 0, "level": 1 },
+			{ "id": "train_spd&profession2[110]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_497_ctable": {
+		"name": "Cantabile",
+		"rarity": 5,
+		"skills": [
+			{ "id": "meet_spd_notOwned[000]", "elite": 0, "level": 1 },
+			{ "id": "meet_spd_notOwned[010]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_4017_puzzle": {
+		"name": "Puzzle",
+		"rarity": 5,
+		"skills": [
+			{ "id": "meet_spd&team[000]", "elite": 0, "level": 1 },
+			{ "id": "meet_spd_notOwned[001]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_308_swire": {
+		"name": "Swire",
+		"rarity": 5,
+		"skills": [
+			{ "id": "control_tra_spd[010]", "elite": 0, "level": 1 },
+			{ "id": "train_spd[000]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_265_sophia": {
+		"name": "Whislash",
+		"rarity": 5,
+		"skills": [
+			{ "id": "train_spd&profession[020]", "elite": 0, "level": 1 },
+			{ "id": "train_spd[0000]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_106_franka": {
+		"name": "Franka",
+		"rarity": 5,
+		"skills": [
+			{ "id": "train_spd&profession[020]", "elite": 0, "level": 1 },
+			{ "id": "train_spd&profession[021]", "elite": 2, "level": 1 },
+			{ "id": "meet_spd&team[000]", "elite": 0, "level": 1 },
+			{ "id": "meet_spd&team[031]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_131_flameb": {
+		"name": "Flamebringer",
+		"rarity": 5,
+		"skills": [
+			{ "id": "workshop_formula_probability[000]", "elite": 0, "level": 1 },
+			{ "id": "workshop_formula_probability[020]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_154_morgan": {
+		"name": "Morgan",
+		"rarity": 5,
+		"skills": [
+			{ "id": "dorm_rec_toone[000]", "elite": 0, "level": 1 },
+			{ "id": "trade_ord_spd_par[000]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_155_tiger": {
+		"name": "Indra",
+		"rarity": 5,
+		"skills": [
+			{ "id": "meet_spd&team[000]", "elite": 0, "level": 1 },
+			{ "id": "meet_spd&team[070]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_415_flint": {
+		"name": "Flint",
+		"rarity": 5,
+		"skills": [
+			{ "id": "train_spd&profession2[020]", "elite": 0, "level": 1 },
+			{ "id": "train_spd&profession2[220]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_157_dagda": {
+		"name": "Dagda",
+		"rarity": 5,
+		"skills": [
+			{ "id": "train_spd&profession3[150]", "elite": 0, "level": 1 },
+			{ "id": "train_spd&profession3[151]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_140_whitew": {
+		"name": "Lappland",
+		"rarity": 5,
+		"skills": [
+			{ "id": "trade_ord_limit&cost_P[000]", "elite": 0, "level": 1 },
+			{ "id": "trade_ord_limit&cost_P[001]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_294_ayer": {
+		"name": "Ayerscarpe",
+		"rarity": 5,
+		"skills": [
+			{ "id": "meet_spd[000]", "elite": 0, "level": 1 },
+			{ "id": "meet_spd[020]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_4083_chimes": {
+		"name": "Wind Chimes",
+		"rarity": 5,
+		"skills": [
+			{ "id": "trade_cost&bd2[000]", "elite": 0, "level": 1 },
+			{ "id": "trade_cost&bd2[001]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_252_bibeak": {
+		"name": "Bibeak",
+		"rarity": 5,
+		"skills": [
+			{ "id": "trade_ord_wt&cost[000]", "elite": 0, "level": 1 },
+			{ "id": "trade_ord_wt&cost[010]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_459_tachak": {
+		"name": "Tachanka",
+		"rarity": 5,
+		"skills": [
+			{ "id": "control_mp_cost&faction[990]", "elite": 0, "level": 1 },
+			{ "id": "control_mp_bd[010]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_143_ghost": {
+		"name": "Specter",
+		"rarity": 5,
+		"skills": [
+			{ "id": "dorm_rec_oneself[000]", "elite": 0, "level": 1 },
+			{ "id": "dorm_rec_oneself[010]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_356_broca": {
+		"name": "Broca",
+		"rarity": 5,
+		"skills": [
+			{ "id": "train_spd&profession[020]", "elite": 0, "level": 1 },
+			{ "id": "train_spd&profession[021]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_274_astesi": {
+		"name": "Astesia",
+		"rarity": 5,
+		"skills": [
+			{ "id": "meet_spd&team[000]", "elite": 0, "level": 1 },
+			{ "id": "meet_spd&team[110]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_333_sidero": {
+		"name": "Sideroca",
+		"rarity": 5,
+		"skills": [
+			{ "id": "train_spd&profession2[020]", "elite": 0, "level": 1 },
+			{ "id": "train_spd&profession2[320]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_475_akafyu": {
+		"name": "Akafuyu",
+		"rarity": 5,
+		"skills": [
+			{ "id": "train_spd&profession2[020]", "elite": 0, "level": 1 },
+			{ "id": "train_spd&profession2[120]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_1030_noirc2": {
+		"name": "Rathalos S Noir Corne",
+		"rarity": 5,
+		"skills": [
+			{ "id": "control_mp_bd2[000]", "elite": 0, "level": 1 },
+			{ "id": "control_token_tra_spd[000]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_421_crow": {
+		"name": "La Pluma",
+		"rarity": 5,
+		"skills": [
+			{ "id": "workshop_formula_cost3[000]", "elite": 0, "level": 1 },
+			{ "id": "workshop_formula_probability[030]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_4066_highmo": {
+		"name": "Highmore",
+		"rarity": 5,
+		"skills": [
+			{ "id": "manu_skill_change[000]", "elite": 0, "level": 1 },
+			{ "id": "manu_prod_spd[010]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_486_takila": {
+		"name": "Tequila",
+		"rarity": 5,
+		"skills": [
+			{ "id": "trade_ord_long[000]", "elite": 0, "level": 1 },
+			{ "id": "trade_ord_long[010]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_129_bluep": {
+		"name": "Blue Poison",
+		"rarity": 5,
+		"skills": [
+			{ "id": "workshop_formula_probability[111]", "elite": 0, "level": 1 },
+			{ "id": "workshop_formula_probability[121]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_204_platnm": {
+		"name": "Platinum",
+		"rarity": 5,
+		"skills": [
+			{ "id": "train_spd&profession[040]", "elite": 0, "level": 1 },
+			{ "id": "train_spd&profession[041]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_367_swllow": {
+		"name": "GreyThroat",
+		"rarity": 5,
+		"skills": [
+			{ "id": "control_mp_cost[005]", "elite": 0, "level": 1 },
+			{ "id": "dorm_rec_oneself[000]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_365_aprl": {
+		"name": "April",
+		"rarity": 5,
+		"skills": [
+			{ "id": "trade_ord_spd&limit[000]", "elite": 0, "level": 1 },
+			{ "id": "trade_ord_spd&limit[001]", "elite": 2, "level": 1 },
+			{ "id": "dorm_rec_all[000]", "elite": 0, "level": 1 }
+		]
+	},
+	"char_1021_kroos2": {
+		"name": "Kroos the Keen Glint",
+		"rarity": 5,
+		"skills": [
+			{ "id": "control_mp_cost&faction[900]", "elite": 0, "level": 1 },
+			{ "id": "train_spd&profession3[140]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_219_meteo": {
+		"name": "Meteorite",
+		"rarity": 5,
+		"skills": [
+			{ "id": "workshop_formula_probability[112]", "elite": 0, "level": 1 },
+			{ "id": "workshop_formula_probability[122]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_379_sesa": {
+		"name": "Sesa",
+		"rarity": 5,
+		"skills": [
+			{ "id": "workshop_formula_cost3[120]", "elite": 0, "level": 1 },
+			{ "id": "workshop_formula_probability[119]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_4078_bdhkgt": {
+		"name": "Jieyun",
+		"rarity": 5,
+		"skills": [
+			{ "id": "manu_bd_to_bd[000]", "elite": 0, "level": 1 },
+			{ "id": "manu_prod_spd_bd[200]", "elite": 0, "level": 1 },
+			{ "id": "manu_prod_spd_bd[201]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_279_excu": {
+		"name": "Executor",
+		"rarity": 5,
+		"skills": [
+			{ "id": "train_spd&profession[040]", "elite": 0, "level": 1 },
+			{ "id": "control_mp_cost[003]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_346_aosta": {
+		"name": "Aosta",
+		"rarity": 5,
+		"skills": [
+			{ "id": "workshop_formula_cost3[110]", "elite": 0, "level": 1 },
+			{ "id": "workshop_formula_device[030]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_002_amiya": {
+		"name": "Amiya",
+		"rarity": 5,
+		"skills": [
+			{ "id": "control_tra_spd[000]", "elite": 0, "level": 1 },
+			{ "id": "dorm_rec_all[010]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_405_absin": {
+		"name": "Absinthe",
+		"rarity": 5,
+		"skills": [
+			{ "id": "meet_team[050]", "elite": 0, "level": 1 },
+			{ "id": "meet_flag[050]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_411_tomimi": {
+		"name": "Tomimi",
+		"rarity": 5,
+		"skills": [
+			{ "id": "dorm_rec_single_P[001]", "elite": 0, "level": 1 },
+			{ "id": "train_spd&profession2[150]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_466_qanik": {
+		"name": "Qanipalaat",
+		"rarity": 5,
+		"skills": [
+			{ "id": "hire_spd_cost&clue[001]", "elite": 0, "level": 1 },
+			{ "id": "hire_spd_cost&clue[000]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_166_skfire": {
+		"name": "Skyfire",
+		"rarity": 5,
+		"skills": [
+			{ "id": "train_spd&profession[050]", "elite": 0, "level": 1 },
+			{ "id": "train_spd&profession[051]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_306_leizi": {
+		"name": "Leizi",
+		"rarity": 5,
+		"skills": [
+			{ "id": "control_clue_cost[010]", "elite": 0, "level": 1 },
+			{ "id": "control_clue_cost[011]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_135_halo": {
+		"name": "Astgenne",
+		"rarity": 5,
+		"skills": [
+			{ "id": "manu_prod_spd[001]", "elite": 0, "level": 1 },
+			{ "id": "manu_prod_spd[011]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_344_beewax": {
+		"name": "Beeswax",
+		"rarity": 5,
+		"skills": [
+			{ "id": "train_spd&profession[050]", "elite": 0, "level": 1 },
+			{ "id": "train_spd&profession[051]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_373_lionhd": {
+		"name": "Leonhardt",
+		"rarity": 5,
+		"skills": [
+			{ "id": "workshop_formula_probability[220]", "elite": 0, "level": 1 },
+			{ "id": "workshop_formula_cost3[220]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_388_mint": {
+		"name": "Mint",
+		"rarity": 5,
+		"skills": [
+			{ "id": "train_spd&profession2[050]", "elite": 0, "level": 1 },
+			{ "id": "train_spd&profession2[250]", "elite": 2, "level": 1 },
+			{ "id": "manu_formula_spd[201]", "elite": 1, "level": 1 }
+		]
+	},
+	"char_338_iris": {
+		"name": "Iris",
+		"rarity": 5,
+		"skills": [
+			{ "id": "dorm_rec_bd_n1_n2[000]", "elite": 0, "level": 1 },
+			{ "id": "dorm_rec_bd_n1[000]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_297_hamoni": {
+		"name": "Harmonie",
+		"rarity": 5,
+		"skills": [
+			{ "id": "dorm_rec_oneself[000]", "elite": 0, "level": 1 },
+			{ "id": "meet_spd&cost_condChar[000]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_1011_lava2": {
+		"name": "Lava the Purgatory",
+		"rarity": 5,
+		"skills": [
+			{ "id": "control_mp_cost&faction[900]", "elite": 0, "level": 1 },
+			{ "id": "power_rec_spd[022]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_489_serum": {
+		"name": "Corroserum",
+		"rarity": 5,
+		"skills": [
+			{ "id": "workshop_formula_probability[113]", "elite": 0, "level": 1 },
+			{ "id": "workshop_formula_probability[123]", "elite": 2, "level": 1 },
+			{ "id": "workshop_formula_drop[030]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_4013_kjera": {
+		"name": "Kjera",
+		"rarity": 5,
+		"skills": [
+			{ "id": "meet_spd&team[000]", "elite": 0, "level": 1 },
+			{ "id": "meet_spd&team[041]", "elite": 2, "level": 1 },
+			{ "id": "meet_flag[040]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_4040_rockr": {
+		"name": "Rockrock",
+		"rarity": 5,
+		"skills": [
+			{ "id": "workshop_proc_probability[031]", "elite": 0, "level": 1 },
+			{ "id": "workshop_formula_drop[020]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_4054_malist": {
+		"name": "Minimalist",
+		"rarity": 5,
+		"skills": [
+			{ "id": "manu_constrLv[000]", "elite": 0, "level": 1 },
+			{ "id": "manu_prod_spd_bd[100]", "elite": 0, "level": 1 },
+			{ "id": "manu_prod_spd_bd[110]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_242_otter": {
+		"name": "Mayer",
+		"rarity": 5,
+		"skills": [
+			{ "id": "workshop_proc_probability[030]", "elite": 0, "level": 1 },
+			{ "id": "manu_prod_spd[020]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_336_folivo": {
+		"name": "Scene",
+		"rarity": 5,
+		"skills": [
+			{ "id": "manu_prod_spd_addition[041]", "elite": 0, "level": 1 },
+			{ "id": "manu_formula_limit[0000]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_108_silent": {
+		"name": "Silence",
+		"rarity": 5,
+		"skills": [
+			{ "id": "manu_prod_spd[001]", "elite": 0, "level": 1 },
+			{ "id": "manu_prod_spd[011]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_171_bldsk": {
+		"name": "Warfarin",
+		"rarity": 5,
+		"skills": [
+			{ "id": "train_spd&profession[070]", "elite": 0, "level": 1 },
+			{ "id": "train_spd&profession[071]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_345_folnic": {
+		"name": "Folinic",
+		"rarity": 5,
+		"skills": [
+			{ "id": "workshop_formula_probability[111]", "elite": 0, "level": 1 },
+			{ "id": "workshop_formula_cost3[100]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_348_ceylon": {
+		"name": "Ceylon",
+		"rarity": 5,
+		"skills": [
+			{ "id": "workshop_formula_probability[129]", "elite": 0, "level": 1 },
+			{ "id": "manu_formula_spd[212]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_436_whispr": {
+		"name": "Whisperain",
+		"rarity": 5,
+		"skills": [
+			{ "id": "hire_spd_bd_n1_n1[100]", "elite": 0, "level": 1 },
+			{ "id": "hire_spd_bd_n1[000]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_402_tuye": {
+		"name": "Tuye",
+		"rarity": 5,
+		"skills": [
+			{ "id": "trade_ord_spd&gold[000]", "elite": 0, "level": 1 },
+			{ "id": "trade_ord_spd&gold[010]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_473_mberry": {
+		"name": "Mulberry",
+		"rarity": 5,
+		"skills": [
+			{ "id": "hire_spd_cost[100]", "elite": 0, "level": 1 },
+			{ "id": "hire_spd_cost[110]", "elite": 1, "level": 1 },
+			{ "id": "hire_spd_bd_n1_n1[200]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_449_glider": {
+		"name": "Honeyberry",
+		"rarity": 5,
+		"skills": [
+			{ "id": "workshop_formula_probability[114]", "elite": 0, "level": 1 },
+			{ "id": "workshop_formula_probability[124]", "elite": 2, "level": 1 },
+			{ "id": "dorm_rec_single[032]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_1024_hbisc2": {
+		"name": "Hibiscus the Purifier",
+		"rarity": 5,
+		"skills": [
+			{ "id": "control_mp_cost&faction[900]", "elite": 0, "level": 1 },
+			{ "id": "train_spd&profession2[270]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_4071_peper": {
+		"name": "Paprika",
+		"rarity": 5,
+		"skills": [
+			{ "id": "control_tra_spd[020]", "elite": 0, "level": 1 },
+			{ "id": "trade_ord_wt&cost[000]", "elite": 0, "level": 1 },
+			{ "id": "trade_ord_wt&cost[010]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_148_nearl": {
+		"name": "Nearl",
+		"rarity": 5,
+		"skills": [
+			{ "id": "control_mp_cost[000]", "elite": 0, "level": 1 },
+			{ "id": "dorm_rec_single&oneself[030]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_226_hmau": {
+		"name": "Hung",
+		"rarity": 5,
+		"skills": [
+			{ "id": "workshop_proc_probability[010]", "elite": 0, "level": 1 },
+			{ "id": "control_mp_cost&faction2[000]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_144_red": {
+		"name": "Projekt Red",
+		"rarity": 5,
+		"skills": [
+			{ "id": "control_mp_cost[001]", "elite": 0, "level": 1 },
+			{ "id": "meet_spd[031]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_243_waaifu": {
+		"name": "Waai Fu",
+		"rarity": 5,
+		"skills": [
+			{ "id": "manu_cost_all[000]", "elite": 0, "level": 1 },
+			{ "id": "manu_prod_spd_variable2[000]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_214_kafka": {
+		"name": "Kafka",
+		"rarity": 5,
+		"skills": [
+			{ "id": "trade_ord_wt&cost[001]", "elite": 0, "level": 1 },
+			{ "id": "trade_ord_wt&cost[011]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_455_nothin": {
+		"name": "Mr.Nothing",
+		"rarity": 5,
+		"skills": [
+			{ "id": "hire_spd&clue[101]", "elite": 0, "level": 1 },
+			{ "id": "trade_ord_spd_bd_n2[000]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_107_liskam": {
+		"name": "Liskarm",
+		"rarity": 5,
+		"skills": [
+			{ "id": "power_rec_spd[014]", "elite": 0, "level": 1 },
+			{ "id": "power_rec_spd[021]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_201_moeshd": {
+		"name": "Croissant",
+		"rarity": 5,
+		"skills": [
+			{ "id": "trade_ord_spd&limit[030]", "elite": 0, "level": 1 },
+			{ "id": "trade_ord_spd&limit[031]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_325_bison": {
+		"name": "Bison",
+		"rarity": 5,
+		"skills": [
+			{ "id": "trade_ord_spd&limit[032]", "elite": 0, "level": 1 },
+			{ "id": "trade_ord_spd&limit[033]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_163_hpsts": {
+		"name": "Vulcan",
+		"rarity": 5,
+		"skills": [
+			{ "id": "manu_prod_spd&limit&cost[000]", "elite": 0, "level": 1 },
+			{ "id": "manu_prod_spd&limit&cost[001]", "elite": 2, "level": 1 }
 		]
 	},
 	"char_378_asbest": {
 		"name": "Asbestos",
 		"rarity": 5,
 		"skills": [
-			{
-				"id": "manu_prod_spd&limit&cost[011]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "manu_prod_limit&cost[020]",
-				"elite": 2,
-				"level": 1
-			}
+			{ "id": "manu_prod_spd&limit&cost[011]", "elite": 0, "level": 1 },
+			{ "id": "manu_prod_limit&cost[020]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_4025_aprot2": {
+		"name": "Shalem",
+		"rarity": 5,
+		"skills": [
+			{ "id": "train_spd&profession3[130]", "elite": 0, "level": 1 },
+			{ "id": "train_spd&profession3[131]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_4047_pianst": {
+		"name": "Czerny",
+		"rarity": 5,
+		"skills": [
+			{ "id": "dorm_rec_bd_n1_n3[000]", "elite": 0, "level": 1 },
+			{ "id": "dorm_rec_bd_n1[100]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_457_blitz": {
+		"name": "Blitz",
+		"rarity": 5,
+		"skills": [
+			{ "id": "control_mp_cost&faction[990]", "elite": 0, "level": 1 },
+			{ "id": "hire_spd_blitz[000]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_304_zebra": {
+		"name": "Heavyrain",
+		"rarity": 5,
+		"skills": [
+			{ "id": "control_mp_cost[006]", "elite": 0, "level": 1 },
+			{ "id": "train_spd&profession2[030]", "elite": 0, "level": 1 },
+			{ "id": "train_spd&profession2[230]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_431_ashlok": {
+		"name": "Ashlock",
+		"rarity": 5,
+		"skills": [
+			{ "id": "manu_prod_spd[002]", "elite": 0, "level": 1 },
+			{ "id": "manu_prod_spd[012]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_493_firwhl": {
+		"name": "Firewhistle",
+		"rarity": 5,
+		"skills": [
+			{ "id": "trade_cost[000]", "elite": 0, "level": 1 },
+			{ "id": "trade_ord_spd&share[000]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_422_aurora": {
+		"name": "Aurora",
+		"rarity": 5,
+		"skills": [
+			{ "id": "train_spd&profession2[030]", "elite": 0, "level": 1 },
+			{ "id": "train_spd&profession2[130]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_464_cement": {
+		"name": "Cement",
+		"rarity": 5,
+		"skills": [
+			{ "id": "manu_prod_spd[000]", "elite": 0, "level": 1 },
+			{ "id": "manu_prod_limit&cost[021]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_145_prove": {
+		"name": "Provence",
+		"rarity": 5,
+		"skills": [
+			{ "id": "hire_spd[010]", "elite": 0, "level": 1 },
+			{ "id": "hire_spd[011]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_4006_melnte": {
+		"name": "Melanite",
+		"rarity": 5,
+		"skills": [
+			{ "id": "train_spd&profession2[040]", "elite": 0, "level": 1 },
+			{ "id": "train_spd&profession2[630]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_158_milu": {
+		"name": "Firewatch",
+		"rarity": 5,
+		"skills": [
+			{ "id": "meet_spd[000]", "elite": 0, "level": 1 },
+			{ "id": "meet_spd[020]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_218_cuttle": {
+		"name": "Andreana",
+		"rarity": 5,
+		"skills": [
+			{ "id": "dorm_rec_oneself[000]", "elite": 0, "level": 1 },
+			{ "id": "dorm_rec_oneself[011]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_4014_lunacu": {
+		"name": "Lunacub",
+		"rarity": 5,
+		"skills": [
+			{ "id": "dorm_rec_oneself[001]", "elite": 0, "level": 1 },
+			{ "id": "workshop_formula_probability[011]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_363_toddi": {
+		"name": "Toddifons",
+		"rarity": 5,
+		"skills": [
+			{ "id": "workshop_formula_cost3[111]", "elite": 0, "level": 1 },
+			{ "id": "workshop_formula_device[020]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_4043_erato": {
+		"name": "Erato",
+		"rarity": 5,
+		"skills": [
+			{ "id": "train_spd&profession2[040]", "elite": 0, "level": 1 },
+			{ "id": "train_spd&profession2[240]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_1027_greyy2": {
+		"name": "Greyy the Lightningbearer",
+		"rarity": 5,
+		"skills": [
+			{ "id": "power_rec_drone[000]", "elite": 0, "level": 1 },
+			{ "id": "power_count[000]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_173_slchan": {
+		"name": "Cliffheart",
+		"rarity": 5,
+		"skills": [
+			{ "id": "dorm_rec_single&oneself[001]", "elite": 0, "level": 1 },
+			{ "id": "trade_ord_spd&limit[021]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_383_snsant": {
+		"name": "Snowsant",
+		"rarity": 5,
+		"skills": [
+			{ "id": "trade_ord_spd_variable2[000]", "elite": 0, "level": 1 },
+			{ "id": "trade_ord_spd_variable2[001]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_174_slbell": {
+		"name": "Pramanix",
+		"rarity": 5,
+		"skills": [
+			{ "id": "dorm_rec_single&oneself[021]", "elite": 0, "level": 1 },
+			{ "id": "train_spd&profession[061]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_254_vodfox": {
+		"name": "Shamare",
+		"rarity": 5,
+		"skills": [
+			{ "id": "trade_ord_wt&cost[000]", "elite": 0, "level": 1 },
+			{ "id": "trade_ord_vodfox[000]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_195_glassb": {
+		"name": "Istina",
+		"rarity": 5,
+		"skills": [
+			{ "id": "train_spd&profession[060]", "elite": 0, "level": 1 },
+			{ "id": "meet_spd&team[050]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_326_glacus": {
+		"name": "Glaucus",
+		"rarity": 5,
+		"skills": [
+			{ "id": "power_rec_spd[003]", "elite": 0, "level": 1 },
+			{ "id": "power_rec_spd[015]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_4032_provs": {
+		"name": "Proviso",
+		"rarity": 5,
+		"skills": [
+			{ "id": "trade_ord_law[000]", "elite": 0, "level": 1 },
+			{ "id": "trade_ord_against[000]", "elite": 0, "level": 1 },
+			{ "id": "trade_ord_against[010]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_433_windft": {
+		"name": "Windflit",
+		"rarity": 5,
+		"skills": [
+			{ "id": "workshop_formula_probability[115]", "elite": 0, "level": 1 },
+			{ "id": "manu_prod_spd&power[000]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_101_sora": {
+		"name": "Sora",
+		"rarity": 5,
+		"skills": [
+			{ "id": "dorm_rec_all[011]", "elite": 0, "level": 1 },
+			{ "id": "trade_ord_spd[011]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_4045_heidi": {
+		"name": "Heidi",
+		"rarity": 5,
+		"skills": [
+			{ "id": "trade_ord_spd[000]", "elite": 0, "level": 1 },
+			{ "id": "trade_ord_spd[021]", "elite": 2, "level": 1 },
+			{ "id": "control_clue_faction[070]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_343_tknogi": {
+		"name": "Tsukinogi",
+		"rarity": 5,
+		"skills": [
+			{ "id": "hire_spd&clue[010]", "elite": 0, "level": 1 },
+			{ "id": "hire_spd&clue[100]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_4019_ncdeer": {
+		"name": "Nine-Colored Deer",
+		"rarity": 5,
+		"skills": [
+			{ "id": "workshop_formula_bonus1[000]", "elite": 0, "level": 1 },
+			{ "id": "workshop_formula_bonus2[000]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_492_quercu": {
+		"name": "Quercus",
+		"rarity": 5,
+		"skills": [
+			{ "id": "meet_team[070]", "elite": 0, "level": 1 },
+			{ "id": "meet_flag[070]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_215_mantic": {
+		"name": "Manticore",
+		"rarity": 5,
+		"skills": [
+			{ "id": "train_spd&profession[080]", "elite": 0, "level": 1 },
+			{ "id": "train_spd&profession[081]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_478_kirara": {
+		"name": "Kirara",
+		"rarity": 5,
+		"skills": [
+			{ "id": "trade_ord_line_gold[000]", "elite": 0, "level": 1 },
+			{ "id": "trade_ord_line_gold[010]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_241_panda": {
+		"name": "FEater",
+		"rarity": 5,
+		"skills": [
+			{ "id": "manu_formula_spd[010]", "elite": 0, "level": 1 },
+			{ "id": "manu_formula_spd[020]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_4036_forcer": {
+		"name": "Enforcer",
+		"rarity": 5,
+		"skills": [
+			{ "id": "meet_spd&cost[000]", "elite": 0, "level": 1 },
+			{ "id": "meet_spd&cost[100]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_451_robin": {
+		"name": "Robin",
+		"rarity": 5,
+		"skills": [
+			{ "id": "train_spd&profession2[080]", "elite": 0, "level": 1 },
+			{ "id": "train_spd&profession2[180]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_458_rfrost": {
+		"name": "Frost",
+		"rarity": 5,
+		"skills": [
+			{ "id": "control_mp_cost&faction[990]", "elite": 0, "level": 1 },
+			{ "id": "workshop_formula_frost[000]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_369_bena": {
+		"name": "Bena",
+		"rarity": 5,
+		"skills": [
+			{ "id": "manu_prod_spd&limit&cost[020]", "elite": 0, "level": 1 },
+			{ "id": "trade_ord_wt&cost[000]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_4016_kazema": {
+		"name": "Kazemaru",
+		"rarity": 5,
+		"skills": [
+			{ "id": "meet_spd[010]", "elite": 0, "level": 1 },
+			{ "id": "meet_spd_condChar[000]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_103_angel": {
+		"name": "Exusiai",
+		"rarity": 6,
+		"skills": [
+			{ "id": "trade_ord_spd[010]", "elite": 0, "level": 1 },
+			{ "id": "trade_ord_spd[020]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_332_archet": {
+		"name": "Archetto",
+		"rarity": 6,
+		"skills": [
+			{ "id": "trade_ord_spd&dorm&lv[000]", "elite": 0, "level": 1 },
+			{ "id": "trade_ord_spd&dorm&lv[010]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_456_ash": {
+		"name": "Ash",
+		"rarity": 6,
+		"skills": [
+			{ "id": "control_mp_cost&faction[990]", "elite": 0, "level": 1 },
+			{ "id": "control_mp_bd[000]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_340_shwaz": {
+		"name": "Schwarz",
+		"rarity": 6,
+		"skills": [
+			{ "id": "dorm_rec_single_P[000]", "elite": 0, "level": 1 },
+			{ "id": "train_spd&profession[140]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_4055_bgsnow": {
+		"name": "Pozyomka",
+		"rarity": 6,
+		"skills": [
+			{ "id": "trade_ord_spd&gold[100]", "elite": 0, "level": 1 },
+			{ "id": "trade_ord_line_durin[010]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_430_fartth": {
+		"name": "Fartooth",
+		"rarity": 6,
+		"skills": [
+			{ "id": "dorm_rec_all&oneself[042]", "elite": 0, "level": 1 },
+			{ "id": "manu_prod_spd[002]", "elite": 0, "level": 1 },
+			{ "id": "manu_prod_spd[012]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_113_cqbw": {
+		"name": "W",
+		"rarity": 6,
+		"skills": [
+			{ "id": "train_spd&profession2[040]", "elite": 0, "level": 1 },
+			{ "id": "train_spd&profession2[640]", "elite": 2, "level": 1 },
+			{ "id": "train_cost&profession[340]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_300_phenxi": {
+		"name": "Fiammetta",
+		"rarity": 6,
+		"skills": [
+			{ "id": "dorm_recExcludeOther[000]", "elite": 0, "level": 1 },
+			{ "id": "dorm_exchangeAp[000]", "elite": 0, "level": 1 }
+		]
+	},
+	"char_197_poca": {
+		"name": "Rosa",
+		"rarity": 6,
+		"skills": [
+			{ "id": "control_mp_cost&faction[020]", "elite": 0, "level": 1 },
+			{ "id": "hire_spd&clue2[250]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_391_rosmon": {
+		"name": "Rosmontis",
+		"rarity": 6,
+		"skills": [
+			{ "id": "manu_prod_spd_bd_n1[000]", "elite": 0, "level": 1 },
+			{ "id": "manu_prod_spd_bd[000]", "elite": 0, "level": 1 },
+			{ "id": "manu_prod_spd_bd[010]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_1013_chen2": {
+		"name": "Ch'en the Holungday",
+		"rarity": 6,
+		"skills": [
+			{ "id": "train_spd&profession2[040]", "elite": 0, "level": 1 },
+			{ "id": "train_spd&profession2[440]", "elite": 2, "level": 1 },
+			{ "id": "train_cost&profession[140]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_112_siege": {
+		"name": "Siege",
+		"rarity": 6,
+		"skills": [
+			{ "id": "dorm_rec_all[013]", "elite": 0, "level": 1 },
+			{ "id": "dorm_rec_all[022]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_222_bpipe": {
+		"name": "Bagpipe",
+		"rarity": 6,
+		"skills": [
+			{ "id": "dorm_rec_all&oneself[021]", "elite": 0, "level": 1 },
+			{ "id": "workshop_formula_probability[310]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_362_saga": {
+		"name": "Saga",
+		"rarity": 6,
+		"skills": [
+			{ "id": "train_spd&profession[010]", "elite": 0, "level": 1 },
+			{ "id": "train_spd&profession[110]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_479_sleach": {
+		"name": "Saileach",
+		"rarity": 6,
+		"skills": [
+			{ "id": "dorm_rec_single[031]", "elite": 0, "level": 1 },
+			{ "id": "control_hire_spd[000]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_420_flamtl": {
+		"name": "Flametail",
+		"rarity": 6,
+		"skills": [
+			{ "id": "control_mp_cost[007]", "elite": 0, "level": 1 },
+			{ "id": "control_mp_psk[000]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_427_vigil": {
+		"name": "Vigil",
+		"rarity": 6,
+		"skills": [
+			{ "id": "meet_spd[032]", "elite": 0, "level": 1 },
+			{ "id": "trade_ord_spd&meet[000]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_249_mlyss": {
+		"name": "Muelsyse",
+		"rarity": 6,
+		"skills": [
+			{ "id": "dorm_rec_all&oneself[022]", "elite": 0, "level": 1 },
+			{ "id": "power_rec_rhine[000]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_4087_ines": {
+		"name": "Ines",
+		"rarity": 6,
+		"skills": [
+			{ "id": "hire_spd[001]", "elite": 0, "level": 1 },
+			{ "id": "meet_spd_hast[000]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_134_ifrit": {
+		"name": "Ifrit",
+		"rarity": 6,
+		"skills": [
+			{ "id": "power_rec_spd[001]", "elite": 0, "level": 1 },
+			{ "id": "power_rec_spd[013]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_213_mostma": {
+		"name": "Mostima",
+		"rarity": 6,
+		"skills": [
+			{ "id": "meet_spd&team[000]", "elite": 0, "level": 1 },
+			{ "id": "meet_spd&team[020]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_180_amgoat": {
+		"name": "Eyjafjalla",
+		"rarity": 6,
+		"skills": [
+			{ "id": "manu_formula_spd[213]", "elite": 0, "level": 1 },
+			{ "id": "hire_spd[011]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_2013_cerber": {
+		"name": "Ceobe",
+		"rarity": 6,
+		"skills": [
+			{ "id": "manu_prod_limit&cost[002]", "elite": 0, "level": 1 },
+			{ "id": "manu_prod_spd_addition[031]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_4027_heyak": {
+		"name": "Ho'olheyak",
+		"rarity": 6,
+		"skills": [
+			{ "id": "meet_spd&cost_condChar[001]", "elite": 0, "level": 1 },
+			{ "id": "meet_spd&cost_condChar[011]", "elite": 2, "level": 1 },
+			{ "id": "meet_spd&condChar_mustget[000]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_2015_dusk": {
+		"name": "Dusk",
+		"rarity": 6,
+		"skills": [
+			{ "id": "control_mp_cost&bd1[000]", "elite": 0, "level": 1 },
+			{ "id": "control_mp_cost&bd2[000]", "elite": 0, "level": 1 }
+		]
+	},
+	"char_472_pasngr": {
+		"name": "Passenger",
+		"rarity": 6,
+		"skills": [
+			{ "id": "power_rec_spd[003]", "elite": 0, "level": 1 },
+			{ "id": "power_rec_spd[016]", "elite": 2, "level": 1 },
+			{ "id": "manu_prod_spd&power[000]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_426_billro": {
+		"name": "Carnelian",
+		"rarity": 6,
+		"skills": [
+			{ "id": "train_spd&profession[050]", "elite": 0, "level": 1 },
+			{ "id": "train_spd&profession[150]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_4080_lin": {
+		"name": "Lin",
+		"rarity": 6,
+		"skills": [
+			{ "id": "hire_spd_cost[111]", "elite": 0, "level": 1 },
+			{ "id": "hire_spd_cost&extra[000]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_377_gdglow": {
+		"name": "Goldenglow",
+		"rarity": 6,
+		"skills": [
+			{ "id": "power_rec_spd[003]", "elite": 0, "level": 1 },
+			{ "id": "power_rec_spd[023]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_4046_ebnhlz": {
+		"name": "Ebenholz",
+		"rarity": 6,
+		"skills": [
+			{ "id": "trade_ord_spd_bd_n1[000]", "elite": 0, "level": 1 },
+			{ "id": "trade_ord_spd_bd[000]", "elite": 0, "level": 1 },
+			{ "id": "trade_ord_spd_bd[010]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_206_gnosis": {
+		"name": "Gnosis",
+		"rarity": 6,
+		"skills": [
+			{ "id": "control_mp_cost&faction[030]", "elite": 0, "level": 1 },
+			{ "id": "control_tra_limit&spd[000]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_291_aglina": {
+		"name": "Angelina",
+		"rarity": 6,
+		"skills": [
+			{ "id": "meet_spd&team[000]", "elite": 0, "level": 1 },
+			{ "id": "meet_spd&team[060]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_358_lisa": {
+		"name": "Suzuran",
+		"rarity": 6,
+		"skills": [
+			{ "id": "train_spd&profession[060]", "elite": 0, "level": 1 },
+			{ "id": "train_spd&profession[160]", "elite": 2, "level": 1 }
 		]
 	},
 	"char_248_mgllan": {
 		"name": "Magallan",
 		"rarity": 6,
 		"skills": [
-			{
-				"id": "workshop_proc_probability[011]",
-				"elite": 0,
-				"level": 1
-			},
-			{
-				"id": "workshop_formula_cost[000]",
-				"elite": 2,
-				"level": 1
-			}
+			{ "id": "workshop_proc_probability[011]", "elite": 0, "level": 1 },
+			{ "id": "workshop_formula_cost[000]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_1012_skadi2": {
+		"name": "Skadi the Corrupting Heart",
+		"rarity": 6,
+		"skills": [
+			{ "id": "train_spd&profession2[060]", "elite": 0, "level": 1 },
+			{ "id": "train_spd&profession2[660]", "elite": 2, "level": 1 },
+			{ "id": "train_cost&profession[360]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_1031_slent2": {
+		"name": "Silence the Paradigmatic",
+		"rarity": 6,
+		"skills": [
+			{ "id": "hire_spd[032]", "elite": 0, "level": 1 },
+			{ "id": "manu_prod_spd[021]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_2023_ling": {
+		"name": "Ling",
+		"rarity": 6,
+		"skills": [
+			{ "id": "control_facCostReset[000]", "elite": 0, "level": 1 },
+			{ "id": "control_costToBD[000]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_4072_ironmn": {
+		"name": "Stainless",
+		"rarity": 6,
+		"skills": [
+			{ "id": "workshop_formula_cost&dorm[000]", "elite": 0, "level": 1 },
+			{ "id": "workshop_formula_dorm[002]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_250_phatom": {
+		"name": "Phantom",
+		"rarity": 6,
+		"skills": [
+			{ "id": "train_spd&profession[080]", "elite": 0, "level": 1 },
+			{ "id": "train_spd&profession[180]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_1028_texas2": {
+		"name": "Texas the Omertosa",
+		"rarity": 6,
+		"skills": [
+			{ "id": "train_spd_doubleProf2[001]", "elite": 0, "level": 1 },
+			{ "id": "train_spd_doubleProf2[000]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_1029_yato2": {
+		"name": "Kirin X Yato",
+		"rarity": 6,
+		"skills": [
+			{ "id": "control_mp_cost&bd2[010]", "elite": 0, "level": 1 },
+			{ "id": "control_token_prod_spd2[000]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_322_lmlee": {
+		"name": "Lee",
+		"rarity": 6,
+		"skills": [
+			{ "id": "control_allCost_condChar[000]", "elite": 0, "level": 1 },
+			{ "id": "control_upMeetingSpeed[000]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_400_weedy": {
+		"name": "Weedy",
+		"rarity": 6,
+		"skills": [
+			{ "id": "manu_prod_spd&power[010]", "elite": 0, "level": 1 },
+			{ "id": "manu_prod_spd&power[020]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_225_haak": {
+		"name": "Aak",
+		"rarity": 6,
+		"skills": [
+			{ "id": "control_clue_cost[000]", "elite": 0, "level": 1 },
+			{ "id": "train_spd&profession[170]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_474_glady": {
+		"name": "Gladiia",
+		"rarity": 6,
+		"skills": [
+			{ "id": "control_mp_aegir1[000]", "elite": 0, "level": 1 },
+			{ "id": "control_mp_aegir2[000]", "elite": 0, "level": 1 },
+			{ "id": "control_mp_aegir2[010]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_437_mizuki": {
+		"name": "Mizuki",
+		"rarity": 6,
+		"skills": [
+			{ "id": "manu_skill_spd1[000]", "elite": 0, "level": 1 },
+			{ "id": "manu_prod_spd[010]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_1023_ghost2": {
+		"name": "Specter the Unchained",
+		"rarity": 6,
+		"skills": [
+			{ "id": "train_spd&profession2[080]", "elite": 0, "level": 1 },
+			{ "id": "train_spd&profession2[680]", "elite": 2, "level": 1 },
+			{ "id": "train_cost&profession[380]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_4048_doroth": {
+		"name": "Dorothy",
+		"rarity": 6,
+		"skills": [
+			{ "id": "manu_skill_spd1[010]", "elite": 0, "level": 1 },
+			{ "id": "manu_prod_spd[011]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_147_shining": {
+		"name": "Shining",
+		"rarity": 6,
+		"skills": [
+			{ "id": "dorm_rec_single[010]", "elite": 0, "level": 1 },
+			{ "id": "dorm_rec_single[020]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_179_cgbird": {
+		"name": "Nightingale",
+		"rarity": 6,
+		"skills": [
+			{ "id": "dorm_rec_all[000]", "elite": 0, "level": 1 },
+			{ "id": "dorm_rec_all[021]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_003_kalts": {
+		"name": "Kal'tsit",
+		"rarity": 6,
+		"skills": [
+			{ "id": "workshop_proc_probability[040]", "elite": 0, "level": 1 },
+			{ "id": "control_prod_spd[000]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_4042_lumen": {
+		"name": "Lumen",
+		"rarity": 6,
+		"skills": [
+			{ "id": "dorm_powToRecAll[000]", "elite": 0, "level": 1 },
+			{ "id": "dorm_powToRecAll[010]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_1020_reed2": {
+		"name": "Reed The Flame Shadow",
+		"rarity": 6,
+		"skills": [
+			{ "id": "train_spd_doubleProf[100]", "elite": 0, "level": 1 },
+			{ "id": "train_spd_doubleProf[110]", "elite": 2, "level": 1 },
+			{ "id": "control_dorm_rec[000]", "elite": 1, "level": 1 }
+		]
+	},
+	"char_136_hsguma": {
+		"name": "Hoshiguma",
+		"rarity": 6,
+		"skills": [
+			{ "id": "train_spd&profession[030]", "elite": 0, "level": 1 },
+			{ "id": "train_spd&profession[130]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_202_demkni": {
+		"name": "Saria",
+		"rarity": 6,
+		"skills": [
+			{ "id": "meet_spd&team[000]", "elite": 0, "level": 1 },
+			{ "id": "meet_spd&team[010]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_423_blemsh": {
+		"name": "Blemishine",
+		"rarity": 6,
+		"skills": [
+			{ "id": "workshop_formula_free[000]", "elite": 0, "level": 1 },
+			{ "id": "workshop_formula_cost2[000]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_2014_nian": {
+		"name": "Nian",
+		"rarity": 6,
+		"skills": [
+			{ "id": "workshop_formula_probability[160]", "elite": 0, "level": 1 },
+			{ "id": "workshop_formula_cost[010]", "elite": 0, "level": 1 }
+		]
+	},
+	"char_311_mudrok": {
+		"name": "Mudrock",
+		"rarity": 6,
+		"skills": [
+			{ "id": "workshop_formula_cost4[000]", "elite": 0, "level": 1 },
+			{ "id": "workshop_formula_device[050]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_4065_judge": {
+		"name": "Penance",
+		"rarity": 6,
+		"skills": [
+			{ "id": "hire_spd_cost[210]", "elite": 0, "level": 1 },
+			{ "id": "dorm_hireToRecAll[000]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_416_zumama": {
+		"name": "Eunectes",
+		"rarity": 6,
+		"skills": [
+			{ "id": "manu_prod_spd&power[000]", "elite": 0, "level": 1 },
+			{ "id": "manu_prod_spd&power[010]", "elite": 2, "level": 1 },
+			{ "id": "control_pow_bot[000]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_4039_horn": {
+		"name": "Horn",
+		"rarity": 6,
+		"skills": [
+			{ "id": "workshop_formula_cost3[112]", "elite": 0, "level": 1 },
+			{ "id": "workshop_formula_device[111]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_264_f12yin": {
+		"name": "Mountain",
+		"rarity": 6,
+		"skills": [
+			{ "id": "hire_spd&clue2[230]", "elite": 0, "level": 1 },
+			{ "id": "meet_flag[010]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_2024_chyue": {
+		"name": "Chongyue",
+		"rarity": 6,
+		"skills": [
+			{ "id": "control_mp_cost&bd_up[000]", "elite": 0, "level": 1 },
+			{ "id": "control_mp_bd_cost_expand[000]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_172_svrash": {
+		"name": "SilverAsh",
+		"rarity": 6,
+		"skills": [
+			{ "id": "trade_ord_spd&limit[020]", "elite": 0, "level": 1 },
+			{ "id": "trade_ord_spd&limit[022]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_293_thorns": {
+		"name": "Thorns",
+		"rarity": 6,
+		"skills": [
+			{ "id": "workshop_proc_probability[012]", "elite": 0, "level": 1 },
+			{ "id": "workshop_formula_recovery[000]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_4082_qiubai": {
+		"name": "Qiubai",
+		"rarity": 6,
+		"skills": [
+			{ "id": "train_spd&profession3[160]", "elite": 0, "level": 1 },
+			{ "id": "train_spd&profession3[161]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_010_chen": {
+		"name": "Ch'en",
+		"rarity": 6,
+		"skills": [
+			{ "id": "control_mp_cost&faction[000]", "elite": 0, "level": 1 },
+			{ "id": "meet_spd&team[100]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_4009_irene": {
+		"name": "Irene",
+		"rarity": 6,
+		"skills": [
+			{ "id": "train_spd_doubleProf[000]", "elite": 0, "level": 1 },
+			{ "id": "train_spd_reduceTime[000]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_017_huang": {
+		"name": "Blaze",
+		"rarity": 6,
+		"skills": [
+			{ "id": "power_rec_spd[001]", "elite": 0, "level": 1 },
+			{ "id": "workshop_formula_probability[210]", "elite": 1, "level": 1 }
+		]
+	},
+	"char_1026_gvial2": {
+		"name": "Gavial the Invincible",
+		"rarity": 6,
+		"skills": [
+			{ "id": "train_spd&profession2[020]", "elite": 0, "level": 1 },
+			{ "id": "train_spd&profession2[620]", "elite": 2, "level": 1 },
+			{ "id": "train_cost&profession[320]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_350_surtr": {
+		"name": "Surtr",
+		"rarity": 6,
+		"skills": [
+			{ "id": "train_spd&profession[020]", "elite": 0, "level": 1 },
+			{ "id": "train_spd&profession[120]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_188_helage": {
+		"name": "Hellagur",
+		"rarity": 6,
+		"skills": [
+			{ "id": "dorm_rec_all&oneself[010]", "elite": 0, "level": 1 },
+			{ "id": "dorm_rec_all&oneself[011]", "elite": 1, "level": 1 },
+			{ "id": "dorm_rec_all&oneself[012]", "elite": 2, "level": 1 },
+			{ "id": "workshop_formula_probability[010]", "elite": 0, "level": 1 }
+		]
+	},
+	"char_485_pallas": {
+		"name": "Pallas",
+		"rarity": 6,
+		"skills": [
+			{ "id": "manu_prod_limit&cost[003]", "elite": 0, "level": 1 },
+			{ "id": "manu_formula_spd[000]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_1014_nearl2": {
+		"name": "Nearl the Radiant Knight",
+		"rarity": 6,
+		"skills": [
+			{ "id": "train_spd_tag[000]", "elite": 0, "level": 1 },
+			{ "id": "train_spd_tag[010]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_4064_mlynar": {
+		"name": "Mlynar",
+		"rarity": 6,
+		"skills": [
+			{ "id": "control_mp_cost[008]", "elite": 0, "level": 1 },
+			{ "id": "control_mp_lonely[000]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_230_savage": {
+		"name": "Savage",
+		"rarity": 5,
+		"skills": [
+			{ "id": "workshop_formula_probability[000]", "elite": 0, "level": 1 },
+			{ "id": "dorm_rec_single&oneself[011]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_282_catap": {
+		"name": "Catapult",
+		"rarity": 3,
+		"skills": [
+			{ "id": "trade_ord_spd&cost[000]", "elite": 0, "level": 1 },
+			{ "id": "workshop_formula_probability[122]", "elite": 1, "level": 1 }
+		]
+	},
+	"char_283_midn": {
+		"name": "Midnight",
+		"rarity": 3,
+		"skills": [
+			{ "id": "trade_ord_spd&cost[000]", "elite": 0, "level": 1 },
+			{ "id": "manu_formula_spd[200]", "elite": 1, "level": 1 }
+		]
+	},
+	"char_137_brownb": {
+		"name": "Beehunter",
+		"rarity": 4,
+		"skills": [
+			{ "id": "train_spd&profession[020]", "elite": 0, "level": 1 },
+			{ "id": "workshop_formula_probability[300]", "elite": 1, "level": 1 }
+		]
+	},
+	"char_347_jaksel": {
+		"name": "Jackie",
+		"rarity": 4,
+		"skills": [
+			{ "id": "dorm_rec_single&oneself[000]", "elite": 0, "level": 1 },
+			{ "id": "meet_spd[0020]", "elite": 1, "level": 1 }
+		]
+	},
+	"char_164_nightm": {
+		"name": "Nightmare",
+		"rarity": 5,
+		"skills": [
+			{ "id": "train_spd&profession[050]", "elite": 0, "level": 1 },
+			{ "id": "hire_spd[020]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_220_grani": {
+		"name": "Grani",
+		"rarity": 5,
+		"skills": [
+			{ "id": "train_spd&profession[010]", "elite": 0, "level": 1 },
+			{ "id": "train_spd&profession[011]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_263_skadi": {
+		"name": "Skadi",
+		"rarity": 6,
+		"skills": [
+			{ "id": "dorm_rec_oneself[000]", "elite": 0, "level": 1 },
+			{ "id": "dorm_rec_oneself[020]", "elite": 2, "level": 1 }
 		]
 	}
 }

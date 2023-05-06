@@ -1,6 +1,5 @@
 use crate::consts::{FACILITY_COLORS, IGNORED_FACILITIES};
-use crate::{Fetch, FetchImage, SaveJson};
-use ahash::HashMap;
+use crate::{Fetch, FetchImage, HashMap, SaveJson};
 use serde::{
     de::{Error, Unexpected},
     Deserialize, Deserializer, Serialize,

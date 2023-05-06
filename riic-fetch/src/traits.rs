@@ -62,7 +62,7 @@ pub(crate) trait SaveJson {
         P: AsRef<Path>,
     {
         let file = File::create(path)?;
-        serde_json::to_writer_pretty(file, self)?;
+        serde_json::to_writer(file, self)?;
         Ok(())
     }
 }
