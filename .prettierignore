@@ -6,6 +6,5 @@ node_modules
 /src/lib/images
 /src-tauri/icons
 /src-tauri/src
-/src-tauri/target
 /static
 /target
