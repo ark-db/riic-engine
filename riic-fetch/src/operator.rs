@@ -9,26 +9,24 @@ use std::borrow::Cow;
 
 type OpTable = HashMap<String, OperatorData>;
 
-#[derive(Deserialize)]
-pub(crate) struct OperatorTable {
-    #[serde(flatten, deserialize_with = "deserialize_ops")]
-    inner: OpTable,
-}
+pub(crate) struct OperatorTable(OpTable);
 
-fn deserialize_ops<'de, D>(deserializer: D) -> Result<OpTable, D::Error>
-where
-    D: Deserializer<'de>,
-{
-    let mut table: OpTable = Deserialize::deserialize(deserializer)?;
-    table.retain(|_, data| data.is_operator());
+impl<'de> Deserialize<'de> for OperatorTable {
+    fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
+    where
+        D: Deserializer<'de>,
+    {
+        let mut table: OpTable = Deserialize::deserialize(deserializer)?;
+        table.retain(|_, data| data.is_operator());
 
-    for (id, new_name) in NAME_OVERRIDES.entries() {
-        if let Some(entry) = table.get_mut(*id) {
-            entry.name = (*new_name).to_string();
+        for (id, new_name) in NAME_OVERRIDES.entries() {
+            if let Some(entry) = table.get_mut(*id) {
+                entry.name = (*new_name).to_string();
+            }
         }
-    }
 
-    Ok(table)
+        Ok(Self(table))
+    }
 }
 
 #[derive(Deserialize)]
@@ -104,10 +102,7 @@ impl Fetch for OperatorTable {
 }
 
 #[derive(Serialize)]
-pub(crate) struct UpdatedOperatorTable<'a> {
-    #[serde(flatten)]
-    inner: HashMap<String, UpdatedOperatorData<'a>>,
-}
+pub(crate) struct UpdatedOperatorTable<'a>(HashMap<String, UpdatedOperatorData<'a>>);
 
 #[derive(Serialize)]
 struct UpdatedOperatorData<'a> {
@@ -118,24 +113,23 @@ struct UpdatedOperatorData<'a> {
 
 impl OperatorTable {
     pub(crate) fn into_updated(self, skill_table: &CharSkills) -> UpdatedOperatorTable<'_> {
-        let updated = self
-            .inner
-            .into_iter()
-            .map(|(id, data)| {
-                (
-                    id.clone(),
-                    UpdatedOperatorData {
-                        name: data.name,
-                        rarity: data.rarity,
-                        skills: skill_table
-                            .get(&id)
-                            .unwrap_or_else(|| panic!("Operator '{id}' had no base skills")),
-                    },
-                )
-            })
-            .collect();
-
-        UpdatedOperatorTable { inner: updated }
+        UpdatedOperatorTable(
+            self.0
+                .into_iter()
+                .map(|(id, data)| {
+                    (
+                        id.clone(),
+                        UpdatedOperatorData {
+                            name: data.name,
+                            rarity: data.rarity,
+                            skills: skill_table
+                                .get(&id)
+                                .unwrap_or_else(|| panic!("Operator '{id}' had no base skills")),
+                        },
+                    )
+                })
+                .collect(),
+        )
     }
 }
 
@@ -145,9 +139,6 @@ impl FetchImage for UpdatedOperatorTable<'_> {
     const FETCH_DIR: &'static str = "torappu/dynamicassets/arts/charavatars";
 
     fn image_ids(&self) -> Vec<Cow<'_, str>> {
-        self.inner
-            .keys()
-            .map(|k| Cow::Borrowed(k.as_str()))
-            .collect()
+        self.0.keys().map(|k| Cow::Borrowed(k.as_str())).collect()
     }
 }

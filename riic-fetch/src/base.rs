@@ -113,11 +113,9 @@ impl<'a> From<UnprocessedCharEntry<'a>> for Vec<BaseSkill> {
 
 type FacilityData = HashMap<String, Facility>;
 
-#[derive(Deserialize, Serialize)]
-pub(crate) struct FacilityTable {
-    #[serde(flatten, deserialize_with = "deserialize_facilities")]
-    inner: FacilityData,
-}
+// deserialize_facilties
+#[derive(Serialize)]
+pub(crate) struct FacilityTable(FacilityData);
 
 #[derive(Deserialize)]
 struct UnprocessedFacility<'a> {
@@ -142,17 +140,21 @@ struct Facility {
     capacity: Vec<u8>,
 }
 
-fn deserialize_facilities<'de, D>(deserializer: D) -> Result<FacilityData, D::Error>
-where
-    D: Deserializer<'de>,
-{
-    let data: HashMap<&'de str, UnprocessedFacility<'de>> = Deserialize::deserialize(deserializer)?;
+impl<'de> Deserialize<'de> for FacilityTable {
+    fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
+    where
+        D: Deserializer<'de>,
+    {
+        let data: HashMap<&'de str, UnprocessedFacility<'de>> =
+            Deserialize::deserialize(deserializer)?;
 
-    Ok(data
-        .into_iter()
-        .filter(|(_, data)| !IGNORED_FACILITIES.contains(&data.id.to_lowercase()))
-        .map(|(id, data)| (id.to_lowercase(), data.into()))
-        .collect())
+        Ok(Self(
+            data.into_iter()
+                .filter(|(_, data)| !IGNORED_FACILITIES.contains(&data.id.to_lowercase()))
+                .map(|(id, data)| (id.to_lowercase(), data.into()))
+                .collect(),
+        ))
+    }
 }
 
 impl<'a> From<UnprocessedFacility<'a>> for Facility {
@@ -180,10 +182,7 @@ impl<'a> From<UnprocessedFacility<'a>> for Facility {
 }
 
 #[derive(Deserialize, Serialize)]
-pub(crate) struct SkillTable {
-    #[serde(flatten)]
-    inner: HashMap<String, SkillInfo>,
-}
+pub(crate) struct SkillTable(HashMap<String, SkillInfo>);
 
 #[derive(Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
@@ -206,7 +205,7 @@ impl FetchImage for FacilityTable {
     const FETCH_DIR: &'static str = "arts/building/buffs";
 
     fn image_ids(&self) -> Vec<Cow<'_, str>> {
-        self.inner
+        self.0
             .keys()
             .map(|k| Cow::Owned(k.to_lowercase()))
             .collect()
@@ -215,7 +214,7 @@ impl FetchImage for FacilityTable {
 
 impl SkillTable {
     pub(crate) fn extend(&mut self, other: Self) {
-        self.inner.extend(other.inner);
+        self.0.extend(other.0);
     }
 }
 
@@ -225,7 +224,7 @@ impl FetchImage for SkillTable {
     const FETCH_DIR: &'static str = "torappu/dynamicassets/arts/building/skills";
 
     fn image_ids(&self) -> Vec<Cow<'_, str>> {
-        self.inner
+        self.0
             .values()
             .map(|v| Cow::Borrowed(v.icon_id.as_str()))
             .collect()

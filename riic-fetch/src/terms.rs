@@ -11,52 +11,52 @@ pub(crate) struct MiscGamedata {
 
 type StyleData = HashMap<String, String>;
 
-#[derive(Deserialize, Serialize)]
-pub(crate) struct StyleTable {
-    #[serde(flatten, deserialize_with = "deserialize_styles")]
-    inner: StyleData,
-}
+#[derive(Serialize)]
+pub(crate) struct StyleTable(StyleData);
 
-fn deserialize_styles<'de, D>(deserializer: D) -> Result<StyleData, D::Error>
-where
-    D: Deserializer<'de>,
-{
-    let data: StyleData = Deserialize::deserialize(deserializer)?;
+impl<'de> Deserialize<'de> for StyleTable {
+    fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
+    where
+        D: Deserializer<'de>,
+    {
+        let data: StyleData = Deserialize::deserialize(deserializer)?;
 
-    Ok(data
-        .into_iter()
-        .filter(|(id, _)| id.starts_with("cc"))
-        .filter_map(|(id, data)| {
-            data.split_once('#')
-                .map(|(_, s)| (id, format!("#{}", s.chars().take(6).collect::<String>())))
-        })
-        .collect())
+        Ok(Self(
+            data.into_iter()
+                .filter(|(id, _)| id.starts_with("cc"))
+                .filter_map(|(id, data)| {
+                    data.split_once('#')
+                        .map(|(_, s)| (id, format!("#{}", s.chars().take(6).collect::<String>())))
+                })
+                .collect(),
+        ))
+    }
 }
 
 type TermData = HashMap<String, String>;
 
-#[derive(Deserialize, Serialize)]
-pub(crate) struct TermTable {
-    #[serde(flatten, deserialize_with = "deserialize_terms")]
-    inner: TermData,
-}
+#[derive(Serialize)]
+pub(crate) struct TermTable(TermData);
 
 #[derive(Deserialize)]
 struct UnprocessedTerm {
     description: String,
 }
 
-fn deserialize_terms<'de, D>(deserializer: D) -> Result<TermData, D::Error>
-where
-    D: Deserializer<'de>,
-{
-    let data: HashMap<&'de str, UnprocessedTerm> = Deserialize::deserialize(deserializer)?;
+impl<'de> Deserialize<'de> for TermTable {
+    fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
+    where
+        D: Deserializer<'de>,
+    {
+        let data: HashMap<&'de str, UnprocessedTerm> = Deserialize::deserialize(deserializer)?;
 
-    Ok(data
-        .into_iter()
-        .filter(|(id, _)| id.starts_with("cc"))
-        .map(|(id, entry)| (id.to_string(), entry.description))
-        .collect())
+        Ok(Self(
+            data.into_iter()
+                .filter(|(id, _)| id.starts_with("cc"))
+                .map(|(id, entry)| (id.to_string(), entry.description))
+                .collect(),
+        ))
+    }
 }
 
 impl Fetch for MiscGamedata {
@@ -67,7 +67,7 @@ impl SaveJson for StyleTable {}
 
 impl TermTable {
     pub(crate) fn extend(&mut self, other: Self) {
-        self.inner.extend(other.inner);
+        self.0.extend(other.0);
     }
 }
 
