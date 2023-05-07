@@ -77,6 +77,7 @@ where
         },
     }
 }
+
 #[derive(Deserialize)]
 #[serde(rename_all = "UPPERCASE")]
 enum Profession {
