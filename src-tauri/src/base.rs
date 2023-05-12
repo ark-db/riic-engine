@@ -1,10 +1,15 @@
+use bincode::{
+    config::{standard, Configuration, Limit, LittleEndian, Varint},
+    decode_from_slice, encode_to_vec, Decode, Encode,
+};
+use once_cell::sync::Lazy;
 use rusqlite::{
     types::{FromSql, FromSqlError, ToSql, ToSqlOutput, Value, ValueRef},
     Error as SqlError,
 };
 use serde::{Deserialize, Serialize};
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Encode, Decode)]
 #[serde(deny_unknown_fields)]
 #[serde(rename_all = "camelCase")]
 pub struct Save {
@@ -18,7 +23,7 @@ pub struct Save {
 type TradingPost = BoostFacility<TradingProduct>;
 type Factory = BoostFacility<FactoryProduct>;
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Encode, Decode)]
 #[serde(deny_unknown_fields)]
 struct Layout {
     cc: Facility,
@@ -32,57 +37,57 @@ struct Layout {
     dorm: [Facility; 4],
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Encode, Decode)]
 #[serde(deny_unknown_fields)]
 struct NoShiftFacility {
     level: FacilityLevel,
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Encode, Decode)]
 #[serde(deny_unknown_fields)]
 struct Facility {
     level: FacilityLevel,
     shifts: Vec<Shift>,
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Encode, Decode)]
 #[serde(deny_unknown_fields)]
-struct BoostFacility<P> {
+struct BoostFacility<P: 'static> {
     level: FacilityLevel,
     shifts: Vec<Shift>,
     boosts: Vec<Boost>,
     products: Vec<Product<P>>,
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Encode, Decode)]
 #[serde(deny_unknown_fields)]
 struct Shift {
     char: Operator,
     col: ShiftCount,
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Encode, Decode)]
 #[serde(deny_unknown_fields)]
 struct Boost {
     drones: DroneCount,
     col: ShiftCount,
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Encode, Decode)]
 #[serde(deny_unknown_fields)]
 struct Product<T> {
     kind: T,
     col: ShiftCount,
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Encode, Decode)]
 #[serde(rename_all = "lowercase")]
 enum TradingProduct {
     Lmd,     // consumes Pure Gold, produces LMD
     Orundum, // consumes Originium Shard, produces Orundum
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Encode, Decode)]
 #[serde(rename_all = "lowercase")]
 enum FactoryProduct {
     Exp200,  // Drill Battle Record
@@ -92,7 +97,7 @@ enum FactoryProduct {
     Shard,   // Originium Shard
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Encode, Decode)]
 #[serde(deny_unknown_fields)]
 struct CharData {
     char: Operator,
@@ -166,10 +171,14 @@ impl Default for Save {
     }
 }
 
+type BincodeConfig = Configuration<LittleEndian, Varint, Limit<1_000_000_000>>;
+
+static BINCODE_CONFIG: Lazy<BincodeConfig> = Lazy::new(|| standard().with_limit::<1_000_000_000>());
+
 impl ToSql for Save {
     fn to_sql(&self) -> Result<ToSqlOutput<'_>, SqlError> {
-        let data =
-            serde_json::to_vec(self).map_err(|e| SqlError::ToSqlConversionFailure(e.into()))?;
+        let data = encode_to_vec(self, *BINCODE_CONFIG)
+            .map_err(|e| SqlError::ToSqlConversionFailure(e.into()))?;
 
         Ok(ToSqlOutput::Owned(Value::Blob(data)))
     }
@@ -177,6 +186,8 @@ impl ToSql for Save {
 
 impl FromSql for Save {
     fn column_result(value: ValueRef<'_>) -> Result<Self, FromSqlError> {
-        serde_json::from_slice(value.as_blob()?).map_err(|e| FromSqlError::Other(e.into()))
+        decode_from_slice(value.as_blob()?, *BINCODE_CONFIG)
+            .map_err(|e| FromSqlError::Other(e.into()))
+            .map(|data| data.0)
     }
 }
