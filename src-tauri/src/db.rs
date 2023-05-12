@@ -1,4 +1,4 @@
-use crate::base::Save;
+use crate::{base::Save, MAX_SAVE_SIZE};
 use ahash::HashSet;
 use chrono::{DateTime, Utc};
 use parking_lot::Mutex;
@@ -23,13 +23,17 @@ impl Database {
             .with_file_name("data.db");
         let conn = Connection::open(db_path)?;
 
+        let max_save_size: i32 = MAX_SAVE_SIZE
+            .try_into()
+            .expect("Failed to convert MAX_SAVE_SIZE to i32");
+
         // Set configuration
         conn.set_db_config(DbConfig::SQLITE_DBCONFIG_DEFENSIVE, true)?;
         conn.set_db_config(DbConfig::SQLITE_DBCONFIG_TRUSTED_SCHEMA, false)?;
         conn.set_db_config(DbConfig::SQLITE_DBCONFIG_ENABLE_TRIGGER, false)?;
         conn.set_db_config(DbConfig::SQLITE_DBCONFIG_ENABLE_VIEW, false)?;
-        conn.set_limit(Limit::SQLITE_LIMIT_LENGTH, 1_000_000);
-        conn.set_limit(Limit::SQLITE_LIMIT_SQL_LENGTH, 1_000_000);
+        conn.set_limit(Limit::SQLITE_LIMIT_LENGTH, max_save_size);
+        conn.set_limit(Limit::SQLITE_LIMIT_SQL_LENGTH, max_save_size);
 
         // Initialize database
         conn.execute_batch(

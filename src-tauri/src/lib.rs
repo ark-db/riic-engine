@@ -18,6 +18,8 @@ mod base;
 pub mod db;
 pub mod window;
 
+const MAX_SAVE_SIZE: usize = 1_000_000;
+
 pub mod open {
     /// # Errors
     /// Returns error if the URL cannot be opened.

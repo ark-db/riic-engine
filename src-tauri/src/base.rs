@@ -1,3 +1,4 @@
+use crate::MAX_SAVE_SIZE;
 use bincode::{
     config::{standard, Configuration, Limit, LittleEndian, Varint},
     decode_from_slice, encode_to_vec, Decode, Encode,
@@ -171,9 +172,9 @@ impl Default for Save {
     }
 }
 
-type BincodeConfig = Configuration<LittleEndian, Varint, Limit<1_000_000_000>>;
+type BincodeConfig = Configuration<LittleEndian, Varint, Limit<MAX_SAVE_SIZE>>;
 
-static BINCODE_CONFIG: Lazy<BincodeConfig> = Lazy::new(|| standard().with_limit::<1_000_000_000>());
+static BINCODE_CONFIG: Lazy<BincodeConfig> = Lazy::new(|| standard().with_limit::<MAX_SAVE_SIZE>());
 
 impl ToSql for Save {
     fn to_sql(&self) -> Result<ToSqlOutput<'_>, SqlError> {
