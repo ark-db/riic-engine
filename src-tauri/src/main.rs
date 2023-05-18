@@ -8,7 +8,7 @@ use tauri::{generate_context, generate_handler, Builder};
 
 fn main() {
     Builder::new()
-        .manage(db::Database::init().expect("Failed to initialize app database"))
+        .manage(db::Database::setup().expect("Failed to initialize app database"))
         .invoke_handler(generate_handler![
             db::fetch_saves,
             db::create_save,

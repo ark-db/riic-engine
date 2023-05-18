@@ -2,7 +2,9 @@ use crate::{base::Save, MAX_SAVE_SIZE};
 use ahash::HashSet;
 use chrono::{DateTime, Utc};
 use parking_lot::Mutex;
-use rusqlite::{config::DbConfig, limits::Limit, Connection, Error as SqlError, ErrorCode};
+use rusqlite::{
+    config::DbConfig, limits::Limit, Connection, DatabaseName, Error as SqlError, ErrorCode,
+};
 use serde::Serialize;
 use std::{borrow::Cow, fs::File, io::BufWriter, ops::Deref};
 use tauri::{api::path::download_dir, utils::platform::current_exe, InvokeError, State};
@@ -15,9 +17,9 @@ impl Database {
     /// Returns error if:
     /// - A connection to the database cannot be opened
     /// - Database configuration cannot be set
-    /// - SQL statements executed during initialization fail
+    /// - SQL statements executed during setup fail
     /// - SQL statements cannot be prepared and cached
-    pub fn init() -> Result<Self, SqlError> {
+    pub fn setup() -> Result<Self, SqlError> {
         let db_path = current_exe()
             .expect("Failed to get the currently-running binary path")
             .with_file_name("data.db");
@@ -34,6 +36,10 @@ impl Database {
         conn.set_db_config(DbConfig::SQLITE_DBCONFIG_ENABLE_VIEW, false)?;
         conn.set_limit(Limit::SQLITE_LIMIT_LENGTH, max_save_size);
         conn.set_limit(Limit::SQLITE_LIMIT_SQL_LENGTH, max_save_size);
+        conn.pragma_update(Some(DatabaseName::Main), "journal_mode", "wal")?;
+        conn.pragma_update(Some(DatabaseName::Main), "journal_size_limit", 0)?;
+        conn.pragma_update(Some(DatabaseName::Main), "locking_mode", "exclusive")?;
+        conn.pragma_update(Some(DatabaseName::Main), "synchronous", "normal")?;
 
         // Initialize database
         conn.execute_batch(
