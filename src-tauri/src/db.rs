@@ -79,6 +79,13 @@ impl Database {
 
         Ok(Self(Mutex::from(conn)))
     }
+
+    /// # Errors
+    /// Returns error if:
+    /// - Database optimization fails
+    pub fn teardown(&self) -> Result<(), SqlError> {
+        self.0.lock().execute("PRAGMA optimize;", ()).map(|_| ())
+    }
 }
 
 #[derive(Debug, Error)]

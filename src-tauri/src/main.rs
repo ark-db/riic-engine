@@ -4,11 +4,11 @@
 )]
 
 use riic_engine::{db, open, window};
-use tauri::{generate_context, generate_handler, Builder};
+use tauri::{generate_context, generate_handler, Builder, Manager, RunEvent};
 
 fn main() {
     Builder::new()
-        .manage(db::Database::setup().expect("Failed to initialize app database"))
+        .manage(db::Database::setup().expect("Failed to set up app database"))
         .invoke_handler(generate_handler![
             db::fetch_saves,
             db::create_save,
@@ -21,6 +21,13 @@ fn main() {
             window::show_window,
             window::rename_window
         ])
-        .run(generate_context!())
-        .expect("An error occurred while running the application.");
+        .build(generate_context!())
+        .expect("An error occurred while building the application.")
+        .run(|app, event| {
+            if let RunEvent::Exit = event {
+                app.state::<db::Database>()
+                    .teardown()
+                    .expect("Failed to tear down app database");
+            }
+        });
 }
