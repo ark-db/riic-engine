@@ -6,7 +6,7 @@ authors.workspace = true
 license.workspace = true
 repository.workspace = true
 edition.workspace = true
-rust-version = "1.57"
+rust-version = "1.60"
 publish.workspace = true
 
 [build-dependencies]

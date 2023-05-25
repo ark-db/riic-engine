@@ -4,7 +4,7 @@ RIIC Engine is a standalone desktop app for simulating Arknights base setups. Th
 
 ## Developer Quickstart
 
-1. Make sure [Node.js](https://nodejs.org/en/) and [Rust](https://www.rust-lang.org/tools/install/) (1.57+) are installed
+1. Make sure [Node.js](https://nodejs.org/en/) and [Rust](https://www.rust-lang.org/tools/install/) (1.60+) are installed
 2. Run `npm i` to install dependencies
 3. Run `npm run tauri dev` to start the app in dev mode or `npm run tauri build` to build the app
 
