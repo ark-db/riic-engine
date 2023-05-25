@@ -256,13 +256,9 @@ pub fn rename_save(db: State<'_, Database>, old: &str, new: &str) -> DbResult<()
     conn.prepare_cached("UPDATE save SET name = ?2 WHERE name = ?1")
         .map_err(|_| DbError::Execution)?
         .execute([old, new])
-        .map_err(|e| {
-            if let Some(code) = e.sqlite_error_code() {
-                if code == ErrorCode::ConstraintViolation {
-                    return DbError::DuplicateName;
-                }
-            }
-            DbError::Renaming
+        .map_err(|e| match e.sqlite_error_code() {
+            Some(ErrorCode::ConstraintViolation) => DbError::DuplicateName,
+            _ => DbError::Renaming,
         })?;
 
     Ok(())
