@@ -21,7 +21,7 @@ impl<'de> Deserialize<'de> for OperatorTable {
 
         for (id, new_name) in NAME_OVERRIDES.entries() {
             if let Some(entry) = table.get_mut(*id) {
-                entry.name = (*new_name).to_string();
+                entry.name = (*new_name).to_owned();
             }
         }
 

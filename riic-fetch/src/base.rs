@@ -166,8 +166,8 @@ impl<'a> From<UnprocessedFacility<'a>> for Facility {
             .unwrap_or_else(|| panic!("Facility '{}' did not have an associated color", value.id));
 
         Self {
-            name: value.name.to_string(),
-            color: color.to_string(),
+            name: value.name.to_owned(),
+            color: color.to_owned(),
             power,
             capacity,
         }
