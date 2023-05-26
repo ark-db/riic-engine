@@ -32,7 +32,10 @@ pub(crate) trait Fetch {
     {
         let url = format!(
             "https://raw.githubusercontent.com/Kengxxiao/ArknightsGameData/master/{}/{}",
-            server.to_string(),
+            match server {
+                Server::US => "en_US",
+                Server::CN => "zh_CN",
+            },
             Self::FETCH_PATH
         );
 

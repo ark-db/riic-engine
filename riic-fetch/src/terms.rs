@@ -48,12 +48,12 @@ impl<'de> Deserialize<'de> for TermTable {
     where
         D: Deserializer<'de>,
     {
-        let data: HashMap<&'de str, UnprocessedTerm> = Deserialize::deserialize(deserializer)?;
+        let data: HashMap<String, UnprocessedTerm> = Deserialize::deserialize(deserializer)?;
 
         Ok(Self(
             data.into_iter()
                 .filter(|(id, _)| id.starts_with("cc"))
-                .map(|(id, entry)| (id.to_string(), entry.description))
+                .map(|(id, entry)| (id, entry.description))
                 .collect(),
         ))
     }

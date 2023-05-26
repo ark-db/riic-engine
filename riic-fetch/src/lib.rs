@@ -37,15 +37,6 @@ enum Server {
     CN,
 }
 
-impl ToString for Server {
-    fn to_string(&self) -> String {
-        match self {
-            Self::US => String::from("en_US"),
-            Self::CN => String::from("zh_CN"),
-        }
-    }
-}
-
 #[derive(Error, Debug)]
 pub enum AppError {
     #[error(transparent)]
