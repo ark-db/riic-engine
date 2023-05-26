@@ -88,7 +88,7 @@ where
             "PHASE_2" => Ok(2),
             _ => Err(Error::invalid_value(
                 Unexpected::Str(s),
-                &"Expected a string with pattern \"PHASE_{n}\", where n is a number from 0 to 2",
+                &"Expected a string with pattern \"PHASE_n\", where n is a number from 0 to 2",
             )),
         },
     }
@@ -163,7 +163,7 @@ impl<'a> From<UnprocessedFacility<'a>> for Facility {
 
         let color = *FACILITY_COLORS
             .get(&value.id.to_lowercase())
-            .unwrap_or_else(|| panic!("Facility '{}' did not have an associated color", &value.id));
+            .unwrap_or_else(|| panic!("Facility '{}' did not have an associated color", value.id));
 
         Self {
             name: value.name.to_string(),
