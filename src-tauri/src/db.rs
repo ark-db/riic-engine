@@ -77,7 +77,7 @@ impl Database {
         // Delete
         conn.prepare_cached("DELETE FROM save WHERE name = ?1")?;
 
-        Ok(Self(Mutex::from(conn)))
+        Ok(Self(Mutex::new(conn)))
     }
 
     /// # Errors
@@ -123,7 +123,7 @@ type DbResult<T> = Result<T, DbError>;
 
 impl From<DbError> for InvokeError {
     fn from(val: DbError) -> Self {
-        InvokeError::from(val.to_string())
+        Self::from(val.to_string())
     }
 }
 
