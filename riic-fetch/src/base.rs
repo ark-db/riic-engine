@@ -17,21 +17,21 @@ pub(crate) struct BaseData {
 }
 
 #[derive(Deserialize)]
-struct UnprocessedCharEntry<'a> {
-    #[serde(borrow, rename = "buffChar")]
-    inner: Vec<UnprocessedSkillSet<'a>>,
+struct UnprocessedCharEntry {
+    #[serde(rename = "buffChar")]
+    inner: Vec<UnprocessedSkillSet>,
 }
 
 #[derive(Deserialize)]
-struct UnprocessedSkillSet<'a> {
-    #[serde(borrow, rename = "buffData")]
-    inner: Vec<UnprocessedSkill<'a>>,
+struct UnprocessedSkillSet {
+    #[serde(rename = "buffData")]
+    inner: Vec<UnprocessedSkill>,
 }
 
 #[derive(Deserialize)]
-struct UnprocessedSkill<'a> {
+struct UnprocessedSkill {
     #[serde(rename = "buffId")]
-    id: &'a str,
+    id: String,
     cond: UnprocessedSkillPhase,
 }
 
@@ -60,12 +60,11 @@ fn deserialize_skills<'de, D>(deserializer: D) -> Result<CharSkills, D::Error>
 where
     D: Deserializer<'de>,
 {
-    let data: HashMap<&'de str, UnprocessedCharEntry<'de>> =
-        Deserialize::deserialize(deserializer)?;
+    let data: HashMap<String, UnprocessedCharEntry> = Deserialize::deserialize(deserializer)?;
 
     Ok(data
         .into_iter()
-        .map(|(char_id, data)| (char_id.to_string(), data.into()))
+        .map(|(char_id, data)| (char_id, data.into()))
         .collect())
 }
 
@@ -95,13 +94,13 @@ where
     }
 }
 
-impl<'a> From<UnprocessedCharEntry<'a>> for Vec<BaseSkill> {
-    fn from(value: UnprocessedCharEntry<'a>) -> Self {
+impl From<UnprocessedCharEntry> for Vec<BaseSkill> {
+    fn from(value: UnprocessedCharEntry) -> Self {
         let mut skills = Vec::with_capacity(2);
         for set in value.inner {
             for skill in set.inner {
                 skills.push(BaseSkill {
-                    id: skill.id.to_string(),
+                    id: skill.id,
                     elite: skill.cond.elite,
                     level: skill.cond.level,
                 });
@@ -111,11 +110,8 @@ impl<'a> From<UnprocessedCharEntry<'a>> for Vec<BaseSkill> {
     }
 }
 
-type FacilityData = HashMap<String, Facility>;
-
-// deserialize_facilties
 #[derive(Serialize)]
-pub(crate) struct FacilityTable(FacilityData);
+pub(crate) struct FacilityTable(HashMap<String, Facility>);
 
 #[derive(Deserialize)]
 struct UnprocessedFacility<'a> {
@@ -165,16 +161,13 @@ impl<'a> From<UnprocessedFacility<'a>> for Facility {
             capacity.push(phase.capacity);
         }
 
-        let color = (*FACILITY_COLORS
+        let color = *FACILITY_COLORS
             .get(&value.id.to_lowercase())
-            .unwrap_or_else(|| {
-                panic!("Facility '{}' did not have an associated color", &value.id)
-            }))
-        .to_string();
+            .unwrap_or_else(|| panic!("Facility '{}' did not have an associated color", &value.id));
 
         Self {
             name: value.name.to_string(),
-            color,
+            color: color.to_string(),
             power,
             capacity,
         }
