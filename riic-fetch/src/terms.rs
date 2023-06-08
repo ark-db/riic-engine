@@ -1,4 +1,4 @@
-use crate::{Fetch, HashMap, SaveJson};
+use crate::{Fetch, HashMap};
 use serde::{Deserialize, Deserializer, Serialize};
 
 #[derive(Deserialize)]
@@ -63,12 +63,8 @@ impl Fetch for MiscGamedata {
     const FETCH_PATH: &'static str = "gamedata/excel/gamedata_const.json";
 }
 
-impl SaveJson for StyleTable {}
-
 impl TermTable {
     pub(crate) fn extend(&mut self, other: Self) {
         self.0.extend(other.0);
     }
 }
-
-impl SaveJson for TermTable {}

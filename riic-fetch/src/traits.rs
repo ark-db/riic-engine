@@ -59,16 +59,17 @@ pub enum SaveError {
 }
 
 pub(crate) trait SaveJson {
-    fn save_json<P>(&self, path: P) -> Result<(), SaveError>
+    fn save_json(&self, path: &Path) -> Result<(), SaveError>
     where
         Self: Serialize,
-        P: AsRef<Path>,
     {
         let file = File::create(path)?;
         serde_json::to_writer(file, self)?;
         Ok(())
     }
 }
+
+impl<T: Serialize> SaveJson for T {}
 
 #[derive(Error, Debug)]
 pub enum ImageSaveError {
@@ -141,23 +142,20 @@ pub(crate) trait FetchImage {
         Ok(())
     }
 
-    async fn save_images<P>(
+    async fn save_images(
         &self,
         client: &Client,
-        target_dir: P,
+        target_dir: &Path,
         quality: u8,
         min_size: u32,
-    ) -> Result<(), ImageSaveError>
-    where
-        P: AsRef<Path>,
-    {
-        if !target_dir.as_ref().is_dir() {
-            create_dir_all(&target_dir)?;
+    ) -> Result<(), ImageSaveError> {
+        if !target_dir.is_dir() {
+            create_dir_all(target_dir)?;
         }
 
         self.image_ids()
             .into_iter()
-            .map(|id| Self::save_image(client, id, target_dir.as_ref(), quality, min_size))
+            .map(|id| Self::save_image(client, id, target_dir, quality, min_size))
             .collect::<FuturesUnordered<_>>()
             .collect::<Vec<Result<(), ImageSaveError>>>()
             .await

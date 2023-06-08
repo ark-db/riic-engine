@@ -1,5 +1,5 @@
 use crate::consts::{FACILITY_COLORS, IGNORED_FACILITIES};
-use crate::{Fetch, FetchImage, HashMap, SaveJson};
+use crate::{Fetch, FetchImage, HashMap};
 use serde::{
     de::{Error, Unexpected},
     Deserialize, Deserializer, Serialize,
@@ -192,8 +192,6 @@ impl Fetch for BaseData {
     const FETCH_PATH: &'static str = "gamedata/excel/building_data.json";
 }
 
-impl SaveJson for FacilityTable {}
-
 impl FetchImage for FacilityTable {
     const FETCH_DIR: &'static str = "arts/building/buffs";
 
@@ -210,8 +208,6 @@ impl SkillTable {
         self.0.extend(other.0);
     }
 }
-
-impl SaveJson for SkillTable {}
 
 impl FetchImage for SkillTable {
     const FETCH_DIR: &'static str = "torappu/dynamicassets/arts/building/skills";

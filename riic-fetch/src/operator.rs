@@ -1,6 +1,6 @@
 use crate::base::{BaseSkill, CharSkills};
 use crate::consts::NAME_OVERRIDES;
-use crate::{Fetch, FetchImage, HashMap, SaveJson};
+use crate::{Fetch, FetchImage, HashMap};
 use serde::{
     de::{Error, Unexpected},
     Deserialize, Deserializer, Serialize,
@@ -132,8 +132,6 @@ impl OperatorTable {
         )
     }
 }
-
-impl SaveJson for UpdatedOperatorTable<'_> {}
 
 impl FetchImage for UpdatedOperatorTable<'_> {
     const FETCH_DIR: &'static str = "torappu/dynamicassets/arts/charavatars";
