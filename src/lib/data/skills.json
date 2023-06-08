@@ -239,6 +239,11 @@
 		"desc": "When this Operator is assigned to a Power Plant, reduces the Morale consumed each hour by <@cc.vup>-0.52</>",
 		"iconId": "bskill_pow_spd&cost"
 	},
+	"power_rec_spd&cost[010]": {
+		"name": "外卖水果挞",
+		"desc": "进驻发电站时，心情每小时消耗<@cc.vup>-0.3</>",
+		"iconId": "bskill_pow_spd&cost"
+	},
 	"power_rec_spd[000]": {
 		"name": "Backup Energy",
 		"desc": "When this Operator is assigned to a Power Plant, increases the drone recovery rate by <@cc.vup>+10%</>",
@@ -338,6 +343,16 @@
 		"name": "生态科主任",
 		"desc": "进驻发电站时，无人机充能速度<@cc.vup>+10%</>，基建内（不包含副手）每有1名除自身以外的<$cc.g.rh><@cc.kw>莱茵生命</></>干员（最多<@cc.kw>5</>名），充能速度额外<@cc.vup>+3%</>",
 		"iconId": "bskill_power_rec_rhine"
+	},
+	"power_rec_spd&addition[000]": {
+		"name": "技术交流α",
+		"desc": "进驻发电站时，无人机充能速度首小时<@cc.vup>+10%</>，此后每小时<@cc.vup>+1%</>，最终达到<@cc.vup>+15%</>",
+		"iconId": "bskill_power_rec_spd&addition1"
+	},
+	"power_rec_spd&addition[001]": {
+		"name": "技术交流β",
+		"desc": "进驻发电站时，无人机充能速度首小时<@cc.vup>+15%</>，此后每小时<@cc.vup>+1%</>，最终达到<@cc.vup>+20%</>",
+		"iconId": "bskill_power_rec_spd&addition2"
 	},
 	"manu_bd_to_bd[000]": {
 		"name": "古老巫术",
@@ -514,6 +529,11 @@
 		"desc": "When this Operator is assigned to a Factory, capacity limit is increased by <@cc.vup>+15</> when producing <@cc.kw>Battle Records</>",
 		"iconId": "bskill_man_exp&limit2"
 	},
+	"manu_formula_limit[020]": {
+		"name": "合理利用",
+		"desc": "进驻制造站时，生产<@cc.kw>作战记录</>类配方时，仓库容量上限<@cc.vup>+4</>",
+		"iconId": "bskill_man_exp&limit3"
+	},
 	"manu_prod_spd&limit&cost[000]": {
 		"name": "Craftsmanship Spirit α",
 		"desc": "When this Operator is assigned to a Factory, productivity <@cc.vdown>-5%</>, capacity limit <@cc.vup>+16</>, and Morale consumed per hour <@cc.vup>-0.15</>",
@@ -613,6 +633,16 @@
 		"name": "Boxing Guidance Video",
 		"desc": "When this Operator is assigned to a Factory, <@cc.kw>Battle Record</> formula related productivity <@cc.vup>+35%</>",
 		"iconId": "bskill_man_exp3"
+	},
+	"manu_formula_spd[030]": {
+		"name": "公证所教习α",
+		"desc": "进驻制造站时，<@cc.kw>作战记录</>类配方的生产力<@cc.vup>+20%</>",
+		"iconId": "bskill_man_exp4"
+	},
+	"manu_formula_spd[031]": {
+		"name": "公证所教习β",
+		"desc": "进驻制造站时，<@cc.kw>作战记录</>类配方的生产力<@cc.vup>+30%</>",
+		"iconId": "bskill_man_exp2"
 	},
 	"manu_prod_spd&trade[000]": {
 		"name": "Renewable Energy",
@@ -1834,6 +1864,11 @@
 		"desc": "When this Operator is assigned to a Dormitory, restores <@cc.vup>+0.5</> Morale per hour to another Operator assigned to that Dormitory whose Morale is not full (Only the strongest effect of this type takes place); furthermore, self Morale recovered per hour <@cc.vup>+0.25</>",
 		"iconId": "bskill_dorm_single&one22"
 	},
+	"dorm_rec_single&oneself[040]": {
+		"name": "甜甜圈派对",
+		"desc": "进驻宿舍时，使该宿舍内除自身以外心情未满的某个干员每小时恢复<@cc.vup>+0.4</>（同种效果取最高）；同时自身心情每小时恢复<@cc.vup>+0.4</>",
+		"iconId": "bskill_dorm_single&one12"
+	},
 	"dorm_rec_all&oneself[000]": {
 		"name": "Laziness",
 		"desc": "When this Operator is assigned to a Dormitory, self Morale recovered per hour <@cc.vdown>-0.1</>, but restores <@cc.vup>+0.2</> Morale per hour to all Operators assigned to that Dormitory (Only the strongest effect of this type takes place)",
@@ -1988,6 +2023,11 @@
 		"name": "Nosy",
 		"desc": "When this Operator is assigned to the HR Office, increases HR contacting speed by <@cc.vup>+35%</>, and increases Clue collection speed in the Reception Room by <@cc.vup>+5%</> for each additional Recruitment slot (does not count default slots).",
 		"iconId": "bskill_hire_spd&clue"
+	},
+	"hire_spd&clue[110]": {
+		"name": "交游广阔",
+		"desc": "进驻人力办公室时，人脉资源的联络速度<@cc.vup>+30%</>，同时每个招募位（不包含初始招募位）额外<@cc.vup>+5%</>会客室线索搜集速度",
+		"iconId": "bskill_hire_spd&clue2"
 	},
 	"hire_spd&clue2[230]": {
 		"name": "Insider",

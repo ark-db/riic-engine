@@ -942,6 +942,14 @@
 			{ "id": "train_spd&profession3[140]", "elite": 2, "level": 1 }
 		]
 	},
+	"char_498_inside": {
+		"name": "Insider",
+		"rarity": 5,
+		"skills": [
+			{ "id": "hire_spd&clue[110]", "elite": 0, "level": 1 },
+			{ "id": "dorm_rec_single&oneself[040]", "elite": 2, "level": 1 }
+		]
+	},
 	"char_219_meteo": {
 		"name": "Meteorite",
 		"rarity": 5,
@@ -1437,6 +1445,15 @@
 		"skills": [
 			{ "id": "power_rec_drone[000]", "elite": 0, "level": 1 },
 			{ "id": "power_count[000]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_4015_spuria": {
+		"name": "Spuria",
+		"rarity": 5,
+		"skills": [
+			{ "id": "power_rec_spd&addition[000]", "elite": 0, "level": 1 },
+			{ "id": "power_rec_spd&addition[001]", "elite": 2, "level": 1 },
+			{ "id": "power_rec_spd&cost[010]", "elite": 0, "level": 1 }
 		]
 	},
 	"char_173_slchan": {
@@ -2214,6 +2231,15 @@
 		"skills": [
 			{ "id": "train_spd_tag[000]", "elite": 0, "level": 1 },
 			{ "id": "train_spd_tag[010]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_1032_excu2": {
+		"name": "Executor the Ex Foedere",
+		"rarity": 6,
+		"skills": [
+			{ "id": "manu_formula_spd[030]", "elite": 0, "level": 1 },
+			{ "id": "manu_formula_spd[031]", "elite": 2, "level": 1 },
+			{ "id": "manu_formula_limit[020]", "elite": 2, "level": 1 }
 		]
 	},
 	"char_4064_mlynar": {
