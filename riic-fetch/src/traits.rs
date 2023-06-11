@@ -12,6 +12,7 @@ use std::{
     borrow::Cow,
     cmp::min,
     fs::{create_dir_all, File},
+    io::BufWriter,
     path::Path,
 };
 use thiserror::Error;
@@ -63,7 +64,7 @@ pub(crate) trait SaveJson {
     where
         Self: Serialize,
     {
-        let file = File::create(path)?;
+        let file = BufWriter::new(File::create(path)?);
         serde_json::to_writer(file, self)?;
         Ok(())
     }
