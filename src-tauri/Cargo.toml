@@ -10,7 +10,7 @@ rust-version = "1.60"
 publish.workspace = true
 
 [build-dependencies]
-tauri-build = { version = "1.3.0", features = [] }
+tauri-build = { version = "1.4.0", features = [] }
 
 [dependencies]
 ahash.workspace = true
@@ -22,7 +22,7 @@ parking_lot = "0.12.1"
 rusqlite = { version = "0.29.0", features = ["bundled", "chrono", "limits"] }
 serde.workspace = true
 serde_json.workspace = true
-tauri = { version = "1.3.0", features = [] }
+tauri = { version = "1.4.0", features = [] }
 thiserror.workspace = true
 
 [features]
