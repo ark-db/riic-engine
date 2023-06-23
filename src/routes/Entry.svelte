@@ -12,7 +12,7 @@
 	let pendingRename = false;
 	let pendingDelete = false;
 
-	let container: HTMLDivElement;
+	let container: HTMLLIElement;
 	let focused = false;
 
 	// Checks if this component instance contains the currently-focused element. Works with keyboard navigation!
@@ -58,7 +58,7 @@
 <svelte:window on:keydown|trusted={handleDeleteKeydown} />
 
 <GradientContainer weight={3} radius={12} bgColor="var(--dark-strong)">
-	<div
+	<li
 		class="container"
 		bind:this={container}
 		on:mouseenter={() => (hovering = true)}
@@ -89,7 +89,7 @@
 				</p>
 			{/if}
 		</div>
-	</div>
+	</li>
 </GradientContainer>
 
 {#if pendingDelete}

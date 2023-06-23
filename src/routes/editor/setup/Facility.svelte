@@ -20,7 +20,7 @@
 	class="container"
 	class:unused={level === 0}
 	style="--facility-color: {facility.color};"
-	in:scale|local
+	in:scale
 >
 	<div class="info">
 		<p class="facility-name">

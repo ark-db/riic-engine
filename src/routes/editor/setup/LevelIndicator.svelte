@@ -3,6 +3,7 @@
 </script>
 
 <div class="container">
+	<!-- eslint-disable-next-line @typescript-eslint/no-unused-vars -->
 	{#each { length: level } as _}
 		<div>
 			<div class="top" />

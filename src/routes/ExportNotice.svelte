@@ -9,7 +9,7 @@
 </script>
 
 {#if $exportNotice}
-	<div class="export-notice" role="alert" transition:fly|local={{ duration: 300, x: 200 }}>
+	<div class="export-notice" role="alert" transition:fly={{ duration: 300, x: 200 }}>
 		<img src={check} alt="Check mark" width="32" height="32" />
 		<p>Successfully exported save to the Downloads folder!</p>
 		<button

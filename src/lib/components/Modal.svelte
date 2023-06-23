@@ -45,8 +45,8 @@
 
 <svelte:window on:keydown|trusted={handleKeydown} />
 
-<!-- svelte-ignore a11y-click-events-have-key-events -->
-<div on:click|trusted={handleClick}>
+<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
+<div role="dialog" on:click|trusted={handleClick} on:keydown|trusted={handleKeydown}>
 	<dialog aria-modal="true" aria-label={label} bind:this={modal}>
 		<slot {modal} />
 	</dialog>

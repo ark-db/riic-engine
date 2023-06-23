@@ -62,12 +62,12 @@
 	}
 </script>
 
-<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
 <!-- This outer div exists so that the context menu created by tippy.js is accessible via keyboard navigation -->
 <div>
 	<div
 		class="focus-template box"
 		tabindex="0"
+		role="button"
 		bind:this={box}
 		on:contextmenu|trusted|preventDefault={handleContextOpen}
 		on:keydown|trusted={handleKeydown}

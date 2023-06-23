@@ -11,6 +11,7 @@
 	style="--column-width: {columnWidth}px; --column-height: {gridHeight}px;"
 	bind:clientWidth={gridWidth}
 >
+	<!-- eslint-disable-next-line @typescript-eslint/no-unused-vars -->
 	{#each { length: $activeSave.maxShift } as _, i}
 		<div class="column-marker">
 			<p>{i + 1}</p>

@@ -44,9 +44,11 @@
 
 {#if $saveList.length > 0}
 	<main>
-		{#each $saveList as save}
-			<Entry {save} />
-		{/each}
+		<ol>
+			{#each $saveList as save}
+				<Entry {save} />
+			{/each}
+		</ol>
 	</main>
 {:else}
 	<p class="placeholder">No saves found!</p>
@@ -78,6 +80,11 @@
 		display: flex;
 		flex-direction: column;
 		row-gap: 0.5em;
+	}
+	ol {
+		list-style: none;
+		margin: 0;
+		padding: 0;
 	}
 	.placeholder {
 		margin: 0 1em;
