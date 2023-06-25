@@ -13,11 +13,11 @@ ahash = { workspace = true, features = ["serde"] }
 async-trait = "0.1.68"
 futures = "0.3.28"
 image = { version = "0.24.6", default-features = false, features = ["png", "webp", "webp-encoder"] }
-indexmap = { version = "1.9.3", features = ["serde"] }
-phf = { version = "0.11.1", features = ["macros"] }
+indexmap = { version = "2.0.0", features = ["serde"] }
+phf = { version = "0.11.2", features = ["macros"] }
 reqwest = { version = "0.11.18", default-features = false, features = ["json", "rustls-tls"] }
 serde.workspace = true
 serde_json.workspace = true
 thiserror.workspace = true
 tokio = { version = "1.28.2", features = ["macros", "rt-multi-thread"] }
-toml = "0.7.4"
+toml = "0.7.5"
