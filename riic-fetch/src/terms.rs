@@ -9,7 +9,7 @@ pub(crate) struct MiscGamedata {
     pub(crate) terms: TermTable,
 }
 
-type StyleData = HashMap<String, String>;
+type StyleData = HashMap<Box<str>, Box<str>>;
 
 #[derive(Serialize)]
 pub(crate) struct StyleTable(StyleData);
@@ -25,22 +25,26 @@ impl<'de> Deserialize<'de> for StyleTable {
             data.into_iter()
                 .filter(|(id, _)| id.starts_with("cc"))
                 .filter_map(|(id, data)| {
-                    data.split_once('#')
-                        .map(|(_, s)| (id, format!("#{}", s.chars().take(6).collect::<String>())))
+                    data.split_once('#').map(|(_, s)| {
+                        (
+                            id,
+                            format!("#{}", s.chars().take(6).collect::<String>()).into(),
+                        )
+                    })
                 })
                 .collect(),
         ))
     }
 }
 
-type TermData = HashMap<String, String>;
+type TermData = HashMap<Box<str>, Box<str>>;
 
 #[derive(Serialize)]
 pub(crate) struct TermTable(TermData);
 
 #[derive(Deserialize)]
 struct UnprocessedTerm {
-    description: String,
+    description: Box<str>,
 }
 
 impl<'de> Deserialize<'de> for TermTable {
@@ -48,7 +52,7 @@ impl<'de> Deserialize<'de> for TermTable {
     where
         D: Deserializer<'de>,
     {
-        let data: HashMap<String, UnprocessedTerm> = Deserialize::deserialize(deserializer)?;
+        let data: HashMap<Box<str>, UnprocessedTerm> = Deserialize::deserialize(deserializer)?;
 
         Ok(Self(
             data.into_iter()

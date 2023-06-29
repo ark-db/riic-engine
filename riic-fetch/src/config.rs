@@ -3,11 +3,7 @@ use serde::{
     de::{Error, Unexpected},
     Deserialize, Deserializer,
 };
-use std::{
-    borrow::Cow,
-    fs::read_to_string,
-    path::{Path, PathBuf},
-};
+use std::{borrow::Cow, fs::read_to_string, path::Path};
 use thiserror::Error;
 
 #[derive(Deserialize)]
@@ -16,23 +12,23 @@ pub struct Config {
     pub(crate) skill: SaveConfig,
     pub(crate) facility: SaveConfig,
     pub(crate) item: ImageConfig,
-    pub(crate) terms_path: PathBuf,
-    pub(crate) styles_path: PathBuf,
+    pub(crate) terms_path: Box<Path>,
+    pub(crate) styles_path: Box<Path>,
     pub(crate) min_image_size: u32,
 }
 
 #[derive(Deserialize)]
 pub(crate) struct SaveConfig {
-    pub(crate) data_path: PathBuf,
-    pub(crate) image_dir: PathBuf,
+    pub(crate) data_path: Box<Path>,
+    pub(crate) image_dir: Box<Path>,
     #[serde(deserialize_with = "deserialize_quality")]
     pub(crate) quality: u8,
 }
 
 #[derive(Deserialize)]
 pub(crate) struct ImageConfig {
-    pub(crate) whitelist: Vec<String>,
-    pub(crate) image_dir: PathBuf,
+    pub(crate) whitelist: Box<[Box<str>]>,
+    pub(crate) image_dir: Box<Path>,
     #[serde(deserialize_with = "deserialize_quality")]
     pub(crate) quality: u8,
 }
@@ -73,10 +69,7 @@ impl Config {
 impl FetchImage for ImageConfig {
     const FETCH_DIR: &'static str = "torappu/dynamicassets/arts/items/icons";
 
-    fn image_ids(&self) -> Vec<Cow<'_, str>> {
-        self.whitelist
-            .iter()
-            .map(|s| Cow::Borrowed(s.as_str()))
-            .collect()
+    fn image_ids(&self) -> Box<[Cow<'_, str>]> {
+        self.whitelist.iter().map(|s| Cow::Borrowed(&**s)).collect()
     }
 }

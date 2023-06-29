@@ -6,7 +6,7 @@ use serde::{
 };
 use std::borrow::Cow;
 
-pub(crate) type CharSkills = HashMap<String, Vec<BaseSkill>>;
+pub(crate) type CharSkills = HashMap<Box<str>, Box<[BaseSkill]>>;
 
 #[derive(Deserialize)]
 pub(crate) struct BaseData {
@@ -19,19 +19,19 @@ pub(crate) struct BaseData {
 #[derive(Deserialize)]
 struct UnprocessedCharEntry {
     #[serde(rename = "buffChar")]
-    inner: Vec<UnprocessedSkillSet>,
+    inner: Box<[UnprocessedSkillSet]>,
 }
 
 #[derive(Deserialize)]
 struct UnprocessedSkillSet {
     #[serde(rename = "buffData")]
-    inner: Vec<UnprocessedSkill>,
+    inner: Box<[UnprocessedSkill]>,
 }
 
 #[derive(Deserialize)]
 struct UnprocessedSkill {
     #[serde(rename = "buffId")]
-    id: String,
+    id: Box<str>,
     cond: UnprocessedSkillPhase,
 }
 
@@ -51,7 +51,7 @@ enum EliteRepr<'a> {
 
 #[derive(Serialize)]
 pub(crate) struct BaseSkill {
-    id: String,
+    id: Box<str>,
     elite: u8,
     level: u8,
 }
@@ -60,7 +60,7 @@ fn deserialize_skills<'de, D>(deserializer: D) -> Result<CharSkills, D::Error>
 where
     D: Deserializer<'de>,
 {
-    let data: HashMap<String, UnprocessedCharEntry> = Deserialize::deserialize(deserializer)?;
+    let data: HashMap<Box<str>, UnprocessedCharEntry> = Deserialize::deserialize(deserializer)?;
 
     Ok(data
         .into_iter()
@@ -94,30 +94,29 @@ where
     }
 }
 
-impl From<UnprocessedCharEntry> for Vec<BaseSkill> {
+impl From<UnprocessedCharEntry> for Box<[BaseSkill]> {
     fn from(value: UnprocessedCharEntry) -> Self {
-        let mut skills = Vec::with_capacity(2);
-        for set in value.inner {
-            for skill in set.inner {
-                skills.push(BaseSkill {
-                    id: skill.id,
-                    elite: skill.cond.elite,
-                    level: skill.cond.level,
-                });
-            }
-        }
-        skills
+        value
+            .inner
+            .iter()
+            .flat_map(|set| set.inner.iter())
+            .map(|skill| BaseSkill {
+                id: skill.id.clone(),
+                elite: skill.cond.elite,
+                level: skill.cond.level,
+            })
+            .collect()
     }
 }
 
 #[derive(Serialize)]
-pub(crate) struct FacilityTable(HashMap<String, Facility>);
+pub(crate) struct FacilityTable(HashMap<Box<str>, Facility>);
 
 #[derive(Deserialize)]
 struct UnprocessedFacility<'a> {
     id: &'a str,
     name: &'a str,
-    phases: Vec<UnprocessedFacilityPhase>,
+    phases: Box<[UnprocessedFacilityPhase]>,
 }
 
 #[derive(Deserialize)]
@@ -130,10 +129,10 @@ struct UnprocessedFacilityPhase {
 
 #[derive(Deserialize, Serialize)]
 struct Facility {
-    name: String,
-    color: String,
-    power: Vec<i16>,
-    capacity: Vec<u8>,
+    name: Box<str>,
+    color: Box<str>,
+    power: Box<[i16]>,
+    capacity: Box<[u8]>,
 }
 
 impl<'de> Deserialize<'de> for FacilityTable {
@@ -147,7 +146,7 @@ impl<'de> Deserialize<'de> for FacilityTable {
         Ok(Self(
             data.into_iter()
                 .filter(|(_, data)| !IGNORED_FACILITIES.contains(&data.id.to_lowercase()))
-                .map(|(id, data)| (id.to_lowercase(), data.into()))
+                .map(|(id, data)| (id.to_lowercase().into(), data.into()))
                 .collect(),
         ))
     }
@@ -156,36 +155,36 @@ impl<'de> Deserialize<'de> for FacilityTable {
 impl<'a> From<UnprocessedFacility<'a>> for Facility {
     fn from(value: UnprocessedFacility<'a>) -> Self {
         let (mut power, mut capacity) = (Vec::with_capacity(5), Vec::with_capacity(5));
-        for phase in value.phases {
+        value.phases.iter().for_each(|phase| {
             power.push(phase.power);
             capacity.push(phase.capacity);
-        }
+        });
 
         let color = *FACILITY_COLORS
             .get(&value.id.to_lowercase())
             .unwrap_or_else(|| panic!("Facility '{}' did not have an associated color", value.id));
 
         Self {
-            name: value.name.to_owned(),
-            color: color.to_owned(),
-            power,
-            capacity,
+            name: value.name.into(),
+            color: color.into(),
+            power: power.into_boxed_slice(),
+            capacity: capacity.into_boxed_slice(),
         }
     }
 }
 
 #[derive(Deserialize, Serialize)]
-pub(crate) struct SkillTable(HashMap<String, SkillInfo>);
+pub(crate) struct SkillTable(HashMap<Box<str>, SkillInfo>);
 
 #[derive(Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 struct SkillInfo {
     #[serde(rename(deserialize = "buffName"))]
-    name: String,
+    name: Box<str>,
     #[serde(rename(deserialize = "description"))]
-    desc: String,
+    desc: Box<str>,
     #[serde(rename(deserialize = "skillIcon"))]
-    icon_id: String,
+    icon_id: Box<str>,
 }
 
 impl Fetch for BaseData {
@@ -195,7 +194,7 @@ impl Fetch for BaseData {
 impl FetchImage for FacilityTable {
     const FETCH_DIR: &'static str = "arts/building/buffs";
 
-    fn image_ids(&self) -> Vec<Cow<'_, str>> {
+    fn image_ids(&self) -> Box<[Cow<'_, str>]> {
         self.0
             .keys()
             .map(|k| Cow::Owned(k.to_lowercase()))
@@ -212,10 +211,10 @@ impl SkillTable {
 impl FetchImage for SkillTable {
     const FETCH_DIR: &'static str = "torappu/dynamicassets/arts/building/skills";
 
-    fn image_ids(&self) -> Vec<Cow<'_, str>> {
+    fn image_ids(&self) -> Box<[Cow<'_, str>]> {
         self.0
             .values()
-            .map(|v| Cow::Borrowed(v.icon_id.as_str()))
+            .map(|v| Cow::Borrowed(&*v.icon_id))
             .collect()
     }
 }

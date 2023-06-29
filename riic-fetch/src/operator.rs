@@ -7,7 +7,7 @@ use serde::{
 };
 use std::borrow::Cow;
 
-type OpTable = HashMap<String, OperatorData>;
+type OpTable = HashMap<Box<str>, OperatorData>;
 
 pub(crate) struct OperatorTable(OpTable);
 
@@ -21,7 +21,7 @@ impl<'de> Deserialize<'de> for OperatorTable {
 
         for (id, new_name) in NAME_OVERRIDES.entries() {
             if let Some(entry) = table.get_mut(*id) {
-                entry.name = (*new_name).to_owned();
+                entry.name = (*new_name).into();
             }
         }
 
@@ -32,7 +32,7 @@ impl<'de> Deserialize<'de> for OperatorTable {
 #[derive(Deserialize)]
 struct OperatorData {
     #[serde(rename = "appellation")]
-    name: String,
+    name: Box<str>,
     #[serde(deserialize_with = "deserialize_rarity")]
     rarity: u8,
     #[serde(rename = "isNotObtainable")]
@@ -102,13 +102,13 @@ impl Fetch for OperatorTable {
 }
 
 #[derive(Serialize)]
-pub(crate) struct UpdatedOperatorTable<'a>(HashMap<String, UpdatedOperatorData<'a>>);
+pub(crate) struct UpdatedOperatorTable<'a>(HashMap<Box<str>, UpdatedOperatorData<'a>>);
 
 #[derive(Serialize)]
 struct UpdatedOperatorData<'a> {
-    name: String,
+    name: Box<str>,
     rarity: u8,
-    skills: &'a Vec<BaseSkill>,
+    skills: &'a [BaseSkill],
 }
 
 impl OperatorTable {
@@ -136,7 +136,7 @@ impl OperatorTable {
 impl FetchImage for UpdatedOperatorTable<'_> {
     const FETCH_DIR: &'static str = "torappu/dynamicassets/arts/charavatars";
 
-    fn image_ids(&self) -> Vec<Cow<'_, str>> {
-        self.0.keys().map(|k| Cow::Borrowed(k.as_str())).collect()
+    fn image_ids(&self) -> Box<[Cow<'_, str>]> {
+        self.0.keys().map(|k| Cow::Borrowed(&**k)).collect()
     }
 }

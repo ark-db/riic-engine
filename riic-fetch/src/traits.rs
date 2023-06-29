@@ -86,16 +86,16 @@ pub enum ImageSaveError {
 pub(crate) trait FetchImage {
     const FETCH_DIR: &'static str;
 
-    fn image_ids(&self) -> Vec<Cow<'_, str>>;
+    fn image_ids(&self) -> Box<[Cow<'_, str>]>;
 
     async fn save_image(
         client: &Client,
-        id: Cow<'_, str>,
+        id: &str,
         target_dir: &Path,
         quality: u8,
         min_size: u32,
     ) -> Result<(), ImageSaveError> {
-        let target_path = target_dir.join(id.as_ref()).with_extension("webp");
+        let target_path = target_dir.join(id).with_extension("webp");
 
         if target_path.is_file() {
             return Ok(());
@@ -155,7 +155,7 @@ pub(crate) trait FetchImage {
         }
 
         self.image_ids()
-            .into_iter()
+            .iter()
             .map(|id| Self::save_image(client, id, target_dir, quality, min_size))
             .collect::<FuturesUnordered<_>>()
             .collect::<Vec<Result<(), ImageSaveError>>>()
