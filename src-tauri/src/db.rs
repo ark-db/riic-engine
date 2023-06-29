@@ -25,7 +25,7 @@ impl Database {
             .with_file_name("data.db");
         let conn = Connection::open(db_path)?;
 
-        let max_save_size: i32 = MAX_SAVE_SIZE
+        let max_save_size = MAX_SAVE_SIZE
             .try_into()
             .expect("Failed to convert MAX_SAVE_SIZE to i32");
 
@@ -129,7 +129,7 @@ impl From<DbError> for InvokeError {
 
 #[derive(Serialize)]
 pub struct FileData {
-    name: String,
+    name: Box<str>,
     created: f32,
     modified: f32,
 }
@@ -148,13 +148,14 @@ where
     }
 
     let mut i = 1u32;
-    let mut new_name: String;
+    let mut new_name;
     while {
         new_name = format!("{name}-{i}");
         !is_available(&new_name)
     } {
         i += 1;
     }
+
     Cow::Owned(new_name)
 }
 
@@ -174,7 +175,7 @@ where
 /// - Database query failed
 #[tauri::command]
 #[allow(clippy::needless_pass_by_value)]
-pub fn fetch_saves(db: State<'_, Database>) -> DbResult<Vec<FileData>> {
+pub fn fetch_saves(db: State<'_, Database>) -> DbResult<Box<[FileData]>> {
     let conn = db.0.lock();
 
     let now = Utc::now();
@@ -190,7 +191,7 @@ pub fn fetch_saves(db: State<'_, Database>) -> DbResult<Vec<FileData>> {
             })
         })
         .map_err(|_| DbError::Fetching)?
-        .collect::<Result<Vec<FileData>, SqlError>>()
+        .collect::<Result<Box<[FileData]>, SqlError>>()
         .map_err(|_| DbError::Fetching)?;
 
     Ok(query)
@@ -211,7 +212,7 @@ pub fn create_save(db: State<'_, Database>) -> DbResult<()> {
         .map_err(|_| DbError::Execution)?
         .query_and_then([], |row| row.get("name"))
         .map_err(|_| DbError::Fetching)?
-        .collect::<Result<HashSet<String>, SqlError>>()
+        .collect::<Result<HashSet<Box<str>>, SqlError>>()
         .map_err(|_| DbError::Fetching)?;
 
     let save_name = get_available_name("Untitled", |new_name| !names.contains(new_name));
@@ -311,11 +312,7 @@ struct NamedSave<'cmd> {
 #[tauri::command]
 #[allow(clippy::needless_pass_by_value)]
 pub fn export_save(db: State<'_, Database>, name: &str) -> DbResult<()> {
-    let target_dir = if let Some(dir) = download_dir() {
-        dir
-    } else {
-        return Err(DbError::NoExportTarget);
-    };
+    let target_dir = download_dir().ok_or(DbError::NoExportTarget)?;
     let target_name = get_available_name("export", |new_name| {
         !target_dir.join(new_name).with_extension("json").is_file()
     });
