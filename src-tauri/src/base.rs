@@ -15,7 +15,7 @@ use serde::{Deserialize, Serialize};
 #[serde(rename_all = "camelCase")]
 pub struct Save {
     layout: Layout,
-    chars: Vec<CharData>,
+    chars: Box<[CharData]>,
     drones: DroneCount, // Drone capacity; drones will regenerate up to this amount
     max_shift: ShiftCount, // Total number of shifts in rotation
     interval: u16,      // Duration of one shift (in minutes)
@@ -164,7 +164,7 @@ impl Default for Save {
     fn default() -> Self {
         Self {
             layout: Layout::default(),
-            chars: Vec::new(),
+            chars: Box::default(),
             drones: 70,
             max_shift: 12,
             interval: 120,
