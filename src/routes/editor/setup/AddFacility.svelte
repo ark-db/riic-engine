@@ -28,10 +28,8 @@
 	button {
 		--focus-border-offset: -8px;
 		--border-weight: 5px;
-		margin-top: calc((3px - var(--border-weight)) / 2);
+		height: 7em;
 		border: var(--border-weight) dashed var(--color);
-		padding: 2.25em;
-		background: none;
 		display: flex;
 		align-items: center;
 		justify-content: center;

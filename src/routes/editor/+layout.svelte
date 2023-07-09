@@ -27,7 +27,7 @@
 	{/if}
 	<section class="top-bar" class:nav-hidden={!menuActive}>
 		<Button desc={menuIconDesc} onClick={() => (menuActive = !menuActive)}>
-			<img src={menuIcon} alt={menuIconDesc} id="menu-icon" width="32" height="32" />
+			<img src={menuIcon} alt={menuIconDesc} class="menu-icon" width="32" height="32" />
 		</Button>
 		<div class="stats">
 			<ShiftCount />
@@ -73,14 +73,13 @@
 		background-color: var(--dark);
 	}
 	.app-title {
-		margin: 0;
 		color: var(--light);
 		font-weight: 600;
 		font-size: 1.5em;
 	}
 	.top-bar {
 		/* --font-size is used in ./NumberInput.svelte */
-		--font-size: clamp(1.25em, 2.5vh, 1.5em);
+		--font-size: clamp(1.25em, 2vh, 1.4em);
 		grid-row: 1 / 2;
 		grid-column: 2 / 3;
 		padding: 0.5em;
@@ -93,17 +92,14 @@
 	.nav-hidden {
 		grid-column: span 2;
 	}
-	#menu-icon {
-		--icon-size: clamp(3em, 3.75vh, 3.75vh);
-		width: var(--icon-size);
-		height: var(--icon-size);
-		margin: 0.25em 0.25em 0;
+	.menu-icon {
+		margin-left: 2px;
 		border-radius: 0.5em;
-		padding: calc(var(--icon-size) / 8);
+		padding: 6px;
 		background-color: var(--dark-strong);
 		transition: all 0.2s;
 	}
-	#menu-icon:hover {
+	.menu-icon:hover {
 		background-color: var(--dark-mild);
 		box-shadow: 0 0 0.25em var(--dark-mild);
 	}

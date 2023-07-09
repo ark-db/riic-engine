@@ -42,14 +42,13 @@
 		z-index: 2;
 		width: 1.75em;
 		position: sticky;
-		top: calc(0px - 0.575em - var(--label-padding) - var(--label-border-width));
-		margin: 0;
+		top: calc(0px - 8px - var(--label-padding) - var(--label-border-width));
 		border: var(--label-border-width) solid var(--dark-mild);
 		padding: var(--label-padding);
 		background-color: black;
-		cursor: default;
 		color: var(--light-strong);
 		font-size: 0.8em;
+		font-weight: 500;
 		display: flex;
 		justify-content: center;
 	}

@@ -24,7 +24,6 @@
 	}
 	.product {
 		--focus-border-offset: -2px;
-		margin: 0;
 		border: 2px solid transparent;
 		border-radius: 8px;
 		padding: 0.5em 0.5em 0.5em 1em;
@@ -40,11 +39,9 @@
 	}
 	p {
 		width: 6.5em;
-		margin: 0;
 		color: var(--light-strong);
 		text-align: left;
 		font-size: 1.5em;
 		font-weight: 600;
-		line-height: 1.4em;
 	}
 </style>

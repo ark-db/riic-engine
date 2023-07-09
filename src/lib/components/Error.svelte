@@ -34,7 +34,6 @@
 	p {
 		color: var(--salmon-strong);
 		font-size: 1.05em;
-		line-height: 1.4;
 	}
 	button {
 		--focus-border-offset: -6px;

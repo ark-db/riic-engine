@@ -38,15 +38,12 @@
 		column-gap: 1em;
 	}
 	p {
-		margin: 0 1em 0 0;
+		margin-right: 1em;
 		color: var(--light-strong);
 		font-size: 1.05em;
 	}
 	button {
 		--focus-border-offset: -5px;
-		margin: 0;
-		border: none;
 		padding: 4px;
-		background: none;
 	}
 </style>

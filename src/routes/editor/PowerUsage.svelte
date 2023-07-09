@@ -62,12 +62,10 @@
 		column-gap: 0.5em;
 	}
 	.text {
-		cursor: default;
 		display: flex;
 		align-items: center;
 	}
 	.stats {
-		margin: 0;
 		color: var(--light);
 		font-size: var(--font-size);
 		font-weight: 600;

@@ -62,7 +62,6 @@
 		bottom: 0;
 		display: flex;
 		align-items: center;
-		justify-content: center;
 	}
 	div:before {
 		position: fixed;
@@ -77,6 +76,7 @@
 		animation: fade 0.2s ease-out;
 	}
 	dialog {
+		margin: auto;
 		box-shadow: 0 8px 8px rgba(0 0 0 / 0.5);
 		border: none;
 		border-radius: 1em;

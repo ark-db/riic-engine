@@ -129,7 +129,6 @@
 	.entry-title {
 		--focus-border-offset: -4px;
 		margin-left: 0.1em;
-		border: none;
 		padding: 0.5em;
 		background-color: var(--dark-strong);
 		color: var(--light);
@@ -142,12 +141,10 @@
 		justify-content: space-between;
 	}
 	.time {
-		margin: 0;
 		padding: 0 0.5em;
 		color: var(--gray);
 	}
 	.modal-text {
-		margin-top: 0;
 		color: var(--light);
 	}
 	.modal-options {

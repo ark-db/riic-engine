@@ -32,10 +32,6 @@
 <style>
 	button {
 		--focus-border-offset: -4px;
-		margin: 0;
-		border: none;
-		padding: 0;
-		background: none;
 	}
 	button.small {
 		--focus-border-offset: -8px;

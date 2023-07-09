@@ -98,7 +98,6 @@
 		column-gap: 0.75em;
 	}
 	.facility-name {
-		margin: 0;
 		color: var(--light);
 		font-size: 1.25em;
 		font-weight: 600;
@@ -113,9 +112,7 @@
 		--edge-gap: -0.15em;
 		position: absolute;
 		margin: 0.2em 0;
-		border: none;
 		padding: 0.25em;
-		background: none;
 	}
 	.increment {
 		bottom: var(--edge-gap);

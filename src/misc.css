@@ -1,6 +1,10 @@
+* {
+	margin: 0;
+}
+
 body {
 	min-height: 100vh;
-	margin: 0;
+	-webkit-font-smoothing: antialiased;
 }
 
 ::-webkit-scrollbar {
@@ -14,4 +18,34 @@ button:hover {
 
 a {
 	text-decoration: none;
+}
+
+p {
+	line-height: 1.4;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	cursor: default;
+}
+
+img,
+svg {
+	display: block;
+}
+
+input,
+button {
+	font: inherit;
+}
+
+button {
+	border: none;
+	padding: 0;
+	background: none;
 }
