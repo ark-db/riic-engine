@@ -21,9 +21,6 @@ pub struct Save {
     interval: u16,      // Duration of one shift (in minutes)
 }
 
-type TradingPost = BoostFacility<TradingProduct>;
-type Factory = BoostFacility<FactoryProduct>;
-
 #[derive(Serialize, Deserialize, Encode, Decode)]
 #[serde(deny_unknown_fields)]
 struct Layout {
@@ -53,11 +50,20 @@ struct Facility {
 
 #[derive(Serialize, Deserialize, Encode, Decode)]
 #[serde(deny_unknown_fields)]
-struct BoostFacility<P: 'static> {
+struct TradingPost {
     level: FacilityLevel,
     shifts: Box<[Shift]>,
     boosts: Box<[Boost]>,
-    products: Box<[Product<P>]>,
+    products: Box<[Product<TradingProduct>]>,
+}
+
+#[derive(Serialize, Deserialize, Encode, Decode)]
+#[serde(deny_unknown_fields)]
+struct Factory {
+    level: FacilityLevel,
+    shifts: Box<[Shift]>,
+    boosts: Box<[Boost]>,
+    products: Box<[Product<FactoryProduct>]>,
 }
 
 #[derive(Serialize, Deserialize, Encode, Decode)]
@@ -128,7 +134,18 @@ impl Facility {
     }
 }
 
-impl<P> BoostFacility<P> {
+impl TradingPost {
+    fn new(level: u8) -> Self {
+        Self {
+            level,
+            shifts: Box::default(),
+            boosts: Box::default(),
+            products: Box::default(),
+        }
+    }
+}
+
+impl Factory {
     fn new(level: u8) -> Self {
         Self {
             level,
@@ -143,8 +160,8 @@ impl Default for Layout {
     fn default() -> Self {
         Self {
             cc: Facility::new(1),
-            tp: Box::new([BoostFacility::new(1)]),
-            fac: Box::new([BoostFacility::new(1)]),
+            tp: Box::new([TradingPost::new(1)]),
+            fac: Box::new([Factory::new(1)]),
             pp: Box::new([Facility::new(1)]),
             workshop: NoShiftFacility::new(1),
             rr: Facility::new(0),
