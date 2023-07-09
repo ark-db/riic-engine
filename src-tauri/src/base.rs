@@ -28,9 +28,9 @@ type Factory = BoostFacility<FactoryProduct>;
 #[serde(deny_unknown_fields)]
 struct Layout {
     cc: Facility,
-    tp: Vec<TradingPost>,
-    fac: Vec<Factory>,
-    pp: Vec<Facility>,
+    tp: Box<[TradingPost]>,
+    fac: Box<[Factory]>,
+    pp: Box<[Facility]>,
     workshop: NoShiftFacility,
     rr: Facility,
     office: Facility,
@@ -48,16 +48,16 @@ struct NoShiftFacility {
 #[serde(deny_unknown_fields)]
 struct Facility {
     level: FacilityLevel,
-    shifts: Vec<Shift>,
+    shifts: Box<[Shift]>,
 }
 
 #[derive(Serialize, Deserialize, Encode, Decode)]
 #[serde(deny_unknown_fields)]
 struct BoostFacility<P: 'static> {
     level: FacilityLevel,
-    shifts: Vec<Shift>,
-    boosts: Vec<Boost>,
-    products: Vec<Product<P>>,
+    shifts: Box<[Shift]>,
+    boosts: Box<[Boost]>,
+    products: Box<[Product<P>]>,
 }
 
 #[derive(Serialize, Deserialize, Encode, Decode)]
@@ -122,7 +122,7 @@ impl NoShiftFacility {
 impl Facility {
     fn new(level: u8) -> Self {
         Self {
-            shifts: Vec::new(),
+            shifts: Box::default(),
             level,
         }
     }
@@ -132,9 +132,9 @@ impl<P> BoostFacility<P> {
     fn new(level: u8) -> Self {
         Self {
             level,
-            shifts: Vec::new(),
-            boosts: Vec::new(),
-            products: Vec::new(),
+            shifts: Box::default(),
+            boosts: Box::default(),
+            products: Box::default(),
         }
     }
 }
@@ -143,9 +143,9 @@ impl Default for Layout {
     fn default() -> Self {
         Self {
             cc: Facility::new(1),
-            tp: vec![BoostFacility::new(1)],
-            fac: vec![BoostFacility::new(1)],
-            pp: vec![Facility::new(1)],
+            tp: Box::new([BoostFacility::new(1)]),
+            fac: Box::new([BoostFacility::new(1)]),
+            pp: Box::new([Facility::new(1)]),
             workshop: NoShiftFacility::new(1),
             rr: Facility::new(0),
             office: Facility::new(0),
