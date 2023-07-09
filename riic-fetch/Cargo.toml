@@ -10,7 +10,7 @@ publish.workspace = true
 
 [dependencies]
 ahash = { workspace = true, features = ["serde"] }
-async-trait = "0.1.68"
+async-trait = "0.1.71"
 futures = "0.3.28"
 image = { version = "0.24.6", default-features = false, features = ["png", "webp", "webp-encoder"] }
 indexmap = { version = "2.0.0", features = ["serde"] }
@@ -19,5 +19,5 @@ reqwest = { version = "0.11.18", default-features = false, features = ["json", "
 serde.workspace = true
 serde_json.workspace = true
 thiserror.workspace = true
-tokio = { version = "1.29.0", features = ["macros", "rt-multi-thread"] }
-toml = "0.7.5"
+tokio = { version = "1.29.1", features = ["macros", "rt-multi-thread"] }
+toml = "0.7.6"
