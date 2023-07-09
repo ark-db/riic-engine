@@ -1063,6 +1063,14 @@
 			{ "id": "workshop_formula_cost3[220]", "elite": 2, "level": 1 }
 		]
 	},
+	"char_341_sntlla": {
+		"name": "Santalla",
+		"rarity": 5,
+		"skills": [
+			{ "id": "dorm_rec_single_power[000]", "elite": 0, "level": 1 },
+			{ "id": "train_spd_power[000]", "elite": 2, "level": 1 }
+		]
+	},
 	"char_388_mint": {
 		"name": "Mint",
 		"rarity": 5,
@@ -1698,6 +1706,14 @@
 		"skills": [
 			{ "id": "control_mp_cost&faction[020]", "elite": 0, "level": 1 },
 			{ "id": "hire_spd&clue2[250]", "elite": 2, "level": 1 }
+		]
+	},
+	"char_2012_typhon": {
+		"name": "Typhon",
+		"rarity": 6,
+		"skills": [
+			{ "id": "meet_spd&sami[000]", "elite": 0, "level": 1 },
+			{ "id": "train_spd&profession3[170]", "elite": 2, "level": 1 }
 		]
 	},
 	"char_391_rosmon": {

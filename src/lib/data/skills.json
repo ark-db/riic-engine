@@ -1324,6 +1324,11 @@
 		"desc": "When this Operator is assigned to be the Trainer in the Training Room, Operators' Specialization training speed <@cc.vup>+25%</>",
 		"iconId": "bskill_train_all"
 	},
+	"train_spd_power[000]": {
+		"name": "雪祀候补",
+		"desc": "进驻训练室协助位时，基建内（不包含副手）每名<$cc.g.sm><@cc.kw>萨米</></>干员为当前干员的专精技能训练速度<@cc.vup>+10%</>（最多生效<@cc.kw>3</>名）",
+		"iconId": "bskill_train_sami"
+	},
 	"train_spd_tag[000]": {
 		"name": "Knight Training",
 		"desc": "When this Operator is assigned to be the Trainer in the Training Room, for every <$cc.tag.knight><@cc.kw>Knight</></> Operator in the Base (excluding Base Assistants), Operators' Specialization training speed <@cc.vup>+5%</> (caps at <@cc.kw>5</> Operators)",
@@ -1553,6 +1558,11 @@
 		"name": "实战技巧：领主",
 		"desc": "进驻训练室协助位时，<@cc.kw>近卫</>干员的专精技能训练速度<@cc.vup>+30%</>，如果训练位干员分支为<@cc.kw>领主</>，则训练速度额外<@cc.vup>+45%</>",
 		"iconId": "bskill_train_lord"
+	},
+	"train_spd&profession3[170]": {
+		"name": "实战技巧：攻城手",
+		"desc": "进驻训练室协助位时，<@cc.kw>狙击</>干员的专精技能训练速度<@cc.vup>+30%</>，如果训练位干员分支为<@cc.kw>攻城手</>，则训练速度额外<@cc.vup>+45%</>",
+		"iconId": "bskill_train_siegesniper"
 	},
 	"train_spd&profession2[110]": {
 		"name": "Tactics Studies",
@@ -1869,6 +1879,11 @@
 		"desc": "进驻宿舍时，使该宿舍内除自身以外心情未满的某个干员每小时恢复<@cc.vup>+0.4</>（同种效果取最高）；同时自身心情每小时恢复<@cc.vup>+0.4</>",
 		"iconId": "bskill_dorm_single&one12"
 	},
+	"dorm_rec_single_power[000]": {
+		"name": "降生于冰寒",
+		"desc": "进驻宿舍时，使该宿舍内除自身以外心情未满的某个干员每小时恢复<@cc.vup>+0.55</>（同种效果取最高），如果目标是<$cc.g.sm><@cc.kw>萨米</></>干员，则恢复效果额外<@cc.vup>+0.45</>",
+		"iconId": "bskill_dorm_single_sami"
+	},
 	"dorm_rec_all&oneself[000]": {
 		"name": "Laziness",
 		"desc": "When this Operator is assigned to a Dormitory, self Morale recovered per hour <@cc.vdown>-0.1</>, but restores <@cc.vup>+0.2</> Morale per hour to all Operators assigned to that Dormitory (Only the strongest effect of this type takes place)",
@@ -2098,6 +2113,11 @@
 		"name": "Don Diplomacy",
 		"desc": "When this Operator is assigned to the Reception Room, Clue search speed increases by <@cc.vup>25%</>",
 		"iconId": "bskill_meet_spd3"
+	},
+	"meet_spd&sami[000]": {
+		"name": "冰原游弋",
+		"desc": "进驻会客室时，线索搜集速度提升<@cc.vup>+10%</>，与其他<$cc.g.sm><@cc.kw>萨米</></>干员进驻会客室一起工作时，线索搜集速度额外提升<@cc.vup>+5%</>，自身心情每小时消耗<@cc.vdown>+0.5</>",
+		"iconId": "bskill_meet_spd&sami"
 	},
 	"meet_spd_condChar[000]": {
 		"name": "Proficient Artistry",
