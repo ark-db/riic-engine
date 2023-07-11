@@ -1,17 +1,28 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import src from '$lib/images/lancet.webp';
+	import { invoke } from '@tauri-apps/api/tauri';
+	import github from '$lib/images/github.svg';
+	import lancet from '$lib/images/lancet.webp';
+
+	function openGithub() {
+		invoke('open', { url: 'https://github.com/ark-db/riic-engine/issues/new' });
+	}
 </script>
 
-<div>
+<div class="container">
 	<h1>{$page.status} <span>|</span> {$page.error?.message ?? 'Unknown error'}</h1>
 	<p>An unexpected error occurred.</p>
-	<img {src} alt="Lancet-2" width="320" height="320" />
-	<a href="/">Return to main menu</a>
+	<img class="lancet" src={lancet} alt="Lancet-2" width="320" height="320" />
+	<div class="links">
+		<a href="/">Return to main menu</a>
+		<button on:click={openGithub}>
+			Report issue on GitHub <img src={github} alt="GitHub logo" width="32" height="32" />
+		</button>
+	</div>
 </div>
 
 <style>
-	div {
+	.container {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
@@ -32,17 +43,35 @@
 		margin: 0 0.2em;
 		font-weight: 100;
 	}
-	img,
-	a {
+	.lancet {
 		margin: 0 auto;
 	}
-	a {
+	.links {
+		margin: auto;
+		display: flex;
+		column-gap: 5em;
+	}
+	a,
+	button {
+		width: 18em;
+		height: 4em;
 		border-radius: 0.5em;
-		padding: 1em;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	a {
 		background-color: var(--blue);
 		text-decoration: none;
 	}
 	a:hover {
 		background-color: var(--blue-strong);
+	}
+	button {
+		background-color: var(--light);
+		column-gap: 1.5em;
+	}
+	button:hover {
+		background-color: var(--light-strong);
 	}
 </style>
