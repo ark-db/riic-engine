@@ -1,4 +1,7 @@
 <script lang="ts">
+	import Button from '$lib/components/Button.svelte';
+	import hideControls from '$lib/images/ui/zoom-controls-hide.svg';
+	import showControls from '$lib/images/ui/zoom-controls-show.svg';
 	import { zoomScales } from '$lib/stores';
 	import ColumnLines from './ColumnLines.svelte';
 	import FacilityGrid from './FacilityGrid.svelte';
@@ -15,6 +18,11 @@
 	$: columnWidth = $xScale * baseColumnWidth;
 	$: rowWidth = gridWidth + columnWidth + 37;
 	$: rowHeight = $yScale * baseRowHeight;
+
+	let controlsActive = true;
+
+	$: controlsToggleIcon = controlsActive ? hideControls : showControls;
+	$: controlsDesc = `${controlsActive ? 'Hide' : 'Show'} zoom controls`;
 </script>
 
 <svelte:head>
@@ -25,4 +33,28 @@
 
 <FacilityGrid {rowWidth} {rowHeight} {columnWidth} bind:gridHeight />
 
-<ZoomControls />
+{#if controlsActive}
+	<ZoomControls />
+{/if}
+
+<div>
+	<Button desc={controlsDesc} onClick={() => (controlsActive = !controlsActive)}>
+		<img src={controlsToggleIcon} alt={controlsDesc} class="menu-icon" width="32" height="32" />
+	</Button>
+</div>
+
+<style>
+	div {
+		z-index: 3;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		box-shadow: -4px -4px 8px rgb(0 0 0 / 0.2);
+		border-width: 1px 0 0 1px;
+		border-style: solid;
+		border-color: var(--light);
+		border-top-left-radius: 8px;
+		padding: 4px;
+		background-color: black;
+	}
+</style>

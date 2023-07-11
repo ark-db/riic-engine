@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { fly } from 'svelte/transition';
 	import Button from '$lib/components/Button.svelte';
 	import minus from '$lib/images/ui/minus.svg';
 	import plus from '$lib/images/ui/plus.svg';
@@ -24,7 +25,7 @@
 
 <svelte:window on:keydown|trusted={handleKeydown} />
 
-<div class="controls">
+<div class="controls" transition:fly={{ duration: 200, x: 100, y: 100, opacity: 0.5 }}>
 	<div class="center">
 		<Button desc={$zoomShortcut.desc} onClick={$zoomShortcut.run}>
 			<img src={$zoomShortcut.src} alt={$zoomShortcut.desc} width="36" height="36" />
@@ -64,7 +65,7 @@
 
 <style>
 	.controls {
-		--window-edge-gap: 24px;
+		--window-edge-gap: 48px;
 		z-index: 2;
 		position: fixed;
 		right: var(--window-edge-gap);

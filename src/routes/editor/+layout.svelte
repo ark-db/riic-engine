@@ -10,7 +10,7 @@
 	import PowerUsage from './PowerUsage.svelte';
 
 	let menuActive = true;
-	$: menuIconDesc = `${menuActive ? 'Collapse' : 'Expand'} menu`;
+	$: menuIconDesc = `${menuActive ? 'Hide' : 'Show'} editor menu`;
 </script>
 
 <div class="container">
