@@ -19,8 +19,8 @@
 			menu = tippy(box, {
 				arrow: false,
 				interactive: true,
-				offset: [8, 0],
-				placement: 'right-start',
+				offset: [0, 12],
+				placement: 'auto-start',
 				render: () => ({ popper: menuTemplate }),
 				trigger: 'manual'
 			});
