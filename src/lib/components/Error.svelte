@@ -25,10 +25,11 @@
 		z-index: 2;
 		position: fixed;
 		bottom: 7.5%;
+		margin: auto;
 		box-shadow: 0 6px 6px rgba(0 0 0 / 0.5);
 		border: var(--border-weight) solid var(--salmon-strong);
 		border-radius: 0.75em;
-		padding: 0.25em 1.25em;
+		padding: 1.25em;
 		background-color: var(--dark-strong);
 	}
 	p {
