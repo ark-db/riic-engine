@@ -29,27 +29,19 @@ type NoShiftFacility = {
 	level: number;
 };
 
-export type Facility = NoShiftFacility & { shifts: Shift[] };
+export type Facility = NoShiftFacility & { shifts: (string | undefined)[] };
 
 type BoostFacilityBase<P> = Facility & {
 	boosts: {
 		drones: number;
 		col: number;
 	}[];
-	products: {
-		kind: P;
-		col: number;
-	}[];
+	products: (P | undefined)[];
 };
 
 type TradingPost = BoostFacilityBase<TradingProduct>;
 type Factory = BoostFacilityBase<FactoryProduct>;
 export type BoostFacility = TradingPost | Factory;
-
-type Shift = {
-	char: string;
-	col: number;
-};
 
 export type TradingProduct = 'lmd' | 'orundum';
 export type FactoryProduct = 'exp200' | 'exp400' | 'exp1000' | 'gold' | 'shard';

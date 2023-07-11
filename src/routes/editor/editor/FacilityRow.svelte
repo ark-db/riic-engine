@@ -25,10 +25,7 @@
 
 	function addProduct(product: Product, index: number) {
 		if ('products' in room) {
-			room.products.push({
-				kind: product,
-				col: index
-			} as never);
+			room.products[index] = product;
 			room = room;
 		}
 	}

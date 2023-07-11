@@ -41,49 +41,37 @@ struct NoShiftFacility {
     level: FacilityLevel,
 }
 
+type Shifts = Box<[Option<Operator>]>;
+
 #[derive(Serialize, Deserialize, Encode, Decode)]
 #[serde(deny_unknown_fields)]
 struct Facility {
     level: FacilityLevel,
-    shifts: Box<[Shift]>,
+    shifts: Shifts,
 }
 
 #[derive(Serialize, Deserialize, Encode, Decode)]
 #[serde(deny_unknown_fields)]
 struct TradingPost {
     level: FacilityLevel,
-    shifts: Box<[Shift]>,
+    shifts: Shifts,
     boosts: Box<[Boost]>,
-    products: Box<[Product<TradingProduct>]>,
+    products: Box<[Option<TradingProduct>]>,
 }
 
 #[derive(Serialize, Deserialize, Encode, Decode)]
 #[serde(deny_unknown_fields)]
 struct Factory {
     level: FacilityLevel,
-    shifts: Box<[Shift]>,
+    shifts: Shifts,
     boosts: Box<[Boost]>,
-    products: Box<[Product<FactoryProduct>]>,
-}
-
-#[derive(Serialize, Deserialize, Encode, Decode)]
-#[serde(deny_unknown_fields)]
-struct Shift {
-    char: Operator,
-    col: ShiftCount,
+    products: Box<[Option<FactoryProduct>]>,
 }
 
 #[derive(Serialize, Deserialize, Encode, Decode)]
 #[serde(deny_unknown_fields)]
 struct Boost {
     drones: DroneCount,
-    col: ShiftCount,
-}
-
-#[derive(Serialize, Deserialize, Encode, Decode)]
-#[serde(deny_unknown_fields)]
-struct Product<T> {
-    kind: T,
     col: ShiftCount,
 }
 
