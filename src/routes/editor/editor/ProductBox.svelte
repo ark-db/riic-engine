@@ -74,7 +74,7 @@
 	/>
 </div>
 
-<div class="template">
+<div class="template" hidden={!menuActive}>
 	<div class="tooltip-template" bind:this={menuTemplate} on:focusout={handleFocusout}>
 		{#if menuActive}
 			{#if kind === 'trading'}

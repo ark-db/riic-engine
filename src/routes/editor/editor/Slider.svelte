@@ -13,7 +13,7 @@
 		--track-height: 0.4em;
 		--track-border-radius: calc(var(--track-height) / 2);
 		--track-color: var(--gray);
-		--thumb-width: 1em;
+		--thumb-width: 0.75em;
 		--thumb-height: 2em;
 		--thumb-border-radius: 0.25em;
 		--thumb-color: var(--light-strong);
@@ -21,7 +21,7 @@
 		--focus-offset: 2px;
 		appearance: none;
 		cursor: pointer;
-		width: 15em;
+		width: 10em;
 		background: transparent;
 	}
 	/* Track styles */

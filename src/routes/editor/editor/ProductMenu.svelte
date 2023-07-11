@@ -41,7 +41,7 @@
 		width: 6.5em;
 		color: var(--light-strong);
 		text-align: left;
-		font-size: 1.5em;
+		font-size: 1.25em;
 		font-weight: 600;
 	}
 </style>
