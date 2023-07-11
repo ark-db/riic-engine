@@ -1,30 +1,37 @@
 {
 	"lmd": {
 		"name": "LMD",
-		"rarity": 4
+		"rarity": 4,
+		"color": "#16a3e6"
 	},
 	"orundum": {
 		"name": "Orundum",
-		"rarity": 5
+		"rarity": 5,
+		"color": "#a70011"
 	},
 	"exp200": {
 		"name": "Drill Battle Record",
-		"rarity": 2
+		"rarity": 2,
+		"color": "#889629"
 	},
 	"exp400": {
 		"name": "Frontline Battle Record",
-		"rarity": 3
+		"rarity": 3,
+		"color": "#2b6b96"
 	},
 	"exp1000": {
 		"name": "Tactical Battle Record",
-		"rarity": 4
+		"rarity": 4,
+		"color": "#dbb816"
 	},
 	"gold": {
 		"name": "Pure Gold",
-		"rarity": 4
+		"rarity": 4,
+		"color": "#c27f3d"
 	},
 	"shard": {
 		"name": "Originium Shard",
-		"rarity": 5
+		"rarity": 5,
+		"color": "#b23c28"
 	}
 }

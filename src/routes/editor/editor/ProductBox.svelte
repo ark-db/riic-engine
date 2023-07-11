@@ -1,5 +1,6 @@
 <script lang="ts">
 	import tippy, { type Instance, type Props } from 'tippy.js/headless';
+	import items from '$lib/data/items.json';
 	import type { Product } from '$lib/types';
 	import ProductMenu from './ProductMenu.svelte';
 
@@ -8,6 +9,7 @@
 	export let onAddProduct: (product: Product) => void;
 
 	let box: HTMLDivElement;
+	let boxColor: string;
 	let menu: Instance<Props>;
 	let menuTemplate: HTMLDivElement;
 
@@ -58,6 +60,7 @@
 
 	function handleSelect(product: Product) {
 		menu.hide();
+		boxColor = items[product].color;
 		onAddProduct(product);
 	}
 </script>
@@ -66,6 +69,7 @@
 <div>
 	<div
 		class="focus-template box"
+		style="background-color: {boxColor ?? ''}"
 		tabindex="0"
 		role="button"
 		bind:this={box}
