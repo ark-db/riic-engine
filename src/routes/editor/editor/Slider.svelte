@@ -21,7 +21,7 @@
 		--focus-offset: 2px;
 		appearance: none;
 		cursor: pointer;
-		width: 10em;
+		width: 12em;
 		background: transparent;
 	}
 	/* Track styles */

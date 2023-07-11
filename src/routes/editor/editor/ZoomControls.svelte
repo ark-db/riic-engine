@@ -25,7 +25,7 @@
 
 <svelte:window on:keydown|trusted={handleKeydown} />
 
-<div class="controls" transition:fly={{ duration: 200, x: 100, y: 100, opacity: 0.5 }}>
+<div class="controls" transition:fly={{ duration: 200, x: 120, y: 120, opacity: 0.5 }}>
 	<div class="center">
 		<Button desc={$zoomShortcut.desc} onClick={$zoomShortcut.run}>
 			<img src={$zoomShortcut.src} alt={$zoomShortcut.desc} width="36" height="36" />
