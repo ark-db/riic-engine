@@ -10,6 +10,9 @@ use rusqlite::{
 };
 use serde::{Deserialize, Serialize};
 
+type DroneCount = u32;
+type ShiftCount = u16;
+
 #[derive(Serialize, Deserialize, Encode, Decode)]
 #[serde(deny_unknown_fields)]
 #[serde(rename_all = "camelCase")]
@@ -35,12 +38,15 @@ struct Layout {
     dorm: [Facility; 4],
 }
 
+type FacilityLevel = u8;
+
 #[derive(Serialize, Deserialize, Encode, Decode)]
 #[serde(deny_unknown_fields)]
 struct NoShiftFacility {
     level: FacilityLevel,
 }
 
+type Operator = String;
 type Shifts = Box<[Option<Operator>]>;
 
 #[derive(Serialize, Deserialize, Encode, Decode)]
@@ -50,12 +56,14 @@ struct Facility {
     shifts: Shifts,
 }
 
+type Boosts = Box<[Option<DroneCount>]>;
+
 #[derive(Serialize, Deserialize, Encode, Decode)]
 #[serde(deny_unknown_fields)]
 struct TradingPost {
     level: FacilityLevel,
     shifts: Shifts,
-    boosts: Box<[Boost]>,
+    boosts: Boosts,
     products: Box<[Option<TradingProduct>]>,
 }
 
@@ -64,15 +72,8 @@ struct TradingPost {
 struct Factory {
     level: FacilityLevel,
     shifts: Shifts,
-    boosts: Box<[Boost]>,
+    boosts: Boosts,
     products: Box<[Option<FactoryProduct>]>,
-}
-
-#[derive(Serialize, Deserialize, Encode, Decode)]
-#[serde(deny_unknown_fields)]
-struct Boost {
-    drones: DroneCount,
-    col: ShiftCount,
 }
 
 #[derive(Serialize, Deserialize, Encode, Decode)]
@@ -98,14 +99,6 @@ struct CharData {
     char: Operator,
     tier: u8,
 }
-
-type DroneCount = u32;
-
-type ShiftCount = u16;
-
-type FacilityLevel = u8;
-
-type Operator = String;
 
 impl NoShiftFacility {
     fn new(level: u8) -> Self {

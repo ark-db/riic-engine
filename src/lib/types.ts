@@ -32,10 +32,7 @@ type NoShiftFacility = {
 export type Facility = NoShiftFacility & { shifts: (string | undefined)[] };
 
 type BoostFacilityBase<P> = Facility & {
-	boosts: {
-		drones: number;
-		col: number;
-	}[];
+	boosts: (number | undefined)[];
 	products: (P | undefined)[];
 };
 
