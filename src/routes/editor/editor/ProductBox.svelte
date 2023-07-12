@@ -11,7 +11,7 @@
 
 	let box: HTMLDivElement;
 	let menu: Instance<Props>;
-	let menuTemplate: HTMLDivElement;
+	let template: HTMLDivElement;
 
 	let menuActive = false;
 
@@ -23,7 +23,7 @@
 				interactive: true,
 				offset: [0, 12],
 				placement: 'auto-start',
-				render: () => ({ popper: menuTemplate }),
+				render: () => ({ popper: template }),
 				trigger: 'manual'
 			});
 		}
@@ -55,7 +55,7 @@
 	}
 
 	function handleFocusout({ relatedTarget }: FocusEvent) {
-		if (!(relatedTarget instanceof Node && menuTemplate.contains(relatedTarget))) menu.hide();
+		if (!(relatedTarget instanceof Node && template.contains(relatedTarget))) menu.hide();
 	}
 
 	function handleSelect(product: Product) {
@@ -77,8 +77,8 @@
 	/>
 </div>
 
-<div class="template" hidden={!menuActive}>
-	<div class="tooltip-template" bind:this={menuTemplate} on:focusout={handleFocusout}>
+<div class="template" hidden>
+	<div class="tooltip-template" bind:this={template} on:focusout={handleFocusout}>
 		{#if menuActive}
 			{#if kind === 'trading'}
 				{#if level === 3}
