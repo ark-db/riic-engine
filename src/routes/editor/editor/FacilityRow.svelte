@@ -4,6 +4,7 @@
 	import { activeSave, zoomScales } from '$lib/stores';
 	import { tooltip } from '$lib/tooltip';
 	import type { FacilityName, Facility, BoostFacility, Product } from '$lib/types';
+	import BoostMarker from './BoostMarker.svelte';
 	import ProductBox from './ProductBox.svelte';
 
 	export let kind: FacilityName;
@@ -17,7 +18,7 @@
 	$: boostMarkerWidth = $xScale ** 0.6 * baseBoostMarkerWidth;
 
 	// Converts a hex triplet into the CSS rgb() format
-	function hexToRgb(hex: string, alpha = 1.0): string {
+	function hexToRgb(hex: string, alpha: number): string {
 		let r = parseInt(hex.slice(1, 3), 16),
 			g = parseInt(hex.slice(3, 5), 16),
 			b = parseInt(hex.slice(5, 7), 16);
@@ -43,7 +44,7 @@
 			<div class="boosts" style="--marker-width: {boostMarkerWidth}px;">
 				<!-- eslint-disable-next-line @typescript-eslint/no-unused-vars -->
 				{#each { length: $activeSave.maxShift } as _}
-					<div class="boost-marker" />
+					<BoostMarker />
 				{/each}
 			</div>
 			<div class="products">
@@ -54,7 +55,7 @@
 							{kind}
 							level={room.level}
 							product={getProduct(i)}
-							onAddProduct={(product) => setProduct(product, i)}
+							onSetProduct={(product) => setProduct(product, i)}
 						/>
 					{/each}
 				{/key}
@@ -93,12 +94,6 @@
 		margin-left: calc(var(--column-width) - var(--marker-width) / 2 + 16px);
 		display: flex;
 		column-gap: calc(var(--column-width) - var(--marker-width) + 16px);
-	}
-	.boost-marker {
-		z-index: 1;
-		width: var(--marker-width);
-		background-color: plum;
-		opacity: 0.7;
 	}
 	.products {
 		--shadow-size: calc(var(--product-row-height) / 16);

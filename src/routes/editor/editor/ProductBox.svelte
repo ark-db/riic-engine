@@ -7,7 +7,7 @@
 	export let kind: 'trading' | 'manufacture';
 	export let level: number;
 	export let product: Product | undefined;
-	export let onAddProduct: (product: Product) => void;
+	export let onSetProduct: (product: Product) => void;
 
 	let box: HTMLDivElement;
 	let menu: Instance<Props>;
@@ -60,7 +60,7 @@
 
 	function handleSelect(product: Product) {
 		menu.hide();
-		onAddProduct(product);
+		onSetProduct(product);
 	}
 </script>
 
