@@ -1,7 +1,7 @@
 <script lang="ts">
 	import FacilityIcon from '$lib/components/FacilityIcon.svelte';
 	import facilities from '$lib/data/facilities.json';
-	import { activeSave } from '$lib/stores';
+	import { activeSave, zoomScales } from '$lib/stores';
 	import { tooltip } from '$lib/tooltip';
 	import type { FacilityName, Facility, BoostFacility, Product } from '$lib/types';
 	import ProductBox from './ProductBox.svelte';
@@ -11,6 +11,10 @@
 
 	const rowOpacity = 0.7;
 	let { name, color } = facilities[kind];
+
+	const { xScale } = zoomScales;
+	const baseBoostMarkerWidth = 8;
+	$: boostMarkerWidth = $xScale ** 0.6 * baseBoostMarkerWidth;
 
 	// Converts a hex triplet into the CSS rgb() format
 	function hexToRgb(hex: string, alpha = 1.0): string {
@@ -36,6 +40,12 @@
 	</div>
 	<div class="main">
 		{#if kind === 'trading' || kind === 'manufacture'}
+			<div class="boosts" style="--marker-width: {boostMarkerWidth}px;">
+				<!-- eslint-disable-next-line @typescript-eslint/no-unused-vars -->
+				{#each { length: $activeSave.maxShift } as _}
+					<div class="boost-marker" />
+				{/each}
+			</div>
 			<div class="products">
 				{#key room}
 					<!-- eslint-disable-next-line @typescript-eslint/no-unused-vars -->
@@ -69,12 +79,28 @@
 		justify-content: center;
 	}
 	.main {
-		flex-grow: 1;
-	}
-	.products {
 		/* --product-row-height is used in ./ProductBox.svelte */
 		/* --row-height is defined in ./+page.svelte */
 		--product-row-height: calc(var(--row-height) / 5);
+		flex-grow: 1;
+		position: relative;
+	}
+	.boosts {
+		position: absolute;
+		top: 0;
+		height: calc(var(--row-height) + var(--product-row-height));
+		/* --column-width is defined in ./+page.svelte */
+		margin-left: calc(var(--column-width) - var(--marker-width) / 2 + 16px);
+		display: flex;
+		column-gap: calc(var(--column-width) - var(--marker-width) + 16px);
+	}
+	.boost-marker {
+		z-index: 1;
+		width: var(--marker-width);
+		background-color: plum;
+		opacity: 0.7;
+	}
+	.products {
 		--shadow-size: calc(var(--product-row-height) / 16);
 		height: var(--product-row-height);
 		box-shadow: calc(var(--shadow-size) / 2) var(--shadow-size) var(--shadow-size) rgb(0 0 0 / 0.5);
