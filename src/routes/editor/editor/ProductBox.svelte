@@ -6,10 +6,10 @@
 
 	export let kind: 'trading' | 'manufacture';
 	export let level: number;
+	export let product: Product | undefined;
 	export let onAddProduct: (product: Product) => void;
 
 	let box: HTMLDivElement;
-	let boxColor: string;
 	let menu: Instance<Props>;
 	let menuTemplate: HTMLDivElement;
 
@@ -60,7 +60,6 @@
 
 	function handleSelect(product: Product) {
 		menu.hide();
-		boxColor = items[product].color;
 		onAddProduct(product);
 	}
 </script>
@@ -69,7 +68,7 @@
 <div>
 	<div
 		class="focus-template box"
-		style="background-color: {boxColor ?? ''}"
+		style="background-color: {product ? items[product].color : ''}"
 		tabindex="0"
 		role="button"
 		bind:this={box}

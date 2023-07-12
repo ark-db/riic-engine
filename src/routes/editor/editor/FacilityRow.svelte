@@ -23,11 +23,12 @@
 		return `rgb(${r} ${g} ${b} / ${alpha})`;
 	}
 
-	function addProduct(product: Product, index: number) {
-		if ('products' in room) {
-			room.products[index] = product;
-			room = room;
-		}
+	function getProduct(index: number) {
+		return (room as BoostFacility).products[index];
+	}
+
+	function setProduct(product: Product, index: number) {
+		(room as BoostFacility).products[index] = product;
 	}
 </script>
 
@@ -38,14 +39,17 @@
 	<div class="main" style="--height: {rowHeight}px; --column-width: {columnWidth}px;">
 		{#if kind === 'trading' || kind === 'manufacture'}
 			<div class="products">
-				<!-- eslint-disable-next-line @typescript-eslint/no-unused-vars -->
-				{#each { length: $activeSave.maxShift } as _, i}
-					<ProductBox
-						{kind}
-						level={room.level}
-						onAddProduct={(product) => addProduct(product, i)}
-					/>
-				{/each}
+				{#key room}
+					<!-- eslint-disable-next-line @typescript-eslint/no-unused-vars -->
+					{#each { length: $activeSave.maxShift } as _, i}
+						<ProductBox
+							{kind}
+							level={room.level}
+							product={getProduct(i)}
+							onAddProduct={(product) => setProduct(product, i)}
+						/>
+					{/each}
+				{/key}
 			</div>
 		{/if}
 		<div class="chars">
