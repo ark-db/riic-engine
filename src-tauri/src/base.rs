@@ -170,9 +170,9 @@ impl Default for Save {
         Self {
             layout: Layout::default(),
             chars: Box::default(),
-            drones: 70,
+            drones: 200,
             max_shift: 12,
-            interval: 120,
+            interval: 720,
         }
     }
 }
