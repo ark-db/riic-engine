@@ -10,8 +10,8 @@
 	export let onSetProduct: (product: Product) => void;
 
 	let box: HTMLDivElement;
-	let menu: Instance<Props>;
 	let template: HTMLDivElement;
+	let menu: Instance<Props>;
 
 	let menuActive = false;
 
