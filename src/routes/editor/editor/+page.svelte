@@ -29,22 +29,23 @@
 	<title>RIIC Engine • Editor</title>
 </svelte:head>
 
-<ColumnLines {columnWidth} bind:gridWidth {gridHeight} />
-
-<FacilityGrid {rowWidth} {rowHeight} {columnWidth} bind:gridHeight />
+<div style="--column-width: {columnWidth}px;">
+	<ColumnLines bind:gridWidth {gridHeight} />
+	<FacilityGrid bind:gridHeight {rowWidth} {rowHeight} />
+</div>
 
 {#if controlsActive}
 	<ZoomControls />
 {/if}
 
-<div>
+<div class="controls-toggle">
 	<Button desc={controlsDesc} onClick={() => (controlsActive = !controlsActive)}>
 		<img src={controlsToggleIcon} alt={controlsDesc} class="menu-icon" width="32" height="32" />
 	</Button>
 </div>
 
 <style>
-	div {
+	.controls-toggle {
 		z-index: 3;
 		position: fixed;
 		bottom: 0;

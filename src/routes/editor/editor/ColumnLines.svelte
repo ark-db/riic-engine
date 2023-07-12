@@ -1,16 +1,11 @@
 <script lang="ts">
 	import { activeSave } from '$lib/stores';
 
-	export let columnWidth: number;
 	export let gridWidth: number;
 	export let gridHeight: number;
 </script>
 
-<div
-	class="markers"
-	style="--column-width: {columnWidth}px; --column-height: {gridHeight}px;"
-	bind:clientWidth={gridWidth}
->
+<div class="markers" style="--column-height: {gridHeight}px;" bind:clientWidth={gridWidth}>
 	<!-- eslint-disable-next-line @typescript-eslint/no-unused-vars -->
 	{#each { length: $activeSave.maxShift } as _, i}
 		<div class="column-marker">
@@ -26,6 +21,7 @@
 		--label-padding: calc(0.35em - var(--label-border-width));
 		position: absolute;
 		top: calc(0.25em - var(--label-padding) * 2);
+		/* --column-width is defined in ./+page.svelte */
 		left: calc(3.5em + var(--column-width));
 		display: flex;
 		column-gap: var(--column-width);

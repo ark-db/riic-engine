@@ -7,8 +7,6 @@
 	import ProductBox from './ProductBox.svelte';
 
 	export let kind: FacilityName;
-	export let rowHeight: number;
-	export let columnWidth: number;
 	export let room: Facility | BoostFacility;
 
 	const rowOpacity = 0.7;
@@ -36,7 +34,7 @@
 	<div class="edge" use:tooltip={name}>
 		<FacilityIcon {kind} size={24} />
 	</div>
-	<div class="main" style="--height: {rowHeight}px; --column-width: {columnWidth}px;">
+	<div class="main">
 		{#if kind === 'trading' || kind === 'manufacture'}
 			<div class="products">
 				{#key room}
@@ -74,15 +72,16 @@
 		flex-grow: 1;
 	}
 	.products {
-		/* --row-height is used in ./ProductBox.svelte */
-		--row-height: calc(var(--height) / 5);
-		--shadow-size: calc(var(--row-height) / 16);
-		height: var(--row-height);
+		/* --product-row-height is used in ./ProductBox.svelte */
+		/* --row-height is defined in ./+page.svelte */
+		--product-row-height: calc(var(--row-height) / 5);
+		--shadow-size: calc(var(--product-row-height) / 16);
+		height: var(--product-row-height);
 		box-shadow: calc(var(--shadow-size) / 2) var(--shadow-size) var(--shadow-size) rgb(0 0 0 / 0.5);
 		background-color: var(--darkish);
 		display: flex;
 	}
 	.chars {
-		height: var(--height);
+		height: var(--row-height);
 	}
 </style>
