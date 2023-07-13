@@ -34,7 +34,7 @@
 		row-gap: 0.25em;
 	}
 	p {
-		z-index: 1;
+		z-index: 2;
 		width: 1.75em;
 		position: sticky;
 		top: calc(0px - 8px - var(--label-padding) - var(--label-border-width));
@@ -48,9 +48,10 @@
 		justify-content: center;
 	}
 	.column-line {
+		position: relative;
+		top: -3px;
 		width: 1px;
 		height: var(--column-height);
 		background-color: var(--light);
-		opacity: 0.6;
 	}
 </style>

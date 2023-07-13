@@ -30,8 +30,8 @@
 </svelte:head>
 
 <div style="--column-width: {columnWidth}px;">
-	<FacilityGrid bind:gridHeight {rowWidth} {rowHeight} />
 	<ColumnLines bind:gridWidth {gridHeight} />
+	<FacilityGrid bind:gridHeight {rowWidth} {rowHeight} />
 </div>
 
 {#if controlsActive}

@@ -55,6 +55,14 @@
 	</div>
 	<div class="main">
 		{#if kind === 'trading' || kind === 'manufacture'}
+			<div class="boosts" style="--marker-width: {boostMarkerWidth}px;">
+				{#key refreshBoostState}
+					<!-- eslint-disable-next-line @typescript-eslint/no-unused-vars -->
+					{#each { length: $activeSave.maxShift } as _, i}
+						<BoostMarker drones={getDrones(i)} onSetDrones={(drones) => setDrones(drones, i)} />
+					{/each}
+				{/key}
+			</div>
 			<div class="products">
 				{#key refreshProductState}
 					<!-- eslint-disable-next-line @typescript-eslint/no-unused-vars -->
@@ -65,14 +73,6 @@
 							product={getProduct(i)}
 							onSetProduct={(product) => setProduct(product, i)}
 						/>
-					{/each}
-				{/key}
-			</div>
-			<div class="boosts" style="--marker-width: {boostMarkerWidth}px;">
-				{#key refreshBoostState}
-					<!-- eslint-disable-next-line @typescript-eslint/no-unused-vars -->
-					{#each { length: $activeSave.maxShift } as _, i}
-						<BoostMarker drones={getDrones(i)} onSetDrones={(drones) => setDrones(drones, i)} />
 					{/each}
 				{/key}
 			</div>
