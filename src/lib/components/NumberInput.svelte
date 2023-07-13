@@ -70,7 +70,7 @@
 		column-gap: 0.5em;
 	}
 	input {
-		/* --font-size is defined in ./+layout.svelte */
+		/* --font-size is defined in the parent component */
 		font-size: var(--font-size);
 	}
 	input.invalid:not(:placeholder-shown) {

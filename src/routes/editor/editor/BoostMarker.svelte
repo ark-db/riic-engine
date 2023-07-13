@@ -78,7 +78,7 @@
 				onValidInput={onSetDrones}
 				errorMsg="The specified drone count should be a number from 0 to 999999"
 				iconSrc={droneIcon}
-				iconSize={28}
+				iconSize={32}
 			/>
 		{/if}
 	</div>
@@ -101,6 +101,7 @@
 		display: none;
 	}
 	.tooltip-template {
+		--font-size: 1.2em;
 		padding: 0.75em 0.25em 0.75em 0.125em;
 	}
 </style>
