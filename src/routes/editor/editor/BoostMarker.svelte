@@ -1,7 +1,7 @@
 <script lang="ts">
 	import tippy, { type Instance, type Props } from 'tippy.js/headless';
+	import NumberInput from '$lib/components/NumberInput.svelte';
 	import droneIcon from '$lib/images/ui/drones.webp';
-	import NumberInput from '../NumberInput.svelte';
 
 	export let drones: number | undefined;
 	export let onSetDrones: (drones: number) => void;

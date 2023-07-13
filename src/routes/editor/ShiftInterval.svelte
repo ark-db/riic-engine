@@ -1,7 +1,7 @@
 <script lang="ts">
+	import NumberInput from '$lib/components/NumberInput.svelte';
 	import clock from '$lib/images/ui/clock.svg';
 	import { activeSave } from '$lib/stores';
-	import NumberInput from './NumberInput.svelte';
 </script>
 
 <NumberInput

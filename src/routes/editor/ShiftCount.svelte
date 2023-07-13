@@ -1,7 +1,7 @@
 <script lang="ts">
+	import NumberInput from '$lib/components/NumberInput.svelte';
 	import briefcase from '$lib/images/ui/briefcase.svg';
 	import { activeSave } from '$lib/stores';
-	import NumberInput from './NumberInput.svelte';
 </script>
 
 <NumberInput
