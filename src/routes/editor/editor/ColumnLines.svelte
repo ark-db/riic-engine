@@ -27,7 +27,6 @@
 		column-gap: var(--column-width);
 	}
 	.column-marker {
-		z-index: 2;
 		width: 1em;
 		display: flex;
 		flex-direction: column;
@@ -35,7 +34,7 @@
 		row-gap: 0.25em;
 	}
 	p {
-		z-index: 2;
+		z-index: 1;
 		width: 1.75em;
 		position: sticky;
 		top: calc(0px - 8px - var(--label-padding) - var(--label-border-width));

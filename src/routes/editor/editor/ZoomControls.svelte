@@ -66,7 +66,7 @@
 <style>
 	.controls {
 		--window-edge-gap: 48px;
-		z-index: 2;
+		z-index: 1;
 		position: fixed;
 		right: var(--window-edge-gap);
 		bottom: var(--window-edge-gap);
