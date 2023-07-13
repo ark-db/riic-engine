@@ -13,11 +13,8 @@
 	let template: HTMLDivElement;
 	let menu: Instance<Props>;
 
-	let menuActive = false;
-
 	function initMenu() {
 		if (!menu) {
-			menuActive = true;
 			menu = tippy(box, {
 				arrow: false,
 				interactive: true,
@@ -55,7 +52,9 @@
 	}
 
 	function handleFocusout({ relatedTarget }: FocusEvent) {
-		if (!(relatedTarget instanceof Node && template.contains(relatedTarget))) menu.hide();
+		if (!(relatedTarget instanceof Node && template.contains(relatedTarget))) {
+			menu.hide();
+		}
 	}
 
 	function handleSelect(product: Product) {
@@ -78,25 +77,23 @@
 </div>
 
 <div class="template" hidden>
-	<div class="tooltip-template" bind:this={template} on:focusout={handleFocusout}>
-		{#if menuActive}
-			{#if kind === 'trading'}
-				{#if level === 3}
-					<ProductMenu products={['lmd', 'orundum']} onSelect={handleSelect} />
-				{:else}
-					<ProductMenu products={['lmd']} onSelect={handleSelect} />
-				{/if}
-			{:else if kind === 'manufacture'}
-				{#if level === 3}
-					<ProductMenu
-						products={['exp200', 'exp400', 'exp1000', 'gold', 'shard']}
-						onSelect={handleSelect}
-					/>
-				{:else if level === 2}
-					<ProductMenu products={['exp200', 'exp400', 'gold']} onSelect={handleSelect} />
-				{:else if level === 1}
-					<ProductMenu products={['exp200', 'gold']} onSelect={handleSelect} />
-				{/if}
+	<div class="tooltip-template" bind:this={template} on:focusout|trusted={handleFocusout}>
+		{#if kind === 'trading'}
+			{#if level === 3}
+				<ProductMenu products={['lmd', 'orundum']} onSelect={handleSelect} />
+			{:else}
+				<ProductMenu products={['lmd']} onSelect={handleSelect} />
+			{/if}
+		{:else if kind === 'manufacture'}
+			{#if level === 3}
+				<ProductMenu
+					products={['exp200', 'exp400', 'exp1000', 'gold', 'shard']}
+					onSelect={handleSelect}
+				/>
+			{:else if level === 2}
+				<ProductMenu products={['exp200', 'exp400', 'gold']} onSelect={handleSelect} />
+			{:else if level === 1}
+				<ProductMenu products={['exp200', 'gold']} onSelect={handleSelect} />
 			{/if}
 		{/if}
 	</div>
