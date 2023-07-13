@@ -1,7 +1,10 @@
 <script lang="ts">
 	import tippy, { type Instance, type Props } from 'tippy.js/headless';
+	import droneIcon from '$lib/images/ui/drones.webp';
+	import NumberInput from '../NumberInput.svelte';
 
-	// export let onSetDrones: (drones: number) => void;
+	export let drones: number | undefined;
+	export let onSetDrones: (drones: number) => void;
 
 	let box: HTMLDivElement;
 	let template: HTMLDivElement;
@@ -15,8 +18,6 @@
 			menu = tippy(box, {
 				arrow: false,
 				interactive: true,
-				offset: [0, 12],
-				placement: 'auto-start',
 				render: () => ({ popper: template }),
 				trigger: 'manual'
 			});
@@ -56,6 +57,7 @@
 <div class="container">
 	<div
 		class="focus-template marker"
+		class:active={drones && drones > 0}
 		tabindex="0"
 		role="button"
 		bind:this={box}
@@ -67,22 +69,33 @@
 <div class="template" hidden>
 	<div class="tooltip-template" bind:this={template} on:focusout={handleFocusout}>
 		{#if menuActive}
-			<!-- TODO -->
+			<NumberInput
+				desc="Drone count"
+				min={0}
+				max={999999}
+				initial={drones ?? 0}
+				placeholder="Drones"
+				onValidInput={onSetDrones}
+				errorMsg="The specified drone count should be a number from 0 to 999999"
+				iconSrc={droneIcon}
+				iconSize={24}
+			/>
 		{/if}
 	</div>
 </div>
 
 <style>
-	.container {
-		z-index: 1;
-	}
 	.marker {
 		--focus-border-offset: -4px;
 		--focus-border-radius: 4px;
+		z-index: 1;
 		/* --marker-width is defined in ./FacilityRow.svelte */
 		width: var(--marker-width);
 		height: 100%;
 		background-color: rgb(221 160 221 / 0.4);
+	}
+	.marker.active {
+		background-color: rgb(221 160 221 / 0.7);
 	}
 	.template {
 		display: none;
