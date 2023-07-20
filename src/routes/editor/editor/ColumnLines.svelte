@@ -48,6 +48,7 @@
 		justify-content: center;
 	}
 	.column-line {
+		z-index: 1;
 		position: relative;
 		top: -3px;
 		width: 1px;
