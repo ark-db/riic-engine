@@ -17,10 +17,6 @@
 	const baseBoostMarkerWidth = 8;
 	$: boostMarkerWidth = $xScale ** 0.6 * baseBoostMarkerWidth;
 
-	// Reassignment forces element refresh via the {#key} block, since {} !== {}
-	let refreshBoostState: Record<string, never> = {};
-	let refreshProductState: Record<string, never> = {};
-
 	// Converts a hex triplet into the CSS rgb() format
 	function hexToRgb(hex: string, alpha: number): string {
 		let r = parseInt(hex.slice(1, 3), 16),
@@ -35,7 +31,6 @@
 	}
 
 	function setDrones(drones: number, index: number) {
-		refreshBoostState = {};
 		(room as BoostFacility).boosts[index] = drones;
 	}
 
@@ -44,7 +39,6 @@
 	}
 
 	function setProduct(product: Product, index: number) {
-		refreshProductState = {};
 		(room as BoostFacility).products[index] = product;
 	}
 </script>
@@ -56,25 +50,21 @@
 	<div class="main">
 		{#if kind === 'trading' || kind === 'manufacture'}
 			<div class="boosts" style="--marker-width: {boostMarkerWidth}px;">
-				{#key refreshBoostState}
-					<!-- eslint-disable-next-line @typescript-eslint/no-unused-vars -->
-					{#each { length: $activeSave.maxShift } as _, i}
-						<BoostMarker drones={getDrones(i)} onSetDrones={(drones) => setDrones(drones, i)} />
-					{/each}
-				{/key}
+				<!-- eslint-disable-next-line @typescript-eslint/no-unused-vars -->
+				{#each { length: $activeSave.maxShift } as _, i}
+					<BoostMarker drones={getDrones(i)} onSetDrones={(drones) => setDrones(drones, i)} />
+				{/each}
 			</div>
 			<div class="products">
-				{#key refreshProductState}
-					<!-- eslint-disable-next-line @typescript-eslint/no-unused-vars -->
-					{#each { length: $activeSave.maxShift } as _, i}
-						<ProductBox
-							{kind}
-							level={room.level}
-							product={getProduct(i)}
-							onSetProduct={(product) => setProduct(product, i)}
-						/>
-					{/each}
-				{/key}
+				<!-- eslint-disable-next-line @typescript-eslint/no-unused-vars -->
+				{#each { length: $activeSave.maxShift } as _, i}
+					<ProductBox
+						{kind}
+						level={room.level}
+						product={getProduct(i)}
+						onSetProduct={(product) => setProduct(product, i)}
+					/>
+				{/each}
 			</div>
 		{/if}
 		<div class="chars">
