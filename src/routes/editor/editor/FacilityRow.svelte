@@ -18,6 +18,10 @@
 	const baseBoostMarkerWidth = 8;
 	$: boostMarkerWidth = $xScale ** 0.6 * baseBoostMarkerWidth;
 
+	// Reassignment forces element refresh via the {#key} block, since {} !== {}
+	let refreshBoostState: Record<string, never> = {};
+	let refreshProductState: Record<string, never> = {};
+
 	// Converts a hex triplet into the CSS rgb() format
 	function hexToRgb(hex: string, alpha: number): string {
 		let r = parseInt(hex.slice(1, 3), 16),
@@ -33,6 +37,7 @@
 
 	function setDrones(drones: number, index: number) {
 		(room as BoostFacility).boosts[index] = drones;
+		refreshBoostState = {};
 	}
 
 	function getProduct(index: number) {
@@ -41,6 +46,7 @@
 
 	function setProduct(product: Product, index: number) {
 		(room as BoostFacility).products[index] = product;
+		refreshProductState = {};
 	}
 </script>
 
@@ -51,21 +57,25 @@
 	<div class="main">
 		{#if kind === 'trading' || kind === 'manufacture'}
 			<div class="boosts" style="--marker-width: {boostMarkerWidth}px;">
-				<!-- eslint-disable-next-line @typescript-eslint/no-unused-vars -->
-				{#each { length: $activeSave.maxShift } as _, i}
-					<BoostMarker drones={getDrones(i)} onSetDrones={(drones) => setDrones(drones, i)} />
-				{/each}
+				{#key refreshBoostState}
+					<!-- eslint-disable-next-line @typescript-eslint/no-unused-vars -->
+					{#each { length: $activeSave.maxShift } as _, i}
+						<BoostMarker drones={getDrones(i)} onSetDrones={(drones) => setDrones(drones, i)} />
+					{/each}
+				{/key}
 			</div>
 			<div class="products">
-				<!-- eslint-disable-next-line @typescript-eslint/no-unused-vars -->
-				{#each { length: $activeSave.maxShift } as _, i}
-					<ProductBox
-						{kind}
-						level={room.level}
-						product={getProduct(i)}
-						onSetProduct={(product) => setProduct(product, i)}
-					/>
-				{/each}
+				{#key refreshProductState}
+					<!-- eslint-disable-next-line @typescript-eslint/no-unused-vars -->
+					{#each { length: $activeSave.maxShift } as _, i}
+						<ProductBox
+							{kind}
+							level={room.level}
+							product={getProduct(i)}
+							onSetProduct={(product) => setProduct(product, i)}
+						/>
+					{/each}
+				{/key}
 			</div>
 		{/if}
 		<div class="chars">
