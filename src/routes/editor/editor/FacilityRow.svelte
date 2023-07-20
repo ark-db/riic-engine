@@ -6,6 +6,7 @@
 	import type { FacilityName, Facility, BoostFacility, Product } from '$lib/types';
 	import BoostMarker from './BoostMarker.svelte';
 	import ProductBox from './ProductBox.svelte';
+	import ShiftBox from './ShiftBox.svelte';
 
 	export let kind: FacilityName;
 	export let room: Facility | BoostFacility;
@@ -68,7 +69,10 @@
 			</div>
 		{/if}
 		<div class="chars">
-			<!-- TODO -->
+			<!-- eslint-disable-next-line @typescript-eslint/no-unused-vars -->
+			{#each { length: $activeSave.maxShift } as _}
+				<ShiftBox {kind} level={room.level} />
+			{/each}
 		</div>
 	</div>
 </div>
@@ -86,9 +90,13 @@
 		justify-content: center;
 	}
 	.main {
+		/* --box-width is used in ./ProductBox.svelte and ./ShiftBox.svelte */
+		/* --column-width is defined in ./+page.svelte */
+		--box-width: calc(var(--column-width) + 1em);
 		/* --product-row-height is used in ./ProductBox.svelte */
 		/* --row-height is defined in ./+page.svelte */
 		--product-row-height: calc(var(--row-height) / 5);
+
 		flex-grow: 1;
 		position: relative;
 	}
@@ -96,7 +104,6 @@
 		position: absolute;
 		top: 0;
 		height: calc(var(--row-height) + var(--product-row-height));
-		/* --column-width is defined in ./+page.svelte */
 		margin-left: calc(var(--column-width) - var(--marker-width) / 2 + 16px);
 		display: flex;
 		column-gap: calc(var(--column-width) - var(--marker-width) + 16px);
@@ -110,5 +117,6 @@
 	}
 	.chars {
 		height: var(--row-height);
+		display: flex;
 	}
 </style>

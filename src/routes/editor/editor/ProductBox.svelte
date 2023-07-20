@@ -103,12 +103,10 @@
 	.box {
 		--focus-border-offset: -1px;
 		--focus-border-radius: 0;
-		/* --column-width is defined in ./+page.svelte */
-		--box-width: calc(var(--column-width) + 1em);
+		/* --box-width is defined in ./FacilityRow.svelte */
 		width: var(--box-width);
 		/* --product-row-height is defined in ./FacilityRow.svelte */
 		height: var(--product-row-height);
-		position: relative;
 	}
 	.template {
 		display: none;
