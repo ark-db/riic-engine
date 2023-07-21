@@ -3,7 +3,6 @@ use bincode::{
     config::{standard, Configuration, Limit, LittleEndian, Varint},
     decode_from_slice, encode_to_vec, Decode, Encode,
 };
-use once_cell::sync::Lazy;
 use rusqlite::{
     types::{FromSql, FromSqlError, ToSql, ToSqlOutput, Value, ValueRef},
     Error as SqlError,
@@ -172,11 +171,11 @@ impl Default for Save {
 
 type BincodeConfig = Configuration<LittleEndian, Varint, Limit<MAX_SAVE_SIZE>>;
 
-static BINCODE_CONFIG: Lazy<BincodeConfig> = Lazy::new(|| standard().with_limit::<MAX_SAVE_SIZE>());
+const BINCODE_CONFIG: BincodeConfig = standard().with_limit();
 
 impl ToSql for Save {
     fn to_sql(&self) -> Result<ToSqlOutput<'_>, SqlError> {
-        let data = encode_to_vec(self, *BINCODE_CONFIG)
+        let data = encode_to_vec(self, BINCODE_CONFIG)
             .map_err(|e| SqlError::ToSqlConversionFailure(e.into()))?;
 
         Ok(ToSqlOutput::Owned(Value::Blob(data)))
@@ -185,7 +184,7 @@ impl ToSql for Save {
 
 impl FromSql for Save {
     fn column_result(value: ValueRef<'_>) -> Result<Self, FromSqlError> {
-        decode_from_slice(value.as_blob()?, *BINCODE_CONFIG)
+        decode_from_slice(value.as_blob()?, BINCODE_CONFIG)
             .map_err(|e| FromSqlError::Other(e.into()))
             .map(|data| data.0)
     }
