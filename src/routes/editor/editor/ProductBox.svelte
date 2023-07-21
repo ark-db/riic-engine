@@ -109,8 +109,8 @@
 
 <style>
 	.box {
-		--focus-border-offset: -1px;
-		--focus-border-radius: 0;
+		--focus-border-offset: -2px;
+		--focus-border-radius: 2px;
 		/* --box-width is defined in ./FacilityRow.svelte */
 		width: var(--box-width);
 		/* --product-row-height is defined in ./FacilityRow.svelte */

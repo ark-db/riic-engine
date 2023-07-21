@@ -11,7 +11,6 @@
 	export let errorMsg: string;
 	export let iconSrc: string;
 	export let iconSize: number;
-	export const submit = handleSubmit;
 
 	let input: HTMLInputElement;
 
@@ -27,7 +26,7 @@
 	}
 
 	// Runs the `onValidInput` callback if the new value is valid and different from the old value
-	function handleSubmit() {
+	export function handleSubmit() {
 		if (invalid) {
 			if (qty !== null) {
 				error.handle(errorMsg);

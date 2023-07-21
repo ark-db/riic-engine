@@ -97,7 +97,7 @@
 				errorMsg="The specified drone count should be a number from 0 to 999999"
 				iconSrc={droneIcon}
 				iconSize={32}
-				bind:submit
+				bind:handleSubmit={submit}
 			/>
 		{/if}
 	</div>
