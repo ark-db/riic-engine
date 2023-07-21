@@ -45,7 +45,7 @@ struct NoShiftFacility {
     level: FacilityLevel,
 }
 
-type Operator = String;
+type Operator = Box<str>;
 type Shifts = Box<[Option<Operator>]>;
 
 #[derive(Serialize, Deserialize, Encode, Decode)]
@@ -185,7 +185,7 @@ impl ToSql for Save {
 impl FromSql for Save {
     fn column_result(value: ValueRef<'_>) -> Result<Self, FromSqlError> {
         decode_from_slice(value.as_blob()?, BINCODE_CONFIG)
-            .map_err(|e| FromSqlError::Other(e.into()))
             .map(|data| data.0)
+            .map_err(|e| FromSqlError::Other(e.into()))
     }
 }

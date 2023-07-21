@@ -51,6 +51,7 @@
 		}
 	}
 
+	// Hide tooltip after it loses focus via tab navigation
 	function handleFocusout({ relatedTarget }: FocusEvent) {
 		if (!(relatedTarget instanceof Node && template.contains(relatedTarget))) {
 			menu.hide();
@@ -58,8 +59,8 @@
 	}
 
 	function handleSelect(product: Product) {
-		menu.hide();
 		onSetProduct(product);
+		menu.hide();
 	}
 </script>
 

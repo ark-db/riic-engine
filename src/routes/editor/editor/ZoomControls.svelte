@@ -9,6 +9,7 @@
 	const { xFactor, yFactor, minFactor, maxFactor, changeX, changeY } = zoomControls;
 	const zoomStep = 0.5;
 
+	// Keyboard shortcuts: [Win/Cmd][+] to zoom in; [Win/Cmd][-] to zoom out
 	function handleKeydown({ key, metaKey }: KeyboardEvent) {
 		if (metaKey) {
 			if (key === '-') {
