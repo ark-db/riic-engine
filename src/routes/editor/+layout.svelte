@@ -66,7 +66,9 @@
 		display: flex;
 		align-items: center;
 		column-gap: 0.75em;
-		transition: background-color 0.15s, color 0.15s;
+		transition:
+			background-color 0.15s,
+			color 0.15s;
 	}
 	.home-link:is(:hover, :focus-within) {
 		outline: none;
@@ -78,8 +80,6 @@
 		font-size: 1.5em;
 	}
 	.top-bar {
-		/* --font-size is used in ./NumberInput.svelte */
-		--font-size: clamp(1.25em, 2vh, 1.4em);
 		grid-row: 1 / 2;
 		grid-column: 2 / 3;
 		padding: 0.5em;
@@ -104,9 +104,11 @@
 		box-shadow: 0 0 0.25em var(--dark-mild);
 	}
 	.stats {
+		/* --font-size is used in ./NumberInput.svelte */
+		--font-size: clamp(1.25em, 2vh, 1.4em);
 		display: flex;
 		align-items: center;
-		column-gap: 0.5em;
+		column-gap: 1.5em;
 	}
 	main {
 		grid-row: 2 / 3;

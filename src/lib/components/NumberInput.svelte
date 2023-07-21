@@ -65,13 +65,12 @@
 
 <style>
 	div {
-		padding: 0 0.5em;
 		display: flex;
 		align-items: center;
-		column-gap: 0.5em;
+		/* --font-size is defined in the parent component */
+		column-gap: calc(var(--font-size) / 1.8);
 	}
 	input {
-		/* --font-size is defined in the parent component */
 		font-size: var(--font-size);
 	}
 	input.invalid:not(:placeholder-shown) {
