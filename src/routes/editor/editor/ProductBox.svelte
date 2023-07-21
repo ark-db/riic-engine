@@ -13,7 +13,10 @@
 	let template: HTMLDivElement;
 	let menu: Instance<Props>;
 
+	let menuActive = false;
+
 	function initMenu() {
+		menuActive = true;
 		if (!menu) {
 			menu = tippy(box, {
 				arrow: false,
@@ -55,12 +58,14 @@
 	function handleFocusout({ relatedTarget }: FocusEvent) {
 		if (!(relatedTarget instanceof Node && template.contains(relatedTarget))) {
 			menu.hide();
+			menuActive = false;
 		}
 	}
 
 	function handleSelect(product: Product) {
 		onSetProduct(product);
 		menu.hide();
+		menuActive = false;
 	}
 </script>
 
@@ -79,22 +84,24 @@
 
 <div class="template" hidden>
 	<div class="tooltip-template" bind:this={template} on:focusout|trusted={handleFocusout}>
-		{#if kind === 'trading'}
-			{#if level === 3}
-				<ProductMenu products={['lmd', 'orundum']} onSelect={handleSelect} />
-			{:else}
-				<ProductMenu products={['lmd']} onSelect={handleSelect} />
-			{/if}
-		{:else if kind === 'manufacture'}
-			{#if level === 3}
-				<ProductMenu
-					products={['exp200', 'exp400', 'exp1000', 'gold', 'shard']}
-					onSelect={handleSelect}
-				/>
-			{:else if level === 2}
-				<ProductMenu products={['exp200', 'exp400', 'gold']} onSelect={handleSelect} />
-			{:else if level === 1}
-				<ProductMenu products={['exp200', 'gold']} onSelect={handleSelect} />
+		{#if menuActive}
+			{#if kind === 'trading'}
+				{#if level === 3}
+					<ProductMenu products={['lmd', 'orundum']} onSelect={handleSelect} />
+				{:else}
+					<ProductMenu products={['lmd']} onSelect={handleSelect} />
+				{/if}
+			{:else if kind === 'manufacture'}
+				{#if level === 3}
+					<ProductMenu
+						products={['exp200', 'exp400', 'exp1000', 'gold', 'shard']}
+						onSelect={handleSelect}
+					/>
+				{:else if level === 2}
+					<ProductMenu products={['exp200', 'exp400', 'gold']} onSelect={handleSelect} />
+				{:else if level === 1}
+					<ProductMenu products={['exp200', 'gold']} onSelect={handleSelect} />
+				{/if}
 			{/if}
 		{/if}
 	</div>
