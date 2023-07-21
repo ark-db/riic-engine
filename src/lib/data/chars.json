@@ -1570,6 +1570,14 @@
 			{ "id": "meet_flag[070]", "elite": 2, "level": 1 }
 		]
 	},
+	"char_4102_threye": {
+		"name": "Valarqvin",
+		"rarity": 5,
+		"skills": [
+			{ "id": "meet_spd&bd[000]", "elite": 0, "level": 1 },
+			{ "id": "meet_spd&bd[010]", "elite": 2, "level": 1 }
+		]
+	},
 	"char_215_mantic": {
 		"name": "Manticore",
 		"rarity": 5,

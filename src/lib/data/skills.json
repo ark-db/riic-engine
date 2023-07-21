@@ -230,8 +230,8 @@
 		"iconId": "bskill_ctrl_lonely"
 	},
 	"control_dorm_rec[000]": {
-		"name": "领袖",
-		"desc": "进驻控制中枢时，所有宿舍内所有干员的心情每小时恢复<@cc.vup>+0.05</>（同种效果取最高）",
+		"name": "Leader",
+		"desc": "When this Operator is assigned to the Control Center, all Operators in Dormitories recover <@cc.vup>+0.05</> Morale per hour (strongest effect of the same type applies)",
 		"iconId": "bskill_ctrl_leader"
 	},
 	"power_rec_spd&cost[000]": {
@@ -820,12 +820,12 @@
 		"iconId": "bskill_tra_spd&limit6"
 	},
 	"trade_ord_spd&limit[020]": {
-		"name": "Karlan Commercial α",
+		"name": "Karlan Trade α",
 		"desc": "When this Operator is assigned to a Trading Post, order acquisition efficiency <@cc.vup>+15%</> and the order limit <@cc.vup>+2</>",
 		"iconId": "bskill_tra_spd&limit3"
 	},
 	"trade_ord_spd&limit[021]": {
-		"name": "Karlan Commercial β",
+		"name": "Karlan Trade β",
 		"desc": "When this Operator is assigned to a Trading Post, order acquisition efficiency <@cc.vup>+15%</> and the order limit <@cc.vup>+4</>",
 		"iconId": "bskill_tra_spd&limit4"
 	},
@@ -1345,13 +1345,13 @@
 		"iconId": "bskill_train_vanguard&sniper"
 	},
 	"train_spd_doubleProf[100]": {
-		"name": "红龙之血",
-		"desc": "进驻训练室协助位时，<@cc.kw>术师</>与<@cc.kw>医疗</>干员的专精技能训练速度<@cc.vup>+30%</>",
+		"name": "Red Dragon's Blood",
+		"desc": "When this Operator is assigned to be the Trainer in the Training Room, <@cc.kw>Caster</> and <@cc.kw>Medic</> Operators' Specialization training speed <@cc.vup>+30%</>",
 		"iconId": "bskill_train_caster&medic1"
 	},
 	"train_spd_doubleProf[110]": {
-		"name": "红龙之血",
-		"desc": "进驻训练室协助位时，<@cc.kw>术师</>与<@cc.kw>医疗</>干员的专精技能训练速度<@cc.vup>+45%</>",
+		"name": "Red Dragon's Blood",
+		"desc": "When this Operator is assigned to be the Trainer in the Training Room, <@cc.kw>Caster</> and <@cc.kw>Medic</> Operators' Specialization training speed <@cc.vup>+45%</>",
 		"iconId": "bskill_train_caster&medic2"
 	},
 	"train_spd_doubleProf2[001]": {
@@ -2119,6 +2119,16 @@
 		"desc": "进驻会客室时，线索搜集速度提升<@cc.vup>+10%</>，与其他<$cc.g.sm><@cc.kw>萨米</></>干员进驻会客室一起工作时，线索搜集速度额外提升<@cc.vup>+5%</>，自身心情每小时消耗<@cc.vdown>+0.5</>",
 		"iconId": "bskill_meet_spd&sami"
 	},
+	"meet_spd&bd[000]": {
+		"name": "远见",
+		"desc": "进驻会客室时，线索搜集速度提升<@cc.vup>10%</>，当与<@cc.kw>提丰</>进驻会客室一起工作时，线索搜集速度额外提升<@cc.vup>15%</>，自身心情每小时消耗<@cc.vdown>+0.5</>",
+		"iconId": "bskill_meet_spd&bd"
+	},
+	"meet_spd&bd[010]": {
+		"name": "未来之途",
+		"desc": "进驻会客室时，线索搜集速度提升<@cc.vup>10%</>，当与<@cc.kw>提丰</>进驻会客室一起工作时，线索搜集速度额外提升<@cc.vup>15%</>，自身心情每小时消耗<@cc.vdown>+0.5</>，且更容易获得线索板上尚未拥有的线索",
+		"iconId": "bskill_meet_spd&bd&notOwned"
+	},
 	"meet_spd_condChar[000]": {
 		"name": "Proficient Artistry",
 		"desc": "When this Operator is assigned to the Reception Room, if no other Operators are working in the Reception Room, increases Clue search speed by <@cc.vup>35%</>",
@@ -2130,8 +2140,8 @@
 		"iconId": "bskill_meet_spd&cost"
 	},
 	"meet_spd&cost_condChar[000]": {
-		"name": "双面间谍",
-		"desc": "进驻会客室时，如果会客室内只有自身处于工作状态时，线索搜集速度提升<@cc.vup>50%</>，心情每小时消耗<@cc.vdown>+2</>",
+		"name": "Double Agent",
+		"desc": "When this Operator is assigned to the Reception Room, if no other Operators are working in the Reception Room, increases Clue search speed by <@cc.vup>50%</>, and Morale conmused per hour <@cc.vdown>+2</>",
 		"iconId": "bskill_meet_spd&cost_condChar"
 	},
 	"meet_spd&cost_condChar[001]": {
@@ -2216,12 +2226,12 @@
 	},
 	"meet_spd&team[040]": {
 		"name": "Courier",
-		"desc": "When this Operator is assigned to the Reception Room, Clue search speed increases by <@cc.vup>10%</> and it's easier to obtain the clues of <@cc.kw>Karlan Commercial</>",
+		"desc": "When this Operator is assigned to the Reception Room, Clue search speed increases by <@cc.vup>10%</> and it's easier to obtain the clues of <@cc.kw>Karlan Trade</>",
 		"iconId": "bskill_meet_kjerag2"
 	},
 	"meet_spd&team[041]": {
 		"name": "Snow Watcher",
-		"desc": "When this Operator is assigned to the Reception Room, Clue search speed increases by <@cc.vup>10%</> and it's easier to obtain the clues of <@cc.kw>Karlan Commercial</>",
+		"desc": "When this Operator is assigned to the Reception Room, Clue search speed increases by <@cc.vup>10%</> and it's easier to obtain the clues of <@cc.kw>Karlan Trade</>",
 		"iconId": "bskill_meet_kjerag2"
 	},
 	"meet_spd&team[050]": {
@@ -2265,8 +2275,8 @@
 		"iconId": "bskill_meet_spdNotOwned2"
 	},
 	"meet_spd_notOwned[001]": {
-		"name": "情报分析",
-		"desc": "进驻会客室时，更容易获得线索板上尚未拥有的线索",
+		"name": "Intel Analysis",
+		"desc": "When this Operator is assigned to the Reception Room, increases the likelihood of obtaining clues that are not on the Clue Board.",
 		"iconId": "bskill_meet_spdNotOwned1"
 	},
 	"meet_spd_Owned[000]": {
