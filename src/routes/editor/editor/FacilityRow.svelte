@@ -111,9 +111,11 @@
 		position: relative;
 	}
 	.boosts {
+		/* --marker-height is used in ./BoostMarker.svelte */
+		--marker-height: calc(var(--row-height) + var(--product-row-height));
 		position: absolute;
 		top: 0;
-		height: calc(var(--row-height) + var(--product-row-height));
+		height: var(--marker-height);
 		margin-left: calc(var(--column-width) - var(--marker-width) / 2 + 16px);
 		display: flex;
 		column-gap: calc(var(--column-width) - var(--marker-width) + 16px);
