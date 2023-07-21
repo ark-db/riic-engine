@@ -89,7 +89,6 @@ impl Database {
 }
 
 #[derive(Debug, Error)]
-#[allow(clippy::module_name_repetitions)]
 pub enum DbError {
     #[error("Failed to execute query statement")]
     Execution,

@@ -13,6 +13,7 @@
     unused_import_braces,
     unused_qualifications
 )]
+#![allow(clippy::module_name_repetitions)]
 
 mod base;
 pub mod db;
@@ -24,7 +25,6 @@ pub mod open {
     /// # Errors
     /// Returns error if the URL cannot be opened.
     #[tauri::command]
-    #[allow(clippy::module_name_repetitions)]
     pub fn open(url: &str) -> Result<(), &str> {
         open::that_detached(url).map_err(|_| "An error occurred while opening the URL")
     }
