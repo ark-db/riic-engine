@@ -11,6 +11,7 @@
 	export let errorMsg: string;
 	export let iconSrc: string;
 	export let iconSize: number;
+	export const submit = handleSubmit;
 
 	let input: HTMLInputElement;
 	let qty = initial;

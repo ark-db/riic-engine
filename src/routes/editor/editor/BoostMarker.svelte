@@ -9,12 +9,13 @@
 	let box: HTMLDivElement;
 	let template: HTMLDivElement;
 	let menu: Instance<Props>;
+	let submit: () => void;
 
 	let menuActive = false;
 
 	function initMenu() {
+		menuActive = true;
 		if (!menu) {
-			menuActive = true;
 			menu = tippy(box, {
 				arrow: false,
 				interactive: true,
@@ -49,10 +50,23 @@
 		}
 	}
 
-	function handleFocusout({ relatedTarget }: FocusEvent) {
-		if (!(relatedTarget instanceof Node && template.contains(relatedTarget))) menu.hide();
+	function handleKeyFocusout({ relatedTarget }: FocusEvent) {
+		if (!(relatedTarget instanceof Node && template.contains(relatedTarget))) {
+			menu.hide();
+		}
+	}
+
+	function handleMouseFocusout(event: MouseEvent) {
+		let target = document.elementFromPoint(event.x, event.y);
+		if (!(target === box || template.contains(target)) && menuActive) {
+			submit();
+			menu.hide();
+			menuActive = false;
+		}
 	}
 </script>
+
+<svelte:window on:click|trusted={handleMouseFocusout} />
 
 <div class="container">
 	<div
@@ -67,7 +81,7 @@
 </div>
 
 <div class="template" hidden>
-	<div class="tooltip-template" bind:this={template} on:focusout={handleFocusout}>
+	<div class="tooltip-template" bind:this={template} on:focusout|trusted={handleKeyFocusout}>
 		{#if menuActive}
 			<NumberInput
 				desc="Drone count"
@@ -79,6 +93,7 @@
 				errorMsg="The specified drone count should be a number from 0 to 999999"
 				iconSrc={droneIcon}
 				iconSize={32}
+				bind:submit
 			/>
 		{/if}
 	</div>
