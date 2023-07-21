@@ -5,7 +5,7 @@
 	export let kind: FacilityName;
 	export let level: number;
 
-	let capacity = facilities[kind].capacity[level - 1];
+	const capacity = facilities[kind].capacity[level - 1];
 </script>
 
 <div class="focus-template box">{capacity}</div>

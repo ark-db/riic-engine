@@ -14,6 +14,7 @@
 	export const submit = handleSubmit;
 
 	let input: HTMLInputElement;
+
 	let qty = initial;
 	$: invalid = !isValid(qty);
 

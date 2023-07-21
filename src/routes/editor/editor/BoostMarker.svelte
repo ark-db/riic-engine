@@ -53,11 +53,13 @@
 	function handleKeyFocusout({ relatedTarget }: FocusEvent) {
 		if (!(relatedTarget instanceof Node && template.contains(relatedTarget))) {
 			menu.hide();
+			menuActive = false;
 		}
 	}
 
 	function handleMouseFocusout(event: MouseEvent) {
-		let target = document.elementFromPoint(event.x, event.y);
+		const target = document.elementFromPoint(event.x, event.y);
+
 		if (!(target === box || template.contains(target)) && menuActive) {
 			submit();
 			menu.hide();

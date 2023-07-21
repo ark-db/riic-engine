@@ -6,7 +6,7 @@
 	export let kind: FacilityName;
 	export let onClick: () => void;
 
-	let { color } = facilities[kind];
+	const { color } = facilities[kind];
 </script>
 
 <button
@@ -14,7 +14,7 @@
 	style="--color: {color};"
 	aria-label="Add facility"
 	use:tooltip={'Add facility'}
-	on:click={onClick}
+	on:click|trusted={onClick}
 >
 	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="48" height="48">
 		<path

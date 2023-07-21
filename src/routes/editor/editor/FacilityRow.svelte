@@ -12,7 +12,7 @@
 	export let room: Facility | BoostFacility;
 
 	const rowOpacity = 0.7;
-	let { name, color } = facilities[kind];
+	const { name, color } = facilities[kind];
 
 	const { xScale } = zoomScales;
 	const baseBoostMarkerWidth = 8;
@@ -24,7 +24,7 @@
 
 	// Converts a hex triplet into the CSS rgb() format
 	function hexToRgb(hex: string, alpha: number): string {
-		let r = parseInt(hex.slice(1, 3), 16),
+		const r = parseInt(hex.slice(1, 3), 16),
 			g = parseInt(hex.slice(3, 5), 16),
 			b = parseInt(hex.slice(5, 7), 16);
 

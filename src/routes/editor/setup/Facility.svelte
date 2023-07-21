@@ -12,8 +12,8 @@
 	// A specified callback for the `onDelete` prop implies that a facility can be deleted
 	export let onDelete: (() => void) | undefined = undefined;
 
-	let facility = facilities[kind];
-	let maxLevel = facility.capacity.length;
+	const facility = facilities[kind];
+	const maxLevel = facility.capacity.length;
 </script>
 
 <div

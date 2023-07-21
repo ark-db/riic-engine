@@ -15,7 +15,7 @@
 	<img class="lancet" src={lancet} alt="Lancet-2" width="320" height="320" />
 	<div class="links">
 		<a href="/">Return to main menu</a>
-		<button on:click={openGithub}>
+		<button on:click|trusted={openGithub}>
 			Report issue on GitHub <img src={github} alt="GitHub logo" width="32" height="32" />
 		</button>
 	</div>

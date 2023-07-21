@@ -4,10 +4,11 @@
 	export let label: string;
 	export let onClose: () => void;
 
+	let modal: HTMLDialogElement;
+
 	const focusableElements =
 		'a[href], button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])';
 
-	let modal: HTMLDialogElement;
 	onMount(() => modal.show());
 
 	// Runs the `onClose` callback if a user clicks on the dialog background

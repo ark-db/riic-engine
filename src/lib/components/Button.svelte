@@ -4,14 +4,15 @@
 	export let desc: string;
 	export let onClick: () => void;
 
+	let buttonWidth: number;
+	let buttonHeight: number;
+
 	// Reassigning `refreshState` forces element refresh via the {#key} block, since {} !== {}
 	let refreshState: Record<string, never> = {};
 
 	// Force element refresh whenever `desc` changes
 	$: desc, (refreshState = {});
 
-	let buttonWidth: number;
-	let buttonHeight: number;
 	$: small = Math.min(buttonWidth, buttonHeight) < 32;
 </script>
 

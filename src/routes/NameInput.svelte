@@ -7,6 +7,7 @@
 	export let active: boolean;
 
 	let input: HTMLInputElement;
+
 	let origText = `${text}`;
 
 	onMount(() => {

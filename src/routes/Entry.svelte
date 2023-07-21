@@ -8,19 +8,19 @@
 
 	export let save: SaveTimeData;
 
+	let container: HTMLLIElement;
+
 	let hovering = false;
+	let focused = false;
 	let pendingRename = false;
 	let pendingDelete = false;
-
-	let container: HTMLLIElement;
-	let focused = false;
 
 	// Checks if this component instance contains the currently-focused element. Works with keyboard navigation!
 	function handleFocusChange({ type, target, relatedTarget }: FocusEvent) {
 		type FocusEventType = 'focusin' | 'focusout';
 
 		// Test different target element depending on the event type
-		let focusTarget = (type as FocusEventType) === 'focusin' ? target : relatedTarget;
+		const focusTarget = (type as FocusEventType) === 'focusin' ? target : relatedTarget;
 		focused = focusTarget instanceof Node && container.contains(focusTarget);
 	}
 
@@ -61,10 +61,10 @@
 	<li
 		class="container"
 		bind:this={container}
-		on:mouseenter={() => (hovering = true)}
-		on:mouseleave={() => (hovering = false)}
-		on:focusin={handleFocusChange}
-		on:focusout={handleFocusChange}
+		on:mouseenter|trusted={() => (hovering = true)}
+		on:mouseleave|trusted={() => (hovering = false)}
+		on:focusin|trusted={handleFocusChange}
+		on:focusout|trusted={handleFocusChange}
 	>
 		{#if pendingRename}
 			<NameInput bind:text={save.name} bind:active={pendingRename} />

@@ -2,12 +2,7 @@
 	import { base } from '$app/paths';
 	import { page } from '$app/stores';
 
-	type NavLink = {
-		title: string;
-		url: string;
-	};
-
-	const tabs: NavLink[] = [
+	const tabs = [
 		{
 			title: 'Layout',
 			url: '/setup'
@@ -44,7 +39,9 @@
 		padding: 0.75em;
 		color: var(--gray-mild);
 		font-weight: 600;
-		transition: background-color 0.15s, color 0.15s;
+		transition:
+			background-color 0.15s,
+			color 0.15s;
 	}
 	a:is(:hover, :focus-within) {
 		color: var(--light);

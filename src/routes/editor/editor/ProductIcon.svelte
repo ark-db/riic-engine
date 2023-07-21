@@ -12,7 +12,7 @@
 	let iconWidth: number;
 	let iconHeight: number;
 
-	let { name, rarity } = items[product];
+	const { name, rarity } = items[product];
 </script>
 
 <div style="--size: {size}px;">
