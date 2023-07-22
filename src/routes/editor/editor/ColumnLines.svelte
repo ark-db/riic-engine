@@ -18,26 +18,33 @@
 <style>
 	.markers {
 		--label-border-width: 1px;
-		--label-padding: calc(0.35em - var(--label-border-width));
+		--label-padding: 0.35em;
+		--column-marker-width: 1em;
 		position: absolute;
-		top: calc(0.25em - var(--label-padding) * 2);
+		top: 0;
+		/* facility icon size = 24px */
+		/* --facility-edge-padding is defined in ./+page.svelte */
+		--facility-edge-width: calc(24px + var(--facility-edge-padding) * 2);
+		--column-marker-offset: calc((2em - var(--column-marker-width)) / 2);
+		/* --page-padding is defined in ../+layout.svelte */
 		/* --column-width is defined in ./+page.svelte */
-		left: calc(3.5em + var(--column-width));
+		left: calc(
+			var(--facility-edge-width) + var(--page-padding) + var(--column-width) +
+				var(--column-marker-offset)
+		);
 		display: flex;
 		column-gap: var(--column-width);
 	}
 	.column-marker {
-		width: 1em;
+		width: var(--column-marker-width);
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		row-gap: 0.25em;
 	}
 	p {
 		z-index: 2;
 		width: 1.75em;
 		position: sticky;
-		top: calc(0px - 8px - var(--label-padding) - var(--label-border-width));
 		border: var(--label-border-width) solid var(--dark-mild);
 		padding: var(--label-padding);
 		background-color: black;
@@ -50,7 +57,8 @@
 	.column-line {
 		z-index: 1;
 		position: relative;
-		top: -3px;
+		/* --shift-box-focus-border-offset is defined in ./+page.svelte */
+		top: calc(-1.5px - var(--shift-box-focus-border-offset) * 2);
 		width: 1px;
 		height: var(--column-height);
 		background-color: var(--light);

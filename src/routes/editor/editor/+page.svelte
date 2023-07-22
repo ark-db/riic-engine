@@ -16,7 +16,7 @@
 	let gridHeight: number;
 
 	$: columnWidth = $xScale * baseColumnWidth;
-	$: rowWidth = gridWidth + columnWidth + 37;
+	$: rowWidth = gridWidth + columnWidth + 39;
 	$: rowHeight = $yScale * baseRowHeight;
 
 	let controlsActive = true;
@@ -29,7 +29,7 @@
 	<title>RIIC Engine • Editor</title>
 </svelte:head>
 
-<div style="--column-width: {columnWidth}px;">
+<div class="main" style="--column-width: {columnWidth}px;">
 	<ColumnLines bind:gridWidth {gridHeight} />
 	<FacilityGrid bind:gridHeight {rowWidth} {rowHeight} />
 </div>
@@ -45,6 +45,12 @@
 </div>
 
 <style>
+	.main {
+		/* --facility-edge-padding is used in ./ColumnLines.svelte and ./FacilityRow.svelte */
+		--facility-edge-padding: 0.5em;
+		/* --shift-box-focus-border-offset is used in ./ColumnLines.svelte, ./FacilityGrid.svelte, and ./ShiftBox.svelte */
+		--shift-box-focus-border-offset: -1px;
+	}
 	.controls-toggle {
 		z-index: 1;
 		position: fixed;

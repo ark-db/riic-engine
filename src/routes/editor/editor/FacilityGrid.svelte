@@ -46,8 +46,9 @@
 <style>
 	.facilities {
 		width: var(--row-width);
-		margin-top: 0.75em;
-		padding-right: 1em;
+		/* --shift-box-focus-border-offset is defined in ./+page.svelte */
+		margin-top: calc(1em - var(--shift-box-focus-border-offset) * 2);
+		padding-right: 2em;
 		display: flex;
 		flex-direction: column;
 		row-gap: var(--row-gap);

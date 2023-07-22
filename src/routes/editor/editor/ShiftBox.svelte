@@ -18,7 +18,8 @@
 
 <style>
 	.box {
-		--focus-border-offset: -1px;
+		/* --shift-box-focus-border-offset is defined in ./+page.svelte */
+		--focus-border-offset: var(--shift-box-focus-border-offset);
 		--focus-border-radius: 0;
 		/* --box-width is defined in ./FacilityRow.svelte */
 		width: var(--box-width);

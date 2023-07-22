@@ -111,10 +111,12 @@
 		column-gap: 1.5em;
 	}
 	main {
+		/* --page-padding is used in ./editor/ColumnLines.svelte */
+		--page-padding: 0.75em;
 		grid-row: 2 / 3;
 		grid-column: 2 / 3;
 		position: relative;
-		padding: 0.75em;
+		padding: var(--page-padding);
 		background: url('$lib/images/contours.webp') no-repeat;
 		background-size: cover;
 		overflow: auto;

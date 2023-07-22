@@ -93,7 +93,8 @@
 		display: flex;
 	}
 	.edge {
-		padding: 0 calc(0.5em - 2px);
+		/* --facility-edge-padding is defined in ./+page.svelte */
+		padding: 0 var(--facility-edge-padding);
 		background-color: var(--color);
 		display: flex;
 		align-items: center;
