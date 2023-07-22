@@ -18,7 +18,6 @@
 		tabindex="0"
 		role="button"
 	/>
-
 	<svelte:fragment slot="menu">
 		{#if kind === 'trading'}
 			{#if level === 3}
