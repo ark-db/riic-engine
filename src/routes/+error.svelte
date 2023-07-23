@@ -5,7 +5,7 @@
 	import lancet from '$lib/images/lancet.webp';
 
 	function openGithub() {
-		invoke('open', { url: 'https://github.com/ark-db/riic-engine/issues/new' });
+		invoke('open', { url: 'https://github.com/ark-db/riic-engine/issues' });
 	}
 </script>
 
