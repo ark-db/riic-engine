@@ -48,13 +48,14 @@
 	}
 	.links {
 		margin: auto;
+		font-size: 1.1em;
 		display: flex;
 		column-gap: 5em;
 	}
 	a,
 	button {
-		width: 18em;
-		height: 4em;
+		width: 17em;
+		height: 3.75em;
 		border-radius: 0.5em;
 		display: flex;
 		align-items: center;
