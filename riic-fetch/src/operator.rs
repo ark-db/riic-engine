@@ -108,7 +108,7 @@ pub(crate) struct UpdatedOperatorTable<'a>(HashMap<Box<str>, UpdatedOperatorData
 struct UpdatedOperatorData<'a> {
     name: Box<str>,
     rarity: u8,
-    skills: &'a [BaseSkill],
+    skills: &'a [Box<[BaseSkill]>],
 }
 
 impl OperatorTable {

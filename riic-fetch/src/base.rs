@@ -6,7 +6,7 @@ use serde::{
 };
 use std::borrow::Cow;
 
-pub(crate) type CharSkills = HashMap<Box<str>, Box<[BaseSkill]>>;
+pub(crate) type CharSkills = HashMap<Box<str>, Box<[Box<[BaseSkill]>]>>;
 
 #[derive(Deserialize)]
 pub(crate) struct BaseData {
@@ -94,16 +94,21 @@ where
     }
 }
 
-impl From<UnprocessedCharEntry> for Box<[BaseSkill]> {
+impl From<UnprocessedCharEntry> for Box<[Box<[BaseSkill]>]> {
     fn from(value: UnprocessedCharEntry) -> Self {
         value
             .inner
             .iter()
-            .flat_map(|set| set.inner.iter())
-            .map(|skill| BaseSkill {
-                id: skill.id.clone(),
-                elite: skill.cond.elite,
-                level: skill.cond.level,
+            .filter(|set| set.inner.len() != 0)
+            .map(|set| {
+                set.inner
+                    .iter()
+                    .map(|skill| BaseSkill {
+                        id: skill.id.clone(),
+                        elite: skill.cond.elite,
+                        level: skill.cond.level,
+                    })
+                    .collect()
             })
             .collect()
     }
