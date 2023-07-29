@@ -165,13 +165,13 @@
 		"iconId": "bskill_ctrl_cost_bd2"
 	},
 	"control_mp_cost&bd_up[000]": {
-		"name": "知我为我",
-		"desc": "进驻控制中枢时，自身心情每小时消耗<@cc.vdown>+0.5</>；每个<$cc.g.sui><@cc.kw>岁</></>干员进驻在宿舍以外的设施则<$cc.bd_b1><@cc.rem>人间烟火</></><@cc.vup>+5</>（最多5名）",
+		"name": "I am I",
+		"desc": "When this Operator is assigned to the Control Center, self Morale loss per hour <@cc.vdown>+0.5</>; for each <$cc.g.sui><@cc.kw>Sui</></> Operator assigned to buildings other than Dormitories, <$cc.bd_b1><@cc.rem>Worldly Plight</></> <@cc.vup>+5</> (max 5)",
 		"iconId": "bskill_ctrl_cost_bd3"
 	},
 	"control_mp_bd_cost_expand[000]": {
-		"name": "孤光共照",
-		"desc": "进驻控制中枢时，<$cc.c.room2><@cc.kw>其他设施</></>内处于工作状态的干员心情每小时恢复<@cc.vup>+0.05</>；同时每有<@cc.vup>20</>点<$cc.bd_b1><@cc.rem>人间烟火</></>，则额外<@cc.vup>+0.05</>，（与控制中枢加成有<$cc.c.sui2_1><@cc.rem>特殊比较规则</></>）",
+		"name": "Solitary Light",
+		"desc": "When this Operator is assigned to the Control Center, Operators working in <$cc.c.room2><@cc.kw>other buildings</></> recover <@cc.vup>+0.05</> Morale per hour, with an additional <@cc.vup>+0.05</> for every <@cc.vup>20</> <$cc.bd_b1><@cc.rem>Worldly Plight</></> (<$cc.c.sui2_1><@cc.rem>Special Comparison Rules</></> apply with Control Center bonus)",
 		"iconId": "bskill_ctrl_cost_bd4"
 	},
 	"control_mp_cost&bd2[010]": {
@@ -355,8 +355,8 @@
 		"iconId": "bskill_power_rec_spd&addition2"
 	},
 	"manu_bd_to_bd[000]": {
-		"name": "古老巫术",
-		"desc": "进驻制造站时，每<@cc.vup>5</>点<$cc.bd_b1><@cc.rem>人间烟火</></>转化为<@cc.vup>1</>点<$cc.bd_C><@cc.rem>巫术结晶</></>",
+		"name": "Ancient Witchcraft",
+		"desc": "When this Operator is assigned to a Factory, every <@cc.vup>5</> <$cc.bd_b1><@cc.rem>Worldly Plight</></> is converted to <@cc.vup>1</> <$cc.bd_C><@cc.rem>Witchcraft Crystal</></>",
 		"iconId": "bskill_man_bd1"
 	},
 	"manu_prod_spd&power[000]": {
@@ -610,13 +610,13 @@
 		"iconId": "bskill_man_spd_bd2"
 	},
 	"manu_prod_spd_bd[200]": {
-		"name": "逐水草",
-		"desc": "进驻制造站时，每<@cc.vup>1</>点<$cc.bd_C><@cc.rem>巫术结晶</></><@cc.vup>+1%</>生产力",
+		"name": "Always on the Move",
+		"desc": "When this Operator is assigned to a Factory, for every <@cc.vup>1</> <$cc.bd_C><@cc.rem>Witchcraft Crystal</></>, productivity <@cc.vup>+1%</>",
 		"iconId": "bskill_man_spd_bd5"
 	},
 	"manu_prod_spd_bd[201]": {
-		"name": "问枯荣",
-		"desc": "进驻制造站时，每<@cc.vup>1</>点<$cc.bd_C><@cc.rem>巫术结晶</></><@cc.vup>+2%</>生产力",
+		"name": "Of Death and Rebirth",
+		"desc": "When this Operator is assigned to a Factory, for every <@cc.vup>1</> <$cc.bd_C><@cc.rem>Witchcraft Crystal</></>, productivity <@cc.vup>+2%</>",
 		"iconId": "bskill_man_spd_bd6"
 	},
 	"manu_formula_spd[000]": {
@@ -695,8 +695,8 @@
 		"iconId": "bskill_man_cost_all"
 	},
 	"trade_cost[000]": {
-		"name": "暖场",
-		"desc": "进驻贸易站时，贸易站内干员心情每小时消耗<@cc.vup>-0.1</>",
+		"name": "Warm-Up",
+		"desc": "When this Operator is assigned to a Trading Post, Morale loss of Operators in the Trading Post <@cc.vup>-0.1</> per hour",
 		"iconId": "bskill_tra_cost1"
 	},
 	"trade_cost&bd2[000]": {
@@ -915,8 +915,8 @@
 		"iconId": "bskill_tra_wt&cost2"
 	},
 	"trade_ord_spd&share[000]": {
-		"name": "代为说项",
-		"desc": "进驻贸易站时，贸易站内除自身以外每名处于工作状态的干员<@cc.vup>+15%</>订单获取效率",
+		"name": "Advocate",
+		"desc": "When this Operator is assigned to a Trading Post, other Operators working in the Trading Post have <@cc.vup>+15%</> order acquisition efficiency",
 		"iconId": "bskill_tra_share1"
 	},
 	"trade_ord_spd&cost_P[000]": {
@@ -2005,8 +2005,8 @@
 		"iconId": "bskill_hire_spd&cost2"
 	},
 	"hire_spd_cost[111]": {
-		"name": "特殊渠道 ",
-		"desc": "进驻人力办公室时，人脉资源的联络速度<@cc.vup>+20%</>，心情每小时消耗<@cc.vup>-0.25</>",
+		"name": "Special Channel",
+		"desc": "When this Operator is assigned to the HR Office, HR contacting speed <@cc.vup>+20%</>, Morale consumed per hour <@cc.vup>-0.25</>",
 		"iconId": "bskill_hire_spd&cost4"
 	},
 	"hire_spd_cost&clue[001]": {
@@ -2020,8 +2020,8 @@
 		"iconId": "bskill_hire_spd&cost3"
 	},
 	"hire_spd_cost&extra[000]": {
-		"name": "用人唯才",
-		"desc": "进驻人力办公室时，每个招募位（不包含初始招募位）<@cc.vup>+10%</>人脉资源的联络速度",
+		"name": "Meritocracy",
+		"desc": "When this Operator is assigned to the HR Office, <@cc.vup>+10%</> HR contacting speed for every Recruit slot other than the initial slot",
 		"iconId": "bskill_hire_spd&extra1"
 	},
 	"hire_spd&clue[010]": {
