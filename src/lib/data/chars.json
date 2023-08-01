@@ -691,6 +691,14 @@
 			[{ "id": "workshop_formula_device[000]", "elite": 2, "level": 1 }]
 		]
 	},
+	"char_488_buildr": {
+		"name": "Poncirus",
+		"rarity": 5,
+		"skills": [
+			[{ "id": "workshop_formula_probability[221]", "elite": 0, "level": 1 }],
+			[{ "id": "workshop_formula_cost3[221]", "elite": 2, "level": 1 }]
+		]
+	},
 	"char_261_sddrag": {
 		"name": "Reed",
 		"rarity": 5,
@@ -759,6 +767,14 @@
 		"skills": [
 			[{ "id": "train_spd&profession[020]", "elite": 0, "level": 1 }],
 			[{ "id": "train_spd[0000]", "elite": 2, "level": 1 }]
+		]
+	},
+	"char_4106_bryota": {
+		"name": "Bryophyta",
+		"rarity": 5,
+		"skills": [
+			[{ "id": "manu_formula_spd[100]", "elite": 0, "level": 1 }],
+			[{ "id": "manu_skill_spd1[020]", "elite": 2, "level": 1 }]
 		]
 	},
 	"char_106_franka": {
@@ -2180,6 +2196,14 @@
 			[{ "id": "control_upMeetingSpeed[000]", "elite": 2, "level": 1 }]
 		]
 	},
+	"char_1033_swire2": {
+		"name": "Swire the Elegant Wit",
+		"rarity": 6,
+		"skills": [
+			[{ "id": "trade_ord_spd[000]", "elite": 0, "level": 1 }],
+			[{ "id": "trade_ord_spd_variable[000]", "elite": 2, "level": 1 }]
+		]
+	},
 	"char_400_weedy": {
 		"name": "Weedy",
 		"rarity": 6,
@@ -2272,6 +2296,17 @@
 				{ "id": "dorm_powToRecAll[000]", "elite": 0, "level": 1 },
 				{ "id": "dorm_powToRecAll[010]", "elite": 2, "level": 1 }
 			]
+		]
+	},
+	"char_1016_agoat2": {
+		"name": "Eyjafjalla the Hvít Aska",
+		"rarity": 6,
+		"skills": [
+			[
+				{ "id": "train_spd&profession3[180]", "elite": 0, "level": 1 },
+				{ "id": "train_spd&profession3[181]", "elite": 2, "level": 1 }
+			],
+			[{ "id": "dorm_rec_all&profession[000]", "elite": 2, "level": 1 }]
 		]
 	},
 	"char_1020_reed2": {
