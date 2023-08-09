@@ -12,12 +12,12 @@ publish.workspace = true
 ahash = { workspace = true, features = ["serde"] }
 async-trait = "0.1.72"
 futures = "0.3.28"
-image = { version = "0.24.6", default-features = false, features = ["png", "webp", "webp-encoder"] }
+image = { version = "0.24.7", default-features = false, features = ["png", "webp", "webp-encoder"] }
 indexmap = { version = "2.0.0", features = ["serde"] }
 phf = { version = "0.11.2", features = ["macros"] }
 reqwest = { version = "0.11.18", default-features = false, features = ["json", "rustls-tls"] }
 serde.workspace = true
 serde_json.workspace = true
 thiserror.workspace = true
-tokio = { version = "1.29.1", features = ["macros", "rt-multi-thread"] }
+tokio = { version = "1.30.0", features = ["macros", "rt-multi-thread"] }
 toml = "0.7.6"

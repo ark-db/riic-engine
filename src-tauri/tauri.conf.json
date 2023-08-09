@@ -50,14 +50,15 @@
 			{
 				"title": "RIIC Engine",
 				"label": "main",
-				"center": true,
+				"visible": false,
 				"height": 720,
 				"width": 960,
 				"minHeight": 600,
 				"minWidth": 900,
-				"fileDropEnabled": false,
+				"center": true,
 				"theme": "Dark",
-				"visible": false
+				"acceptFirstMouse": true,
+				"fileDropEnabled": false
 			}
 		]
 	}
