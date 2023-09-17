@@ -10,14 +10,19 @@
 		"iconId": "bskill_ctrl_token_p_spd"
 	},
 	"control_token_prod_spd2[000]": {
-		"name": "以身作则",
-		"desc": "当与<$cc.tag.mh><@cc.kw>怪物猎人小队</></>干员进驻控制中枢一起工作时，所有制造站生产力<@cc.vup>+2%</>（同种效果取最高）",
+		"name": "Leading By Example",
+		"desc": "When this Operator is assigned together with other <$cc.tag.mh><@cc.kw>Monster Hunter Party</></> Operators to the Control Center, all Factories' productivity <@cc.vup>+2%</> (Only the strongest effect of this type takes place)",
 		"iconId": "bskill_ctrl_token_p_spd2"
 	},
 	"control_token_tra_spd[000]": {
-		"name": "秘传交涉术",
-		"desc": "当与<$cc.tag.mh><@cc.kw>怪物猎人小队</></>干员进驻控制中枢一起工作时，所有贸易站订单效率<@cc.vup>+7%</>（同种效果取最高）",
+		"name": "Esoteric Negotiations",
+		"desc": "When this Operator is assigned together with other <$cc.tag.mh><@cc.kw>Monster Hunter Party</></> Operators to the Control Center, all Trading Posts' order efficiency <@cc.vup>+7%</> (Only the strongest effect of this type takes place)",
 		"iconId": "bskill_ctrl_token_t_spd"
+	},
+	"control_bd_spd[000]": {
+		"name": "老友相聚",
+		"desc": "进驻控制中枢时，自身心情每小时消耗<@cc.vdown>+0.5</>；每个进驻在制造站的<$cc.g.bs><@cc.kw>黑钢国际</></>干员，生产力<@cc.vup>+5%</>",
+		"iconId": "bskill_ctrl_bd_spd"
 	},
 	"control_pow_bot[000]": {
 		"name": "I've Got This",
@@ -119,6 +124,11 @@
 		"desc": "When this Operator is assigned to the Control Center, increases Morale of all Operators in the Control Center by <@cc.vup>+0.05</> per hour.",
 		"iconId": "bskill_ctrl_cost"
 	},
+	"control_mp_cost[009]": {
+		"name": "笑靥如春",
+		"desc": "进驻控制中枢时，控制中枢内所有干员的心情每小时恢复<@cc.vup>+0.05</>",
+		"iconId": "bskill_ctrl_cost"
+	},
 	"control_allCost_condChar[000]": {
 		"name": "Moment of Respite",
 		"desc": "When this Operator is assigned together with <@cc.kw>Aak</> to the Control Center, increases Morale recovery per hour of all Operators in the Control Center by <@cc.vup>+0.25</>",
@@ -175,8 +185,8 @@
 		"iconId": "bskill_ctrl_cost_bd4"
 	},
 	"control_mp_cost&bd2[010]": {
-		"name": "耐力回复",
-		"desc": "进驻控制中枢时，自身心情每小时消耗<@cc.vdown>+0.5</>，<$cc.bd_felyne><@cc.rem>木天蓼</></><@cc.vup>+8</>",
+		"name": "Endurance Recovery",
+		"desc": "When this Operator is assigned to the Control Center, self Morale loss per hour <@cc.vdown>+0.5</>, <$cc.bd_felyne><@cc.rem>Felvine</></> <@cc.vup>+8</>",
 		"iconId": "bskill_ctrl_cost_felyne"
 	},
 	"control_facCostReset[000]": {
@@ -200,8 +210,8 @@
 		"iconId": "bskill_ctrl_tachanka"
 	},
 	"control_mp_bd2[000]": {
-		"name": "团队合作",
-		"desc": "进驻控制中枢时，控制中枢内每有1名<$cc.tag.mh><@cc.kw>怪物猎人小队</></>干员，则<$cc.bd_felyne><@cc.rem>木天蓼</></><@cc.vup>+2</>",
+		"name": "Teamwork",
+		"desc": "When this Operator is assigned to the Control Center, for each <$cc.tag.mh><@cc.kw>Monster Hunter Party</></> Operator, <$cc.bd_felyne><@cc.rem>Felvine</></> <@cc.vup>+2</>",
 		"iconId": "bskill_ctrl_felyne"
 	},
 	"control_mp_aegir1[000]": {
@@ -480,8 +490,8 @@
 		"iconId": "bskill_man_spd&limit3"
 	},
 	"manu_prod_spd&limit&bd[000]": {
-		"name": "可靠的随从们",
-		"desc": "进驻制造站时，仓库容量上限<@cc.vup>+8</>，生产力<@cc.vup>+5%</>，同时每有1个<$cc.bd_felyne><@cc.rem>木天蓼</></>，则生产力<@cc.vup>+1%</>",
+		"name": "Trusty Buddies",
+		"desc": "When this Operator is assigned to a Factory, capacity limit <@cc.vup>+8</>, Productivity <@cc.vup>+5%</>, plus an additional Productivity <@cc.vup>+1%</> for every <$cc.bd_felyne><@cc.rem>Felvine</></>",
 		"iconId": "bskill_man_spd&limit_felyne"
 	},
 	"manu_prod_limit&cost[000]": {
@@ -664,6 +674,16 @@
 		"desc": "When this Operator is assigned to a Factory, <@cc.kw>Precious Metal</> formula related productivity <@cc.vup>+35%</>",
 		"iconId": "bskill_man_gold2"
 	},
+	"manu_formula_spd&cost[000]": {
+		"name": "小奇思",
+		"desc": "进驻制造站时，<@cc.kw>贵金属</>类配方的生产力<@cc.vup>+25%</>，心情每小时消耗<@cc.vdown>+0.25</>",
+		"iconId": "bskill_man_gold3"
+	},
+	"manu_formula_spd&cost_bd[000]": {
+		"name": "挑大梁",
+		"desc": "进驻制造站时，基建内（不包含副手）每有1名<$cc.g.bs><@cc.kw>黑钢国际</></>干员（最多<@cc.kw>3</>名），<@cc.kw>贵金属</>类配方的生产力<@cc.vup>+2%</>，心情每小时消耗<@cc.vup>-0.15</>",
+		"iconId": "bskill_man_gold&blacksteel"
+	},
 	"manu_formula_spd[200]": {
 		"name": "Originium Work α",
 		"desc": "When this Operator is assigned to a Factory, <@cc.kw>Originium</> formula related productivity <@cc.vup>+30%</>",
@@ -705,13 +725,13 @@
 		"iconId": "bskill_tra_cost1"
 	},
 	"trade_cost&bd2[000]": {
-		"name": "跋山涉水",
-		"desc": "进驻贸易站时，贸易站内全体干员每小时心情消耗<@cc.vup>-0.1</>，每有<@cc.vup>10</>点<$cc.bd_b1><@cc.rem>人间烟火</></>，则额外<@cc.vup>-0.01</>",
+		"name": "Hell and High Water",
+		"desc": "When this Operator is assigned to a Trading Post, Morale loss of Operators in the Trading Post <@cc.vup>-0.1</> per hour, with an additional <@cc.vup>-0.01</> for every <@cc.vup>10</> <$cc.bd_b1><@cc.rem>Worldly Plight</></>",
 		"iconId": "bskill_tra_bd_cost1"
 	},
 	"trade_cost&bd2[001]": {
-		"name": "万里传书",
-		"desc": "进驻贸易站时，贸易站内全体干员每小时心情消耗<@cc.vup>-0.1</>，每有<@cc.vup>10</>点<$cc.bd_b1><@cc.rem>人间烟火</></>，则额外<@cc.vup>-0.02</>",
+		"name": "Distant Letter",
+		"desc": "When this Operator is assigned to a Trading Post, Morale loss of Operators in the Trading Post <@cc.vup>-0.1</> per hour, with an additional <@cc.vup>-0.02</> for every <@cc.vup>10</> <$cc.bd_b1><@cc.rem>Worldly Plight</></>",
 		"iconId": "bskill_tra_bd_cost2"
 	},
 	"trade_ord_spd[000]": {
@@ -935,8 +955,8 @@
 		"iconId": "bskill_tra_texas1"
 	},
 	"trade_ord_spd&limit&bd[000]": {
-		"name": "可爱的艾露猫",
-		"desc": "进驻贸易站时，订单获取效率<@cc.vup>+5%</>，且订单上限<@cc.vup>+2</>，同时每有1个<$cc.bd_felyne><@cc.rem>木天蓼</></>，则订单获取效率<@cc.vup>+3%</>",
+		"name": "Lovable Felynes",
+		"desc": "When this Operator is assigned to a Trading Post, order acquisition efficiency <@cc.vup>+5%</>, order limit <@cc.vup>+2</>, plus an additional order acquisition efficiency <@cc.vup>+3%</> for every <$cc.bd_felyne><@cc.rem>Felvine</></>",
 		"iconId": "bskill_tra_spd&limit_felyne"
 	},
 	"trade_ord_spd&wt[000]": {
@@ -1570,13 +1590,13 @@
 		"iconId": "bskill_train_fighter"
 	},
 	"train_spd&profession3[160]": {
-		"name": "近卫专精·α",
-		"desc": "进驻训练室协助位时，<@cc.kw>近卫</>干员的专精技能训练速度<@cc.vup>+30%</>",
+		"name": "Guard Expert α",
+		"desc": "When this Operator is assigned to be the Trainer in the Training Room, <@cc.kw>Guard</> Operators' Specialization training speed <@cc.vup>+30%</>",
 		"iconId": "bskill_train_guard1"
 	},
 	"train_spd&profession3[161]": {
-		"name": "实战技巧：领主",
-		"desc": "进驻训练室协助位时，<@cc.kw>近卫</>干员的专精技能训练速度<@cc.vup>+30%</>，如果训练位干员分支为<@cc.kw>领主</>，则训练速度额外<@cc.vup>+45%</>",
+		"name": "Combat Techniques: Lord",
+		"desc": "When this Operator is assigned to be the Trainer in the Training Room, <@cc.kw>Guard</> Operators' Specialization training speed <@cc.vup>+30%</>; if the trainee's Job Branch is <@cc.kw>Lord</>, training speed will be further increased by <@cc.vup>+45%</>",
 		"iconId": "bskill_train_lord"
 	},
 	"train_spd&profession3[170]": {
@@ -1848,6 +1868,11 @@
 		"name": "Lionheart",
 		"desc": "When this Operator is assigned to a Dormitory, restores <@cc.vup>+0.2</> Morale per hour to all Operators assigned to that Dormitory (Only the strongest effect of this type takes place)",
 		"iconId": "bskill_dorm_all3"
+	},
+	"dorm_rec_all&single[000]": {
+		"name": "小酌怡情",
+		"desc": "进驻宿舍时，使心情未满的宿舍成员，平均分配到总计每小时心情恢复<@cc.vup>+0.8</>的加成（该技能对单名干员和多名干员生效时，同种效果分别取最高）",
+		"iconId": "bskill_dorm_all&single"
 	},
 	"dorm_powToRecAll[000]": {
 		"name": "Glimmering Glow α",

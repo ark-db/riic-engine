@@ -1593,6 +1593,14 @@
 			[{ "id": "power_count[000]", "elite": 2, "level": 1 }]
 		]
 	},
+	"char_4104_coldst": {
+		"name": "Coldshot",
+		"rarity": 5,
+		"skills": [
+			[{ "id": "control_mp_cost[009]", "elite": 0, "level": 1 }],
+			[{ "id": "dorm_rec_all&single[000]", "elite": 2, "level": 1 }]
+		]
+	},
 	"char_4015_spuria": {
 		"name": "Spuria",
 		"rarity": 5,
@@ -1620,6 +1628,14 @@
 				{ "id": "trade_ord_spd_variable2[000]", "elite": 0, "level": 1 },
 				{ "id": "trade_ord_spd_variable2[001]", "elite": 2, "level": 1 }
 			]
+		]
+	},
+	"char_4105_almond": {
+		"name": "Almond",
+		"rarity": 5,
+		"skills": [
+			[{ "id": "manu_formula_spd&cost[000]", "elite": 0, "level": 1 }],
+			[{ "id": "manu_formula_spd&cost_bd[000]", "elite": 2, "level": 1 }]
 		]
 	},
 	"char_174_slbell": {
@@ -2181,7 +2197,7 @@
 		]
 	},
 	"char_1029_yato2": {
-		"name": "Kirin X Yato",
+		"name": "Kirin R Yato",
 		"rarity": 6,
 		"skills": [
 			[{ "id": "control_mp_cost&bd2[010]", "elite": 0, "level": 1 }],
@@ -2389,6 +2405,14 @@
 		"skills": [
 			[{ "id": "workshop_formula_cost3[112]", "elite": 0, "level": 1 }],
 			[{ "id": "workshop_formula_device[111]", "elite": 2, "level": 1 }]
+		]
+	},
+	"char_1034_jesca2": {
+		"name": "Jessica the Liberated",
+		"rarity": 6,
+		"skills": [
+			[{ "id": "trade_ord_spd&limit[001]", "elite": 0, "level": 1 }],
+			[{ "id": "control_bd_spd[000]", "elite": 2, "level": 1 }]
 		]
 	},
 	"char_264_f12yin": {
