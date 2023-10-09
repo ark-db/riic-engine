@@ -645,6 +645,14 @@
 			[{ "id": "power_rec_spd[010]", "elite": 1, "level": 1 }]
 		]
 	},
+	"char_4107_vrdant": {
+		"name": "Verdant",
+		"rarity": 4,
+		"skills": [
+			[{ "id": "workshop_formula_cost3[101]", "elite": 0, "level": 1 }],
+			[{ "id": "workshop_formula_device[060]", "elite": 1, "level": 1 }]
+		]
+	},
 	"char_128_plosis": {
 		"name": "Ptilopsis",
 		"rarity": 5,
@@ -1188,6 +1196,14 @@
 			[{ "id": "meet_spd&cost_condChar[000]", "elite": 2, "level": 1 }]
 		]
 	},
+	"char_4110_delphn": {
+		"name": "Delphine",
+		"rarity": 5,
+		"skills": [
+			[{ "id": "hire_spd&clue2[260]", "elite": 0, "level": 1 }],
+			[{ "id": "control_tra_limit&spd[010]", "elite": 2, "level": 1 }]
+		]
+	},
 	"char_1011_lava2": {
 		"name": "Lava the Purgatory",
 		"rarity": 5,
@@ -1335,6 +1351,16 @@
 		"skills": [
 			[{ "id": "control_mp_cost&faction[900]", "elite": 0, "level": 1 }],
 			[{ "id": "train_spd&profession2[270]", "elite": 2, "level": 1 }]
+		]
+	},
+	"char_494_vendla": {
+		"name": "Vendela",
+		"rarity": 5,
+		"skills": [
+			[
+				{ "id": "dorm_rec_all[023]", "elite": 0, "level": 1 },
+				{ "id": "dorm_rec_all&tired[000]", "elite": 2, "level": 1 }
+			]
 		]
 	},
 	"char_4071_peper": {
@@ -2456,6 +2482,16 @@
 			[
 				{ "id": "train_spd&profession3[160]", "elite": 0, "level": 1 },
 				{ "id": "train_spd&profession3[161]", "elite": 2, "level": 1 }
+			]
+		]
+	},
+	"char_4088_hodrer": {
+		"name": "Hoederer",
+		"rarity": 6,
+		"skills": [
+			[
+				{ "id": "trade_ord_par&per[000]", "elite": 0, "level": 1 },
+				{ "id": "trade_ord_par&per[001]", "elite": 2, "level": 1 }
 			]
 		]
 	},

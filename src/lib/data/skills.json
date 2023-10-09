@@ -244,6 +244,11 @@
 		"desc": "When this Operator is assigned to the Control Center, all Operators in Dormitories recover <@cc.vup>+0.05</> Morale per hour (strongest effect of the same type applies)",
 		"iconId": "bskill_ctrl_leader"
 	},
+	"control_tra_limit&spd[010]": {
+		"name": "运筹好手",
+		"desc": "进驻控制中枢时，同一贸易站中，每有<@cc.vup>1</>名<$cc.g.glasgow><@cc.kw>格拉斯哥帮</></>干员，订单获取效率<@cc.vup>+10%</>",
+		"iconId": "bskill_ctrl_g_limit&spd"
+	},
 	"power_rec_spd&cost[000]": {
 		"name": "Enthusiasm",
 		"desc": "When this Operator is assigned to a Power Plant, reduces the Morale consumed each hour by <@cc.vup>-0.52</>",
@@ -1009,6 +1014,16 @@
 		"desc": "进驻贸易站时，同个贸易站中每有1名<$cc.g.glasgow><@cc.kw>格拉斯哥帮</></>干员，当前贸易站订单获取效率<@cc.vup>+20%</>；当与<@cc.kw>推进之王</>在同一个贸易站时，订单获取效率额外<@cc.vup>+35%</>",
 		"iconId": "bskill_tra_par1"
 	},
+	"trade_ord_par&per[000]": {
+		"name": "白手起家·α",
+		"desc": "进驻贸易站时，订单获取效率<@cc.vup>+25%</>；当<@cc.kw>伊内丝</>入驻<$cc.c.room3><@cc.kw>工作场所</></>时（不包含副手），订单获取效率额外<@cc.vup>+5%</>",
+		"iconId": "bskill_tra_par&per1"
+	},
+	"trade_ord_par&per[001]": {
+		"name": "白手起家·β",
+		"desc": "进驻贸易站时，订单获取效率<@cc.vup>+30%</>；当<@cc.kw>伊内丝</>、<@cc.kw>W</>入驻<$cc.c.room3><@cc.kw>工作场所</></>时（不包含副手），订单获取效率分别额外<@cc.vup>+5%</>",
+		"iconId": "bskill_tra_par&per2"
+	},
 	"workshop_proc_probability[000]": {
 		"name": "Focus α",
 		"desc": "When this Operator is assigned to the Workshop to process <@cc.kw>any material</>, the production rate of byproduct increases by <@cc.vup>40%</>",
@@ -1158,6 +1173,11 @@
 		"name": "Spaced Out",
 		"desc": "When this Operator is assigned to the Workshop to process <@cc.kw>Skill Summaries</>, reduces the Morale consumed by all corresponding formulas that cost <@cc.kw>2</> by <@cc.vup>-1</>",
 		"iconId": "bskill_ws_skill_cost1"
+	},
+	"workshop_formula_cost3[101]": {
+		"name": "谨慎加工",
+		"desc": "进驻加工站加工<@cc.kw>精英材料</>时，心情消耗为<@cc.kw>2</>的配方全部<@cc.vup>-1</>心情消耗",
+		"iconId": "bskill_ws_evolve_cost"
 	},
 	"workshop_formula_cost&dorm[000]": {
 		"name": "Heart to Heart",
@@ -1348,6 +1368,11 @@
 		"name": "DIY Incandescent Alloy",
 		"desc": "When this Operator is assigned to the Workshop to process <@cc.kw>Incandescent Alloy Block</> material, the production rate of byproduct increases by <@cc.vup>100%</>",
 		"iconId": "bskill_ws_alloyBlock"
+	},
+	"workshop_formula_device[060]": {
+		"name": "DIY·酮凝集·α",
+		"desc": "进驻加工站加工<@cc.kw>酮凝集</>类材料时，副产品的产出概率提升<@cc.vup>80%</>",
+		"iconId": "bskill_ws_Ketone"
 	},
 	"workshop_formula_rub[000]": {
 		"name": "省省能更多",
@@ -1999,6 +2024,16 @@
 		"desc": "进驻宿舍时，<@cc.kw>推进之王</>对该宿舍中<$cc.g.glasgow><@cc.kw>格拉斯哥帮</></>干员恢复效果额外<@cc.vup>+0.3</>",
 		"iconId": "bskill_dorm_toone1"
 	},
+	"dorm_rec_all[023]": {
+		"name": "芬芳疗养·α",
+		"desc": "进驻宿舍时，该宿舍内所有干员的心情每小时恢复<@cc.vup>+0.15</>（同种效果取最高）",
+		"iconId": "bskill_dorm_all4"
+	},
+	"dorm_rec_all&tired[000]": {
+		"name": "芬芳疗养·β",
+		"desc": "进驻宿舍时，该宿舍内所有干员心情每小时恢复<@cc.vup>+0.15</>，同时该宿舍内心情<@cc.vup>18</>以下的干员恢复效果额外<@cc.vup>+0.1</>（同种效果取最高）",
+		"iconId": "bskill_dorm_all_tired"
+	},
 	"hire_spd[000]": {
 		"name": "Personnel Management α",
 		"desc": "When this Operator is assigned to the HR Office, HR contacting speed <@cc.vup>+20%</>",
@@ -2133,6 +2168,11 @@
 		"name": "Linguistics",
 		"desc": "When this Operator is assigned to the HR Office, HR contacting speed<@cc.vup>+20%</>; every <@cc.vup>1</> points of <$cc.bd_ash><@cc.rem>Intelligence Reserve</></> adds extra contacting speed <@cc.vup>+5%</>; every <@cc.vup>1</> bottles of <$cc.bd_tachanka><@cc.rem>Ursus Specialty Beverage</></>, adds extra contacting speed <@cc.vup>+5%</>",
 		"iconId": "bskill_hire_blitz"
+	},
+	"hire_spd&clue2[260]": {
+		"name": "旧识新交",
+		"desc": "进驻人力办公室时，人脉资源的联络速度<@cc.vup>+20%</>，每产生<@cc.vup>1</>次联络次数，增加<$cc.g.glasgow><@cc.kw>格拉斯哥帮</></>线索的概率（工作时长和招募位影响概率）",
+		"iconId": "bskill_hire_spd&glasgow"
 	},
 	"meet_spd[000]": {
 		"name": "Clue Search α",

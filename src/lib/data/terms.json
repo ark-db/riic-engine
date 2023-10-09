@@ -40,6 +40,7 @@
 	"cc.c.abyssal2_3": "Takes priority over <$cc.m.var2><@cc.rem>Cooperative Will</></>, and does not stack\nDoes not stack with <$cc.m.pow1><@cc.rem>Automation α</></>, <$cc.m.pow2><@cc.rem>Automation β</></>, or <$cc.m.pow3><@cc.rem>Bionic Seadragon</></>, and the 'set to 0' effect will take priority",
 	"cc.c.room1": "Includes the following facilities: \nPower Plant, HR Office, Reception Room",
 	"cc.c.room2": "Includes the following facilities: \nPower Plant, Factory, Trading Post, HR Office, Reception Room",
+	"cc.c.room3": "包含以下设施\n发电站、制造站、贸易站、人力办公室、会客室、控制中枢、训练室",
 	"cc.c.skill": "Includes the following skills: \nCapable Assistance, S.W.E.E.P., Snack Network, Cleaning Agreement, Substitute, Necessary Responsibility, Guarding, Tiny Leader, Self-Absorbed",
 	"cc.t.strong2": "Cannot stack with <$cc.t.snsant1><@cc.rem>Heavenly Reward α</></>, <$cc.t.snsant2><@cc.rem>Heavenly Reward β</></>, and will take precedence instead\nWhen <$cc.t.snsant1><@cc.rem>Heavenly Reward α</></>, <$cc.t.snsant2><@cc.rem>Heavenly Reward β</></> stacks with other skills, this skill will take effect on the resulting effect",
 	"cc.c.sui2_1": "Compare hourly Morale recovery totals of <$cc.c.room2><@cc.kw>other buildings</></> provided by other Operator skills in the Control Center. The strongest effect applies.",
