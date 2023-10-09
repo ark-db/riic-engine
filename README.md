@@ -14,7 +14,7 @@ Useful commands:
 
 - `npm run format` to format all project files
 - `npm run lint` to lint all project files
-- `npm run update` to update all dependencies
+- `npm run update` to update all dependencies (note: [`cargo-edit`](https://github.com/killercup/cargo-edit) must be installed)
 - `npm run fetch` to fetch the latest game data
 
 ## License
