@@ -64,7 +64,7 @@
 		display: flex;
 		align-items: center;
 	}
-	div:before {
+	div::before {
 		position: fixed;
 		top: 0;
 		left: 0;
@@ -73,7 +73,7 @@
 		content: '';
 		background: rgba(0 0 0 / 0.7);
 	}
-	div:has(dialog[open]):before {
+	div:has(dialog[open])::before {
 		animation: fade 0.2s ease-out;
 	}
 	dialog {
