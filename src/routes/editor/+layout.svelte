@@ -69,10 +69,10 @@
 		transition:
 			background-color 0.15s,
 			color 0.15s;
-	}
-	.home-link:is(:hover, :focus-within) {
-		outline: none;
-		background-color: var(--dark);
+		&:is(:hover, :focus-within) {
+			outline: none;
+			background-color: var(--dark);
+		}
 	}
 	.app-title {
 		color: var(--light);
@@ -98,10 +98,10 @@
 		padding: 6px;
 		background-color: var(--dark-strong);
 		transition: all 0.2s;
-	}
-	.menu-icon:hover {
-		background-color: var(--dark-mild);
-		box-shadow: 0 0 0.25em var(--dark-mild);
+		&:hover {
+			background-color: var(--dark-mild);
+			box-shadow: 0 0 0.25em var(--dark-mild);
+		}
 	}
 	.stats {
 		/* --font-size is used in ./NumberInput.svelte */

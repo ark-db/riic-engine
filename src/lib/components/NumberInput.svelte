@@ -72,11 +72,11 @@
 	}
 	input {
 		font-size: var(--font-size);
+		&.invalid:not(:placeholder-shown) {
+			border-color: var(--salmon-strong);
+		}
 	}
-	input.invalid:not(:placeholder-shown) {
-		border-color: var(--salmon-strong);
-	}
-	::placeholder {
+	input::placeholder {
 		font-size: 0.9em;
 	}
 </style>

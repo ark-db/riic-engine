@@ -71,9 +71,9 @@
 		border-radius: 5px;
 		padding: 7.5px;
 		transition: background-color 0.2s;
-	}
-	img:hover {
-		background-color: var(--dark-mild);
+		&:hover {
+			background-color: var(--dark-mild);
+		}
 	}
 	main {
 		padding: 0.25em 0.5em 0.5em;

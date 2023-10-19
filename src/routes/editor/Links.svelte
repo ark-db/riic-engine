@@ -42,13 +42,13 @@
 		transition:
 			background-color 0.15s,
 			color 0.15s;
-	}
-	a:is(:hover, :focus-within) {
-		color: var(--light);
-		background-color: var(--dark-mild);
-	}
-	a.active {
-		color: var(--light);
-		background-color: var(--dark-strong);
+		&:is(:hover, :focus-within) {
+			color: var(--light);
+			background-color: var(--dark-mild);
+		}
+		&.active {
+			color: var(--light);
+			background-color: var(--dark-strong);
+		}
 	}
 </style>

@@ -33,9 +33,9 @@
 		justify-content: space-between;
 		column-gap: 1.5em;
 		transition: border 0.2s;
-	}
-	.product:hover {
-		border-color: var(--blue-mild);
+		&:hover {
+			border-color: var(--blue-mild);
+		}
 	}
 	p {
 		width: 6.5em;

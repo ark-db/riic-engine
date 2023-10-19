@@ -69,9 +69,9 @@
 		color: var(--light);
 		font-size: var(--font-size);
 		font-weight: 600;
-	}
-	.stats.invalid {
-		color: var(--salmon-strong);
+		&.invalid {
+			color: var(--salmon-strong);
+		}
 	}
 	.divider {
 		--height: clamp(30px, 3.5vh, 40px);

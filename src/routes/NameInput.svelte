@@ -62,8 +62,8 @@
 	input {
 		padding-bottom: 0.3em;
 		font-size: 1.25em;
-	}
-	input:invalid:not(:placeholder-shown) {
-		border-color: var(--salmon-strong);
+		&:invalid:not(:placeholder-shown) {
+			border-color: var(--salmon-strong);
+		}
 	}
 </style>

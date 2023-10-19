@@ -33,8 +33,8 @@
 <style>
 	button {
 		--focus-border-offset: -4px;
-	}
-	button.small {
-		--focus-border-offset: -8px;
+		&.small {
+			--focus-border-offset: -8px;
+		}
 	}
 </style>

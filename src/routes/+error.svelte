@@ -64,15 +64,15 @@
 	a {
 		background-color: var(--blue);
 		text-decoration: none;
-	}
-	a:hover {
-		background-color: var(--blue-strong);
+		&:hover {
+			background-color: var(--blue-strong);
+		}
 	}
 	button {
 		background-color: var(--light);
 		column-gap: 1.5em;
-	}
-	button:hover {
-		background-color: var(--light-strong);
+		&:hover {
+			background-color: var(--light-strong);
+		}
 	}
 </style>

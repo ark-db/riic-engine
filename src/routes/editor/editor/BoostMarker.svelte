@@ -59,9 +59,9 @@
 		/* --marker-height is defined in ./FacilityRow.svelte */
 		height: var(--marker-height);
 		background-color: rgb(221 160 221 / 0.4);
-	}
-	.marker.active {
-		background-color: rgb(221 160 221 / 0.7);
+		&.active {
+			background-color: rgb(221 160 221 / 0.7);
+		}
 	}
 	.menu {
 		--font-size: 1.3em;
