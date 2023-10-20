@@ -28,7 +28,7 @@
 		top: 0;
 		right: 0;
 		margin: 0.5em;
-		box-shadow: -3px 6px 6px rgba(0 0 0 / 0.5);
+		box-shadow: -3px 6px 6px rgb(0 0 0 / 0.5);
 		border: 2px solid #43a047;
 		border-radius: 0.5em;
 		background-color: var(--dark-strong);

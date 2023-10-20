@@ -71,14 +71,14 @@
 		right: 0;
 		bottom: 0;
 		content: '';
-		background: rgba(0 0 0 / 0.7);
+		background: rgb(0 0 0 / 0.7);
 	}
 	div:has(dialog[open])::before {
 		animation: fade 0.2s ease-out;
 	}
 	dialog {
 		margin: auto;
-		box-shadow: 0 8px 8px rgba(0 0 0 / 0.5);
+		box-shadow: 0 8px 8px rgb(0 0 0 / 0.5);
 		border: none;
 		border-radius: 1em;
 		padding: 2em;
