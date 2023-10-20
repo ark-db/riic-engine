@@ -85,7 +85,7 @@
 		background-color: var(--dark);
 	}
 	dialog[open] {
-		animation: zoom 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+		animation: expand 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 	}
 	@keyframes fade {
 		from {
@@ -95,7 +95,7 @@
 			opacity: 1;
 		}
 	}
-	@keyframes zoom {
+	@keyframes expand {
 		from {
 			scale: 0.95;
 		}
