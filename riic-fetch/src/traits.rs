@@ -32,10 +32,10 @@ pub(crate) trait Fetch {
         Self: Sized + DeserializeOwned,
     {
         let url = format!(
-            "https://raw.githubusercontent.com/Kengxxiao/ArknightsGameData/master/{}/{}",
+            "https://raw.githubusercontent.com/Kengxxiao/{}/{}",
             match server {
-                Server::US => "en_US",
-                Server::CN => "zh_CN",
+                Server::US => "ArknightsGameData_YoStar/master/en_US",
+                Server::CN => "ArknightsGameData/master/zh_CN",
             },
             Self::FETCH_PATH
         );
