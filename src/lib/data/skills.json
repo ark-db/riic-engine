@@ -11,12 +11,12 @@
 	},
 	"control_token_prod_spd2[000]": {
 		"name": "Leading By Example",
-		"desc": "When this Operator is assigned together with other <$cc.tag.mh><@cc.kw>Monster Hunter Party</></> Operators to the Control Center, all Factories' productivity <@cc.vup>+2%</> (Only the strongest effect of this type takes place)",
+		"desc": "When this Operator is assigned together with other <$cc.tag.mh><@cc.kw>Soubo Adventurers</></> Operators to the Control Center, all Factories' productivity <@cc.vup>+2%</> (Only the strongest effect of this type takes place)",
 		"iconId": "bskill_ctrl_token_p_spd2"
 	},
 	"control_token_tra_spd[000]": {
 		"name": "Esoteric Negotiations",
-		"desc": "When this Operator is assigned together with other <$cc.tag.mh><@cc.kw>Monster Hunter Party</></> Operators to the Control Center, all Trading Posts' order efficiency <@cc.vup>+7%</> (Only the strongest effect of this type takes place)",
+		"desc": "When this Operator is assigned together with other <$cc.tag.mh><@cc.kw>Soubo Adventurers</></> Operators to the Control Center, all Trading Posts' order efficiency <@cc.vup>+7%</> (Only the strongest effect of this type takes place)",
 		"iconId": "bskill_ctrl_token_t_spd"
 	},
 	"control_bd_spd[000]": {
@@ -211,7 +211,7 @@
 	},
 	"control_mp_bd2[000]": {
 		"name": "Teamwork",
-		"desc": "When this Operator is assigned to the Control Center, for each <$cc.tag.mh><@cc.kw>Monster Hunter Party</></> Operator, <$cc.bd_felyne><@cc.rem>Felvine</></> <@cc.vup>+2</>",
+		"desc": "When this Operator is assigned to the Control Center, for each <$cc.tag.mh><@cc.kw>Soubo Adventurers</></> Operator, <$cc.bd_felyne><@cc.rem>Felvine</></> <@cc.vup>+2</>",
 		"iconId": "bskill_ctrl_felyne"
 	},
 	"control_mp_aegir1[000]": {
@@ -580,8 +580,8 @@
 		"iconId": "bskill_man_spd&limit&cost4"
 	},
 	"manu_prod_limit&cost[021]": {
-		"name": "掘进工程",
-		"desc": "进驻制造站时，仓库容量上限<@cc.vup>+10</>，心情每小时消耗<@cc.vup>-0.25</>",
+		"name": "Tunnel Work",
+		"desc": "When this Operator is assigned to a Factory, capacity limit <@cc.vup>+10</> and Morale consumed per hour <@cc.vup>-0.25</>",
 		"iconId": "bskill_man_limit&cost5"
 	},
 	"manu_prod_spd_variable[000]": {
@@ -1010,8 +1010,8 @@
 		"iconId": "bskill_tra_against2"
 	},
 	"trade_ord_spd_par[000]": {
-		"name": "帮派指南针",
-		"desc": "进驻贸易站时，同个贸易站中每有1名<$cc.g.glasgow><@cc.kw>格拉斯哥帮</></>干员，当前贸易站订单获取效率<@cc.vup>+20%</>；当与<@cc.kw>推进之王</>在同一个贸易站时，订单获取效率额外<@cc.vup>+35%</>",
+		"name": "Gang Compass",
+		"desc": "When this Operator is assigned to a Trading Post, for every <$cc.g.glasgow><@cc.kw>Glasgow Gang</></> Operator in the same Trading Post, order acquisition efficiency <@cc.vup>+20%</>; when in the same Trading Post as <@cc.kw>Siege</>, additional order acquisition efficiency <@cc.vup>+35%</>",
 		"iconId": "bskill_tra_par1"
 	},
 	"trade_ord_par&per[000]": {
@@ -1050,8 +1050,8 @@
 		"iconId": "bskill_ws_p2"
 	},
 	"workshop_proc_probability[013]": {
-		"name": "修修还能用",
-		"desc": "进驻加工站加工<@cc.kw>任意类材料</>时，副产品的产出概率提升<@cc.vup>50%</>",
+		"name": "Just Fix It",
+		"desc": "When this Operator is assigned to the Workshop to process <@cc.kw>any material</>, the production rate of byproduct increases by <@cc.vup>50%</>",
 		"iconId": "bskill_ws_p2"
 	},
 	"workshop_proc_probability[021]": {
@@ -1375,8 +1375,8 @@
 		"iconId": "bskill_ws_Ketone"
 	},
 	"workshop_formula_rub[000]": {
-		"name": "省省能更多",
-		"desc": "进驻加工站加工原始心情消耗为<@cc.kw>2</>的<@cc.kw>精英材料</>时，副产品的产出概率额外提升<@cc.vup>40%</>",
+		"name": "Waste Not",
+		"desc": "When this Operator is assigned to a Workshop to process <@cc.kw>Elite materials</> with a base Morale cost of <@cc.kw>2</>, byproduct production chance is increased by <@cc.vup>40%</>",
 		"iconId": "bskill_ws_rub"
 	},
 	"train_spd[000]": {
@@ -2020,8 +2020,8 @@
 		"iconId": "bskill_dorm_reborn"
 	},
 	"dorm_rec_toone[000]": {
-		"name": "头号陪练",
-		"desc": "进驻宿舍时，<@cc.kw>推进之王</>对该宿舍中<$cc.g.glasgow><@cc.kw>格拉斯哥帮</></>干员恢复效果额外<@cc.vup>+0.3</>",
+		"name": "No.1 Practice Partner",
+		"desc": "When this Operator is assigned to a Dormitory, <@cc.kw>Siege</> increases <$cc.g.glasgow><@cc.kw>Glasgow Gang</></> Operator recovery in the building by an additional <@cc.vup>+0.3</>",
 		"iconId": "bskill_dorm_toone1"
 	},
 	"dorm_rec_all[023]": {
@@ -2040,8 +2040,8 @@
 		"iconId": "bskill_hire_spd1"
 	},
 	"hire_spd[001]": {
-		"name": "人事管理·β",
-		"desc": "进驻人力办公室时，人脉资源的联络速度<@cc.vup>+35%</>",
+		"name": "Personnel Management β",
+		"desc": "When this Operator is assigned to the HR Office, HR contacting speed <@cc.vup>+35%</>",
 		"iconId": "bskill_hire_spd3"
 	},
 	"hire_spd[010]": {
@@ -2385,8 +2385,8 @@
 		"iconId": "bskill_meet_spdOwned1"
 	},
 	"meet_spd_hast[000]": {
-		"name": "聚影",
-		"desc": "进驻会客室时，线索搜集速度提升<@cc.vup>20%</>，此后每小时提升<@cc.vup>2%</>，最终达到<@cc.vup>30%</>",
+		"name": "Shadow Gathering",
+		"desc": "When this Operator is assigned to the Reception Room, Clue search speed increases by <@cc.vup>20%</>, then by another <@cc.vup>2%</> per hour, up to a maximum of <@cc.vup>30%</>",
 		"iconId": "bskill_meet_spd_hast1"
 	},
 	"meet_spd&condChar_mustget[000]": {
