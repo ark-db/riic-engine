@@ -11,10 +11,10 @@ edition = "2021"
 publish = false
 
 [workspace.dependencies]
-ahash = "0.8.3"
+ahash = "0.8.6"
 serde = { version = "1.0.189", features = ["derive"] }
 serde_json = "1.0.107"
-thiserror = "1.0.49"
+thiserror = "1.0.50"
 
 [profile.release]
 panic = "abort"
