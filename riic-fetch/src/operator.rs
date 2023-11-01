@@ -40,39 +40,21 @@ struct OperatorData {
     profession: Profession,
 }
 
-#[derive(Deserialize)]
-#[serde(untagged)]
-enum RarityRepr<'a> {
-    Number(u8),
-    String(&'a str),
-}
-
 fn deserialize_rarity<'de, D>(deserializer: D) -> Result<u8, D::Error>
 where
     D: Deserializer<'de>,
 {
-    let data = Deserialize::deserialize(deserializer)?;
-
-    match data {
-        RarityRepr::Number(num) => match num {
-            n @ 0..=5 => Ok(n + 1),
-            _ => Err(Error::invalid_value(
-                Unexpected::Unsigned(num.into()),
-                &"Expected a u8 from 0 to 5",
-            )),
-        },
-        RarityRepr::String(s) => match s {
-            "TIER_1" => Ok(1),
-            "TIER_2" => Ok(2),
-            "TIER_3" => Ok(3),
-            "TIER_4" => Ok(4),
-            "TIER_5" => Ok(5),
-            "TIER_6" => Ok(6),
-            _ => Err(Error::invalid_value(
-                Unexpected::Str(s),
-                &"Expected a string with pattern \"TIER_{n}\", where n is a number from 1 to 6",
-            )),
-        },
+    match Deserialize::deserialize(deserializer)? {
+        "TIER_1" => Ok(1),
+        "TIER_2" => Ok(2),
+        "TIER_3" => Ok(3),
+        "TIER_4" => Ok(4),
+        "TIER_5" => Ok(5),
+        "TIER_6" => Ok(6),
+        s => Err(Error::invalid_value(
+            Unexpected::Str(s),
+            &"Expected a string with pattern \"TIER_n\", where n is a number from 1 to 6",
+        )),
     }
 }
 
