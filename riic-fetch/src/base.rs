@@ -42,13 +42,6 @@ struct UnprocessedSkillPhase {
     level: u8,
 }
 
-#[derive(Deserialize)]
-#[serde(untagged)]
-enum EliteRepr<'a> {
-    Number(u8),
-    String(&'a str),
-}
-
 #[derive(Serialize)]
 pub(crate) struct BaseSkill {
     id: Box<str>,
@@ -72,25 +65,14 @@ fn deserialize_elite<'de, D>(deserializer: D) -> Result<u8, D::Error>
 where
     D: Deserializer<'de>,
 {
-    let data = Deserialize::deserialize(deserializer)?;
-
-    match data {
-        EliteRepr::Number(num) => match num {
-            n @ 0..=2 => Ok(n),
-            _ => Err(Error::invalid_value(
-                Unexpected::Unsigned(num.into()),
-                &"Expected a u8 from 0 to 2",
-            )),
-        },
-        EliteRepr::String(s) => match s {
-            "PHASE_0" => Ok(0),
-            "PHASE_1" => Ok(1),
-            "PHASE_2" => Ok(2),
-            _ => Err(Error::invalid_value(
-                Unexpected::Str(s),
-                &"Expected a string with pattern \"PHASE_n\", where n is a number from 0 to 2",
-            )),
-        },
+    match Deserialize::deserialize(deserializer)? {
+        "PHASE_0" => Ok(0),
+        "PHASE_1" => Ok(1),
+        "PHASE_2" => Ok(2),
+        s => Err(Error::invalid_value(
+            Unexpected::Str(s),
+            &"Expected a string with pattern \"PHASE_n\", where n is a number from 0 to 2",
+        )),
     }
 }
 
@@ -166,7 +148,7 @@ impl<'a> From<UnprocessedFacility<'a>> for Facility {
         });
 
         let color = *FACILITY_COLORS
-            .get(&value.id.to_lowercase())
+            .get(value.id)
             .unwrap_or_else(|| panic!("Facility '{}' did not have an associated color", value.id));
 
         Self {
