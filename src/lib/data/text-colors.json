@@ -1,1 +1,7 @@
-{ "cc.vup": "#0098DC", "cc.vdown": "#FF6237", "cc.rem": "#F49800", "cc.kw": "#00B0FF" }
+{
+	"cc.vup": "#0098DC",
+	"cc.vdown": "#FF6237",
+	"cc.rem": "#F49800",
+	"cc.kw": "#00B0FF",
+	"cc.miu": "#8F7156"
+}

@@ -340,6 +340,14 @@
 			[{ "id": "manu_prod_spd_addition&cost[000]", "elite": 1, "level": 1 }]
 		]
 	},
+	"char_4100_caper": {
+		"name": "Caper",
+		"rarity": 4,
+		"skills": [
+			[{ "id": "meet_spd&team[000]", "elite": 0, "level": 1 }],
+			[{ "id": "meet_spd&exchange[000]", "elite": 1, "level": 1 }]
+		]
+	},
 	"char_198_blackd": {
 		"name": "Courier",
 		"rarity": 4,
@@ -1253,6 +1261,16 @@
 			]
 		]
 	},
+	"char_499_kaitou": {
+		"name": "Diamante",
+		"rarity": 5,
+		"skills": [
+			[
+				{ "id": "trade_ord_wt&cost[002]", "elite": 0, "level": 1 },
+				{ "id": "trade_ord_wt&cost[012]", "elite": 2, "level": 1 }
+			]
+		]
+	},
 	"char_242_otter": {
 		"name": "Mayer",
 		"rarity": 5,
@@ -1388,6 +1406,17 @@
 		"skills": [
 			[{ "id": "workshop_proc_probability[010]", "elite": 0, "level": 1 }],
 			[{ "id": "control_mp_cost&faction2[000]", "elite": 2, "level": 1 }]
+		]
+	},
+	"char_4109_baslin": {
+		"name": "Bassline",
+		"rarity": 5,
+		"skills": [
+			[
+				{ "id": "hire_spd_cost[101]", "elite": 0, "level": 1 },
+				{ "id": "hire_spd_cost[120]", "elite": 2, "level": 1 }
+			],
+			[{ "id": "hire_spd_bd_n1_n1[300]", "elite": 2, "level": 1 }]
 		]
 	},
 	"char_144_red": {
@@ -2202,6 +2231,14 @@
 			[{ "id": "workshop_formula_dorm[002]", "elite": 2, "level": 1 }]
 		]
 	},
+	"char_245_cello": {
+		"name": "Virtuosa",
+		"rarity": 6,
+		"skills": [
+			[{ "id": "dorm_bd_num[000]", "elite": 0, "level": 1 }],
+			[{ "id": "dorm_rec_all&bd[000]", "elite": 2, "level": 1 }]
+		]
+	},
 	"char_250_phatom": {
 		"name": "Phantom",
 		"rarity": 6,
@@ -2540,6 +2577,14 @@
 			]
 		]
 	},
+	"char_4098_vvana": {
+		"name": "Viviana",
+		"rarity": 6,
+		"skills": [
+			[{ "id": "control_mp_cost[010]", "elite": 0, "level": 1 }],
+			[{ "id": "control_prod_fraction[000]", "elite": 2, "level": 1 }]
+		]
+	},
 	"char_188_helage": {
 		"name": "Hellagur",
 		"rarity": 6,
@@ -2568,6 +2613,17 @@
 				{ "id": "train_spd_tag[000]", "elite": 0, "level": 1 },
 				{ "id": "train_spd_tag[010]", "elite": 2, "level": 1 }
 			]
+		]
+	},
+	"char_4011_lessng": {
+		"name": "Lessing",
+		"rarity": 6,
+		"skills": [
+			[
+				{ "id": "workshop_formula_cost4[010]", "elite": 0, "level": 1 },
+				{ "id": "workshop_formula_cost4[011]", "elite": 2, "level": 1 }
+			],
+			[{ "id": "workshop_formula_probability[139]", "elite": 2, "level": 1 }]
 		]
 	},
 	"char_1032_excu2": {

@@ -3,6 +3,7 @@
 	"cc.bd_A_2": "Operators with this skill\nRosmontis",
 	"cc.bd_B_1": "Operators with this skill\nEbenholz",
 	"cc.bd_B_2": "Operators with this skill\nEbenholz",
+	"cc.bd_B_3": "拥有该基建技能的干员\n塑心",
 	"cc.bd_A": "Affects skills related to <$cc.bd_A_1><@cc.rem>Psychokinesis</></> and <$cc.bd_A_2><@cc.rem>Manifestation of Consciousness</></>\nProvided by the following Operators' skills:\nRosmontis",
 	"cc.bd_B": "Affects skills related to <$cc.bd_B_1><@cc.rem>Lingering Melody</></> and <$cc.bd_B_2><@cc.rem>Harmony Astray</></>\nProvided by the following Operator's skills:\nEbenholz",
 	"cc.bd_C": "Operators with this skill\nJieyun",
