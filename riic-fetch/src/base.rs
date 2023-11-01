@@ -148,7 +148,7 @@ impl<'a> From<UnprocessedFacility<'a>> for Facility {
         });
 
         let color = *FACILITY_COLORS
-            .get(&value.id.to_lowercase())
+            .get(value.id)
             .unwrap_or_else(|| panic!("Facility '{}' did not have an associated color", value.id));
 
         Self {
