@@ -12,8 +12,8 @@ publish = false
 
 [workspace.dependencies]
 ahash = "0.8.6"
-serde = { version = "1.0.189", features = ["derive"] }
-serde_json = "1.0.107"
+serde = { version = "1.0.190", features = ["derive"] }
+serde_json = "1.0.108"
 thiserror = "1.0.50"
 
 [profile.release]
