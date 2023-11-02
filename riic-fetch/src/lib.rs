@@ -13,3 +13,7 @@
     unused_import_braces,
     unused_qualifications
 )]
+
+use anyhow as _;
+use rayon as _;
+use ureq as _;
