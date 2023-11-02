@@ -17,8 +17,15 @@
 use anyhow as _;
 use rayon as _;
 use riic_fetch as _;
-use ureq as _;
+use std::time::Duration;
+use ureq::AgentBuilder;
 
 fn main() {
+    let client = AgentBuilder::new()
+        .https_only(true)
+        .timeout(Duration::from_secs(10))
+        .user_agent("")
+        .build();
+
     todo!()
 }
