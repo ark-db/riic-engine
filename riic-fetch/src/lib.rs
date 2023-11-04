@@ -9,11 +9,28 @@
     trivial_casts,
     trivial_numeric_casts,
     unreachable_pub,
-    unused_crate_dependencies,
     unused_import_braces,
     unused_qualifications
 )]
 
-use anyhow as _;
-use rayon as _;
-use ureq as _;
+mod operator;
+
+pub use operator::OperatorTable;
+
+pub enum Server {
+    US,
+    CN,
+}
+
+impl Server {
+    const fn base_url(&self) -> &str {
+        match self {
+            Server::US => {
+                "https://raw.githubusercontent.com/Kengxxiao/ArknightsGameData_YoStar/master/en_US"
+            }
+            Server::CN => {
+                "https://raw.githubusercontent.com/Kengxxiao/ArknightsGameData/master/zh_CN"
+            }
+        }
+    }
+}

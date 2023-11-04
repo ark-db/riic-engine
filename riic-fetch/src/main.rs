@@ -9,12 +9,10 @@
     trivial_casts,
     trivial_numeric_casts,
     unreachable_pub,
-    unused_crate_dependencies,
     unused_import_braces,
     unused_qualifications
 )]
 
-use anyhow as _;
 use rayon::{join, spawn};
 use riic_fetch as _;
 use std::thread::spawn as spawn_std;
