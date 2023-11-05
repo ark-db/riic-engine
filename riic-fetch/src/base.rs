@@ -1,8 +1,11 @@
+use super::Server;
+use anyhow::Result;
 use indexmap::IndexMap;
 use serde::{
     de::{Error, Unexpected},
     Deserialize, Deserializer,
 };
+use ureq::Agent;
 
 #[derive(Deserialize)]
 pub struct BaseData {
@@ -10,6 +13,16 @@ pub struct BaseData {
     pub ops: OperatorSkills,
     #[serde(rename(deserialize = "buffs"))]
     pub skills: SkillTable,
+}
+
+impl BaseData {
+    pub fn fetch(client: &Agent, server: Server) -> Result<Self> {
+        let url = format!("{}/gamedata/excel/building_data.json", server.base_url());
+
+        let data = client.get(&url).call()?.into_json()?;
+
+        Ok(data)
+    }
 }
 
 type OperatorSkills = IndexMap<Box<str>, Operator>;
