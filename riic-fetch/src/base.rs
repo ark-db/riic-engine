@@ -6,7 +6,9 @@ use serde::{
 
 #[derive(Deserialize)]
 pub struct BaseData {
+    #[serde(rename(deserialize = "chars"))]
     pub ops: OperatorSkills,
+    #[serde(rename(deserialize = "buffs"))]
     pub skills: SkillTable,
 }
 
@@ -15,11 +17,11 @@ type OperatorSkills = IndexMap<Box<str>, Operator>;
 #[derive(Deserialize)]
 pub struct Operator {
     #[serde(rename(deserialize = "buffChar"))]
-    inner: Box<[Skill]>,
+    inner: Box<[OperatorSkill]>,
 }
 
 #[derive(Deserialize)]
-struct Skill {
+struct OperatorSkill {
     #[serde(rename(deserialize = "buffData"))]
     inner: Box<[SkillPhase]>,
 }
@@ -53,5 +55,13 @@ where
     }
 }
 
+type SkillTable = IndexMap<Box<str>, Skill>;
+
 #[derive(Deserialize)]
-pub struct SkillTable;
+pub struct Skill {
+    #[serde(rename(deserialize = "buffName"))]
+    name: Box<str>,
+    description: Box<str>,
+    #[serde(rename(deserialize = "skillIcon"))]
+    icon_id: Box<str>,
+}
