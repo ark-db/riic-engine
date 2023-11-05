@@ -1,4 +1,4 @@
-use super::Server;
+use crate::Server;
 use anyhow::Result;
 use indexmap::IndexMap;
 use serde::{
@@ -7,7 +7,7 @@ use serde::{
 };
 use ureq::Agent;
 
-pub struct OperatorTable(IndexMap<Box<str>, Operator>);
+pub struct OperatorTable(pub(crate) IndexMap<Box<str>, Operator>);
 
 impl OperatorTable {
     pub fn fetch(client: &Agent, server: Server) -> Result<Self> {
@@ -20,11 +20,11 @@ impl OperatorTable {
 }
 
 #[derive(Deserialize)]
-struct Operator {
+pub(crate) struct Operator {
     #[serde(rename(deserialize = "appellation"))]
-    name: Box<str>,
+    pub(crate) name: Box<str>,
     #[serde(deserialize_with = "deserialize_rarity")]
-    rarity: u8,
+    pub(crate) rarity: u8,
     #[serde(rename(deserialize = "isNotObtainable"))]
     unobtainable: bool,
     profession: Profession,

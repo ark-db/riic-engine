@@ -1,4 +1,4 @@
-use super::Server;
+use crate::Server;
 use anyhow::Result;
 use indexmap::IndexMap;
 use serde::Deserialize;

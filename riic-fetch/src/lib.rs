@@ -14,11 +14,12 @@
 )]
 
 mod base;
-mod operator;
+mod operator_de;
+mod operator_ser;
 mod terms;
 
 pub use base::BaseData;
-pub use operator::OperatorTable;
+pub use operator_de::OperatorTable;
 pub use terms::TermData;
 
 pub enum Server {

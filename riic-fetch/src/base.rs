@@ -1,4 +1,4 @@
-use super::Server;
+use crate::Server;
 use anyhow::Result;
 use indexmap::IndexMap;
 use serde::{
@@ -25,32 +25,32 @@ impl BaseData {
     }
 }
 
-type OperatorSkills = IndexMap<Box<str>, Operator>;
+pub(crate) type OperatorSkills = IndexMap<Box<str>, Operator>;
 
 #[derive(Deserialize)]
 pub struct Operator {
     #[serde(rename(deserialize = "buffChar"))]
-    inner: Box<[OperatorSkill]>,
+    pub(crate) inner: Box<[OperatorSkill]>,
 }
 
 #[derive(Deserialize)]
-struct OperatorSkill {
+pub(crate) struct OperatorSkill {
     #[serde(rename(deserialize = "buffData"))]
-    inner: Box<[SkillPhase]>,
+    pub(crate) inner: Box<[SkillPhase]>,
 }
 
 #[derive(Deserialize)]
-struct SkillPhase {
+pub(crate) struct SkillPhase {
     #[serde(rename(deserialize = "buffId"))]
-    id: Box<str>,
-    cond: Level,
+    pub(crate) id: Box<str>,
+    pub(crate) cond: Level,
 }
 
 #[derive(Deserialize)]
-struct Level {
+pub(crate) struct Level {
     #[serde(rename(deserialize = "phase"), deserialize_with = "deserialize_elite")]
-    elite: u8,
-    level: u8,
+    pub(crate) elite: u8,
+    pub(crate) level: u8,
 }
 
 fn deserialize_elite<'de, D>(deserializer: D) -> Result<u8, D::Error>
