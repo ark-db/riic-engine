@@ -1,7 +1,7 @@
 use crate::Server;
 use anyhow::Result;
 use indexmap::IndexMap;
-use serde::{Deserialize, Serialize, Serializer};
+use serde::Deserialize;
 use std::{fs::File, io::BufWriter, path::Path};
 use ureq::Agent;
 
