@@ -27,7 +27,7 @@ impl TermData {
 pub struct StyleTable(IndexMap<Box<str>, Box<str>>);
 
 impl StyleTable {
-    fn save<P: AsRef<Path>>(&self, path: P) -> Result<()> {
+    pub fn save<P: AsRef<Path>>(&self, path: P) -> Result<()> {
         let table: IndexMap<_, Box<str>> = self
             .0
             .iter()
@@ -56,6 +56,20 @@ pub struct TermTable(IndexMap<Box<str>, Description>);
 impl TermTable {
     pub fn extend(&mut self, other: Self) {
         self.0.extend(other.0);
+    }
+
+    pub fn save<P: AsRef<Path>>(&self, path: P) -> Result<()> {
+        let table: IndexMap<_, _> = self
+            .0
+            .iter()
+            .map(|(id, desc)| (id, &desc.description))
+            .collect();
+
+        let file = BufWriter::new(File::create(path)?);
+
+        serde_json::to_writer(file, &table)?;
+
+        Ok(())
     }
 }
 
