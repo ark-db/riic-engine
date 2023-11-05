@@ -7,7 +7,6 @@ use serde::{
 };
 use ureq::Agent;
 
-#[derive(Deserialize)]
 pub struct OperatorTable(IndexMap<Box<str>, Operator>);
 
 impl OperatorTable {
@@ -16,7 +15,7 @@ impl OperatorTable {
 
         let data = client.get(&url).call()?.into_json()?;
 
-        Ok(data)
+        Ok(Self(data))
     }
 }
 
