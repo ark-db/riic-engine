@@ -15,9 +15,11 @@
 
 mod base;
 mod operator;
+mod terms;
 
 pub use base::BaseData;
 pub use operator::OperatorTable;
+pub use terms::TermData;
 
 pub enum Server {
     US,
