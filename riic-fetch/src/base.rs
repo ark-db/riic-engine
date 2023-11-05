@@ -1,4 +1,4 @@
-use crate::Server;
+use crate::Fetch;
 use anyhow::Result;
 use image::{
     codecs::webp::{WebPEncoder, WebPQuality},
@@ -22,14 +22,8 @@ pub struct BaseData {
     pub skills: SkillTable,
 }
 
-impl BaseData {
-    pub fn fetch(client: Agent, server: Server) -> Result<Self> {
-        let url = format!("{}/gamedata/excel/building_data.json", server.base_url());
-
-        let data = client.get(&url).call()?.into_json()?;
-
-        Ok(data)
-    }
+impl Fetch for BaseData {
+    const PATH: &'static str = "gamedata/excel/building_data.json";
 }
 
 #[derive(Deserialize)]

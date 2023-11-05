@@ -14,7 +14,7 @@
 )]
 
 use rayon::{join, scope, spawn};
-use riic_fetch::{BaseData, OperatorTableDe, OperatorTableSer, Server, TermData};
+use riic_fetch::{BaseData, Fetch, OperatorTableDe, OperatorTableSer, Server, TermData};
 use std::{thread::spawn as spawn_std, time::Duration};
 use ureq::AgentBuilder;
 

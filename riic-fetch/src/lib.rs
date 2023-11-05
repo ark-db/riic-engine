@@ -23,6 +23,10 @@ pub use operator_de::OperatorTableDe;
 pub use operator_ser::OperatorTableSer;
 pub use terms::TermData;
 
+use anyhow::Result;
+use serde::de::DeserializeOwned;
+use ureq::Agent;
+
 pub enum Server {
     US,
     CN,
@@ -38,5 +42,17 @@ impl Server {
                 "https://raw.githubusercontent.com/Kengxxiao/ArknightsGameData/master/zh_CN"
             }
         }
+    }
+}
+
+pub trait Fetch: Sized + DeserializeOwned {
+    const PATH: &'static str;
+
+    fn fetch(client: Agent, server: Server) -> Result<Self> {
+        let url = format!("{}/{}", server.base_url(), Self::PATH);
+
+        let data = client.get(&url).call()?.into_json()?;
+
+        Ok(data)
     }
 }
