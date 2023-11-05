@@ -48,6 +48,7 @@ impl<'a> OperatorTableSer<'a> {
 
 fn transform_operator(id: Box<str>, op: Op, skills: &OperatorSkills) -> (Box<str>, Operator<'_>) {
     let op_skills = skills
+        .0
         .get(&id)
         .unwrap_or_else(|| panic!("Operator '{}' had no base skills", &id));
 

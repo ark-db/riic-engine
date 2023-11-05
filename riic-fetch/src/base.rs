@@ -32,10 +32,79 @@ impl BaseData {
     }
 }
 
-pub(crate) type OperatorSkills = IndexMap<Box<str>, Operator>;
+#[derive(Deserialize)]
+pub struct OperatorSkills(pub(crate) IndexMap<Box<str>, Operator>);
+
+impl OperatorSkills {
+    fn get_operator_icons<P: AsRef<Path> + Sync>(
+        &self,
+        client: &Agent,
+        target_dir: P,
+        min_size: u32,
+        quality: u8,
+    ) -> Result<()> {
+        self.0
+            .par_keys()
+            .map(|id| get_operator_icon(client, id, target_dir.as_ref(), min_size, quality))
+            .collect::<Result<()>>()
+    }
+}
+
+fn get_operator_icon(
+    client: &Agent,
+    id: &str,
+    target_dir: &Path,
+    min_size: u32,
+    quality: u8,
+) -> Result<()> {
+    let target_path = target_dir.join(id).with_extension("webp");
+
+    if target_path.is_file() {
+        return Ok(());
+    }
+
+    let url = format!(
+        "https://raw.githubusercontent.com/astral4/arkdata/main/assets/torappu/dynamicassets/arts/charavatars/{id}.png"
+    );
+
+    let res = client.get(&url).call()?;
+
+    let mut bytes = match res.header("Content-Length") {
+        Some(len) => Vec::with_capacity(len.parse()?),
+        None => Vec::new(),
+    };
+
+    res.into_reader().read_to_end(&mut bytes)?;
+
+    let mut image = load_from_memory_with_format(&bytes, ImageFormat::Png)?.to_rgb8();
+
+    let (width, height) = image.dimensions();
+    let min_dim = min(width, height);
+
+    if min_dim < min_size {
+        let scale_factor = f64::from(min_size) / f64::from(min_dim);
+        image = resize(
+            &image,
+            (scale_factor * f64::from(width)) as u32,
+            (scale_factor * f64::from(height)) as u32,
+            FilterType::Lanczos3,
+        );
+    }
+
+    let file = File::create(target_path)?;
+
+    WebPEncoder::new_with_quality(file, WebPQuality::lossy(quality)).encode(
+        &image,
+        image.width(),
+        image.height(),
+        ColorType::Rgba8,
+    )?;
+
+    Ok(())
+}
 
 #[derive(Deserialize)]
-pub struct Operator {
+pub(crate) struct Operator {
     #[serde(rename(deserialize = "buffChar"))]
     pub(crate) inner: Box<[OperatorSkill]>,
 }
