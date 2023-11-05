@@ -36,7 +36,7 @@ impl BaseData {
 pub struct OperatorSkills(pub(crate) IndexMap<Box<str>, Operator>);
 
 impl OperatorSkills {
-    fn get_operator_icons<P: AsRef<Path> + Sync>(
+    pub fn get_operator_icons<P: AsRef<Path> + Sync>(
         &self,
         client: &Agent,
         target_dir: P,
