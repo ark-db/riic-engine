@@ -2343,6 +2343,7 @@ dependencies = [
  "indexmap 2.1.0",
  "rayon",
  "serde",
+ "serde_json",
  "ureq",
 ]
 

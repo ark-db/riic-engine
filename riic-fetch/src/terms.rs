@@ -1,7 +1,8 @@
 use crate::Server;
 use anyhow::Result;
 use indexmap::IndexMap;
-use serde::Deserialize;
+use serde::{Deserialize, Serialize, Serializer};
+use std::{fs::File, io::BufWriter, path::Path};
 use ureq::Agent;
 
 #[derive(Deserialize)]
@@ -22,7 +23,32 @@ impl TermData {
     }
 }
 
-type StyleTable = IndexMap<Box<str>, Box<str>>;
+#[derive(Deserialize)]
+pub struct StyleTable(IndexMap<Box<str>, Box<str>>);
+
+impl StyleTable {
+    fn save<P: AsRef<Path>>(&self, path: P) -> Result<()> {
+        let table: IndexMap<_, Box<str>> = self
+            .0
+            .iter()
+            .filter(|(id, _)| id.starts_with("cc"))
+            .filter_map(|(id, style)| {
+                style.split_once('#').map(|(_, s)| {
+                    (
+                        id,
+                        format!("#{}", s.chars().take(6).collect::<String>()).into(),
+                    )
+                })
+            })
+            .collect();
+
+        let file = BufWriter::new(File::create(path)?);
+
+        serde_json::to_writer(file, &table)?;
+
+        Ok(())
+    }
+}
 
 #[derive(Deserialize)]
 pub struct TermTable(IndexMap<Box<str>, Description>);
