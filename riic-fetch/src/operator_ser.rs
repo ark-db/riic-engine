@@ -1,9 +1,10 @@
 use crate::base::OperatorSkills;
 use crate::operator_de::{Operator as Op, OperatorTableDe};
+use anyhow::Result;
 use indexmap::IndexMap;
 use serde::Serialize;
+use std::{fs::File, io::BufWriter, path::Path};
 
-#[derive(Serialize)]
 pub struct OperatorTableSer<'a>(IndexMap<Box<str>, Operator<'a>>);
 
 impl<'a> OperatorTableSer<'a> {
@@ -16,6 +17,14 @@ impl<'a> OperatorTableSer<'a> {
             .collect();
 
         Self(table)
+    }
+
+    pub fn save<P: AsRef<Path>>(&self, path: P) -> Result<()> {
+        let file = BufWriter::new(File::create(path)?);
+
+        serde_json::to_writer(file, &self.0)?;
+
+        Ok(())
     }
 }
 
