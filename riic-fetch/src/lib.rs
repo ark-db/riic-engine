@@ -13,8 +13,10 @@
     unused_qualifications
 )]
 
+mod base;
 mod operator;
 
+pub use base::BaseData;
 pub use operator::OperatorTable;
 
 pub enum Server {
