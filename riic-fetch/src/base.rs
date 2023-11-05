@@ -3,8 +3,9 @@ use anyhow::Result;
 use indexmap::IndexMap;
 use serde::{
     de::{Error, Unexpected},
-    Deserialize, Deserializer,
+    Deserialize, Deserializer, Serialize,
 };
+use std::{fs::File, io::BufWriter, path::Path};
 use ureq::Agent;
 
 #[derive(Deserialize)]
@@ -75,13 +76,21 @@ impl SkillTable {
     pub fn extend(&mut self, other: Self) {
         self.0.extend(other.0);
     }
+
+    pub fn save<P: AsRef<Path>>(&self, path: P) -> Result<()> {
+        let file = BufWriter::new(File::create(path)?);
+
+        serde_json::to_writer(file, &self.0)?;
+
+        Ok(())
+    }
 }
 
-#[derive(Deserialize)]
+#[derive(Deserialize, Serialize)]
 struct Skill {
     #[serde(rename(deserialize = "buffName"))]
     name: Box<str>,
     description: Box<str>,
-    #[serde(rename(deserialize = "skillIcon"))]
+    #[serde(rename(deserialize = "skillIcon", serialize = "iconId"))]
     icon_id: Box<str>,
 }
