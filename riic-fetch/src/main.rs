@@ -13,76 +13,83 @@
     unused_qualifications
 )]
 
-use rayon::{join, spawn};
-use riic_fetch as _;
-use std::thread::spawn as spawn_std;
-use std::time::Duration;
+use rayon::{join, scope, spawn};
+use riic_fetch::{BaseData, OperatorTableDe, OperatorTableSer, Server, TermData};
+use std::{thread::spawn as spawn_std, time::Duration};
 use ureq::AgentBuilder;
 
-fn fetch() {
-    todo!()
-}
-
-fn process<T, U>(_a: T, _b: U) {
-    todo!()
-}
-
-fn save() {
-    todo!()
-}
-
 fn main() {
-    let _client = AgentBuilder::new()
+    let client = AgentBuilder::new()
         .https_only(true)
         .timeout(Duration::from_secs(10))
         .user_agent("")
         .build();
 
-    let handle = spawn_std(|| fetch()); // fetch CN chars
+    // fetch CN operator data
+    let c = client.clone();
+    let handle = spawn_std(move || OperatorTableDe::fetch(c, Server::CN).unwrap());
 
     let skills_fn = || {
-        let (cn_skills, en_skills) = join(
+        let (mut cn_skills, en_skills) = join(
             || {
-                let (chars, skills) = (fetch(), fetch()); // fetch CN base
+                // fetch CN base data
+                let BaseData { ops, skills } = BaseData::fetch(client.clone(), Server::CN).unwrap();
 
-                // use scope instead of spawn if there are ownership issues
-                spawn(move || {
-                    let _chars = process(chars, handle.join()); // add rarity info to chars
-                    save(/* chars */); // save chars
+                scope(|_| {
+                    // transform operator data
+                    let ops = OperatorTableSer::create(handle.join().unwrap(), &ops);
+                    // save operator data
+                    ops.save("../dump/chars.json").unwrap();
                 });
-                spawn(|| {
-                    // fetch + save character icons
-                    // use parallel iterator
+                scope(|_| {
+                    // fetch + save operator icons
+                    ops.get_operator_icons(client.clone(), "../dump/ops/", 60, 25)
+                        .unwrap();
                 });
-                spawn(|| {
+                scope(|_| {
                     // fetch + save skill icons
-                    // use parallel iterator
+                    skills
+                        .get_skill_icons(client.clone(), "../dump/skills/", 60, 50)
+                        .unwrap()
                 });
 
-                skills // return base skills
+                // return base skills
+                skills
             },
             || {
-                fetch() /* .skills */ // fetch EN base + return base skills
+                // fetch US base data + return base skills
+                BaseData::fetch(client.clone(), Server::US).unwrap().skills
             },
         );
-        let _skills = process(cn_skills, en_skills); // combine base skills
-        save(/* skills */) // save base skills
+
+        // combine base skills
+        cn_skills.extend(en_skills);
+
+        // save base skills
+        cn_skills.save("../dump/skills.json").unwrap();
     };
 
     let terms_fn = || {
-        let (cn_terms, en_terms) = join(
+        let (mut cn_terms, en_terms) = join(
             || {
-                let res = fetch(); // fetch CN misc
+                // fetch CN term data
+                let data = TermData::fetch(client.clone(), Server::CN).unwrap();
 
-                // use scope instead of spawn if there are ownership issues
-                spawn(|| save(/* res.styles */)); // save text styles
+                // save text style data
+                spawn(move || data.styles.save("../dump/text-colors.json").unwrap());
 
-                res /* .terms */ // return skill terms
+                // return skill terms
+                data.terms
             },
-            || fetch(), /* .terms */ // fetch EN misc + return skill terms
+            // fetch US term data + return skill terms
+            || TermData::fetch(client.clone(), Server::US).unwrap().terms,
         );
-        let _terms = process(cn_terms, en_terms); // combine skill terms
-        save(/* terms */); // save skill terms
+
+        // combine skill terms
+        cn_terms.extend(en_terms);
+
+        // save skill terms
+        cn_terms.save("../dump/terms.json").unwrap();
     };
 
     join(skills_fn, terms_fn);

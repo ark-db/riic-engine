@@ -14,7 +14,7 @@ pub struct TermData {
 }
 
 impl TermData {
-    pub fn fetch(client: &Agent, server: Server) -> Result<Self> {
+    pub fn fetch(client: Agent, server: Server) -> Result<Self> {
         let url = format!("{}/gamedata/excel/gamedata_const.json", server.base_url());
 
         let data = client.get(&url).call()?.into_json()?;

@@ -23,7 +23,7 @@ pub struct BaseData {
 }
 
 impl BaseData {
-    pub fn fetch(client: &Agent, server: Server) -> Result<Self> {
+    pub fn fetch(client: Agent, server: Server) -> Result<Self> {
         let url = format!("{}/gamedata/excel/building_data.json", server.base_url());
 
         let data = client.get(&url).call()?.into_json()?;
@@ -38,14 +38,14 @@ pub struct OperatorSkills(pub(crate) IndexMap<Box<str>, Operator>);
 impl OperatorSkills {
     pub fn get_operator_icons<P: AsRef<Path> + Sync>(
         &self,
-        client: &Agent,
+        client: Agent,
         target_dir: P,
         min_size: u32,
         quality: u8,
     ) -> Result<()> {
         self.0
             .par_keys()
-            .map(|id| get_operator_icon(client, id, target_dir.as_ref(), min_size, quality))
+            .map(|id| get_operator_icon(&client, id, target_dir.as_ref(), min_size, quality))
             .collect::<Result<()>>()
     }
 }
@@ -133,7 +133,8 @@ fn deserialize_elite<'de, D>(deserializer: D) -> Result<u8, D::Error>
 where
     D: Deserializer<'de>,
 {
-    match Deserialize::deserialize(deserializer)? {
+    let s: String = Deserialize::deserialize(deserializer)?;
+    match s.as_str() {
         "PHASE_0" => Ok(0),
         "PHASE_1" => Ok(1),
         "PHASE_2" => Ok(2),
@@ -154,14 +155,14 @@ impl SkillTable {
 
     pub fn get_skill_icons<P: AsRef<Path> + Sync>(
         &self,
-        client: &Agent,
+        client: Agent,
         target_dir: P,
         min_size: u32,
         quality: u8,
     ) -> Result<()> {
         self.0
             .par_keys()
-            .map(|id| get_skill_icon(client, id, target_dir.as_ref(), min_size, quality))
+            .map(|id| get_skill_icon(&client, id, target_dir.as_ref(), min_size, quality))
             .collect::<Result<()>>()
     }
 
@@ -193,14 +194,26 @@ fn get_skill_icon(
 
     let res = client.get(&url).call()?;
 
+    /*
     let mut bytes = match res.header("Content-Length") {
         Some(len) => Vec::with_capacity(len.parse()?),
-        None => Vec::new(),
+        None =>
+        /* Vec::new() */
+        {
+            panic!()
+        }
     };
 
+    use std::io::Read;
     res.into_reader().read_to_end(&mut bytes)?;
+    // res.into_reader().read_to_end(&mut bytes)?;
+    // res.into_reader().read_exact(&mut bytes)?;
+    */
 
-    let mut image = load_from_memory_with_format(&bytes, ImageFormat::Png)?.to_rgb8();
+    use std::io::Read;
+    let bytes = res.into_reader().bytes().collect::<Result<Vec<_>, _>>()?;
+
+    let mut image = load_from_memory_with_format(bytes.as_slice(), ImageFormat::Png)?.to_rgb8();
 
     let (width, height) = image.dimensions();
     let min_dim = min(width, height);

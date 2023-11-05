@@ -10,7 +10,7 @@ use ureq::Agent;
 pub struct OperatorTableDe(pub(crate) IndexMap<Box<str>, Operator>);
 
 impl OperatorTableDe {
-    pub fn fetch(client: &Agent, server: Server) -> Result<Self> {
+    pub fn fetch(client: Agent, server: Server) -> Result<Self> {
         let url = format!("{}/gamedata/excel/character_table.json", server.base_url());
 
         let data = client.get(&url).call()?.into_json()?;
@@ -55,7 +55,8 @@ fn deserialize_rarity<'de, D>(deserializer: D) -> Result<u8, D::Error>
 where
     D: Deserializer<'de>,
 {
-    match Deserialize::deserialize(deserializer)? {
+    let s: String = Deserialize::deserialize(deserializer)?;
+    match s.as_str() {
         "TIER_1" => Ok(1),
         "TIER_2" => Ok(2),
         "TIER_3" => Ok(3),
