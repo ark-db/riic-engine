@@ -29,7 +29,7 @@ pub struct TermTable(IndexMap<Box<str>, Description>);
 
 impl TermTable {
     pub fn extend(&mut self, other: Self) {
-        self.0.extend(other.0.into_iter())
+        self.0.extend(other.0);
     }
 }
 
