@@ -7,9 +7,9 @@ use serde::{
 };
 use ureq::Agent;
 
-pub struct OperatorTable(pub(crate) IndexMap<Box<str>, Operator>);
+pub struct OperatorTableDe(pub(crate) IndexMap<Box<str>, Operator>);
 
-impl OperatorTable {
+impl OperatorTableDe {
     pub fn fetch(client: &Agent, server: Server) -> Result<Self> {
         let url = format!("{}/gamedata/excel/character_table.json", server.base_url());
 

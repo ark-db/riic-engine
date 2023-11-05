@@ -1,20 +1,22 @@
 use crate::base::OperatorSkills;
-use crate::operator_de::{Operator as Op, OperatorTable as OpTable};
+use crate::operator_de::{Operator as Op, OperatorTableDe};
 use indexmap::IndexMap;
 use serde::Serialize;
 
 #[derive(Serialize)]
-pub(crate) struct OperatorTable<'a>(IndexMap<Box<str>, Operator<'a>>);
+pub struct OperatorTableSer<'a>(IndexMap<Box<str>, Operator<'a>>);
 
-pub(crate) fn create_operator_table(ops: OpTable, skills: &OperatorSkills) -> OperatorTable<'_> {
-    let table = ops
-        .0
-        .into_iter()
-        .filter(|(_, op)| op.is_operator())
-        .map(|(id, op)| transform_operator(id, op, skills))
-        .collect();
+impl<'a> OperatorTableSer<'a> {
+    pub fn create(ops: OperatorTableDe, skills: &'a OperatorSkills) -> Self {
+        let table = ops
+            .0
+            .into_iter()
+            .filter(|(_, op)| op.is_operator())
+            .map(|(id, op)| transform_operator(id, op, skills))
+            .collect();
 
-    OperatorTable(table)
+        Self(table)
+    }
 }
 
 fn transform_operator(id: Box<str>, op: Op, skills: &OperatorSkills) -> (Box<str>, Operator<'_>) {

@@ -19,7 +19,8 @@ mod operator_ser;
 mod terms;
 
 pub use base::BaseData;
-pub use operator_de::OperatorTable;
+pub use operator_de::OperatorTableDe;
+pub use operator_ser::OperatorTableSer;
 pub use terms::TermData;
 
 pub enum Server {
