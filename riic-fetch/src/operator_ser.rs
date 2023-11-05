@@ -2,19 +2,37 @@ use crate::base::OperatorSkills;
 use crate::operator_de::{Operator as Op, OperatorTableDe};
 use anyhow::Result;
 use indexmap::IndexMap;
+use phf::{phf_map, Map};
 use serde::Serialize;
 use std::{fs::File, io::BufWriter, path::Path};
+
+const NAME_OVERRIDES: Map<&str, &str> = phf_map! {
+    "char_118_yuki" => "Shirayuki",
+    "char_196_sunbr" => "Gummy",
+    "char_115_headbr" => "Zima",
+    "char_195_glassb" => "Istina",
+    "char_197_poca" => "Rosa",
+    "char_1001_amiya2" => "Amiya (Guard)",
+    "char_4055_bgsnow" => "Pozyomka",
+    "char_4064_mlynar" => "Mlynar",
+};
 
 pub struct OperatorTableSer<'a>(IndexMap<Box<str>, Operator<'a>>);
 
 impl<'a> OperatorTableSer<'a> {
     pub fn create(ops: OperatorTableDe, skills: &'a OperatorSkills) -> Self {
-        let table = ops
+        let mut table: IndexMap<_, _> = ops
             .0
             .into_iter()
             .filter(|(_, op)| op.is_operator())
             .map(|(id, op)| transform_operator(id, op, skills))
             .collect();
+
+        for (&id, &new_name) in NAME_OVERRIDES.entries() {
+            if let Some(entry) = table.get_mut(id) {
+                entry.name = new_name.into();
+            }
+        }
 
         Self(table)
     }
