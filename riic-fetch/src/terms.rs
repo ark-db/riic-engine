@@ -24,9 +24,16 @@ impl TermData {
 
 type StyleTable = IndexMap<Box<str>, Box<str>>;
 
-type TermTable = IndexMap<Box<str>, Description>;
+#[derive(Deserialize)]
+pub struct TermTable(IndexMap<Box<str>, Description>);
+
+impl TermTable {
+    pub fn extend(&mut self, other: Self) {
+        self.0.extend(other.0.into_iter())
+    }
+}
 
 #[derive(Deserialize)]
-pub struct Description {
+struct Description {
     description: Box<str>,
 }

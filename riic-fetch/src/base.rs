@@ -68,10 +68,17 @@ where
     }
 }
 
-type SkillTable = IndexMap<Box<str>, Skill>;
+#[derive(Deserialize)]
+pub struct SkillTable(IndexMap<Box<str>, Skill>);
+
+impl SkillTable {
+    pub fn extend(&mut self, other: Self) {
+        self.0.extend(other.0.into_iter())
+    }
+}
 
 #[derive(Deserialize)]
-pub struct Skill {
+struct Skill {
     #[serde(rename(deserialize = "buffName"))]
     name: Box<str>,
     description: Box<str>,
