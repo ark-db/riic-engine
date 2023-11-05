@@ -14,7 +14,7 @@
 )]
 
 use rayon::{join, scope, spawn};
-use riic_fetch::{BaseData, Fetch, OperatorTableDe, OperatorTableSer, Server, TermData};
+use riic_fetch::{BaseData, Fetch, GetIcons, OperatorTableDe, OperatorTableSer, Server, TermData};
 use std::{thread::spawn as spawn_std, time::Duration};
 use ureq::AgentBuilder;
 
@@ -43,13 +43,13 @@ fn main() {
                 });
                 scope(|_| {
                     // fetch + save operator icons
-                    ops.get_operator_icons(client.clone(), "../dump/ops/", 60, 25)
+                    ops.get_icons(client.clone(), "../dump/ops/", 60, 25)
                         .unwrap();
                 });
                 scope(|_| {
                     // fetch + save skill icons
                     skills
-                        .get_skill_icons(client.clone(), "../dump/skills/", 60, 50)
+                        .get_icons(client.clone(), "../dump/skills/", 60, 50)
                         .unwrap()
                 });
 
