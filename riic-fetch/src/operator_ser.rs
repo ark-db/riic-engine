@@ -10,7 +10,8 @@ pub(crate) fn create_operator_table(ops: OpTable, skills: &OperatorSkills) -> Op
     let table = ops
         .0
         .into_iter()
-        .map(|(id, data)| transform_operator(id, data, skills))
+        .filter(|(_, op)| op.is_operator())
+        .map(|(id, op)| transform_operator(id, op, skills))
         .collect();
 
     OperatorTable(table)

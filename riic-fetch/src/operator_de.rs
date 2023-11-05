@@ -30,6 +30,12 @@ pub(crate) struct Operator {
     profession: Profession,
 }
 
+impl Operator {
+    pub(crate) fn is_operator(&self) -> bool {
+        !self.unobtainable && !matches!(self.profession, Profession::Token | Profession::Trap)
+    }
+}
+
 #[derive(Deserialize)]
 #[serde(rename_all(deserialize = "UPPERCASE"))]
 enum Profession {
