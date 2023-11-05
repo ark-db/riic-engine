@@ -105,7 +105,8 @@ impl GetIcons for SkillTable {
         P: AsRef<Path> + Sync,
     {
         self.0
-            .par_keys()
+            .par_values()
+            .map(|skill| &skill.icon_id)
             .map(|id| Self::get_icon(&client, id, target_dir.as_ref(), min_size, quality))
             .collect::<Result<()>>()
     }
