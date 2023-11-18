@@ -18,20 +18,22 @@ mod operator_de;
 mod operator_ser;
 mod terms;
 
-pub use base::BaseData;
+pub use base::{BaseData, SkillTable};
 pub use operator_de::OperatorTableDe;
 pub use operator_ser::OperatorTableSer;
 pub use terms::TermData;
 
 use anyhow::Result;
+use async_trait::async_trait;
 use image::{
     codecs::webp::{WebPEncoder, WebPQuality},
     imageops::{resize, FilterType},
     load_from_memory_with_format, ColorType, ImageFormat,
 };
+use reqwest::Client;
 use serde::de::DeserializeOwned;
-use std::{cmp::min, fs::File, path::Path};
-use ureq::Agent;
+use std::{cmp::min, fs::File, path::Path, sync::Arc};
+use tokio::task::JoinSet;
 
 pub enum Server {
     US,
@@ -51,33 +53,45 @@ impl Server {
     }
 }
 
+#[async_trait]
 pub trait Fetch: Sized + DeserializeOwned {
     const PATH: &'static str;
 
-    fn fetch(client: Agent, server: Server) -> Result<Self> {
+    async fn fetch(client: Client, server: Server) -> Result<Self> {
         let url = format!("{}/{}", server.base_url(), Self::PATH);
 
-        let data = client.get(&url).call()?.into_json()?;
+        let data = client
+            .get(url)
+            .send()
+            .await?
+            .error_for_status()?
+            .json()
+            .await?;
 
         Ok(data)
     }
 }
 
+#[async_trait]
 pub trait GetIcons {
     const ICON_DIR: &'static str;
 
-    fn get_icons<P>(&self, client: Agent, target_dir: P, min_size: u32, quality: u8) -> Result<()>
-    where
-        P: AsRef<Path> + Sync;
+    fn get_icons(
+        &self,
+        client: Client,
+        target_dir: &'static Path,
+        min_size: u32,
+        quality: u8,
+    ) -> JoinSet<Result<()>>;
 
-    fn get_icon(
-        client: &Agent,
-        id: &str,
-        target_dir: &Path,
+    async fn get_icon(
+        client: Client,
+        id: Box<str>,
+        target_dir: Arc<&Path>,
         min_size: u32,
         quality: u8,
     ) -> Result<()> {
-        let target_path = target_dir.join(id).with_extension("webp");
+        let target_path = target_dir.join(&*id).with_extension("webp");
 
         if target_path.is_file() {
             return Ok(());
@@ -88,14 +102,13 @@ pub trait GetIcons {
             Self::ICON_DIR
         );
 
-        let res = client.get(&url).call()?;
-
-        let mut bytes = match res.header("Content-Length") {
-            Some(len) => Vec::with_capacity(len.parse()?),
-            None => Vec::new(),
-        };
-
-        res.into_reader().read_to_end(&mut bytes)?;
+        let bytes = client
+            .get(url)
+            .send()
+            .await?
+            .error_for_status()?
+            .bytes()
+            .await?;
 
         let mut image = load_from_memory_with_format(&bytes, ImageFormat::Png)?.to_rgb8();
 

@@ -1,13 +1,13 @@
 use crate::{Fetch, GetIcons};
 use anyhow::Result;
 use indexmap::IndexMap;
-use rayon::iter::ParallelIterator;
+use reqwest::Client;
 use serde::{
     de::{Error, Unexpected},
     Deserialize, Deserializer, Serialize,
 };
-use std::{fs::File, io::BufWriter, path::Path};
-use ureq::Agent;
+use std::{fs::File, io::BufWriter, path::Path, sync::Arc};
+use tokio::task::JoinSet;
 
 #[derive(Deserialize)]
 pub struct BaseData {
@@ -27,14 +27,27 @@ pub struct OperatorSkills(pub(crate) IndexMap<Box<str>, Operator>);
 impl GetIcons for OperatorSkills {
     const ICON_DIR: &'static str = "torappu/dynamicassets/arts/charavatars";
 
-    fn get_icons<P>(&self, client: Agent, target_dir: P, min_size: u32, quality: u8) -> Result<()>
-    where
-        P: AsRef<Path> + Sync,
-    {
-        self.0
-            .par_keys()
-            .map(|id| Self::get_icon(&client, id, target_dir.as_ref(), min_size, quality))
-            .collect::<Result<()>>()
+    fn get_icons(
+        &self,
+        client: Client,
+        target_dir: &'static Path,
+        min_size: u32,
+        quality: u8,
+    ) -> JoinSet<Result<()>> {
+        let target_dir = Arc::new(target_dir);
+        let mut set = JoinSet::new();
+
+        for id in self.0.keys() {
+            set.spawn(Self::get_icon(
+                client.clone(),
+                id.clone(),
+                target_dir.clone(),
+                min_size,
+                quality,
+            ));
+        }
+
+        set
     }
 }
 
@@ -84,11 +97,30 @@ where
 pub struct SkillTable(IndexMap<Box<str>, Skill>);
 
 impl SkillTable {
+    /*
     pub fn extend(&mut self, other: Self) {
         self.0.extend(other.0);
     }
+    */
+    pub fn combine<'a>(a: &'a Self, b: &'a Self) -> SkillTableRef<'a> {
+        SkillTableRef(a.0.iter().chain(b.0.iter()).collect())
+    }
 
+    /*
     pub fn save<P: AsRef<Path>>(&self, path: P) -> Result<()> {
+        let file = BufWriter::new(File::create(path)?);
+
+        serde_json::to_writer(file, &self.0)?;
+
+        Ok(())
+    }
+    */
+}
+
+pub struct SkillTableRef<'a>(IndexMap<&'a Box<str>, &'a Skill>);
+
+impl<'a> SkillTableRef<'a> {
+    pub fn save<P: AsRef<Path>>(self, path: P) -> Result<()> {
         let file = BufWriter::new(File::create(path)?);
 
         serde_json::to_writer(file, &self.0)?;
@@ -100,15 +132,27 @@ impl SkillTable {
 impl GetIcons for SkillTable {
     const ICON_DIR: &'static str = "torappu/dynamicassets/arts/building/skills";
 
-    fn get_icons<P>(&self, client: Agent, target_dir: P, min_size: u32, quality: u8) -> Result<()>
-    where
-        P: AsRef<Path> + Sync,
-    {
-        self.0
-            .par_values()
-            .map(|skill| &skill.icon_id)
-            .map(|id| Self::get_icon(&client, id, target_dir.as_ref(), min_size, quality))
-            .collect::<Result<()>>()
+    fn get_icons(
+        &self,
+        client: Client,
+        target_dir: &'static Path,
+        min_size: u32,
+        quality: u8,
+    ) -> JoinSet<Result<()>> {
+        let target_dir = Arc::new(target_dir);
+        let mut set = JoinSet::new();
+
+        for skill in self.0.values() {
+            set.spawn(Self::get_icon(
+                client.clone(),
+                skill.icon_id.clone(),
+                target_dir.clone(),
+                min_size,
+                quality,
+            ));
+        }
+
+        set
     }
 }
 

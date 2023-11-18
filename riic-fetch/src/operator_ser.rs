@@ -50,7 +50,7 @@ fn transform_operator(id: Box<str>, op: Op, skills: &OperatorSkills) -> (Box<str
     let op_skills = skills
         .0
         .get(&id)
-        .unwrap_or_else(|| panic!("Operator '{}' had no base skills", &id));
+        .unwrap_or_else(|| panic!("Operator '{}' had no base skills", id));
 
     let operator = Operator {
         name: op.name,
