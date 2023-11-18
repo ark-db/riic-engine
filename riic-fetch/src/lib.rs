@@ -9,114 +9,125 @@
     trivial_casts,
     trivial_numeric_casts,
     unreachable_pub,
-    unused_crate_dependencies,
     unused_import_braces,
     unused_qualifications
 )]
+#![allow(clippy::module_name_repetitions)]
 
 mod base;
-mod config;
-mod consts;
-mod operator;
+mod operator_de;
+mod operator_ser;
 mod terms;
-mod traits;
-pub use config::{Config, ConfigError};
 
-use ahash::RandomState;
-use indexmap::IndexMap;
+pub use base::{BaseData, SkillTable};
+pub use operator_de::OperatorTableDe;
+pub use operator_ser::OperatorTableSer;
+pub use terms::TermData;
+
+use anyhow::Result;
+use async_trait::async_trait;
+use image::{
+    codecs::webp::{WebPEncoder, WebPQuality},
+    imageops::{resize, FilterType},
+    load_from_memory_with_format, ColorType, EncodableLayout, ImageFormat,
+};
 use reqwest::Client;
-use std::time::Duration;
-use thiserror::Error;
-use tokio as _;
-use traits::{Fetch, FetchError, FetchImage, ImageSaveError, SaveError, SaveJson};
+use serde::de::DeserializeOwned;
+use std::{cmp::min, fs::File, path::Path};
+use tokio::task::JoinSet;
 
-type HashMap<K, V> = IndexMap<K, V, RandomState>;
-
-enum Server {
+pub enum Server {
     US,
     CN,
 }
 
-#[derive(Error, Debug)]
-pub enum AppError {
-    #[error(transparent)]
-    Reqwest(#[from] reqwest::Error),
-    #[error(transparent)]
-    Fetch(#[from] FetchError),
-    #[error(transparent)]
-    SaveJson(#[from] SaveError),
-    #[error(transparent)]
-    SaveImage(#[from] ImageSaveError),
+impl Server {
+    const fn base_url(&self) -> &str {
+        match self {
+            Server::US => {
+                "https://raw.githubusercontent.com/Kengxxiao/ArknightsGameData_YoStar/master/en_US"
+            }
+            Server::CN => {
+                "https://raw.githubusercontent.com/Kengxxiao/ArknightsGameData/master/zh_CN"
+            }
+        }
+    }
 }
 
-impl Config {
-    /// # Errors
-    /// Returns an error if:
-    /// - The `reqwest::Client` could not be constructed
-    /// - An error occurred while fetching game data
-    /// - An error occurred while saving JSON data
-    /// - An error occurred while saving image data
-    pub async fn fetch(&self) -> Result<(), AppError> {
-        let client = Client::builder()
-            .https_only(true)
-            .timeout(Duration::from_secs(10))
-            .use_rustls_tls()
-            .build()?;
+#[async_trait]
+pub trait Fetch: Sized + DeserializeOwned {
+    const PATH: &'static str;
 
-        self.item
-            .save_images(
-                &client,
-                &self.item.image_dir,
-                self.item.quality,
-                self.min_image_size,
-            )
-            .await?;
+    async fn fetch(client: Client, server: Server) -> Result<Self> {
+        let url = format!("{}/{}", server.base_url(), Self::PATH);
 
-        let mut cn_misc = terms::MiscGamedata::fetch(&client, Server::CN).await?;
-        cn_misc.styles.save_json(&self.styles_path)?;
-        let en_terms = terms::MiscGamedata::fetch(&client, Server::US).await?.terms;
-        cn_misc.terms.extend(en_terms);
-        cn_misc.terms.save_json(&self.terms_path)?;
-
-        let mut cn_base_data = base::BaseData::fetch(&client, Server::CN).await?;
-        let us_base_data = base::BaseData::fetch(&client, Server::US).await?;
-
-        let facility_data = us_base_data.rooms;
-        facility_data.save_json(&self.facility.data_path)?;
-        facility_data
-            .save_images(
-                &client,
-                &self.facility.image_dir,
-                self.facility.quality,
-                self.min_image_size,
-            )
-            .await?;
-
-        cn_base_data.buffs.extend(us_base_data.buffs);
-        cn_base_data.buffs.save_json(&self.skill.data_path)?;
-        cn_base_data
-            .buffs
-            .save_images(
-                &client,
-                &self.skill.image_dir,
-                self.skill.quality,
-                self.min_image_size,
-            )
-            .await?;
-
-        cn_base_data.chars.extend(us_base_data.chars);
-        let chars = operator::OperatorTable::fetch(&client, Server::CN)
+        let data = client
+            .get(url)
+            .send()
             .await?
-            .into_updated(&cn_base_data.chars);
-        chars.save_json(&self.operator.data_path)?;
-        chars
-            .save_images(
-                &client,
-                &self.operator.image_dir,
-                self.operator.quality,
-                self.min_image_size,
-            )
+            .error_for_status()?
+            .json()
             .await?;
+
+        Ok(data)
+    }
+}
+
+#[async_trait]
+pub trait GetIcons {
+    const ICON_DIR: &'static str;
+
+    fn get_icons<P>(
+        &self,
+        client: Client,
+        target_dir: P,
+        min_size: u32,
+        quality: u8,
+    ) -> JoinSet<Result<()>>
+    where
+        P: AsRef<Path>;
+
+    async fn get_icon(
+        client: Client,
+        id: Box<str>,
+        target_path: Box<Path>,
+        min_size: u32,
+        quality: u8,
+    ) -> Result<()> {
+        let url = format!(
+            "https://raw.githubusercontent.com/astral4/arkdata/main/assets/{}/{id}.png",
+            Self::ICON_DIR
+        );
+
+        let bytes = client
+            .get(url)
+            .send()
+            .await?
+            .error_for_status()?
+            .bytes()
+            .await?;
+
+        let mut image = load_from_memory_with_format(&bytes, ImageFormat::Png)?.into_rgba8();
+
+        let min_dim = min(image.width(), image.height());
+
+        if min_dim < min_size {
+            image = resize(
+                &image,
+                image.width() * min_size / min_dim,
+                image.height() * min_size / min_dim,
+                FilterType::Lanczos3,
+            );
+        }
+
+        let file = File::create(target_path)?;
+
+        WebPEncoder::new_with_quality(file, WebPQuality::lossy(quality)).encode(
+            image.as_bytes(),
+            image.width(),
+            image.height(),
+            ColorType::Rgba8,
+        )?;
 
         Ok(())
     }

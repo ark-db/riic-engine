@@ -365,8 +365,8 @@
 		"iconId": "bskill_pow_spd_P"
 	},
 	"power_rec_rhine[000]": {
-		"name": "生态科主任",
-		"desc": "进驻发电站时，无人机充能速度<@cc.vup>+10%</>，基建内（不包含副手）每有1名除自身以外的<$cc.g.rh><@cc.kw>莱茵生命</></>干员（最多<@cc.kw>5</>名），充能速度额外<@cc.vup>+3%</>",
+		"name": "Ecological Section Director",
+		"desc": "When this Operator is assigned to a Power Plant, increases the drone recovery rate by <@cc.vup>+10%</>; for every other <$cc.g.rh><@cc.kw>Rhine Lab</></> Operator in the Base (excluding assistants, max <@cc.kw>5</>), additional drone recovery rate <@cc.vup>+3%</>",
 		"iconId": "bskill_power_rec_rhine"
 	},
 	"power_rec_spd&addition[000]": {
@@ -420,8 +420,8 @@
 		"iconId": "bskill_man_spd2"
 	},
 	"manu_prod_spd[021]": {
-		"name": "莱茵科技·γ",
-		"desc": "进驻制造站时，生产力<@cc.vup>+30%</>",
+		"name": "Rhine Tech γ",
+		"desc": "When this Operator is assigned to a Factory, productivity <@cc.vup>+30%</>",
 		"iconId": "bskill_man_spd3"
 	},
 	"manu_prod_spd[002]": {
@@ -1740,8 +1740,8 @@
 		"iconId": "bskill_train3_guard2"
 	},
 	"train_spd&profession2[630]": {
-		"name": "最终调试",
-		"desc": "进驻训练室协助位时，<@cc.kw>狙击</>干员的专精技能训练速度<@cc.vup>+30%</>，如果本次训练专精技能至<@cc.vup>3</>级，则训练速度额外<@cc.vup>+45%</>",
+		"name": "Final Test",
+		"desc": "When this Operator is assigned to be the Trainer in the Training Room, <@cc.kw>Sniper</> Operators' Specialization training speed <@cc.vup>+30%</>; if training this skill to Specialization Level <@cc.vup>3</>, training speed will be further increased by <@cc.vup>+45%</>",
 		"iconId": "bskill_train3_sniper1"
 	},
 	"train_spd&profession2[640]": {
@@ -2035,8 +2035,8 @@
 		"iconId": "bskill_dorm_all&one3"
 	},
 	"dorm_rec_all&oneself[022]": {
-		"name": "天生丽质",
-		"desc": "进驻宿舍时，自身心情每小时恢复<@cc.vup>+0.55</>，该宿舍内所有干员的心情每小时恢复<@cc.vup>+0.1</>（同种效果取最高）",
+		"name": "Natural Beauty",
+		"desc": "When this Operator is assigned to a Dormitory, self Morale recovered per hour <@cc.vup>+0.55</>, and restores <@cc.vup>+0.1</> Morale per hour to all other Operators assigned to that Dormitory (Only the strongest effect of this type takes place)",
 		"iconId": "bskill_dorm_all&one3"
 	},
 	"dorm_rec_all&profession[000]": {
@@ -2115,8 +2115,8 @@
 		"iconId": "bskill_hire_spd4"
 	},
 	"hire_spd[032]": {
-		"name": "不停歇的电话",
-		"desc": "进驻人力办公室时，人脉资源的联络速度<@cc.vup>+40%</>",
+		"name": "Phone's Always Ringing",
+		"desc": "When this Operator is assigned to the HR Office, HR contacting speed <@cc.vup>+40%</>",
 		"iconId": "bskill_hire_spd4"
 	},
 	"hire_spd_cost[010]": {
@@ -2305,13 +2305,13 @@
 		"iconId": "bskill_meet_spd&cost_condChar"
 	},
 	"meet_spd&cost_condChar[001]": {
-		"name": "“职业操守”·α",
-		"desc": "进驻会客室时，如果会客室内只有自身处于工作状态时，线索搜集速度提升<@cc.vup>15%</>，心情每小时消耗<@cc.vdown>+1</>",
+		"name": "'Professional Ethics' α",
+		"desc": "When this Operator is assigned to the Reception Room, if no other Operators are working in the Reception Room, increases Clue search speed by <@cc.vup>15%</>, and Morale conmused per hour <@cc.vdown>+1</>",
 		"iconId": "bskill_meet_spd&cost_condChar2"
 	},
 	"meet_spd&cost_condChar[011]": {
-		"name": "“职业操守”·β",
-		"desc": "进驻会客室时，如果会客室内只有自身处于工作状态时，线索搜集速度提升<@cc.vup>35%</>，心情每小时消耗<@cc.vdown>+1</>",
+		"name": "'Professional Ethics' β",
+		"desc": "When this Operator is assigned to the Reception Room, if no other Operators are working in the Reception Room, increases Clue search speed by <@cc.vup>35%</>, and Morale conmused per hour <@cc.vdown>+1</>",
 		"iconId": "bskill_meet_spd&cost_condChar3"
 	},
 	"meet_spd&exchange[000]": {
@@ -2455,8 +2455,8 @@
 		"iconId": "bskill_meet_spd_hast1"
 	},
 	"meet_spd&condChar_mustget[000]": {
-		"name": "文献学顾问",
-		"desc": "进驻会客室时，如果会客室内只有自身处于工作状态时，连续消耗超过<@cc.kw>16</>点心情下一次<@cc.kw>必定</>获得<@cc.kw>莱茵生命</>的线索",
+		"name": "Bibliography Consultant",
+		"desc": "When this Operator is assigned to the Reception Room, if only this Operator is working in the Reception Room, for every <@cc.kw>16</> consecutive Morale spent, a <@cc.kw>Rhine Lab</> clue is <@cc.kw>guaranteed</> next",
 		"iconId": "bskill_meet_spd&condChar_mustget"
 	}
 }

@@ -11,13 +11,3 @@ quality = 25
 data_path = "../src/lib/data/skills.json"
 image_dir = "../static/skills"
 quality = 50
-
-[facility]
-data_path = "../src/lib/data/facilities.json"
-image_dir = "../static/facilities"
-quality = 100
-
-[item]
-whitelist = []
-image_dir = "../src/lib/images/items"
-quality = 50

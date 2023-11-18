@@ -9,15 +9,13 @@ edition.workspace = true
 publish.workspace = true
 
 [dependencies]
-ahash = { workspace = true, features = ["serde"] }
+anyhow = "1.0.75"
 async-trait = "0.1.74"
-futures = "0.3.29"
 image = { version = "0.24.7", default-features = false, features = ["png", "webp", "webp-encoder"] }
 indexmap = { version = "2.1.0", features = ["serde"] }
 phf = { version = "0.11.2", features = ["macros"] }
-reqwest = { version = "0.11.22", default-features = false, features = ["json", "rustls-tls"] }
+reqwest = { version = "0.11.22", default-features = false, features = ["brotli", "gzip", "json", "rustls-tls"] }
 serde.workspace = true
 serde_json.workspace = true
-thiserror.workspace = true
-tokio = { version = "1.33.0", features = ["macros", "rt-multi-thread"] }
-toml = "0.8.6"
+tokio = { version = "1.34.0", features = ["macros", "rt-multi-thread"] }
+toml = { version = "0.8.8", default-features = false, features = ["parse"] }

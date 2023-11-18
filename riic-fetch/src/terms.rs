@@ -1,74 +1,71 @@
-use crate::{Fetch, HashMap};
-use serde::{Deserialize, Deserializer, Serialize};
+use crate::Fetch;
+use anyhow::Result;
+use indexmap::IndexMap;
+use serde::Deserialize;
+use std::{fs::File, io::BufWriter, path::Path};
 
 #[derive(Deserialize)]
-pub(crate) struct MiscGamedata {
-    #[serde(rename = "richTextStyles")]
-    pub(crate) styles: StyleTable,
-    #[serde(rename = "termDescriptionDict")]
-    pub(crate) terms: TermTable,
+pub struct TermData {
+    #[serde(rename(deserialize = "richTextStyles"))]
+    pub styles: StyleTable,
+    #[serde(rename(deserialize = "termDescriptionDict"))]
+    pub terms: TermTable,
 }
 
-type StyleData = HashMap<Box<str>, Box<str>>;
+impl Fetch for TermData {
+    const PATH: &'static str = "gamedata/excel/gamedata_const.json";
+}
 
-#[derive(Serialize)]
-pub(crate) struct StyleTable(StyleData);
+#[derive(Deserialize)]
+pub struct StyleTable(IndexMap<Box<str>, Box<str>>);
 
-impl<'de> Deserialize<'de> for StyleTable {
-    fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let data: StyleData = Deserialize::deserialize(deserializer)?;
-
-        Ok(Self(
-            data.into_iter()
-                .filter(|(id, _)| id.starts_with("cc"))
-                .filter_map(|(id, data)| {
-                    data.split_once('#').map(|(_, s)| {
-                        (
-                            id,
-                            format!("#{}", s.chars().take(6).collect::<String>()).into(),
-                        )
-                    })
+impl StyleTable {
+    pub fn save<P: AsRef<Path>>(&self, path: P) -> Result<()> {
+        let table: IndexMap<_, _> = self
+            .0
+            .iter()
+            .filter(|(id, _)| id.starts_with("cc"))
+            .filter_map(|(id, style)| {
+                style.split_once('#').map(|(_, s)| {
+                    let hex: String = s.chars().take(6).collect();
+                    (id, format!("#{hex}").into_boxed_str())
                 })
-                .collect(),
-        ))
+            })
+            .collect();
+
+        let file = BufWriter::new(File::create(path)?);
+
+        serde_json::to_writer(file, &table)?;
+
+        Ok(())
     }
 }
-
-type TermData = HashMap<Box<str>, Box<str>>;
-
-#[derive(Serialize)]
-pub(crate) struct TermTable(TermData);
 
 #[derive(Deserialize)]
-struct UnprocessedTerm {
-    description: Box<str>,
-}
-
-impl<'de> Deserialize<'de> for TermTable {
-    fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let data: HashMap<Box<str>, UnprocessedTerm> = Deserialize::deserialize(deserializer)?;
-
-        Ok(Self(
-            data.into_iter()
-                .filter(|(id, _)| id.starts_with("cc"))
-                .map(|(id, entry)| (id, entry.description))
-                .collect(),
-        ))
-    }
-}
-
-impl Fetch for MiscGamedata {
-    const FETCH_PATH: &'static str = "gamedata/excel/gamedata_const.json";
-}
+pub struct TermTable(IndexMap<Box<str>, Description>);
 
 impl TermTable {
-    pub(crate) fn extend(&mut self, other: Self) {
+    pub fn extend(&mut self, other: Self) {
         self.0.extend(other.0);
     }
+
+    pub fn save<P: AsRef<Path>>(&self, path: P) -> Result<()> {
+        let table: IndexMap<_, _> = self
+            .0
+            .iter()
+            .filter(|(id, _)| id.starts_with("cc"))
+            .map(|(id, desc)| (id, &desc.description))
+            .collect();
+
+        let file = BufWriter::new(File::create(path)?);
+
+        serde_json::to_writer(file, &table)?;
+
+        Ok(())
+    }
+}
+
+#[derive(Deserialize)]
+struct Description {
+    description: Box<str>,
 }
