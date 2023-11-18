@@ -44,7 +44,7 @@ impl GetIcons for OperatorSkills {
                 set.spawn(Self::get_icon(
                     client.clone(),
                     id.clone(),
-                    target_path,
+                    target_path.into_boxed_path(),
                     min_size,
                     quality,
                 ));
@@ -144,7 +144,7 @@ impl GetIcons for SkillTable {
                 set.spawn(Self::get_icon(
                     client.clone(),
                     skill.icon_id.clone(),
-                    target_path,
+                    target_path.into_boxed_path(),
                     min_size,
                     quality,
                 ));

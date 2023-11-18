@@ -33,11 +33,7 @@ use image::{
 };
 use reqwest::Client;
 use serde::de::DeserializeOwned;
-use std::{
-    cmp::min,
-    fs::File,
-    path::{Path, PathBuf},
-};
+use std::{cmp::min, fs::File, path::Path};
 use tokio::task::JoinSet;
 
 pub enum Server {
@@ -92,7 +88,7 @@ pub trait GetIcons {
     async fn get_icon(
         client: Client,
         id: Box<str>,
-        target_path: PathBuf,
+        target_path: Box<Path>,
         min_size: u32,
         quality: u8,
     ) -> Result<()> {
