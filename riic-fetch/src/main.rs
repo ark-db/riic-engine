@@ -56,6 +56,7 @@ where
 #[allow(clippy::similar_names)]
 #[tokio::main]
 async fn main() -> Result<()> {
+    // build HTTP client
     let client = Client::builder()
         .https_only(true)
         .timeout(Duration::from_secs(60))
@@ -63,17 +64,19 @@ async fn main() -> Result<()> {
         .build()
         .expect("failed to build HTTP client");
 
+    // fetch operator data
     let ops_handle = spawn(OperatorTableDe::fetch(client.clone(), Server::CN));
 
+    // read config file
     let config = Config::from_toml(CONFIG_PATH)?;
 
-    let c0 = client.clone();
+    let client1 = client.clone();
     let skills_handle = spawn(async move {
-        let c1 = client.clone();
+        let client2 = client1.clone();
         let cn_handle: JoinHandle<Result<_>> = spawn(async move {
             // fetch CN base data
-            let BaseData { ops, skills } = BaseData::fetch(c1.clone(), Server::CN).await?;
-            let (ops, skills) = (Arc::new(ops), Arc::new(skills));
+            let data = BaseData::fetch(client2.clone(), Server::CN).await?;
+            let (ops, skills) = (Arc::new(data.ops), Arc::new(data.skills));
 
             let o = ops.clone();
             let h0 = spawn(async move {
@@ -83,11 +86,11 @@ async fn main() -> Result<()> {
                 ser.save(config.operator.data_path)
             });
 
-            let c2 = c1.clone();
+            let client3 = client2.clone();
             let h1 = spawn(async move {
                 // fetch + save operator icons
                 let mut set = ops.get_icons(
-                    c1.clone(),
+                    client3.clone(),
                     config.operator.image_dir,
                     config.min_image_size,
                     config.operator.quality,
@@ -102,7 +105,7 @@ async fn main() -> Result<()> {
             let h2 = spawn(async move {
                 // fetch + save skill icons
                 let mut set = s.get_icons(
-                    c2,
+                    client2,
                     config.skill.image_dir,
                     config.min_image_size,
                     config.skill.quality,
@@ -117,10 +120,9 @@ async fn main() -> Result<()> {
             Ok((skills, (h0, h1, h2)))
         });
 
-        let c2 = client.clone();
         let en_handle: JoinHandle<Result<_>> = spawn(async {
             // fetch US base data
-            let data = BaseData::fetch(c2, Server::US).await?;
+            let data = BaseData::fetch(client1, Server::US).await?;
             // return base skills
             Ok(data.skills)
         });
@@ -137,13 +139,11 @@ async fn main() -> Result<()> {
         Ok::<_, Error>((h0, h1, h2))
     });
 
-    let c1 = c0.clone();
-
     let terms_handle = spawn(async move {
-        let c2 = c1.clone();
+        let client1 = client.clone();
         let cn_handle: JoinHandle<Result<_>> = spawn(async {
             // fetch CN term data
-            let data = TermData::fetch(c2, Server::CN).await?;
+            let data = TermData::fetch(client1, Server::CN).await?;
 
             // save text style data
             let h = spawn_blocking(move || data.styles.save(config.styles_path));
@@ -152,10 +152,9 @@ async fn main() -> Result<()> {
             Ok((data.terms, h))
         });
 
-        let c3 = c0.clone();
         let en_handle: JoinHandle<Result<_>> = spawn(async {
             // fetch US term data
-            let data = TermData::fetch(c3, Server::US).await?;
+            let data = TermData::fetch(client, Server::US).await?;
             // return skill terms
             Ok(data.terms)
         });
