@@ -38,6 +38,7 @@ impl<'a> OperatorTableSer<'a> {
         Self(table)
     }
 
+    #[allow(clippy::missing_errors_doc)]
     pub fn save<P: AsRef<Path>>(&self, path: P) -> Result<()> {
         let file = BufWriter::new(File::create(path)?);
 

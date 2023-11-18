@@ -13,7 +13,7 @@ use tokio::{
     try_join,
 };
 
-const CONFIG_PATH: &'static str = "config.toml";
+const CONFIG_PATH: &str = "config.toml";
 
 #[derive(Deserialize)]
 struct Config {
@@ -53,6 +53,7 @@ where
     }
 }
 
+#[allow(clippy::similar_names)]
 #[tokio::main]
 async fn main() -> Result<()> {
     let client = Client::builder()
@@ -176,6 +177,7 @@ async fn main() -> Result<()> {
     let (h0, h1, h2) = skills_result?;
     let h3 = terms_result?;
     let (h0, h1, h2, h3) = try_join!(h0, h1, h2, h3)?;
+    #[allow(clippy::unnecessary_operation)]
     (h0?, h1?, h2?, h3?);
 
     Ok(())

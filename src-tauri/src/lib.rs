@@ -1,3 +1,5 @@
+#![allow(clippy::missing_panics_doc)]
+
 mod base;
 pub mod db;
 pub mod window;
