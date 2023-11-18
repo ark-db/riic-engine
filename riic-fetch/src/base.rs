@@ -6,7 +6,7 @@ use serde::{
     de::{Error, Unexpected},
     Deserialize, Deserializer, Serialize,
 };
-use std::{fs::File, io::BufWriter, path::Path, sync::Arc};
+use std::{fs::File, io::BufWriter, path::Path};
 use tokio::task::JoinSet;
 
 #[derive(Deserialize)]
@@ -27,18 +27,20 @@ pub struct OperatorSkills(pub(crate) IndexMap<Box<str>, Operator>);
 impl GetIcons for OperatorSkills {
     const ICON_DIR: &'static str = "torappu/dynamicassets/arts/charavatars";
 
-    fn get_icons(
+    fn get_icons<P>(
         &self,
         client: Client,
-        target_dir: &'static Path,
+        target_dir: P,
         min_size: u32,
         quality: u8,
-    ) -> JoinSet<Result<()>> {
-        let target_dir = Arc::new(target_dir);
+    ) -> JoinSet<Result<()>>
+    where
+        P: AsRef<Path>,
+    {
         let mut set = JoinSet::new();
 
         for id in self.0.keys() {
-            let target_path = target_dir.join(&**id).with_extension("webp");
+            let target_path = target_dir.as_ref().join(id.as_ref()).with_extension("webp");
 
             if target_path.is_file() {
                 set.spawn(Self::get_icon(
@@ -127,18 +129,23 @@ impl<'a> SkillTableRef<'a> {
 impl GetIcons for SkillTable {
     const ICON_DIR: &'static str = "torappu/dynamicassets/arts/building/skills";
 
-    fn get_icons(
+    fn get_icons<P>(
         &self,
         client: Client,
-        target_dir: &'static Path,
+        target_dir: P,
         min_size: u32,
         quality: u8,
-    ) -> JoinSet<Result<()>> {
-        let target_dir = Arc::new(target_dir);
+    ) -> JoinSet<Result<()>>
+    where
+        P: AsRef<Path>,
+    {
         let mut set = JoinSet::new();
 
         for skill in self.0.values() {
-            let target_path = target_dir.join(&*skill.icon_id).with_extension("webp");
+            let target_path = target_dir
+                .as_ref()
+                .join(skill.icon_id.as_ref())
+                .with_extension("webp");
 
             if target_path.is_file() {
                 set.spawn(Self::get_icon(

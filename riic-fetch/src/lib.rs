@@ -77,13 +77,15 @@ pub trait Fetch: Sized + DeserializeOwned {
 pub trait GetIcons {
     const ICON_DIR: &'static str;
 
-    fn get_icons(
+    fn get_icons<P>(
         &self,
         client: Client,
-        target_dir: &'static Path,
+        target_dir: P,
         min_size: u32,
         quality: u8,
-    ) -> JoinSet<Result<()>>;
+    ) -> JoinSet<Result<()>>
+    where
+        P: AsRef<Path>;
 
     async fn get_icon(
         client: Client,
