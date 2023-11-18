@@ -33,7 +33,11 @@ use image::{
 };
 use reqwest::Client;
 use serde::de::DeserializeOwned;
-use std::{cmp::min, fs::File, path::Path, sync::Arc};
+use std::{
+    cmp::min,
+    fs::File,
+    path::{Path, PathBuf},
+};
 use tokio::task::JoinSet;
 
 pub enum Server {
@@ -88,16 +92,10 @@ pub trait GetIcons {
     async fn get_icon(
         client: Client,
         id: Box<str>,
-        target_dir: Arc<&Path>,
+        target_path: PathBuf,
         min_size: u32,
         quality: u8,
     ) -> Result<()> {
-        let target_path = target_dir.join(&*id).with_extension("webp");
-
-        if target_path.is_file() {
-            return Ok(());
-        }
-
         let url = format!(
             "https://raw.githubusercontent.com/astral4/arkdata/main/assets/{}/{id}.png",
             Self::ICON_DIR

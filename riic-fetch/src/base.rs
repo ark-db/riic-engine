@@ -38,13 +38,17 @@ impl GetIcons for OperatorSkills {
         let mut set = JoinSet::new();
 
         for id in self.0.keys() {
-            set.spawn(Self::get_icon(
-                client.clone(),
-                id.clone(),
-                target_dir.clone(),
-                min_size,
-                quality,
-            ));
+            let target_path = target_dir.join(&**id).with_extension("webp");
+
+            if target_path.is_file() {
+                set.spawn(Self::get_icon(
+                    client.clone(),
+                    id.clone(),
+                    target_path,
+                    min_size,
+                    quality,
+                ));
+            }
         }
 
         set
@@ -134,13 +138,17 @@ impl GetIcons for SkillTable {
         let mut set = JoinSet::new();
 
         for skill in self.0.values() {
-            set.spawn(Self::get_icon(
-                client.clone(),
-                skill.icon_id.clone(),
-                target_dir.clone(),
-                min_size,
-                quality,
-            ));
+            let target_path = target_dir.join(&*skill.icon_id).with_extension("webp");
+
+            if target_path.is_file() {
+                set.spawn(Self::get_icon(
+                    client.clone(),
+                    skill.icon_id.clone(),
+                    target_path,
+                    min_size,
+                    quality,
+                ));
+            }
         }
 
         set
