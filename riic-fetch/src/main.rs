@@ -126,6 +126,7 @@ async fn main() -> Result<()> {
     });
 
     let (skills_result, terms_result) = try_join!(skills_handle, terms_handle)?;
-    (skills_result?, terms_result?);
+    skills_result?;
+    terms_result?;
     Ok(())
 }

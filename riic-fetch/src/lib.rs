@@ -12,6 +12,7 @@
     unused_import_braces,
     unused_qualifications
 )]
+#![allow(clippy::module_name_repetitions)]
 
 mod base;
 mod operator_de;
@@ -115,6 +116,7 @@ pub trait GetIcons {
         let (width, height) = image.dimensions();
         let min_dim = min(width, height);
 
+        #[allow(clippy::cast_possible_truncation)]
         if min_dim < min_size {
             let scale_factor = f64::from(min_size) / f64::from(min_dim);
             image = resize(

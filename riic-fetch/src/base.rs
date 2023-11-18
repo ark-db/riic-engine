@@ -97,27 +97,18 @@ where
 pub struct SkillTable(IndexMap<Box<str>, Skill>);
 
 impl SkillTable {
-    /*
-    pub fn extend(&mut self, other: Self) {
-        self.0.extend(other.0);
-    }
-    */
+    #[must_use]
     pub fn combine<'a>(a: &'a Self, b: &'a Self) -> SkillTableRef<'a> {
-        SkillTableRef(a.0.iter().chain(b.0.iter()).collect())
+        SkillTableRef(
+            a.0.iter()
+                .chain(b.0.iter())
+                .map(|(k, v)| (&**k, v))
+                .collect(),
+        )
     }
-
-    /*
-    pub fn save<P: AsRef<Path>>(&self, path: P) -> Result<()> {
-        let file = BufWriter::new(File::create(path)?);
-
-        serde_json::to_writer(file, &self.0)?;
-
-        Ok(())
-    }
-    */
 }
 
-pub struct SkillTableRef<'a>(IndexMap<&'a Box<str>, &'a Skill>);
+pub struct SkillTableRef<'a>(IndexMap<&'a str, &'a Skill>);
 
 impl<'a> SkillTableRef<'a> {
     pub fn save<P: AsRef<Path>>(self, path: P) -> Result<()> {

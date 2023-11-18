@@ -20,6 +20,7 @@ const NAME_OVERRIDES: Map<&str, &str> = phf_map! {
 pub struct OperatorTableSer<'a>(IndexMap<Box<str>, Operator<'a>>);
 
 impl<'a> OperatorTableSer<'a> {
+    #[must_use]
     pub fn create(ops: OperatorTableDe, skills: &'a OperatorSkills) -> Self {
         let mut table: IndexMap<_, _> = ops
             .0
@@ -50,17 +51,17 @@ fn transform_operator(id: Box<str>, op: Op, skills: &OperatorSkills) -> (Box<str
     let op_skills = skills
         .0
         .get(&id)
-        .unwrap_or_else(|| panic!("Operator '{}' had no base skills", id));
+        .unwrap_or_else(|| panic!("Operator '{id}' had no base skills"));
 
     let operator = Operator {
         name: op.name,
         rarity: op.rarity,
         skills: op_skills
             .inner
-            .into_iter()
+            .iter()
             .map(|x| {
                 x.inner
-                    .into_iter()
+                    .iter()
                     .map(|phase| Skill {
                         id: &phase.id,
                         elite: phase.cond.elite,
