@@ -13,7 +13,7 @@
     unused_qualifications
 )]
 
-use anyhow::Result;
+use anyhow::{Error, Result};
 use reqwest::Client;
 use riic_fetch::{
     BaseData, Fetch, GetIcons, OperatorTableDe, OperatorTableSer, Server, SkillTable, TermData,
@@ -45,33 +45,35 @@ async fn main() -> Result<()> {
             let (ops, skills) = (Arc::new(ops), Arc::new(skills));
 
             let o = ops.clone();
-            spawn(async move {
+            let h0 = spawn(async move {
                 // transform operator data
-                let ser = OperatorTableSer::create(ops_handle.await.unwrap().unwrap(), &o);
+                let ser = OperatorTableSer::create(ops_handle.await??, &o);
                 // save operator data
                 ser.save("../dump/chars.json")
             });
 
             let c2 = c1.clone();
-            spawn(async move {
+            let h1 = spawn(async move {
                 // fetch + save operator icons
                 let mut set = ops.get_icons(c1.clone(), Path::new("../dump/ops/"), 60, 25);
                 while let Some(res) = set.join_next().await {
-                    res.unwrap().unwrap();
+                    res??;
                 }
+                Ok::<_, Error>(())
             });
 
             let s = skills.clone();
-            spawn(async move {
+            let h2 = spawn(async move {
                 // fetch + save skill icons
                 let mut set = s.get_icons(c2, Path::new("../dump/skills/"), 60, 50);
                 while let Some(res) = set.join_next().await {
-                    res.unwrap().unwrap();
+                    res??;
                 }
+                Ok::<_, Error>(())
             });
 
             // return base skills
-            Ok(skills)
+            Ok((skills, (h0, h1, h2)))
         });
 
         let c2 = client.clone();
@@ -83,13 +85,15 @@ async fn main() -> Result<()> {
         });
 
         let (cn_skills, en_skills) = try_join!(cn_handle, en_handle)?;
-        let (cn_skills, en_skills) = (cn_skills?, en_skills?);
+        let ((cn_skills, (h0, h1, h2)), en_skills) = (cn_skills?, en_skills?);
 
         // combine base skills
         let skills = SkillTable::combine(&cn_skills, &en_skills);
 
         // save base skills
-        skills.save("../dump/skills.json")
+        skills.save("../dump/skills.json")?;
+
+        Ok::<_, Error>((h0, h1, h2))
     });
 
     let c1 = c0.clone();
@@ -101,10 +105,10 @@ async fn main() -> Result<()> {
             let data = TermData::fetch(c2, Server::CN).await?;
 
             // save text style data
-            spawn_blocking(move || data.styles.save("../dump/text-colors.json").unwrap());
+            let h = spawn_blocking(move || data.styles.save("../dump/text-colors.json"));
 
             // return skill terms
-            Ok(data.terms)
+            Ok((data.terms, h))
         });
 
         let c3 = c0.clone();
@@ -116,17 +120,23 @@ async fn main() -> Result<()> {
         });
 
         let (cn_terms, en_terms) = try_join!(cn_handle, en_handle)?;
-        let (mut cn_terms, en_terms) = (cn_terms?, en_terms?);
+        let ((mut cn_terms, h), en_terms) = (cn_terms?, en_terms?);
 
         // combine skill terms
         cn_terms.extend(en_terms);
 
         // save skill terms
-        cn_terms.save("../dump/terms.json")
+        cn_terms.save("../dump/terms.json")?;
+
+        Ok::<_, Error>(h)
     });
 
+    // wait for all tasks to finish and catch errors
     let (skills_result, terms_result) = try_join!(skills_handle, terms_handle)?;
-    skills_result?;
-    terms_result?;
+    let (h0, h1, h2) = skills_result?;
+    let h3 = terms_result?;
+    let (h0, h1, h2, h3) = try_join!(h0, h1, h2, h3)?;
+    (h0?, h1?, h2?, h3?);
+
     Ok(())
 }
