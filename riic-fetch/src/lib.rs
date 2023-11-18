@@ -29,7 +29,7 @@ use async_trait::async_trait;
 use image::{
     codecs::webp::{WebPEncoder, WebPQuality},
     imageops::{resize, FilterType},
-    load_from_memory_with_format, ColorType, ImageFormat,
+    load_from_memory_with_format, ColorType, EncodableLayout, ImageFormat,
 };
 use reqwest::Client;
 use serde::de::DeserializeOwned;
@@ -111,18 +111,15 @@ pub trait GetIcons {
             .bytes()
             .await?;
 
-        let mut image = load_from_memory_with_format(&bytes, ImageFormat::Png)?.to_rgb8();
+        let mut image = load_from_memory_with_format(&bytes, ImageFormat::Png)?.into_rgba8();
 
-        let (width, height) = image.dimensions();
-        let min_dim = min(width, height);
+        let min_dim = min(image.width(), image.height());
 
-        #[allow(clippy::cast_possible_truncation)]
         if min_dim < min_size {
-            let scale_factor = f64::from(min_size) / f64::from(min_dim);
             image = resize(
                 &image,
-                (scale_factor * f64::from(width)) as u32,
-                (scale_factor * f64::from(height)) as u32,
+                image.width() * min_size / min_dim,
+                image.height() * min_size / min_dim,
                 FilterType::Lanczos3,
             );
         }
@@ -130,7 +127,7 @@ pub trait GetIcons {
         let file = File::create(target_path)?;
 
         WebPEncoder::new_with_quality(file, WebPQuality::lossy(quality)).encode(
-            &image,
+            image.as_bytes(),
             image.width(),
             image.height(),
             ColorType::Rgba8,
