@@ -12,7 +12,7 @@
 		"lint": "npm run lint:frontend && cargo fmt --all --check && cargo clippy --workspace",
 		"lint:frontend": "prettier --check . && svelte-check --tsconfig ./tsconfig.json && eslint . --max-warnings=0 --exit-on-fatal-error",
 		"update": "npx npm-check-updates --upgrade && npm install && cargo upgrade --incompatible --exclude open && cargo update",
-		"fetch": "cargo run --package riic-fetch --release && npm run format:frontend",
+		"fetch": "cd riic-fetch && cargo run --release && npm run format:frontend",
 		"tauri": "tauri"
 	},
 	"devDependencies": {

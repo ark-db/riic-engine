@@ -59,8 +59,10 @@ fn transform_operator(id: Box<str>, op: Op, skills: &OperatorSkills) -> (Box<str
         skills: op_skills
             .inner
             .iter()
-            .map(|x| {
-                x.inner
+            .filter(|skill| !skill.inner.is_empty())
+            .map(|skill| {
+                skill
+                    .inner
                     .iter()
                     .map(|phase| Skill {
                         id: &phase.id,

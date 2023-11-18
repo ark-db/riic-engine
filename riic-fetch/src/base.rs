@@ -42,7 +42,7 @@ impl GetIcons for OperatorSkills {
         for id in self.0.keys() {
             let target_path = target_dir.as_ref().join(id.as_ref()).with_extension("webp");
 
-            if target_path.is_file() {
+            if !target_path.is_file() {
                 set.spawn(Self::get_icon(
                     client.clone(),
                     id.clone(),
@@ -147,7 +147,7 @@ impl GetIcons for SkillTable {
                 .join(skill.icon_id.as_ref())
                 .with_extension("webp");
 
-            if target_path.is_file() {
+            if !target_path.is_file() {
                 set.spawn(Self::get_icon(
                     client.clone(),
                     skill.icon_id.clone(),
