@@ -21,16 +21,14 @@ pub struct StyleTable(IndexMap<Box<str>, Box<str>>);
 
 impl StyleTable {
     pub fn save<P: AsRef<Path>>(&self, path: P) -> Result<()> {
-        let table: IndexMap<_, Box<str>> = self
+        let table: IndexMap<_, _> = self
             .0
             .iter()
             .filter(|(id, _)| id.starts_with("cc"))
             .filter_map(|(id, style)| {
                 style.split_once('#').map(|(_, s)| {
-                    (
-                        id,
-                        format!("#{}", s.chars().take(6).collect::<String>()).into(),
-                    )
+                    let hex: String = s.chars().take(6).collect();
+                    (id, format!("#{hex}").into_boxed_str())
                 })
             })
             .collect();
@@ -55,6 +53,7 @@ impl TermTable {
         let table: IndexMap<_, _> = self
             .0
             .iter()
+            .filter(|(id, _)| id.starts_with("cc"))
             .map(|(id, desc)| (id, &desc.description))
             .collect();
 
