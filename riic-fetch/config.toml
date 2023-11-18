@@ -1,0 +1,13 @@
+terms_path = "../src/lib/data/terms.json"
+styles_path = "../src/lib/data/text-colors.json"
+min_image_size = 60
+
+[operator]
+data_path = "../src/lib/data/chars.json"
+image_dir = "../static/chars"
+quality = 25
+
+[skill]
+data_path = "../src/lib/data/skills.json"
+image_dir = "../static/skills"
+quality = 50
