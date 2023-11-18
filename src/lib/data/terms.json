@@ -33,7 +33,7 @@
 	"cc.g.karlan": "Includes the following Operators\nSilverAsh, Gnosis, Pramanix, Cliffheart, Matterhorn, Courier, Kjera, Aurora",
 	"cc.g.sui": "Includes the following Operators\nNian, Dusk, Ling, Chongyue",
 	"cc.g.glasgow": "Includes the following Operators:\nSiege, Morgan, Dagda, Indra",
-	"cc.g.rh": "Includes the following Operators:\nSilence, Ifrit, Saria, Ptilopsis, Mayer, Magallan, Dorothy, Astgenne",
+	"cc.g.rh": "Includes the following Operators:\nSilence, Ifrit, Saria, Ptilopsis, Mayer, Magallan, Dorothy, Astgenne, Muelsyse",
 	"cc.g.sm": "包含以下干员\n远山、柏喙、雪绒、提丰、寒檀、凛视",
 	"cc.g.bs": "包含以下干员\n雷蛇、芙兰卡、杰西卡、香草、杏仁",
 	"cc.c.abyssal2_1": "For every <$cc.g.abyssal><@cc.kw>Abyssal Hunter</></> operator stationed in a Factory, the Control Center provides <@cc.vup>5%</> Productivity for every Factory with an <$cc.g.abyssal><@cc.kw>Abyssal Hunter</></> operator stationed within it, up to a maximum of <@cc.vup>45%</> Productivity",
