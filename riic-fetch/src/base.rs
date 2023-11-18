@@ -166,6 +166,7 @@ impl GetIcons for SkillTable {
 struct Skill {
     #[serde(rename(deserialize = "buffName"))]
     name: Box<str>,
+    #[serde(rename(serialize = "desc"))]
     description: Box<str>,
     #[serde(rename(deserialize = "skillIcon", serialize = "iconId"))]
     icon_id: Box<str>,
