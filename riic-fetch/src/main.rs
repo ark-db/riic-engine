@@ -33,11 +33,11 @@ impl Config {
 }
 
 #[derive(Deserialize)]
-pub(crate) struct SaveConfig {
-    pub(crate) data_path: Box<Path>,
-    pub(crate) image_dir: Box<Path>,
+struct SaveConfig {
+    data_path: Box<Path>,
+    image_dir: Box<Path>,
     #[serde(deserialize_with = "deserialize_quality")]
-    pub(crate) quality: u8,
+    quality: u8,
 }
 
 fn deserialize_quality<'de, D>(deserializer: D) -> Result<u8, D::Error>
