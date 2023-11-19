@@ -108,7 +108,7 @@ impl SkillTable {
         SkillTableRef(
             a.0.iter()
                 .chain(b.0.iter())
-                .map(|(k, v)| (&**k, v))
+                .map(|(k, v)| (k.as_ref(), v))
                 .collect(),
         )
     }
