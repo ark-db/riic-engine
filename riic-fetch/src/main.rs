@@ -61,8 +61,7 @@ async fn main() -> Result<()> {
         .https_only(true)
         .timeout(Duration::from_secs(60))
         .use_rustls_tls()
-        .build()
-        .expect("failed to build HTTP client");
+        .build()?;
 
     // fetch operator data
     let ops_handle = spawn(OperatorTableDe::fetch(client.clone(), Server::CN));
