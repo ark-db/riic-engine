@@ -43,8 +43,20 @@
 		--salmon: #ed6e69;
 		--salmon-strong: #fd4842;
 
-		font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue,
-			helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
+		font-family:
+			-apple-system,
+			BlinkMacSystemFont,
+			avenir next,
+			avenir,
+			segoe ui,
+			helvetica neue,
+			helvetica,
+			Cantarell,
+			Ubuntu,
+			roboto,
+			noto,
+			arial,
+			sans-serif;
 		user-select: none;
 		-webkit-user-select: none;
 		background-color: var(--dark);
