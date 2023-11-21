@@ -3,16 +3,19 @@
 	import Button from '$lib/components/Button.svelte';
 	import addFileIcon from '$lib/images/ui/file-add.svg';
 	import refreshIcon from '$lib/images/ui/refresh.svg';
-	import { saveList, saveSortMode, saveSortOrder } from '$lib/stores';
+	import { error, saveList, saveSortMode, saveSortOrder } from '$lib/stores';
 	import ExportNotice from './ExportNotice.svelte';
 	import Header from './Header.svelte';
 	import Entry from './Entry.svelte';
 
 	// Rename the app window when moving from the editor to the main menu
-	invoke<void>('rename_window');
+	invoke<void>('rename_window').catch(error.handle);
 
 	// Upon app startup, load save list before displaying window
-	saveList.load().then(() => invoke<void>('show_window'));
+	saveList
+		.load()
+		.then(() => invoke<void>('show_window'))
+		.catch(error.handle);
 </script>
 
 <svelte:head>

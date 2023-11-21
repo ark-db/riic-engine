@@ -3,9 +3,10 @@
 	import { invoke } from '@tauri-apps/api/tauri';
 	import github from '$lib/images/github.svg';
 	import lancet from '$lib/images/lancet.webp';
+	import { error } from '$lib/stores';
 
 	function openGithub() {
-		invoke('open', { url: 'https://github.com/ark-db/riic-engine/issues' });
+		invoke('open', { url: 'https://github.com/ark-db/riic-engine/issues' }).catch(error.handle);
 	}
 </script>
 
