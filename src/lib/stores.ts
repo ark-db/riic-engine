@@ -234,12 +234,12 @@ function createZoomShortcut() {
 					src: maximizeIcon,
 					desc: 'Zoom to maximum',
 					run: setMax
-			  }
+				}
 			: {
 					src: minimizeIcon,
 					desc: 'Zoom to minimum',
 					run: setMin
-			  }
+				}
 	);
 }
 
