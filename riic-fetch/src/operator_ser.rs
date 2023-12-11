@@ -7,10 +7,11 @@ use serde::Serialize;
 use std::{fs::File, io::BufWriter, path::Path};
 
 const NAME_OVERRIDES: Map<&str, &str> = phf_map! {
-    "char_118_yuki" => "Shirayuki",
-    "char_196_sunbr" => "Gummy",
     "char_115_headbr" => "Zima",
+    "char_118_yuki" => "Shirayuki",
+    "char_194_leto" => "Leto",
     "char_195_glassb" => "Istina",
+    "char_196_sunbr" => "Gummy",
     "char_197_poca" => "Rosa",
     "char_1001_amiya2" => "Amiya (Guard)",
     "char_4055_bgsnow" => "Pozyomka",
