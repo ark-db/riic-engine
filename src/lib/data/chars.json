@@ -875,6 +875,14 @@
 			]
 		]
 	},
+	"char_194_leto": {
+		"name": "Leto",
+		"rarity": 5,
+		"skills": [
+			[{ "id": "train_spd&profession[020]", "elite": 0, "level": 1 }],
+			[{ "id": "manu_formula_spd_P[000]", "elite": 2, "level": 1 }]
+		]
+	},
 	"char_4083_chimes": {
 		"name": "Wind Chimes",
 		"rarity": 5,
@@ -1361,6 +1369,14 @@
 				{ "id": "workshop_formula_probability[124]", "elite": 2, "level": 1 }
 			],
 			[{ "id": "dorm_rec_single[032]", "elite": 2, "level": 1 }]
+		]
+	},
+	"char_4114_harold": {
+		"name": "Harold",
+		"rarity": 5,
+		"skills": [
+			[{ "id": "meet_spd[000]", "elite": 0, "level": 1 }],
+			[{ "id": "meet_team&char[000]", "elite": 2, "level": 1 }]
 		]
 	},
 	"char_1024_hbisc2": {
@@ -2546,6 +2562,17 @@
 		"skills": [
 			[{ "id": "train_spd_doubleProf[000]", "elite": 0, "level": 1 }],
 			[{ "id": "train_spd_reduceTime[000]", "elite": 2, "level": 1 }]
+		]
+	},
+	"char_4116_blkkgt": {
+		"name": "Degenbrecher",
+		"rarity": 6,
+		"skills": [
+			[
+				{ "id": "trade_ord_spd&limit[100]", "elite": 0, "level": 1 },
+				{ "id": "trade_ord_spd&limit[101]", "elite": 2, "level": 1 }
+			],
+			[{ "id": "trade_ord_spd_variable3[000]", "elite": 2, "level": 1 }]
 		]
 	},
 	"char_017_huang": {
