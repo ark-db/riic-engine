@@ -11,16 +11,17 @@
 		"format:frontend": "prettier --write .",
 		"lint": "npm run lint:frontend && cargo fmt --all --check && cargo clippy --workspace",
 		"lint:frontend": "prettier --check . && svelte-check --tsconfig ./tsconfig.json && eslint . --max-warnings=0 --exit-on-fatal-error",
-		"update": "npx npm-check-updates --upgrade --reject vite && npm install && cargo upgrade --incompatible --exclude open && cargo update",
+		"update": "npx npm-check-updates --upgrade && npm install && cargo upgrade --incompatible --exclude open && cargo update",
 		"fetch": "cd riic-fetch && cargo run --release && npm run format:frontend",
 		"tauri": "tauri"
 	},
 	"devDependencies": {
-		"@sveltejs/adapter-static": "^2.0.3",
-		"@sveltejs/kit": "^1.27.7",
-		"@tauri-apps/cli": "^1.5.7",
-		"@typescript-eslint/eslint-plugin": "^6.13.2",
-		"@typescript-eslint/parser": "^6.13.2",
+		"@sveltejs/adapter-static": "^3.0.0",
+		"@sveltejs/kit": "^2.0.0",
+		"@sveltejs/vite-plugin-svelte": "^3.0.1",
+		"@tauri-apps/cli": "^1.5.8",
+		"@typescript-eslint/eslint-plugin": "^6.14.0",
+		"@typescript-eslint/parser": "^6.14.0",
 		"eslint": "^8.55.0",
 		"eslint-config-prettier": "^9.1.0",
 		"eslint-plugin-svelte": "^2.35.1",
@@ -29,13 +30,13 @@
 		"prettier-plugin-svelte": "^3.1.2",
 		"svelte": "^4.2.8",
 		"svelte-check": "^3.6.2",
-		"svelte-preprocess": "^5.1.1",
+		"svelte-preprocess": "^5.1.2",
 		"tslib": "^2.6.2",
 		"typescript": "^5.3.3",
-		"vite": "^4.5.0"
+		"vite": "^5.0.9"
 	},
 	"dependencies": {
-		"@tauri-apps/api": "^1.5.1",
+		"@tauri-apps/api": "^1.5.2",
 		"tippy.js": "^6.3.7"
 	}
 }
