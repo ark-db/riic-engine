@@ -9,7 +9,6 @@ pub use operator_ser::OperatorTableSer;
 pub use terms::TermData;
 
 use anyhow::Result;
-use async_trait::async_trait;
 use image::{
     codecs::webp::{WebPEncoder, WebPQuality},
     imageops::{resize, FilterType},
@@ -38,10 +37,10 @@ impl Server {
     }
 }
 
-#[async_trait]
 pub trait Fetch: Sized + DeserializeOwned {
     const PATH: &'static str;
 
+    #[must_use]
     async fn fetch(client: Client, server: Server) -> Result<Self> {
         let url = format!("{}/{}", server.base_url(), Self::PATH);
 
@@ -57,7 +56,6 @@ pub trait Fetch: Sized + DeserializeOwned {
     }
 }
 
-#[async_trait]
 pub trait GetIcons {
     const ICON_DIR: &'static str;
 
@@ -71,6 +69,7 @@ pub trait GetIcons {
     where
         P: AsRef<Path>;
 
+    #[must_use]
     async fn get_icon(
         client: Client,
         id: Box<str>,
