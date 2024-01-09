@@ -265,8 +265,8 @@
 		"iconId": "bskill_pow_spd&cost"
 	},
 	"power_rec_spd&cost[010]": {
-		"name": "外卖水果挞",
-		"desc": "进驻发电站时，心情每小时消耗<@cc.vup>-0.3</>",
+		"name": "Take-Away Fruit Tarts",
+		"desc": "When this Operator is assigned to a Power Plant, reduces the Morale consumed each hour by <@cc.vup>-0.3</>",
 		"iconId": "bskill_pow_spd&cost"
 	},
 	"power_rec_spd[000]": {
@@ -370,13 +370,13 @@
 		"iconId": "bskill_power_rec_rhine"
 	},
 	"power_rec_spd&addition[000]": {
-		"name": "技术交流α",
-		"desc": "进驻发电站时，无人机充能速度首小时<@cc.vup>+10%</>，此后每小时<@cc.vup>+1%</>，最终达到<@cc.vup>+15%</>",
+		"name": "Technology Exchange α",
+		"desc": "When this Operator is assigned to a Power Plant, drone recovery rate is <@cc.vup>+10%</> in the first hour and thereafter <@cc.vup>+1%</> per hour, up to <@cc.vup>+15%</>",
 		"iconId": "bskill_power_rec_spd&addition1"
 	},
 	"power_rec_spd&addition[001]": {
-		"name": "技术交流β",
-		"desc": "进驻发电站时，无人机充能速度首小时<@cc.vup>+15%</>，此后每小时<@cc.vup>+1%</>，最终达到<@cc.vup>+20%</>",
+		"name": "Technology Exchange β",
+		"desc": "When this Operator is assigned to a Power Plant, drone recovery rate is <@cc.vup>+15%</> in the first hour and thereafter <@cc.vup>+1%</> per hour, up to <@cc.vup>+20%</>",
 		"iconId": "bskill_power_rec_spd&addition2"
 	},
 	"manu_bd_to_bd[000]": {
@@ -560,8 +560,8 @@
 		"iconId": "bskill_man_exp&limit2"
 	},
 	"manu_formula_limit[020]": {
-		"name": "合理利用",
-		"desc": "进驻制造站时，生产<@cc.kw>作战记录</>类配方时，仓库容量上限<@cc.vup>+4</>",
+		"name": "Reasonable Utilization",
+		"desc": "When this Operator is assigned to a Factory, capacity limit is increased by <@cc.vup>+4</> when producing <@cc.kw>Battle Records</>",
 		"iconId": "bskill_man_exp&limit3"
 	},
 	"manu_prod_spd&limit&cost[000]": {
@@ -665,13 +665,13 @@
 		"iconId": "bskill_man_exp3"
 	},
 	"manu_formula_spd[030]": {
-		"name": "公证所教习α",
-		"desc": "进驻制造站时，<@cc.kw>作战记录</>类配方的生产力<@cc.vup>+20%</>",
+		"name": "Notarial Hall Instructor α",
+		"desc": "When this Operator is assigned to a Factory, <@cc.kw>Battle Record</> formula related productivity <@cc.vup>+20%</>",
 		"iconId": "bskill_man_exp4"
 	},
 	"manu_formula_spd[031]": {
-		"name": "公证所教习β",
-		"desc": "进驻制造站时，<@cc.kw>作战记录</>类配方的生产力<@cc.vup>+30%</>",
+		"name": "Notarial Hall Instructor β",
+		"desc": "When this Operator is assigned to a Factory, <@cc.kw>Battle Record</> formula related productivity <@cc.vup>+30%</>",
 		"iconId": "bskill_man_exp2"
 	},
 	"manu_prod_spd&trade[000]": {
@@ -688,6 +688,11 @@
 		"name": "Metalwork β",
 		"desc": "When this Operator is assigned to a Factory, <@cc.kw>Precious Metal</> formula related productivity <@cc.vup>+35%</>",
 		"iconId": "bskill_man_gold2"
+	},
+	"manu_formula_spd[101]": {
+		"name": "金属工艺·α",
+		"desc": "进驻制造站时，<@cc.kw>贵金属</>类配方的生产力<@cc.vup>+30%</>",
+		"iconId": "bskill_man_gold1"
 	},
 	"manu_formula_spd&cost[000]": {
 		"name": "小奇思",
@@ -1344,6 +1349,16 @@
 		"desc": "进驻加工站加工<@cc.kw>基建材料</>时，副产品的产出概率提升<@cc.vup>75%</>",
 		"iconId": "bskill_ws_build2"
 	},
+	"workshop_formula_probability[116]": {
+		"name": "探井人·α",
+		"desc": "进驻加工站加工<@cc.kw>精英材料</>时，副产品的产出概率提升<@cc.vup>75%</>",
+		"iconId": "bskill_ws_evolve2"
+	},
+	"workshop_formula_probability[126]": {
+		"name": "探井人·β",
+		"desc": "进驻加工站加工<@cc.kw>精英材料</>时，副产品的产出概率提升<@cc.vup>80%</>",
+		"iconId": "bskill_ws_evolve3"
+	},
 	"workshop_formula_dorm[000]": {
 		"name": "Waste Not, Want Not",
 		"desc": "When this Operator is assigned to the Workshop to process <@cc.kw>Elite materials</>, increases the byproduct production rate by <@cc.vup>5%</> for every <@cc.kw>1</> Operator with <@cc.vup>4</> or less Morale assigned to the Dorms",
@@ -1368,6 +1383,11 @@
 		"name": "Corrosion Inhibition Tech",
 		"desc": "When this Operator is assigned to the Workshop to process <@cc.kw>Elite materials</>, any byproducts of <@cc.kw>T3</> quality produced will be <@cc.kw>Oriron Clusters</>",
 		"iconId": "bskill_ws_drop_oriron"
+	},
+	"workshop_formula_drop[040]": {
+		"name": "岩体锚固",
+		"desc": "进驻加工站加工<@cc.kw>精英材料</>产出<@cc.kw>T3</>品质的副产品时，副产品必定为<@cc.kw>固源岩组</>",
+		"iconId": "bskill_ws_drop_orirock"
 	},
 	"workshop_formula_free[000]": {
 		"name": "Careful Planning",
@@ -1934,6 +1954,11 @@
 		"desc": "When this Operator is assigned to a Dormitory, restores <@cc.vup>+0.15</> Morale per hour to all Operators assigned to that Dormitory (Only the strongest effect of this type takes place)",
 		"iconId": "bskill_dorm_all2"
 	},
+	"dorm_rec_all[014]": {
+		"name": "大锅饭·α",
+		"desc": "进驻宿舍时，该宿舍内所有干员的心情每小时恢复<@cc.vup>+0.15</>（同种效果取最高）",
+		"iconId": "bskill_dorm_all2"
+	},
 	"dorm_rec_all[020]": {
 		"name": "General Z",
 		"desc": "When this Operator is assigned to a Dormitory, restores <@cc.vup>+0.2</> Morale per hour to all Operators assigned to that Dormitory (Only the strongest effect of this type takes place)",
@@ -2010,8 +2035,8 @@
 		"iconId": "bskill_dorm_single&one22"
 	},
 	"dorm_rec_single&oneself[040]": {
-		"name": "甜甜圈派对",
-		"desc": "进驻宿舍时，使该宿舍内除自身以外心情未满的某个干员每小时恢复<@cc.vup>+0.4</>（同种效果取最高）；同时自身心情每小时恢复<@cc.vup>+0.4</>",
+		"name": "Donut Party",
+		"desc": "When this Operator is assigned to a Dormitory, restores <@cc.vup>+0.4</> Morale per hour to another Operator assigned to that Dormitory whose Morale is not full (Only the strongest effect of this type takes place); furthermore, self Morale recovered per hour <@cc.vup>+0.4</>",
 		"iconId": "bskill_dorm_single&one12"
 	},
 	"dorm_rec_single_power[000]": {
@@ -2083,6 +2108,11 @@
 		"name": "芬芳疗养·α",
 		"desc": "进驻宿舍时，该宿舍内所有干员的心情每小时恢复<@cc.vup>+0.15</>（同种效果取最高）",
 		"iconId": "bskill_dorm_all4"
+	},
+	"dorm_rec_all[024]": {
+		"name": "大锅饭·β",
+		"desc": "进驻宿舍时，该宿舍内所有干员的心情每小时恢复<@cc.vup>+0.2</>（同种效果取最高）",
+		"iconId": "bskill_dorm_all3"
 	},
 	"dorm_bd_num[000]": {
 		"name": "无声共鸣",
@@ -2210,8 +2240,8 @@
 		"iconId": "bskill_hire_spd&clue"
 	},
 	"hire_spd&clue[110]": {
-		"name": "交游广阔",
-		"desc": "进驻人力办公室时，人脉资源的联络速度<@cc.vup>+30%</>，同时每个招募位（不包含初始招募位）额外<@cc.vup>+5%</>会客室线索搜集速度",
+		"name": "Networking",
+		"desc": "When this Operator is assigned to the HR Office, increases HR contacting speed by <@cc.vup>+30%</>, and increases Clue collection speed in the Reception Room by <@cc.vup>+5%</> for each additional Recruitment slot (does not count default slots).",
 		"iconId": "bskill_hire_spd&clue2"
 	},
 	"hire_spd&clue2[230]": {
@@ -2410,7 +2440,7 @@
 		"iconId": "bskill_meet_blacksteel2"
 	},
 	"meet_spd&team[031]": {
-		"name": "B.P.R.S",
+		"name": "B.P.R.S.",
 		"desc": "When this Operator is assigned to the Reception Room, Clue search speed increases by <@cc.vup>10%</> and it's easier to obtain the clues of <@cc.kw>Blacksteel Worldwide</>",
 		"iconId": "bskill_meet_blacksteel2"
 	},

@@ -1279,6 +1279,17 @@
 			]
 		]
 	},
+	"char_4081_warmy": {
+		"name": "Warmy",
+		"rarity": 5,
+		"skills": [
+			[
+				{ "id": "dorm_rec_all[014]", "elite": 0, "level": 1 },
+				{ "id": "dorm_rec_all[024]", "elite": 2, "level": 1 }
+			],
+			[{ "id": "manu_formula_spd[101]", "elite": 2, "level": 1 }]
+		]
+	},
 	"char_242_otter": {
 		"name": "Mayer",
 		"rarity": 5,
@@ -2001,6 +2012,17 @@
 				{ "id": "train_spd&profession2[440]", "elite": 2, "level": 1 }
 			],
 			[{ "id": "train_cost&profession[140]", "elite": 2, "level": 1 }]
+		]
+	},
+	"char_4117_ray": {
+		"name": "Ray",
+		"rarity": 6,
+		"skills": [
+			[
+				{ "id": "workshop_formula_probability[116]", "elite": 0, "level": 1 },
+				{ "id": "workshop_formula_probability[126]", "elite": 2, "level": 1 }
+			],
+			[{ "id": "workshop_formula_drop[040]", "elite": 2, "level": 1 }]
 		]
 	},
 	"char_112_siege": {
