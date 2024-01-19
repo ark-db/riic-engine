@@ -38,7 +38,6 @@ module_name_repetitions = "allow"
 pedantic = "warn"
 
 [profile.release]
-panic = "abort"
 codegen-units = 1
 lto = true
 strip = true
