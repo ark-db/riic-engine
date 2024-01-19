@@ -10,9 +10,9 @@ pub use terms::TermData;
 
 use anyhow::Result;
 use image::{
-    codecs::webp::{WebPEncoder, WebPQuality},
+    codecs::avif::AvifEncoder,
     imageops::{resize, FilterType},
-    load_from_memory_with_format, ColorType, EncodableLayout, ImageFormat,
+    load_from_memory_with_format, ColorType, EncodableLayout, ImageEncoder, ImageFormat,
 };
 use reqwest::Client;
 use serde::de::DeserializeOwned;
@@ -105,7 +105,7 @@ pub trait GetIcons {
 
         let file = File::create(target_path)?;
 
-        WebPEncoder::new_with_quality(file, WebPQuality::lossy(quality)).encode(
+        AvifEncoder::new_with_speed_quality(file, 1, quality).write_image(
             image.as_bytes(),
             image.width(),
             image.height(),

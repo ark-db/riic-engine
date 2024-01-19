@@ -10,7 +10,7 @@ publish.workspace = true
 
 [dependencies]
 anyhow = "1.0.79"
-image = { version = "0.24.7", default-features = false, features = ["png", "webp", "webp-encoder"] }
+image = { version = "0.24.8", default-features = false, features = ["avif-encoder", "png"] }
 indexmap = { version = "2.1.0", features = ["serde"] }
 phf = { version = "0.11.2", features = ["macros"] }
 reqwest = { version = "0.11.23", default-features = false, features = ["brotli", "gzip", "json", "rustls-tls"] }

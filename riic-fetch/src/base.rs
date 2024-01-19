@@ -40,7 +40,7 @@ impl GetIcons for OperatorSkills {
         let mut set = JoinSet::new();
 
         for id in self.0.keys() {
-            let target_path = target_dir.as_ref().join(id.as_ref()).with_extension("webp");
+            let target_path = target_dir.as_ref().join(id.as_ref()).with_extension("avif");
 
             if !target_path.is_file() {
                 set.spawn(Self::get_icon(
@@ -145,7 +145,7 @@ impl GetIcons for SkillTable {
             let target_path = target_dir
                 .as_ref()
                 .join(skill.icon_id.as_ref())
-                .with_extension("webp");
+                .with_extension("avif");
 
             if !target_path.is_file() {
                 set.spawn(Self::get_icon(

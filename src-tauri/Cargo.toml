@@ -24,9 +24,9 @@ serde_json.workspace = true
 tauri = { version = "1.5.4", features = [] }
 thiserror.workspace = true
 
-[lints]
-workspace = true
-
 [features]
 default = ["custom-protocol"]
 custom-protocol = ["tauri/custom-protocol"]
+
+[lints]
+workspace = true
