@@ -5,9 +5,9 @@ min_image_size = 60
 [operator]
 data_path = "../src/lib/data/chars.json"
 image_dir = "../static/chars"
-quality = 25
+quality = 40
 
 [skill]
 data_path = "../src/lib/data/skills.json"
 image_dir = "../static/skills"
-quality = 50
+quality = 60
