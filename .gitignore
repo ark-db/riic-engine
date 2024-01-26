@@ -1,9 +1,9 @@
 .DS_Store
 
 # SvelteKit
-node_modules
-build
-.svelte-kit
+node_modules/
+build/
+.svelte-kit/
 
 # Rust
-/target
+target/
