@@ -25,7 +25,7 @@
 		bind:naturalHeight={bgHeight}
 	/>
 	<img
-		src={`${assets}/items/${product}.webp`}
+		src={`${assets}/items/${product}.avif`}
 		alt={name}
 		width={(iconWidth / bgWidth) * size}
 		height={(iconHeight / bgHeight) * size}
