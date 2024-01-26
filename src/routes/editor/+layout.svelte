@@ -1,7 +1,7 @@
 <script lang="ts">
 	import GradientContainer from '$lib/components/GradientContainer.svelte';
 	import Button from '$lib/components/Button.svelte';
-	import logo from '$lib/images/logo.webp';
+	import logo from '$lib/images/logo.avif';
 	import menuIcon from '$lib/images/ui/menu.webp';
 	import Links from './Links.svelte';
 	import ShiftCount from './ShiftCount.svelte';

@@ -1,5 +1,5 @@
 <script>
-	import logo from '$lib/images/logo.webp';
+	import logo from '$lib/images/logo.avif';
 </script>
 
 <header>
