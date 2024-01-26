@@ -1,6 +1,6 @@
 <script lang="ts">
 	import NumberInput from '$lib/components/NumberInput.svelte';
-	import droneIcon from '$lib/images/ui/drones.webp';
+	import droneIcon from '$lib/images/ui/drones.avif';
 	import InteractionBox from './InteractionBox.svelte';
 
 	export let drones: number | undefined;

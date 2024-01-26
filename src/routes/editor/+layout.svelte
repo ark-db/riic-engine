@@ -117,7 +117,7 @@
 		grid-column: 2 / 3;
 		position: relative;
 		padding: var(--page-padding);
-		background: url('$lib/images/contours.webp') no-repeat;
+		background: url('$lib/images/contours.avif') no-repeat;
 		background-size: cover;
 		overflow: auto;
 	}

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import facilities from '$lib/data/facilities.json';
-	import powerIcon from '$lib/images/ui/power.webp';
+	import powerIcon from '$lib/images/ui/power.avif';
 	import slash from '$lib/images/ui/slash.webp';
 	import { activeSave } from '$lib/stores';
 	import { tooltip } from '$lib/tooltip';

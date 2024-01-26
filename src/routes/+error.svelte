@@ -2,7 +2,7 @@
 	import { page } from '$app/stores';
 	import { invoke } from '@tauri-apps/api/tauri';
 	import github from '$lib/images/github.svg';
-	import lancet from '$lib/images/lancet.webp';
+	import lancet from '$lib/images/lancet.avif';
 	import { error } from '$lib/stores';
 
 	function openGithub() {

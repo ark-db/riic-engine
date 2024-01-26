@@ -1,6 +1,6 @@
 <script lang="ts">
 	import NumberInput from '$lib/components/NumberInput.svelte';
-	import drones from '$lib/images/ui/drones.webp';
+	import drones from '$lib/images/ui/drones.avif';
 	import { activeSave } from '$lib/stores';
 </script>
 
