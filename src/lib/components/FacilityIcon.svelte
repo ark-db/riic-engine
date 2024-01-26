@@ -6,4 +6,4 @@
 	export let size: number;
 </script>
 
-<img src={`${assets}/facilities/${kind}.webp`} alt="Facility icon" width={size} height={size} />
+<img src={`${assets}/facilities/${kind}.avif`} alt="Facility icon" width={size} height={size} />
