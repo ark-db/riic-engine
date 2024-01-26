@@ -17,7 +17,7 @@
 
 <div style="--size: {size}px;">
 	<img
-		src={`${assets}/rarities/${rarity}.webp`}
+		src={`${assets}/rarities/${rarity}.avif`}
 		alt=""
 		width={size}
 		height={size}
