@@ -1,11 +1,11 @@
-node_modules
-/build
-/.svelte-kit
+node_modules/
+build/
+.svelte-kit/
 
-/riic-fetch
-/scripts
-/src/lib/data
-/src/lib/images
-/src-tauri
-/static
-/target
+riic-fetch/
+src-tauri/
+target/
+
+src/lib/data/
+src/lib/images/
+static/
