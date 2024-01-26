@@ -31,7 +31,7 @@
 			"resources": [],
 			"targets": "all",
 			"macOS": {
-				"minimumSystemVersion": "11.0"
+				"minimumSystemVersion": "13.0"
 			},
 			"windows": {
 				"digestAlgorithm": "sha256",
