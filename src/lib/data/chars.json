@@ -715,6 +715,14 @@
 			[{ "id": "workshop_formula_cost3[221]", "elite": 2, "level": 1 }]
 		]
 	},
+	"char_4023_rfalcn": {
+		"name": "Kestrel",
+		"rarity": 5,
+		"skills": [
+			[{ "id": "control_dorm_rec[001]", "elite": 0, "level": 1 }],
+			[{ "id": "control_mp_cost[011]", "elite": 2, "level": 1 }]
+		]
+	},
 	"char_261_sddrag": {
 		"name": "Reed",
 		"rarity": 5,
@@ -739,6 +747,14 @@
 		"skills": [
 			[{ "id": "meet_team[060]", "elite": 0, "level": 1 }],
 			[{ "id": "meet_flag[060]", "elite": 2, "level": 1 }]
+		]
+	},
+	"char_4119_wanqin": {
+		"name": "Wanqing",
+		"rarity": 5,
+		"skills": [
+			[{ "id": "workshop_proc_probability[032]", "elite": 0, "level": 1 }],
+			[{ "id": "workshop_formula_cost3[400]", "elite": 2, "level": 1 }]
 		]
 	},
 	"char_476_blkngt": {
@@ -1765,6 +1781,14 @@
 			]
 		]
 	},
+	"char_4122_grabds": {
+		"name": "Grain Buds",
+		"rarity": 5,
+		"skills": [
+			[{ "id": "dorm_rec_single[1010]", "elite": 0, "level": 1 }],
+			[{ "id": "dorm_rec_all[025]", "elite": 2, "level": 1 }]
+		]
+	},
 	"char_433_windft": {
 		"name": "Windflit",
 		"rarity": 5,
@@ -2465,6 +2489,14 @@
 			[{ "id": "workshop_formula_cost2[000]", "elite": 2, "level": 1 }]
 		]
 	},
+	"char_2025_shu": {
+		"name": "Shu",
+		"rarity": 6,
+		"skills": [
+			[{ "id": "manu_cost[000]", "elite": 0, "level": 1 }],
+			[{ "id": "manu_prod_spd_bd[300]", "elite": 2, "level": 1 }]
+		]
+	},
 	"char_2014_nian": {
 		"name": "Nian",
 		"rarity": 6,
@@ -2644,6 +2676,14 @@
 				{ "id": "dorm_rec_all&oneself[012]", "elite": 2, "level": 1 }
 			],
 			[{ "id": "workshop_formula_probability[010]", "elite": 0, "level": 1 }]
+		]
+	},
+	"char_4121_zuole": {
+		"name": "Zuo Le",
+		"rarity": 6,
+		"skills": [
+			[{ "id": "train_spd[001]", "elite": 0, "level": 1 }],
+			[{ "id": "train_spd_bd&reduceTime[000]", "elite": 2, "level": 1 }]
 		]
 	},
 	"char_485_pallas": {

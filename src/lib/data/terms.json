@@ -51,6 +51,7 @@
 	"cc.t.flow_gold": "For <@cc.kw>every</> <@cc.kw>Factory</> producing <@cc.kw>Pure Gold</>, Pure Gold Production Line <@cc.kw>+1</>",
 	"cc.w.ncdeer1": "Whenever a recipe that consumes <@cc.kw>4</> or less Morale fails to produce a byproduct, gain <@cc.kw>1</> point of <@cc.kw>Causality</> for every <@cc.kw>1</> Morale consumed",
 	"cc.w.ncdeer2": "Whenever a recipe that consumes <@cc.kw>8</> Morale fails to produce a byproduct, gain <@cc.kw>1</> point of <@cc.kw>Karma</> for every <@cc.kw>1</> Morale consumed",
+	"cc.t.accmuguard1": "协助专精训练至1级时累计<@cc.kw>1</>点、2级时累计<@cc.kw>2</>点、3级时累计<@cc.kw>3</>点，累计上限为<@cc.kw>3</>点（协助者心情为0时，无法累计或消耗）",
 	"cc.sk.manu1": "Include the following skills\nStandardization α, Standardization β",
 	"cc.sk.manu2": "Includes the following skills:\nRhine Tech α, Rhine Tech β, Rhine Tech γ",
 	"cc.sk.manu3": "Includes the following skills: \nPinus Sylvestris α, Pinus Sylvestris β",
