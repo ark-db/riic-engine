@@ -18,10 +18,10 @@ bincode = "2.0.0-rc.3"
 chrono = { version = "0.4.31", default-features = false, features = ["clock"] }
 open = "5.0.1"
 parking_lot = "0.12.1"
-rusqlite = { version = "0.30.0", features = ["bundled", "chrono", "limits"] }
+rusqlite = { version = "0.31.0", features = ["bundled", "chrono", "limits"] }
 serde.workspace = true
 serde_json.workspace = true
-tauri = { version = "1.5.4", features = [] }
+tauri = { version = "1.6.0", features = [] }
 thiserror.workspace = true
 
 [features]
