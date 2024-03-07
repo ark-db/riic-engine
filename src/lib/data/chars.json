@@ -809,6 +809,14 @@
 			[{ "id": "manu_skill_spd1[020]", "elite": 2, "level": 1 }]
 		]
 	},
+	"char_4125_rdoc": {
+		"name": "Doc",
+		"rarity": 5,
+		"skills": [
+			[{ "id": "train_spd_tag[1020]", "elite": 0, "level": 1 }],
+			[{ "id": "dorm_rec_all[026]", "elite": 2, "level": 1 }]
+		]
+	},
 	"char_106_franka": {
 		"name": "Franka",
 		"rarity": 5,
@@ -945,6 +953,14 @@
 				{ "id": "train_spd&profession[020]", "elite": 0, "level": 1 },
 				{ "id": "train_spd&profession[021]", "elite": 2, "level": 1 }
 			]
+		]
+	},
+	"char_4126_fuze": {
+		"name": "Fuze",
+		"rarity": 5,
+		"skills": [
+			[{ "id": "train_spd_tag[1030]", "elite": 0, "level": 1 }],
+			[{ "id": "manu_prod_bd[000]", "elite": 2, "level": 1 }]
 		]
 	},
 	"char_274_astesi": {
@@ -1926,6 +1942,14 @@
 			[{ "id": "meet_spd_condChar[000]", "elite": 2, "level": 1 }]
 		]
 	},
+	"char_4124_iana": {
+		"name": "Iana",
+		"rarity": 5,
+		"skills": [
+			[{ "id": "train_spd_tag[030]", "elite": 0, "level": 1 }],
+			[{ "id": "meet_spd_bd[000]", "elite": 2, "level": 1 }]
+		]
+	},
 	"char_103_angel": {
 		"name": "Exusiai",
 		"rarity": 6,
@@ -2399,6 +2423,14 @@
 		"skills": [
 			[{ "id": "manu_skill_spd1[010]", "elite": 0, "level": 1 }],
 			[{ "id": "manu_prod_spd[011]", "elite": 2, "level": 1 }]
+		]
+	},
+	"char_4123_ela": {
+		"name": "Ela",
+		"rarity": 6,
+		"skills": [
+			[{ "id": "train_spd_tag[020]", "elite": 0, "level": 1 }],
+			[{ "id": "control_clue_cost&faction[990]", "elite": 2, "level": 1 }]
 		]
 	},
 	"char_147_shining": {

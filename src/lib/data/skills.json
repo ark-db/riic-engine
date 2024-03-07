@@ -179,6 +179,11 @@
 		"desc": "When this Operator is assigned to the Control Center, each Operator from <$cc.g.R6><@cc.kw>Team Rainbow</></> increases the Morale of all Operators in the Control Center by <@cc.vup>+0.05</> per hour",
 		"iconId": "bskill_ctrl_r6"
 	},
+	"control_clue_cost&faction[990]": {
+		"name": "反抗者",
+		"desc": "进驻控制中枢时，更容易获得线索板上尚未拥有的线索，但控制中枢内除自身以外的其余干员心情每小时消耗<@cc.vdown>+0.25</>",
+		"iconId": "bskill_ctrl_ela"
+	},
 	"control_mp_cost&bd1[000]": {
 		"name": "'Unstirred by Gain'",
 		"desc": "When this Operator is assigned to the Control Center, increases Morale of all Operators in the Control Center by <@cc.vup>+0.05</> per hour; and when self Morale is below <@cc.kw>12</>, <$cc.bd_b1><@cc.rem>Worldly Plight</></><@cc.vup>+15</>",
@@ -473,6 +478,11 @@
 		"name": "Consciousness Compatibility",
 		"desc": "When this Operator is assigned to a Factory, all <$cc.sk.manu2><@cc.kw>Rhine Lab</></> and <$cc.sk.manu3><@cc.kw>Pinus Sylvestris</></> skills in the Factory are considered <@cc.kw>Standardization</> skills",
 		"iconId": "bskill_man_skill_change"
+	},
+	"manu_prod_bd[000]": {
+		"name": "实干的寡言者",
+		"desc": "进驻制造站时，生产力<@cc.vup>+20%</>，每有<@cc.vup>1</>瓶<$cc.bd_tachanka><@cc.rem>乌萨斯特饮</></>，则仓库容量上限<@cc.vup>+2</>",
+		"iconId": "bskill_man_fuze"
 	},
 	"manu_prod_spd_addition[030]": {
 		"name": "Hothead",
@@ -1500,8 +1510,8 @@
 		"iconId": "bskill_train_all"
 	},
 	"train_spd_power[000]": {
-		"name": "雪祀候补",
-		"desc": "进驻训练室协助位时，基建内（不包含副手）每名<$cc.g.sm><@cc.kw>萨米</></>干员为当前干员的专精技能训练速度<@cc.vup>+10%</>（最多生效<@cc.kw>3</>名）",
+		"name": "Snowpriest Candidate",
+		"desc": "When this Operator is assigned to be the Trainer in the Training Room, Operators' Specialization training speed <@cc.vup>+10%</> for each <$cc.g.sm><@cc.kw>Sami</></> Operator in the Base (excluding Assistants, caps at <@cc.kw>3</> Operators)",
 		"iconId": "bskill_train_sami"
 	},
 	"train_spd_tag[000]": {
@@ -1513,6 +1523,26 @@
 		"name": "Noble Creed",
 		"desc": "When this Operator is assigned to be the Trainer in the Training Room, for every <$cc.tag.knight><@cc.kw>Knight</></> Operator in the Base (excluding Base Assistants), Operators' Specialization training speed <@cc.vup>+5%</> (caps at <@cc.kw>8</> Operators)",
 		"iconId": "bskill_train_knight_bd2"
+	},
+	"train_spd_tag[020]": {
+		"name": "战术指导·防守",
+		"desc": "进驻训练室协助位时，基建内（不包含副手）每名<$cc.g.Defence><@cc.kw>防守方</></>干员为当前干员的专精技能训练速度<@cc.vup>+10%</>（最多生效<@cc.kw>4</>名）",
+		"iconId": "bskill_train_defense"
+	},
+	"train_spd_tag[1020]": {
+		"name": "战术指导·防守",
+		"desc": "进驻训练室协助位时，基建内（不包含副手）每名<$cc.g.Defence><@cc.kw>防守方</></>干员为当前干员的专精技能训练速度<@cc.vup>+10%</>（最多生效<@cc.kw>4</>名）",
+		"iconId": "bskill_train_defense"
+	},
+	"train_spd_tag[030]": {
+		"name": "战术指导·进攻",
+		"desc": "进驻训练室协助位时，基建内（不包含副手）每名<$cc.g.Attack><@cc.kw>进攻方</></>干员为当前干员的专精技能训练速度<@cc.vup>+10%</>（最多生效<@cc.kw>4</>名）",
+		"iconId": "bskill_train_attack"
+	},
+	"train_spd_tag[1030]": {
+		"name": "战术指导·进攻",
+		"desc": "进驻训练室协助位时，基建内（不包含副手）每名<$cc.g.Attack><@cc.kw>进攻方</></>干员为当前干员的专精技能训练速度<@cc.vup>+10%</>（最多生效<@cc.kw>4</>名）",
+		"iconId": "bskill_train_attack"
 	},
 	"train_spd_doubleProf[000]": {
 		"name": "Sword and Handcannon",
@@ -1740,8 +1770,8 @@
 		"iconId": "bskill_train_lord"
 	},
 	"train_spd&profession3[170]": {
-		"name": "实战技巧：攻城手",
-		"desc": "进驻训练室协助位时，<@cc.kw>狙击</>干员的专精技能训练速度<@cc.vup>+30%</>，如果训练位干员分支为<@cc.kw>攻城手</>，则训练速度额外<@cc.vup>+45%</>",
+		"name": "Combat Techniques: Besieger",
+		"desc": "When this Operator is assigned to be the Trainer in the Training Room, <@cc.kw>Sniper</> Operators' Specialization training speed <@cc.vup>+30%</>; if the trainee's Job Branch is <@cc.kw>Besieger</>, training speed will be further increased by <@cc.vup>+45%</>",
 		"iconId": "bskill_train_siegesniper"
 	},
 	"train_spd&profession3[180]": {
@@ -2085,8 +2115,8 @@
 		"iconId": "bskill_dorm_single&one12"
 	},
 	"dorm_rec_single_power[000]": {
-		"name": "降生于冰寒",
-		"desc": "进驻宿舍时，使该宿舍内除自身以外心情未满的某个干员每小时恢复<@cc.vup>+0.55</>（同种效果取最高），如果目标是<$cc.g.sm><@cc.kw>萨米</></>干员，则恢复效果额外<@cc.vup>+0.45</>",
+		"name": "Born of the Biting Cold",
+		"desc": "When this Operator is assigned to a Dormitory, restores <@cc.vup>+0.55</> Morale per hour to all other Operators assigned to that Dormitory whose Morale is not full (Only the strongest effect of this type takes place); if the target is a <$cc.g.sm><@cc.kw>Sami</></> Operator, further increases Morale restored by <@cc.vup>+0.45</>",
 		"iconId": "bskill_dorm_single_sami"
 	},
 	"dorm_rec_all&oneself[000]": {
@@ -2163,6 +2193,11 @@
 		"name": "乡野笛音",
 		"desc": "进驻宿舍时，该宿舍内所有干员的心情每小时恢复<@cc.vup>+0.15</>（同种效果取最高）",
 		"iconId": "bskill_dorm_all2"
+	},
+	"dorm_rec_all[026]": {
+		"name": "利他主义",
+		"desc": "进驻宿舍时，该宿舍内所有干员的心情每小时恢复<@cc.vup>+0.2</>（同种效果取最高）",
+		"iconId": "bskill_dorm_all3"
 	},
 	"dorm_bd_num[000]": {
 		"name": "无声共鸣",
@@ -2375,18 +2410,18 @@
 		"iconId": "bskill_meet_spd3"
 	},
 	"meet_spd&sami[000]": {
-		"name": "冰原游弋",
-		"desc": "进驻会客室时，线索搜集速度提升<@cc.vup>+10%</>，与其他<$cc.g.sm><@cc.kw>萨米</></>干员进驻会客室一起工作时，线索搜集速度额外提升<@cc.vup>+5%</>，自身心情每小时消耗<@cc.vdown>+0.5</>",
+		"name": "Icefield Navigation",
+		"desc": "When this Operator is assigned to the Reception Room, increases Clue search speed by <@cc.vup>+10%</>, and when assigned together with another <$cc.g.sm><@cc.kw>Sami</></> Operator, increases Clue search speed by an additional <@cc.vup>+5%</> while self Morale loss per hour <@cc.vdown>+0.5</>",
 		"iconId": "bskill_meet_spd&sami"
 	},
 	"meet_spd&bd[000]": {
-		"name": "远见",
-		"desc": "进驻会客室时，线索搜集速度提升<@cc.vup>10%</>，当与<@cc.kw>提丰</>进驻会客室一起工作时，线索搜集速度额外提升<@cc.vup>15%</>，自身心情每小时消耗<@cc.vdown>+0.5</>",
+		"name": "Foresight",
+		"desc": "When this Operator is assigned to the Reception Room, increases Clue search speed by <@cc.vup>10%</>, and when assigned together with <@cc.kw>Typhon</>, increases Clue search speed by an additional <@cc.vup>15%</> while self Morale loss per hour <@cc.vdown>+0.5</>",
 		"iconId": "bskill_meet_spd&bd"
 	},
 	"meet_spd&bd[010]": {
-		"name": "未来之途",
-		"desc": "进驻会客室时，线索搜集速度提升<@cc.vup>10%</>，当与<@cc.kw>提丰</>进驻会客室一起工作时，线索搜集速度额外提升<@cc.vup>15%</>，自身心情每小时消耗<@cc.vdown>+0.5</>，且更容易获得线索板上尚未拥有的线索",
+		"name": "Pilgrimage to the Future",
+		"desc": "When this Operator is assigned to the Reception Room, increases Clue search speed by <@cc.vup>10%</>, and when assigned together with <@cc.kw>Typhon</>, increases Clue search speed by an additional <@cc.vup>15%</> while self Morale loss per hour <@cc.vdown>+0.5</>, and increases the likelihood of obtaining clues that are not on the Clue Board",
 		"iconId": "bskill_meet_spd&bd&notOwned"
 	},
 	"meet_spd_condChar[000]": {
@@ -2401,17 +2436,17 @@
 	},
 	"meet_spd&cost_condChar[000]": {
 		"name": "Double Agent",
-		"desc": "When this Operator is assigned to the Reception Room, if no other Operators are working in the Reception Room, increases Clue search speed by <@cc.vup>50%</>, and Morale conmused per hour <@cc.vdown>+2</>",
+		"desc": "When this Operator is assigned to the Reception Room, if no other Operators are working in the Reception Room, increases Clue search speed by <@cc.vup>50%</>, and Morale consumed per hour <@cc.vdown>+2</>",
 		"iconId": "bskill_meet_spd&cost_condChar"
 	},
 	"meet_spd&cost_condChar[001]": {
 		"name": "'Professional Ethics' α",
-		"desc": "When this Operator is assigned to the Reception Room, if no other Operators are working in the Reception Room, increases Clue search speed by <@cc.vup>15%</>, and Morale conmused per hour <@cc.vdown>+1</>",
+		"desc": "When this Operator is assigned to the Reception Room, if no other Operators are working in the Reception Room, increases Clue search speed by <@cc.vup>15%</>, and Morale consumed per hour <@cc.vdown>+1</>",
 		"iconId": "bskill_meet_spd&cost_condChar2"
 	},
 	"meet_spd&cost_condChar[011]": {
 		"name": "'Professional Ethics' β",
-		"desc": "When this Operator is assigned to the Reception Room, if no other Operators are working in the Reception Room, increases Clue search speed by <@cc.vup>35%</>, and Morale conmused per hour <@cc.vdown>+1</>",
+		"desc": "When this Operator is assigned to the Reception Room, if no other Operators are working in the Reception Room, increases Clue search speed by <@cc.vup>35%</>, and Morale consumed per hour <@cc.vdown>+1</>",
 		"iconId": "bskill_meet_spd&cost_condChar3"
 	},
 	"meet_spd&exchange[000]": {
@@ -2553,6 +2588,11 @@
 		"name": "显眼的调查者",
 		"desc": "进驻会客室时，更容易获得线索板上已经拥有的线索",
 		"iconId": "bskill_meet_spdOwned1"
+	},
+	"meet_spd_bd[000]": {
+		"name": "情报专家",
+		"desc": "进驻会客室时，线索搜集速度提升<@cc.vup>5%</>，同时每<@cc.vup>1</>点<$cc.bd_ash><@cc.rem>情报储备</></>额外提升<@cc.vup>5%</>",
+		"iconId": "bskill_meet_iana"
 	},
 	"meet_spd_hast[000]": {
 		"name": "Shadow Gathering",
