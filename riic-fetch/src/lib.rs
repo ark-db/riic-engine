@@ -12,7 +12,7 @@ use anyhow::Result;
 use image::{
     codecs::avif::AvifEncoder,
     imageops::{resize, FilterType},
-    load_from_memory_with_format, ColorType, EncodableLayout, ImageEncoder, ImageFormat,
+    load_from_memory_with_format, EncodableLayout, ExtendedColorType, ImageEncoder, ImageFormat,
 };
 use reqwest::Client;
 use serde::de::DeserializeOwned;
@@ -109,7 +109,7 @@ pub trait GetIcons {
             image.as_bytes(),
             image.width(),
             image.height(),
-            ColorType::Rgba8,
+            ExtendedColorType::Rgba8,
         )?;
 
         Ok(())
