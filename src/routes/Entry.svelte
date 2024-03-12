@@ -148,7 +148,7 @@
 		color: var(--light);
 	}
 	.modal-options {
-		margin-top: 1.5em;
+		margin-top: 2em;
 		display: flex;
 		column-gap: 1em;
 	}
@@ -156,8 +156,8 @@
 		--focus-border-offset: -4px;
 		border: none;
 		border-radius: 0.5em;
-		padding: 0.75em;
-		font-size: 0.8em;
+		padding: 0.8em 1.1em;
+		font-size: 0.85em;
 		font-weight: 600;
 	}
 	.cancel {
