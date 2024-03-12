@@ -6,7 +6,7 @@
 	position: relative;
 }
 
-.focus-template:after {
+.focus-template::after {
 	opacity: 0;
 	transition: opacity 0.4s;
 }
@@ -15,7 +15,7 @@
 	outline: none;
 }
 
-.focus-template:focus:after {
+.focus-template:focus::after {
 	pointer-events: none;
 	position: absolute;
 	top: var(--focus-border-offset);
