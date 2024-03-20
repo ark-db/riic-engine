@@ -37,7 +37,7 @@
 	"cc.g.glasgow": "Includes the following Operators:\nSiege, Morgan, Dagda, Indra",
 	"cc.g.rh": "Includes the following Operators:\nSilence, Ifrit, Saria, Ptilopsis, Mayer, Magallan, Dorothy, Astgenne, Muelsyse",
 	"cc.g.sm": "Includes the following Operators:\nGitano, Bibeak, Qanipalaat, Typhon, Santalla, Valarqvin",
-	"cc.g.bs": "包含以下干员\n雷蛇、芙兰卡、杰西卡、香草、杏仁",
+	"cc.g.bs": "Includes the following Operators:\nLiskarm, Franka, Jessica, Vanilla, Almond",
 	"cc.c.abyssal2_1": "For every <$cc.g.abyssal><@cc.kw>Abyssal Hunter</></> operator stationed in a Factory, the Control Center provides <@cc.vup>5%</> Productivity for every Factory with an <$cc.g.abyssal><@cc.kw>Abyssal Hunter</></> operator stationed within it, up to a maximum of <@cc.vup>45%</> Productivity",
 	"cc.c.abyssal2_2": "For every <$cc.g.abyssal><@cc.kw>Abyssal Hunter</></> operator stationed in a Factory, the Control Center provides <@cc.vup>10%</> Productivity for every Factory with an <$cc.g.abyssal><@cc.kw>Abyssal Hunter</></> operator stationed within it, up to a maximum of <@cc.vup>90%</> Productivity",
 	"cc.c.abyssal2_3": "Takes priority over <$cc.m.var2><@cc.rem>Cooperative Will</></>, and does not stack\nDoes not stack with <$cc.m.pow1><@cc.rem>Automation α</></>, <$cc.m.pow2><@cc.rem>Automation β</></>, or <$cc.m.pow3><@cc.rem>Bionic Seadragon</></>, and the 'set to 0' effect will take priority",
