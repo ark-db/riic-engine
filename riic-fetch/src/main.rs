@@ -58,6 +58,7 @@ where
 async fn main() -> Result<()> {
     // build HTTP client
     let client = Client::builder()
+        .http2_prior_knowledge()
         .https_only(true)
         .timeout(Duration::from_secs(60))
         .use_rustls_tls()
