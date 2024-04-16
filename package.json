@@ -11,7 +11,7 @@
 		"format:frontend": "prettier --write .",
 		"lint": "npm run lint:frontend && cargo fmt --all --check && cargo clippy --workspace",
 		"lint:frontend": "prettier --check . && svelte-check --tsconfig ./tsconfig.json && eslint . --max-warnings=0 --exit-on-fatal-error",
-		"update": "npx npm-check-updates --upgrade && npm install && cargo upgrade --incompatible --exclude open && cargo update",
+		"update": "npx npm-check-updates --upgrade --reject eslint && npm install && cargo upgrade --incompatible --exclude open && cargo update",
 		"fetch": "cd riic-fetch && cargo run --release && npm run format:frontend",
 		"tauri": "tauri"
 	},
