@@ -49,6 +49,11 @@
 		"desc": "When this Operator is assigned to the Control Center, all Trading Posts' order efficiency <@cc.vup>+7%</> (only the most effective one will take effect when assigned Operators have the same skill effect)",
 		"iconId": "bskill_ctrl_t_spd"
 	},
+	"control_tra_spd[030]": {
+		"name": "情报主脑",
+		"desc": "进驻控制中枢时，所有贸易站订单效率<@cc.vup>+7%</>（同种效果取最高）",
+		"iconId": "bskill_ctrl_t_spd"
+	},
 	"control_tra_limit&spd[000]": {
 		"name": "Precise Calculations",
 		"desc": "When this Operator is assigned to the Control Center, all <$cc.g.karlan><@cc.kw>Karlan Trade</></> Operators assigned to Trading Posts gain order acquisition efficiency <@cc.vdown>-15%</> and order limit <@cc.vup>+6</>",
@@ -269,9 +274,14 @@
 		"desc": "进驻控制中枢时，所有宿舍内所有干员的心情每小时恢复<@cc.vup>+0.05</>（同种效果取最高）",
 		"iconId": "bskill_ctrl_leader"
 	},
+	"control_train_spd[010]": {
+		"name": "S.W.E.E.P.主管",
+		"desc": "进驻控制中枢时，如训练室有干员在进行技能专精，则该干员的专精技能训练速度<@cc.vup>+5%</>（同种效果取最高）",
+		"iconId": "bskill_ctrl_train_spd1"
+	},
 	"control_tra_limit&spd[010]": {
-		"name": "运筹好手",
-		"desc": "进驻控制中枢时，同一贸易站中，每有<@cc.vup>1</>名<$cc.g.glasgow><@cc.kw>格拉斯哥帮</></>干员，订单获取效率<@cc.vup>+10%</>",
+		"name": "Master Strategist",
+		"desc": "When this Operator is assigned to the Control Center, for <@cc.vup>each</> <$cc.g.glasgow><@cc.kw>Glasgow Gang</></> Operator assigned to the same Trading Post, order acquisition efficiency <@cc.vup>+10%</>",
 		"iconId": "bskill_ctrl_g_limit&spd"
 	},
 	"power_rec_spd&cost[000]": {
@@ -504,6 +514,11 @@
 		"desc": "When this Operator is assigned to a Factory, productivity <@cc.vup>+15%</> in the first hour and thereafter <@cc.vup>+2%</> per hour, up to <@cc.vup>+25%</>",
 		"iconId": "bskill_man_spd_add2"
 	},
+	"manu_prod_spd_addition[100]": {
+		"name": "例行清扫",
+		"desc": "进驻制造站后，生产力每小时<@cc.vup>+2%</>，最终达到<@cc.vup>+20%</>",
+		"iconId": "bskill_man_spd_add3"
+	},
 	"manu_prod_spd_reduce[000]": {
 		"name": "Blurry Vision",
 		"desc": "When this Operator is assigned to a Factory, Productivity <@cc.vup>+30%</>. For every <@cc.kw>4</> points of <$cc.bd.costdrop><@cc.kw>Morale difference</></> on self, Productivity <@cc.vdown>-5%</>",
@@ -723,6 +738,11 @@
 		"name": "Little Whims",
 		"desc": "When this Operator is assigned to a Factory, <@cc.kw>Precious Metal</> productivity <@cc.vup>+25%</>, and Morale consumed per hour <@cc.vdown>+0.25</>",
 		"iconId": "bskill_man_gold3"
+	},
+	"manu_formula_spd&cost[001]": {
+		"name": "净味香氛",
+		"desc": "进驻制造站时，<@cc.kw>贵金属</>类配方的生产力<@cc.vup>+25%</>，心情每小时消耗<@cc.vdown>+0.25</>",
+		"iconId": "bskill_man_gold4"
 	},
 	"manu_formula_spd&cost_bd[000]": {
 		"name": "Big Responsibilities",
@@ -1090,13 +1110,13 @@
 		"iconId": "bskill_tra_par1"
 	},
 	"trade_ord_par&per[000]": {
-		"name": "白手起家·α",
-		"desc": "进驻贸易站时，订单获取效率<@cc.vup>+25%</>；当<@cc.kw>伊内丝</>入驻<$cc.c.room3><@cc.kw>工作场所</></>时（不包含副手），订单获取效率额外<@cc.vup>+5%</>",
+		"name": "Starting From Scratch α",
+		"desc": "When this Operator is assigned to a Trading Post, order acquisition efficiency <@cc.vup>+25%</>; when <@cc.kw>Ines</> is assigned to any <$cc.c.room3><@cc.kw>Work Area</></> (excluding Assistant), order acquisition efficiency additionally <@cc.vup>+5%</>",
 		"iconId": "bskill_tra_par&per1"
 	},
 	"trade_ord_par&per[001]": {
-		"name": "白手起家·β",
-		"desc": "进驻贸易站时，订单获取效率<@cc.vup>+30%</>；当<@cc.kw>伊内丝</>、<@cc.kw>W</>入驻<$cc.c.room3><@cc.kw>工作场所</></>时（不包含副手），订单获取效率分别额外<@cc.vup>+5%</>",
+		"name": "Starting From Scratch β",
+		"desc": "When this Operator is assigned to a Trading Post, order acquisition efficiency <@cc.vup>+30%</>; when <@cc.kw>Ines</> or <@cc.kw>W</> are assigned to any <$cc.c.room3><@cc.kw>Work Area</></> (excluding Assistants), order acquisition efficiency additionally <@cc.vup>+5%</>",
 		"iconId": "bskill_tra_par&per2"
 	},
 	"workshop_proc_probability[000]": {
@@ -1260,8 +1280,8 @@
 		"iconId": "bskill_ws_skill_cost1"
 	},
 	"workshop_formula_cost3[101]": {
-		"name": "谨慎加工",
-		"desc": "进驻加工站加工<@cc.kw>精英材料</>时，心情消耗为<@cc.kw>2</>的配方全部<@cc.vup>-1</>心情消耗",
+		"name": "Cautious Processing",
+		"desc": "When this Operator is assigned to the Workshop to process <@cc.kw>Elite materials</>, reduces the Morale consumed by all corresponding formulas that cost <@cc.kw>2</> Morale by <@cc.vup>-1</>",
 		"iconId": "bskill_ws_evolve_cost"
 	},
 	"workshop_formula_cost4[010]": {
@@ -1307,6 +1327,11 @@
 	"workshop_formula_probability[100]": {
 		"name": "Nutriology",
 		"desc": "When this Operator is assigned to the Workshop to process <@cc.kw>elite material</>, the production rate of byproduct increases by <@cc.vup>70%</>",
+		"iconId": "bskill_ws_evolve1"
+	},
+	"workshop_formula_probability[101]": {
+		"name": "高效回收",
+		"desc": "进驻加工站加工<@cc.kw>精英材料</>时，副产品的产出概率提升<@cc.vup>70%</>",
 		"iconId": "bskill_ws_evolve1"
 	},
 	"workshop_formula_probability[115]": {
@@ -1485,8 +1510,8 @@
 		"iconId": "bskill_ws_alloyBlock"
 	},
 	"workshop_formula_device[060]": {
-		"name": "DIY·酮凝集·α",
-		"desc": "进驻加工站加工<@cc.kw>酮凝集</>类材料时，副产品的产出概率提升<@cc.vup>80%</>",
+		"name": "DIY Polyketon α",
+		"desc": "When this Operator is assigned to the Workshop to process <@cc.kw>Polyketon</>-type materials, the byproduct chance is increased by <@cc.vup>80%</>",
 		"iconId": "bskill_ws_Ketone"
 	},
 	"workshop_formula_rub[000]": {
@@ -2180,8 +2205,8 @@
 		"iconId": "bskill_dorm_toone1"
 	},
 	"dorm_rec_all[023]": {
-		"name": "芬芳疗养·α",
-		"desc": "进驻宿舍时，该宿舍内所有干员的心情每小时恢复<@cc.vup>+0.15</>（同种效果取最高）",
+		"name": "Aroma Convalescence α",
+		"desc": "When this Operator is assigned to a Dormitory, restores <@cc.vup>+0.15</> Morale per hour to all Operators assigned to that Dormitory (Only the strongest effect of this type takes place)",
 		"iconId": "bskill_dorm_all4"
 	},
 	"dorm_rec_all[024]": {
@@ -2210,8 +2235,8 @@
 		"iconId": "bskill_dorm_rec_allbd"
 	},
 	"dorm_rec_all&tired[000]": {
-		"name": "芬芳疗养·β",
-		"desc": "进驻宿舍时，该宿舍内所有干员心情每小时恢复<@cc.vup>+0.15</>，同时该宿舍内心情<@cc.vup>18</>以下的干员恢复效果额外<@cc.vup>+0.1</>（同种效果取最高）",
+		"name": "Aroma Convalescence β",
+		"desc": "When this Operator is assigned to a Dormitory, restores <@cc.vup>+0.15</> Morale per hour to all Operators assigned to that Dormitory and restores an additional <@cc.vup>+0.1</> to Operators whose Morale is below <@cc.vup>18</> (Only the strongest effect of this type applies)",
 		"iconId": "bskill_dorm_all_tired"
 	},
 	"hire_spd[000]": {
@@ -2365,8 +2390,8 @@
 		"iconId": "bskill_hire_blitz"
 	},
 	"hire_spd&clue2[260]": {
-		"name": "旧识新交",
-		"desc": "进驻人力办公室时，人脉资源的联络速度<@cc.vup>+20%</>，每产生<@cc.vup>1</>次联络次数，增加<$cc.g.glasgow><@cc.kw>格拉斯哥帮</></>线索的概率（工作时长和招募位影响概率）",
+		"name": "Old Acquaintances, New Friends",
+		"desc": "When this Operator is assigned to the HR Office, HR contacting speed <@cc.vup>+20%</>, and for every <@cc.vup>1</> contact made, increases the likelihood of obtaining <$cc.g.glasgow><@cc.kw>Glasgow Gang</></> clues (working time and recruit slots improve the likelihood)",
 		"iconId": "bskill_hire_spd&glasgow"
 	},
 	"meet_spd[000]": {
@@ -2603,5 +2628,10 @@
 		"name": "Bibliography Consultant",
 		"desc": "When this Operator is assigned to the Reception Room, if only this Operator is working in the Reception Room, for every <@cc.kw>16</> consecutive Morale spent, a <@cc.kw>Rhine Lab</> clue is <@cc.kw>guaranteed</> next",
 		"iconId": "bskill_meet_spd&condChar_mustget"
+	},
+	"meet_spd&condChar_mustget[100]": {
+		"name": "暗线",
+		"desc": "进驻会客室时，如果会客室内只有自身处于工作状态时，连续消耗超过<@cc.kw>16</>点心情下一次<@cc.kw>必定</>获得<@cc.kw>罗德岛制药</>的线索",
+		"iconId": "bskill_meet_spd&condChar_mustget2"
 	}
 }

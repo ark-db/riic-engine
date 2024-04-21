@@ -583,6 +583,14 @@
 			[{ "id": "manu_prod_spd_variable3[000]", "elite": 1, "level": 1 }]
 		]
 	},
+	"char_4130_luton": {
+		"name": "Lutonada",
+		"rarity": 4,
+		"skills": [
+			[{ "id": "workshop_formula_cost3[100]", "elite": 0, "level": 1 }],
+			[{ "id": "workshop_formula_probability[101]", "elite": 1, "level": 1 }]
+		]
+	},
 	"char_196_sunbr": {
 		"name": "Gummy",
 		"rarity": 4,
@@ -1027,6 +1035,17 @@
 			]
 		]
 	},
+	"char_4131_odda": {
+		"name": "Odda",
+		"rarity": 5,
+		"skills": [
+			[
+				{ "id": "meet_spd&cost_condChar[001]", "elite": 0, "level": 1 },
+				{ "id": "meet_spd&cost_condChar[011]", "elite": 2, "level": 1 }
+			],
+			[{ "id": "meet_spd&condChar_mustget[100]", "elite": 2, "level": 1 }]
+		]
+	},
 	"char_129_bluep": {
 		"name": "Blue Poison",
 		"rarity": 5,
@@ -1269,6 +1288,14 @@
 				{ "id": "workshop_formula_probability[123]", "elite": 2, "level": 1 }
 			],
 			[{ "id": "workshop_formula_drop[030]", "elite": 2, "level": 1 }]
+		]
+	},
+	"char_446_aroma": {
+		"name": "Aroma",
+		"rarity": 5,
+		"skills": [
+			[{ "id": "manu_formula_spd&cost[001]", "elite": 0, "level": 1 }],
+			[{ "id": "manu_prod_spd_addition[100]", "elite": 2, "level": 1 }]
 		]
 	},
 	"char_4013_kjera": {
@@ -2404,6 +2431,14 @@
 		"skills": [
 			[{ "id": "manu_skill_spd1[000]", "elite": 0, "level": 1 }],
 			[{ "id": "manu_prod_spd[010]", "elite": 2, "level": 1 }]
+		]
+	},
+	"char_4132_ascln": {
+		"name": "Ascalon",
+		"rarity": 6,
+		"skills": [
+			[{ "id": "control_train_spd[010]", "elite": 0, "level": 1 }],
+			[{ "id": "control_tra_spd[030]", "elite": 2, "level": 1 }]
 		]
 	},
 	"char_1023_ghost2": {
