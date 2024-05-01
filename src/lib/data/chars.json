@@ -55,6 +55,14 @@
 			[{ "id": "power_rec_spd_P[000]", "elite": 0, "level": 30 }]
 		]
 	},
+	"char_4136_phonor": {
+		"name": "PhonoR-0",
+		"rarity": 1,
+		"skills": [
+			[{ "id": "power_rec_spd[004]", "elite": 0, "level": 1 }],
+			[{ "id": "power_rec_spd_P[001]", "elite": 0, "level": 30 }]
+		]
+	},
 	"char_502_nblade": {
 		"name": "Yato",
 		"rarity": 2,
@@ -747,6 +755,14 @@
 				{ "id": "manu_prod_spd[002]", "elite": 0, "level": 1 },
 				{ "id": "manu_prod_spd[012]", "elite": 2, "level": 1 }
 			]
+		]
+	},
+	"char_1036_fang2": {
+		"name": "Fang the Fire-sharpened",
+		"rarity": 5,
+		"skills": [
+			[{ "id": "manu_prod_spd[1000]", "elite": 0, "level": 1 }],
+			[{ "id": "manu_prod_spd&fraction[000]", "elite": 2, "level": 1 }]
 		]
 	},
 	"char_401_elysm": {
@@ -2078,6 +2094,17 @@
 			]
 		]
 	},
+	"char_1035_wisdel": {
+		"name": "Wiš'adel",
+		"rarity": 6,
+		"skills": [
+			[
+				{ "id": "control_meeting&ord[000]", "elite": 0, "level": 1 },
+				{ "id": "control_meeting&ord[001]", "elite": 2, "level": 1 }
+			],
+			[{ "id": "control_mp_expand_double[000]", "elite": 2, "level": 1 }]
+		]
+	},
 	"char_1013_chen2": {
 		"name": "Ch'en the Holungday",
 		"rarity": 6,
@@ -2215,6 +2242,14 @@
 			[{ "id": "meet_spd&condChar_mustget[000]", "elite": 2, "level": 1 }]
 		]
 	},
+	"char_4133_logos": {
+		"name": "Logos",
+		"rarity": 6,
+		"skills": [
+			[{ "id": "train_spd_doubleProf[200]", "elite": 0, "level": 1 }],
+			[{ "id": "train_spd_reduceTime[001]", "elite": 2, "level": 1 }]
+		]
+	},
 	"char_2015_dusk": {
 		"name": "Dusk",
 		"rarity": 6,
@@ -2318,6 +2353,17 @@
 				{ "id": "train_spd&profession2[660]", "elite": 2, "level": 1 }
 			],
 			[{ "id": "train_cost&profession[360]", "elite": 2, "level": 1 }]
+		]
+	},
+	"char_4134_cetsyr": {
+		"name": "Civilight Eterna",
+		"rarity": 6,
+		"skills": [
+			[
+				{ "id": "control_mp_cost_double[000]", "elite": 0, "level": 1 },
+				{ "id": "control_mp_cost_double[001]", "elite": 2, "level": 1 }
+			],
+			[{ "id": "control_upMeetingSpeed[100]", "elite": 2, "level": 1 }]
 		]
 	},
 	"char_1031_slent2": {

@@ -5,8 +5,8 @@
 		"iconId": "bskill_ctrl_p_spd"
 	},
 	"control_prod_fraction[000]": {
-		"name": "烛骑士微光",
-		"desc": "进驻控制中枢时，每个进驻在制造站的<$cc.tag.knight><@cc.kw>骑士</></>干员生产力<@cc.vup>+7%</>",
+		"name": "The Candle Knight's Glimmer",
+		"desc": "When this Operator is assigned to the Control Center, all <$cc.tag.knight><@cc.kw>Knight</></> Operators assigned to Factories gain productivity <@cc.vup>+7%</>",
 		"iconId": "bskill_ctrl_fraction_knight"
 	},
 	"control_token_prod_spd[000]": {
@@ -68,6 +68,21 @@
 		"name": "Worldly Insight",
 		"desc": "When this Operator is assigned to the Control Center, clue collection speed <@cc.vup>+25%</>",
 		"iconId": "bskill_ctrl_c_spd"
+	},
+	"control_upMeetingSpeed[100]": {
+		"name": "期冀之汇",
+		"desc": "进驻控制中枢时，会客室线索搜集速度<@cc.vup>+15%</>（同种效果取最高）",
+		"iconId": "bskill_ctrl_c_spd1"
+	},
+	"control_meeting&ord[000]": {
+		"name": "同谋·α",
+		"desc": "进驻控制中枢时，当<@cc.kw>伊内丝</>入驻会客室时，会客室效率<@cc.vup>+5%</>；当<@cc.kw>赫德雷</>入驻贸易站时，赫德雷所在贸易站订单上限<@cc.vup>+1</>",
+		"iconId": "bskill_ctrl_c_babel"
+	},
+	"control_meeting&ord[001]": {
+		"name": "同谋·β",
+		"desc": "进驻控制中枢时，当<@cc.kw>伊内丝</>入驻会客室时，会客室效率<@cc.vup>+5%</>；当<@cc.kw>赫德雷</>入驻贸易站时，赫德雷所在贸易站订单上限<@cc.vup>+2</>",
+		"iconId": "bskill_ctrl_c_babel2"
 	},
 	"control_clue_cost[000]": {
 		"name": "Neuroticism",
@@ -140,14 +155,24 @@
 		"iconId": "bskill_ctrl_cost"
 	},
 	"control_mp_cost[010]": {
-		"name": "金盏花诗会",
-		"desc": "进驻控制中枢时，控制中枢内所有干员的心情每小时恢复<@cc.vup>+0.05</>",
+		"name": "Marigold Poetry Gathering",
+		"desc": "When this Operator is assigned to the Control Center, increases Morale of all Operators in the Control Center by <@cc.vup>+0.05</> per hour.",
 		"iconId": "bskill_ctrl_cost"
 	},
 	"control_mp_cost[011]": {
 		"name": "捍卫之道",
 		"desc": "进驻控制中枢时，控制中枢内所有干员的心情每小时恢复<@cc.vup>+0.05</>",
 		"iconId": "bskill_ctrl_cost"
+	},
+	"control_mp_cost_double[000]": {
+		"name": "魔王传承",
+		"desc": "当与<@cc.kw>阿米娅</>一起进驻控制中枢时，自身和<@cc.kw>阿米娅</>心情每小时恢复<@cc.vup>+0.05</>",
+		"iconId": "bskill_ctrl_amiya"
+	},
+	"control_mp_cost_double[001]": {
+		"name": "“未完的故事”",
+		"desc": "当与<@cc.kw>阿米娅</>一起进驻控制中枢时，自身和<@cc.kw>阿米娅</>心情每小时恢复<@cc.vup>+0.1</>",
+		"iconId": "bskill_ctrl_amiya1"
 	},
 	"control_allCost_condChar[000]": {
 		"name": "Moment of Respite",
@@ -208,6 +233,11 @@
 		"name": "Solitary Light",
 		"desc": "When this Operator is assigned to the Control Center, Operators working in <$cc.c.room2><@cc.kw>other buildings</></> recover <@cc.vup>+0.05</> Morale per hour, with an additional <@cc.vup>+0.05</> for every <@cc.vup>20</> <$cc.bd_b1><@cc.rem>Worldly Plight</></> (<$cc.c.sui2_1><@cc.rem>Special Comparison Rules</></> apply with Control Center bonus)",
 		"iconId": "bskill_ctrl_cost_bd4"
+	},
+	"control_mp_expand_double[000]": {
+		"name": "巴别塔之帜",
+		"desc": "进驻控制中枢时，<$cc.c.room2><@cc.kw>其他设施</></>内处于工作状态的干员心情每小时恢复<@cc.vup>+0.1</>，当<@cc.kw>魔王</>进驻中枢时额外<@cc.vup>+0.1</>（与控制中枢加成有<$cc.c.sui2_1><@cc.rem>特殊比较规则</></>）",
+		"iconId": "bskill_ctrl_cost_expand"
 	},
 	"control_mp_cost&bd2[010]": {
 		"name": "Endurance Recovery",
@@ -369,6 +399,11 @@
 		"desc": "When this Operator is assigned to a Power Plant, increases the drone recovery rate by <@cc.vup>+15%</>",
 		"iconId": "bskill_pow_spd2"
 	},
+	"power_rec_spd[004]": {
+		"name": "挽歌充能·α",
+		"desc": "进驻发电站时，无人机充能速度<@cc.vup>+10%</>",
+		"iconId": "bskill_pow_spd1"
+	},
 	"power_rec_drone[000]": {
 		"name": "Line Patrol Frame",
 		"desc": "When this Operator is assigned to a Power Plant, <@cc.vup>+1%</> Drone recovery rate for every <@cc.vup>10</> max Drone capacity",
@@ -388,6 +423,11 @@
 		"name": "'Pleasant Conversation'",
 		"desc": "When this Operator is assigned to a Power Plant, if <@cc.kw>Kal'tsit</> is assigned to the Control Center, increases the drone recovery rate by <@cc.vup>+5%</>",
 		"iconId": "bskill_pow_spd_P"
+	},
+	"power_rec_spd_P[001]": {
+		"name": "咒文共鸣",
+		"desc": "进驻发电站时，如果<@cc.kw>逻各斯</>进驻在训练室协助位，则无人机充能速度<@cc.vup>+5%</>",
+		"iconId": "bskill_pow_spd_P1"
 	},
 	"power_rec_rhine[000]": {
 		"name": "Ecological Section Director",
@@ -427,6 +467,11 @@
 	"manu_prod_spd[000]": {
 		"name": "Standardization α",
 		"desc": "When this Operator is assigned to a Factory, productivity <@cc.vup>+15%</>",
+		"iconId": "bskill_man_spd1"
+	},
+	"manu_prod_spd[1000]": {
+		"name": "标准化·α",
+		"desc": "进驻制造站时，生产力<@cc.vup>+15%</>",
 		"iconId": "bskill_man_spd1"
 	},
 	"manu_prod_spd[010]": {
@@ -538,6 +583,11 @@
 		"name": "Warehouse Organization β",
 		"desc": "When this Operator is assigned to a Factory, capacity limit <@cc.vup>+10</> and productivity <@cc.vup>+10%</>",
 		"iconId": "bskill_man_spd&limit3"
+	},
+	"manu_prod_spd&fraction[000]": {
+		"name": "重聚时光",
+		"desc": "进驻制造站时，当前制造站内每个<$cc.g.A1><@cc.kw>A1小队</></>干员为自身<@cc.vup>+10%</>的生产力",
+		"iconId": "bskill_man_A1"
 	},
 	"manu_prod_spd&limit&bd[000]": {
 		"name": "Trusty Buddies",
@@ -1035,13 +1085,13 @@
 		"iconId": "bskill_tra_wt&cost2"
 	},
 	"trade_ord_wt&cost[002]": {
-		"name": "鉴定师的眼光",
-		"desc": "进驻贸易站时，<@cc.kw>小幅提升</>当前贸易站<@cc.kw>高品质贵金属订单</>的出现概率（工作时长影响概率），心情每小时消耗<@cc.vup>-0.25</>",
+		"name": "Appraiser's Eyes",
+		"desc": "When this Operator is assigned to a Trading Post, the chance of getting <@cc.kw>higher-yield Precious Metal orders</> is <@cc.kw>increased slightly</> (rate is influenced by length of work time), and Morale consumed per hour is reduced by <@cc.vup>-0.25</>",
 		"iconId": "bskill_tra_wt&cost1"
 	},
 	"trade_ord_wt&cost[012]": {
-		"name": "鉴定师的手段",
-		"desc": "进驻贸易站时，<@cc.kw>提升</>当前贸易站<@cc.kw>高品质贵金属订单</>的出现概率（工作时长影响概率），心情每小时消耗<@cc.vup>-0.25</>",
+		"name": "Appraiser's Means",
+		"desc": "When this Operator is assigned to a Trading Post, the chance of getting <@cc.kw>higher-yield Precious Metal orders</> is <@cc.kw>increased</> (rate is influenced by length of work time), and Morale consumed per hour is reduced by <@cc.vup>-0.25</>",
 		"iconId": "bskill_tra_wt&cost2"
 	},
 	"trade_ord_spd&share[000]": {
@@ -1285,13 +1335,13 @@
 		"iconId": "bskill_ws_evolve_cost"
 	},
 	"workshop_formula_cost4[010]": {
-		"name": "苦修之律",
-		"desc": "进驻加工站加工<@cc.kw>精英材料</>时，相应配方的心情消耗恒定为<@cc.vup>4</>",
+		"name": "Law of Penance",
+		"desc": "When this Operator is assigned to the Workshop to process <@cc.kw>elite material</>, the corresponding formulas will only consume <@cc.vup>4</> Morale",
 		"iconId": "bskill_ws_constant2"
 	},
 	"workshop_formula_cost4[011]": {
-		"name": "虔修之律",
-		"desc": "进驻加工站加工<@cc.kw>精英材料</>时，相应配方的心情消耗恒定为<@cc.vup>3</>",
+		"name": "Law of Devotion",
+		"desc": "When this Operator is assigned to the Workshop to process <@cc.kw>elite material</>, the corresponding formulas will only consume <@cc.vup>3</> Morale",
 		"iconId": "bskill_ws_constant3"
 	},
 	"workshop_formula_cost&dorm[000]": {
@@ -1350,8 +1400,8 @@
 		"iconId": "bskill_ws_evolve3"
 	},
 	"workshop_formula_probability[139]": {
-		"name": "巫妖学识",
-		"desc": "进驻加工站加工<@cc.kw>精英材料</>时，副产品的产出概率提升<@cc.vup>80%</>",
+		"name": "Lich's Teachings",
+		"desc": "When this Operator is assigned to the Workshop to process <@cc.kw>elite material</>, the production rate of byproduct increases by <@cc.vup>80%</>",
 		"iconId": "bskill_ws_evolve3"
 	},
 	"workshop_formula_probability[113]": {
@@ -1579,6 +1629,11 @@
 		"desc": "When this Operator is assigned to be the Trainer in the Training Room, <@cc.kw>Caster</> and <@cc.kw>Medic</> Operators' Specialization training speed <@cc.vup>+30%</>",
 		"iconId": "bskill_train_caster&medic1"
 	},
+	"train_spd_doubleProf[200]": {
+		"name": "女妖之力",
+		"desc": "进驻训练室协助位时，<@cc.kw>术师</>与<@cc.kw>辅助</>干员的专精技能训练速度<@cc.vup>+30%</>",
+		"iconId": "bskill_train_caster&supporter1"
+	},
 	"train_spd_doubleProf[110]": {
 		"name": "Red Dragon's Blood",
 		"desc": "When this Operator is assigned to be the Trainer in the Training Room, <@cc.kw>Caster</> and <@cc.kw>Medic</> Operators' Specialization training speed <@cc.vup>+45%</>",
@@ -1597,6 +1652,11 @@
 	"train_spd_reduceTime[000]": {
 		"name": "Mental Training",
 		"desc": "When this Operator is assigned to the Training Room to train an Operator for <@cc.vup>5</> hours, that Operator's next training time <@cc.vup>-50%</> (effect expires if either Operator leaves the Training Room)",
+		"iconId": "bskill_train_reduceTime"
+	},
+	"train_spd_reduceTime[001]": {
+		"name": "言语之义",
+		"desc": "进驻训练室单次协助一名干员训练时长达<@cc.vup>5</>小时，则该名干员下次训练所需时间<@cc.vup>-50%</>（任意一方离开训练室时，效果消失）",
 		"iconId": "bskill_train_reduceTime"
 	},
 	"train_spd_bd&reduceTime[000]": {
@@ -2225,13 +2285,13 @@
 		"iconId": "bskill_dorm_all3"
 	},
 	"dorm_bd_num[000]": {
-		"name": "无声共鸣",
-		"desc": "进驻宿舍时，该宿舍内每有<@cc.vup>1</>名干员，<$cc.bd_B><@cc.rem>无声共鸣</></><@cc.vup>+1</>",
+		"name": "Soundless Resonance",
+		"desc": "When this Operator is assigned to a Dormitory, for every <@cc.vup>1</> Operators in that Dormitory, <$cc.bd_B><@cc.rem>Soundless Resonance</></> <@cc.vup>+1</>",
 		"iconId": "bskill_dorm_bdnum"
 	},
 	"dorm_rec_all&bd[000]": {
-		"name": "无词颂歌",
-		"desc": "进驻宿舍时，该宿舍内所有干员的心情每小时恢复<@cc.vup>+0.2</>，每有<@cc.vup>5</>点<$cc.bd_B><@cc.rem>无声共鸣</></>，该宿舍内所有干员的心情每小时恢复额外<@cc.vup>+0.01</>（同种效果取最高）",
+		"name": "Wordless Anthem",
+		"desc": "When this Operator is assigned to a Dormitory, restores <@cc.vup>+0.2</> Morale per hour to all Operators assigned to that Dormitory, and for every <@cc.vup>5</> <$cc.bd_B><@cc.rem>Soundless Resonance</></>, restores an additional <@cc.vup>+0.01</> to all Operators (Only the strongest effect of this type applies)",
 		"iconId": "bskill_dorm_rec_allbd"
 	},
 	"dorm_rec_all&tired[000]": {
@@ -2310,13 +2370,13 @@
 		"iconId": "bskill_hire_spd&cost4"
 	},
 	"hire_spd_cost[101]": {
-		"name": "宫廷礼仪",
-		"desc": "进驻人力办公室时，人脉资源的联络速度<@cc.vup>+10%</>，心情每小时消耗<@cc.vup>-0.25</>",
+		"name": "Court Etiquette",
+		"desc": "When this Operator is assigned to the HR Office, HR contacting speed <@cc.vup>+10%</>, Morale consumed per hour <@cc.vup>-0.25</>",
 		"iconId": "bskill_hire_spd&cost5"
 	},
 	"hire_spd_cost[120]": {
-		"name": "威权谕使",
-		"desc": "进驻人力办公室时，人脉资源的联络速度<@cc.vup>+30%</>，心情每小时消耗<@cc.vup>-0.25</>",
+		"name": "Authoritarian Envoy",
+		"desc": "When this Operator is assigned to the HR Office, HR contacting speed <@cc.vup>+30%</>, Morale consumed per hour <@cc.vup>-0.25</>",
 		"iconId": "bskill_hire_spd&cost6"
 	},
 	"hire_spd_cost&clue[001]": {
@@ -2380,8 +2440,8 @@
 		"iconId": "bskill_hire_spd_bd_n2"
 	},
 	"hire_spd_bd_n1_n1[300]": {
-		"name": "心声图绘",
-		"desc": "进驻人力办公室时，每个招募位（不包含初始招募位）<@cc.vup>+15</>点<$cc.bd_B><@cc.rem>无声共鸣</></>",
+		"name": "Drawing the Heart's Voice",
+		"desc": "When this Operator is assigned to the HR Office, for every Recruit slot (Default slots do not count), <$cc.bd_B><@cc.rem>Soundless Resonance</></> <@cc.vup>+15</>",
 		"iconId": "bskill_hire_bd_B"
 	},
 	"hire_spd_blitz[000]": {
@@ -2475,8 +2535,8 @@
 		"iconId": "bskill_meet_spd&cost_condChar3"
 	},
 	"meet_spd&exchange[000]": {
-		"name": "无辜笑脸",
-		"desc": "进驻会客室时，处于线索交流时线索搜集速度提升<@cc.vup>30%</>",
+		"name": "Innocent Smile",
+		"desc": "When this Operator is assigned to the Reception Room, increases Clue search speed by <@cc.vup>30%</>",
 		"iconId": "bskill_meet_exchange"
 	},
 	"meet_team[020]": {
