@@ -24,7 +24,7 @@
 		"@typescript-eslint/parser": "^7.8.0",
 		"eslint": "^8.57.0",
 		"eslint-config-prettier": "^9.1.0",
-		"eslint-plugin-svelte": "^2.38.0",
+		"eslint-plugin-svelte": "^2.39.0",
 		"husky": "^9.0.11",
 		"prettier": "3.2.5",
 		"prettier-plugin-svelte": "^3.2.3",
@@ -36,7 +36,7 @@
 		"vite": "^5.2.11"
 	},
 	"dependencies": {
-		"@tauri-apps/api": "^1.5.4",
+		"@tauri-apps/api": "^1.5.5",
 		"tippy.js": "^6.3.7"
 	}
 }
