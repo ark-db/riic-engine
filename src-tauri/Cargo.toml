@@ -21,7 +21,7 @@ parking_lot = "0.12.3"
 rusqlite = { version = "0.31.0", features = ["bundled", "chrono", "limits"] }
 serde.workspace = true
 serde_json.workspace = true
-tauri = { version = "1.6.7", features = [] }
+tauri = { version = "1.6.8", features = [] }
 thiserror.workspace = true
 
 [features]
