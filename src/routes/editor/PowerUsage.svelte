@@ -16,7 +16,7 @@
 		let power = 0;
 		// Control Center power consumption is 0 at all levels, so it is not included
 		for (const { level } of dorm) {
-			power -= level === 0 ? 0 : facilities.dormitory.power.at(level - 1) ?? 0;
+			power -= level === 0 ? 0 : (facilities.dormitory.power.at(level - 1) ?? 0);
 		}
 		// Factory, trading post, and workshop level must be at least 1, so checking for level 0 (unbuilt) is unnecessary
 		for (const { level } of tp) {
@@ -26,9 +26,9 @@
 			power -= facilities.manufacture.power.at(level - 1) ?? 0;
 		}
 		power -= facilities.workshop.power.at(workshop.level - 1) ?? 0;
-		power -= rr.level === 0 ? 0 : facilities.meeting.power.at(rr.level - 1) ?? 0;
-		power -= office.level === 0 ? 0 : facilities.hire.power.at(office.level - 1) ?? 0;
-		power -= train.level === 0 ? 0 : facilities.training.power.at(train.level - 1) ?? 0;
+		power -= rr.level === 0 ? 0 : (facilities.meeting.power.at(rr.level - 1) ?? 0);
+		power -= office.level === 0 ? 0 : (facilities.hire.power.at(office.level - 1) ?? 0);
+		power -= train.level === 0 ? 0 : (facilities.training.power.at(train.level - 1) ?? 0);
 
 		return power;
 	}
