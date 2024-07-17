@@ -791,6 +791,14 @@
 			]
 		]
 	},
+	"char_4147_mitm": {
+		"name": "Mitm",
+		"rarity": 5,
+		"skills": [
+			[{ "id": "trade_ord_wt&cost[003]", "elite": 0, "level": 1 }],
+			[{ "id": "trade_ord_spd&meet[010]", "elite": 2, "level": 1 }]
+		]
+	},
 	"char_497_ctable": {
 		"name": "Cantabile",
 		"rarity": 5,
@@ -1565,6 +1573,16 @@
 			]
 		]
 	},
+	"char_4137_udflow": {
+		"name": "Underflow",
+		"rarity": 5,
+		"skills": [
+			[
+				{ "id": "trade_ord_spd_ext[000]", "elite": 0, "level": 1 },
+				{ "id": "trade_ord_spd_ext[001]", "elite": 2, "level": 1 }
+			]
+		]
+	},
 	"char_201_moeshd": {
 		"name": "Croissant",
 		"rarity": 5,
@@ -1811,6 +1829,16 @@
 			[{ "id": "trade_ord_vodfox[000]", "elite": 2, "level": 1 }]
 		]
 	},
+	"char_4079_haini": {
+		"name": "Lucilla",
+		"rarity": 5,
+		"skills": [
+			[
+				{ "id": "power_rec_spd[025]", "elite": 0, "level": 1 },
+				{ "id": "power_rec_spd[026]", "elite": 2, "level": 1 }
+			]
+		]
+	},
 	"char_195_glassb": {
 		"name": "Istina",
 		"rarity": 5,
@@ -1991,6 +2019,16 @@
 		"skills": [
 			[{ "id": "train_spd_tag[030]", "elite": 0, "level": 1 }],
 			[{ "id": "meet_spd_bd[000]", "elite": 2, "level": 1 }]
+		]
+	},
+	"char_4151_tinman": {
+		"name": "Tin Man",
+		"rarity": 5,
+		"skills": [
+			[
+				{ "id": "hire_spd_dorm&lv[000]", "elite": 0, "level": 1 },
+				{ "id": "hire_spd_dorm&lv[010]", "elite": 2, "level": 1 }
+			]
 		]
 	},
 	"char_103_angel": {
@@ -2306,6 +2344,17 @@
 				{ "id": "trade_ord_spd_bd[000]", "elite": 0, "level": 1 },
 				{ "id": "trade_ord_spd_bd[010]", "elite": 2, "level": 1 }
 			]
+		]
+	},
+	"char_4146_nymph": {
+		"name": "Nymph",
+		"rarity": 6,
+		"skills": [
+			[
+				{ "id": "dorm_rec_all[017]", "elite": 0, "level": 1 },
+				{ "id": "dorm_rec_all[027]", "elite": 2, "level": 1 }
+			],
+			[{ "id": "control_dorm_rec[002]", "elite": 2, "level": 1 }]
 		]
 	},
 	"char_206_gnosis": {
@@ -2713,6 +2762,14 @@
 				{ "id": "trade_ord_par&per[000]", "elite": 0, "level": 1 },
 				{ "id": "trade_ord_par&per[001]", "elite": 2, "level": 1 }
 			]
+		]
+	},
+	"char_4145_ulpia": {
+		"name": "Ulpianus",
+		"rarity": 6,
+		"skills": [
+			[{ "id": "train_spd_doubleProf[201]", "elite": 0, "level": 1 }],
+			[{ "id": "train_spd_power_down[000]", "elite": 2, "level": 1 }]
 		]
 	},
 	"char_010_chen": {
