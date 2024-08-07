@@ -1389,6 +1389,16 @@
 			[{ "id": "manu_formula_limit[0000]", "elite": 2, "level": 1 }]
 		]
 	},
+	"char_4140_lasher": {
+		"name": "Sand Reckoner",
+		"rarity": 5,
+		"skills": [
+			[
+				{ "id": "trade_ord_spd&limit[034]", "elite": 0, "level": 1 },
+				{ "id": "trade_ord_spd&limit[035]", "elite": 2, "level": 1 }
+			]
+		]
+	},
 	"char_108_silent": {
 		"name": "Silence",
 		"rarity": 5,
@@ -1499,6 +1509,16 @@
 			[
 				{ "id": "trade_ord_wt&cost[000]", "elite": 0, "level": 1 },
 				{ "id": "trade_ord_wt&cost[010]", "elite": 2, "level": 1 }
+			]
+		]
+	},
+	"char_4139_papyrs": {
+		"name": "Papyrus",
+		"rarity": 5,
+		"skills": [
+			[
+				{ "id": "train_spd&profession3[182]", "elite": 0, "level": 1 },
+				{ "id": "train_spd&profession3[183]", "elite": 2, "level": 1 }
 			]
 		]
 	},
@@ -2165,6 +2185,14 @@
 			[{ "id": "workshop_formula_drop[040]", "elite": 2, "level": 1 }]
 		]
 	},
+	"char_4138_narant": {
+		"name": "Narantuya",
+		"rarity": 6,
+		"skills": [
+			[{ "id": "manu_prod_limit&cost[011]", "elite": 0, "level": 1 }],
+			[{ "id": "manu_formula_spd&dorm&lv[000]", "elite": 2, "level": 1 }]
+		]
+	},
 	"char_112_siege": {
 		"name": "Siege",
 		"rarity": 6,
@@ -2770,6 +2798,14 @@
 		"skills": [
 			[{ "id": "train_spd_doubleProf[201]", "elite": 0, "level": 1 }],
 			[{ "id": "train_spd_power_down[000]", "elite": 2, "level": 1 }]
+		]
+	},
+	"char_4058_pepe": {
+		"name": "Pepe",
+		"rarity": 6,
+		"skills": [
+			[{ "id": "trade_ord_limit&trade&lv[000]", "elite": 0, "level": 1 }],
+			[{ "id": "trade_ord_pepe[000]", "elite": 2, "level": 1 }]
 		]
 	},
 	"char_010_chen": {
