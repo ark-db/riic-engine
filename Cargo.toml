@@ -13,8 +13,8 @@ publish = false
 [workspace.dependencies]
 ahash = "0.8.11"
 serde = { version = "1.0.204", features = ["derive"] }
-serde_json = "1.0.120"
-thiserror = "1.0.62"
+serde_json = "1.0.122"
+thiserror = "1.0.63"
 
 [workspace.lints.rust]
 async_fn_in_trait = "allow"
