@@ -11,6 +11,7 @@
 	let refreshState: Record<string, never> = {};
 
 	// Force element refresh whenever `desc` changes
+	// eslint-disable-next-line @typescript-eslint/no-unused-expressions
 	$: desc, (refreshState = {});
 
 	$: small = Math.min(buttonWidth, buttonHeight) < 32;

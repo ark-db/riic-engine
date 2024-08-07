@@ -4,6 +4,7 @@
 
 	let dialog: HTMLDialogElement;
 
+	// eslint-disable-next-line @typescript-eslint/no-unused-expressions
 	$: if (dialog) $error ? dialog.show() : dialog.close();
 </script>
 
