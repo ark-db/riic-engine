@@ -5,6 +5,7 @@
 	import refreshIcon from '$lib/images/ui/refresh.svg';
 	import { error, saveList, saveSortMode, saveSortOrder } from '$lib/stores';
 	import ExportNotice from './ExportNotice.svelte';
+	// @ts-expect-error TypeScript doesn't recognize Header.svelte as a Svelte component, so we manually override the error
 	import Header from './Header.svelte';
 	import Entry from './Entry.svelte';
 
